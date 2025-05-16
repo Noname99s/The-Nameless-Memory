@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: df5e04c2982bfcf49bb01da8b1ce4993
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - tilemap: {fileID: 1421371917143925326, guid: e80cf2fa04ecd0b44b2fc611d4735427, type: 3}
+  - selectedTile: {fileID: 11400000, guid: 1f3083c7915146c4fbcfe5b339cfaced, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

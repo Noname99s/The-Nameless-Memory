@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Editor/BehaviorEditor/BlackBoardWindow/BlackBoardWindow.uss?fileID=7433441132597879392&amp;guid=2bfbd2cf3b33fae48a9e97b028255d1d&amp;type=3#BlackBoardWindow" />
+    <ui:VisualElement name="TitleWrapper" style="flex-grow: 1; font-size: 18px;">
+        <ui:Label tabindex="-1" text="CreateWindow" parse-escape-sequences="true" display-tooltip-when-elided="true" name="TitleLabel" />
+    </ui:VisualElement>
+    <ui:VisualElement name="ContextWrapper" style="flex-grow: 1; height: 84px; flex-basis: auto; flex-shrink: 1; opacity: 1; overflow: visible; position: relative; align-items: flex-start; align-self: auto; flex-direction: row; margin-top: -1px;">
+        <ui:VisualElement style="flex-grow: 1; height: 35px; width: 218px; margin-top: 4px;">
+            <ui:TextField picking-mode="Ignore" label="블랙보드 이름" name="TextClassName" style="align-self: auto; align-items: stretch; margin-top: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="BottomWrapper" style="flex-grow: 1; height: 42px; display: flex; flex-direction: row-reverse;">
+        <ui:Button text="취소" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CancelBtn" style="background-color: rgb(45, 45, 45); color: rgb(255, 255, 255);" />
+        <ui:Button text="확인" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ConfirmBtn" style="color: rgb(255, 255, 255); background-color: rgb(72, 72, 72);" />
+    </ui:VisualElement>
+</ui:UXML>

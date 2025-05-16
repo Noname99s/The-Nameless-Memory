@@ -1,0 +1,16 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using SOBehaviorTree;
+
+[Serializable]
+public class #SCRIPTNAME#Component
+{
+	//Insert blackboard values
+}
+
+[CreateAssetMenu(fileName = "#FileName#",menuName = "#MenuName#")]
+public class #SCRIPTNAME# : ScriptableObject
+{
+	public #SCRIPTNAME#Component btComponent;
+}

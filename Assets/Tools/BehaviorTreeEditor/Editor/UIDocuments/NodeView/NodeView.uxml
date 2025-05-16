@@ -1,0 +1,24 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Editor/BehaviorEditor/NodeView/NodeView.uss?fileID=7433441132597879392&amp;guid=80d3cd019ec27834bb3dd004d1106d49&amp;type=3#NodeView" />
+    <ui:VisualElement name="node-border" style="position: relative; justify-content: flex-start; min-height: 50px; align-items: stretch;">
+        <ui:VisualElement name="contents">
+            <ui:VisualElement name="top">
+                <ui:VisualElement name="input" style="height: auto; max-height: none;" />
+                <ui:VisualElement name="divider" class="vertical" style="background-color: rgb(75, 75, 75);" />
+                <ui:VisualElement name="title" style="min-height: auto;">
+                    <ui:Label name="title-label" text="ActionNode" class="unity-text-element unity-label" />
+                    <ui:VisualElement name="title-button-container">
+                        <ui:VisualElement name="collapse-button">
+                            <ui:VisualElement name="icon" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:Label name="Description" text="ActionNode" class="unity-text-element unity-label" />
+                </ui:VisualElement>
+                <ui:VisualElement name="divider" class="horizontal" />
+                <ui:VisualElement name="output" style="height: auto; max-height: none; min-height: 10px; position: relative; top: auto;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="selection-border" picking-mode="Ignore" style="position: absolute; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; min-height: auto; justify-content: flex-start;" />
+    <ui:VisualElement name="state-border" picking-mode="Ignore" style="position: absolute; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; min-height: auto; justify-content: flex-start;" />
+</ui:UXML>

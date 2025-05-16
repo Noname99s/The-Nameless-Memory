@@ -1,0 +1,12 @@
+using UnityEngine;
+using SOBehaviorTree;
+
+[CreateAssetMenu(fileName = "#FileName#",menuName = "#MenuName#")]
+public class #SCRIPTNAME# : Decorator
+{
+   public #Blackboard#
+   public override bool Condition()
+   {
+        return true;
+   }
+}
