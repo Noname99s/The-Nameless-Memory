@@ -1,9 +1,10 @@
 using UnityEngine;
+using System;
 namespace Orpul1.Player.State
 {
     public class IdleState : PlayerBaseState
     {
-        public IdleState(PlayerContext playerContext) : base(playerContext) {}
+        public IdleState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo) {}
 
         public override void OnStart()
         {

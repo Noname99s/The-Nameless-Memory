@@ -14,6 +14,7 @@ public class PlayerInputListner : MonoBehaviour
     {
         if (context.canceled)
         {
+            playerContext.movePosi = Vector2.zero;
             transitionTo.Invoke(EPlayerState.Idle);
             return;
         }
@@ -22,15 +23,18 @@ public class PlayerInputListner : MonoBehaviour
     }
     public void Jump(InputAction.CallbackContext context)
     {
-        if(playerContext.jumpState == EJumpState.Jumping) return;
-        
-        playerContext.isJump = true;
-        playerContext.jumpState = EJumpState.JumpStart;
-        transitionTo.Invoke(EPlayerState.Jump);
+        if (context.canceled)
+        {
+            playerContext.isPressJump = false;
+        }
+        else
+        {
+            playerContext.isPressJump = true;
+            transitionTo.Invoke(EPlayerState.Move);
+        }
     }
     public void Attack(InputAction.CallbackContext context)
     {
-        Debug.Log("Attack");
     }
     public void Skill(InputAction.CallbackContext context)
     {

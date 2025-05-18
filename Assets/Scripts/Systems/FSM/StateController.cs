@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Orpul1.Player;
 using UnityEngine;
 
 namespace Orpul1.State
@@ -7,18 +8,19 @@ namespace Orpul1.State
     {
         [SerializeField] GameObject stateObj;
         List<IState> states = new List<IState>();
-        IFactoryable<List<IState>> stateFactory;
+        IStateFactory<List<IState>> stateFactory;
         IState curState;
+        [SerializeField] EPlayerState state;
         private void Start()
         {
-            stateFactory = stateObj.GetComponent<IFactoryable<List<IState>>>();
+            stateFactory = stateObj.GetComponent<IStateFactory<List<IState>>>();
             if(stateFactory == null)
             {
                 Debug.LogError("stateFactory is Null!");
             }
             else
             {
-                states = stateFactory.Create();
+                states = stateFactory.Create(TransitionState);
             }
         }
         public void SetContext<T>(T t)
@@ -27,7 +29,8 @@ namespace Orpul1.State
         }
         public void TransitionState(int index)
         {
-            if(curState != null)
+            state = (EPlayerState)index;
+            if (curState != null)
             {
                 curState.OnExit();
             }

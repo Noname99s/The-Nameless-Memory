@@ -4,5 +4,5 @@ public enum ETag
 {
     Player,
     Enemy,
-    Ground,
+    Floor,
 }
