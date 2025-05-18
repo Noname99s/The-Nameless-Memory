@@ -4,6 +4,7 @@ namespace Orpul1.Player
     {
         Idle,
         Move,
+        Jump,
         Attack,
         Death,
         Fall,

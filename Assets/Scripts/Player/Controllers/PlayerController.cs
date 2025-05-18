@@ -11,31 +11,27 @@ namespace Orpul1.Player
         [SerializeField] PlayerContext playerContext;
         void Start()
         {
-            stateController.TransitionState((int)EPlayerState.Idle);
+            TransitionState(EPlayerState.Idle);
         }
 
         void Update()
         {
             stateController.Process();
         }
-        public void Move(InputAction.CallbackContext context)
+        public void TransitionState(EPlayerState state)
         {
-            if(context.canceled)
-            {
-                stateController.TransitionState((int)EPlayerState.Idle);
-                return;
-            }
-            playerContext.movePosi = context.ReadValue<Vector2>();
-            stateController.TransitionState((int)EPlayerState.Move);
+            stateController.TransitionState((int)state);
         }
-        public void Attack(InputAction.CallbackContext context)
+        private void OnGround(Collider2D other)
         {
-            Debug.Log("Attack");
-            //stateController.TransitionState((int)EPlayerState.Move);
+            if (!other.CompareTag(ETag.Ground.ToString())) return;
+            if (playerContext.jumpState == EJumpState.JumpEnd) return;
+            playerContext.jumpState = EJumpState.JumpEnd;
+            TransitionState(EPlayerState.Idle);
         }
-        public void Skill(InputAction.CallbackContext context)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-
+            OnGround(other);
         }
     }
 

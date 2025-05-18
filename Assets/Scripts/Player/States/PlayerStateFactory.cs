@@ -14,6 +14,7 @@ namespace Orpul1.Player
             {
                 new IdleState(playerContext),
                 new MoveState(playerContext),
+                new JumpState(playerContext),
             };
             return playerStates;
         }

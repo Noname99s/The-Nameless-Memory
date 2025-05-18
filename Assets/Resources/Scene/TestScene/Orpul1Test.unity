@@ -135,9 +135,10 @@ GameObject:
   - component: {fileID: 172685291}
   - component: {fileID: 172685290}
   - component: {fileID: 172685289}
+  - component: {fileID: 172685297}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,6 +220,8 @@ MonoBehaviour:
   rigid: {fileID: 172685293}
   trPlayer: {fileID: 172685294}
   movePosi: {x: 0, y: 0}
+  jumpState: 0
+  isJump: 0
   jumpPower: 20
   moveSpeed: 10
 --- !u!114 &172685292
@@ -305,8 +308,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 172685292}
-        m_TargetAssemblyTypeName: Orpul1.Player.PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 172685297}
+        m_TargetAssemblyTypeName: PlayerInputListner, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
         m_Arguments:
@@ -325,8 +328,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Look[/Mouse/delta,/Touchscreen/delta,/Pen/delta]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 172685292}
-        m_TargetAssemblyTypeName: Orpul1.Player.PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 172685297}
+        m_TargetAssemblyTypeName: PlayerInputListner, Assembly-CSharp
         m_MethodName: Attack
         m_Mode: 0
         m_Arguments:
@@ -384,6 +387,34 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &172685297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172685287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a36ebb3a486afa4696046eadc45ac39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerContext: {fileID: 172685291}
+  transitionTo:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 172685292}
+        m_TargetAssemblyTypeName: Orpul1.Player.PlayerController, Assembly-CSharp
+        m_MethodName: TransitionState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &510193817
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +696,7 @@ GameObject:
   - component: {fileID: 1698421917}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
