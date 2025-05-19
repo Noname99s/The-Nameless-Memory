@@ -349,7 +349,7 @@ MonoBehaviour:
   maxJumpHeight: 5
   isPressJump: 0
   jumpPower: 1
-  moveSpeed: 200
+  moveSpeed: 600
 --- !u!114 &5725579068212597670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,8 +393,8 @@ MonoBehaviour:
   transitionTo:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4824057978208184363}
-        m_TargetAssemblyTypeName: Orpul1.Player.PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 5725579068212597670}
+        m_TargetAssemblyTypeName: Orpul1.State.StateController, Assembly-CSharp
         m_MethodName: TransitionState
         m_Mode: 0
         m_Arguments:

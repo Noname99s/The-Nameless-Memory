@@ -11,7 +11,6 @@ namespace Orpul1.Player.State
         }
         public override void OnUpdate()
         {
-            Debug.Log($"{EPlayerState.Idle.ToString()}");
 
         }
         public override void OnExit()

@@ -1,14 +1,15 @@
+using Orpul1.State;
 using UnityEngine;
 
 public class PetController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] StateController stateController;
+    
     void Start()
     {
-        
+        stateController.TransitionState((int)EPetState.Follow);
     }
 
-    // Update is called once per frame
     void Update()
     {
         

@@ -11,12 +11,11 @@ namespace Orpul1.Player
         [SerializeField] PlayerContext playerContext;
         public List<IState> Create(Action<int> transitionTo)
         {
-            List<IState> playerStates = new List<IState>()
+            return new List<IState>()
             {
                 new IdleState(playerContext, transitionTo),
                 new MoveState(playerContext, transitionTo),
             };
-            return playerStates;
         }
 
     }

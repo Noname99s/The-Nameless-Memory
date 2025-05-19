@@ -11,7 +11,7 @@ namespace Orpul1.State
         IStateFactory<List<IState>> stateFactory;
         IState curState;
         [SerializeField] EPlayerState state;
-        private void Start()
+        private void Awake()
         {
             stateFactory = stateObj.GetComponent<IStateFactory<List<IState>>>();
             if(stateFactory == null)

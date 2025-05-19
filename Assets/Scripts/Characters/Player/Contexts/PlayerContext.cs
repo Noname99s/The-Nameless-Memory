@@ -8,6 +8,7 @@ public class PlayerContext : MonoBehaviour
     public EJumpState jumpState = EJumpState.JumpReady;
     public Collider2D jumpCollider;
 
+    public float gravityStrength;
     public int jumpCount = 0;
     public float maxJumpHeight = 5f;
     public bool isPressJump = false;
