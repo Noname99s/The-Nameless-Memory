@@ -145,9 +145,6 @@ public class CustomTilemapEditor : EditorWindow
             }
             newBGTileName = EditorGUILayout.TextField("New BackGround Name", newBGTileName);
             GUILayout.EndHorizontal();
-            if(backGroundTile != null)
-                backGroundTile.GetComponent<TilemapRenderer>().sortingOrder 
-                    = EditorGUILayout.IntField("Sorting Order", backGroundTile.GetComponent<TilemapRenderer>().sortingOrder);
             GUILayout.BeginHorizontal("box");
             if (GUILayout.Button("Load", GUILayout.Width(50f), GUILayout.Height(15f)))
             {
@@ -165,7 +162,12 @@ public class CustomTilemapEditor : EditorWindow
                 }
             }
             GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal("box");
             backGroundTile = (Tilemap)EditorGUILayout.ObjectField("BackGround Tilemap", backGroundTile, typeof(Tilemap), true);
+            if(backGroundTile != null)
+                backGroundTile.GetComponent<TilemapRenderer>().sortingOrder 
+                    = EditorGUILayout.IntField("Sorting Order", backGroundTile.GetComponent<TilemapRenderer>().sortingOrder);
+            GUILayout.EndHorizontal();
         }
         EditorGUILayout.EndFadeGroup();
         #endregion
