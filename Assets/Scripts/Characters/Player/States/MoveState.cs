@@ -35,6 +35,7 @@ namespace Orpul1.Player.State
             if (playerContext.rigid.linearVelocityY > playerContext.maxJumpHeight)
             {
                 playerContext.jumpState = EJumpState.JumpEnd;
+                playerContext.isPressJump = false;
             }
             
         }

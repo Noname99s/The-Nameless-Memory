@@ -21,17 +21,12 @@ namespace Orpul1.Player
         }
         void Start()
         {
-            TransitionState(EPlayerState.Idle);
+            stateController.TransitionState((int)EPlayerState.Idle);
         }
 
         void Update()
         {
             OnGround();
-            stateController.Process();
-        }
-        public void TransitionState(EPlayerState state)
-        {
-            stateController.TransitionState((int)state);
         }
         private void OnGround()
         {

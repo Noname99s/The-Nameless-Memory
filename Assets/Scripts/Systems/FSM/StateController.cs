@@ -23,9 +23,10 @@ namespace Orpul1.State
                 states = stateFactory.Create(TransitionState);
             }
         }
-        public void SetContext<T>(T t)
+        private void Update()
         {
-
+            if (curState == null) return;
+            curState.OnUpdate();
         }
         public void TransitionState(int index)
         {
@@ -36,10 +37,6 @@ namespace Orpul1.State
             }
             curState = states[index];
             curState.OnStart();
-        }
-        public void Process()
-        {
-            curState.OnUpdate();
         }
     }
 }
