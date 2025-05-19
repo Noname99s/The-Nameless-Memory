@@ -5,9 +5,9 @@ namespace Orpul1.Player
         Idle,
         Move,
         Jump,
+        Fall,
         Attack,
         Death,
-        Fall,
         UseSkill
     }
 }

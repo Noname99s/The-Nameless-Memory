@@ -11,10 +11,15 @@ namespace Orpul1.Player.State
         }
         public override void OnUpdate()
         {
-
+            OnAir();
         }
         public override void OnExit()
         {
+        }
+        private void OnAir()
+        {
+            if (!data.isFalling) return;
+            transitionTo((int)EPlayerState.Fall);
         }
     }
 }

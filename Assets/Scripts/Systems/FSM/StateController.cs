@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Orpul1.Player;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Orpul1.State
 {
@@ -23,7 +24,7 @@ namespace Orpul1.State
                 states = stateFactory.Create(TransitionState);
             }
         }
-        private void Update()
+        private void FixedUpdate()
         {
             if (curState == null) return;
             curState.OnUpdate();
@@ -38,5 +39,6 @@ namespace Orpul1.State
             curState = states[index];
             curState.OnStart();
         }
+
     }
 }

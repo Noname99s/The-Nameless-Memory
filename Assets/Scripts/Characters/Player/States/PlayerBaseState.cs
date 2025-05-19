@@ -5,11 +5,11 @@ using UnityEngine;
 
 public abstract class PlayerBaseState : IState
 {
-    protected PlayerContext playerContext;
+    protected PlayerContext data;
     protected Action<int> transitionTo;
     public PlayerBaseState(PlayerContext playerContext, Action<int> transitionTo)
     {
-        this.playerContext = playerContext;
+        this.data = playerContext;
         this.transitionTo = transitionTo;
     }
 

@@ -8,13 +8,15 @@ namespace Orpul1.Player
 {
     public class PlayerStateFactory : MonoBehaviour, IStateFactory<List<IState>>
     {
-        [SerializeField] PlayerContext playerContext;
+        [SerializeField] PlayerContext playerData;
         public List<IState> Create(Action<int> transitionTo)
         {
             return new List<IState>()
             {
-                new IdleState(playerContext, transitionTo),
-                new MoveState(playerContext, transitionTo),
+                new IdleState(playerData, transitionTo),
+                new MoveState(playerData, transitionTo),
+                new JumpState(playerData, transitionTo),
+                new FallState(playerData, transitionTo)
             };
         }
 
