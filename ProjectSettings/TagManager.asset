@@ -2,8 +2,12 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Interact
+  - Floor
+  - BackGround
+  - BackGround1
   layers:
   - Default
   - TransparentFX
@@ -41,3 +45,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackGround
+    uniqueID: 2800574707
+    locked: 0
+  - name: Floor
+    uniqueID: 2657216189
+    locked: 0
+  - name: Interact
+    uniqueID: 253594519
+    locked: 0
+  m_RenderingLayers:
+  - Default
