@@ -2106,7 +2106,7 @@ GameObject:
   - component: {fileID: 1806708451}
   - component: {fileID: 1806708450}
   - component: {fileID: 1806708449}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor1
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -69264,7 +69264,7 @@ GameObject:
   - component: {fileID: 1875575555}
   - component: {fileID: 1875575554}
   - component: {fileID: 1875575553}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -72666,10 +72666,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2571065938256593121, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 1719474149}
+    - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: rayPosi.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: playerData
       value: 
       objectReference: {fileID: 1719474149}
+    - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: rayDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: floorLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 5680952135707525415, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_Name
       value: TestPlayer
@@ -72683,6 +72699,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: maxHp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: jumpPower
       value: 5
       objectReference: {fileID: 0}
@@ -72691,12 +72711,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: maxFallSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: maxFallDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: maxJumpHeight
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: gravityStrength
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: damageFallHeight
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: slideMovement.<useLayerMask>k__BackingField
