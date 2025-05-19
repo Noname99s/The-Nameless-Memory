@@ -5,10 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Interact
-  - BackGround1
-  - BackGround2
   - Floor
-  - Enemy
+  - BackGround
+  - BackGround1
   layers:
   - Default
   - TransparentFX
@@ -16,9 +15,9 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
-  - Pet
-  - Enemy
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -45,6 +44,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 2800574707
+    locked: 0
+  - name: Floor
+    uniqueID: 2657216189
+    locked: 0
+  - name: Interact
+    uniqueID: 253594519
     locked: 0
   m_RenderingLayers:
   - Default
