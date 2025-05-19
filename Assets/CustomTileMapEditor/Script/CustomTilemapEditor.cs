@@ -28,8 +28,11 @@ public class CustomTilemapEditor : EditorWindow
     int guiSpace = 20;
     int mapLevel = 0;
     int[] toggleSwitch = new int[(int)LayerType.Max];
+    string newFloorTileName = string.Empty;
     string newInteractTileName = string.Empty;
     string newBGTileName = string.Empty;
+    Transform floorParent;
+    Transform backGroundParent;
 
     private void OnEnable()
     {
@@ -38,9 +41,11 @@ public class CustomTilemapEditor : EditorWindow
 
         //Tilemap 찾기
         floorTile = GameObject.FindGameObjectWithTag("Floor")?.GetComponent<Tilemap>();
-        if (floorTile == null)
-            floorTile = CreateArea(LayerType.Floor).GetComponent<Tilemap>();
+        if (floorTile != null)
+            floorParent = floorTile.transform.parent;
         backGroundTile = GameObject.FindGameObjectWithTag("BackGround")?.GetComponent<Tilemap>();
+        if (backGroundTile != null)
+            backGroundParent = backGroundTile.transform.parent;
         interactTile = GameObject.FindGameObjectWithTag("Interact")?.GetComponent<Tilemap>();
     }
     private void OnGUI()
@@ -70,33 +75,44 @@ public class CustomTilemapEditor : EditorWindow
 
         if (EditorGUILayout.BeginFadeGroup(toggleSwitch[(int)LayerType.Floor]))
         {
-            if (floorTile == null)
+            GUILayout.BeginHorizontal("box");
+            if (GUILayout.Button("Create", GUILayout.Width(50f), GUILayout.Height(15f)))
             {
-                floorTile = GameObject.FindGameObjectWithTag("Floor")?.GetComponent<Tilemap>();
-                if (floorTile == null)
-                {
-                    GUILayout.Label("Floor : Empty", EditorStyles.boldLabel);
-                    GUILayout.BeginHorizontal("box");
-                    if (GUILayout.Button("Create", GUILayout.Width(50f), GUILayout.Height(15f)))
-                        floorTile = CreateArea(LayerType.Floor).GetComponent<Tilemap>();
-                    if (GUILayout.Button("Load", GUILayout.Width(50f), GUILayout.Height(15f)))
-                        floorTile = LoadPrefab(LayerType.Floor);
-                    GUILayout.EndHorizontal();
-                }
+                if (floorParent == null)
+                    floorTile = CreateArea(LayerType.Floor).GetComponent<Tilemap>();
+                else
+                    floorTile = CreateTilemap(LayerType.Floor, null, newFloorTileName, floorParent).GetComponent<Tilemap>();
+                newFloorTileName = string.Empty;
+            }
+            newFloorTileName = EditorGUILayout.TextField("New Floor Name", newFloorTileName);
+            GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal("box");
+            if(floorTile == null)
+            {
+                if (GUILayout.Button("Load", GUILayout.Width(50f), GUILayout.Height(15f)))
+                   floorTile = LoadPrefab(LayerType.Floor);
             }
             else
             {
-                GUILayout.BeginHorizontal("box");
                 if (GUILayout.Button("Save", GUILayout.Width(50f), GUILayout.Height(15f))) SavePrefab(floorTile);
                 if (GUILayout.Button("Paint", GUILayout.Width(50f), GUILayout.Height(15f))) Paint(floorTile);
                 if (GUILayout.Button("Clear", GUILayout.Width(50f), GUILayout.Height(15f))) floorTile.ClearAllTiles();
-                GUILayout.EndHorizontal();
-                floorTile = (Tilemap)EditorGUILayout.ObjectField("Basemap", floorTile, typeof(Tilemap), true);
+                if (GUILayout.Button("Destroy", GUILayout.Width(60f), GUILayout.Height(15f)))
+                {
+                    DestroyImmediate(floorTile.gameObject);
+                    floorTile = GameObject.FindGameObjectWithTag("Floor")?.GetComponent<Tilemap>();
+                }
             }
+            GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal("box");
+            floorTile = (Tilemap)EditorGUILayout.ObjectField("Basemap", floorTile, typeof(Tilemap), true);
+            if (floorTile != null)
+                floorTile.GetComponent<TilemapRenderer>().sortingOrder = EditorGUILayout.IntField("Sorting Order", floorTile.GetComponent<TilemapRenderer>().sortingOrder);
+            GUILayout.EndHorizontal();
         }
         EditorGUILayout.EndFadeGroup();
-        EditorGUILayout.Space(guiSpace);
         #endregion
+        EditorGUILayout.Space(guiSpace);
 
         #region Interact Options
         toggleSwitch[(int)LayerType.Interact] = EditorGUILayout.ToggleLeft("Interact", toggleSwitch[(int)LayerType.Interact] == 1) ? 1 : 0;
@@ -130,8 +146,8 @@ public class CustomTilemapEditor : EditorWindow
             interactTile = (Tilemap)EditorGUILayout.ObjectField("Interact Tilemap", interactTile, typeof(Tilemap), true);
         }
         EditorGUILayout.EndFadeGroup();
-        EditorGUILayout.Space(guiSpace);
         #endregion
+        EditorGUILayout.Space(guiSpace);
 
         #region BackGround Options
         toggleSwitch[(int)LayerType.BackGround] = EditorGUILayout.ToggleLeft("BackGround", toggleSwitch[(int)LayerType.BackGround] == 1) ? 1 : 0;
@@ -140,24 +156,30 @@ public class CustomTilemapEditor : EditorWindow
             GUILayout.BeginHorizontal("box");
             if (GUILayout.Button("Create", GUILayout.Width(50f), GUILayout.Height(15f)))
             {
-                backGroundTile = CreateArea(LayerType.BackGround , null , newBGTileName).GetComponent<Tilemap>();
+                if (backGroundParent == null) 
+                    backGroundTile = CreateArea(LayerType.BackGround , null , newBGTileName).GetComponent<Tilemap>();
+                else
+                    backGroundTile = CreateTilemap(LayerType.BackGround, null, newBGTileName, backGroundParent).GetComponent<Tilemap>();
                 newBGTileName = string.Empty;
             }
             newBGTileName = EditorGUILayout.TextField("New BackGround Name", newBGTileName);
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal("box");
-            if (GUILayout.Button("Load", GUILayout.Width(50f), GUILayout.Height(15f)))
+            if(backGroundTile == null)
             {
-                backGroundTile = LoadPrefab(LayerType.BackGround);
+                if (GUILayout.Button("Load", GUILayout.Width(50f), GUILayout.Height(15f)))
+                {
+                    backGroundTile = LoadPrefab(LayerType.BackGround);
+                }
             }
-            if (backGroundTile != null)
+            else
             {
                 if (GUILayout.Button("Save", GUILayout.Width(50f), GUILayout.Height(15f))) SavePrefab(backGroundTile);
                 if (GUILayout.Button("Paint", GUILayout.Width(50f), GUILayout.Height(15f))) Paint(backGroundTile);
                 if (GUILayout.Button("Clear", GUILayout.Width(50f), GUILayout.Height(15f))) backGroundTile.ClearAllTiles();
                 if (GUILayout.Button("Destroy", GUILayout.Width(60f), GUILayout.Height(15f)))
                 {
-                    DestroyImmediate(backGroundTile.transform.parent.gameObject);
+                    DestroyImmediate(backGroundTile.gameObject);
                     backGroundTile = GameObject.FindGameObjectWithTag("BackGround")?.GetComponent<Tilemap>();
                 }
             }
@@ -188,8 +210,17 @@ public class CustomTilemapEditor : EditorWindow
             parent.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             parent.AddComponent<CompositeCollider2D>();
         }
+        if (layerType == LayerType.Floor)
+            floorParent = parent.transform;
+        else if (layerType == LayerType.BackGround)
+            backGroundParent = parent.transform;
 
         // 자식 오브젝트 생성
+        GameObject tilemapObject = CreateTilemap(layerType, tilemapPrefab, tileMapName, parent.transform);
+        return tilemapObject;
+    }
+    private GameObject CreateTilemap(LayerType layerType = LayerType.None, GameObject tilemapPrefab = null, string tileMapName = null, Transform parent = null)
+    {
         GameObject tilemapObject;
         if (tilemapPrefab == null)
         {
@@ -212,8 +243,8 @@ public class CustomTilemapEditor : EditorWindow
         tilemapObject.transform.position = Vector3.zero;
         tilemapObject.transform.rotation = Quaternion.identity;
         tilemapObject.transform.localScale = Vector3.one;
-        tilemapObject.transform.parent = parent.transform;
-
+        if (parent != null) 
+            tilemapObject.transform.parent = parent.transform;
         return tilemapObject;
     }
     #region Save & Load
