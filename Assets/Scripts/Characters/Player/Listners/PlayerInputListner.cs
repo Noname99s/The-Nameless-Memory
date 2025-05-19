@@ -7,31 +7,28 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputListner : MonoBehaviour
 {
-    [SerializeField] PlayerContext playerContext;
-    [SerializeField] UnityEvent<int> transitionTo;
+    [SerializeField] PlayerContext playerData;
 
     public void Move(InputAction.CallbackContext context)
     {
         if (context.canceled)
         {
-            playerContext.movePosi = Vector2.zero;
-            //transitionTo.Invoke((int)EPlayerState.Idle);
+            playerData.moveDir = Vector2.zero;
             return;
         }
-        playerContext.movePosi = context.ReadValue<Vector2>();
-        transitionTo.Invoke((int)EPlayerState.Move);
+        playerData.moveDir = context.ReadValue<Vector2>();
     }
     public void Jump(InputAction.CallbackContext context)
     {
         if (context.canceled)
         {
-            playerContext.isPressJump = false;
-            playerContext.jumpState = EJumpState.JumpEnd;
+            playerData.isPressJump = false;
+            playerData.jumpState = EJumpState.JumpEnd;
+            playerData.isFalling = true;
         }
         else
         {
-            playerContext.isPressJump = true;
-            //transitionTo.Invoke((int)EPlayerState.Jump);
+            playerData.isPressJump = true;
         }
     }
     public void Attack(InputAction.CallbackContext context)

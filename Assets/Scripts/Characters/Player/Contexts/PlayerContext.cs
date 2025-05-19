@@ -11,7 +11,7 @@ public class PlayerContext : MonoBehaviour
     public int maxHp;
 
     [Header("MoveState")]
-    public Vector2 movePosi = Vector2.zero;
+    public Vector2 moveDir = Vector2.zero;
     public float moveSpeed = 5;
 
     [Header("JumpState")]
@@ -29,6 +29,36 @@ public class PlayerContext : MonoBehaviour
     [HideInInspector] public int fallDamage;
     public int maxFallDamage;
 
+
+    public bool IsIdleState
+    {
+        get
+        {
+            return moveDir == Vector2.zero;
+        }
+    }
+
+    public bool IsJumpState
+    {
+        get
+        {
+            return (isPressJump && jumpState == EJumpState.JumpReady);
+        }
+    }
+    public bool IsFallState
+    {
+        get
+        {
+            return (isFalling && jumpState != EJumpState.Jumping);
+        }
+    }
+    public bool IsMoveState
+    {
+        get
+        {
+            return moveDir != Vector2.zero;
+        }
+    }
     public void Initialize()
     {
         hp = maxHp;

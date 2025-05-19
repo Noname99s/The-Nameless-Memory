@@ -18,26 +18,34 @@ namespace Orpul1.Player.State
         {
         }
 
-        private void OnJumpState()
-        {
-            if (!data.isPressJump || data.jumpState != EJumpState.JumpReady) return;
-            transitionTo((int)EPlayerState.Jump);
-        }
-        private void OnMoveState()
-        {
-            if (data.movePosi == Vector2.zero) return;
-            transitionTo((int)EPlayerState.Move);
-        }
-        private void OnFallState()
-        {
-            if (!data.isFalling) return;
-            transitionTo((int)EPlayerState.Fall);
-        }
         private void TransitionState()
         {
-            OnJumpState();
-            OnMoveState();
-            OnFallState();
+            if (IsJumpState()) return;
+            if (IsMoveState()) return;
+            if (IsFallState()) return;
         }
+
+        private bool IsJumpState()
+        {
+            if (!data.IsJumpState) return false;
+            transitionTo((int)EPlayerState.Jump);
+
+            return true;
+        }
+        private bool IsMoveState()
+        {
+            if (!data.IsMoveState) return false;
+            transitionTo((int)EPlayerState.Move);
+
+            return true;
+        }
+        private bool IsFallState()
+        {
+            if (!data.isFalling) return false;
+            transitionTo((int)EPlayerState.Fall);
+
+            return true;
+        }
+      
     }
 }

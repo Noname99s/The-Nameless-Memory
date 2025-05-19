@@ -15,7 +15,7 @@ namespace Orpul1.Player.State
         }
         public override void OnUpdate()
         {
-            float dirX = data.movePosi.x * data.moveSpeed * Time.deltaTime;
+            float dirX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
 
             DoSlideMove(dirX);
             DoMove(dirX);
@@ -36,20 +36,33 @@ namespace Orpul1.Player.State
             if (!data.isPressJump || data.jumpState != EJumpState.JumpReady) return;
             data.rigid.linearVelocityX = dirX;
         }
+        
         private void TransitionState()
         {
-            if(IsJump())
-            {
-                transitionTo((int)EPlayerState.Jump);
-            }
-            else if (data.isFalling)
-            {
-                transitionTo((int)EPlayerState.Fall);
-            }
+            if (IsIdleState()) return;
+            if (IsJumpState()) return;
+            if (IsFallState()) return;
         }
-        private bool IsJump()
+        private bool IsJumpState()
         {
-            return data.jumpState == EJumpState.Jumping || data.isPressJump;
+            if (!data.IsJumpState) return false;
+            transitionTo((int)EPlayerState.Jump);
+
+            return true;
+        }
+        private bool IsFallState()
+        {
+            if (!data.isFalling) return false;
+            transitionTo((int)EPlayerState.Fall);
+
+            return true;
+        }
+        private bool IsIdleState()
+        {
+            if (!data.IsIdleState) return false;
+            transitionTo((int)EPlayerState.Idle);
+
+            return true;
         }
     }
 

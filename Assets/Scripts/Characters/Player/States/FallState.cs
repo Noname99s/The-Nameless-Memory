@@ -25,7 +25,7 @@ public class FallState : PlayerBaseState
     private void FallingMove()
     {
         data.rigid.linearVelocityY = Mathf.Clamp(data.rigid.linearVelocityY, -data.maxFallSpeed, 0);
-        data.rigid.linearVelocityX = data.movePosi.x * data.moveSpeed * Time.deltaTime;
+        data.rigid.linearVelocityX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
     }
     private bool IsToHeigh()
     {

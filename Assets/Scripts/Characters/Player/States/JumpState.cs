@@ -14,9 +14,9 @@ public class JumpState : PlayerBaseState
 
     public override void OnUpdate()
     {
-        OnDamage();
         DoAirMove();
         DoJump();
+        TransitionState();
     }
 
     public override void OnExit()
@@ -25,16 +25,15 @@ public class JumpState : PlayerBaseState
 
     private void DoAirMove()
     {
-        data.rigid.linearVelocityX = data.movePosi.x * data.moveSpeed * Time.deltaTime;
+        data.rigid.linearVelocityX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
     }
 
     private void DoJump()
     {
-        if (!data.isPressJump || data.jumpState != EJumpState.JumpReady) return;
+        if (!data.isPressJump || data.jumpState == EJumpState.JumpEnd) return;
 
         jumpAmount += data.jumpPower;
         data.jumpState = EJumpState.Jumping;
-
         data.rigid.linearVelocityY = data.jumpPower;
         if (jumpAmount > data.maxJumpHeight)
         {
@@ -44,8 +43,21 @@ public class JumpState : PlayerBaseState
             transitionTo((int)EPlayerState.Fall);
         }
     }
-    private void OnDamage()
+    private void TransitionState()
+    {
+        if (IsFallState())  return;
+        if (IsHitState())   return;
+    }
+    private bool IsFallState()
+    {
+        if (!data.IsFallState) return false;
+        transitionTo((int)EPlayerState.Fall);
+
+        return true;
+    }
+    private bool IsHitState()
     {
         //TODO : 데미지 상태 추가
+        return true;
     }
 }
