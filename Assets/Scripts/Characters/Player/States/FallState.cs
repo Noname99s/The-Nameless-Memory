@@ -30,7 +30,6 @@ public class FallState : PlayerBaseState
     private bool IsToHeigh()
     {
         if (data.rigid.linearVelocityY > -data.damageFallHeight) return false;
-        Debug.Log($"velocityY {data.rigid.linearVelocityY}");
         return true;
     }
     private void OnFloor()

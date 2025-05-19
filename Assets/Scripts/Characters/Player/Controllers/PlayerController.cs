@@ -53,7 +53,6 @@ namespace Orpul1.Player
             ray.origin = transform.position + rayPosi;
             ray.direction = Vector2.down;
             rayHit = Physics2D.Raycast(ray.origin, ray.direction, rayDistance, floorLayer.value);
-            Debug.Log($"ray is null {rayHit.transform == null}");
             Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.green);
         }
         private bool IsGround()

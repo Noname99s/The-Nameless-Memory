@@ -11,15 +11,33 @@ namespace Orpul1.Player.State
         }
         public override void OnUpdate()
         {
-            OnAir();
+            data.rigid.linearVelocityX = 0;
+            TransitionState();
         }
         public override void OnExit()
         {
         }
-        private void OnAir()
+
+        private void OnJumpState()
+        {
+            if (!data.isPressJump || data.jumpState != EJumpState.JumpReady) return;
+            transitionTo((int)EPlayerState.Jump);
+        }
+        private void OnMoveState()
+        {
+            if (data.movePosi == Vector2.zero) return;
+            transitionTo((int)EPlayerState.Move);
+        }
+        private void OnFallState()
         {
             if (!data.isFalling) return;
             transitionTo((int)EPlayerState.Fall);
+        }
+        private void TransitionState()
+        {
+            OnJumpState();
+            OnMoveState();
+            OnFallState();
         }
     }
 }

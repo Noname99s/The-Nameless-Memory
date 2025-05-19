@@ -15,7 +15,7 @@ public class PlayerInputListner : MonoBehaviour
         if (context.canceled)
         {
             playerContext.movePosi = Vector2.zero;
-            transitionTo.Invoke((int)EPlayerState.Idle);
+            //transitionTo.Invoke((int)EPlayerState.Idle);
             return;
         }
         playerContext.movePosi = context.ReadValue<Vector2>();
@@ -31,7 +31,7 @@ public class PlayerInputListner : MonoBehaviour
         else
         {
             playerContext.isPressJump = true;
-            transitionTo.Invoke((int)EPlayerState.Move);
+            //transitionTo.Invoke((int)EPlayerState.Jump);
         }
     }
     public void Attack(InputAction.CallbackContext context)

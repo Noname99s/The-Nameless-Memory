@@ -1,6 +1,7 @@
 using System;
 using System.Data.Common;
 using Orpul1.State;
+using UnityEditor.Build;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ namespace Orpul1.Player.State
 
             DoSlideMove(dirX);
             DoMove(dirX);
-            OnTheAir();
+            TransitionState();
         }
         public override void OnExit()
         {
@@ -35,10 +36,20 @@ namespace Orpul1.Player.State
             if (!data.isPressJump || data.jumpState != EJumpState.JumpReady) return;
             data.rigid.linearVelocityX = dirX;
         }
-        private void OnTheAir()
+        private void TransitionState()
         {
-            if (!data.isFalling) return;
-            transitionTo((int)EPlayerState.Fall);
+            if(IsJump())
+            {
+                transitionTo((int)EPlayerState.Jump);
+            }
+            else if (data.isFalling)
+            {
+                transitionTo((int)EPlayerState.Fall);
+            }
+        }
+        private bool IsJump()
+        {
+            return data.jumpState == EJumpState.Jumping || data.isPressJump;
         }
     }
 
