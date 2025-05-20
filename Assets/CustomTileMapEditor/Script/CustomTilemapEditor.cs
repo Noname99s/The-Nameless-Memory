@@ -113,7 +113,7 @@ public class CustomTilemapEditor : EditorWindow
         EditorGUILayout.EndFadeGroup();
         #endregion
         EditorGUILayout.Space(guiSpace);
-
+        
         #region Interact Options
         toggleSwitch[(int)LayerType.Interact] = EditorGUILayout.ToggleLeft("Interact", toggleSwitch[(int)LayerType.Interact] == 1) ? 1 : 0;
         if (EditorGUILayout.BeginFadeGroup(toggleSwitch[(int)LayerType.Interact]))
