@@ -15,27 +15,38 @@ public class FallState : PlayerBaseState
 
     public override void OnUpdate() 
     {
-        OnFloor();
-        FallingMove();
-        if (!IsToHeigh()) return;
-        data.fallDamage = data.maxFallDamage;
+        AirMove();
+        SetFallDamage();
+        TransitionState();
     }
 
     public override void OnExit() { }
 
-    private void FallingMove()
+    private void AirMove()
     {
         data.rigid.linearVelocityY = Mathf.Clamp(data.rigid.linearVelocityY, -data.maxFallSpeed, 0);
         data.rigid.linearVelocityX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
     }
+    private void SetFallDamage()
+    {
+        if (!IsToHeigh()) return;
+        data.fallDamage = data.maxFallDamage;
+    }
+
     private bool IsToHeigh()
     {
         if (data.rigid.linearVelocityY > -data.damageFallHeight) return false;
         return true;
     }
-    private void OnFloor()
+    private void TransitionState()
     {
-        if (data.isFalling) return;
+        if (IsIdleState()) return;
+    }
+    private bool IsIdleState()
+    {
+        if (data.IsFallState) return false;
         transitionTo((int)EPlayerState.Idle);
+
+        return true;
     }
 }
