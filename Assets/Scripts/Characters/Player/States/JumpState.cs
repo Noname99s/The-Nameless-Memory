@@ -2,63 +2,67 @@ using Orpul1.Player;
 using System;
 using UnityEngine;
 
-public class JumpState : PlayerBaseState
+namespace Orpul1.Player.State
 {
-    float jumpAmount = 0;
-
-    public JumpState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo) { }
-    public override void OnStart()
+    public class JumpState : PlayerBaseState
     {
-        jumpAmount = data.jumpPower;
-    }
+        float jumpAmount = 0;
 
-    public override void OnUpdate()
-    {
-        DoAirMove();
-        DoJump();
-        TransitionState();
-    }
-
-    public override void OnExit()
-    {
-    }
-
-    private void DoAirMove()
-    {
-        data.rigid.linearVelocityX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
-    }
-
-    private void DoJump()
-    {
-        if (!data.isPressJump || data.jumpState == EJumpState.JumpEnd) return;
-
-        jumpAmount *= data.decelerate;
-        data.jumpState = EJumpState.Jumping;
-        data.rigid.linearVelocityY = jumpAmount;
-        
-        if (data.rigid.linearVelocityY < data.minJumpSpeed)
+        public JumpState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo) { }
+        public override void OnStart()
         {
-            data.jumpState = EJumpState.JumpEnd;
-            data.isPressJump = false;
-            jumpAmount = 0;
+            jumpAmount = data.jumpPower;
+        }
+
+        public override void OnUpdate()
+        {
+            DoAirMove();
+            DoJump();
+            TransitionState();
+        }
+
+        public override void OnExit()
+        {
+        }
+
+        private void DoAirMove()
+        {
+            data.rigid.linearVelocityX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
+        }
+
+        private void DoJump()
+        {
+            if (!data.isPressJump || data.jumpState == EJumpState.JumpEnd) return;
+
+            jumpAmount *= data.decelerate;
+            data.jumpState = EJumpState.Jumping;
+            data.rigid.linearVelocityY = jumpAmount;
+
+            if (data.rigid.linearVelocityY < data.minJumpSpeed)
+            {
+                data.jumpState = EJumpState.JumpEnd;
+                data.isPressJump = false;
+                jumpAmount = 0;
+                transitionTo((int)EPlayerState.Fall);
+            }
+        }
+        private void TransitionState()
+        {
+            if (IsFallState()) return;
+            if (IsHitState()) return;
+        }
+        private bool IsFallState()
+        {
+            if (!data.IsFallState) return false;
             transitionTo((int)EPlayerState.Fall);
+
+            return true;
+        }
+        private bool IsHitState()
+        {
+            //TODO : 데미지 상태 추가
+            return true;
         }
     }
-    private void TransitionState()
-    {
-        if (IsFallState())  return;
-        if (IsHitState())   return;
-    }
-    private bool IsFallState()
-    {
-        if (!data.IsFallState) return false;
-        transitionTo((int)EPlayerState.Fall);
 
-        return true;
-    }
-    private bool IsHitState()
-    {
-        //TODO : 데미지 상태 추가
-        return true;
-    }
 }

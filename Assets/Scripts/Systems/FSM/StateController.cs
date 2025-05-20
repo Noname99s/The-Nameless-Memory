@@ -7,14 +7,12 @@ namespace Orpul1.State
 {
     public class StateController : MonoBehaviour
     {
-        [SerializeField] GameObject stateObj;
         List<IState> states = new List<IState>();
-        IStateFactory<List<IState>> stateFactory;
+        [SerializeField] StateFactory stateFactory;
         IState curState;
-        [SerializeField] EPlayerState state;
+        public int CurState { get { return (int)CurState; } }
         private void Awake()
         {
-            stateFactory = stateObj.GetComponent<IStateFactory<List<IState>>>();
             if(stateFactory == null)
             {
                 Debug.LogError("stateFactory is Null!");
@@ -31,7 +29,6 @@ namespace Orpul1.State
         }
         public void TransitionState(int index)
         {
-            state = (EPlayerState)index;
             if (curState != null)
             {
                 curState.OnExit();

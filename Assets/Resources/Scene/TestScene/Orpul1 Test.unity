@@ -1946,8 +1946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083bb7eac7c075745a104cd1b48289b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateObj: {fileID: 1573507876}
-  state: 0
+  stateFactory: {fileID: 0}
 --- !u!4 &1573507878
 Transform:
   m_ObjectHideFlags: 0
@@ -2092,6 +2091,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f82e898cbc5606c4d9a7239329b1151d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1719474152 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2571065938256593121, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+  m_PrefabInstance: {fileID: 2090550223}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d377b0883c8a9e1478cc7a08cd11aedd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1806708448
@@ -72628,11 +72638,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.98
+      value: 10.04
       objectReference: {fileID: 0}
     - target: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.87
+      value: 3.21
       objectReference: {fileID: 0}
     - target: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_LocalPosition.z
@@ -72698,9 +72708,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5725579068212597670, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: stateFactory
+      value: 
+      objectReference: {fileID: 1719474152}
     - target: {fileID: 5947109336739971617, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_GravityScale
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: hp
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: maxHp
@@ -72712,7 +72730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: jumpPower
-      value: 50
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: isPressJump
@@ -72720,11 +72738,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: maxFallSpeed
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: minJumpSpeed
-      value: 0.6
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: maxFallDamage
@@ -72743,12 +72761,32 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: defaultFallSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: slideResult.<position>k__BackingField.x
+      value: 7.854174
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: slideResult.<position>k__BackingField.y
+      value: 3.0024076
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: slideMovement.<useLayerMask>k__BackingField
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: slideResult.<iterationsUsed>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: slideMovement.<maxIterations>k__BackingField
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: slideMovement.<surfaceAnchor>k__BackingField.y
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: slideMovement.<gravitySlipAngle>k__BackingField

@@ -19,10 +19,10 @@ public class PlayerContext : MonoBehaviour
     public EJumpState jumpState = EJumpState.JumpReady;
     public float gravityStrength;
     public float jumpPower = 10;
-    public int jumpCount = 0;
-    public bool isPressJump = false;
     public float decelerate = 0.8f;
     public float minJumpSpeed = 0.2f;
+    public int jumpCount = 0;
+    public bool isPressJump = false;
 
     [Header("FallState")]
     public bool isFalling = false;

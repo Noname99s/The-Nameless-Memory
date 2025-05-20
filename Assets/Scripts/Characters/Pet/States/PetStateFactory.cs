@@ -7,10 +7,10 @@ using Orpul1.Pet.State;
 
 namespace Orpul1.Pet
 {
-    public class PetStateFactory : MonoBehaviour, IStateFactory<List<IState>>
+    public class PetStateFactory : StateFactory
     {
         [SerializeField] PetContext context;
-        public List<IState> Create(Action<int> transitionTo)
+        public override List<IState> Create(Action<int> transitionTo)
         {
             return new List<IState>()
             {

@@ -3,19 +3,23 @@ using Orpul1.Player;
 using Orpul1.State;
 using UnityEngine;
 
-public abstract class PlayerBaseState : IState
+namespace Orpul1.Player.State
 {
-    protected PlayerContext data;
-    protected Action<int> transitionTo;
-    public PlayerBaseState(PlayerContext playerContext, Action<int> transitionTo)
+    public abstract class PlayerBaseState : IState
     {
-        this.data = playerContext;
-        this.transitionTo = transitionTo;
+        protected PlayerContext data;
+        protected Action<int> transitionTo;
+        public PlayerBaseState(PlayerContext playerContext, Action<int> transitionTo)
+        {
+            this.data = playerContext;
+            this.transitionTo = transitionTo;
+        }
+
+        public abstract void OnExit();
+
+        public abstract void OnStart();
+
+        public abstract void OnUpdate();
     }
 
-    public abstract void OnExit();
-
-    public abstract void OnStart();
-
-    public abstract void OnUpdate();
 }

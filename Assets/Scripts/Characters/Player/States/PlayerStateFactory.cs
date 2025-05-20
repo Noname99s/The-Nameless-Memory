@@ -6,10 +6,10 @@ using UnityEditor;
 using System;
 namespace Orpul1.Player
 {
-    public class PlayerStateFactory : MonoBehaviour, IStateFactory<List<IState>>
+    public class PlayerStateFactory : StateFactory
     {
         [SerializeField] PlayerContext playerData;
-        public List<IState> Create(Action<int> transitionTo)
+        public override List<IState> Create(Action<int> transitionTo)
         {
             return new List<IState>()
             {
