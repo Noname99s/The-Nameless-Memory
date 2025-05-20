@@ -17,14 +17,16 @@ public class PlayerContext : MonoBehaviour
     [Header("JumpState")]
     public EJumpState jumpState = EJumpState.JumpReady;
     public float gravityStrength;
-    public float maxJumpHeight = 5f;
     public float jumpPower = 10;
     public int jumpCount = 0;
     public bool isPressJump = false;
+    public float decelerate = 0.8f;
+    public float minJumpSpeed = 0.2f;
 
     [Header("FallState")]
     public bool isFalling = false;
     public float damageFallHeight;
+    public float defaultFallSpeed;
     public float maxFallSpeed;
     [HideInInspector] public int fallDamage;
     public int maxFallDamage;

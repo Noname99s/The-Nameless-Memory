@@ -10,6 +10,7 @@ public class FallState : PlayerBaseState
     public override void OnStart()
     {
         data.fallDamage = 0;
+        data.rigid.linearVelocityY = -data.defaultFallSpeed;
     }
 
     public override void OnUpdate() 

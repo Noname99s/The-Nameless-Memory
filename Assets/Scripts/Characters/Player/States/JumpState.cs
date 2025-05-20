@@ -9,7 +9,7 @@ public class JumpState : PlayerBaseState
     public JumpState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo) { }
     public override void OnStart()
     {
-        jumpAmount = 0;
+        jumpAmount = data.jumpPower;
     }
 
     public override void OnUpdate()
@@ -32,10 +32,11 @@ public class JumpState : PlayerBaseState
     {
         if (!data.isPressJump || data.jumpState == EJumpState.JumpEnd) return;
 
-        jumpAmount += data.jumpPower;
+        jumpAmount *= data.decelerate;
         data.jumpState = EJumpState.Jumping;
-        data.rigid.linearVelocityY = data.jumpPower;
-        if (jumpAmount > data.maxJumpHeight)
+        data.rigid.linearVelocityY = jumpAmount;
+        
+        if (data.rigid.linearVelocityY < data.minJumpSpeed)
         {
             data.jumpState = EJumpState.JumpEnd;
             data.isPressJump = false;

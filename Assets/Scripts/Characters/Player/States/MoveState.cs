@@ -16,27 +16,14 @@ namespace Orpul1.Player.State
         public override void OnUpdate()
         {
             float dirX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
+            data.slideResult = data.rigid.Slide(Vector2.right * dirX, Time.deltaTime, data.slideMovement);
 
-            DoSlideMove(dirX);
-            DoMove(dirX);
             TransitionState();
         }
         public override void OnExit()
         {
             data.rigid.linearVelocity = new Vector2(0, data.rigid.linearVelocityY) ;
         }
-
-        private void DoSlideMove(float dirX)
-        {
-            if (data.isPressJump && data.jumpState == EJumpState.JumpReady) return;
-            data.slideResult = data.rigid.Slide(Vector2.right * dirX, Time.deltaTime, data.slideMovement);
-        }
-        private void DoMove(float dirX)
-        {
-            if (!data.isPressJump || data.jumpState != EJumpState.JumpReady) return;
-            data.rigid.linearVelocityX = dirX;
-        }
-        
         private void TransitionState()
         {
             if (IsIdleState()) return;
