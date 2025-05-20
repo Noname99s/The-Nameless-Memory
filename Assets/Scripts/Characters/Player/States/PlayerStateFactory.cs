@@ -16,7 +16,8 @@ namespace Orpul1.Player
                 new IdleState(playerData, transitionTo),
                 new MoveState(playerData, transitionTo),
                 new JumpState(playerData, transitionTo),
-                new FallState(playerData, transitionTo)
+                new FallState(playerData, transitionTo),
+                new AttackState(playerData, transitionTo),
             };
         }
 

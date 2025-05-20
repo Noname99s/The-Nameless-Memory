@@ -8,6 +8,7 @@ public class PlayerContext : MonoBehaviour
     public Rigidbody2D.SlideResults slideResult = new Rigidbody2D.SlideResults();
     public SpriteRenderer sprite;
     public Transform trPlayer;
+    public Animator animator;
     public int hp;
     public int maxHp;
 
