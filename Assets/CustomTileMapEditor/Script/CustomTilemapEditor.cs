@@ -57,10 +57,10 @@ public class CustomTilemapEditor : EditorWindow
         {
             if (EditorUtility.DisplayDialog("Reset Scene", "Are you sure you want to reset the scene?", "Yes", "No"))
             {
+                DestroyImmediate(floorParent.gameObject);
+                DestroyImmediate(backGroundParent.gameObject);
                 List<GameObject> tilemaps = new List<GameObject>();
-                tilemaps.AddRange(GameObject.FindGameObjectsWithTag("Floor"));
                 tilemaps.AddRange(GameObject.FindGameObjectsWithTag("Interact"));
-                tilemaps.AddRange(GameObject.FindGameObjectsWithTag("BackGround"));
                 foreach (GameObject tilemap in tilemaps)
                 {
                     DestroyImmediate(tilemap.transform.parent.gameObject);
@@ -87,12 +87,17 @@ public class CustomTilemapEditor : EditorWindow
             newFloorTileName = EditorGUILayout.TextField("New Floor Name", newFloorTileName);
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal("box");
-            if(floorTile == null)
+            if (GUILayout.Button("Load", GUILayout.Width(50f), GUILayout.Height(15f)))
             {
-                if (GUILayout.Button("Load", GUILayout.Width(50f), GUILayout.Height(15f)))
-                   floorTile = LoadPrefab(LayerType.Floor);
+                Tilemap loadTile = LoadPrefab(LayerType.Floor , floorParent == null);
+                if (loadTile != null)
+                    floorTile = loadTile;
+                if (floorParent != null)
+                {
+                    floorTile.transform.parent = floorParent;
+                }
             }
-            else
+            if (floorTile != null)
             {
                 if (GUILayout.Button("Save", GUILayout.Width(50f), GUILayout.Height(15f))) SavePrefab(floorTile);
                 if (GUILayout.Button("Paint", GUILayout.Width(50f), GUILayout.Height(15f))) Paint(floorTile);
@@ -129,7 +134,9 @@ public class CustomTilemapEditor : EditorWindow
             GUILayout.BeginHorizontal("box");
             if (GUILayout.Button("Load", GUILayout.Width(50f), GUILayout.Height(15f)))
             {
-                interactTile = LoadPrefab(LayerType.Interact);
+                Tilemap loadTile = LoadPrefab(LayerType.Interact);
+                if (loadTile != null)
+                    interactTile = loadTile;
             }
             if (interactTile != null)
             {
@@ -165,14 +172,18 @@ public class CustomTilemapEditor : EditorWindow
             newBGTileName = EditorGUILayout.TextField("New BackGround Name", newBGTileName);
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal("box");
-            if(backGroundTile == null)
+            if (GUILayout.Button("Load", GUILayout.Width(50f), GUILayout.Height(15f)))
             {
-                if (GUILayout.Button("Load", GUILayout.Width(50f), GUILayout.Height(15f)))
+                Tilemap loadTile = LoadPrefab(LayerType.BackGround, backGroundParent == null);
+                if (loadTile != null)
+                    backGroundTile = loadTile;
+                if (backGroundParent != null)
                 {
-                    backGroundTile = LoadPrefab(LayerType.BackGround);
+                    backGroundTile.transform.parent = backGroundParent;
                 }
             }
             else
+            if(backGroundTile != null)
             {
                 if (GUILayout.Button("Save", GUILayout.Width(50f), GUILayout.Height(15f))) SavePrefab(backGroundTile);
                 if (GUILayout.Button("Paint", GUILayout.Width(50f), GUILayout.Height(15f))) Paint(backGroundTile);
@@ -261,10 +272,15 @@ public class CustomTilemapEditor : EditorWindow
         "tilemap_data.prefab",
         "prefab"
          );
+        if (string.IsNullOrEmpty(prefabPath))
+        {
+            Debug.Log("Save operation cancelled.");
+            return;
+        }
         PrefabUtility.SaveAsPrefabAsset(saveTile.gameObject, prefabPath);
         Debug.Log("Prefab saved at: " + prefabPath);
     }
-    private Tilemap LoadPrefab(LayerType layerType)
+    private Tilemap LoadPrefab(LayerType layerType ,bool isCreateArea = true)
     {
         string prefabPath = EditorUtility.OpenFilePanel(
         "Load Tilemap Data",
@@ -275,7 +291,11 @@ public class CustomTilemapEditor : EditorWindow
         {
             GameObject prefab = PrefabUtility.LoadPrefabContents(prefabPath);
             string prefabName = Path.GetFileNameWithoutExtension(prefabPath);
-            Tilemap loadTile = CreateArea(layerType, prefab, prefabName).GetComponent<Tilemap>();
+            Tilemap loadTile;
+            if (isCreateArea)
+                loadTile = CreateArea(layerType, prefab, prefabName).GetComponent<Tilemap>();
+            else
+                loadTile = CreateTilemap(layerType, prefab, prefabName).GetComponent<Tilemap>();
             return loadTile;
         }
         else
@@ -292,9 +312,9 @@ public class CustomTilemapEditor : EditorWindow
         "Assets/CustomTileMapEditor/MapData/Map" + (mapLevel + 1),
         "prefab"
         );
-        paintMap.ClearAllTiles();
         if (!string.IsNullOrEmpty(prefabPath))
         {
+            paintMap.ClearAllTiles();
             GameObject prefab = PrefabUtility.LoadPrefabContents(prefabPath);
             BoundsInt bounds = prefab.GetComponent<Tilemap>().cellBounds;
             for (int x = bounds.x; x < bounds.xMax; x++)
@@ -309,6 +329,10 @@ public class CustomTilemapEditor : EditorWindow
                     }
                 }
             }
+        }
+        else
+        {
+            Debug.Log("Paint operation cancelled.");
         }
     }
     #endregion
