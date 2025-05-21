@@ -57,8 +57,10 @@ public class CustomTilemapEditor : EditorWindow
         {
             if (EditorUtility.DisplayDialog("Reset Scene", "Are you sure you want to reset the scene?", "Yes", "No"))
             {
-                DestroyImmediate(floorParent.gameObject);
-                DestroyImmediate(backGroundParent.gameObject);
+                if(floorParent != null)
+                    DestroyImmediate(floorParent.gameObject);
+                if (backGroundParent != null)
+                    DestroyImmediate(backGroundParent.gameObject);
                 List<GameObject> tilemaps = new List<GameObject>();
                 tilemaps.AddRange(GameObject.FindGameObjectsWithTag("Interact"));
                 foreach (GameObject tilemap in tilemaps)
