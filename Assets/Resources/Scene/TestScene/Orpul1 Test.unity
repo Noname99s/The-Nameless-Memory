@@ -1072,6 +1072,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1045759736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5680952135707525415, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+  m_PrefabInstance: {fileID: 2090550223}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1107891154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,28 +2087,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateController: {fileID: 1573507877}
---- !u!114 &1719474149 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-  m_PrefabInstance: {fileID: 2090550223}
+--- !u!70 &1719474159
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1045759736}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f82e898cbc5606c4d9a7239329b1151d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1719474152 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2571065938256593121, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-  m_PrefabInstance: {fileID: 2090550223}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d377b0883c8a9e1478cc7a08cd11aedd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.6}
+  m_Size: {x: 0.5, y: 1.2}
+  m_Direction: 0
 --- !u!1 &1806708448
 GameObject:
   m_ObjectHideFlags: 0
@@ -72632,10 +72652,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 573073216578718746, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 764128924490101152, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0ccd2b99e9b547b498330df9c7104170, type: 3}
     - target: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.04
@@ -72676,135 +72696,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2506829344611688349, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: playerData
-      value: 
-      objectReference: {fileID: 1719474149}
-    - target: {fileID: 2571065938256593121, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: playerData
-      value: 
-      objectReference: {fileID: 1719474149}
-    - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: rayPosi.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: playerData
-      value: 
-      objectReference: {fileID: 1719474149}
-    - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: rayDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: floorLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 5680952135707525415, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_Name
       value: TestPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 5680952135707525415, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725579068212597670, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: stateFactory
-      value: 
-      objectReference: {fileID: 1719474152}
-    - target: {fileID: 5947109336739971617, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: m_GravityScale
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: hp
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: maxHp
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: isFalling
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: jumpPower
-      value: 38
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: isPressJump
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: maxFallSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: minJumpSpeed
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: maxFallDamage
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: maxJumpHeight
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: gravityStrength
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: damageFallHeight
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: defaultFallSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: slideResult.<position>k__BackingField.x
-      value: 7.854174
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: slideResult.<position>k__BackingField.y
-      value: 3.0024076
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: slideMovement.<useLayerMask>k__BackingField
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: slideResult.<iterationsUsed>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: slideMovement.<maxIterations>k__BackingField
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: slideMovement.<surfaceAnchor>k__BackingField.y
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: slideMovement.<gravitySlipAngle>k__BackingField
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: slideMovement.<selectedCollider>k__BackingField
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: slideMovement.<surfaceSlideAngle>k__BackingField
-      value: 90
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2633691305236954346, guid: c35607954bd06ce4f90ba46330960132, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5680952135707525415, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1719474159}
+    - targetCorrespondingSourceObject: {fileID: 573073216578718746, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2090550225}
   m_SourcePrefab: {fileID: 100100000, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+--- !u!1 &2090550224 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 573073216578718746, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+  m_PrefabInstance: {fileID: 2090550223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2090550225
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090550224}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a76918de4d36a154ca8c66159379a140, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2126141989
 GameObject:
   m_ObjectHideFlags: 0

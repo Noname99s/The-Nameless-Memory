@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1310474997127015934}
   - component: {fileID: 764128924490101152}
+  - component: {fileID: 4683667883276261786}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ccd2b99e9b547b498330df9c7104170, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,6 +88,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4683667883276261786
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573073216578718746}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a76918de4d36a154ca8c66159379a140, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5680952135707525415
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1832887567842334404}
   - component: {fileID: 5947109336739971617}
-  - component: {fileID: 2633691305236954346}
+  - component: {fileID: 5797288449755540277}
   - component: {fileID: 557948703320104658}
   - component: {fileID: 4824057978208184363}
   - component: {fileID: 6948962639656468517}
@@ -105,7 +128,7 @@ GameObject:
   - component: {fileID: 2571065938256593121}
   - component: {fileID: 2506829344611688349}
   m_Layer: 0
-  m_Name: TestPlayer
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +165,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -154,8 +177,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &2633691305236954346
-CircleCollider2D:
+--- !u!70 &5797288449755540277
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -188,8 +211,9 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: 0, y: 0.6}
+  m_Size: {x: 0.5, y: 1.2}
+  m_Direction: 0
 --- !u!114 &557948703320104658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,9 +349,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateController: {fileID: 5725579068212597670}
-  playerContext: {fileID: 6948962639656468517}
-  rayDistance: 0.1
-  rayPosi: {x: 0, y: -0.55, z: 0}
+  playerData: {fileID: 6948962639656468517}
+  rayDistance: 1
+  rayPosi: {x: 0, y: 0, z: 0}
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &6948962639656468517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,15 +368,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigid: {fileID: 5947109336739971617}
+  slideMovement:
+    <maxIterations>k__BackingField: 5
+    <surfaceSlideAngle>k__BackingField: 90
+    <gravitySlipAngle>k__BackingField: 45
+    <surfaceUp>k__BackingField: {x: 0, y: 1}
+    <surfaceAnchor>k__BackingField: {x: 0, y: -0.1}
+    <gravity>k__BackingField: {x: 0, y: -9.81}
+    <startPosition>k__BackingField: {x: 0, y: 0}
+    <selectedCollider>k__BackingField: {fileID: 0}
+    <layerMask>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    <useLayerMask>k__BackingField: 0
+    <useStartPosition>k__BackingField: 0
+    <useNoMove>k__BackingField: 0
+    <useSimulationMove>k__BackingField: 0
+    <useAttachedTriggers>k__BackingField: 0
+  slideResult:
+    <remainingVelocity>k__BackingField: {x: 0, y: 0}
+    <position>k__BackingField: {x: 7.854174, y: 3.0024076}
+    <iterationsUsed>k__BackingField: 1
+  sprite: {fileID: 0}
   trPlayer: {fileID: 1832887567842334404}
-  movePosi: {x: 0, y: 0}
-  jumpState: 0
-  jumpCollider: {fileID: 0}
-  jumpCount: 0
-  maxJumpHeight: 5
-  isPressJump: 0
-  jumpPower: 1
+  animator: {fileID: 0}
+  hp: 75
+  maxHp: 100
+  moveDir: {x: 0, y: 0}
   moveSpeed: 600
+  jumpState: 0
+  gravityStrength: 5
+  jumpPower: 38
+  decelerate: 0.8
+  minJumpSpeed: 0.8
+  jumpCount: 0
+  isPressJump: 0
+  isFalling: 0
+  damageFallHeight: 30
+  defaultFallSpeed: 1
+  maxFallSpeed: 20
+  fallDamage: 0
+  maxFallDamage: 5
 --- !u!114 &5725579068212597670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,8 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083bb7eac7c075745a104cd1b48289b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateObj: {fileID: 5680952135707525415}
-  state: 0
+  stateFactory: {fileID: 2571065938256593121}
 --- !u!114 &2571065938256593121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d377b0883c8a9e1478cc7a08cd11aedd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerContext: {fileID: 6948962639656468517}
+  playerData: {fileID: 6948962639656468517}
 --- !u!114 &2506829344611688349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,19 +447,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a36ebb3a486afa4696046eadc45ac39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerContext: {fileID: 6948962639656468517}
-  transitionTo:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5725579068212597670}
-        m_TargetAssemblyTypeName: Orpul1.State.StateController, Assembly-CSharp
-        m_MethodName: TransitionState
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  playerData: {fileID: 6948962639656468517}
