@@ -10,7 +10,7 @@ namespace Orpul1.State
         List<IState> states = new List<IState>();
         [SerializeField] StateFactory stateFactory;
         IState curState;
-        public int CurState { get { return (int)CurState; } }
+        public int CurState;
         private void Awake()
         {
             if(stateFactory == null)
@@ -29,6 +29,7 @@ namespace Orpul1.State
         }
         public void TransitionState(int index)
         {
+            CurState = index;
             if (curState != null)
             {
                 curState.OnExit();

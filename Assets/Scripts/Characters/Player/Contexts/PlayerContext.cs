@@ -30,6 +30,9 @@ public class PlayerContext : MonoBehaviour
     public float damageFallHeight;
     public float defaultFallSpeed;
     public float maxFallSpeed;
+    public float fallDamageOverTime;
+    public float onAirMoveSpeed = 2;
+    public float decelerateMoveSpeed;
     [HideInInspector] public int fallDamage;
     public int maxFallDamage;
 

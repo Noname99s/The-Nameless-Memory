@@ -8,18 +8,22 @@ namespace Orpul1.Player.State
     public class JumpState : PlayerBaseState
     {
         float jumpAmount = 0;
-
+        float moveX = 0;
+        float maxMoveX = 0;
+        bool isFlip = false;
         public JumpState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo) { }
         public override void OnStart()
         {
             data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
             data.animator.SetTrigger(EPlayerAni.JumpTrigger.ToString());
             jumpAmount = data.jumpPower;
+            maxMoveX = data.moveSpeed * Time.deltaTime;
         }
 
         public override void OnUpdate()
         {
-            DoAirMove();
+            FlipX();
+            AirMove();
             DoJump();
             TransitionState();
         }
@@ -28,11 +32,20 @@ namespace Orpul1.Player.State
         {
         }
 
-        private void DoAirMove()
+        
+        private void AirMove()
         {
-            data.rigid.linearVelocityX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
+            moveX = data.rigid.linearVelocityX + data.moveDir.x * data.onAirMoveSpeed * Time.deltaTime;
+            data.rigid.linearVelocityX = Mathf.Clamp(moveX, -maxMoveX, maxMoveX);
         }
-
+        private void FlipX()
+        {
+            if (data.moveDir.x < 0)
+                isFlip = true;
+            else if (data.moveDir.x > 0)
+                isFlip = false;
+            data.sprite.flipX = isFlip;
+        }
         private void DoJump()
         {
             if (!data.isPressJump || data.jumpState == EJumpState.JumpEnd) return;

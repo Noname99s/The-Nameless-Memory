@@ -8,19 +8,28 @@ namespace Orpul1.Player.State
 {
     public class FallState : PlayerBaseState
     {
+        float interval = 0;
+        float moveX = 0;
+        float maxMoveX = 0;
+        bool isFlip = false;
         public FallState(PlayerContext data, Action<int> transitionTo) : base(data, transitionTo)
         {
         }
         public override void OnStart()
         {
+            interval = 0;
             data.fallDamage = 0;
             data.rigid.linearVelocityY = -data.defaultFallSpeed;
             data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
+            maxMoveX = data.rigid.linearVelocityX < 0 ? -data.rigid.linearVelocityX : data.rigid.linearVelocityX;
+            Debug.Log($"MaxMoveX {maxMoveX}");
+            
         }
 
         public override void OnUpdate()
         {
             AirMove();
+            FlipX();
             SetFallDamage();
             TransitionState();
         }
@@ -33,8 +42,19 @@ namespace Orpul1.Player.State
         private void AirMove()
         {
             data.rigid.linearVelocityY = Mathf.Clamp(data.rigid.linearVelocityY, -data.maxFallSpeed, 0);
-            data.rigid.linearVelocityX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
+            moveX = data.rigid.linearVelocityX + data.moveDir.x * data.onAirMoveSpeed * Time.deltaTime;
+            data.rigid.linearVelocityX = Mathf.Clamp(moveX, -maxMoveX, maxMoveX);
         }
+
+        private void FlipX()
+        {
+            if (data.moveDir.x < 0)
+                isFlip = true;
+            else if (data.moveDir.x > 0)
+                isFlip = false;
+            data.sprite.flipX = isFlip;
+        }
+
         private void SetFallDamage()
         {
             if (!IsToHeigh()) return;
@@ -43,13 +63,26 @@ namespace Orpul1.Player.State
 
         private bool IsToHeigh()
         {
-            if (data.rigid.linearVelocityY > -data.damageFallHeight) return false;
+            float dot = Vector2.Dot(data.transform.position, Vector2.down);
+            if (dot > 0) return false;
+            interval += Time.deltaTime;
+            if (interval < data.fallDamageOverTime) return false;
             return true;
         }
         private void TransitionState()
         {
+            //if (IsMoveState()) return;
             if (IsIdleState()) return;
         }
+
+        private bool IsMoveState()
+        {
+            if (!data.IsMoveState && data.isFalling) return false;
+            transitionTo((int)EPlayerState.Move);
+
+            return true;
+        }
+
         private bool IsIdleState()
         {
             if (data.IsFallState) return false;

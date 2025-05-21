@@ -1957,6 +1957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateFactory: {fileID: 0}
+  CurState: 0
 --- !u!4 &1573507878
 Transform:
   m_ObjectHideFlags: 0
@@ -72665,6 +72666,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: sprite
       value: 
       objectReference: {fileID: 281078675}
@@ -72672,6 +72677,18 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 281078674}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: onAirMoveSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: fallDamageOverTime
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: decelerateMoveSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

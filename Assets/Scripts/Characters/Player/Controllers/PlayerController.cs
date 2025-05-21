@@ -16,6 +16,7 @@ namespace Orpul1.Player
         [SerializeField] LayerMask floorLayer;
         Ray2D ray = new Ray2D();
         RaycastHit2D rayHit = new RaycastHit2D();
+        [SerializeField] EPlayerState state;
         private void Awake()
         {
             ray.origin = transform.position;
@@ -30,6 +31,7 @@ namespace Orpul1.Player
 
         void Update()
         {
+            state = (EPlayerState)stateController.CurState;
             OnGround();
         }
         private void OnGround()
