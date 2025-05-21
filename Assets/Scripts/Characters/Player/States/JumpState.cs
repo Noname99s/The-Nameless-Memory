@@ -1,4 +1,5 @@
 using Orpul1.Player;
+using Orpul1.Player.Animation;
 using System;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ namespace Orpul1.Player.State
         public JumpState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo) { }
         public override void OnStart()
         {
+            data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
+            data.animator.SetTrigger(EPlayerAni.JumpTrigger.ToString());
             jumpAmount = data.jumpPower;
         }
 

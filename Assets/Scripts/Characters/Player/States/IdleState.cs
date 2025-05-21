@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using Orpul1.Player.Animation;
 namespace Orpul1.Player.State
 {
     public class IdleState : PlayerBaseState
@@ -8,6 +9,7 @@ namespace Orpul1.Player.State
 
         public override void OnStart()
         {
+            //data.animator.SetTrigger(EPlayerAni.IdleTrigger.ToString());
         }
         public override void OnUpdate()
         {

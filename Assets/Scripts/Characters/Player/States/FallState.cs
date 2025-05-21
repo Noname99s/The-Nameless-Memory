@@ -1,4 +1,5 @@
 using Orpul1.Player;
+using Orpul1.Player.Animation;
 using System;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace Orpul1.Player.State
         {
             data.fallDamage = 0;
             data.rigid.linearVelocityY = -data.defaultFallSpeed;
+            data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
         }
 
         public override void OnUpdate()
@@ -23,7 +25,10 @@ namespace Orpul1.Player.State
             TransitionState();
         }
 
-        public override void OnExit() { }
+        public override void OnExit() 
+        {
+            data.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
+        }
 
         private void AirMove()
         {
