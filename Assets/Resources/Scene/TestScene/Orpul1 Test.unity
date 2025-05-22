@@ -72741,12 +72741,16 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: attackContext.attackType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: 'attackContext.attackCounts.Array.data[0]'
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: 'attackContext.attackDelays.Array.data[0]'
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: 'attackContext.attackDelays.Array.data[1]'

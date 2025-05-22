@@ -4,36 +4,31 @@ using Orpul1.Player.Animation;
 
 namespace Orpul1.Player.State.Attack
 {
-    public class NormalAttack : ICommand
+    public class NormalAttack : IStrategy
     {
         PlayerContext playerData;
-        float interval = 0;
+        float aniDuration = 0;
         public NormalAttack(PlayerContext playerData)
         {
             this.playerData = playerData;
         }
         public void Execute()
         {
+            if (Time.time < aniDuration) return;
             playerData.animator.SetInteger(EPlayerAni.NormalAttackIndex.ToString(), playerData.attackContext.curAttack);
-            if (!IsAttackAni()) 
+            if (!playerData.animator.GetCurrentAnimatorStateInfo(0).IsName(((ENormalAttack)(playerData.attackContext.curAttack)).ToString()))
                 return;
+            aniDuration = playerData.animator.GetCurrentAnimatorStateInfo(0).length;
             SetNextAttack();
-
-        }
-        private bool IsAttackAni()
-        {
-            if (!playerData.animator.GetCurrentAnimatorStateInfo(0).IsName(((ENormalAttack)playerData.attackContext.curAttack).ToString()))
-                return false;
-            return true;
         }
         private void SetNextAttack()
         {
             playerData.attackContext.curAttack++;
-            playerData.canAttack = false;
 
             if (playerData.attackContext.curAttack == (int)ENormalAttack.END)
+            {
                 playerData.attackContext.curAttack = (int)ENormalAttack.PunchA;
-
+            }
         }
     }
 }

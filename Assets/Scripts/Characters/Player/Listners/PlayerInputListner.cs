@@ -34,8 +34,8 @@ public class PlayerInputListner : MonoBehaviour
     }
     public void Attack(InputAction.CallbackContext context)
     {
-        playerData.attackContext.curAttack = (int)EPlayerAttack.NormalAttack;
-        playerData.isAttack = !context.canceled;
+        playerData.isPressAttack = !context.canceled;
+        playerData.attackContext.attackType = EPlayerAttack.NormalAttack;
     }
     public void Skill(InputAction.CallbackContext context)
     {

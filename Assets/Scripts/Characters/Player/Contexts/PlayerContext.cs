@@ -54,9 +54,10 @@ public class PlayerContext : MonoBehaviour
     public int maxFallDamage;
 
     [Header("AttackState")]
-    public bool isAttack;
+    public bool isPressAttack;
     public bool canAttack;
     public float delayInterval;
+    public bool isStillAttack;
     public AttackContext attackContext;
 
     public bool IsIdleState
@@ -92,7 +93,7 @@ public class PlayerContext : MonoBehaviour
     {
         get
         {
-            return isAttack && !isFalling;
+            return isPressAttack && !isFalling;
         }
     }
     public void Initialize()

@@ -71,7 +71,7 @@ namespace Orpul1.Player.State
         }
         private bool IsAttackState()
         {
-            if (!data.isAttack) return false;
+            if (!data.isPressAttack) return false;
             transitionTo((int)EPlayerState.Attack);
 
             return true;

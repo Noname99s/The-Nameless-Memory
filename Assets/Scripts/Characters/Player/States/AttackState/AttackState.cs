@@ -8,13 +8,13 @@ namespace Orpul1.Player.State
 {
     public class AttackState : PlayerBaseState
     {
-        ICommand[] attackCommands;
+        IStrategy[] attackCommands;
         EPlayerAttack prevAttack;
-        bool canAttack = true;
-        float delayInterval = 0;
+        float attackDelay = 0;
+        float nextComboTime = 0;
         public AttackState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo) 
         {
-            attackCommands = new ICommand[3]
+            attackCommands = new IStrategy[3]
             {
                 new NormalAttack(playerContext),
                 new StrongAttack(playerContext),
@@ -25,15 +25,16 @@ namespace Orpul1.Player.State
         public override void OnStart()
         {
             data.animator.SetBool(EPlayerAni.IsAttack.ToString(), true);
-            delayInterval = data.attackContext.attackDelays[(int)data.attackContext.attackType];
             prevAttack = data.attackContext.attackType;
             data.canAttack = true;
+            nextComboTime = 0;
+            attackDelay = 0;
         }
 
         public override void OnUpdate()
         {
-            ReadyAttack();
             Attack();
+            SetReadyNextAttack();
             ChangeAttackType();
         }
 
@@ -49,27 +50,42 @@ namespace Orpul1.Player.State
         {
             attackCommands[(int)data.attackContext.attackType].Execute();
 
-            if (data.canAttack|| data.isAttack)
+            if (Time.time < nextComboTime) return;
+            if (!data.canAttack)
             {
+                TransitionState();
                 return;
             }
-            TransitionState();
+            PrepareNextComboAttack();
+        }
+        private void PrepareNextComboAttack()
+        {
+            attackDelay = Time.time;
+            nextComboTime = attackDelay + data.attackContext.attackDelays[(int)data.attackContext.attackType];
+            data.canAttack = false;
+            data.isPressAttack = false;
+        }
+        
+        private void SetReadyNextAttack()
+        {
+            if (data.canAttack) return;
+            if (!CanComboAttack())
+                return;
+
+            data.canAttack = data.isPressAttack;
+        }
+        private bool CanComboAttack()
+        {
+            if (Time.time > nextComboTime)
+                return false;
+            
+            return true;
         }
         private void ChangeAttackType()
         {
             if (prevAttack == data.attackContext.attackType) return;
             data.attackContext.Initialize();
-            
-            prevAttack = data.attackContext.attackType;
-        }
-        private void ReadyAttack()
-        {
-            if (data.canAttack) return;
-
-            float firstFrameKey = data.attackContext.attackDelays[(int)data.attackContext.attackType] * 0.5f;
-            float lastFrameKey = data.attackContext.attackDelays[(int)data.attackContext.attackType];
-            bool isDetectKeySection = (data.delayInterval >= firstFrameKey && data.delayInterval <= lastFrameKey);
-            data.canAttack = isDetectKeySection && data.isAttack;
+            transitionTo((int)EPlayerState.Idle);
         }
         private void TransitionState()
         {

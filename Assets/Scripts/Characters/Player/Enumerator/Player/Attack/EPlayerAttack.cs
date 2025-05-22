@@ -5,5 +5,6 @@ namespace Orpul1.State.Attack
         NormalAttack,
         StrongAttack,
         Gaurd,
+        NONE,
     }
 }

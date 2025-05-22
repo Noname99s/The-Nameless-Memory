@@ -1,6 +1,6 @@
 namespace Orpul1
 {
-    public interface ICommand
+    public interface IStrategy
     {
         public void Execute();
     }
