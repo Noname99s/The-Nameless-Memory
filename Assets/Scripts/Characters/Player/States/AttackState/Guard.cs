@@ -9,7 +9,11 @@ namespace Orpul1.Player.State.Attack
         }
         public void Execute()
         {
-            throw new System.NotImplementedException();
+        }
+
+        public void Initialize()
+        {
+            playerData.attackContext.curAttack = 0;
         }
     }
 }

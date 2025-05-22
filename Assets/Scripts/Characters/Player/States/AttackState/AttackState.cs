@@ -24,6 +24,7 @@ namespace Orpul1.Player.State
 
         public override void OnStart()
         {
+            attackCommands[(int)data.attackContext.attackType].Initialize();
             data.animator.SetBool(EPlayerAni.IsAttack.ToString(), true);
             prevAttack = data.attackContext.attackType;
             data.canAttack = true;
@@ -43,7 +44,7 @@ namespace Orpul1.Player.State
             data.attackContext.Initialize();
 
             data.animator.SetBool(EPlayerAni.IsAttack.ToString(), false);
-            data.animator.SetInteger(EPlayerAni.NormalAttackIndex.ToString(), 0);
+            data.animator.SetInteger(EPlayerAni.AttackIndex.ToString(), 0);
         }
 
         private void Attack()

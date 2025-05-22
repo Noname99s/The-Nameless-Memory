@@ -8,7 +8,8 @@ namespace Orpul1.Player.Animation
         IsGround,
         IsDie,
         IsAttack,
+        IsStrongAttack,
         MoveSpeed,
-        NormalAttackIndex,
+        AttackIndex,
     }
 }

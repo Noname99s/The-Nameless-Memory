@@ -22,8 +22,6 @@ namespace Orpul1.Player.State
             data.rigid.linearVelocityY = -data.defaultFallSpeed;
             data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
             maxMoveX = data.rigid.linearVelocityX < 0 ? -data.rigid.linearVelocityX : data.rigid.linearVelocityX;
-            Debug.Log($"MaxMoveX {maxMoveX}");
-            
         }
 
         public override void OnUpdate()

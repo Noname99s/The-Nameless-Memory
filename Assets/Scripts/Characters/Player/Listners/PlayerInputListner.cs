@@ -32,11 +32,18 @@ public class PlayerInputListner : MonoBehaviour
             playerData.isPressJump = true;
         }
     }
-    public void Attack(InputAction.CallbackContext context)
+    public void NormalAttack(InputAction.CallbackContext context)
     {
         playerData.isPressAttack = !context.canceled;
         playerData.attackContext.attackType = EPlayerAttack.NormalAttack;
     }
+
+    public void StrongAttack(InputAction.CallbackContext context)
+    {
+        playerData.isPressAttack = !context.canceled;
+        playerData.attackContext.attackType = EPlayerAttack.StrongAttack;
+    }
+
     public void Skill(InputAction.CallbackContext context)
     {
 
