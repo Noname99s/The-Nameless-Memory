@@ -13,6 +13,7 @@ public class AttackContext
     public int curAttack = 0;
     public void Initialize()
     {
+        attackType = EPlayerAttack.NONE;
         curAttack = 0;
     }
 }
@@ -100,5 +101,6 @@ public class PlayerContext : MonoBehaviour
     {
         hp = maxHp;
         fallDamage = 0;
+        attackContext.attackType = EPlayerAttack.NONE;
     }
 }

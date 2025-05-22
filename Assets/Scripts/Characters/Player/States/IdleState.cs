@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using Orpul1.Player.Animation;
+using Orpul1.State.Attack;
 namespace Orpul1.Player.State
 {
     public class IdleState : PlayerBaseState

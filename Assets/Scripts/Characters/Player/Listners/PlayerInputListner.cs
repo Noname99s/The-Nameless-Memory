@@ -34,12 +34,14 @@ public class PlayerInputListner : MonoBehaviour
     }
     public void NormalAttack(InputAction.CallbackContext context)
     {
+        if (playerData.attackContext.attackType == EPlayerAttack.StrongAttack) return;
         playerData.isPressAttack = !context.canceled;
         playerData.attackContext.attackType = EPlayerAttack.NormalAttack;
     }
 
     public void StrongAttack(InputAction.CallbackContext context)
     {
+        if (playerData.attackContext.attackType == EPlayerAttack.NormalAttack) return;
         playerData.isPressAttack = !context.canceled;
         playerData.attackContext.attackType = EPlayerAttack.StrongAttack;
     }

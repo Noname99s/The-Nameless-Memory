@@ -24,7 +24,9 @@ namespace Orpul1.Player.State
 
         public override void OnStart()
         {
+            Debug.Log("StartAttack");
             attackCommands[(int)data.attackContext.attackType].Initialize();
+            data.animator.SetBool(EPlayerAni.IsAttack.ToString(), false);
             data.animator.SetBool(EPlayerAni.IsAttack.ToString(), true);
             prevAttack = data.attackContext.attackType;
             data.canAttack = true;
@@ -34,15 +36,16 @@ namespace Orpul1.Player.State
 
         public override void OnUpdate()
         {
+            if(IsChangeAttackType()) return;
             Attack();
             SetReadyNextAttack();
-            ChangeAttackType();
         }
 
         public override void OnExit()
         {
+            Debug.Log("EndAttack");
             data.attackContext.Initialize();
-
+             
             data.animator.SetBool(EPlayerAni.IsAttack.ToString(), false);
             data.animator.SetInteger(EPlayerAni.AttackIndex.ToString(), 0);
         }
@@ -82,11 +85,13 @@ namespace Orpul1.Player.State
             
             return true;
         }
-        private void ChangeAttackType()
+        private bool IsChangeAttackType()
         {
-            if (prevAttack == data.attackContext.attackType) return;
-            data.attackContext.Initialize();
-            transitionTo((int)EPlayerState.Idle);
+            if (prevAttack == data.attackContext.attackType) return false;
+            Debug.Log("Diff Attack State");
+            data.canAttack = false;
+            TransitionState();
+            return true;
         }
         private void TransitionState()
         {
