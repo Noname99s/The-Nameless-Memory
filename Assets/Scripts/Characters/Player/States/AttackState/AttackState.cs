@@ -25,6 +25,9 @@ namespace Orpul1.Player.State
         public override void OnStart()
         {
             Debug.Log("StartAttack");
+            if ((int)data.attackContext.attackType > attackCommands.Length)
+                data.attackContext.attackType = EPlayerAttack.NormalAttack;
+
             attackCommands[(int)data.attackContext.attackType].Initialize();
             data.animator.SetBool(EPlayerAni.IsAttack.ToString(), false);
             data.animator.SetBool(EPlayerAni.IsAttack.ToString(), true);

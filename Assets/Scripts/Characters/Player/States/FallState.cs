@@ -1,5 +1,6 @@
 using Orpul1.Player;
 using Orpul1.Player.Animation;
+using Orpul1.State.Attack;
 using System;
 using UnityEngine;
 
@@ -35,6 +36,7 @@ namespace Orpul1.Player.State
         public override void OnExit() 
         {
             data.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
+            data.attackContext.attackType = EPlayerAttack.NONE;
         }
 
         private void AirMove()
