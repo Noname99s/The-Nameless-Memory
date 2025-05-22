@@ -1,6 +1,7 @@
 using System;
 using Orpul1.Player;
 using Orpul1.State;
+using Orpul1.State.Attack;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -33,6 +34,8 @@ public class PlayerInputListner : MonoBehaviour
     }
     public void Attack(InputAction.CallbackContext context)
     {
+        playerData.attackContext.curAttack = (int)EPlayerAttack.NormalAttack;
+        playerData.isAttack = !context.canceled;
     }
     public void Skill(InputAction.CallbackContext context)
     {

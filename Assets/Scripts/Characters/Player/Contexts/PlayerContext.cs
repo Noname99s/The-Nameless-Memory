@@ -1,4 +1,21 @@
+using Orpul1.Player.Animation;
+using Orpul1.Player.State.Attack;
+using Orpul1.State.Attack;
+using System;
 using UnityEngine;
+
+[Serializable]
+public class AttackContext
+{
+    public EPlayerAttack attackType = EPlayerAttack.NormalAttack;
+    public float[] attackDelays = new float[3];
+    public int[] attackCounts = new int[3];
+    public int curAttack = 0;
+    public void Initialize()
+    {
+        curAttack = 0;
+    }
+}
 
 public class PlayerContext : MonoBehaviour
 {
@@ -36,6 +53,11 @@ public class PlayerContext : MonoBehaviour
     [HideInInspector] public int fallDamage;
     public int maxFallDamage;
 
+    [Header("AttackState")]
+    public bool isAttack;
+    public bool canAttack;
+    public float delayInterval;
+    public AttackContext attackContext;
 
     public bool IsIdleState
     {
@@ -64,6 +86,13 @@ public class PlayerContext : MonoBehaviour
         get
         {
             return moveDir != Vector2.zero;
+        }
+    }
+    public bool IsAttackState
+    {
+        get
+        {
+            return isAttack && !isFalling;
         }
     }
     public void Initialize()

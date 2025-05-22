@@ -46,6 +46,7 @@ namespace Orpul1.Player.State
             if (IsIdleState()) return;
             if (IsJumpState()) return;
             if (IsFallState()) return;
+            if (IsAttackState()) return;
         }
         private bool IsJumpState()
         {
@@ -65,6 +66,13 @@ namespace Orpul1.Player.State
         {
             if (!data.IsIdleState) return false;
             transitionTo((int)EPlayerState.Idle);
+
+            return true;
+        }
+        private bool IsAttackState()
+        {
+            if (!data.isAttack) return false;
+            transitionTo((int)EPlayerState.Attack);
 
             return true;
         }

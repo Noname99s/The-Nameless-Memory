@@ -7,7 +7,7 @@ namespace Orpul1.Player.Animation
         IdleTrigger,
         IsGround,
         IsDie,
-        IsNormalAttack,
+        IsAttack,
         MoveSpeed,
         NormalAttackIndex,
     }
