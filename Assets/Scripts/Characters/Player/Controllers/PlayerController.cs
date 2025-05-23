@@ -1,9 +1,5 @@
 using Orpul1.State;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 namespace Orpul1.Player
 {
@@ -54,14 +50,10 @@ namespace Orpul1.Player
         }
         private void OnAir()
         {
-            //if (state != EPlayerState.Jump && state != EPlayerState.Fall) return;
             int flipXValue = playerData.sprite.flipX ? -1 : 1;
             SetWallRayPosi();
             if (!IsHitRay(SetRay(wallRay, wallRayStartPosi, Vector2.right * flipXValue, wallRayDistance))) 
-            {
-                //playerData.isFalling = true;
                 return;
-            }
             playerData.canWallClimb = true;
             Debug.Log("Wall Detected!");
         }

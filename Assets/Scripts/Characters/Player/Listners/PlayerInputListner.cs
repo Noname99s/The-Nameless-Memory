@@ -50,7 +50,10 @@ public class PlayerInputListner : MonoBehaviour
         playerData.isPressAttack = !context.canceled;
         playerData.attackContext.attackType = EPlayerAttack.StrongAttack;
     }
-
+    public void WallClimb(InputAction.CallbackContext context)
+    {
+        playerData.isPressWallClimb = !context.canceled;
+    }
     public void Skill(InputAction.CallbackContext context)
     {
 

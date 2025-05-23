@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using Orpul1.Player;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Orpul1.State
 {

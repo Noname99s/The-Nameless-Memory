@@ -1,20 +1,49 @@
+using System;
 using Orpul1.State;
 using UnityEngine;
 
 namespace Orpul1.Player.State
 {
-    public class WallClimb : IState
+    public class WallClimb : PlayerBaseState
     {
-        public void OnStart()
+        public WallClimb(PlayerContext playerData, Action<int> transitionTo) : base(playerData, transitionTo)
         {
         }
 
-        public void OnUpdate()
+        public override void OnStart()
         {
+            data.rigid.gravityScale = 0;
         }
 
-        public void OnExit()
+        public override void OnUpdate()
         {
+            TrainsitionState();
         }
+
+        public override void OnExit()
+        {
+            data.rigid.gravityScale = data.gravityStrength;
+        }
+        private void TrainsitionState()
+        {
+            if (IsJumpState()) return;
+            if (IsFallState()) return;
+        }
+        private bool IsJumpState()
+        {
+            if (!data.IsJumpState) return false;
+            data.rigid.linearVelocityX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
+            transitionTo((int)EPlayerState.Jump);
+
+            return true;
+        }
+        private bool IsFallState()
+        {
+            if(!data.IsFallState) return false;
+            transitionTo((int)EPlayerState.Fall);
+
+            return true;
+        }
+
     }
 }

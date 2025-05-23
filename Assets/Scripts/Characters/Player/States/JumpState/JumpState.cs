@@ -2,6 +2,7 @@ using Orpul1.Player;
 using Orpul1.Player.Animation;
 using Orpul1.State.Attack;
 using System;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 namespace Orpul1.Player.State
@@ -74,6 +75,12 @@ namespace Orpul1.Player.State
             if (!data.IsFallState) return false;
             transitionTo((int)EPlayerState.Fall);
 
+            return true;
+        }
+        private bool IsWallClimbState()
+        {
+            if (!data.isPressWallClimb) return false;
+            //transitionTo((int)EPlayerState);
             return true;
         }
         private bool IsHitState()
