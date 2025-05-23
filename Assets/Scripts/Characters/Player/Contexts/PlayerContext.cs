@@ -61,6 +61,9 @@ public class PlayerContext : MonoBehaviour
     public bool isStillAttack;
     public AttackContext attackContext;
 
+    [Header("WallClimbState")]
+    public bool canWallClimb;
+    public bool isPressWallClimb;
     public bool IsIdleState
     {
         get

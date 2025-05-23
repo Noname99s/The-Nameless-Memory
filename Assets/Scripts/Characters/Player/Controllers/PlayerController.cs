@@ -11,15 +11,18 @@ namespace Orpul1.Player
     {
         [SerializeField] StateController stateController;
         [SerializeField] PlayerContext playerData;
-        [SerializeField] float rayDistance = 1f;
-        [SerializeField] Vector3 rayPosi = Vector3.zero;
+        [SerializeField] float groundRayDistance = 1f;
+        [SerializeField] float wallRayDistance = 1f;
+        [SerializeField] Vector3 groundRayStartPosi = Vector3.zero;
+        [SerializeField] Vector3 wallRayStartPosi = Vector3.zero;
         [SerializeField] LayerMask floorLayer;
-        Ray2D ray = new Ray2D();
-        RaycastHit2D rayHit = new RaycastHit2D();
+        Ray2D groundRay = new Ray2D();
+        Ray2D wallRay = new Ray2D();
+
         [SerializeField] EPlayerState state;
         private void Awake()
         {
-            ray.origin = transform.position;
+            groundRay.origin = transform.position;
             playerData.Initialize();
         }
         void Start()
@@ -33,12 +36,12 @@ namespace Orpul1.Player
         {
             state = (EPlayerState)stateController.CurState;
             OnGround();
+            OnAir();
         }
+        
         private void OnGround()
         {
-            SetRay();
-
-            if (!IsGround())
+            if (!IsHitRay(SetRay(groundRay, groundRayStartPosi, Vector2.down, groundRayDistance))) 
             {
                 playerData.isFalling = true;
                 return;
@@ -49,18 +52,37 @@ namespace Orpul1.Player
             playerData.hp -= playerData.fallDamage;
             playerData.fallDamage = 0;
         }
-
-        private void SetRay()
+        private void OnAir()
         {
-            ray.origin = transform.position + rayPosi;
-            ray.direction = Vector2.down;
-            rayHit = Physics2D.Raycast(ray.origin, ray.direction, rayDistance, floorLayer.value);
-            Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.green);
+            //if (state != EPlayerState.Jump && state != EPlayerState.Fall) return;
+            int flipXValue = playerData.sprite.flipX ? -1 : 1;
+            SetWallRayPosi();
+            if (!IsHitRay(SetRay(wallRay, wallRayStartPosi, Vector2.right * flipXValue, wallRayDistance))) 
+            {
+                //playerData.isFalling = true;
+                return;
+            }
+            playerData.canWallClimb = true;
+            Debug.Log("Wall Detected!");
         }
-        private bool IsGround()
+        private void SetWallRayPosi()
         {
-            if (rayHit.transform == null) return false;
-            if (!rayHit.transform.CompareTag(ETag.Floor.ToString())) return false;
+            if (!playerData.sprite.flipX && wallRayStartPosi.x < 0)
+                wallRayStartPosi.x *= -1;
+            else if (playerData.sprite.flipX && wallRayStartPosi.x > 0)
+                wallRayStartPosi.x *= -1;
+        }
+        private RaycastHit2D SetRay(Ray2D ray, Vector2 rayPosi, Vector2 dir,float distance)
+        {
+            ray.origin = (Vector2)transform.position + rayPosi;
+            ray.direction = dir;
+            Debug.DrawRay(ray.origin, ray.direction * distance, Color.green);
+            return Physics2D.Raycast(ray.origin, ray.direction, distance, floorLayer.value);
+        }
+        private bool IsHitRay(RaycastHit2D hit2D)
+        {
+            if (hit2D.transform == null) return false;
+            if (!hit2D.transform.CompareTag(ETag.Floor.ToString())) return false;
 
             return true;
         }
