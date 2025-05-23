@@ -1,5 +1,6 @@
 using Orpul1.Player;
 using Orpul1.Player.Animation;
+using Orpul1.Player.State.Jump;
 using Orpul1.State.Attack;
 using System;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
@@ -7,18 +8,25 @@ using UnityEngine;
 
 namespace Orpul1.Player.State
 {
+    
     public class JumpState : PlayerBaseState
     {
-        float jumpAmount = 0;
+        
         float moveX = 0;
         float maxMoveX = 0;
         bool isFlip = false;
-        public JumpState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo) { }
+        IStrategy[] jumpStraties = new IStrategy[2];
+        EPlayerJump jumpType = EPlayerJump.NormalJump;
+        public JumpState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo) 
+        {
+            jumpStraties[(int)EPlayerJump.NormalJump] = new NormalJump(playerContext);
+            jumpStraties[(int)EPlayerJump.WallJump] = new WallJump(playerContext);
+        }
         public override void OnStart()
         {
-            data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
+            SetJumpType();
+            jumpStraties[(int)jumpType].Initialize();
             data.animator.SetBool(EPlayerAni.IsJump.ToString(),true);
-            jumpAmount = data.jumpPower;
             maxMoveX = data.moveSpeed * Time.deltaTime;
         }
 
@@ -26,16 +34,24 @@ namespace Orpul1.Player.State
         {
             FlipX();
             AirMove();
-            DoJump();
+            jumpStraties[(int)jumpType].Execute();
             TransitionState();
         }
 
         public override void OnExit()
         {
             data.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
+            data.shouldWallJump = false;
         }
 
         
+        private void SetJumpType()
+        {
+            if(data.shouldWallJump)
+                jumpType = EPlayerJump.WallJump;
+            else
+                jumpType = EPlayerJump.NormalJump;
+        }
         private void AirMove()
         {
             moveX = data.rigid.linearVelocityX + data.moveDir.x * data.onAirMoveSpeed * Time.deltaTime;
@@ -48,22 +64,6 @@ namespace Orpul1.Player.State
             else if (data.moveDir.x > 0)
                 isFlip = false;
             data.sprite.flipX = isFlip;
-        }
-        private void DoJump()
-        {
-            if (!data.isPressJump || data.jumpState == EJumpState.JumpEnd) return;
-
-            jumpAmount *= data.decelerate;
-            data.jumpState = EJumpState.Jumping;
-            data.rigid.linearVelocityY = jumpAmount;
-
-            if (data.rigid.linearVelocityY < data.minJumpSpeed)
-            {
-                data.jumpState = EJumpState.JumpEnd;
-                data.isPressJump = false;
-                jumpAmount = 0;
-                transitionTo((int)EPlayerState.Fall);
-            }
         }
         private void TransitionState()
         {

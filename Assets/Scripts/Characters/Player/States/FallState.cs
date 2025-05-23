@@ -21,8 +21,8 @@ namespace Orpul1.Player.State
             interval = 0;
             data.fallDamage = 0;
             data.rigid.linearVelocityY = -data.defaultFallSpeed;
+            data.shouldWallJump = false;
             data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
-
             data.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
             maxMoveX = data.rigid.linearVelocityX < 0 ? -data.rigid.linearVelocityX : data.rigid.linearVelocityX;
         }
@@ -43,7 +43,8 @@ namespace Orpul1.Player.State
 
         private void AirMove()
         {
-            data.rigid.linearVelocityY = Mathf.Clamp(data.rigid.linearVelocityY, -data.maxFallSpeed, 0);
+            if(data.isFalling)
+                data.rigid.linearVelocityY = Mathf.Clamp(data.rigid.linearVelocityY, -data.maxFallSpeed, 0);
             moveX = data.rigid.linearVelocityX + data.moveDir.x * data.onAirMoveSpeed * Time.deltaTime;
             data.rigid.linearVelocityX = Mathf.Clamp(moveX, -maxMoveX, maxMoveX);
         }

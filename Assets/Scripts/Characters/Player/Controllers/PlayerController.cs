@@ -58,7 +58,6 @@ namespace Orpul1.Player
                 return;
             }
             playerData.canWallClimb = true;
-            Debug.Log("Wall Detected!");
         }
         private void SetWallRayPosi()
         {

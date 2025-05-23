@@ -1,4 +1,5 @@
 using System;
+using Orpul1.Player.Animation;
 using Orpul1.State;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace Orpul1.Player.State
 {
     public class WallClimb : PlayerBaseState
     {
+        float jumpAmount = 0;
         public WallClimb(PlayerContext playerData, Action<int> transitionTo) : base(playerData, transitionTo)
         {
         }
@@ -15,22 +17,30 @@ namespace Orpul1.Player.State
             data.jumpCount = 2;
             data.rigid.gravityScale = 0;
             data.rigid.linearVelocity = Vector2.zero;
+            data.animator.SetBool(EPlayerAni.IsWallClimb.ToString(), true);
+            data.shouldWallJump = true;
+            jumpAmount = data.jumpPower;
+            Debug.Log("Climb Wall");
+
         }
 
         public override void OnUpdate()
         {
+            //DoJump();
             TrainsitionState();
         }
 
         public override void OnExit()
         {
             data.rigid.gravityScale = data.gravityStrength;
+            data.animator.SetBool(EPlayerAni.IsWallClimb.ToString(), false);
         }
         private void TrainsitionState()
         {
             if (IsJumpState()) return;
-            //if (IsFallState()) return;
+            if (IsFallState()) return;
         }
+        
         private bool IsJumpState()
         {
             if (!data.isPressJump && data.isPressWallClimb) return false;
@@ -42,7 +52,7 @@ namespace Orpul1.Player.State
         }
         private bool IsFallState()
         {
-            if(!data.IsFallState) return false;
+            if(data.IsWallClimbState) return false;
             transitionTo((int)EPlayerState.Fall);
 
             return true;

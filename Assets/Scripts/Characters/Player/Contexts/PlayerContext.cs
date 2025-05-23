@@ -42,6 +42,7 @@ public class PlayerContext : MonoBehaviour
     public float minJumpSpeed = 0.2f;
     public int jumpCount = 0;
     public bool isPressJump = false;
+    public bool shouldWallJump = false;
 
     [Header("FallState")]
     public bool isFalling = false;
