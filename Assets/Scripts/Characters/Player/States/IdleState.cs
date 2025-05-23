@@ -10,6 +10,7 @@ namespace Orpul1.Player.State
 
         public override void OnStart()
         {
+            data.jumpCount = 2;
             //data.animator.SetTrigger(EPlayerAni.IdleTrigger.ToString());
         }
         public override void OnUpdate()

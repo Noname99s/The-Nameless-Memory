@@ -22,6 +22,8 @@ namespace Orpul1.Player.State
             data.fallDamage = 0;
             data.rigid.linearVelocityY = -data.defaultFallSpeed;
             data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
+
+            data.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
             maxMoveX = data.rigid.linearVelocityX < 0 ? -data.rigid.linearVelocityX : data.rigid.linearVelocityX;
         }
 
@@ -73,6 +75,7 @@ namespace Orpul1.Player.State
         {
             //if (IsMoveState()) return;
             if (IsIdleState()) return;
+            if (IsJumpState()) return;
         }
 
         private bool IsMoveState()
@@ -87,6 +90,13 @@ namespace Orpul1.Player.State
         {
             if (data.IsFallState) return false;
             transitionTo((int)EPlayerState.Idle);
+
+            return true;
+        }
+        private bool IsJumpState()
+        {
+            if (!data.IsJumpState) return false;
+            transitionTo((int)EPlayerState.Jump);
 
             return true;
         }

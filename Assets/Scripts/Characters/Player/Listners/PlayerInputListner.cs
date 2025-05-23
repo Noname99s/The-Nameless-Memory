@@ -26,9 +26,14 @@ public class PlayerInputListner : MonoBehaviour
             playerData.isPressJump = false;
             playerData.jumpState = EJumpState.JumpEnd;
             playerData.isFalling = true;
+            if(playerData.jumpCount>0)
+                playerData.jumpCount--;
         }
         else
         {
+            if (playerData.jumpCount <= 0)
+                return;
+            playerData.jumpState = EJumpState.JumpReady;
             playerData.isPressJump = true;
         }
     }

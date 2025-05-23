@@ -73,7 +73,7 @@ public class PlayerContext : MonoBehaviour
     {
         get
         {
-            return (isPressJump && jumpState == EJumpState.JumpReady);
+            return (isPressJump && jumpState == EJumpState.JumpReady && jumpCount > 0);
         }
     }
     public bool IsFallState

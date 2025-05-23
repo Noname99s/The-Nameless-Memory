@@ -16,7 +16,7 @@ namespace Orpul1.Player.State
         public override void OnStart()
         {
             data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
-            data.animator.SetTrigger(EPlayerAni.JumpTrigger.ToString());
+            data.animator.SetBool(EPlayerAni.IsJump.ToString(),true);
             jumpAmount = data.jumpPower;
             maxMoveX = data.moveSpeed * Time.deltaTime;
         }
@@ -31,6 +31,7 @@ namespace Orpul1.Player.State
 
         public override void OnExit()
         {
+            data.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
         }
 
         

@@ -14,7 +14,7 @@ namespace Orpul1.Player.State
         bool isFlip = false;
         public override void OnStart()
         {
-            
+            data.jumpCount = 2;
         }
         public override void OnUpdate()
         {
