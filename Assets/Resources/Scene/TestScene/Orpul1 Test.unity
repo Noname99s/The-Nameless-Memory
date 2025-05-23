@@ -72915,11 +72915,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: wallRayDistance
-      value: 2
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: groundRayDistance
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: wallRayStartPosi.x
-      value: -0.3
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: wallRayStartPosi.y
@@ -72941,6 +72945,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 281078674}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: maxFallSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: onAirMoveSpeed
       value: 100
