@@ -18,6 +18,7 @@ namespace Orpul1.Player
                 new JumpState(playerData, transitionTo),
                 new FallState(playerData, transitionTo),
                 new AttackState(playerData, transitionTo),
+                new WallClimb(playerData, transitionTo)
             };
         }
 

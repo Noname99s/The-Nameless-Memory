@@ -72639,7 +72639,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 557948703320104658, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 557948703320104658, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_ActionEvents.Array.data[1].m_ActionId
@@ -72695,7 +72695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 557948703320104658, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_ActionEvents.Array.data[14].m_ActionId
-      value: 3eaa2666-87de-466e-8423-98d47106bfd0
+      value: 9db1f6ec-205d-43a3-b0f1-4bc56e214be5
       objectReference: {fileID: 0}
     - target: {fileID: 557948703320104658, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_ActionEvents.Array.data[15].m_ActionId
@@ -72755,7 +72755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 557948703320104658, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_ActionEvents.Array.data[14].m_ActionName
-      value: 'Player/Attack[/Keyboard/leftAlt,/Keyboard/leftCtrl]'
+      value: 'Player/WallClimb[/Keyboard/upArrow]'
       objectReference: {fileID: 0}
     - target: {fileID: 557948703320104658, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_ActionEvents.Array.data[15].m_ActionName
@@ -72839,7 +72839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 557948703320104658, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Attack
+      value: WallClimb
       objectReference: {fileID: 0}
     - target: {fileID: 557948703320104658, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

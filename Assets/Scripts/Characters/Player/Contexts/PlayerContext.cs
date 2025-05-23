@@ -100,6 +100,13 @@ public class PlayerContext : MonoBehaviour
             return isPressAttack && !isFalling;
         }
     }
+    public bool IsWallClimbState
+    {
+        get
+        {
+            return isPressWallClimb && canWallClimb;
+        }
+    }
     public void Initialize()
     {
         hp = maxHp;

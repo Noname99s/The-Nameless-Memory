@@ -12,7 +12,9 @@ namespace Orpul1.Player.State
 
         public override void OnStart()
         {
+            data.jumpCount = 2;
             data.rigid.gravityScale = 0;
+            data.rigid.linearVelocity = Vector2.zero;
         }
 
         public override void OnUpdate()
@@ -27,12 +29,13 @@ namespace Orpul1.Player.State
         private void TrainsitionState()
         {
             if (IsJumpState()) return;
-            if (IsFallState()) return;
+            //if (IsFallState()) return;
         }
         private bool IsJumpState()
         {
-            if (!data.IsJumpState) return false;
+            if (!data.isPressJump && data.isPressWallClimb) return false;
             data.rigid.linearVelocityX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
+            data.isPressWallClimb = false;
             transitionTo((int)EPlayerState.Jump);
 
             return true;
