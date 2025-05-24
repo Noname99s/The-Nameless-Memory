@@ -73176,6 +73176,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: slideMovement.<surfaceSlideAngle>k__BackingField
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: slideMovement.<useSimulationMove>k__BackingField
       value: 1
       objectReference: {fileID: 0}
