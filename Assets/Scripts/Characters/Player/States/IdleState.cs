@@ -12,6 +12,7 @@ namespace Orpul1.Player.State
         {
             data.jumpCount = 2;
             //data.animator.SetTrigger(EPlayerAni.IdleTrigger.ToString());
+            data.rigid.gravityScale = 0;
         }
         public override void OnUpdate()
         {
@@ -20,6 +21,7 @@ namespace Orpul1.Player.State
         }
         public override void OnExit()
         {
+            data.rigid.gravityScale = 5;
         }
 
         private void TransitionState()

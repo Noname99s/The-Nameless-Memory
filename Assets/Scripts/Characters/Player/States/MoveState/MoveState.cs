@@ -1,9 +1,5 @@
 using System;
-using System.Data.Common;
 using Orpul1.Player.Animation;
-using Orpul1.State;
-using UnityEditor.Build;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 namespace Orpul1.Player.State
