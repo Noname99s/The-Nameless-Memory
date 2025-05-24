@@ -49,6 +49,7 @@ namespace Orpul1.Player.State
             if (IsJumpState()) return;
             if (IsFallState()) return;
             if (IsAttackState()) return;
+            if (IsClimbLadderState()) return;
         }
         private bool IsHitState()
         {
@@ -80,6 +81,7 @@ namespace Orpul1.Player.State
 
             return true;
         }
+
         private bool IsIdleState()
         {
             if (!data.IsIdleState) return false;
@@ -87,10 +89,19 @@ namespace Orpul1.Player.State
 
             return true;
         }
+
         private bool IsAttackState()
         {
             if (!data.isPressAttack) return false;
             transitionTo((int)EPlayerState.Attack);
+
+            return true;
+        }
+
+        private bool IsClimbLadderState()
+        {
+            if (!data.IsClimbLadderState) return false;
+            transitionTo((int)EPlayerState.ClimbLadder);
 
             return true;
         }

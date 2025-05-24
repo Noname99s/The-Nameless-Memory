@@ -21,6 +21,7 @@ namespace Orpul1.Player
                 new WallClimb(playerData, transitionTo),
                 new HitState(playerData, transitionTo),
                 new DeathState(playerData, transitionTo),
+                new ClimbLadderState(playerData, transitionTo),
             };
         }
 

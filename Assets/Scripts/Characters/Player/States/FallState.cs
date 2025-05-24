@@ -77,6 +77,7 @@ namespace Orpul1.Player.State
             if (IsHitState()) return;
             if (IsDeathState()) return;
             if (IsWallClimbState()) return;
+            if (IsClimbLadderState()) return;
             if (IsIdleState()) return;
             if (IsJumpState()) return;
         }
@@ -87,7 +88,13 @@ namespace Orpul1.Player.State
 
             return true;
         }
+        private bool IsClimbLadderState()
+        {
+            if (!data.IsClimbLadderState) return false;
+            transitionTo((int)EPlayerState.ClimbLadder);
 
+            return true;
+        }
         private bool IsDeathState()
         {
             if (!data.isDeath) return false;

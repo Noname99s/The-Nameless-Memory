@@ -12,6 +12,7 @@ namespace Orpul1.Player.Animation
         IsAttack,
         IsStrongAttack,
         IsWallClimb,
+        IsClimbLadder,
         MoveSpeed,
         AttackIndex,
         IsDie,

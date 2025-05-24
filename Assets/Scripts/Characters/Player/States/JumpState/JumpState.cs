@@ -28,6 +28,7 @@ namespace Orpul1.Player.State
             jumpStraties[(int)jumpType].Initialize();
             data.animator.SetBool(EPlayerAni.IsJump.ToString(),true);
             maxMoveX = data.moveSpeed * Time.deltaTime;
+            isFlip = data.sprite.flipX;
         }
 
         public override void OnUpdate()
@@ -69,6 +70,7 @@ namespace Orpul1.Player.State
         {
             if (IsHitState()) return;
             if (IsDeathState()) return;
+            if (IsClimbLadderState()) return;
             if (IsWallClimbState()) return;
             if (IsFallState()) return;
         }
@@ -99,6 +101,13 @@ namespace Orpul1.Player.State
         {
             if (!data.IsWallClimbState) return false;
             transitionTo((int)EPlayerState.WallClimb);
+
+            return true;
+        }
+        private bool IsClimbLadderState()
+        {
+            if (!data.IsClimbLadderState) return false;
+            transitionTo((int)EPlayerState.ClimbLadder);
 
             return true;
         }

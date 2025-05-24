@@ -10,6 +10,7 @@ namespace Orpul1.Player
         WallClimb,
         Hit,
         Death,
+        ClimbLadder,
         UseSkill
     }
 }

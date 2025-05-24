@@ -62,9 +62,14 @@ public class PlayerContext : MonoBehaviour
     public bool isStillAttack;
     public AttackContext attackContext;
 
+    [Header("ClimbLadder")]
+    public bool isPressClimbLadder;
+    public bool canClimbLadder;
+
     [Header("WallClimbState")]
-    public bool canWallClimb;
+    public bool canClimbWall;
     public bool isPressWallClimb;
+    public float climbSpeed;
 
     [Header("HitState")]
     public bool isHit = false;
@@ -76,7 +81,7 @@ public class PlayerContext : MonoBehaviour
     {
         get
         {
-            return moveDir == Vector2.zero;
+            return moveDir.x == 0;
         }
     }
 
@@ -98,7 +103,7 @@ public class PlayerContext : MonoBehaviour
     {
         get
         {
-            return moveDir != Vector2.zero;
+            return moveDir.x != 0;
         }
     }
     public bool IsAttackState
@@ -112,7 +117,14 @@ public class PlayerContext : MonoBehaviour
     {
         get
         {
-            return isPressWallClimb && canWallClimb;
+            return isPressWallClimb && canClimbWall;
+        }
+    }
+    public bool IsClimbLadderState
+    {
+        get
+        {
+            return isPressClimbLadder && canClimbLadder;
         }
     }
     public void Initialize()

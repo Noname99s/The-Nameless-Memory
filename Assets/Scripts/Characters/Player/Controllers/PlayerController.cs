@@ -1,5 +1,6 @@
 using Orpul1.State;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 
 namespace Orpul1.Player
 {
@@ -9,11 +10,13 @@ namespace Orpul1.Player
         [SerializeField] PlayerContext playerData;
         [SerializeField] float groundRayDistance = 1f;
         [SerializeField] float wallRayDistance = 1f;
+        [SerializeField] float ladderRayDistance = 1f;
         [SerializeField] Vector3 groundRayStartPosi = Vector3.zero;
         [SerializeField] Vector3 wallRayStartPosi = Vector3.zero;
-        [SerializeField] LayerMask floorLayer;
+        [SerializeField] LayerMask floorLayer, ladderLayer;
         Ray2D groundRay = new Ray2D();
         Ray2D wallRay = new Ray2D();
+        Ray2D ladderRay = new Ray2D();
 
         [SerializeField] EPlayerState state;
         private void Awake()
@@ -31,10 +34,14 @@ namespace Orpul1.Player
         void Update()
         {
             state = (EPlayerState)stateController.CurState;
+            ShootRays();
+        }
+        private void ShootRays()
+        {
             OnGround();
             OnAir();
+            OnLadder();
         }
-        
         private void OnGround()
         {
             if (!IsHitRay(SetRay(groundRay, groundRayStartPosi, Vector2.down, groundRayDistance, floorLayer.value))) 
@@ -54,10 +61,20 @@ namespace Orpul1.Player
             SetWallRayPosi();
             if (!IsHitRay(SetRay(wallRay, wallRayStartPosi, Vector2.right * flipXValue, wallRayDistance, floorLayer.value)))
             {
-                playerData.canWallClimb = false;
+                playerData.canClimbWall = false;
                 return;
             }
-            playerData.canWallClimb = true;
+            playerData.canClimbWall = true;
+        }
+        private void OnLadder()
+        {
+            
+            if (SetRay(ladderRay, Vector2.zero, Vector2.up, ladderRayDistance, ladderLayer.value).transform == null)
+            {
+                playerData.canClimbLadder = false;
+                return;
+            }
+            playerData.canClimbLadder = true;
         }
         private void SetWallRayPosi()
         {
@@ -66,9 +83,9 @@ namespace Orpul1.Player
             else if (playerData.sprite.flipX && wallRayStartPosi.x > 0)
                 wallRayStartPosi.x *= -1;
         }
-        private RaycastHit2D SetRay(Ray2D ray, Vector2 rayPosi, Vector2 dir,float distance, int detectLayer)
+        private RaycastHit2D SetRay(Ray2D ray, Vector2 rayShootPosi, Vector2 dir,float distance, int detectLayer)
         {
-            ray.origin = (Vector2)transform.position + rayPosi;
+            ray.origin = (Vector2)transform.position + rayShootPosi;
             ray.direction = dir;
             Debug.DrawRay(ray.origin, ray.direction * distance, Color.green);
             return Physics2D.Raycast(ray.origin, ray.direction, distance, detectLayer);

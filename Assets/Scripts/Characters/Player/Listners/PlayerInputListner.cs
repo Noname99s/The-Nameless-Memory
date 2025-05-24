@@ -53,6 +53,7 @@ public class PlayerInputListner : MonoBehaviour
     public void WallClimb(InputAction.CallbackContext context)
     {
         playerData.isPressWallClimb = !context.canceled;
+        playerData.isPressClimbLadder = !context.canceled;
     }
     public void Skill(InputAction.CallbackContext context)
     {
