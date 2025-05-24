@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Orpul1.State;
 using Orpul1.Player.State;
-using UnityEditor;
 using System;
+using Orpul1.Player.State.Hit;
 namespace Orpul1.Player
 {
     public class PlayerStateFactory : StateFactory
@@ -18,7 +18,9 @@ namespace Orpul1.Player
                 new JumpState(playerData, transitionTo),
                 new FallState(playerData, transitionTo),
                 new AttackState(playerData, transitionTo),
-                new WallClimb(playerData, transitionTo)
+                new WallClimb(playerData, transitionTo),
+                new HitState(playerData, transitionTo),
+                new DeathState(playerData, transitionTo),
             };
         }
 

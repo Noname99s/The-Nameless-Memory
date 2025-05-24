@@ -67,10 +67,27 @@ namespace Orpul1.Player.State
         }
         private void TransitionState()
         {
+            if (IsHitState()) return;
+            if (IsDeathState()) return;
             if (IsWallClimbState()) return;
             if (IsFallState()) return;
-            if (IsHitState()) return;
         }
+        private bool IsHitState()
+        {
+            if (!data.isHit) return false;
+            transitionTo((int)EPlayerState.Hit);
+
+            return true;
+        }
+
+        private bool IsDeathState()
+        {
+            if (!data.isDeath) return false;
+            transitionTo((int)EPlayerState.Death);
+
+            return true;
+        }
+
         private bool IsFallState()
         {
             if (!data.IsFallState) return false;
@@ -85,11 +102,7 @@ namespace Orpul1.Player.State
 
             return true;
         }
-        private bool IsHitState()
-        {
-            //TODO : 데미지 상태 추가
-            return true;
-        }
+       
     }
 
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Orpul1.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour,IDamageAble
     {
         [SerializeField] StateController stateController;
         [SerializeField] PlayerContext playerData;
@@ -81,6 +81,12 @@ namespace Orpul1.Player
             return true;
         }
 
+        public void OnDamage(int damage)
+        {
+            playerData.hp -= damage;
+            playerData.isHit = playerData.hp > 0;
+            playerData.isDeath = !playerData.isHit;
+        }
     }
 
 }

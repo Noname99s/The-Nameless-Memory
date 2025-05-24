@@ -65,6 +65,13 @@ public class PlayerContext : MonoBehaviour
     [Header("WallClimbState")]
     public bool canWallClimb;
     public bool isPressWallClimb;
+
+    [Header("HitState")]
+    public bool isHit = false;
+
+    [Header("DieState")]
+    public bool isDeath = false;
+
     public bool IsIdleState
     {
         get

@@ -37,10 +37,17 @@ namespace Orpul1.Player.State
         }
         private void TrainsitionState()
         {
+            if (IsHitState()) return;
             if (IsJumpState()) return;
             if (IsFallState()) return;
         }
-        
+        private bool IsHitState()
+        {
+            if (!data.isHit) return false;
+            transitionTo((int)EPlayerState.Hit);
+
+            return true;
+        }
         private bool IsJumpState()
         {
             if (!data.isPressJump && data.isPressWallClimb) return false;

@@ -8,11 +8,12 @@ namespace Orpul1.Player.Animation
         WallJumpTrigger,
         IsJump,
         IsGround,
-        IsDie,
+        DeathTrigger,
         IsAttack,
         IsStrongAttack,
         IsWallClimb,
         MoveSpeed,
         AttackIndex,
+        IsDie,
     }
 }

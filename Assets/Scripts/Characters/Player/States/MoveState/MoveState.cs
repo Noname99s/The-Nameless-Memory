@@ -43,11 +43,29 @@ namespace Orpul1.Player.State
         }
         private void TransitionState()
         {
+            if (IsHitState()) return;
+            if (IsDeathState()) return;
             if (IsIdleState()) return;
             if (IsJumpState()) return;
             if (IsFallState()) return;
             if (IsAttackState()) return;
         }
+        private bool IsHitState()
+        {
+            if (!data.isHit) return false;
+            transitionTo((int)EPlayerState.Hit);
+
+            return true;
+        }
+
+        private bool IsDeathState()
+        {
+            if (!data.isDeath) return false;
+            transitionTo((int)EPlayerState.Death);
+
+            return true;
+        }
+
         private bool IsJumpState()
         {
             if (!data.IsJumpState) return false;

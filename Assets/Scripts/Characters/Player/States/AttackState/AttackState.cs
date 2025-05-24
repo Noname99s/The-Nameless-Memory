@@ -81,6 +81,7 @@ namespace Orpul1.Player.State
 
             data.canAttack = data.isPressAttack;
         }
+
         private bool CanComboAttack()
         {
             if (Time.time > nextComboTime)
@@ -88,6 +89,7 @@ namespace Orpul1.Player.State
             
             return true;
         }
+       
         private bool IsChangeAttackType()
         {
             if (prevAttack == data.attackContext.attackType) return false;
@@ -96,11 +98,31 @@ namespace Orpul1.Player.State
             TransitionState();
             return true;
         }
+
         private void TransitionState()
         {
+            if (IsHitState()) return;
+            if (IsDeathState()) return;
             if (IsFallState()) return;
             transitionTo((int)EPlayerState.Idle);
         }
+
+        private bool IsHitState()
+        {
+            if (!data.isHit) return false;
+            transitionTo((int)EPlayerState.Hit);
+
+            return true;
+        }
+
+        private bool IsDeathState()
+        {
+            if (!data.isDeath) return false;
+            transitionTo((int)EPlayerState.Death);
+
+            return true;
+        }
+
         private bool IsFallState()
         {
             if (!data.IsFallState) return false;

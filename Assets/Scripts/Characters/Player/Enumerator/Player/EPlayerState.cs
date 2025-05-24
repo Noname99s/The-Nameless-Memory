@@ -8,8 +8,8 @@ namespace Orpul1.Player
         Fall,
         Attack,
         WallClimb,
+        Hit,
         Death,
         UseSkill
-
     }
 }
