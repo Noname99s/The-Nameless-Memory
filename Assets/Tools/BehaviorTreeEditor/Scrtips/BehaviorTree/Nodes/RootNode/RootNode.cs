@@ -6,7 +6,6 @@ namespace SOBehaviorTree
     public class RootNode : BehaviorNode
     {
         public BehaviorNode child;
-        public ScriptableObject blackboard;
         public override void Init()
         {
             child.Init();

@@ -3,23 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using SOBehaviorTree;
 
-[CreateAssetMenu(fileName = "TestDebugA",menuName = "BehaviorNodes/Action/TestDebugA")]
-public class TestDebugA : ActionScript
+[CreateAssetMenu(fileName = "SpawnProjecttile",menuName = "BehaviorNodes/Action/SpawnProjecttile")]
+public class SpawnProjecttile : ActionScript
 {
     public MirroredBlackboard blackboard;
     public override NodeState OnStart()
     {
-        Debug.Log("Start A");
         return NodeState.Success;
     }
     public override NodeState OnUpdate()
     {
-        Debug.Log("Update A");
-        return NodeState.Success;
+        return NodeState.Running;
     }
     public override NodeState OnExit()
     {
-        Debug.Log("Exit A");
         return NodeState.Success;
     }
 }
