@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlackboardCreator
 {
-    enum key
+    public enum EBlackboardkey
     {
         ScriptPathKey,
         BlackboardNameKey,
@@ -21,10 +21,10 @@ public class BlackboardCreator
     public BlackboardCreator() 
     {
         blackboardFactory = new ScriptFactory(
-            key.ScriptPathKey.ToString(),
-            key.BlackboardNameKey.ToString(), 
-            key.AssetPathKey.ToString(), 
-            key.Guid.ToString()
+            EBlackboardkey.ScriptPathKey.ToString(),
+            EBlackboardkey.BlackboardNameKey.ToString(), 
+            EBlackboardkey.AssetPathKey.ToString(), 
+            EBlackboardkey.Guid.ToString()
             );
     }
     
@@ -34,23 +34,28 @@ public class BlackboardCreator
     }
     public void CreateBlackboard(string className)
     {
-        if (EditorPrefs.GetBool(key.Guid.ToString())) return;
+        if (EditorPrefs.GetBool(EBlackboardkey.Guid.ToString())) return;
         blackboardFactory.Create(scriptPath, className, assetMenu, "",treePath);
     }
-    public ScriptableObject GetBlackboard()
+    public ScriptableObject CreateBlackboard(BehaviorTree tree)
     {
-        if (!EditorPrefs.GetBool(key.Guid.ToString())) return null;
-        EditorPrefs.SetBool(key.Guid.ToString(), false);
+        if (!EditorPrefs.GetBool(EBlackboardkey.Guid.ToString())) return null;
+        EditorPrefs.SetBool(EBlackboardkey.Guid.ToString(), false);
         object blackboardObj = classFactory.Create(
-                                GetPrefsValue(key.BlackboardNameKey),
-                                key.ScriptPathKey.ToString(),
-                                key.AssetPathKey.ToString()
+                                GetPrefsValue(EBlackboardkey.BlackboardNameKey),
+                                EBlackboardkey.ScriptPathKey.ToString(),
+                                EBlackboardkey.AssetPathKey.ToString()
                                 );
-
+        SetBlackboardPath(tree);
         ScriptableObject result = blackboardObj as ScriptableObject;
         return result;
     }
-    string GetPrefsValue(key type)
+    private void SetBlackboardPath(BehaviorTree tree)
+    {
+        if (tree.BlackboardPath != "") return;
+        tree.SetBlackboardPath(GetPrefsValue(EBlackboardkey.AssetPathKey));
+    }
+    string GetPrefsValue(EBlackboardkey type)
     {
         return EditorPrefs.GetString(type.ToString());
     }
