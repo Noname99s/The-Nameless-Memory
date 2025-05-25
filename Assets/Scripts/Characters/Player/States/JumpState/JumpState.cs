@@ -3,6 +3,7 @@ using Orpul1.Player.Animation;
 using Orpul1.Player.State.Jump;
 using Orpul1.State.Attack;
 using System;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
@@ -68,11 +69,27 @@ namespace Orpul1.Player.State
         }
         private void TransitionState()
         {
+            if (IsIdleState()) return;
+            if (IsMoveState()) return;
             if (IsHitState()) return;
             if (IsDeathState()) return;
             if (IsClimbLadderState()) return;
             if (IsWallClimbState()) return;
             if (IsFallState()) return;
+        }
+        private bool IsIdleState()
+        {
+            if (data.isFalling || !data.IsIdleState||data.jumpState != EJumpState.JumpReady) return false;
+            transitionTo((int)EPlayerState.Idle);
+
+            return true;
+        }
+        private bool IsMoveState()
+        {
+            if (data.isFalling || !data.IsMoveState|| data.jumpState != EJumpState.JumpReady) return false;
+            transitionTo((int)EPlayerState.Move);
+
+            return true;
         }
         private bool IsHitState()
         {

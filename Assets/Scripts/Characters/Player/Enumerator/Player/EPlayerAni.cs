@@ -6,6 +6,7 @@ namespace Orpul1.Player.Animation
         JumpTrigger,
         IdleTrigger,
         WallJumpTrigger,
+        IsIdle,
         IsJump,
         IsGround,
         DeathTrigger,

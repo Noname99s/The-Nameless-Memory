@@ -11,6 +11,7 @@ namespace Orpul1.Player.State
         public override void OnStart()
         {
             data.jumpCount = 2;
+            data.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
         }
         public override void OnUpdate()
         {
