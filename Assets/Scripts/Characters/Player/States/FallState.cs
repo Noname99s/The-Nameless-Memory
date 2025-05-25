@@ -18,13 +18,18 @@ namespace Orpul1.Player.State
         }
         public override void OnStart()
         {
+            Debug.Log("Fall Start");
+
             interval = 0;
             data.fallDamage = 0;
             data.rigid.linearVelocityY = -data.defaultFallSpeed;
             data.shouldWallJump = false;
             data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
             data.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
-            maxMoveX = data.rigid.linearVelocityX < 0 ? -data.rigid.linearVelocityX : data.rigid.linearVelocityX;
+            //maxMoveX = data.rigid.linearVelocityX < 0 ? -data.rigid.linearVelocityX : data.rigid.linearVelocityX;
+            //maxMoveX = Mathf.Abs(data.rigid.linearVelocityX);
+            maxMoveX = Mathf.Max(data.rigid.linearVelocityX, data.onAirMoveSpeed * Time.deltaTime);
+
         }
 
         public override void OnUpdate()

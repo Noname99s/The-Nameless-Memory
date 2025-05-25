@@ -10,6 +10,8 @@ namespace Orpul1.Player.State
         bool isFlip = false;
         public override void OnStart()
         {
+            Debug.Log("Move Start");
+
             data.jumpCount = 2;
             data.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
         }
@@ -21,7 +23,7 @@ namespace Orpul1.Player.State
         }
         public override void OnExit()
         {
-            data.rigid.linearVelocity = new Vector2(0, data.rigid.linearVelocityY) ;
+            //data.rigid.linearVelocity = new Vector2(0, data.rigid.linearVelocityY) ;
             data.animator.SetFloat(EPlayerAni.MoveSpeed.ToString(), 0);
         }
         private void MoveX()
