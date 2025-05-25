@@ -14,6 +14,10 @@ public class BehaviorTreeView : GraphView
     SOBehaviorTree.BehaviorTree tree;
     TemplateScript templateScript = new TemplateScript();
     BlackboardView blackBoardView;
+    Type[] panelNodes = new Type[]
+    {
+        new PanelNode().GetType(),
+    };
     Type[] customClassMenus = new Type[]
     {
         new ActionNode().GetType(),
@@ -175,6 +179,10 @@ public class BehaviorTreeView : GraphView
     }
     public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
     {
+        foreach (Type menu in panelNodes)
+        {
+            evt.menu.AppendAction($"{"PanelNode"}", (a) => CreateNode(menu, menu.Name));
+        }
         foreach (Type menu in customClassMenus)
         {
             evt.menu.AppendAction($"{"CustomNodes/"}[{menu.BaseType.Name}]{menu.Name}", (a) => SetTemplateClass(menu));

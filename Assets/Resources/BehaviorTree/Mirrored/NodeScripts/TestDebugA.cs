@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using SOBehaviorTree;
 
-[CreateAssetMenu(fileName = "SetSkill1CoolTime",menuName = "BehaviorNodes/Action/SetSkill1CoolTime")]
-public class SetSkill1CoolTime : ActionScript
+[CreateAssetMenu(fileName = "TestDebugA",menuName = "BehaviorNodes/Action/TestDebugA")]
+public class TestDebugA : ActionScript
 {
     public MirroredBlackboard blackboard;
     public override NodeState OnStart()
     {
+        Debug.Log("Start A");
         return NodeState.Success;
     }
     public override NodeState OnUpdate()
     {
-        return NodeState.Running;
+        Debug.Log("Update A");
+        return NodeState.Success;
     }
     public override NodeState OnExit()
     {
+        Debug.Log("Exit A");
         return NodeState.Success;
     }
 }

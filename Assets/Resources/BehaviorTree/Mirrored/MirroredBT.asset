@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9135344897398451539
+--- !u!114 &-8183797894726897869
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,217 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46cc5a044c4e8264eab2019faa185831, type: 3}
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
-  guid: d148fde06e81a3445a6e662733961243
-  position: {x: -0.8000183, y: 110.40002}
+  guid: c6779bf1554d1c64cbc7688f1b9c0e57
+  position: {x: 3.2000122, y: 125.59999}
   nodeName: SelectorNode
   description: SelectorNode
   nodeState: 3
   childNodeList:
-  - {fileID: -5468813738974929455}
-  - {fileID: -5674442968251259799}
---- !u!114 &-8559945819845081929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: SpawnExplosionCollider
-  m_EditorClassIdentifier: 
-  guid: 017b49f4b396f9a4e8385d0490d98c40
-  position: {x: -1239.2, y: 1100.8}
-  nodeName: SpawnExplosionCollider
-  description: 
-  nodeState: 3
-  methodName: 
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/Resources/BehaviorTree/Mirrored/NodeScripts/SpawnExplosionCollider.cs
-  assetPath: Assets//Resources/BehaviorTree/Mirrored/NodeScripts/SpawnExplosionCollider.asset
-  actionScript: {fileID: 11400000, guid: a5744cc0d5290ca40b4c4e7aa1aeefd2, type: 2}
---- !u!114 &-6899618617116976928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: SetSkill1CoolTime
-  m_EditorClassIdentifier: 
-  guid: cf47f62344d357447b83573c747e15fd
-  position: {x: -1022.39996, y: 1102.4}
-  nodeName: SetSkill1CoolTime
-  description: 
-  nodeState: 3
-  methodName: 
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/Resources/BehaviorTree/Mirrored/NodeScripts/SetSkill1CoolTime.cs
-  assetPath: Assets//Resources/BehaviorTree/Mirrored/NodeScripts/SetSkill1CoolTime.asset
-  actionScript: {fileID: 11400000, guid: b685d81b9e4d44c4489e25d67a930a15, type: 2}
---- !u!114 &-5674442968251259799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddea26520dbede9419a2acd27bd3e83a, type: 3}
-  m_Name: IsPhase2
-  m_EditorClassIdentifier: 
-  guid: 49eee199337b78b4caa04c9baab499bd
-  position: {x: 142.39996, y: 251.20001}
-  nodeName: IsPhase2
-  description: 
-  nodeState: 3
-  methodName: 
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/Resources/BehaviorTree/Mirrored/NodeScripts/IsPhase2.cs
-  assetPath: Assets//Resources/BehaviorTree/Mirrored/NodeScripts/IsPhase2.asset
-  childNode: {fileID: 0}
-  Decorator: {fileID: 11400000, guid: f8c88c76d5547f94f8109dea5d7c9da2, type: 2}
---- !u!114 &-5468813738974929455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddea26520dbede9419a2acd27bd3e83a, type: 3}
-  m_Name: IsPhase1
-  m_EditorClassIdentifier: 
-  guid: eb36d2c16ebee4f4a9b7a78e3919e18b
-  position: {x: -230.4, y: 256}
-  nodeName: IsPhase1
-  description: 
-  nodeState: 3
-  methodName: 
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/Resources/BehaviorTree/Mirrored/NodeScripts/IsPhase1.cs
-  assetPath: Assets//Resources/BehaviorTree/Mirrored/NodeScripts/IsPhase1.asset
-  childNode: {fileID: 7759880807648385458}
-  Decorator: {fileID: 11400000, guid: 80238f01390f5dc4f845a42119aa7f22, type: 2}
---- !u!114 &-5014774517852194728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddea26520dbede9419a2acd27bd3e83a, type: 3}
-  m_Name: IsIdleState
-  m_EditorClassIdentifier: 
-  guid: 3da5bf4eebfaa0042816e4fa6a3faf37
-  position: {x: -1259.333, y: 715.63605}
-  nodeName: IsIdleState
-  description: 
-  nodeState: 3
-  methodName: 
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/Resources/BehaviorTree/Mirrored/NodeScripts/IsIdleState.cs
-  assetPath: Assets//Resources/BehaviorTree/Mirrored/NodeScripts/IsIdleState.asset
-  childNode: {fileID: 5256785892913239303}
-  Decorator: {fileID: 11400000, guid: f0ecd55877ae48a46b9edc921275bcd7, type: 2}
---- !u!114 &-5010412238329608176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e26e168e92b80b49a2bc3e02db7f587, type: 3}
-  m_Name: RandomSelectorNode
-  m_EditorClassIdentifier: 
-  guid: 2cee70f78d0e15c47a29a35a178e3011
-  position: {x: -949.733, y: 711.63605}
-  nodeName: RandomSelectorNode
-  description: RandomSelectorNode
-  nodeState: 3
-  childNodeList: []
---- !u!114 &-4837632542214781258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e34f5ad2d998d04396ab6413567c1f7, type: 3}
-  m_Name: SequenceNode
-  m_EditorClassIdentifier: 
-  guid: 09db066a5f5d50c409ebb4dcb24ecff2
-  position: {x: -1060.9329, y: 564.43604}
-  nodeName: SequenceNode
-  description: SequenceNode
-  nodeState: 3
-  childNodeList:
-  - {fileID: -5014774517852194728}
-  - {fileID: -5010412238329608176}
---- !u!114 &-1943940312779565983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e34f5ad2d998d04396ab6413567c1f7, type: 3}
-  m_Name: SequenceNode
-  m_EditorClassIdentifier: 
-  guid: 2571ce07683618e49b42b968a0057834
-  position: {x: -1208.1328, y: 959.63605}
-  nodeName: SequenceNode
-  description: SequenceNode
-  nodeState: 3
-  childNodeList:
-  - {fileID: 73533930626319114}
-  - {fileID: 6105011423733293797}
-  - {fileID: -8559945819845081929}
-  - {fileID: -6899618617116976928}
-  - {fileID: 4042976355541678809}
---- !u!114 &-1667624918198481987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: SetIdleState
-  m_EditorClassIdentifier: 
-  guid: 0161df00eb5cb5b4eb4e8858f77259aa
-  position: {x: 0, y: 0}
-  nodeName: SetIdleState
-  description: 
-  nodeState: 0
-  methodName: 
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/Resources/BehaviorTree/Mirrored/NodeScripts/SetIdleState.cs
-  assetPath: Assets//Resources/BehaviorTree/Mirrored/NodeScripts/SetIdleState.asset
-  actionScript: {fileID: 11400000, guid: 21e20838141917141b6c345a82f3321b, type: 2}
---- !u!114 &-1104236505241308485
+  - {fileID: 3475572993423424270}
+--- !u!114 &-593419915197508778
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,12 +31,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26b539d529ff084b987d1ec4ca067a6, type: 3}
   m_Name: RootNode
   m_EditorClassIdentifier: 
-  guid: 923573562356d724fb4fd3f5c6b5094a
+  guid: 6aa0167a40c9ce64cad317f992cfeaa6
   position: {x: 0, y: 0}
   nodeName: RootNode
   description: RootNode
   nodeState: 3
-  child: {fileID: -9135344897398451539}
+  child: {fileID: -8183797894726897869}
   blackboard: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -253,27 +50,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5622491c9a475bf40823cee49f3128cc, type: 3}
   m_Name: MirroredBT
   m_EditorClassIdentifier: 
-  root: {fileID: -1104236505241308485}
+  root: {fileID: -593419915197508778}
   blackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   blackboardName: MirroredBlackboard
   nodeList:
-  - {fileID: -1104236505241308485}
-  - {fileID: -9135344897398451539}
-  - {fileID: -5468813738974929455}
-  - {fileID: -5674442968251259799}
-  - {fileID: 7759880807648385458}
-  - {fileID: -4837632542214781258}
-  - {fileID: -5014774517852194728}
-  - {fileID: -5010412238329608176}
-  - {fileID: 5256785892913239303}
-  - {fileID: -1943940312779565983}
-  - {fileID: 73533930626319114}
-  - {fileID: 6105011423733293797}
-  - {fileID: -8559945819845081929}
-  - {fileID: -6899618617116976928}
-  - {fileID: 4042976355541678809}
-  - {fileID: -1667624918198481987}
---- !u!114 &73533930626319114
+  - {fileID: -593419915197508778}
+  - {fileID: -8183797894726897869}
+  - {fileID: 3475572993423424270}
+--- !u!114 &3475572993423424270
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,107 +66,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: SetAttackState
+  m_Script: {fileID: 11500000, guid: a8a42890e90a804478c27c92f44589b0, type: 3}
+  m_Name: PanelNode
   m_EditorClassIdentifier: 
-  guid: 6ff906ba6104de14e8dedee8c89cdae0
-  position: {x: -1555.52, y: 1100}
-  nodeName: SetAttackState
-  description: 
+  guid: 01ea215e51df8534fa8b7eef6e316726
+  position: {x: 0.7999878, y: 231.20001}
+  nodeName: PanelNode
+  description: Skill1Panel
   nodeState: 3
-  methodName: 
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/Resources/BehaviorTree/Mirrored/NodeScripts/SetAttackState.cs
-  assetPath: Assets//Resources/BehaviorTree/Mirrored/NodeScripts/SetAttackState.asset
-  actionScript: {fileID: 11400000, guid: 23fe664909d9b4542a78a9226f92cc9e, type: 2}
---- !u!114 &4042976355541678809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9be2c80b47643c24b9fe88ad49869a65, type: 3}
-  m_Name: DelayNode
-  m_EditorClassIdentifier: 
-  guid: b3ebf8cee1a4fba4f99c71853f9b7dc2
-  position: {x: -860.00006, y: 1102.3999}
-  nodeName: DelayNode
-  description: 
-  nodeState: 3
-  methodName: 
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  delayTime: 2
-  interval: 0
---- !u!114 &5256785892913239303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddea26520dbede9419a2acd27bd3e83a, type: 3}
-  m_Name: Skill1CoolTimeReady
-  m_EditorClassIdentifier: 
-  guid: 9de2a435b990b204cb1195fb9d79d67b
-  position: {x: -1259.333, y: 850.83606}
-  nodeName: Skill1CoolTimeReady
-  description: 
-  nodeState: 3
-  methodName: 
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/Resources/BehaviorTree/Mirrored/NodeScripts/Skill1CoolTimeReady.cs
-  assetPath: Assets//Resources/BehaviorTree/Mirrored/NodeScripts/Skill1CoolTimeReady.asset
-  childNode: {fileID: -1943940312779565983}
-  Decorator: {fileID: 11400000, guid: c44e261b34d7a214e88b258aac127143, type: 2}
---- !u!114 &6105011423733293797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: ActSkill1Ani
-  m_EditorClassIdentifier: 
-  guid: 346f81d767088f84180b9e8580e34f60
-  position: {x: -1392.32, y: 1100.8}
-  nodeName: ActSkill1Ani
-  description: 
-  nodeState: 3
-  methodName: 
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/Resources/BehaviorTree/Mirrored/NodeScripts/ActSkill1Ani.cs
-  assetPath: Assets//Resources/BehaviorTree/Mirrored/NodeScripts/ActSkill1Ani.asset
-  actionScript: {fileID: 11400000, guid: 17c66ced72701c5408853c6d4eb03e65, type: 2}
---- !u!114 &7759880807648385458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e26e168e92b80b49a2bc3e02db7f587, type: 3}
-  m_Name: RandomSelectorNode
-  m_EditorClassIdentifier: 
-  guid: e2f2679171521e54bb0fcea1b42c020a
-  position: {x: -204, y: 365.59998}
-  nodeName: RandomSelectorNode
-  description: RandomSelectorNode
-  nodeState: 3
-  childNodeList:
-  - {fileID: -4837632542214781258}
+  panel: {fileID: 11400000, guid: 3daf560e87a776b468699fc7ee0f2bf4, type: 2}

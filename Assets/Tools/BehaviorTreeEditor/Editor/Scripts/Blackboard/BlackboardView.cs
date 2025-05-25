@@ -1,12 +1,7 @@
 
 using SOBehaviorTree;
-using System;
-using System.IO;
-using System.Reflection;
-using TreeEditor;
 using UnityEditor;
 using UnityEngine;
-using static BlackboardCreator;
 namespace SOBehaviorTree
 {
     [InitializeOnLoad]

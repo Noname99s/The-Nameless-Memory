@@ -2,16 +2,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using SOBehaviorTree;
-using Orpul1.Boss.Mirrored;
-
 
 [Serializable]
 public class MirroredBlackboardComponent
 {
 	//Insert blackboard values
-	public EBossState bossState;
-	public int[] phaseHpConditions;
-	public int hp;
+	public int a = 0;
 }
 
 [CreateAssetMenu(fileName = "MirroredBlackboard",menuName = "BehaviorNodes/Blackboard/MirroredBlackboard")]
