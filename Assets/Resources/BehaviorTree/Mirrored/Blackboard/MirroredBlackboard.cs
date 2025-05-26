@@ -5,14 +5,22 @@ using SOBehaviorTree;
 using Orpul1.Boss.Mirrored;
 
 [Serializable]
+public class MirroredSkillContext
+{
+    public Transform[] spawnPoints;
+    public GameObject[] skillPrefab;
+}
+[Serializable]
 public class MirroredBlackboardComponent
 {
     //Insert blackboard values
+    public MirroredSkillContext[] skillContexts = new MirroredSkillContext[(int)EBossSkill.END];
     public EBossState bossState;
+    public Animator animator;
     public int[] phaseHpConditions;
     public int hp;
     public float[] leftSkillCoolTimes = new float[(int)EBossSkill.END];
-    public float[] skillCoolTimes = new float[(int)EBossSkill.END];
+    public float[] defaultSkillCoolTimes = new float[(int)EBossSkill.END];
     public bool[] isSkillUse = new bool[(int)EBossSkill.END];
 }
 
