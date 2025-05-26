@@ -272,7 +272,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1900294605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +288,38 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: f24d5343b114ece4c9029f5552690c83, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    a: 0
+    skillContexts:
+    - spawnPoints: []
+      skillPrefab: []
+    - spawnPoints: []
+      skillPrefab: []
+    - spawnPoints: []
+      skillPrefab: []
+    - spawnPoints: []
+      skillPrefab: []
+    - spawnPoints: []
+      skillPrefab: []
+    - spawnPoints: []
+      skillPrefab: []
+    bossState: 0
+    animator: {fileID: 0}
+    phaseHpConditions: 
+    hp: 0
+    leftSkillCoolTimes:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    defaultSkillCoolTimes:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    isSkillUse: 000000000000
 --- !u!4 &1900294606
 Transform:
   m_ObjectHideFlags: 0
