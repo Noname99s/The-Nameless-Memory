@@ -54,16 +54,16 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 0dd1c85831ae4b04883c010a91849d0d
-  position: {x: 0, y: 0}
+  position: {x: 386.05887, y: 304.23584}
   nodeName: ActionNode
-  description: 
-  nodeState: 0
-  methodName: 
+  description: SetIdleState
+  nodeState: 3
+  methodName: SetIdleState
   path: 
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
-  actionScript: {fileID: 0}
+  actionScript: {fileID: 11400000, guid: 21e20838141917141b6c345a82f3321b, type: 2}
 --- !u!114 &-545955924376606914
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,9 +14,17 @@ public class ObjectPoolManager : SingleTon<ObjectPoolManager>
         GameObject obj = dictPool[key].GetObject();
         return obj.GetComponent<T>();
     }
+    public void SetObject(int key, GameObject pool)
+    {
+        if (!dictPool.ContainsKey(key))
+            return;
+
+        dictPool[key].SetObject(pool);
+    }
 
     public void SetPool(int key, GameObject prefab)
     {
+        if (dictPool.ContainsKey((int)key)) return;
         ObjectPool objectPool = new ObjectPool(CreateObject, prefab);
         dictPool.Add(key, objectPool);
     }

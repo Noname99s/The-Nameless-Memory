@@ -5,9 +5,9 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
     private Queue<GameObject> pools = new Queue<GameObject>();
+    private Func<GameObject, GameObject> createObject;
     private GameObject prefab;
     private GameObject parent;
-    private Func<GameObject, GameObject> createObject;
     public ObjectPool(Func<GameObject,GameObject> createObject, GameObject prefab)
     {
         this.createObject = createObject;
@@ -20,6 +20,10 @@ public class ObjectPool : MonoBehaviour
         {
             CreateObject();
         }
+    }
+    public void SetObject(GameObject obj)
+    {
+        pools.Enqueue(obj);
     }
     public GameObject GetObject()
     {

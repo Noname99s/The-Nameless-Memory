@@ -10,7 +10,7 @@ namespace SOBehaviorTree
     public class LeafNode : BehaviorNode
     {
         public string methodName = "";
-        public string path;
+        [HideInInspector] public string path;
         public ActionNode actionNode;
         [SerializeField] public string scriptPath;
         [SerializeField] public string assetPath;
