@@ -44756,7 +44756,7 @@ GameObject:
   - component: {fileID: 3197539815089535242}
   - component: {fileID: 6487359592540860323}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasEX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

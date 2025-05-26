@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -16,14 +17,42 @@ public class UIManager : MonoBehaviour
         }
     }
     int _order = 0;
-
+    [SerializeField] GameObject[] uiPrefabs;
     Dictionary<Type , UIPopup> _popupDictionary = new Dictionary<Type, UIPopup>();
 
-    public void Init()
+    //public void Init()
+    //{
+    //    _order = 0;
+    //}
+    #region юс╫ц
+    private void Start()
     {
         _order = 0;
     }
-
+    private void OnGUI()
+    {
+        if(GUILayout.Button("Show Main"))
+        {
+            ShowPopupUI<MainMenuView>();
+        }
+        if (GUILayout.Button("Show Loading"))
+        {
+            ShowPopupUI<LoadingView>();
+        }
+        if (GUILayout.Button("Close Main"))
+        {
+            ClosePopupUI<MainMenuView>();
+        }
+        if (GUILayout.Button("Close Loading"))
+        {
+            ClosePopupUI<LoadingView>();
+        }
+        if (GUILayout.Button("Close All"))
+        {
+            CloseAllPopupUI();
+        }
+    }
+    #endregion
 
     public T GetPopupUI<T>() where T : UIPopup
     {
@@ -36,10 +65,18 @@ public class UIManager : MonoBehaviour
 
     public T ShowPopupUI<T>() where T : UIPopup
     {
-        GameObject go = _popupDictionary[typeof(T)]?.gameObject;
+        GameObject go = _popupDictionary.TryGetValue(typeof(T), out UIPopup popup) ? popup.gameObject : null;
+
         if (go == null)
         {
-            //go = Managers.Resource.Instantiate(FactoryType.UI, (int)name, Root.transform);
+            for(int i = 0; i < uiPrefabs.Length; i++)
+            {
+                if (uiPrefabs[i].GetComponent<T>() != null)
+                {
+                    go = Instantiate(uiPrefabs[i], Root.transform);
+                    break;
+                }
+            }
             T sceneUI = Util.GetOrAddComponent<T>(go);
             sceneUI.Init();
             _popupDictionary[typeof(T)] = sceneUI;
@@ -50,7 +87,7 @@ public class UIManager : MonoBehaviour
     }
     public void ClosePopupUI<T>() where T : UIPopup
     {
-        GameObject go = _popupDictionary[typeof(T)]?.gameObject;
+        GameObject go = _popupDictionary.TryGetValue(typeof(T), out UIPopup popup) ? popup.gameObject : null;
         if (go != null)
         {
             _order--;
@@ -61,7 +98,7 @@ public class UIManager : MonoBehaviour
     {
         for(int i = 0; i < _popupDictionary.Count; i++)
         {
-            ClosePopupUI<UIPopup>();
+            _popupDictionary.ElementAt(i).Value.gameObject.SetActive(false);
         }
         _order = 0;
     }
