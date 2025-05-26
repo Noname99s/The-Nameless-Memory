@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 165758930d446bc4eb6afbe87bc1b1a0, type: 3}
   m_Name: IsIdleState
   m_EditorClassIdentifier: 
-  blackboard: {fileID: 0}
+  blackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}

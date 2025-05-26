@@ -11,11 +11,11 @@ public class SetCoolDown : ActionScript
     [SerializeField] float coolTime = 0;
     public override NodeState OnStart()
     {
-        blackboard.btComponent.leftSkillCoolTimes[(int)bossSkill] = Time.time + coolTime;
         return NodeState.Success;
     }
     public override NodeState OnUpdate()
     {
+        blackboard.btComponent.leftSkillCoolTimes[(int)bossSkill] = Time.time + coolTime;
         return NodeState.Success;
     }
     public override NodeState OnExit()

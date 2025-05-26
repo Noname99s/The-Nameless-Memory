@@ -69,6 +69,26 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: 8b1f8ec2ffd4e664cbf6d86333f71e4d, type: 2}
+--- !u!114 &-2777895588999948187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e34f5ad2d998d04396ab6413567c1f7, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  guid: dcd0082a2df6394448ee2ad04838316c
+  position: {x: 0, y: 0}
+  nodeName: SequenceNode
+  description: 
+  nodeState: 0
+  childNodeList: []
+  curIndex: 0
+  sign: 0
 --- !u!114 &-1967350410034630488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +157,7 @@ MonoBehaviour:
   - {fileID: -5873378647341803778}
   - {fileID: -3660970254963136467}
   - {fileID: 7937070509220378677}
+  - {fileID: -2777895588999948187}
 --- !u!114 &103943353086200805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +208,7 @@ MonoBehaviour:
   - {fileID: -3660970254963136467}
   - {fileID: 103943353086200805}
   curIndex: 0
+  sign: 0
 --- !u!114 &2557832587266307469
 MonoBehaviour:
   m_ObjectHideFlags: 0

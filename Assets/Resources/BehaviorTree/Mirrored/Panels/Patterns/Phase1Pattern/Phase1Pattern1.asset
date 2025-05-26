@@ -16,7 +16,7 @@ MonoBehaviour:
   position: {x: 20, y: 392.00018}
   nodeName: PanelNode
   description: MirroredSkill2
-  nodeState: 3
+  nodeState: 0
   panel: {fileID: 11400000, guid: f425c3837e2613b498c86652fac0bbe9, type: 2}
 --- !u!114 &-5078947662212255880
 MonoBehaviour:
@@ -31,7 +31,7 @@ MonoBehaviour:
   m_Name: DecoratorNode
   m_EditorClassIdentifier: 
   guid: db024e06b45ad5e49be684072b2dd5fe
-  position: {x: -205.59998, y: 261.29602}
+  position: {x: -335.40796, y: 223.20004}
   nodeName: DecoratorNode
   description: IsIdleState
   nodeState: 3
@@ -40,7 +40,7 @@ MonoBehaviour:
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
-  childNode: {fileID: -3346956263490326596}
+  childNode: {fileID: 0}
   Decorator: {fileID: 11400000, guid: f0ecd55877ae48a46b9edc921275bcd7, type: 2}
 --- !u!114 &-3346956263490326596
 MonoBehaviour:
@@ -55,10 +55,10 @@ MonoBehaviour:
   m_Name: PanelNode
   m_EditorClassIdentifier: 
   guid: eed7284816fb971499baf07bd2b5b511
-  position: {x: -156.79999, y: 387.19998}
+  position: {x: -133.60004, y: 262.40002}
   nodeName: PanelNode
   description: MirroredSkill1
-  nodeState: 3
+  nodeState: 1
   panel: {fileID: 11400000, guid: 9a14555b4f3c352499323830f60bf7ae, type: 2}
 --- !u!114 &-1162765418707093634
 MonoBehaviour:
@@ -76,10 +76,11 @@ MonoBehaviour:
   position: {x: 81.60004, y: 263.76}
   nodeName: RandomSelectorNode
   description: RandomSelectorNode
-  nodeState: 3
+  nodeState: 0
   childNodeList:
   - {fileID: -8824724845065296915}
   - {fileID: 7061295172353754093}
+  curIndex: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,10 +120,12 @@ MonoBehaviour:
   position: {x: 0.8000488, y: 119.20001}
   nodeName: SequenceNode
   description: SequenceNode
-  nodeState: 3
+  nodeState: 0
   childNodeList:
-  - {fileID: -5078947662212255880}
+  - {fileID: -3346956263490326596}
   - {fileID: -1162765418707093634}
+  curIndex: 1
+  sign: 2
 --- !u!114 &5838980617570113038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +142,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   nodeName: RootNode
   description: RootNode
-  nodeState: 3
+  nodeState: 0
   child: {fileID: 2922271541132571588}
 --- !u!114 &7061295172353754093
 MonoBehaviour:
