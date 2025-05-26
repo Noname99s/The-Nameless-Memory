@@ -25,13 +25,16 @@ public class ObjectPool : MonoBehaviour
     {
         if (pools.Count <= 0)
             CreateObject();
-        return pools.Dequeue();
+
+        GameObject pool = pools.Dequeue();
+        pool.SetActive(true);
+        return pool;
     }
     private void CreateObject()
     {
         GameObject pool = createObject?.Invoke(prefab);
         pool.transform.SetParent(parent.transform);
-            
+        pool.SetActive(false);
         pools.Enqueue(pool);
     }
     public void Release()

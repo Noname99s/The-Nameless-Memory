@@ -13,7 +13,7 @@ public class ProjectTileEnd : ActionScript
     }
     public override NodeState OnUpdate()
     {
-        return NodeState.Running;
+        return NodeState.Success;
     }
     public override NodeState OnExit()
     {

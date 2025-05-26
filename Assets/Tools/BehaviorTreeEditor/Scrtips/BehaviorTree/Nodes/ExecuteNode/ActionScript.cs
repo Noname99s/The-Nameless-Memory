@@ -5,6 +5,10 @@ using UnityEngine;
 
 public abstract class ActionScript : BehaviorNode, IActionable
 {
+    public override void Init()
+    {
+        throw new System.NotImplementedException();
+    }
     public virtual NodeState OnStart()
     {
         throw new System.NotImplementedException();

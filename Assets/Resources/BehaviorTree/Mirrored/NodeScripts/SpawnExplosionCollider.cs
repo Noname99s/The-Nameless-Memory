@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SOBehaviorTree;
 using Orpul1.Boss.Mirrored;
+using Orpul1.Object;
 
 [CreateAssetMenu(fileName = "SpawnExplosionCollider",menuName = "BehaviorNodes/Action/SpawnExplosionCollider")]
 public class SpawnExplosionCollider : ActionScript
@@ -9,7 +10,13 @@ public class SpawnExplosionCollider : ActionScript
     public MirroredBlackboard blackboard;
 
     int[] indexs;
-    public int spawnCount;
+    [SerializeField] GameObject prefab;
+    [SerializeField] int spawnCount;
+
+    public override void Init()
+    {
+        ObjectPoolManager.Instance.SetPool((int)EObjectType.Explosion, prefab);
+    }
     public override NodeState OnStart()
     {
         SetLimitCount();
@@ -21,7 +28,7 @@ public class SpawnExplosionCollider : ActionScript
         Debug.Log("ExplosionCollider ½ÇÇà");
         for (int i = 0; i < spawnCount; i++)
         {
-            
+            ObjectPoolManager.Instance.GetObject<GameObject>((int)EObjectType.Explosion);
         }
         return NodeState.Success;
     }
@@ -29,6 +36,7 @@ public class SpawnExplosionCollider : ActionScript
     {
         return NodeState.Success;
     }
+
     private void SetLimitCount()
     {
        spawnCount = Mathf.Clamp(spawnCount, 0, blackboard.btComponent.skillContexts[(int)EBossSkill.Skill1].spawnPoints.Length);

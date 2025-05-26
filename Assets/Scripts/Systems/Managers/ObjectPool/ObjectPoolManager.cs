@@ -7,9 +7,11 @@ public class ObjectPoolManager : SingleTon<ObjectPoolManager>
 {
     private Dictionary<int, ObjectPool> dictPool = new Dictionary<int, ObjectPool>();
     
-    public T GetObject<T>()
+    public T GetObject<T>(int key)
     {
-        GameObject obj = dictPool[0].GetObject();
+        if (!dictPool.ContainsKey(key))
+            return default(T);
+        GameObject obj = dictPool[key].GetObject();
         return obj.GetComponent<T>();
     }
 
@@ -18,7 +20,11 @@ public class ObjectPoolManager : SingleTon<ObjectPoolManager>
         ObjectPool objectPool = new ObjectPool(CreateObject, prefab);
         dictPool.Add(key, objectPool);
     }
-
+    public void ReleasePool(int key)
+    {
+        dictPool[key].Release();
+        dictPool.Remove(key);
+    }
     public void ReleaseAll()
     {
         int size = dictPool.Count;

@@ -1,3 +1,4 @@
+using Orpul1.Object;
 using SOBehaviorTree;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class BossController : MonoBehaviour,IFindTreeAble
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //ObjectPoolManager.Instance.SetPool((int)EObjectType.Explosion);
         tree.Initialize();
         mirroredBlackboard.btComponent = mirroredBlackboardComponent;
 
@@ -24,5 +26,9 @@ public class BossController : MonoBehaviour,IFindTreeAble
     void Update()
     {
         tree.root.Process();
+    }
+    private void OnDestroy()
+    {
+        ObjectPoolManager.Instance.ReleasePool(0);
     }
 }

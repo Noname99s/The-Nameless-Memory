@@ -19,3 +19,4 @@ MonoBehaviour:
   nodeState: 0
   blackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   bossSkill: 1
+  coolTime: 5

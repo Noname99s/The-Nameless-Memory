@@ -7,10 +7,11 @@ using Orpul1.Boss.Mirrored;
 public class SetCoolDown : ActionScript
 {
     public MirroredBlackboard blackboard;
-    public EBossSkill bossSkill;
+    [SerializeField] EBossSkill bossSkill;
+    [SerializeField] float coolTime = 0;
     public override NodeState OnStart()
     {
-        blackboard.btComponent.leftSkillCoolTimes[(int)bossSkill] = Time.time + blackboard.btComponent.defaultSkillCoolTimes[(int)bossSkill];
+        blackboard.btComponent.leftSkillCoolTimes[(int)bossSkill] = Time.time + coolTime;
         return NodeState.Success;
     }
     public override NodeState OnUpdate()
