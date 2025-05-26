@@ -4,6 +4,6 @@ namespace Orpul1
     {
         public void AddObserver(IObserver observer);
         public void RemoveObserver(IObserver observer);
-        public void Notify();
+        public void Notify<T>(T t);
     }
 }

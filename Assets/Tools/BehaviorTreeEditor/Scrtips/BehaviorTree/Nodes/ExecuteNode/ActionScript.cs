@@ -7,20 +7,19 @@ public abstract class ActionScript : BehaviorNode, IActionable
 {
     public override void Init()
     {
-        throw new System.NotImplementedException();
     }
     public virtual NodeState OnStart()
     {
-        throw new System.NotImplementedException();
+        return NodeState.Success;
     }
 
     public virtual NodeState OnUpdate()
     {
-        throw new System.NotImplementedException();
+        return NodeState.Success;
     }
 
     public virtual NodeState OnExit()
     {
-        throw new System.NotImplementedException();
+        return NodeState.Success;
     }
 }

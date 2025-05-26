@@ -11,6 +11,7 @@ public class ObjectPool : MonoBehaviour
     public ObjectPool(Func<GameObject,GameObject> createObject, GameObject prefab)
     {
         this.createObject = createObject;
+        this.prefab = prefab;
         Initialize();
     }
     private void Initialize()

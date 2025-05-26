@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Name: PlaySkill1Animation
   m_EditorClassIdentifier: 
   guid: 4c7cb888a17bb6f4aadde2ee25bb9a14
-  position: {x: -207.86313, y: 383.20914}
+  position: {x: -205.59998, y: 380}
   nodeName: PlaySkill1Animation
   description: 
   nodeState: 3
@@ -179,8 +179,8 @@ MonoBehaviour:
   methodName: 
   path: 
   actionNode: {fileID: 0}
-  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/Resources/BehaviorTree/Mirrored/NodeScripts/IsSkill1CoolReady.cs
-  assetPath: Assets//Resources/BehaviorTree/Mirrored/NodeScripts/IsSkill1CoolReady.asset
+  scriptPath: 
+  assetPath: 
   childNode: {fileID: 2335528853273830391}
   Decorator: {fileID: 11400000, guid: 646b700b4b59deb4296bc03f7c97d17e, type: 2}
 --- !u!114 &3146105453523584611
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: SpawnExplosionCollider
   m_EditorClassIdentifier: 
   guid: 7acd31456f8975046b36c76e861e447f
-  position: {x: -31.199991, y: 379.4317}
+  position: {x: -31.199951, y: 378.40002}
   nodeName: SpawnExplosionCollider
   description: 
   nodeState: 3

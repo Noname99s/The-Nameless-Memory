@@ -14,11 +14,12 @@ public class ObjectPoolManager : SingleTon<ObjectPoolManager>
         GameObject obj = dictPool[key].GetObject();
         return obj.GetComponent<T>();
     }
-    public void SetObject(int key, GameObject pool)
+    public void EnqueueObj(int key, GameObject pool)
     {
         if (!dictPool.ContainsKey(key))
             return;
 
+        pool.SetActive(false);
         dictPool[key].SetObject(pool);
     }
 
@@ -30,6 +31,7 @@ public class ObjectPoolManager : SingleTon<ObjectPoolManager>
     }
     public void ReleasePool(int key)
     {
+        if (!dictPool.ContainsKey(key)) return;
         dictPool[key].Release();
         dictPool.Remove(key);
     }
@@ -47,5 +49,9 @@ public class ObjectPoolManager : SingleTon<ObjectPoolManager>
     private GameObject CreateObject(GameObject prefab)
     {
         return Instantiate(prefab);
+    }
+    private void OnDestroy()
+    {
+        ReleaseAll();
     }
 }

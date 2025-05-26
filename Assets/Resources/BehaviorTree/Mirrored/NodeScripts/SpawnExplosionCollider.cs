@@ -9,13 +9,16 @@ public class SpawnExplosionCollider : ActionScript
 {
     public MirroredBlackboard blackboard;
 
-    int[] indexs;
     [SerializeField] GameObject prefab;
     [SerializeField] int spawnCount;
+    [SerializeField] Transform[] spawnPosis;
+    [SerializeField] int[] indexs;
 
     public override void Init()
     {
         ObjectPoolManager.Instance.SetPool((int)EObjectType.Explosion, prefab);
+        spawnPosis = blackboard.btComponent.skillContexts[(int)EBossSkill.Skill1].spawnPoints;
+        indexs = new int[spawnPosis.Length];
     }
     public override NodeState OnStart()
     {
@@ -28,7 +31,9 @@ public class SpawnExplosionCollider : ActionScript
         Debug.Log("ExplosionCollider ½ÇÇà");
         for (int i = 0; i < spawnCount; i++)
         {
-            ObjectPoolManager.Instance.GetObject<GameObject>((int)EObjectType.Explosion);
+            BossSkill skill = ObjectPoolManager.Instance.GetObject<BossSkill>((int)EObjectType.Explosion);
+            skill.transform.position = spawnPosis[indexs[i]].position;
+            skill.Execute();
         }
         return NodeState.Success;
     }
@@ -39,18 +44,17 @@ public class SpawnExplosionCollider : ActionScript
 
     private void SetLimitCount()
     {
-       spawnCount = Mathf.Clamp(spawnCount, 0, blackboard.btComponent.skillContexts[(int)EBossSkill.Skill1].spawnPoints.Length);
+       spawnCount = Mathf.Clamp(spawnCount, 0, spawnPosis.Length);
     }
     private void SetRandomSpawnPoints()
     {
-        indexs = new int[spawnCount];
-        for (int i = 0; i < spawnCount; i++)
+        for (int i = 0; i < spawnPosis.Length; i++)
             indexs[i] = i;
-        for (int i = 0; i < spawnCount; i++)
+        for (int i = 0; i < spawnPosis.Length; i++)
         {
-            int shuffleIndex = Random.Range(0, spawnCount);
+            int shuffleIndex = Random.Range(0, spawnPosis.Length);
             int temp = indexs[i];
-            indexs[i] = shuffleIndex;
+            indexs[i] = indexs[shuffleIndex];
             indexs[shuffleIndex] = temp;
         }
     }
