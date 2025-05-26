@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &32741902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +169,7 @@ MonoBehaviour:
       skillPrefab: []
     bossState: 0
     animator: {fileID: 0}
+    handPosis: []
     phaseHpConditions: 
     hp: 0
     leftSkillCoolTimes:
@@ -200,6 +201,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &50632277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 50632278}
+  m_Layer: 0
+  m_Name: Skill2 Posis (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &50632278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50632277}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.46, y: -0.58, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2068268192}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &200754061
 GameObject:
@@ -248,6 +280,7 @@ MonoBehaviour:
       skillPrefab: []
     bossState: 0
     animator: {fileID: 0}
+    handPosis: []
     phaseHpConditions: 
     hp: 0
     leftSkillCoolTimes:
@@ -327,6 +360,7 @@ MonoBehaviour:
       skillPrefab: []
     bossState: 0
     animator: {fileID: 0}
+    handPosis: []
     phaseHpConditions: 
     hp: 0
     leftSkillCoolTimes:
@@ -406,6 +440,7 @@ MonoBehaviour:
       skillPrefab: []
     bossState: 0
     animator: {fileID: 0}
+    handPosis: []
     phaseHpConditions: 
     hp: 0
     leftSkillCoolTimes:
@@ -437,6 +472,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &530393332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 530393333}
+  m_Layer: 0
+  m_Name: Skill2 Posis (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &530393333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530393332}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.34, y: -1.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2068268192}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &597619479
 GameObject:
@@ -640,7 +706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &816401599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,7 +725,9 @@ MonoBehaviour:
     skillContexts:
     - spawnPoints: []
       skillPrefab: []
-    - spawnPoints: []
+    - spawnPoints:
+      - {fileID: 50632278}
+      - {fileID: 530393333}
       skillPrefab: []
     - spawnPoints: []
       skillPrefab: []
@@ -671,6 +739,9 @@ MonoBehaviour:
       skillPrefab: []
     bossState: 0
     animator: {fileID: 0}
+    handPosis:
+    - {fileID: 1278718686}
+    - {fileID: 874613421}
     phaseHpConditions: 
     hp: 0
     leftSkillCoolTimes:
@@ -702,6 +773,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &874613420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874613421}
+  m_Layer: 0
+  m_Name: BossHand2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &874613421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874613420}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.09, y: 6.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2068268192}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &939923309
 GameObject:
@@ -781,6 +883,7 @@ MonoBehaviour:
       skillPrefab: []
     bossState: 0
     animator: {fileID: 0}
+    handPosis: []
     phaseHpConditions: 
     hp: 0
     leftSkillCoolTimes:
@@ -846,6 +949,37 @@ Transform:
   - {fileID: 939923310}
   - {fileID: 1541463860}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1278718685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1278718686}
+  m_Layer: 0
+  m_Name: BossHand1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1278718686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278718685}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.38, y: 5.91, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2068268192}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1541463859
 GameObject:
@@ -925,6 +1059,7 @@ MonoBehaviour:
       skillPrefab: []
     bossState: 0
     animator: {fileID: 0}
+    handPosis: []
     phaseHpConditions: 
     hp: 0
     leftSkillCoolTimes:
@@ -957,6 +1092,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2068268191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2068268192}
+  m_Layer: 0
+  m_Name: Skill2 Posis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2068268192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068268191}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.163069, y: 0.10563025, z: -9.916606}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 50632278}
+  - {fileID: 530393333}
+  - {fileID: 1278718686}
+  - {fileID: 874613421}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1625413912319358001
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3582719337852272187, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.163069
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582719337852272187, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.10563025
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582719337852272187, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.916606
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582719337852272187, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582719337852272187, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582719337852272187, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582719337852272187, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582719337852272187, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582719337852272187, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582719337852272187, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6194561466169816900, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
+      propertyPath: m_Name
+      value: EnergyBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6194561466169816900, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
 --- !u!1001 &3891062095586260563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1032,3 +1263,5 @@ SceneRoots:
   - {fileID: 399979565}
   - {fileID: 3891062095586260563}
   - {fileID: 1002617421}
+  - {fileID: 2068268192}
+  - {fileID: 1625413912319358001}

@@ -50,8 +50,8 @@ public class ObjectPoolManager : SingleTon<ObjectPoolManager>
     {
         return Instantiate(prefab);
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
-        ReleaseAll();
+        //ReleaseAll();
     }
 }

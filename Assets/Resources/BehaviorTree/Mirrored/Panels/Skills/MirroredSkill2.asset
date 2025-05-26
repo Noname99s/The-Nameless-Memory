@@ -16,7 +16,7 @@ MonoBehaviour:
   position: {x: 0, y: 224.80002}
   nodeName: SequenceNode
   description: SequenceNode
-  nodeState: 3
+  nodeState: 0
   childNodeList:
   - {fileID: -1587835388164970529}
   - {fileID: 6593558253576431607}
@@ -68,8 +68,8 @@ MonoBehaviour:
   methodName: 
   path: 
   actionNode: {fileID: 0}
-  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/Resources/BehaviorTree/Mirrored/NodeScripts/ProjectTileEnd.cs
-  assetPath: Assets//Resources/BehaviorTree/Mirrored/NodeScripts/ProjectTileEnd.asset
+  scriptPath: 
+  assetPath: 
   actionScript: {fileID: 11400000, guid: c7c962062f8e11f45b822f86444cca50, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: ec0ea008db6723a44b8f913e5682a911
-  position: {x: -281.60004, y: 387.19998}
+  position: {x: -282.40002, y: 387.2}
   nodeName: ActionNode
   description: PlaySkill2Animation
   nodeState: 3
@@ -203,15 +203,15 @@ MonoBehaviour:
   m_Name: SpawnProjecttile
   m_EditorClassIdentifier: 
   guid: 26e9b23d8504ec349972ebc79f8a3824
-  position: {x: -127.20001, y: 388.8}
+  position: {x: -127.20001, y: 387.19998}
   nodeName: SpawnProjecttile
   description: 
   nodeState: 3
   methodName: 
   path: 
   actionNode: {fileID: 0}
-  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/Resources/BehaviorTree/Mirrored/NodeScripts/SpawnProjecttile.cs
-  assetPath: Assets//Resources/BehaviorTree/Mirrored/NodeScripts/SpawnProjecttile.asset
+  scriptPath: 
+  assetPath: 
   actionScript: {fileID: 11400000, guid: fcfba615eca4b264c82a6d21c601df55, type: 2}
 --- !u!114 &8437457891823996931
 MonoBehaviour:
@@ -247,11 +247,11 @@ MonoBehaviour:
   position: {x: 343.85928, y: 385.7009}
   nodeName: DelayNode
   description: 
-  nodeState: 3
+  nodeState: 0
   methodName: 
   path: 
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
   delayTime: 2
-  interval: 0
+  interval: 0.6116913

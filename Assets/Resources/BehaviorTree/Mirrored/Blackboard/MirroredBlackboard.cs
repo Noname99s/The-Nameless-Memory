@@ -18,6 +18,7 @@ public class MirroredBlackboardComponent
     public MirroredSkillContext[] skillContexts = new MirroredSkillContext[(int)EBossSkill.END];
     public EBossState bossState;
     public Animator animator;
+    public Transform[] handPosis;
     public int[] phaseHpConditions;
     public int hp;
     public float[] leftSkillCoolTimes = new float[(int)EBossSkill.END];

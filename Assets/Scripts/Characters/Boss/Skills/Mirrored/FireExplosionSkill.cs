@@ -31,11 +31,11 @@ public class FireExplosionSkill : BossSkill
     {
         interval = 0;
         skillState = EExplosionSkill.Delay;
-        attackCollider.enabled = false;
     }
     private void OnDisable()
     {
         isExecute = false;
+        attackCollider.enabled = false;
     }
     private void Update()
     {

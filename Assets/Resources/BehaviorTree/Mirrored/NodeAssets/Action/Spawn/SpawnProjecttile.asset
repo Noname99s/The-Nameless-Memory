@@ -18,4 +18,10 @@ MonoBehaviour:
   description: 
   nodeState: 0
   blackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
-  prefab: {fileID: 0}
+  prefab: {fileID: 6194561466169816900, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
+  startPosis:
+  - {fileID: 0}
+  - {fileID: 0}
+  arrivePosis:
+  - {fileID: 0}
+  - {fileID: 0}
