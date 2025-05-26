@@ -1,11 +1,9 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public enum UIKEY
-{
-    NONE = 0,
-    Max
-}
-public class UIManager
+
+public class UIManager : MonoBehaviour
 {
     public GameObject Root
     {
@@ -18,7 +16,8 @@ public class UIManager
         }
     }
     int _order = 0;
-    UIPopup[] _popupArray = new UIPopup[(int)UIKEY.Max];
+
+    Dictionary<Type , UIPopup> _popupDictionary = new Dictionary<Type, UIPopup>();
 
     public void Init()
     {
@@ -26,39 +25,32 @@ public class UIManager
     }
 
 
-    public T GetPopupUI<T>(UIKEY name) where T : UIPopup
+    public T GetPopupUI<T>() where T : UIPopup
     {
-        if (name == UIKEY.NONE) return null;
-        int index = (int)name;
-        if(_popupArray[index] != null)
+        if (_popupDictionary.TryGetValue(typeof(T), out UIPopup popup))
         {
-            return _popupArray[index] as T;
+            return popup as T;
         }
-        return ShowPopupUI<T>(name);
+        return ShowPopupUI<T>();
     }
 
-    public T ShowPopupUI<T>(UIKEY name) where T : UIPopup
+    public T ShowPopupUI<T>() where T : UIPopup
     {
-        if (name == UIKEY.NONE) return null;
-
-        int index = (int)name;
-        GameObject go = _popupArray[index]?.gameObject;
-        if(go == null)
+        GameObject go = _popupDictionary[typeof(T)]?.gameObject;
+        if (go == null)
         {
             //go = Managers.Resource.Instantiate(FactoryType.UI, (int)name, Root.transform);
             T sceneUI = Util.GetOrAddComponent<T>(go);
             sceneUI.Init();
-            _popupArray[index] = sceneUI;
+            _popupDictionary[typeof(T)] = sceneUI;
         }
         go.SetActive(true);
         
-        return _popupArray[index] as T;
+        return _popupDictionary[typeof(T)] as T;
     }
-    public void ClosePopupUI(UIKEY name)
+    public void ClosePopupUI<T>() where T : UIPopup
     {
-        if (name == UIKEY.NONE) return;
-        int index = (int)name;
-        GameObject go = _popupArray[index]?.gameObject;
+        GameObject go = _popupDictionary[typeof(T)]?.gameObject;
         if (go != null)
         {
             _order--;
@@ -67,10 +59,9 @@ public class UIManager
     }
     public void CloseAllPopupUI()
     {
-        for(int i = 0; i < (int)UIKEY.Max; i++)
+        for(int i = 0; i < _popupDictionary.Count; i++)
         {
-            if(i != (int)UIKEY.NONE)
-                ClosePopupUI((UIKEY)i);
+            ClosePopupUI<UIPopup>();
         }
         _order = 0;
     }
