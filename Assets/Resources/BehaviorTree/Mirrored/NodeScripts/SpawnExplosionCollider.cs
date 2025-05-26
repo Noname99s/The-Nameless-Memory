@@ -28,7 +28,6 @@ public class SpawnExplosionCollider : ActionScript
     }
     public override NodeState OnUpdate()
     {
-        Debug.Log("ExplosionCollider ½ÇÇà");
         for (int i = 0; i < spawnCount; i++)
         {
             BossSkill skill = ObjectPoolManager.Instance.GetObject<BossSkill>((int)EObjectType.Explosion);

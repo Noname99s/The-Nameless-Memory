@@ -7,7 +7,7 @@ namespace SOBehaviorTree
     public abstract class ControlFlowNode : BehaviorNode
     {
         public List<BehaviorNode> childNodeList = new List<BehaviorNode>();
-        protected int curIndex;
+        [SerializeField]protected int curIndex;
         public override void Init()
         {
             curIndex = 0;
@@ -18,6 +18,7 @@ namespace SOBehaviorTree
         }
         public override void AbortNode()
         {
+            curIndex = 0;
             childNodeList[curIndex].AbortNode();
         }
         public override BehaviorNode Clone()

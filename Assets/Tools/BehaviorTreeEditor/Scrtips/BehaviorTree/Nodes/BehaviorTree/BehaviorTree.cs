@@ -29,6 +29,8 @@ namespace SOBehaviorTree
         public void Initialize()
         {
             SetPath();
+            if (!Application.isPlaying) return;
+            root.Init();
         }
         public BehaviorNode CreateNode(Type type, string nodeName)
         {

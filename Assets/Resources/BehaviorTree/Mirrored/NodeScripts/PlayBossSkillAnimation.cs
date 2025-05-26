@@ -15,7 +15,6 @@ public class PlayBossSkillAnimation : ActionScript
     }
     public override NodeState OnUpdate()
     {
-        Debug.Log($"{bossAni.ToString()} 애니메이션 재생");
         return NodeState.Success;
     }
     public override NodeState OnExit()

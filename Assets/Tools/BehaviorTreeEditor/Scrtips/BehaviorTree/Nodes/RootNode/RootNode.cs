@@ -13,7 +13,8 @@ namespace SOBehaviorTree
 
         public override NodeState Process()
         {
-            return child.Process();
+            nodeState = child.Process();
+            return nodeState;
         }
         public override BehaviorNode Clone()
         {

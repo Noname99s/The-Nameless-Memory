@@ -14,7 +14,8 @@ namespace SOBehaviorTree
         public override NodeState Process()
         {
             if (panel == null) return NodeState.Failure;
-            return panel.root.Process();
+            nodeState = panel.root.Process();
+            return nodeState;
         }
         public override void SetEditorNodeName()
         {

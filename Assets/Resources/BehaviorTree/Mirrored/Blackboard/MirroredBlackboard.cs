@@ -19,6 +19,7 @@ public class MirroredBlackboardComponent
     public EBossState bossState;
     public Animator animator;
     public Transform[] handPosis;
+    public Transform trPlayer;
     public int[] phaseHpConditions;
     public int hp;
     public float[] leftSkillCoolTimes = new float[(int)EBossSkill.END];

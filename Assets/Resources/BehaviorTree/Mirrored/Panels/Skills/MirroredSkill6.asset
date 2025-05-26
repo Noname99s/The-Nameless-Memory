@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9005122174062774389
+--- !u!114 &-4400471823681200003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,36 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
   m_Name: ActionNode
   m_EditorClassIdentifier: 
-  guid: f3f304bfbe18304448139cd0d1eb6a8a
-  position: {x: -85.70124, y: 298.88196}
+  guid: dd3db9ac047de924d84f0487a821ef39
+  position: {x: 90.94204, y: 379.17398}
   nodeName: ActionNode
-  description: SetSkill6CoolDown
+  description: SpawnMonster
   nodeState: 3
-  methodName: SetSkill6CoolDown
+  methodName: SpawnMonster
   path: 
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
-  actionScript: {fileID: 11400000, guid: 5c4c62842fb770b4f87f761c56b802be, type: 2}
---- !u!114 &-2761307922675984288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f26b539d529ff084b987d1ec4ca067a6, type: 3}
-  m_Name: RootNode
-  m_EditorClassIdentifier: 
-  guid: 466c97c67efa6a6448d3b282b16bf140
-  position: {x: 0, y: 0}
-  nodeName: RootNode
-  description: RootNode
-  nodeState: 3
-  child: {fileID: 2904642131441433621}
---- !u!114 &-1731127288509188605
+  actionScript: {fileID: 11400000, guid: 9afd4e7d023db6d4594638ce21c7f73f, type: 2}
+--- !u!114 &-3629466542758220255
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,41 +35,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
   m_Name: ActionNode
   m_EditorClassIdentifier: 
-  guid: 0dd1c85831ae4b04883c010a91849d0d
-  position: {x: 386.05887, y: 304.23584}
+  guid: 46db2f5093970dc4b9eb3dfe0e80ab5f
+  position: {x: -208.10219, y: 377.76584}
   nodeName: ActionNode
-  description: SetIdleState
+  description: PlaySkill6Animation
   nodeState: 3
-  methodName: SetIdleState
+  methodName: PlaySkill6Animation
   path: 
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
-  actionScript: {fileID: 11400000, guid: 21e20838141917141b6c345a82f3321b, type: 2}
---- !u!114 &-545955924376606914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: ActionNode
-  m_EditorClassIdentifier: 
-  guid: d6136ec296d29a341ac05dfe3beec7b1
-  position: {x: -408.7012, y: 297.88196}
-  nodeName: ActionNode
-  description: SetAttackState
-  nodeState: 3
-  methodName: SetAttackState
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  actionScript: {fileID: 11400000, guid: 23fe664909d9b4542a78a9226f92cc9e, type: 2}
---- !u!114 &-352309401536614455
+  actionScript: {fileID: 11400000, guid: 4999202920875fb4ab594c03dafae02f, type: 2}
+--- !u!114 &-1020071430166074278
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,18 +58,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be2c80b47643c24b9fe88ad49869a65, type: 3}
   m_Name: DelayNode
   m_EditorClassIdentifier: 
-  guid: bae753ca68731ee46a49bd6b462a5d8d
-  position: {x: 229.29868, y: 299.88196}
+  guid: 15bac269515874c428fed71c452149db
+  position: {x: 244.54205, y: 378.374}
   nodeName: DelayNode
-  description: 
+  description: Delay2Second
   nodeState: 3
-  methodName: 
+  methodName: Delay2Second
   path: 
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
   delayTime: 2
   interval: 0
+--- !u!114 &-778158199843549467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e34f5ad2d998d04396ab6413567c1f7, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  guid: eba8115f187726f4cb0e3286e53efdbf
+  position: {x: -0.8000183, y: 214.48001}
+  nodeName: SequenceNode
+  description: SequenceNode
+  nodeState: 3
+  childNodeList:
+  - {fileID: -547923911086171938}
+  - {fileID: -3629466542758220255}
+  - {fileID: 8116054616702435522}
+  - {fileID: -4400471823681200003}
+  - {fileID: -1020071430166074278}
+  - {fileID: 1367253988590465242}
+--- !u!114 &-547923911086171938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: ActionNode
+  m_EditorClassIdentifier: 
+  guid: 32e3c2b34cef85748b8121a592804846
+  position: {x: -362.5022, y: 378.5658}
+  nodeName: ActionNode
+  description: SetAttackState
+  nodeState: 3
+  methodName: SetAttackState
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: 23fe664909d9b4542a78a9226f92cc9e, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,38 +129,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5622491c9a475bf40823cee49f3128cc, type: 3}
   m_Name: MirroredSkill6
   m_EditorClassIdentifier: 
-  root: {fileID: -2761307922675984288}
+  root: {fileID: 1311204658503063001}
   blackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   blackboardName: MirroredBlackboard
   nodeList:
-  - {fileID: -2761307922675984288}
-  - {fileID: 2904642131441433621}
-  - {fileID: 473766466754329507}
-  - {fileID: -545955924376606914}
-  - {fileID: 5737900294543957553}
-  - {fileID: -9005122174062774389}
-  - {fileID: 3260784933482141283}
-  - {fileID: -352309401536614455}
-  - {fileID: -1731127288509188605}
---- !u!114 &473766466754329507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e34f5ad2d998d04396ab6413567c1f7, type: 3}
-  m_Name: SequenceNode
-  m_EditorClassIdentifier: 
-  guid: 3336756d0a8fa6f42bacaefc0132d3c0
-  position: {x: 0, y: 0}
-  nodeName: SequenceNode
-  description: SequenceNode
-  nodeState: 3
-  childNodeList: []
---- !u!114 &2904642131441433621
+  - {fileID: 1311204658503063001}
+  - {fileID: 994629533940167269}
+  - {fileID: -547923911086171938}
+  - {fileID: -3629466542758220255}
+  - {fileID: 8116054616702435522}
+  - {fileID: -4400471823681200003}
+  - {fileID: -1020071430166074278}
+  - {fileID: 1367253988590465242}
+  - {fileID: -778158199843549467}
+--- !u!114 &994629533940167269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,19 +154,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddea26520dbede9419a2acd27bd3e83a, type: 3}
   m_Name: DecoratorNode
   m_EditorClassIdentifier: 
-  guid: 2581352423e74e54b8da0ef88c7004f7
-  position: {x: -51.200012, y: 127.2}
+  guid: 6341604e2bf3965409f8f6d60057dce3
+  position: {x: -50.399994, y: 118.39998}
   nodeName: DecoratorNode
-  description: IsSkill6CoolReady
+  description: 
   nodeState: 3
-  methodName: IsSkill6CoolReady
+  methodName: 
   path: 
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
-  childNode: {fileID: 0}
+  childNode: {fileID: -778158199843549467}
   Decorator: {fileID: 11400000, guid: 7e92cf960fa9a0c40aa871ad7009b153, type: 2}
---- !u!114 &3260784933482141283
+--- !u!114 &1311204658503063001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f26b539d529ff084b987d1ec4ca067a6, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  guid: 2095e5e4df078d144a288bbe35efcd1c
+  position: {x: 0, y: 0}
+  nodeName: RootNode
+  description: RootNode
+  nodeState: 3
+  child: {fileID: 994629533940167269}
+--- !u!114 &1367253988590465242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,18 +196,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
   m_Name: ActionNode
   m_EditorClassIdentifier: 
-  guid: ab50f8d1d53f9964485365c41a0b06fa
-  position: {x: 71.29867, y: 297.88196}
+  guid: 7d89a621116b94a4ca7e7548bd070147
+  position: {x: 398.14206, y: 382.374}
   nodeName: ActionNode
-  description: SpawnMonster
+  description: SetIdleState
   nodeState: 3
-  methodName: SpawnMonster
+  methodName: SetIdleState
   path: 
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
-  actionScript: {fileID: 11400000, guid: 9afd4e7d023db6d4594638ce21c7f73f, type: 2}
---- !u!114 &5737900294543957553
+  actionScript: {fileID: 11400000, guid: 21e20838141917141b6c345a82f3321b, type: 2}
+--- !u!114 &8116054616702435522
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,14 +219,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
   m_Name: ActionNode
   m_EditorClassIdentifier: 
-  guid: 8067ea7ed35e79a48b02e9c9c086a200
-  position: {x: -244.70125, y: 296.88193}
+  guid: db892f1b00a990d48ace6d6e164321bd
+  position: {x: -59.302216, y: 378.5658}
   nodeName: ActionNode
-  description: PlaySkill5Animation
+  description: SetSkillCoolDown
   nodeState: 3
-  methodName: PlaySkill5Animation
+  methodName: SetSkillCoolDown
   path: 
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
-  actionScript: {fileID: 11400000, guid: 5ec21cbc3a33967429801640b735d1b1, type: 2}
+  actionScript: {fileID: 11400000, guid: 5c4c62842fb770b4f87f761c56b802be, type: 2}

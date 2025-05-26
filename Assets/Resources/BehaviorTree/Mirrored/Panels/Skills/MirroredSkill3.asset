@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DelayNode
   m_EditorClassIdentifier: 
   guid: 835d01b69a6c43943a50c770ad9ade05
-  position: {x: 231.65822, y: 383.3336}
+  position: {x: 73.96004, y: 387.52002}
   nodeName: DelayNode
   description: 
   nodeState: 3
@@ -22,7 +22,7 @@ MonoBehaviour:
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
-  delayTime: 2
+  delayTime: 15
   interval: 0
 --- !u!114 &-5263636175862439011
 MonoBehaviour:
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: c5d5334548142034ea1a898fd57bad66
-  position: {x: 79.658165, y: 382.53357}
+  position: {x: 526.926, y: 392.748}
   nodeName: ActionNode
   description: SetSkill3CoolDown
   nodeState: 3
@@ -118,6 +118,8 @@ MonoBehaviour:
   - {fileID: -2533896036925537769}
   - {fileID: -6616022504191900217}
   - {fileID: 5403305344884656275}
+  - {fileID: 4072018426561973233}
+  - {fileID: 6371945559909224383}
 --- !u!114 &1827052703971171528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,12 +138,38 @@ MonoBehaviour:
   description: SequenceNode
   nodeState: 3
   childNodeList:
+  - {fileID: 6371945559909224383}
   - {fileID: -5263636175862439011}
   - {fileID: -843251854676969443}
   - {fileID: 7240800840304111253}
-  - {fileID: -2533896036925537769}
   - {fileID: -6616022504191900217}
   - {fileID: 5403305344884656275}
+  - {fileID: 4072018426561973233}
+  - {fileID: -2533896036925537769}
+  curIndex: 0
+--- !u!114 &4072018426561973233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: ActionNode
+  m_EditorClassIdentifier: 
+  guid: 7fc89d82e16823a48a89ef577888d51e
+  position: {x: 379.72607, y: 391.94803}
+  nodeName: ActionNode
+  description: 
+  nodeState: 3
+  methodName: 
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: 1b26b7b555b100143a5702ce5e0aba0f, type: 2}
 --- !u!114 &5403305344884656275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +183,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: e937ab5bc53b60645a08f4ea6401a4c7
-  position: {x: 388.45816, y: 384.9336}
+  position: {x: 226.92609, y: 391.14807}
   nodeName: ActionNode
   description: SetIdleState
   nodeState: 3
@@ -189,6 +217,29 @@ MonoBehaviour:
   assetPath: 
   childNode: {fileID: 1827052703971171528}
   Decorator: {fileID: 11400000, guid: 773168b578cfec8459b4cf8b5947a9e8, type: 2}
+--- !u!114 &6371945559909224383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: ActionNode
+  m_EditorClassIdentifier: 
+  guid: e19ad1f47fe577a4db0902589bd2a1eb
+  position: {x: -565.61957, y: 384.40417}
+  nodeName: ActionNode
+  description: Panel3Start
+  nodeState: 3
+  methodName: Panel3Start
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: d0b713dc9849f8f4eb102293b5aa422c, type: 2}
 --- !u!114 &7240800840304111253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,8 +260,8 @@ MonoBehaviour:
   methodName: 
   path: 
   actionNode: {fileID: 0}
-  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/Resources/BehaviorTree/Mirrored/NodeScripts/SpawnShockwave.cs
-  assetPath: Assets//Resources/BehaviorTree/Mirrored/NodeScripts/SpawnShockwave.asset
+  scriptPath: 
+  assetPath: 
   actionScript: {fileID: 11400000, guid: 62392ecad425e434c8445a4532ef17e7, type: 2}
 --- !u!114 &9192930856351027146
 MonoBehaviour:

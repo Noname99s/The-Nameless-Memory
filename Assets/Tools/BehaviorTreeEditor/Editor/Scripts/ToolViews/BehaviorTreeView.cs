@@ -105,7 +105,6 @@ public class BehaviorTreeView : GraphView
             {
                 NodeView parentView = FindNodeView(n);
                 NodeView childView = FindNodeView(c);
-                UnityEngine.Debug.Log($"childView {childView == null}");
                 Edge edge = parentView.outputPort.ConnectTo(childView.inputPort);
                 AddElement(edge);
             });

@@ -1241,7 +1241,7 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">1480</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">784</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">127</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">130</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">69</XPD:ATTR>
 <XPD:REF name="Model">Zbb79/qggUafC3xFsgRsaAAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="R4Qd4FSLd0SHvKNNIE6QHwAA">
@@ -1940,15 +1940,15 @@
 <XPD:REF name="SupplierDependencies[0]">IXV2PBQ28kqnJQW1COTqlQAA</XPD:REF>
 <XPD:ATTR name="#Operations" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="VJZj2Bd44k6/cl+Pd98uVAAA">
-<XPD:ATTR name="Name" type="string">SetData&lt;T&gt;</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">SetValue&lt;T&gt;</XPD:ATTR>
 <XPD:REF name="Owner">Zbb79/qggUafC3xFsgRsaAAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="nv0mlJew1kKG/LwFBjNCjAAA">
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="OuwBwqcfPk6EFZCd68UiLAAA">
 <XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">VJZj2Bd44k6/cl+Pd98uVAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="/jirsIP1G0C/ZXqZeaY/SgAA">
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="6nbbtDPpm0KL4/DK5IW2AQAA">
 <XPD:ATTR name="Name" type="string">T t</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">VJZj2Bd44k6/cl+Pd98uVAAA</XPD:REF>
 </XPD:OBJ>

@@ -9,9 +9,13 @@ public class SpawnShockwave : ActionScript
 {
     public MirroredBlackboard blackboard;
     [SerializeField] GameObject prefab;
+    [SerializeField] Transform trPlayer;
+
     public override void Init()
     {
+        if (!Application.isPlaying) return;
         ObjectPoolManager.Instance.SetPool((int)EObjectType.ShockWave, prefab);
+        trPlayer = blackboard.btComponent.trPlayer;
     }
     public override NodeState OnStart()
     {
@@ -19,7 +23,9 @@ public class SpawnShockwave : ActionScript
     }
     public override NodeState OnUpdate()
     {
-        ObjectPoolManager.Instance.GetObject<GameObject>((int)EObjectType.ShockWave);
+        BossSkill skill = ObjectPoolManager.Instance.GetObject<BossSkill>((int)EObjectType.ShockWave);
+        skill.transform.position = trPlayer.position;
+        skill.Execute();
         return NodeState.Success;
     }
     public override NodeState OnExit()

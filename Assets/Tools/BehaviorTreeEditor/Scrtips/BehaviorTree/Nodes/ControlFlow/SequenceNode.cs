@@ -8,17 +8,22 @@ namespace SOBehaviorTree
         public override NodeState Process()
         {
             if (curIndex >= childNodeList.Count)
+            {
                 curIndex = 0;
-            this.nodeState = NodeState.Running;
-            NodeState nodeState = childNodeList[curIndex].Process();
+                return NodeState.Success;
+            }
+            nodeState = NodeState.Running;
+            nodeState = childNodeList[curIndex].Process();
 
             if (nodeState == NodeState.Success)
                 curIndex++;
 
             else if (nodeState == NodeState.Failure)
+            {
                 curIndex = 0;
-            this.nodeState = nodeState;
-            return nodeState;
+                return NodeState.Failure;
+            }
+            return NodeState.Running;
         }
     }
 }

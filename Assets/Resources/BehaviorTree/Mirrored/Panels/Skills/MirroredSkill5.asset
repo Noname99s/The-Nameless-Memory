@@ -22,8 +22,8 @@ MonoBehaviour:
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
-  childNode: {fileID: 8262559591203988359}
-  Decorator: {fileID: 11400000, guid: 239794af950f43a4b9000fba965aa971, type: 2}
+  childNode: {fileID: 0}
+  Decorator: {fileID: 11400000, guid: 7e92cf960fa9a0c40aa871ad7009b153, type: 2}
 --- !u!114 &-5655771486731785091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,15 +248,7 @@ MonoBehaviour:
   nodeName: SequenceNode
   description: SequenceNode
   nodeState: 3
-  childNodeList:
-  - {fileID: -649081684883534148}
-  - {fileID: 9170310730552316201}
-  - {fileID: -5655771486731785091}
-  - {fileID: 523979101697094627}
-  - {fileID: -4543771046711387053}
-  - {fileID: -4933815034222738070}
-  - {fileID: 7216909816667646764}
-  - {fileID: 6281194186431136342}
+  childNodeList: []
 --- !u!114 &9170310730552316201
 MonoBehaviour:
   m_ObjectHideFlags: 0

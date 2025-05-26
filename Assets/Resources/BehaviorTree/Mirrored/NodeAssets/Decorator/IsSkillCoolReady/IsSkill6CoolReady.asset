@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: IsSkill6CoolReady
   m_EditorClassIdentifier: 
   blackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
-  bossSkill: 0
+  bossSkill: 5

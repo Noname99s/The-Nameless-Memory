@@ -13,18 +13,21 @@ MonoBehaviour:
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
   guid: 72b2888df62b58444b9f583f1f87fdd8
-  position: {x: 0, y: 224.80002}
+  position: {x: -0.99761504, y: 218.0835}
   nodeName: SequenceNode
   description: SequenceNode
-  nodeState: 0
+  nodeState: 3
   childNodeList:
+  - {fileID: 4743075249697126076}
   - {fileID: -1587835388164970529}
   - {fileID: 6593558253576431607}
   - {fileID: 6704541996453096168}
-  - {fileID: 1759538362045881475}
   - {fileID: -106665489906637198}
   - {fileID: 9198290371246293564}
   - {fileID: 6164339082010364106}
+  - {fileID: 7622602254750574352}
+  - {fileID: 1759538362045881475}
+  curIndex: 5
 --- !u!114 &-1587835388164970529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,7 +64,7 @@ MonoBehaviour:
   m_Name: ProjectTileEnd
   m_EditorClassIdentifier: 
   guid: feb5ac95278b934439cca3666856231a
-  position: {x: 188, y: 386.57605}
+  position: {x: 38.95994, y: 391.00003}
   nodeName: ProjectTileEnd
   description: 
   nodeState: 3
@@ -97,6 +100,8 @@ MonoBehaviour:
   - {fileID: -106665489906637198}
   - {fileID: 9198290371246293564}
   - {fileID: 6164339082010364106}
+  - {fileID: 7622602254750574352}
+  - {fileID: 4743075249697126076}
 --- !u!114 &69215808000244470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,8 +122,8 @@ MonoBehaviour:
   methodName: 
   path: 
   actionNode: {fileID: 0}
-  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/Resources/BehaviorTree/Mirrored/NodeScripts/IsSkill2CoolReady.cs
-  assetPath: Assets//Resources/BehaviorTree/Mirrored/NodeScripts/IsSkill2CoolReady.asset
+  scriptPath: 
+  assetPath: 
   childNode: {fileID: -6812808636449739441}
   Decorator: {fileID: 11400000, guid: a964c9ecbd752574796c34ac769797e0, type: 2}
 --- !u!114 &1759538362045881475
@@ -134,7 +139,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: e496014c8078b784d98b10512a5871df
-  position: {x: 31.200012, y: 386.4}
+  position: {x: 649.3142, y: 399.66403}
   nodeName: ActionNode
   description: Skill2CoolDown
   nodeState: 3
@@ -144,6 +149,29 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: 2e97665464c0fe04ea4d0d650fbbbdb2, type: 2}
+--- !u!114 &4743075249697126076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: ActionNode
+  m_EditorClassIdentifier: 
+  guid: bb36e3ed272ae7545a2b2cde5c632980
+  position: {x: -588.34753, y: 390.77972}
+  nodeName: ActionNode
+  description: Panel2Start
+  nodeState: 3
+  methodName: Panel2Start
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: 612c36776f50c7c4d8df1e7990274e48, type: 2}
 --- !u!114 &6164339082010364106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +185,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 89534eeeced106149a03768eb7b517ac
-  position: {x: 495.36224, y: 386.4334}
+  position: {x: 350.25394, y: 398.03802}
   nodeName: ActionNode
   description: SetIdleState
   nodeState: 3
@@ -213,6 +241,29 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: fcfba615eca4b264c82a6d21c601df55, type: 2}
+--- !u!114 &7622602254750574352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: ActionNode
+  m_EditorClassIdentifier: 
+  guid: 7491003ca25b40640981c79c8556744e
+  position: {x: 497.60007, y: 398.94208}
+  nodeName: ActionNode
+  description: 
+  nodeState: 3
+  methodName: Panel2End
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: bbbb9bf1dc965664c9bba12d81e178eb, type: 2}
 --- !u!114 &8437457891823996931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,14 +295,14 @@ MonoBehaviour:
   m_Name: DelayNode
   m_EditorClassIdentifier: 
   guid: 2f6432e11f59d804b9a6ad89c59665c4
-  position: {x: 343.85928, y: 385.7009}
+  position: {x: 198.80002, y: 390.96005}
   nodeName: DelayNode
   description: 
-  nodeState: 0
+  nodeState: 3
   methodName: 
   path: 
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
-  delayTime: 2
-  interval: 0.6116913
+  delayTime: 10
+  interval: 3.7922282

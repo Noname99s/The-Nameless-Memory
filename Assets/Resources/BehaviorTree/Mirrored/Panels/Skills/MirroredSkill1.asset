@@ -36,7 +36,7 @@ MonoBehaviour:
   m_Name: SetIdleState
   m_EditorClassIdentifier: 
   guid: e755a745bd716cf4ab51930d5b207203
-  position: {x: 504.13678, y: 384.8091}
+  position: {x: 334.72003, y: 392.20602}
   nodeName: SetIdleState
   description: 
   nodeState: 3
@@ -46,6 +46,29 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: 21e20838141917141b6c345a82f3321b, type: 2}
+--- !u!114 &-3660970254963136467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: DebugPanelEnd
+  m_EditorClassIdentifier: 
+  guid: e6df6a3402f1e2c46aee8ec46ce82408
+  position: {x: 496.31006, y: 390.91602}
+  nodeName: DebugPanelEnd
+  description: DebugEndPanel
+  nodeState: 3
+  methodName: DebugEndPanel
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: 8b1f8ec2ffd4e664cbf6d86333f71e4d, type: 2}
 --- !u!114 &-1967350410034630488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +135,8 @@ MonoBehaviour:
   - {fileID: 103943353086200805}
   - {fileID: 4052180200886638670}
   - {fileID: -5873378647341803778}
+  - {fileID: -3660970254963136467}
+  - {fileID: 7937070509220378677}
 --- !u!114 &103943353086200805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +150,7 @@ MonoBehaviour:
   m_Name: SetCoolDown
   m_EditorClassIdentifier: 
   guid: 55b1f5897e894104f9102896c8727f44
-  position: {x: 184.93683, y: 381.6091}
+  position: {x: 653.004, y: 390.96802}
   nodeName: SetCoolDown
   description: 
   nodeState: 3
@@ -148,17 +173,20 @@ MonoBehaviour:
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
   guid: 100efca85fec47a4da3060ee39d5e1e0
-  position: {x: 0.8000183, y: 211.2}
+  position: {x: 0.27030936, y: 206.19922}
   nodeName: SequenceNode
   description: SequenceNode
   nodeState: 3
   childNodeList:
+  - {fileID: 7937070509220378677}
   - {fileID: -8991214427530209718}
   - {fileID: -1002231953459955441}
   - {fileID: 3146105453523584611}
-  - {fileID: 103943353086200805}
   - {fileID: 4052180200886638670}
   - {fileID: -5873378647341803778}
+  - {fileID: -3660970254963136467}
+  - {fileID: 103943353086200805}
+  curIndex: 0
 --- !u!114 &2557832587266307469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +200,7 @@ MonoBehaviour:
   m_Name: IsSkill1CoolReady
   m_EditorClassIdentifier: 
   guid: 9ae22acdeb3391d4d8fb00957ce2cd04
-  position: {x: -47.399998, y: 112.92001}
+  position: {x: -50.400078, y: 110.4}
   nodeName: IsSkill1CoolReady
   description: 
   nodeState: 3
@@ -196,7 +224,7 @@ MonoBehaviour:
   m_Name: SpawnExplosionCollider
   m_EditorClassIdentifier: 
   guid: 7acd31456f8975046b36c76e861e447f
-  position: {x: -31.199951, y: 378.40002}
+  position: {x: -31.199982, y: 377.6}
   nodeName: SpawnExplosionCollider
   description: 
   nodeState: 3
@@ -219,7 +247,7 @@ MonoBehaviour:
   m_Name: DelayNode
   m_EditorClassIdentifier: 
   guid: 965077791ca8c4a4e8063803d6a79b87
-  position: {x: 339.33685, y: 380.00912}
+  position: {x: 184.73203, y: 383.174}
   nodeName: DelayNode
   description: 
   nodeState: 3
@@ -228,5 +256,28 @@ MonoBehaviour:
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
-  delayTime: 2
+  delayTime: 5
   interval: 0
+--- !u!114 &7937070509220378677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: ActionNode
+  m_EditorClassIdentifier: 
+  guid: 66f8bcba098aa0646afcfbc0db6f6e89
+  position: {x: -519.7348, y: 380.70966}
+  nodeName: ActionNode
+  description: Panel1Start
+  nodeState: 3
+  methodName: Panel1Start
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: 92c960741503d974a9df26d3bef7cfdd, type: 2}
