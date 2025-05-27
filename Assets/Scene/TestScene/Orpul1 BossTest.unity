@@ -629,7 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 5139689308164850570, guid: 8334409cfa65f984fa028d1f34ee3263, type: 3}
-  parent: {fileID: 519128359}
+  parent: {fileID: 520925539}
   trPlayer: {fileID: 1073896485}
 --- !u!114 &520925543
 MonoBehaviour:
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 6194561466169816900, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
-  parent: {fileID: 816401598}
+  parent: {fileID: 520925539}
   spawnPosis:
   - {fileID: 50632278}
   - {fileID: 530393333}
@@ -664,7 +664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 6296204301011483535, guid: a4f954e148c6ada4b912dc6c2c4d4c1b, type: 3}
-  parent: {fileID: 32741901}
+  parent: {fileID: 520925539}
   spawnPosis:
   - {fileID: 640575322}
   - {fileID: 939923310}
