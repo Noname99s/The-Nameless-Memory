@@ -95,12 +95,12 @@ public class ShockWaveSkill : BossSkill
 
         interval = 0;
         Notify(ESkillNotify.SkillEnd);
-        //ObjectPoolManager.Instance.EnqueueObj((int)EObjectType.Explosion, gameObject);
+        enqueueAction(gameObject);
     }
 
-    public override void SetValue(Action<GameObject> t)
+    public override void SetValue(Action<GameObject> enqueueAction)
     {
-        throw new NotImplementedException();
+        this.enqueueAction = enqueueAction;
     }
 
     public override void ResetValue()
