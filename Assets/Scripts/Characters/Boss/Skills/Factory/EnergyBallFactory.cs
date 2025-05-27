@@ -1,25 +1,51 @@
 using UnityEngine;
 using Orpul1;
 using System;
+using static BansheeGz.BGDatabase.BGJsonRepoModel;
 namespace Orpul1.Boss.Mirrored
 {
     public class EnergyBallFactory : BossSkillFactory
     {
+        [SerializeField] Transform[] spawnPosis;
+        [SerializeField] Transform[] arrivePosis;
         public override GameObject Create()
         {
-            BossSkill skill = GetObject<BossSkill>();
-            ResetSkill(skill);
-            SetValue(skill);
-            return skill.gameObject;
+            for (int i = 0; i < 2; i++)
+            {
+                CreateSkill(i).Execute();
+            }
+            return null;
         }
-        private void SetValue(ISetDataAble<Action<GameObject>> skill)
+        private BossSkill CreateSkill(int i)
+        {
+            BossSkill skill = GetObject<BossSkill>();
+
+            ResetSkill(skill);
+            SetValues(skill,i);
+            return skill;
+        }
+        private void SetValues(BossSkill skill, int index)
+        {
+            SetEnqueueAction(skill);
+            SetSkillSpawnPosi(skill, index);
+            SetArrivePosi(skill as WatchOfRegretSkill, index);
+        }
+        private void SetEnqueueAction(ISetDataAble<Action<GameObject>> skill)
         {
             skill.SetValue(SetUsingEndObject);
+        }
+        private void SetArrivePosi(ISetDataAble<Vector2> skill, int index)
+        {
+            if (skill == null) return;
+            skill.SetValue(arrivePosis[index].position);
         }
         private void ResetSkill(IResetAble skill)
         {
             skill.ResetValue();
         }
-
+        private void SetSkillSpawnPosi(BossSkill skill, int spawnPosiIndex)
+        {
+            skill.transform.position = spawnPosis[spawnPosiIndex].position;
+        }
     }
 }

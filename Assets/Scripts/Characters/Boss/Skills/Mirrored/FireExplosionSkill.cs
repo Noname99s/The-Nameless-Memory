@@ -95,12 +95,12 @@ public class FireExplosionSkill : BossSkill
 
         interval = 0;
         Notify(ESkillNotify.SkillEnd);
-        enqueueObj(gameObject);
+        enqueueAction(gameObject);
     }
 
     public override void SetValue(Action<GameObject> enequeueObj)
     {
-        this.enqueueObj = enequeueObj;
+        this.enqueueAction = enequeueObj;
     }
 
     public override void ResetValue()

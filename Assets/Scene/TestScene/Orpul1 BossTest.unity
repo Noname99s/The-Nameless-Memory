@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &32741902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,6 +625,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
   parent: {fileID: 0}
+  spawnPosis: []
+  arrivePosis: []
 --- !u!114 &520925544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,13 +873,14 @@ GameObject:
   m_Component:
   - component: {fileID: 816401600}
   - component: {fileID: 816401599}
+  - component: {fileID: 816401601}
   m_Layer: 0
   m_Name: Skill2Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &816401599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,7 +896,9 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: f425c3837e2613b498c86652fac0bbe9, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories: []
+    bossSkillFactories:
+    - {fileID: 0}
+    - {fileID: 816401601}
     skillContexts:
     - spawnPoints: []
       skillPrefab: []
@@ -947,6 +952,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &816401601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816401598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e8268f5d55a74468257d9690f8223a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6194561466169816900, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
+  parent: {fileID: 816401598}
+  spawnPosis:
+  - {fileID: 50632278}
+  - {fileID: 530393333}
+  arrivePosis:
+  - {fileID: 1278718686}
+  - {fileID: 874613421}
 --- !u!1 &874613420
 GameObject:
   m_ObjectHideFlags: 0

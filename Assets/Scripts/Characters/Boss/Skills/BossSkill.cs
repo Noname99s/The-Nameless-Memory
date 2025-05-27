@@ -8,7 +8,7 @@ public abstract class BossSkill : MonoBehaviour, ISubject,ISetDataAble<Action<Ga
     [SerializeField] protected float delayToAttack;
     [SerializeField] protected float deativeTime;
     protected List<IObserver> observers = new List<IObserver>();
-    protected Action<GameObject> enqueueObj;
+    protected Action<GameObject> enqueueAction;
 
     public abstract void Execute();
     public void AddObserver(IObserver observer)
