@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SOBehaviorTree;
 using Orpul1.Object;
+using Orpul1.Boss.Mirrored;
 
 [CreateAssetMenu(fileName = "SpawnLaser",menuName = "BehaviorNodes/Action/SpawnLaser")]
 public class SpawnLaser : ActionScript
@@ -12,17 +13,15 @@ public class SpawnLaser : ActionScript
     [SerializeField] float laserDuration;
     public override void Init()
     {
-        //ObjectPoolManager.Instance.SetPool((int)EObjectType.Laser, prefab);
     }
     public override NodeState OnStart()
     {
         //TODO : 레이저 duration 설정
-        //ObjectPoolManager.Instance.SetPool((int)EObjectType.Laser, prefab);
-        //ObjectPoolManager.Instance.SetPool((int)EObjectType.Laser, prefab);
         return NodeState.Success;
     }
     public override NodeState OnUpdate()
     {
+        blackboard.btComponent.bossSkillFactories[(int)EBossSkill.Skill4].Create();
         return NodeState.Success;
     }
     public override NodeState OnExit()

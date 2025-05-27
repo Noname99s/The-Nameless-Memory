@@ -19,14 +19,6 @@ namespace Orpul1.Boss.Mirrored
             skill.Execute();
             return skill.gameObject;
         }
-        private void ResetSkill(IResetAble skill)
-        {
-            skill.ResetValue();
-        }
-        private void SetSkillValue(ISetDataAble<Action<GameObject>> skill)
-        {
-            skill.SetValue(SetUsingEndObject);
-        }
     }
 
 }

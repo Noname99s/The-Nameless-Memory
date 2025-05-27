@@ -1,4 +1,5 @@
 using System;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 namespace Orpul1.Boss
@@ -9,6 +10,15 @@ namespace Orpul1.Boss
         protected void SetUsingEndObject(GameObject obj)
         {
             EnqueueObject(obj);
+        }
+
+        protected virtual void ResetSkill(IResetAble skill)
+        {
+            skill.ResetValue();
+        }
+        protected virtual void SetSkillValue(ISetDataAble<Action<GameObject>> skill)
+        {
+            skill.SetValue(SetUsingEndObject);
         }
     }
 }

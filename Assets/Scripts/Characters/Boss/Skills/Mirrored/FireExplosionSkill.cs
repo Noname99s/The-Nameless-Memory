@@ -18,11 +18,6 @@ public class FireExplosionSkill : BossSkill
         NotifyAttack,
         SkillAttack,
     }
-    enum ESkillAni
-    {
-        Notify,
-        SkillAttack,
-    }
     [SerializeField] Animator animator;
     [SerializeField] Collider2D attackCollider;
     [SerializeField]float interval = 0, attackAniDuration = 0;
@@ -67,7 +62,7 @@ public class FireExplosionSkill : BossSkill
             return;
 
         skillState = EExplosionSkill.Attack;
-        animator.SetTrigger(ESkillAni.Notify.ToString());
+        animator.SetTrigger(EBossAniParam.Notify.ToString());
 
     }
     private void DoExplosion()
@@ -76,7 +71,7 @@ public class FireExplosionSkill : BossSkill
             return;
 
         skillState = EExplosionSkill.AttackEnd;
-        animator.SetTrigger(ESkillAni.SkillAttack.ToString());
+        animator.SetTrigger(EBossAniParam.SkillAttack.ToString());
         attackCollider.enabled = true;
     }
     private void WaitDeactive()
@@ -84,7 +79,7 @@ public class FireExplosionSkill : BossSkill
         if (skillState != EExplosionSkill.AttackEnd) 
             return;
 
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName(ESkillAni.SkillAttack.ToString()))
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName(EBossAniParam.SkillAttack.ToString()))
             return;
 
         attackAniDuration = animator.GetCurrentAnimatorStateInfo(0).length;
@@ -94,7 +89,6 @@ public class FireExplosionSkill : BossSkill
             return;
 
         interval = 0;
-        Notify(ESkillNotify.SkillEnd);
         enqueueAction(gameObject);
     }
 

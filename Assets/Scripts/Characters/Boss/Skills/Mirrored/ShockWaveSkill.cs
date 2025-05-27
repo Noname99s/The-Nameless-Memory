@@ -1,5 +1,6 @@
 using System;
 using Orpul1.Boss;
+using Orpul1.Boss.Mirrored;
 using Orpul1.Object;
 using UnityEngine;
 
@@ -16,11 +17,6 @@ public class ShockWaveSkill : BossSkill
     enum ESkillState
     {
         NotifyAttack,
-        SkillAttack,
-    }
-    enum ESkillAni
-    {
-        Notify,
         SkillAttack,
     }
     [SerializeField] Animator animator;
@@ -67,7 +63,7 @@ public class ShockWaveSkill : BossSkill
             return;
 
         skillState = EExplosionSkill.Attack;
-        animator.SetTrigger(ESkillAni.Notify.ToString());
+        animator.SetTrigger(EBossAniParam.Notify.ToString());
 
     }
     private void DoExplosion()
@@ -76,7 +72,7 @@ public class ShockWaveSkill : BossSkill
             return;
 
         skillState = EExplosionSkill.AttackEnd;
-        animator.SetTrigger(ESkillAni.SkillAttack.ToString());
+        animator.SetTrigger(EBossAniParam.SkillAttack.ToString());
         attackCollider.enabled = true;
     }
     private void WaitDeactive()
@@ -84,7 +80,7 @@ public class ShockWaveSkill : BossSkill
         if (skillState != EExplosionSkill.AttackEnd)
             return;
 
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName(ESkillAni.SkillAttack.ToString()))
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName(EBossAniParam.SkillAttack.ToString()))
             return;
 
         attackAniDuration = animator.GetCurrentAnimatorStateInfo(0).length;
@@ -94,7 +90,6 @@ public class ShockWaveSkill : BossSkill
             return;
 
         interval = 0;
-        Notify(ESkillNotify.SkillEnd);
         enqueueAction(gameObject);
     }
 
