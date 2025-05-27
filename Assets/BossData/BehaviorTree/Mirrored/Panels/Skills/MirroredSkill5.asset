@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6471900149919017262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e34f5ad2d998d04396ab6413567c1f7, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  guid: d282688aa9f279a44b8397a380e6bbd3
+  position: {x: 0, y: 0}
+  nodeName: SequenceNode
+  description: 
+  nodeState: 0
+  childNodeList: []
+  curIndex: 0
+  sign: 0
 --- !u!114 &-5686374867840028577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,7 +33,7 @@ MonoBehaviour:
   m_Name: DecoratorNode
   m_EditorClassIdentifier: 
   guid: 88c35abd530b76843ad6833c4c3b27e6
-  position: {x: -51.36003, y: 121.76002}
+  position: {x: -217.88782, y: 206.769}
   nodeName: DecoratorNode
   description: IsSkill5CoolReady
   nodeState: 3
@@ -37,7 +57,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: c9c0bd919fcb38644a2d9ac941bd205a
-  position: {x: 87.20004, y: 384}
+  position: {x: -79.487816, y: 469.16898}
   nodeName: ActionNode
   description: SetFieldBlurTrue
   nodeState: 3
@@ -60,7 +80,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 95e74fbfd5e8cde4fb7fdf6ab782b06a
-  position: {x: 542.7796, y: 384.5295}
+  position: {x: 226.34601, y: 470.0167}
   nodeName: ActionNode
   description: SetUseSkill5Flase
   nodeState: 3
@@ -83,7 +103,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: ea90451483015d64585da0966a80da78
-  position: {x: 390.39996, y: 384}
+  position: {x: 74.34595, y: 470.0167}
   nodeName: ActionNode
   description: SetFieldBlurFalse
   nodeState: 3
@@ -110,7 +130,8 @@ MonoBehaviour:
   nodeName: RootNode
   description: RootNode
   nodeState: 3
-  child: {fileID: -5686374867840028577}
+  child: {fileID: 0}
+  panelName: 
 --- !u!114 &-649081684883534148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +145,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 2cacd4e9547c371478eda26999374a70
-  position: {x: -226.39996, y: 382.57605}
+  position: {x: -393.0879, y: 467.569}
   nodeName: ActionNode
   description: SetAttackState
   nodeState: 3
@@ -161,6 +182,7 @@ MonoBehaviour:
   - {fileID: -4933815034222738070}
   - {fileID: 7216909816667646764}
   - {fileID: 6281194186431136342}
+  - {fileID: -6471900149919017262}
 --- !u!114 &523979101697094627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +196,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 309b5331bb3e2ed40a19b36001c26f17
-  position: {x: 238.40002, y: 382.91193}
+  position: {x: 183.71211, y: 213.16899}
   nodeName: ActionNode
   description: SetSkill5CoolDown
   nodeState: 3
@@ -197,7 +219,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: b24c78a7a04078d4696ac9d7fb082b20
-  position: {x: 856.758, y: 386.74387}
+  position: {x: 540.746, y: 472.4167}
   nodeName: ActionNode
   description: SetIdleState
   nodeState: 3
@@ -220,7 +242,7 @@ MonoBehaviour:
   m_Name: DelayNode
   m_EditorClassIdentifier: 
   guid: d6d015217c3999647901f8cb4be18999
-  position: {x: 696.69403, y: 384.8934}
+  position: {x: 380.746, y: 470.81668}
   nodeName: DelayNode
   description: 
   nodeState: 3
@@ -244,11 +266,13 @@ MonoBehaviour:
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
   guid: 1382ac79dfcd5a749892dcfb9af90761
-  position: {x: -1.6480103, y: 242.40002}
+  position: {x: -168.28783, y: 327.56897}
   nodeName: SequenceNode
   description: SequenceNode
   nodeState: 3
   childNodeList: []
+  curIndex: 0
+  sign: 0
 --- !u!114 &9170310730552316201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +286,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 51111b3dc2c68104da903d24d7afd254
-  position: {x: -68.79996, y: 384.17603}
+  position: {x: -235.48787, y: 469.16898}
   nodeName: ActionNode
   description: SetUseSkill5
   nodeState: 3
