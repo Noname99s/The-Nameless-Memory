@@ -431,9 +431,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8158369045154871585}
-  - component: {fileID: 2009927938025864409}
   - component: {fileID: 3560903604578770763}
   - component: {fileID: 45001380238248122}
+  - component: {fileID: 4399342952269049467}
+  - component: {fileID: 3501013003808806190}
   m_Layer: 5
   m_Name: Option
   m_TagString: Untagged
@@ -466,20 +467,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2009927938025864409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1138522120671087136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bdd7646a7dbd5b4e93aff0051dee778, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resolutionDropdown: {fileID: 4561208186978331206}
-  windowToggle: {fileID: 7575820529073723940}
 --- !u!222 &3560903604578770763
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -518,6 +505,35 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4399342952269049467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138522120671087136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e94f1dddb83bee429a5ddffefa32c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolutionDropdown: {fileID: 4561208186978331206}
+  windowToggle: {fileID: 7575820529073723940}
+  startGameButton: {fileID: 0}
+  quitGameButton: {fileID: 0}
+--- !u!114 &3501013003808806190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138522120671087136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8914ee29e79374e448d39680b14825e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionView: {fileID: 4399342952269049467}
 --- !u!1 &1238455776730265674
 GameObject:
   m_ObjectHideFlags: 0
@@ -7214,7 +7230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5803922}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using NUnit.Framework;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class OptionView : MonoBehaviour , IOptionView
+{
+    [SerializeField] TMP_Dropdown resolutionDropdown;
+    [SerializeField] Toggle windowToggle;
+
+    public event Action<int> OnResolutionChanged;
+    public event Action<bool> OnWindowModeChanged;
+
+    void Start()
+    {
+        resolutionDropdown.onValueChanged.AddListener((value) => OnResolutionChanged?.Invoke(value));
+        windowToggle.onValueChanged.AddListener((isFullScreen) => OnWindowModeChanged?.Invoke(isFullScreen));
+    }
+    void OnDestroy()
+    {
+        resolutionDropdown.onValueChanged.RemoveAllListeners();
+        windowToggle.onValueChanged.RemoveAllListeners();
+    }
+    public void SetResolutionOptions(Resolution[] resolutions)
+    {
+        List<string> options = new List<string>(resolutions.Length);
+        int currentIndex = 0;
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            options.Add($"{resolutions[i].width}x{resolutions[i].height}");
+            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
+            {
+                currentIndex = i;
+            }
+        }
+        resolutionDropdown.ClearOptions();
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentIndex;
+        resolutionDropdown.RefreshShownValue();
+    }
+    public void SetWindowMode(bool isFullScreen)
+    {
+        windowToggle.isOn = !isFullScreen;
+    }
+}
