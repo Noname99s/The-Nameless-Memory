@@ -1,11 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public enum UIKEY
-{
-    NONE = 0,
-    Max
-}
-public class UIManager
+
+public class UIManager : MonoBehaviour
 {
     public GameObject Root
     {
@@ -18,47 +17,77 @@ public class UIManager
         }
     }
     int _order = 0;
-    UIPopup[] _popupArray = new UIPopup[(int)UIKEY.Max];
+    [SerializeField] GameObject[] uiPrefabs;
+    Dictionary<Type , UIPopup> _popupDictionary = new Dictionary<Type, UIPopup>();
 
-    public void Init()
+    //public void Init()
+    //{
+    //    _order = 0;
+    //}
+    #region юс╫ц
+    private void Start()
     {
         _order = 0;
     }
-
-
-    public T GetPopupUI<T>(UIKEY name) where T : UIPopup
+    private void OnGUI()
     {
-        if (name == UIKEY.NONE) return null;
-        int index = (int)name;
-        if(_popupArray[index] != null)
+        if(GUILayout.Button("Show Main"))
         {
-            return _popupArray[index] as T;
+            ShowPopupUI<MainMenuView>();
         }
-        return ShowPopupUI<T>(name);
+        if (GUILayout.Button("Show Loading"))
+        {
+            ShowPopupUI<LoadingView>();
+        }
+        if (GUILayout.Button("Close Main"))
+        {
+            ClosePopupUI<MainMenuView>();
+        }
+        if (GUILayout.Button("Close Loading"))
+        {
+            ClosePopupUI<LoadingView>();
+        }
+        if (GUILayout.Button("Close All"))
+        {
+            CloseAllPopupUI();
+        }
+    }
+    #endregion
+
+    public T GetPopupUI<T>() where T : UIPopup
+    {
+        if (_popupDictionary.TryGetValue(typeof(T), out UIPopup popup))
+        {
+            return popup as T;
+        }
+        return ShowPopupUI<T>();
     }
 
-    public T ShowPopupUI<T>(UIKEY name) where T : UIPopup
+    public T ShowPopupUI<T>() where T : UIPopup
     {
-        if (name == UIKEY.NONE) return null;
+        GameObject go = _popupDictionary.TryGetValue(typeof(T), out UIPopup popup) ? popup.gameObject : null;
 
-        int index = (int)name;
-        GameObject go = _popupArray[index]?.gameObject;
-        if(go == null)
+        if (go == null)
         {
-            //go = Managers.Resource.Instantiate(FactoryType.UI, (int)name, Root.transform);
+            for(int i = 0; i < uiPrefabs.Length; i++)
+            {
+                if (uiPrefabs[i].GetComponent<T>() != null)
+                {
+                    go = Instantiate(uiPrefabs[i], Root.transform);
+                    break;
+                }
+            }
             T sceneUI = Util.GetOrAddComponent<T>(go);
             sceneUI.Init();
-            _popupArray[index] = sceneUI;
+            _popupDictionary[typeof(T)] = sceneUI;
         }
         go.SetActive(true);
         
-        return _popupArray[index] as T;
+        return _popupDictionary[typeof(T)] as T;
     }
-    public void ClosePopupUI(UIKEY name)
+    public void ClosePopupUI<T>() where T : UIPopup
     {
-        if (name == UIKEY.NONE) return;
-        int index = (int)name;
-        GameObject go = _popupArray[index]?.gameObject;
+        GameObject go = _popupDictionary.TryGetValue(typeof(T), out UIPopup popup) ? popup.gameObject : null;
         if (go != null)
         {
             _order--;
@@ -67,10 +96,9 @@ public class UIManager
     }
     public void CloseAllPopupUI()
     {
-        for(int i = 0; i < (int)UIKEY.Max; i++)
+        for(int i = 0; i < _popupDictionary.Count; i++)
         {
-            if(i != (int)UIKEY.NONE)
-                ClosePopupUI((UIKEY)i);
+            _popupDictionary.ElementAt(i).Value.gameObject.SetActive(false);
         }
         _order = 0;
     }
