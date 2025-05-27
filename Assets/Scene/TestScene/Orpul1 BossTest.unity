@@ -129,13 +129,14 @@ GameObject:
   m_Component:
   - component: {fileID: 32741903}
   - component: {fileID: 32741902}
+  - component: {fileID: 32741904}
   m_Layer: 0
   m_Name: Skill1Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &32741902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +152,8 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: 9a14555b4f3c352499323830f60bf7ae, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
+    bossSkillFactories:
+    - {fileID: 32741904}
     skillContexts:
     - spawnPoints:
       - {fileID: 640575322}
@@ -203,6 +206,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &32741904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32741901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d1c4ff457d3b147bb11b59900d729b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6296204301011483535, guid: a4f954e148c6ada4b912dc6c2c4d4c1b, type: 3}
+  parent: {fileID: 32741901}
+  spawnPosis:
+  - {fileID: 640575322}
+  - {fileID: 939923310}
+  - {fileID: 1541463860}
+  index: 0
 --- !u!1 &50632277
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +288,7 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: b3675fc7eacdb874daf1f2d447f1614b, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
+    bossSkillFactories: []
     skillContexts:
     - spawnPoints: []
       skillPrefab: []
@@ -347,6 +370,7 @@ MonoBehaviour:
   tree: {fileID: 0}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
+    bossSkillFactories: []
     skillContexts:
     - spawnPoints: []
       skillPrefab: []
@@ -428,6 +452,7 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: f768587eddcfdad459005e6b163128b2, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
+    bossSkillFactories: []
     skillContexts:
     - spawnPoints: []
       skillPrefab: []
@@ -487,13 +512,16 @@ GameObject:
   m_Component:
   - component: {fileID: 520925541}
   - component: {fileID: 520925540}
+  - component: {fileID: 520925544}
+  - component: {fileID: 520925543}
+  - component: {fileID: 520925542}
   m_Layer: 0
   m_Name: Pattern1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &520925540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +537,10 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: 41665ff4c55dc8246a0d342edeb93d83, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
+    bossSkillFactories:
+    - {fileID: 520925544}
+    - {fileID: 520925543}
+    - {fileID: 520925542}
     skillContexts:
     - spawnPoints:
       - {fileID: 640575322}
@@ -565,6 +597,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &520925542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520925539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a28391ae5fbcea4aadfb820cbf7970d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  parent: {fileID: 0}
+--- !u!114 &520925543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520925539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e8268f5d55a74468257d9690f8223a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  parent: {fileID: 0}
+--- !u!114 &520925544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520925539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d1c4ff457d3b147bb11b59900d729b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  parent: {fileID: 0}
+  spawnPosis:
+  - {fileID: 640575322}
+  - {fileID: 939923310}
+  - {fileID: 1541463860}
+  index: 0
 --- !u!1 &530393332
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +893,7 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: f425c3837e2613b498c86652fac0bbe9, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
+    bossSkillFactories: []
     skillContexts:
     - spawnPoints: []
       skillPrefab: []
@@ -961,6 +1041,7 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: 38e5da1c56e88fb4c846c590bb965cb0, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
+    bossSkillFactories: []
     skillContexts:
     - spawnPoints: []
       skillPrefab: []
@@ -1225,6 +1306,7 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: f24d5343b114ece4c9029f5552690c83, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
+    bossSkillFactories: []
     skillContexts:
     - spawnPoints: []
       skillPrefab: []

@@ -13,7 +13,7 @@ public class SpawnMonster : ActionScript
     {
         for (int i = (int)EObjectType.Monster1; i < (int)EObjectType.Monster3; i++)
         {
-            ObjectPoolManager.Instance.SetPool(i, prefabs[i]);
+            //ObjectPoolManager.Instance.SetPool(i, prefabs[i]);
         }
     }
     public override NodeState OnStart()
@@ -28,8 +28,8 @@ public class SpawnMonster : ActionScript
         for (int i = 0; i < spawnCount; i++)
         {
             randIndex = Random.Range((int)EObjectType.Monster1, (int)EObjectType.Monster3);
-            ISubject subject = ObjectPoolManager.Instance.GetObject<ISubject>(randIndex);
-            subject.AddObserver(blackboard.btComponent.bossObserver);
+            //ISubject subject = ObjectPoolManager.Instance.GetObject<ISubject>(randIndex);
+            //subject.AddObserver(blackboard.btComponent.bossObserver);
         }
         return NodeState.Success;
     }

@@ -16,7 +16,7 @@ public class SpawnProjecttile : ActionScript
 
     public override void Init()
     {
-        ObjectPoolManager.Instance.SetPool((int)EObjectType.EnergyBall, prefab);
+        //ObjectPoolManager.Instance.SetPool((int)EObjectType.EnergyBall, prefab);
         SetValues();
     }
     private void SetValues()
@@ -43,11 +43,11 @@ public class SpawnProjecttile : ActionScript
     }
     private void SpawnEnergyBall(Vector2 startPosi,Vector2 arrivePosis)
     {
-        BossSkill skill = ObjectPoolManager.Instance.GetObject<BossSkill>((int)EObjectType.EnergyBall);
-        skill.transform.position = startPosi;
+        //BossSkill skill = ObjectPoolManager.Instance.GetObject<BossSkill>((int)EObjectType.EnergyBall);
+        /*skill.transform.position = startPosi;
         ISetDataAble setValue = skill as ISetDataAble;
         if (setValue == null) return;
         setValue.SetValue(arrivePosis);
-        skill.Execute();
+        skill.Execute();*/
     }
 }

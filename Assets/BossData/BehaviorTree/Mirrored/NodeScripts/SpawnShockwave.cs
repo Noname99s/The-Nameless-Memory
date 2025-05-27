@@ -15,7 +15,7 @@ public class SpawnShockwave : ActionScript
     public override void Init()
     {
         if (!Application.isPlaying) return;
-        ObjectPoolManager.Instance.SetPool((int)EObjectType.ShockWave, prefab);
+        //ObjectPoolManager.Instance.SetPool((int)EObjectType.ShockWave, prefab);
         SetValues();
         
         Debug.Log("Init ActionScript");
@@ -32,9 +32,9 @@ public class SpawnShockwave : ActionScript
     }
     public override NodeState OnUpdate()
     {
-        BossSkill skill = ObjectPoolManager.Instance.GetObject<BossSkill>((int)EObjectType.ShockWave);
+        /*BossSkill skill = ObjectPoolManager.Instance.GetObject<BossSkill>((int)EObjectType.ShockWave);
         skill.transform.position = trPlayer.position;
-        skill.Execute();
+        skill.Execute();*/
         return NodeState.Success;
     }
     public override NodeState OnExit()

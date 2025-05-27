@@ -1,3 +1,4 @@
+using System;
 using Orpul1.Boss;
 using Orpul1.Object;
 using UnityEngine;
@@ -29,13 +30,10 @@ public class ShockWaveSkill : BossSkill
     EExplosionSkill skillState = EExplosionSkill.Delay;
     private void OnEnable()
     {
-        interval = 0;
-        skillState = EExplosionSkill.Delay;
     }
     private void OnDisable()
     {
-        isExecute = false;
-        attackCollider.enabled = false;
+        ResetValue();
     }
     private void Update()
     {
@@ -97,6 +95,19 @@ public class ShockWaveSkill : BossSkill
 
         interval = 0;
         Notify(ESkillNotify.SkillEnd);
-        ObjectPoolManager.Instance.EnqueueObj((int)EObjectType.Explosion, gameObject);
+        //ObjectPoolManager.Instance.EnqueueObj((int)EObjectType.Explosion, gameObject);
+    }
+
+    public override void SetValue(Action<GameObject> t)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void ResetValue()
+    {
+        isExecute = false;
+        attackCollider.enabled = false;
+        skillState = EExplosionSkill.Delay;
+        interval = 0;
     }
 }

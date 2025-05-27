@@ -12,13 +12,13 @@ public class SpawnLaser : ActionScript
     [SerializeField] float laserDuration;
     public override void Init()
     {
-        ObjectPoolManager.Instance.SetPool((int)EObjectType.Laser, prefab);
+        //ObjectPoolManager.Instance.SetPool((int)EObjectType.Laser, prefab);
     }
     public override NodeState OnStart()
     {
         //TODO : 레이저 duration 설정
-        ObjectPoolManager.Instance.SetPool((int)EObjectType.Laser, prefab);
-        ObjectPoolManager.Instance.SetPool((int)EObjectType.Laser, prefab);
+        //ObjectPoolManager.Instance.SetPool((int)EObjectType.Laser, prefab);
+        //ObjectPoolManager.Instance.SetPool((int)EObjectType.Laser, prefab);
         return NodeState.Success;
     }
     public override NodeState OnUpdate()

@@ -4,6 +4,7 @@ using UnityEngine;
 using SOBehaviorTree;
 using Orpul1.Boss.Mirrored;
 using Orpul1;
+using Orpul1.Boss;
 
 [Serializable]
 public class MirroredSkillContext
@@ -15,6 +16,7 @@ public class MirroredSkillContext
 public class MirroredBlackboardComponent
 {
     //Insert blackboard values
+    public BossSkillFactory[] bossSkillFactories;
     public MirroredSkillContext[] skillContexts = new MirroredSkillContext[(int)EBossSkill.END];
     public EBossState bossState;
     public Animator animator;

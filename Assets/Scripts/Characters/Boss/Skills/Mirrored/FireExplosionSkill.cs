@@ -1,3 +1,4 @@
+using System;
 using Orpul1.Boss;
 using Orpul1.Boss.Mirrored;
 using Orpul1.Object;
@@ -29,13 +30,10 @@ public class FireExplosionSkill : BossSkill
     EExplosionSkill skillState = EExplosionSkill.Delay;
     private void OnEnable()
     {
-        interval = 0;
-        skillState = EExplosionSkill.Delay;
+        ResetValue();
     }
     private void OnDisable()
     {
-        isExecute = false;
-        attackCollider.enabled = false;
     }
     private void Update()
     {
@@ -97,6 +95,19 @@ public class FireExplosionSkill : BossSkill
 
         interval = 0;
         Notify(ESkillNotify.SkillEnd);
-        ObjectPoolManager.Instance.EnqueueObj((int)EObjectType.Explosion, gameObject);
+        enqueueObj(gameObject);
+    }
+
+    public override void SetValue(Action<GameObject> enequeueObj)
+    {
+        this.enqueueObj = enequeueObj;
+    }
+
+    public override void ResetValue()
+    {
+        isExecute = false;
+        attackCollider.enabled = false;
+        skillState = EExplosionSkill.Delay;
+        interval = 0;
     }
 }

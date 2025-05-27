@@ -8,37 +8,22 @@ using Orpul1.Object;
 public class SpawnExplosionCollider : ActionScript
 {
     public MirroredBlackboard blackboard;
-
-    [SerializeField] GameObject prefab;
     [SerializeField] int spawnCount;
-    [SerializeField] Transform[] spawnPosis;
-    [SerializeField] int[] indexs;
 
     public override void Init()
     {
-        ObjectPoolManager.Instance.SetPool((int)EObjectType.Explosion, prefab);
-        SetValues();
-    }
-    private void SetValues()
-    {
-        spawnPosis = blackboard.btComponent.skillContexts[(int)EBossSkill.Skill1].spawnPoints;
-        indexs = new int[spawnPosis.Length];
     }
     public override NodeState OnStart()
     {
-        SetValues();
-        SetLimitCount();
-        SetRandomSpawnPoints();
         return NodeState.Success;
     }
     public override NodeState OnUpdate()
     {
         for (int i = 0; i < spawnCount; i++)
         {
-            BossSkill skill = ObjectPoolManager.Instance.GetObject<BossSkill>((int)EObjectType.Explosion);
-            skill.transform.position = spawnPosis[indexs[i]].position;
-            skill.Execute();
+            blackboard.btComponent.bossSkillFactories[(int)EBossSkill.Skill1].Create();
         }
+
         return NodeState.Success;
     }
     public override NodeState OnExit()
@@ -46,20 +31,4 @@ public class SpawnExplosionCollider : ActionScript
         return NodeState.Success;
     }
 
-    private void SetLimitCount()
-    {
-       spawnCount = Mathf.Clamp(spawnCount, 0, spawnPosis.Length);
-    }
-    private void SetRandomSpawnPoints()
-    {
-        for (int i = 0; i < spawnPosis.Length; i++)
-            indexs[i] = i;
-        for (int i = 0; i < spawnPosis.Length; i++)
-        {
-            int shuffleIndex = Random.Range(0, spawnPosis.Length);
-            int temp = indexs[i];
-            indexs[i] = indexs[shuffleIndex];
-            indexs[shuffleIndex] = temp;
-        }
-    }
 }

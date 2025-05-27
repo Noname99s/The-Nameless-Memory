@@ -29,7 +29,7 @@ public class BossController : MonoBehaviour,IFindTreeAble, IObserver
     }
     private void OnDestroy()
     {
-        ObjectPoolManager.Instance.ReleasePool(0);
+        //ObjectPoolManager.Instance.ReleasePool(0);
     }
 
     public void Notify<T>(T t)
