@@ -17,11 +17,16 @@ public class SpawnProjecttile : ActionScript
     public override void Init()
     {
         ObjectPoolManager.Instance.SetPool((int)EObjectType.EnergyBall, prefab);
+        SetValues();
+    }
+    private void SetValues()
+    {
         startPosis = blackboard.btComponent.skillContexts[(int)EBossSkill.Skill2].spawnPoints;
         arrivePosis = blackboard.btComponent.handPosis;
     }
     public override NodeState OnStart()
     {
+        SetValues();
         return NodeState.Success;
     }
     public override NodeState OnUpdate()

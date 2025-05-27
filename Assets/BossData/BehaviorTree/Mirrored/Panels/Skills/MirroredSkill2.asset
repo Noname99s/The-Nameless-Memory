@@ -305,6 +305,7 @@ MonoBehaviour:
   description: RootNode
   nodeState: 3
   child: {fileID: 8005211062204580248}
+  panelName: Skill2
 --- !u!114 &9198290371246293564
 MonoBehaviour:
   m_ObjectHideFlags: 0

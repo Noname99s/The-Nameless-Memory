@@ -86,7 +86,8 @@ MonoBehaviour:
   nodeName: RootNode
   description: RootNode
   nodeState: 3
-  child: {fileID: 0}
+  child: {fileID: 1615050533047200746}
+  panelName: Skill1
 --- !u!114 &-1002231953459955441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +152,7 @@ MonoBehaviour:
   m_Name: SetCoolDown
   m_EditorClassIdentifier: 
   guid: 55b1f5897e894104f9102896c8727f44
-  position: {x: 381.25333, y: 56.71569}
+  position: {x: 144.80005, y: 278.40002}
   nodeName: SetCoolDown
   description: 
   nodeState: 3
@@ -178,7 +179,9 @@ MonoBehaviour:
   nodeName: SequenceNode
   description: SequenceNode
   nodeState: 3
-  childNodeList: []
+  childNodeList:
+  - {fileID: 2557832587266307469}
+  - {fileID: 103943353086200805}
   curIndex: 0
   sign: 0
 --- !u!114 &2335528853273830391

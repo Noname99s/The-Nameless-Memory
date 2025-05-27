@@ -17,11 +17,16 @@ public class SpawnExplosionCollider : ActionScript
     public override void Init()
     {
         ObjectPoolManager.Instance.SetPool((int)EObjectType.Explosion, prefab);
+        SetValues();
+    }
+    private void SetValues()
+    {
         spawnPosis = blackboard.btComponent.skillContexts[(int)EBossSkill.Skill1].spawnPoints;
         indexs = new int[spawnPosis.Length];
     }
     public override NodeState OnStart()
     {
+        SetValues();
         SetLimitCount();
         SetRandomSpawnPoints();
         return NodeState.Success;

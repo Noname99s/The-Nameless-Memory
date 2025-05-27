@@ -16,7 +16,7 @@ MonoBehaviour:
   position: {x: 20, y: 392.00018}
   nodeName: PanelNode
   description: MirroredSkill2
-  nodeState: 0
+  nodeState: 3
   panel: {fileID: 11400000, guid: f425c3837e2613b498c86652fac0bbe9, type: 2}
 --- !u!114 &-5078947662212255880
 MonoBehaviour:
@@ -58,7 +58,7 @@ MonoBehaviour:
   position: {x: -133.60004, y: 262.40002}
   nodeName: PanelNode
   description: MirroredSkill1
-  nodeState: 1
+  nodeState: 3
   panel: {fileID: 11400000, guid: 9a14555b4f3c352499323830f60bf7ae, type: 2}
 --- !u!114 &-1162765418707093634
 MonoBehaviour:
@@ -76,7 +76,7 @@ MonoBehaviour:
   position: {x: 81.60004, y: 263.76}
   nodeName: RandomSelectorNode
   description: RandomSelectorNode
-  nodeState: 0
+  nodeState: 3
   childNodeList:
   - {fileID: -8824724845065296915}
   - {fileID: 7061295172353754093}
@@ -120,7 +120,7 @@ MonoBehaviour:
   position: {x: 0.8000488, y: 119.20001}
   nodeName: SequenceNode
   description: SequenceNode
-  nodeState: 0
+  nodeState: 3
   childNodeList:
   - {fileID: -3346956263490326596}
   - {fileID: -1162765418707093634}
@@ -142,8 +142,9 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   nodeName: RootNode
   description: RootNode
-  nodeState: 0
+  nodeState: 3
   child: {fileID: 2922271541132571588}
+  panelName: Phase1Pattern1
 --- !u!114 &7061295172353754093
 MonoBehaviour:
   m_ObjectHideFlags: 0

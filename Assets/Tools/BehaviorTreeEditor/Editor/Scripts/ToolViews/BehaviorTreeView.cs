@@ -57,10 +57,17 @@ public class BehaviorTreeView : GraphView
     {
         return GetNodeByGuid(node.guid) as NodeView;
     }
-    internal void Populateview(SOBehaviorTree.BehaviorTree tree)
+    internal void PlayModePopulateview(SOBehaviorTree.BehaviorTree tree)
     {
         InitView(tree);
-
+        CreateRootNode();
+        CreateNodes();
+        CreateEdges();
+    }
+    internal void EditorModePopulateview(SOBehaviorTree.BehaviorTree tree)
+    {
+        InitView(tree);
+        SetBlackboard();
         CreateRootNode();
         CreateNodes();
         CreateEdges();
@@ -72,14 +79,16 @@ public class BehaviorTreeView : GraphView
     {
         this.tree = tree;
         this.tree.Initialize();
-        blackBoardView = new BlackboardView(tree);
-        blackBoardView.SetBlackboard();
-        templateScript.SetTreePath(tree.TreePath);
-
 
         graphViewChanged -= OnGraphViewChanged;
         DeleteElements(graphElements);
         graphViewChanged += OnGraphViewChanged;
+    }
+    void SetBlackboard()
+    {
+        blackBoardView = new BlackboardView(tree);
+        blackBoardView.SetBlackboard();
+        templateScript.SetTreePath(tree.TreePath);
     }
     void CreateRootNode()
     {
@@ -211,8 +220,10 @@ public class BehaviorTreeView : GraphView
     }
     void CreateNode(Type nodeType,object nodeClass, string nodeName)
     {
+#if UNITY_EDITOR
         BehaviorNode node = tree.CreateNode(nodeType, nodeClass, nodeName);
         CreateNodeView(node);
+#endif
     }
 
     void CreateNodeView(BehaviorNode node)

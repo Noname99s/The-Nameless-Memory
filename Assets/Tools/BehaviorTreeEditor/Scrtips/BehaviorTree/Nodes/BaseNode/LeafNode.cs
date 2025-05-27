@@ -25,6 +25,7 @@ namespace SOBehaviorTree
         {
             description = methodName;
         }
+#if UNITY_EDITOR
         public override void RemoveNode()
         {
             if (!File.Exists(scriptPath)) return;
@@ -33,5 +34,6 @@ namespace SOBehaviorTree
             File.Delete(assetPath);
             AssetDatabase.Refresh();
         }
+#endif
     }
 }

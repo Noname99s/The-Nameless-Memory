@@ -9,7 +9,7 @@ namespace SOBehaviorTree
         public override void Init()
         {
             if (panel == null) return;
-            panel.Initialize();
+            panel.RootInit();
         }
         public override NodeState Process()
         {

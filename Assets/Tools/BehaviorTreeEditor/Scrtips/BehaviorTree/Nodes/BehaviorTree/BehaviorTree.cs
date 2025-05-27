@@ -28,10 +28,16 @@ namespace SOBehaviorTree
         public string BlackboardPath { get { return blackboardPath; } }
         public void Initialize()
         {
+#if UNITY_EDITOR
             SetPath();
-            if (!Application.isPlaying) return;
+#endif
+        }
+        public void RootInit()
+        {
             root.Init();
         }
+#if UNITY_EDITOR
+
         public BehaviorNode CreateNode(Type type, string nodeName)
         {
             BehaviorNode node = SetNode(type, nodeName);
@@ -43,6 +49,7 @@ namespace SOBehaviorTree
 
             return node;
         }
+
         public BehaviorNode CreateNode(Type nodeType, object nodeClass, string nodeName)
         {
             BehaviorNode node = SetNode(nodeType, nodeClass, nodeName);
@@ -131,7 +138,7 @@ namespace SOBehaviorTree
             AssetDatabase.RemoveObjectFromAsset(node);
             AssetDatabase.SaveAssets();
         }
-
+#endif
         public void AddChilde(BehaviorNode parent, BehaviorNode child)
         {
             if (parent is DecoratorNode decorNode)

@@ -6,6 +6,7 @@ namespace SOBehaviorTree
     public class RootNode : BehaviorNode
     {
         public BehaviorNode child;
+        [SerializeField] string panelName;
         public override void Init()
         {
             child.Init();
@@ -13,6 +14,11 @@ namespace SOBehaviorTree
 
         public override NodeState Process()
         {
+            if(child == null)
+            {
+                Debug.LogError($"{panelName} child is Null");
+                return NodeState.Failure;
+            }
             nodeState = child.Process();
             return nodeState;
         }

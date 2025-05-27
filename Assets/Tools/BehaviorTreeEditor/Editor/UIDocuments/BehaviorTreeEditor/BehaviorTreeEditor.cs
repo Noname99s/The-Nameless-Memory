@@ -38,7 +38,9 @@ public class BehaviorTreeEditor : EditorWindow
         tree = GetSelectedBehaviorTree(tree);
 
         PlayStateTree(tree);
+#if UNITY_EDITOR
         EditStateTree(tree);
+#endif
     }
     void SetTree(VisualElement root)
     {
@@ -79,13 +81,13 @@ public class BehaviorTreeEditor : EditorWindow
         if (!Application.isPlaying) return;
         if (!tree) return;
 
-        treeView.Populateview(tree);
+        treeView.PlayModePopulateview(tree);
     }
     void EditStateTree(BehaviorTree tree)
     {
         if (Application.isPlaying) return;
         if (!tree || !AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID())) return;
 
-        treeView.Populateview(tree);
+        treeView.EditorModePopulateview(tree);
     }
 }

@@ -304,3 +304,4 @@ MonoBehaviour:
   description: RootNode
   nodeState: 3
   child: {fileID: -4385464476971076102}
+  panelName: Skill3

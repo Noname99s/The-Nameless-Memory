@@ -16,7 +16,7 @@ public class BossController : MonoBehaviour,IFindTreeAble, IObserver
 
     void Start()
     {
-        tree.Initialize();
+        //tree.Initialize();
         tree.root.Init();
         mirroredBlackboardComponent.bossObserver = this;
         mirroredBlackboard.btComponent = mirroredBlackboardComponent;
