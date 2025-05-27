@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SetAttackState
   m_EditorClassIdentifier: 
   guid: b6e1636b8eea92348bbe0bc86311d432
-  position: {x: -360.66315, y: 381.6091}
+  position: {x: -601.60004, y: 532.80005}
   nodeName: SetAttackState
   description: 
   nodeState: 3
@@ -36,7 +36,7 @@ MonoBehaviour:
   m_Name: SetIdleState
   m_EditorClassIdentifier: 
   guid: e755a745bd716cf4ab51930d5b207203
-  position: {x: 334.72003, y: 392.20602}
+  position: {x: 93.599976, y: 543.19995}
   nodeName: SetIdleState
   description: 
   nodeState: 3
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: DebugPanelEnd
   m_EditorClassIdentifier: 
   guid: e6df6a3402f1e2c46aee8ec46ce82408
-  position: {x: 496.31006, y: 390.91602}
+  position: {x: 255.20013, y: 541.6}
   nodeName: DebugPanelEnd
   description: DebugEndPanel
   nodeState: 3
@@ -69,26 +69,6 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: 8b1f8ec2ffd4e664cbf6d86333f71e4d, type: 2}
---- !u!114 &-2777895588999948187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e34f5ad2d998d04396ab6413567c1f7, type: 3}
-  m_Name: SequenceNode
-  m_EditorClassIdentifier: 
-  guid: dcd0082a2df6394448ee2ad04838316c
-  position: {x: 0, y: 0}
-  nodeName: SequenceNode
-  description: 
-  nodeState: 0
-  childNodeList: []
-  curIndex: 0
-  sign: 0
 --- !u!114 &-1967350410034630488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +86,7 @@ MonoBehaviour:
   nodeName: RootNode
   description: RootNode
   nodeState: 3
-  child: {fileID: 2557832587266307469}
+  child: {fileID: 0}
 --- !u!114 &-1002231953459955441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +100,7 @@ MonoBehaviour:
   m_Name: PlaySkill1Animation
   m_EditorClassIdentifier: 
   guid: 4c7cb888a17bb6f4aadde2ee25bb9a14
-  position: {x: -205.59998, y: 380}
+  position: {x: -446.40002, y: 531.19995}
   nodeName: PlaySkill1Animation
   description: 
   nodeState: 3
@@ -157,7 +137,7 @@ MonoBehaviour:
   - {fileID: -5873378647341803778}
   - {fileID: -3660970254963136467}
   - {fileID: 7937070509220378677}
-  - {fileID: -2777895588999948187}
+  - {fileID: 1615050533047200746}
 --- !u!114 &103943353086200805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +151,7 @@ MonoBehaviour:
   m_Name: SetCoolDown
   m_EditorClassIdentifier: 
   guid: 55b1f5897e894104f9102896c8727f44
-  position: {x: 653.004, y: 390.96802}
+  position: {x: 381.25333, y: 56.71569}
   nodeName: SetCoolDown
   description: 
   nodeState: 3
@@ -181,6 +161,26 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: c94cabdabdc206c40ad25ef7f4fc321a, type: 2}
+--- !u!114 &1615050533047200746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e34f5ad2d998d04396ab6413567c1f7, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  guid: 32c1a1f270d2503448e2d1cc49819be9
+  position: {x: -3.2000122, y: 104}
+  nodeName: SequenceNode
+  description: SequenceNode
+  nodeState: 3
+  childNodeList: []
+  curIndex: 0
+  sign: 0
 --- !u!114 &2335528853273830391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
   guid: 100efca85fec47a4da3060ee39d5e1e0
-  position: {x: 0.27030936, y: 206.19922}
+  position: {x: -240.79999, y: 357.6}
   nodeName: SequenceNode
   description: SequenceNode
   nodeState: 3
@@ -206,8 +206,7 @@ MonoBehaviour:
   - {fileID: 4052180200886638670}
   - {fileID: -5873378647341803778}
   - {fileID: -3660970254963136467}
-  - {fileID: 103943353086200805}
-  curIndex: 0
+  curIndex: 4
   sign: 0
 --- !u!114 &2557832587266307469
 MonoBehaviour:
@@ -222,7 +221,7 @@ MonoBehaviour:
   m_Name: IsSkill1CoolReady
   m_EditorClassIdentifier: 
   guid: 9ae22acdeb3391d4d8fb00957ce2cd04
-  position: {x: -50.400078, y: 110.4}
+  position: {x: -291.2, y: 261.6}
   nodeName: IsSkill1CoolReady
   description: 
   nodeState: 3
@@ -246,7 +245,7 @@ MonoBehaviour:
   m_Name: SpawnExplosionCollider
   m_EditorClassIdentifier: 
   guid: 7acd31456f8975046b36c76e861e447f
-  position: {x: -31.199982, y: 377.6}
+  position: {x: -272, y: 528.80005}
   nodeName: SpawnExplosionCollider
   description: 
   nodeState: 3
@@ -269,7 +268,7 @@ MonoBehaviour:
   m_Name: DelayNode
   m_EditorClassIdentifier: 
   guid: 965077791ca8c4a4e8063803d6a79b87
-  position: {x: 184.73203, y: 383.174}
+  position: {x: -56, y: 534.4}
   nodeName: DelayNode
   description: 
   nodeState: 3
@@ -279,7 +278,7 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   delayTime: 5
-  interval: 0
+  interval: 1.81611
 --- !u!114 &7937070509220378677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +292,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 66f8bcba098aa0646afcfbc0db6f6e89
-  position: {x: -519.7348, y: 380.70966}
+  position: {x: -760.8, y: 532}
   nodeName: ActionNode
   description: Panel1Start
   nodeState: 3

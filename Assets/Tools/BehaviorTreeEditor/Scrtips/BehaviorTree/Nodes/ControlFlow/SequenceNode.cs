@@ -26,5 +26,10 @@ namespace SOBehaviorTree
             }
             return NodeState.Running;
         }
+        public override void AbortNode()
+        {
+            base.AbortNode();
+
+        }
     }
 }
