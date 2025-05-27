@@ -19,14 +19,25 @@ namespace SOBehaviorTree
         public BehaviorNode root;
         public ScriptableObject blackboard;
 
-        [HideInInspector]public string blackboardName;
+        [HideInInspector] private string blackboardPath;
+        [HideInInspector] public string blackboardName;
+        [HideInInspector] private string treePath = "";
         public List<BehaviorNode> nodeList = new List<BehaviorNode>();
-        [SerializeField]private string treePath = "";
+
         public string TreePath { get { return treePath; } }
+        public string BlackboardPath { get { return blackboardPath; } }
         public void Initialize()
         {
+#if UNITY_EDITOR
             SetPath();
+#endif
         }
+        public void RootInit()
+        {
+            root.Init();
+        }
+#if UNITY_EDITOR
+
         public BehaviorNode CreateNode(Type type, string nodeName)
         {
             BehaviorNode node = SetNode(type, nodeName);
@@ -38,6 +49,7 @@ namespace SOBehaviorTree
 
             return node;
         }
+
         public BehaviorNode CreateNode(Type nodeType, object nodeClass, string nodeName)
         {
             BehaviorNode node = SetNode(nodeType, nodeClass, nodeName);
@@ -58,6 +70,7 @@ namespace SOBehaviorTree
             treePath = treePath.Substring(treePath.IndexOf("/") + 0);
             treePath = treePath.Replace(this.name + ".asset", "");
         }
+      
         private BehaviorNode SetNode(Type type, string nodeName)
         {
             BehaviorNode node = ScriptableObject.CreateInstance(type) as BehaviorNode;
@@ -111,6 +124,13 @@ namespace SOBehaviorTree
             AssetDatabase.AddObjectToAsset(node, path);
             AssetDatabase.SaveAssets();
         }
+
+        public void SetBlackboardPath(string path)
+        {
+            if (string.IsNullOrEmpty(path)) return;
+            blackboardPath = path;
+        }
+
         public void DeleteNode(BehaviorNode node)
         {
             node.RemoveNode();
@@ -118,7 +138,7 @@ namespace SOBehaviorTree
             AssetDatabase.RemoveObjectFromAsset(node);
             AssetDatabase.SaveAssets();
         }
-
+#endif
         public void AddChilde(BehaviorNode parent, BehaviorNode child)
         {
             if (parent is DecoratorNode decorNode)

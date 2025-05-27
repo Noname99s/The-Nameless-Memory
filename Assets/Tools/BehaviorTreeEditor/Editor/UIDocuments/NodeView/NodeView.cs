@@ -54,7 +54,7 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
 
     private void CreateInputPorts()
     {
-        if (!(node is ActionNode) && !(node is ControlFlowNode) && !(node is LeafNode)) return;
+        if (!(node is PanelNode)&&!(node is ActionNode) && !(node is ControlFlowNode) && !(node is LeafNode)) return;
 
         inputPort = InstantiatePort(Orientation.Vertical,
                                     UnityEditor.Experimental.GraphView.Direction.Input,

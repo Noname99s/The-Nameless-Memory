@@ -21,6 +21,8 @@ namespace SOBehaviorTree
                 Debug.LogError("Null Action!");
                 return;
             }
+            actionScript.Init();
+            
             isStart = false;
         }
         public override NodeState Process()

@@ -10,7 +10,7 @@ namespace SOBehaviorTree
     public class LeafNode : BehaviorNode
     {
         public string methodName = "";
-        public string path;
+        [HideInInspector] public string path;
         public ActionNode actionNode;
         [SerializeField] public string scriptPath;
         [SerializeField] public string assetPath;
@@ -25,6 +25,7 @@ namespace SOBehaviorTree
         {
             description = methodName;
         }
+#if UNITY_EDITOR
         public override void RemoveNode()
         {
             if (!File.Exists(scriptPath)) return;
@@ -33,5 +34,6 @@ namespace SOBehaviorTree
             File.Delete(assetPath);
             AssetDatabase.Refresh();
         }
+#endif
     }
 }

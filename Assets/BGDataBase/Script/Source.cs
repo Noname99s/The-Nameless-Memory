@@ -256,4 +256,54 @@ public partial class BG_DB_Bow : BGEntity
 		public const string LV = "LV";
 	}
 }
+
+[Preserve]
+public partial class BG_DB_LoadingText : BGEntity
+{
+	private static BansheeGz.BGDatabase.BGMetaRow _metaDefault;
+	public static BansheeGz.BGDatabase.BGMetaRow MetaDefault => _metaDefault ?? (_metaDefault = BGCodeGenUtils.GetMeta<BansheeGz.BGDatabase.BGMetaRow>(new BGId(4812146302705634671UL,6297890990511872653UL), () => _metaDefault = null));
+	public static BansheeGz.BGDatabase.BGRepoEvents Events => BGRepo.I.Events;
+	public static int CountEntities => MetaDefault.CountEntities;
+	public System.String _name
+	{
+		get => __name[Index];
+		set => __name[Index] = value;
+	}
+	public System.String _detail
+	{
+		get => __detail[Index];
+		set => __detail[Index] = value;
+	}
+	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77__name;
+	public static BansheeGz.BGDatabase.BGFieldEntityName __name => _ufle12jhs77__name ?? (_ufle12jhs77__name = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldEntityName>(MetaDefault, new BGId(5703893288097536446UL, 1533510890574206653UL), () => _ufle12jhs77__name = null));
+	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__detail;
+	public static BansheeGz.BGDatabase.BGFieldString __detail => _ufle12jhs77__detail ?? (_ufle12jhs77__detail = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5261917833832198995UL, 16838864908585720479UL), () => _ufle12jhs77__detail = null));
+	private BG_DB_LoadingText() : base(MetaDefault) {}
+	private BG_DB_LoadingText(BGId id) : base(MetaDefault, id) {}
+	private BG_DB_LoadingText(BGMetaEntity meta) : base(meta) {}
+	private BG_DB_LoadingText(BGMetaEntity meta, BGId id) : base(meta, id) {}
+	public static BG_DB_LoadingText FindEntity(Predicate<BG_DB_LoadingText> filter) => BGCodeGenUtils.FindEntity(MetaDefault, filter);
+	public static List<BG_DB_LoadingText> FindEntities(Predicate<BG_DB_LoadingText> filter, List<BG_DB_LoadingText> result=null, Comparison<BG_DB_LoadingText> sort=null) => BGCodeGenUtils.FindEntities(MetaDefault, filter, result, sort);
+	public static void ForEachEntity(Action<BG_DB_LoadingText> action, Predicate<BG_DB_LoadingText> filter=null, Comparison<BG_DB_LoadingText> sort=null) => BGCodeGenUtils.ForEachEntity(MetaDefault, action, filter, sort);
+	public static BG_DB_LoadingText GetEntity(BGId entityId) => (BG_DB_LoadingText) MetaDefault.GetEntity(entityId);
+	public static BG_DB_LoadingText GetEntity(int index) => (BG_DB_LoadingText) MetaDefault[index];
+	public static BG_DB_LoadingText GetEntity(string entityName) => (BG_DB_LoadingText) MetaDefault.GetEntity(entityName);
+	public static BG_DB_LoadingText NewEntity() => (BG_DB_LoadingText) MetaDefault.NewEntity();
+	public static BG_DB_LoadingText NewEntity(BGId entityId) => (BG_DB_LoadingText) MetaDefault.NewEntity(entityId);
+	public static BG_DB_LoadingText NewEntity(Action<BG_DB_LoadingText> callback) => (BG_DB_LoadingText) MetaDefault.NewEntity(new BGMetaEntity.NewEntityContext(entity => callback((BG_DB_LoadingText)entity)));
+
+	[Preserve]
+	public class Factory : BGEntity.EntityFactory
+	{
+		public BGEntity NewEntity(BGMetaEntity meta) => new BG_DB_LoadingText(meta);
+		public BGEntity NewEntity(BGMetaEntity meta, BGId id) => new BG_DB_LoadingText(meta, id);
+	}
+
+	public static class __Names
+	{
+		public const string Meta = "LoadingText";
+		public const string name = "name";
+		public const string detail = "detail";
+	}
+}
 #pragma warning restore 414

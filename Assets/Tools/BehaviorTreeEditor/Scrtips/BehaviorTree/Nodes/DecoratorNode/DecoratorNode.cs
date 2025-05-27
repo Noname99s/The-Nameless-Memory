@@ -19,16 +19,18 @@ namespace SOBehaviorTree
         {
             base.Init();
             childNode.Init();
+            Decorator.Initialize();
         }
         public override NodeState Process()
         {
             if (!Decorator.Condition())
             {
-                Debug.Log("decorator Child Node Abort");
                 AbrotChildNode();
-                return NodeState.Failure;
+                nodeState = NodeState.Failure;
+                return nodeState;
             }
-            return childNode.Process();
+            nodeState = childNode.Process();
+            return nodeState;
         }
         private void AbrotChildNode()
         {

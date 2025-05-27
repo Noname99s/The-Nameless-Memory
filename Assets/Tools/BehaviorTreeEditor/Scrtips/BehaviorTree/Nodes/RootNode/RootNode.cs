@@ -6,7 +6,7 @@ namespace SOBehaviorTree
     public class RootNode : BehaviorNode
     {
         public BehaviorNode child;
-        public ScriptableObject blackboard;
+        [SerializeField] string panelName;
         public override void Init()
         {
             child.Init();
@@ -14,7 +14,13 @@ namespace SOBehaviorTree
 
         public override NodeState Process()
         {
-            return child.Process();
+            if(child == null)
+            {
+                Debug.LogError($"{panelName} child is Null");
+                return NodeState.Failure;
+            }
+            nodeState = child.Process();
+            return nodeState;
         }
         public override BehaviorNode Clone()
         {
