@@ -1,0 +1,136 @@
+using Orpul1.Player.Animation;
+using Orpul1.Player.State.Attack;
+using Orpul1.State.Attack;
+using System;
+using UnityEngine;
+
+[Serializable]
+public class AttackContext
+{
+    public EPlayerAttack attackType = EPlayerAttack.NormalAttack;
+    public float[] attackDelays = new float[3];
+    public int[] attackCounts = new int[3];
+    public int curAttack = 0;
+    public void Initialize()
+    {
+        attackType = EPlayerAttack.NONE;
+        curAttack = 0;
+    }
+}
+
+public class PlayerContext : MonoBehaviour
+{
+    [Header("PlayerInfo")]
+    public Rigidbody2D rigid;
+    public Rigidbody2D.SlideMovement slideMovement = new Rigidbody2D.SlideMovement();
+    public Rigidbody2D.SlideResults slideResult = new Rigidbody2D.SlideResults();
+    public SpriteRenderer sprite;
+    public Transform trPlayer;
+    public Animator animator;
+    public int hp;
+    public int maxHp;
+
+    [Header("MoveState")]
+    public Vector2 moveDir = Vector2.zero;
+    public float moveSpeed = 5;
+
+    [Header("JumpState")]
+    public EJumpState jumpState = EJumpState.JumpReady;
+    public float gravityStrength;
+    public float jumpPower = 10;
+    public float decelerate = 0.8f;
+    public float minJumpSpeed = 0.2f;
+    public int jumpCount = 0;
+    public bool isPressJump = false;
+    public bool shouldWallJump = false;
+
+    [Header("FallState")]
+    public bool isFalling = false;
+    public float damageFallHeight;
+    public float defaultFallSpeed;
+    public float maxFallSpeed;
+    public float fallDamageOverTime;
+    public float onAirMoveSpeed = 2;
+    public float decelerateMoveSpeed;
+    [HideInInspector] public int fallDamage;
+    public int maxFallDamage;
+
+    [Header("AttackState")]
+    public bool isPressAttack;
+    public bool canAttack;
+    public float delayInterval;
+    public bool isStillAttack;
+    public AttackContext attackContext;
+
+    [Header("ClimbLadder")]
+    public bool isPressClimbLadder;
+    public bool canClimbLadder;
+
+    [Header("WallClimbState")]
+    public bool canClimbWall;
+    public bool isPressWallClimb;
+    public float climbSpeed;
+
+    [Header("HitState")]
+    public bool isHit = false;
+
+    [Header("DieState")]
+    public bool isDeath = false;
+
+    public bool IsIdleState
+    {
+        get
+        {
+            return moveDir.x == 0;
+        }
+    }
+
+    public bool IsJumpState
+    {
+        get
+        {
+            return (isPressJump && jumpState == EJumpState.JumpReady && jumpCount > 0);
+        }
+    }
+    public bool IsFallState
+    {
+        get
+        {
+            return (isFalling && jumpState != EJumpState.Jumping);
+        }
+    }
+    public bool IsMoveState
+    {
+        get
+        {
+            return moveDir.x != 0;
+        }
+    }
+    public bool IsAttackState
+    {
+        get
+        {
+            return isPressAttack && !isFalling;
+        }
+    }
+    public bool IsWallClimbState
+    {
+        get
+        {
+            return isPressWallClimb && canClimbWall;
+        }
+    }
+    public bool IsClimbLadderState
+    {
+        get
+        {
+            return isPressClimbLadder && canClimbLadder;
+        }
+    }
+    public void Initialize()
+    {
+        hp = maxHp;
+        fallDamage = 0;
+        attackContext.attackType = EPlayerAttack.NONE;
+    }
+}

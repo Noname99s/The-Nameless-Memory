@@ -7,6 +7,10 @@ public class RandomSelectorNode : ControlFlowNode
     public override void Init() 
     {
         curIndex = Random.Range(0, childNodeList.Count);
+        for (int i = 0; i < childNodeList.Count; i++)
+        {
+            childNodeList[i].Init();
+        }
     }
     public override NodeState Process()
     {

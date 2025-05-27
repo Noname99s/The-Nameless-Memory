@@ -13,7 +13,11 @@ public class BehaviorTreeView : GraphView
     public new class UxmlFactory : UxmlFactory<BehaviorTreeView, GraphView.UxmlTraits> { }
     SOBehaviorTree.BehaviorTree tree;
     TemplateScript templateScript = new TemplateScript();
-    BlackboardView blackBoardView = new BlackboardView();
+    BlackboardView blackBoardView;
+    Type[] panelNodes = new Type[]
+    {
+        new PanelNode().GetType(),
+    };
     Type[] customClassMenus = new Type[]
     {
         new ActionNode().GetType(),
@@ -60,27 +64,16 @@ public class BehaviorTreeView : GraphView
         CreateRootNode();
         CreateNodes();
         CreateEdges();
-        SetBlackboard();
         templateScript.SetBlackboardName(tree.blackboardName);
         templateScript.CreateTemplateNode(CreateNode, tree.blackboard);
         
-    }
-    private void SetBlackboard()
-    {
-        if (tree.blackboard)
-        {
-            tree.blackboardName = tree.blackboard.name;
-            return;
-        }
-        blackBoardView.CreateBlackboard();
-        tree.blackboard = blackBoardView.GetBlackboard();
     }
     void InitView(SOBehaviorTree.BehaviorTree tree)
     {
         this.tree = tree;
         this.tree.Initialize();
-
-        blackBoardView.SetBlackboard(tree.TreePath);
+        blackBoardView = new BlackboardView(tree);
+        blackBoardView.SetBlackboard();
         templateScript.SetTreePath(tree.TreePath);
 
 
@@ -112,7 +105,6 @@ public class BehaviorTreeView : GraphView
             {
                 NodeView parentView = FindNodeView(n);
                 NodeView childView = FindNodeView(c);
-                UnityEngine.Debug.Log($"childView {childView == null}");
                 Edge edge = parentView.outputPort.ConnectTo(childView.inputPort);
                 AddElement(edge);
             });
@@ -186,6 +178,10 @@ public class BehaviorTreeView : GraphView
     }
     public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
     {
+        foreach (Type menu in panelNodes)
+        {
+            evt.menu.AppendAction($"{"PanelNode"}", (a) => CreateNode(menu, menu.Name));
+        }
         foreach (Type menu in customClassMenus)
         {
             evt.menu.AppendAction($"{"CustomNodes/"}[{menu.BaseType.Name}]{menu.Name}", (a) => SetTemplateClass(menu));

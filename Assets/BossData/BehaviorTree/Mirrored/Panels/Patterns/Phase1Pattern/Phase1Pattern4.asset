@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7705054882060978198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddea26520dbede9419a2acd27bd3e83a, type: 3}
+  m_Name: DecoratorNode
+  m_EditorClassIdentifier: 
+  guid: 93055409e200c0846a7dd595e29846ca
+  position: {x: -205.79199, y: 251.32799}
+  nodeName: DecoratorNode
+  description: IsIdleState
+  nodeState: 3
+  methodName: IsIdleState
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  childNode: {fileID: -5131411087755923125}
+  Decorator: {fileID: 11400000, guid: f0ecd55877ae48a46b9edc921275bcd7, type: 2}
+--- !u!114 &-7662683685340420891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f26b539d529ff084b987d1ec4ca067a6, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  guid: 3bb9784e1c5243b4ba3998631bdb942a
+  position: {x: 0.14404297, y: -5.119995}
+  nodeName: RootNode
+  description: RootNode
+  nodeState: 3
+  child: {fileID: -5429585016393020462}
+--- !u!114 &-5429585016393020462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e34f5ad2d998d04396ab6413567c1f7, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  guid: cac32af144c724548855d4ea64b5d729
+  position: {x: 0, y: 105.168}
+  nodeName: SequenceNode
+  description: SequenceNode
+  nodeState: 3
+  childNodeList:
+  - {fileID: -7705054882060978198}
+  - {fileID: -1910301306193581234}
+--- !u!114 &-5131411087755923125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a42890e90a804478c27c92f44589b0, type: 3}
+  m_Name: PanelNode
+  m_EditorClassIdentifier: 
+  guid: ae135e073f280a840897d2bc6ba8eac2
+  position: {x: -155.99997, y: 377.6}
+  nodeName: PanelNode
+  description: MirroredSkill3
+  nodeState: 3
+  panel: {fileID: 11400000, guid: f768587eddcfdad459005e6b163128b2, type: 2}
+--- !u!114 &-2724445909588487986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a42890e90a804478c27c92f44589b0, type: 3}
+  m_Name: PanelNode
+  m_EditorClassIdentifier: 
+  guid: d76fb2b842955714d9258b13c23f0464
+  position: {x: 49.599976, y: 379.2}
+  nodeName: PanelNode
+  description: MirroredSkill2
+  nodeState: 3
+  panel: {fileID: 11400000, guid: f425c3837e2613b498c86652fac0bbe9, type: 2}
+--- !u!114 &-2226556675075703704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a42890e90a804478c27c92f44589b0, type: 3}
+  m_Name: PanelNode
+  m_EditorClassIdentifier: 
+  guid: fe72a374dd91f1c4ebdd72db3de7565c
+  position: {x: 204.80002, y: 380.8}
+  nodeName: PanelNode
+  description: MirroredSkill6
+  nodeState: 3
+  panel: {fileID: 11400000, guid: adeb3ed760a94094385e9e5c09d09225, type: 2}
+--- !u!114 &-1910301306193581234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e26e168e92b80b49a2bc3e02db7f587, type: 3}
+  m_Name: RandomSelectorNode
+  m_EditorClassIdentifier: 
+  guid: 0498276625a336740bcac1eaa7de753a
+  position: {x: 100.79999, y: 251.20001}
+  nodeName: RandomSelectorNode
+  description: RandomSelectorNode
+  nodeState: 3
+  childNodeList:
+  - {fileID: -2724445909588487986}
+  - {fileID: -2226556675075703704}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5622491c9a475bf40823cee49f3128cc, type: 3}
+  m_Name: Phase1Pattern4
+  m_EditorClassIdentifier: 
+  root: {fileID: -7662683685340420891}
+  blackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
+  blackboardName: MirroredBlackboard
+  nodeList:
+  - {fileID: -7662683685340420891}
+  - {fileID: -5429585016393020462}
+  - {fileID: -7705054882060978198}
+  - {fileID: -5131411087755923125}
+  - {fileID: -1910301306193581234}
+  - {fileID: -2724445909588487986}
+  - {fileID: -2226556675075703704}

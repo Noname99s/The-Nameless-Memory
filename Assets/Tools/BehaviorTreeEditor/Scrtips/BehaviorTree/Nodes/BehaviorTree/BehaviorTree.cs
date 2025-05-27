@@ -19,13 +19,18 @@ namespace SOBehaviorTree
         public BehaviorNode root;
         public ScriptableObject blackboard;
 
-        [HideInInspector]public string blackboardName;
+        [HideInInspector] private string blackboardPath;
+        [HideInInspector] public string blackboardName;
+        [HideInInspector] private string treePath = "";
         public List<BehaviorNode> nodeList = new List<BehaviorNode>();
-        [SerializeField]private string treePath = "";
+
         public string TreePath { get { return treePath; } }
+        public string BlackboardPath { get { return blackboardPath; } }
         public void Initialize()
         {
             SetPath();
+            if (!Application.isPlaying) return;
+            root.Init();
         }
         public BehaviorNode CreateNode(Type type, string nodeName)
         {
@@ -58,6 +63,7 @@ namespace SOBehaviorTree
             treePath = treePath.Substring(treePath.IndexOf("/") + 0);
             treePath = treePath.Replace(this.name + ".asset", "");
         }
+      
         private BehaviorNode SetNode(Type type, string nodeName)
         {
             BehaviorNode node = ScriptableObject.CreateInstance(type) as BehaviorNode;
@@ -111,6 +117,13 @@ namespace SOBehaviorTree
             AssetDatabase.AddObjectToAsset(node, path);
             AssetDatabase.SaveAssets();
         }
+
+        public void SetBlackboardPath(string path)
+        {
+            if (string.IsNullOrEmpty(path)) return;
+            blackboardPath = path;
+        }
+
         public void DeleteNode(BehaviorNode node)
         {
             node.RemoveNode();
