@@ -55,5 +55,8 @@ TagManager:
   - name: Interact
     uniqueID: 253594519
     locked: 0
+  - name: player
+    uniqueID: 4291691303
+    locked: 0
   m_RenderingLayers:
   - Default
