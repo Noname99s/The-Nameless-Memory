@@ -9,7 +9,7 @@ namespace Orpul1.Camera.State
     public class VignetteStateInfo
     {
         public VolumeProfile volumeProfile;
-        public Vignette camVignette;
+        [HideInInspector] public Vignette camVignette;
         [Range(0, 1f)] public float interval;
         [Range(0, 1f)] public float minAmouont;
         [Range(0, 1f)] public float maxAmouont;
