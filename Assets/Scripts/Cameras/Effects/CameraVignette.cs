@@ -1,0 +1,80 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+namespace Orpul1.Camera.Effect
+{
+    public class CameraVignette : CameraEffect
+    {
+        [SerializeField] VolumeProfile profile;
+        [SerializeField, Range(0, 1f)] float vignetteSpeed = 0;
+        [SerializeField, Range(0, 1f)] float vignetteMaxAmount = 1;
+        [SerializeField, Range(0, 1f)] float vignetteMinAmount = 1;
+        
+        Vignette vignette;
+        Coroutine activeCoroutine, deactiveCoroutine;
+        float interval = 0;
+
+        private void Awake()
+        {
+            profile.TryGet<Vignette>(out vignette);
+            if (vignette == null)
+                Debug.LogError("Vignette is Null!");
+            vignette.intensity.value = vignetteMinAmount;
+        }
+        public override void ActiveEffect()
+        {
+            StopVignetteCoroutine(deactiveCoroutine);
+            activeCoroutine = StartCoroutine("ActiveVignette");
+        }
+
+        public override void DeactiveEffect()
+        {
+            StopVignetteCoroutine(activeCoroutine);
+            deactiveCoroutine = StartCoroutine("DeactiveVignette");
+        }
+        private IEnumerator ActiveVignette()
+        {
+            vignette.active = true;
+            interval = 0;
+            while (IsArriveAmount(vignette.intensity.value, vignetteMaxAmount))
+            {
+                interval += Time.deltaTime;
+                vignette.intensity.value += interval * vignetteSpeed;
+                yield return null;
+            }
+            //yield return ExecuteVignette(1, vignetteMaxAmount);
+        }
+        private IEnumerator DeactiveVignette()
+        {
+            interval = 0;
+            while (IsArriveAmount(vignetteMinAmount, vignette.intensity.value))
+            {
+                interval -= Time.deltaTime;
+                vignette.intensity.value += interval * vignetteSpeed;
+                yield return null;
+            }
+            //yield return ExecuteVignette(-1, vignetteMinAmount);
+        }
+        private IEnumerator ExecuteVignette(int sign, float arriveAmount)
+        {
+            while (IsArriveAmount(vignette.intensity.value, arriveAmount))
+            {
+                interval += Time.deltaTime * sign;
+                vignette.intensity.value += interval * vignetteSpeed;
+                yield return null;
+            }
+            interval = 0;
+        }
+        private bool IsArriveAmount(float value, float arrive)
+        {
+            return value < arrive;
+        }
+
+        private void StopVignetteCoroutine(Coroutine coroutine)
+        {
+            if (coroutine == null) return;
+            StopCoroutine(coroutine);
+        }
+    }
+}

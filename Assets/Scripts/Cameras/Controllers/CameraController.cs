@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class CameraController : MonoBehaviour,ISetDataAble<ECameraEffect>
+public class CameraController : MonoBehaviour
 {
     [SerializeField] StateController stateController;
     [SerializeField] CameraContext context;
@@ -22,10 +22,5 @@ public class CameraController : MonoBehaviour,ISetDataAble<ECameraEffect>
     private void LateUpdate()
     {
         stateController.ProcessState();
-    }
-
-    public void SetValue(ECameraEffect effectType)
-    {
-        context.cameraEffect = effectType;
     }
 }

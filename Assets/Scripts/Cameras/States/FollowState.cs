@@ -16,23 +16,10 @@ namespace Orpul1.Camera
         {
             Vector2 dir = ((Vector2)data.target.position - data.rigid.position);
             data.rigid.MovePosition(data.rigid.position + dir * data.moveSpeed*Time.deltaTime);
-            TransitionState();
         }
 
         public override void OnExit()
         {
-        }
-        private void TransitionState()
-        {
-            if (IsVignetteState()) return;
-        }
-        private bool IsVignetteState()
-        {
-            if (!data.IsVignetteState)
-                return false;
-            transitionTo((int)ECameraState.VignetteIn);
-
-            return true;
         }
     }
 }

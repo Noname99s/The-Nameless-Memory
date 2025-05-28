@@ -9,8 +9,9 @@ using Orpul1;
 public class SetFieldBlur : ActionScript
 {
     public MirroredBlackboard blackboard;
-    ISetDataAble<ECameraEffect> setCameraEffect;
+    ICameraEffectAble setCameraEffect;
     public ECameraEffect effectType = ECameraEffect.None;
+    public bool isActive = false;
     public override void Init()
     {
         SetCameraEffect();
@@ -22,7 +23,10 @@ public class SetFieldBlur : ActionScript
     }
     public override NodeState OnUpdate()
     {
-        setCameraEffect.SetValue(effectType);
+        if(isActive)
+            setCameraEffect.Execute((int)effectType);
+        else
+            setCameraEffect.Abort((int)effectType);
         return NodeState.Success;
     }
     public override NodeState OnExit()
@@ -33,7 +37,7 @@ public class SetFieldBlur : ActionScript
     {
         if (setCameraEffect != null)
             return;
-        setCameraEffect = CameraManager.Instance.GetCamera((int)ECameraType.MainCamera).GetComponent<ISetDataAble<ECameraEffect>>();
+        setCameraEffect = CameraManager.Instance.GetCamera((int)ECameraType.MainCamera).GetComponent<ICameraEffectAble>();
 
     }
 }

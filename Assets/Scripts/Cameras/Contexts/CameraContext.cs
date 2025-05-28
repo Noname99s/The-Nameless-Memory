@@ -10,7 +10,6 @@ public class CameraContext : MonoBehaviour
     public Rigidbody2D rigid;
 
     public float moveSpeed;
-    public VignetteStateInfo vignetteInfo;
     public ECameraEffect cameraEffect;
     public bool IsFollowState
     {

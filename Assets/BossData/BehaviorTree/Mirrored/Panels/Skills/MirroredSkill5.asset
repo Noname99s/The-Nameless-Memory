@@ -16,7 +16,7 @@ MonoBehaviour:
   position: {x: -2, y: 15}
   nodeName: SequenceNode
   description: SequenceNode
-  nodeState: 3
+  nodeState: 2
   childNodeList:
   - {fileID: -5686374867840028577}
   - {fileID: 523979101697094627}
@@ -38,7 +38,7 @@ MonoBehaviour:
   position: {x: -215, y: 207}
   nodeName: DecoratorNode
   description: IsSkill5CoolReady
-  nodeState: 3
+  nodeState: 2
   methodName: IsSkill5CoolReady
   path: 
   actionNode: {fileID: 0}
@@ -108,7 +108,7 @@ MonoBehaviour:
   position: {x: 1, y: -100}
   nodeName: RootNode
   description: RootNode
-  nodeState: 3
+  nodeState: 2
   child: {fileID: -6471900149919017262}
   panelName: 
 --- !u!114 &-649081684883534148
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 309b5331bb3e2ed40a19b36001c26f17
-  position: {x: 183.71211, y: 213.16899}
+  position: {x: 184.00002, y: 211.58328}
   nodeName: ActionNode
   description: SetSkill5CoolDown
   nodeState: 3
@@ -248,7 +248,7 @@ MonoBehaviour:
   position: {x: -175, y: 331}
   nodeName: SequenceNode
   description: SequenceNode
-  nodeState: 3
+  nodeState: 1
   childNodeList:
   - {fileID: -649081684883534148}
   - {fileID: -5655771486731785091}
@@ -280,7 +280,7 @@ MonoBehaviour:
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
-  delayTime: 10
+  delayTime: 5
   interval: 0
 --- !u!114 &9170310730552316201
 MonoBehaviour:

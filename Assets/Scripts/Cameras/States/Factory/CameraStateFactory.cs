@@ -14,8 +14,6 @@ namespace Orpul1.State
             return new List<IState>()
             {
                 new FollowState(context, transitionTo),
-                new VignetteInState(context, transitionTo),
-                new VignetteOutState(context, transitionTo),
             };
         }
     }
