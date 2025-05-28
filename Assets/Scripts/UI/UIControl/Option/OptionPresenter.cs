@@ -13,6 +13,7 @@ public class OptionPresenter
         optionView.SetWindowToggle(Screen.fullScreen);
         optionView.OnResolutionChanged += HandleResolutionChanged;
         optionView.OnWindowModeChanged += HandleWindowModeChanged;
+        optionView.OnExitOption += HandleExitOption;
     }
     void HandleResolutionChanged(int index)
     {
@@ -22,10 +23,15 @@ public class OptionPresenter
     {
         optionModel.SetWindowMode(isFullScreen);
     }
+    void HandleExitOption()
+    {
+        optionModel.ExitOption();
+    }
 
     public void Dispose()
     {
         optionView.OnResolutionChanged -= HandleResolutionChanged;
         optionView.OnWindowModeChanged -= HandleWindowModeChanged;
+        optionView.OnExitOption -= HandleExitOption;
     }
 }

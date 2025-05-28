@@ -26,4 +26,9 @@ public class OptionModel
     {
         Screen.fullScreen = !isFullScreen;
     }
+
+    public void ExitOption()
+    {
+        Managers.UI.ClosePopupUI<OptionView>();
+    }
 }

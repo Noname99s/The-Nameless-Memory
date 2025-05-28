@@ -9,14 +9,17 @@ public class OptionView : UIPopup , IOptionView
 {
     [SerializeField] TMP_Dropdown resolutionDropdown;
     [SerializeField] Toggle windowToggle;
+    [SerializeField] Button exitOptionButton;
 
     public event Action<int> OnResolutionChanged;
     public event Action<bool> OnWindowModeChanged;
+    public event Action OnExitOption;
 
     void Start()
     {
         resolutionDropdown.onValueChanged.AddListener((value) => OnResolutionChanged?.Invoke(value));
         windowToggle.onValueChanged.AddListener((isFullScreen) => OnWindowModeChanged?.Invoke(isFullScreen));
+        exitOptionButton.onClick.AddListener(() => OnExitOption?.Invoke());
     }
     void OnDestroy()
     {
