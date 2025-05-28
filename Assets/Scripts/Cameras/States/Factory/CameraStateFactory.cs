@@ -1,5 +1,5 @@
 using Orpul1.Camera;
-using Orpul1.Pet.State;
+using Orpul1.Camera.State;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +13,9 @@ namespace Orpul1.State
         {
             return new List<IState>()
             {
-                new Follow(context, transitionTo),
+                new FollowState(context, transitionTo),
+                new VignetteInState(context, transitionTo),
+                new VignetteOutState(context, transitionTo),
             };
         }
     }
