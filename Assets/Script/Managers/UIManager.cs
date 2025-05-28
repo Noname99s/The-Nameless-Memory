@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 
 
-public class UIManager : MonoBehaviour
+public class UIManager
 {
     public GameObject Root
     {
@@ -17,42 +17,12 @@ public class UIManager : MonoBehaviour
         }
     }
     int _order = 0;
-    [SerializeField] GameObject[] uiPrefabs;
     Dictionary<Type , UIPopup> _popupDictionary = new Dictionary<Type, UIPopup>();
 
-    //public void Init()
-    //{
-    //    _order = 0;
-    //}
-    #region юс╫ц
-    private void Start()
+    public void Init()
     {
         _order = 0;
     }
-    private void OnGUI()
-    {
-        if(GUILayout.Button("Show Main"))
-        {
-            ShowPopupUI<MainMenuView>();
-        }
-        if (GUILayout.Button("Show Loading"))
-        {
-            ShowPopupUI<LoadingView>();
-        }
-        if (GUILayout.Button("Close Main"))
-        {
-            ClosePopupUI<MainMenuView>();
-        }
-        if (GUILayout.Button("Close Loading"))
-        {
-            ClosePopupUI<LoadingView>();
-        }
-        if (GUILayout.Button("Close All"))
-        {
-            CloseAllPopupUI();
-        }
-    }
-    #endregion
 
     public T GetPopupUI<T>() where T : UIPopup
     {
@@ -62,21 +32,25 @@ public class UIManager : MonoBehaviour
         }
         return ShowPopupUI<T>();
     }
-
     public T ShowPopupUI<T>() where T : UIPopup
     {
         GameObject go = _popupDictionary.TryGetValue(typeof(T), out UIPopup popup) ? popup.gameObject : null;
 
         if (go == null)
         {
-            for(int i = 0; i < uiPrefabs.Length; i++)
+            string prefabName = typeof(T).Name;
+            int index = prefabName.IndexOf("View");
+            if (index > 0)
             {
-                if (uiPrefabs[i].GetComponent<T>() != null)
-                {
-                    go = Instantiate(uiPrefabs[i], Root.transform);
-                    break;
-                }
+                prefabName = prefabName.Substring(0, index);
             }
+            go = Managers.Resource.Instantiate(BG_DB_UIData.GetEntity(prefabName)?._Prefab , Root.transform);
+            if (go == null)
+            {
+                Debug.LogError($"Failed to load prefab for {typeof(T).Name}");
+                return null;
+            }
+
             T sceneUI = Util.GetOrAddComponent<T>(go);
             sceneUI.Init();
             _popupDictionary[typeof(T)] = sceneUI;

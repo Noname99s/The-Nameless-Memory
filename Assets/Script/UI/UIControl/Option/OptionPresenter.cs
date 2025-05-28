@@ -9,8 +9,8 @@ public class OptionPresenter
     {
         optionModel = new OptionModel();
         optionView = view;
-        optionView.SetResolutionOptions(optionModel.filteredResolutions.ToArray());
-        optionView.SetWindowMode(Screen.fullScreen);
+        optionView.InitResolutionOptions(optionModel.filteredResolutions.ToArray());
+        optionView.SetWindowToggle(Screen.fullScreen);
         optionView.OnResolutionChanged += HandleResolutionChanged;
         optionView.OnWindowModeChanged += HandleWindowModeChanged;
     }

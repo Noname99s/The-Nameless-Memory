@@ -26,16 +26,4 @@ public class OptionModel
     {
         Screen.fullScreen = !isFullScreen;
     }
-    public void StartGame()
-    {
-        // 게임 시작 로직을 여기에 추가
-        Debug.Log("게임 시작");
-    }
-    public void QuitGame()
-    {
-        Application.Quit();
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false; // 에디터에서 실행 중지
-#endif
-    }
 }

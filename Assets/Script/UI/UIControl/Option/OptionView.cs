@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OptionView : MonoBehaviour , IOptionView
+public class OptionView : UIPopup , IOptionView
 {
     [SerializeField] TMP_Dropdown resolutionDropdown;
     [SerializeField] Toggle windowToggle;
@@ -23,7 +23,7 @@ public class OptionView : MonoBehaviour , IOptionView
         resolutionDropdown.onValueChanged.RemoveAllListeners();
         windowToggle.onValueChanged.RemoveAllListeners();
     }
-    public void SetResolutionOptions(Resolution[] resolutions)
+    public void InitResolutionOptions(Resolution[] resolutions)
     {
         List<string> options = new List<string>(resolutions.Length);
         int currentIndex = 0;
@@ -40,7 +40,7 @@ public class OptionView : MonoBehaviour , IOptionView
         resolutionDropdown.value = currentIndex;
         resolutionDropdown.RefreshShownValue();
     }
-    public void SetWindowMode(bool isFullScreen)
+    public void SetWindowToggle(bool isFullScreen)
     {
         windowToggle.isOn = !isFullScreen;
     }

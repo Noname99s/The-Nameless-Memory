@@ -6,6 +6,6 @@ public interface IOptionView
     event Action<int> OnResolutionChanged;
     event Action<bool> OnWindowModeChanged;
 
-    void SetResolutionOptions(Resolution[] resolutions);
-    void SetWindowMode(bool isFullScreen);
+    void InitResolutionOptions(Resolution[] resolutions);
+    void SetWindowToggle(bool isFullScreen);
 }
