@@ -36,6 +36,10 @@ namespace Orpul1.Player
             state = (EPlayerState)stateController.CurState;
             ShootRays();
         }
+        void FixedUpdate()
+        {
+            stateController.ProcessState();
+        }
         private void ShootRays()
         {
             OnGround();
