@@ -1159,7 +1159,7 @@
 <XPD:OBJ name="OwnedViews[28]" type="UMLClassView" guid="ZgtxTV+ap0OdyDSA3kdlmwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1348</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1344</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1012</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">204</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">82</XPD:ATTR>
@@ -1193,7 +1193,7 @@
 <XPD:ATTR name="Left" type="integer">1348</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1156</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">204</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">82</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">95</XPD:ATTR>
 <XPD:REF name="Model">es07DAlFrUWmeOsykjMCnQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="IubrP6Na9UaLEit2Y/y5BQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="8fB5cCxXX0mu75ia5YKZAAAA">
@@ -1224,7 +1224,7 @@
 <XPD:ATTR name="Left" type="integer">1560</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1156</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">204</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">82</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">108</XPD:ATTR>
 <XPD:REF name="Model">F0WCgMsx4UmA+dHfjMYFhQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="IsitB9MBckKfYLYpA9WTiQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="JHUU1FR9+UWOQfgNL9sOagAA">
@@ -1340,7 +1340,7 @@
 <XPD:ATTR name="Left" type="integer">1772</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1156</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">204</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">82</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">95</XPD:ATTR>
 <XPD:REF name="Model">oj7Bhay4p0qVSd47HsPXswAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="hxCUacRl1UayOaeBEiLoAwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="NI/v5LgcR0yJALqB9SVWyAAA">
@@ -1371,7 +1371,7 @@
 <XPD:ATTR name="Left" type="integer">1984</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1156</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">204</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">82</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">95</XPD:ATTR>
 <XPD:REF name="Model">ICfwYjPFo0imQNHOU0cflQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="lKzxPz/m3E+W1ie3grkYIAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="an5KKjd5zE6ZXGkR0+BAXQAA">
@@ -1454,7 +1454,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1287,1051;1348,1051</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1287,1051;1344,1051</XPD:ATTR>
 <XPD:REF name="Model">UkYTK2gDOUG9eh37JmmYZgAA</XPD:REF>
 <XPD:REF name="Head">ZgtxTV+ap0OdyDSA3kdlmwAA</XPD:REF>
 <XPD:REF name="Tail">2XcFQ9O7FEqbgFnHZUpkKgAA</XPD:REF>
@@ -3165,6 +3165,13 @@
 <XPD:REF name="BehavioralFeature">dHu3eUGun022ccIjIDn5YwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
+<XPD:ATTR name="#Attributes" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="pmGvmj+dTE+p/5+neozTgQAA">
+<XPD:ATTR name="Name" type="string">vignetteSpeed</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">float</XPD:ATTR>
+<XPD:REF name="Owner">es07DAlFrUWmeOsykjMCnQAA</XPD:REF>
+</XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[15]" type="UMLClass" guid="F0WCgMsx4UmA+dHfjMYFhQAA">
 <XPD:ATTR name="Name" type="string">CameraShake</XPD:ATTR>
@@ -3206,6 +3213,19 @@
 <XPD:ATTR name="TypeExpression" type="string">override IEnumerator</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">ezLBjElWBEWhlfNYBNZM5AAA</XPD:REF>
 </XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#Attributes" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="p57lxVOu9k6wpg8dLtF+ggAA">
+<XPD:ATTR name="Name" type="string">shakeDuration</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">float</XPD:ATTR>
+<XPD:REF name="Owner">F0WCgMsx4UmA+dHfjMYFhQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="8pKvaKaRtUqMDhryl0tdZwAA">
+<XPD:ATTR name="Name" type="string">waitDuration</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">WaitSecond</XPD:ATTR>
+<XPD:REF name="Owner">F0WCgMsx4UmA+dHfjMYFhQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[16]" type="UMLGeneralization" guid="PD+oeXOOnkGE7vQJ4zM5pQAA">
@@ -3348,6 +3368,13 @@
 <XPD:REF name="BehavioralFeature">wmEnL+CU90WC44I7ABPGcAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
+<XPD:ATTR name="#Attributes" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="+lmrJZBCnkeYypg2Koum5gAA">
+<XPD:ATTR name="Name" type="string">fadeInSpeed</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">float</XPD:ATTR>
+<XPD:REF name="Owner">oj7Bhay4p0qVSd47HsPXswAA</XPD:REF>
+</XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[25]" type="UMLClass" guid="ICfwYjPFo0imQNHOU0cflQAA">
 <XPD:ATTR name="Name" type="string">FadeOut</XPD:ATTR>
@@ -3389,6 +3416,13 @@
 <XPD:ATTR name="TypeExpression" type="string">override IEnumerator</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">LuV7BQeqG0GUwg4cdOiXAgAA</XPD:REF>
 </XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#Attributes" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="O92ISJfiG0umJUThOllUXgAA">
+<XPD:ATTR name="Name" type="string">fadeOutSpeed</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">float</XPD:ATTR>
+<XPD:REF name="Owner">ICfwYjPFo0imQNHOU0cflQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[26]" type="UMLGeneralization" guid="9cqAt7Fq60u9/kRnoj/Y1AAA">
