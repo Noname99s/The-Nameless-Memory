@@ -833,6 +833,11 @@ MonoBehaviour:
     - 0
     isSkillUse: 000000000000
   skillEffectSpawner: {fileID: 0}
+--- !u!4 &328053348 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9033189397551935788, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+  m_PrefabInstance: {fileID: 8077809167897168254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &399979563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,6 +1234,37 @@ MonoBehaviour:
   - {fileID: 939923310}
   - {fileID: 1541463860}
   index: 0
+--- !u!1 &521890852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 521890853}
+  m_Layer: 0
+  m_Name: Skill6Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &521890853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521890852}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 328053348}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &530393332
 GameObject:
   m_ObjectHideFlags: 0
@@ -2603,6 +2639,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 657832022437119776, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1055155865971814008, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.2868992
@@ -2643,6 +2683,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1579159069820882172, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 521890852}
+    - target: {fileID: 1579159069820882172, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 7512824680943569019, guid: 52def1ced2f321d42a1f6d694163b605, type: 3}
     - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: mirroredBlackboardComponent.phaseHpConditions.Array.size
       value: 2
@@ -2671,13 +2719,20 @@ PrefabInstance:
       propertyPath: trPlayer
       value: 
       objectReference: {fileID: 1073896485}
+    - target: {fileID: 6307724522393977630, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7456571372819098835, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: m_Name
       value: Mirrored
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 9033189397551935788, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 521890853}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
 --- !u!1660057539 &9223372036854775807

@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6825761947000847633}
-  - component: {fileID: 6131350707881484672}
   - component: {fileID: 6442313102338275882}
+  - component: {fileID: 6131350707881484672}
   m_Layer: 0
   m_Name: ShockWave
   m_TagString: Untagged
@@ -34,24 +34,6 @@ Transform:
   - {fileID: 2237890876148353732}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6131350707881484672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5139689308164850570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba82a42f8b54ff849886852d0b2edf7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayToAttack: 1
-  deativeTime: 0
-  animator: {fileID: 8200195219969632716}
-  attackCollider: {fileID: 6442313102338275882}
-  interval: 0
-  attackAniDuration: 0
 --- !u!61 &6442313102338275882
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82,7 +64,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -98,6 +80,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6131350707881484672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5139689308164850570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba82a42f8b54ff849886852d0b2edf7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayToAttack: 1
+  deativeTime: 0
+  animator: {fileID: 8200195219969632716}
+  attackCollider: {fileID: 6442313102338275882}
+  interval: 0
+  attackAniDuration: 0
 --- !u!1 &6788308313625903510
 GameObject:
   m_ObjectHideFlags: 0

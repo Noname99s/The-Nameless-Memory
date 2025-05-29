@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3582719337852272187}
-  - component: {fileID: 2234815750756604006}
   - component: {fileID: 4612631628186163355}
   - component: {fileID: 8038308745088594440}
+  - component: {fileID: 2234815750756604006}
   m_Layer: 0
   m_Name: EnergyBall
   m_TagString: Untagged
@@ -35,25 +35,6 @@ Transform:
   - {fileID: 1436270037551508538}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2234815750756604006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6194561466169816900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f3074cfc781831459b0e5fb7a84f665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayToAttack: 0
-  deativeTime: 0
-  rigid: {fileID: 4612631628186163355}
-  arrivePosi: {x: 0, y: 0}
-  damage: 5
-  posiGap: 0.1
-  moveSpeed: 120
 --- !u!50 &4612631628186163355
 Rigidbody2D:
   serializedVersion: 5
@@ -117,6 +98,25 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &2234815750756604006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6194561466169816900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3074cfc781831459b0e5fb7a84f665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayToAttack: 0
+  deativeTime: 0
+  rigid: {fileID: 4612631628186163355}
+  arrivePosi: {x: 0, y: 0}
+  damage: 5
+  posiGap: 0.1
+  moveSpeed: 120
 --- !u!1 &6580459854976726766
 GameObject:
   m_ObjectHideFlags: 0
