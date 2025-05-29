@@ -7,6 +7,7 @@ namespace Orpul1.Camera.Effect
     public class CameraVignette : CameraEffect
     {
         [SerializeField] VolumeProfile profile;
+        [SerializeField] Transform trPlayer;
         [SerializeField, Range(0, 1f)] float vignetteSpeed = 0;
         [SerializeField, Range(0, 1f)] float vignetteMaxAmount = 1;
         [SerializeField, Range(0, 1f)] float vignetteMinAmount = 1;
@@ -56,15 +57,9 @@ namespace Orpul1.Camera.Effect
             }
             //yield return ExecuteVignette(-1, vignetteMinAmount);
         }
-        private IEnumerator ExecuteVignette(int sign, float arriveAmount)
+        private void SetVignetteCenter()
         {
-            while (IsArriveAmount(vignette.intensity.value, arriveAmount))
-            {
-                interval += Time.deltaTime * sign;
-                vignette.intensity.value += interval * vignetteSpeed;
-                yield return null;
-            }
-            interval = 0;
+            /*vignette.center.*/
         }
         private bool IsArriveAmount(float value, float arrive)
         {
