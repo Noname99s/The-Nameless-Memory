@@ -103,12 +103,12 @@ TextureImporter:
       name: Skill6_3_0
       rect:
         serializedVersion: 2
-        x: 564
-        y: 89
-        width: 742
-        height: 1367
+        x: 400
+        y: 80
+        width: 1000
+        height: 1700
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8cd8d07364c196a488cc19abdedae98d
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Skill6_3_0: -2296148381415954160
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
