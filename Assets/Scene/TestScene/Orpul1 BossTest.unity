@@ -2034,6 +2034,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 841c60f643c56f54f9babe4451d0d7fa, type: 2}
+  trPlayer: {fileID: 1073896485}
+  mainCam: {fileID: 1178717866}
   vignetteSpeed: 0.2
   vignetteMaxAmount: 1
   vignetteMinAmount: 0.1
@@ -2051,6 +2053,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effects:
   - {fileID: 1178717856}
+--- !u!20 &1178717866 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2987317786434917746, guid: 03d380c3625b99c49a0886cc2d513dc2, type: 3}
+  m_PrefabInstance: {fileID: 1178717854}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1278718685
 GameObject:
   m_ObjectHideFlags: 0

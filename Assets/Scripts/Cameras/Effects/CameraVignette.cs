@@ -8,6 +8,7 @@ namespace Orpul1.Camera.Effect
     {
         [SerializeField] VolumeProfile profile;
         [SerializeField] Transform trPlayer;
+        [SerializeField] UnityEngine.Camera mainCam;
         [SerializeField, Range(0, 1f)] float vignetteSpeed = 0;
         [SerializeField, Range(0, 1f)] float vignetteMaxAmount = 1;
         [SerializeField, Range(0, 1f)] float vignetteMinAmount = 1;
@@ -15,6 +16,7 @@ namespace Orpul1.Camera.Effect
         Vignette vignette;
         Coroutine activeCoroutine, deactiveCoroutine;
         float interval = 0;
+        bool isActived = false;
 
         private void Awake()
         {
@@ -22,6 +24,16 @@ namespace Orpul1.Camera.Effect
             if (vignette == null)
                 Debug.LogError("Vignette is Null!");
             vignette.intensity.value = vignetteMinAmount;
+        }
+        private void OnDisable()
+        {
+            vignette.intensity.value = vignetteMinAmount;
+            vignette.active = false;
+        }
+        private void Update()
+        {
+            if (!isActived) return;
+            SetVignetteCenter();
         }
         public override void ActiveEffect()
         {
@@ -37,6 +49,7 @@ namespace Orpul1.Camera.Effect
         private IEnumerator ActiveVignette()
         {
             vignette.active = true;
+            isActived = true;
             interval = 0;
             while (IsArriveAmount(vignette.intensity.value, vignetteMaxAmount))
             {
@@ -55,11 +68,13 @@ namespace Orpul1.Camera.Effect
                 vignette.intensity.value += interval * vignetteSpeed;
                 yield return null;
             }
+            isActived = false;
             //yield return ExecuteVignette(-1, vignetteMinAmount);
         }
         private void SetVignetteCenter()
         {
-            /*vignette.center.*/
+            Vector2 center = mainCam.WorldToViewportPoint(trPlayer.position);
+            vignette.center.value = center;
         }
         private bool IsArriveAmount(float value, float arrive)
         {
