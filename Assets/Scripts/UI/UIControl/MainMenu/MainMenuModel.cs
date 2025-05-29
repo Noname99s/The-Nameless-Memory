@@ -6,6 +6,7 @@ public class MainMenuModel
     {
         // 게임 시작 로직을 여기에 추가
         Debug.Log("게임 시작");
+        Managers.SceneLoad.LoadScene("PlayTest");
     }
     public void LoadGame()
     {

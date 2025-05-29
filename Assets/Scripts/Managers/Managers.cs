@@ -5,13 +5,13 @@ using UnityEngine;
 public class Managers : MonoBehaviour
 {
     static Managers s_instance;
-    //SceneLoadManager _sceneLoad = new SceneLoadManager();
+    SceneLoadManager _sceneLoad = new SceneLoadManager();
     //SoundManager _sound;
 
     UIManager _ui = new UIManager();
     [SerializeField] ResourceManager _resource;
     
-    //public static SceneLoadManager SceneLoad { get { return Instance._sceneLoad; } }
+    public static SceneLoadManager SceneLoad { get { return Instance._sceneLoad; } }
 
     public static UIManager UI { get { return Instance._ui; } }
     public static ResourceManager Resource { get { return Instance._resource; } }

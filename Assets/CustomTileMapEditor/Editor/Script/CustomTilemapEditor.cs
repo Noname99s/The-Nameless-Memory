@@ -216,6 +216,8 @@ public class CustomTilemapEditor : EditorWindow
         parent.transform.position = Vector3.zero;
         parent.transform.rotation = Quaternion.identity;
         parent.transform.localScale = Vector3.one;
+        parent.tag = layerType.ToString();
+        parent.layer = LayerMask.NameToLayer(layerType.ToString());
         parent.AddComponent<Grid>();
         if (layerType != LayerType.BackGround)
         {
