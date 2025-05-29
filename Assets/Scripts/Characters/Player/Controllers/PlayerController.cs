@@ -18,6 +18,10 @@ namespace Orpul1.Player
         Ray2D wallRay = new Ray2D();
         Ray2D ladderRay = new Ray2D();
 
+
+        //TODO: 플레이어 HP UI연결 시킬 것
+
+        //IInGameView playerHpUI;
         [SerializeField] EPlayerState state;
         private void Awake()
         {
@@ -26,6 +30,7 @@ namespace Orpul1.Player
         }
         void Start()
         {
+            //playerHpUI = Managers.UI.GetPopupUI<InGameView>();
             stateController.TransitionState((int)EPlayerState.Idle);
             playerData.slideMovement.gravity = Physics2D.gravity;
             playerData.slideMovement.surfaceAnchor = Vector2.down * 0.1f;
@@ -105,6 +110,7 @@ namespace Orpul1.Player
         public void OnDamage(int damage)
         {
             playerData.hp -= damage;
+            
             playerData.isHit = playerData.hp > 0;
             playerData.isDeath = !playerData.isHit;
         }
