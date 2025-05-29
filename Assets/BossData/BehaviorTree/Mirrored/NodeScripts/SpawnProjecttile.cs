@@ -13,7 +13,6 @@ public class SpawnProjecttile : ActionScript
 
     public override void Init()
     {
-        //ObjectPoolManager.Instance.SetPool((int)EObjectType.EnergyBall, prefab);
     }
     public override NodeState OnStart()
     {

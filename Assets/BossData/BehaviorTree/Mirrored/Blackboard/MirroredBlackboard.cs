@@ -15,7 +15,6 @@ public class MirroredSkillContext
 [Serializable]
 public class MirroredBlackboardComponent
 {
-    //Insert blackboard values
     public BossSkillFactory[] bossSkillFactories;
     public MirroredSkillContext[] skillContexts = new MirroredSkillContext[(int)EBossSkill.END];
     public EBossState bossState;

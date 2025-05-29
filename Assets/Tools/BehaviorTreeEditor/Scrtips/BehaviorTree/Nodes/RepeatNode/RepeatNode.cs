@@ -22,7 +22,7 @@ namespace SOBehaviorTree
         }
         private bool IsOutofRepeatCnt()
         {
-            if (curIndex < repeatCnt) return false;
+            if (curIndex < repeatCnt-1) return false;
             curIndex = 0;
             return true;
         }

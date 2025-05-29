@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Orpul1.Boss
 {
-    public abstract class BossSkillFactory : ObjectPool
+    public abstract class BossSkillFactory : ObjectPool, IFactoryAble
     {
         public abstract GameObject Create();
         protected void SetUsingEndObject(GameObject obj)
