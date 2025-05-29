@@ -39,7 +39,7 @@ public class Managers : MonoBehaviour
         //_sceneLoad.Init();
         s_instance = GetComponent<Managers>();
         _ui.Init();
-        _ui.ShowPopupUI<MainMenuView>();
+        _ui.ShowPopupUI<MainMenuComposition>();
     }
     private void Start()
     {

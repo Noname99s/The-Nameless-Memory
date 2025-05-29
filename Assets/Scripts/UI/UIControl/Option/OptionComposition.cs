@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // Composition Root : Option√¢ ¡∂∏≥
-public class OptionComposition : MonoBehaviour
+public class OptionComposition : UIPopup
 {
     [SerializeField] private OptionView optionView;
     private OptionPresenter optionPresenter;

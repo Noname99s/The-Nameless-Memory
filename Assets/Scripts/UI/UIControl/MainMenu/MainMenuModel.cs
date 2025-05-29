@@ -14,7 +14,7 @@ public class MainMenuModel
     }
     public void OpenOptions()
     {
-        Managers.UI.ShowPopupUI<OptionView>();
+        Managers.UI.ShowPopupUI<OptionComposition>();
     }
     public void QuitGame()
     {

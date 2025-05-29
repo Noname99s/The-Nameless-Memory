@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OptionView : UIPopup , IOptionView
+public class OptionView : MonoBehaviour , IOptionView
 {
     [SerializeField] TMP_Dropdown resolutionDropdown;
     [SerializeField] Toggle windowToggle;
