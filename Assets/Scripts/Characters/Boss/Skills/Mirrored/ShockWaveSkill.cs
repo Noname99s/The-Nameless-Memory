@@ -63,7 +63,7 @@ public class ShockWaveSkill : BossSkill
             return;
 
         skillState = EExplosionSkill.Attack;
-        animator.SetTrigger(EBossAniParam.Notify.ToString());
+        animator.SetTrigger(EMirroredSkillAniParam.Notify.ToString());
 
     }
     private void DoExplosion()
@@ -72,7 +72,7 @@ public class ShockWaveSkill : BossSkill
             return;
 
         skillState = EExplosionSkill.AttackEnd;
-        animator.SetTrigger(EBossAniParam.SkillAttack.ToString());
+        animator.SetTrigger(EMirroredSkillAniParam.SkillAttack.ToString());
         attackCollider.enabled = true;
     }
     private void WaitDeactive()
@@ -80,7 +80,7 @@ public class ShockWaveSkill : BossSkill
         if (skillState != EExplosionSkill.AttackEnd)
             return;
 
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName(EBossAniParam.SkillAttack.ToString()))
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName(EMirroredSkillAniParam.SkillAttack.ToString()))
             return;
 
         attackAniDuration = animator.GetCurrentAnimatorStateInfo(0).length;

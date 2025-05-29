@@ -15,6 +15,7 @@ public class PlayBossSkillAnimation : ActionScript
     }
     public override NodeState OnUpdate()
     {
+        blackboard.btComponent.animator.SetTrigger(bossAni.ToString());
         return NodeState.Success;
     }
     public override NodeState OnExit()

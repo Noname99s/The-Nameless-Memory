@@ -29,6 +29,7 @@ namespace Orpul1.Camera.Effect
         {
             vignette.intensity.value = vignetteMinAmount;
             vignette.active = false;
+            isActived = false;
         }
         private void Update()
         {

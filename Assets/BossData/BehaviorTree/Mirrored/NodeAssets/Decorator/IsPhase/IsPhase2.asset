@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: IsPhase2
   m_EditorClassIdentifier: 
   blackboard: {fileID: 0}
-  phaseCondition: 0
+  phaseCondition: 50
