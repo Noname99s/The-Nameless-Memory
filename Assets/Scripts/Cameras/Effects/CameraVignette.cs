@@ -70,6 +70,7 @@ namespace Orpul1.Camera.Effect
                 yield return null;
             }
             isActived = false;
+            vignette.center.value = Vector2.one * 0.5f;
             //yield return ExecuteVignette(-1, vignetteMinAmount);
         }
         private void SetVignetteCenter()

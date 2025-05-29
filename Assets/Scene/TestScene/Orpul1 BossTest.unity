@@ -240,7 +240,7 @@ MonoBehaviour:
     bossState: 0
     animator: {fileID: 0}
     trPlayer: {fileID: 0}
-    phaseHpConditions: 
+    phaseHpConditions: []
     hp: 0
     leftSkillCoolTimes:
     - 0
@@ -473,7 +473,7 @@ MonoBehaviour:
     bossState: 0
     animator: {fileID: 0}
     trPlayer: {fileID: 1073896485}
-    phaseHpConditions: 
+    phaseHpConditions: []
     hp: 0
     leftSkillCoolTimes:
     - 0
@@ -610,7 +610,7 @@ MonoBehaviour:
     bossState: 0
     animator: {fileID: 0}
     trPlayer: {fileID: 1073896485}
-    phaseHpConditions: 
+    phaseHpConditions: []
     hp: 0
     leftSkillCoolTimes:
     - 0
@@ -670,7 +670,7 @@ MonoBehaviour:
     bossState: 0
     animator: {fileID: 0}
     trPlayer: {fileID: 0}
-    phaseHpConditions: 
+    phaseHpConditions: []
     hp: 0
     leftSkillCoolTimes:
     - 0
@@ -822,7 +822,7 @@ MonoBehaviour:
     bossState: 0
     animator: {fileID: 0}
     trPlayer: {fileID: 1073896485}
-    phaseHpConditions: 
+    phaseHpConditions: []
     hp: 0
     leftSkillCoolTimes:
     - 0
@@ -891,7 +891,7 @@ MonoBehaviour:
     bossState: 0
     animator: {fileID: 0}
     trPlayer: {fileID: 0}
-    phaseHpConditions: 
+    phaseHpConditions: []
     hp: 0
     leftSkillCoolTimes:
     - 0
@@ -1051,7 +1051,7 @@ MonoBehaviour:
     bossState: 0
     animator: {fileID: 0}
     trPlayer: {fileID: 1073896485}
-    phaseHpConditions: 
+    phaseHpConditions: []
     hp: 0
     leftSkillCoolTimes:
     - 0
@@ -1149,7 +1149,7 @@ MonoBehaviour:
     bossState: 0
     animator: {fileID: 0}
     trPlayer: {fileID: 1073896485}
-    phaseHpConditions: 
+    phaseHpConditions: []
     hp: 0
     leftSkillCoolTimes:
     - 0
@@ -1417,7 +1417,7 @@ MonoBehaviour:
     bossState: 0
     animator: {fileID: 0}
     trPlayer: {fileID: 1073896485}
-    phaseHpConditions: 
+    phaseHpConditions: []
     hp: 0
     leftSkillCoolTimes:
     - 0
@@ -1587,7 +1587,7 @@ MonoBehaviour:
     bossState: 0
     animator: {fileID: 0}
     trPlayer: {fileID: 1073896485}
-    phaseHpConditions: 
+    phaseHpConditions: []
     hp: 0
     leftSkillCoolTimes:
     - 0
@@ -1650,7 +1650,7 @@ MonoBehaviour:
     bossState: 0
     animator: {fileID: 0}
     trPlayer: {fileID: 0}
-    phaseHpConditions: 
+    phaseHpConditions: []
     hp: 0
     leftSkillCoolTimes:
     - 0
@@ -1842,7 +1842,7 @@ MonoBehaviour:
     bossState: 0
     animator: {fileID: 0}
     trPlayer: {fileID: 0}
-    phaseHpConditions: 
+    phaseHpConditions: []
     hp: 0
     leftSkillCoolTimes:
     - 0
@@ -2381,7 +2381,7 @@ MonoBehaviour:
     bossState: 0
     animator: {fileID: 0}
     trPlayer: {fileID: 1073896485}
-    phaseHpConditions: 
+    phaseHpConditions: []
     hp: 0
     leftSkillCoolTimes:
     - 0
@@ -2503,7 +2503,7 @@ MonoBehaviour:
     bossState: 0
     animator: {fileID: 0}
     trPlayer: {fileID: 0}
-    phaseHpConditions: 
+    phaseHpConditions: []
     hp: 0
     leftSkillCoolTimes:
     - 0
@@ -2644,12 +2644,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.phaseHpConditions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: 'mirroredBlackboardComponent.phaseHpConditions.Array.data[0]'
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: 'mirroredBlackboardComponent.phaseHpConditions.Array.data[1]'
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.phaseHpConditions.Array.data[0].range1
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.phaseHpConditions.Array.data[0].range2
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.phaseHpConditions.Array.data[1].range1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5971091956061334788, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: trPlayer
