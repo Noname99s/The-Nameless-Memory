@@ -23,7 +23,7 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   delayTime: 1
-  interval: 0.0035230017
+  interval: 0.007911799
 --- !u!114 &-6812808636449739441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,14 +42,12 @@ MonoBehaviour:
   description: SequenceNode
   nodeState: 3
   childNodeList:
-  - {fileID: 4743075249697126076}
   - {fileID: -1587835388164970529}
   - {fileID: 6593558253576431607}
   - {fileID: 8516019283117680192}
   - {fileID: -106665489906637198}
   - {fileID: 9198290371246293564}
   - {fileID: 6164339082010364106}
-  - {fileID: 7622602254750574352}
   curIndex: 0
   sign: 0
 --- !u!114 &-5866093333879237251
@@ -146,8 +144,6 @@ MonoBehaviour:
   - {fileID: -106665489906637198}
   - {fileID: 9198290371246293564}
   - {fileID: 6164339082010364106}
-  - {fileID: 7622602254750574352}
-  - {fileID: 4743075249697126076}
   - {fileID: 8005211062204580248}
   - {fileID: 8516019283117680192}
   - {fileID: -5866093333879237251}
@@ -199,29 +195,6 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: 2e97665464c0fe04ea4d0d650fbbbdb2, type: 2}
---- !u!114 &4743075249697126076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: ActionNode
-  m_EditorClassIdentifier: 
-  guid: bb36e3ed272ae7545a2b2cde5c632980
-  position: {x: -777.52014, y: 559.68005}
-  nodeName: ActionNode
-  description: Panel2Start
-  nodeState: 3
-  methodName: Panel2Start
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  actionScript: {fileID: 11400000, guid: 612c36776f50c7c4d8df1e7990274e48, type: 2}
 --- !u!114 &6164339082010364106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,29 +264,6 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: fcfba615eca4b264c82a6d21c601df55, type: 2}
---- !u!114 &7622602254750574352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: ActionNode
-  m_EditorClassIdentifier: 
-  guid: 7491003ca25b40640981c79c8556744e
-  position: {x: 308.07993, y: 567.68}
-  nodeName: ActionNode
-  description: Panel2End
-  nodeState: 3
-  methodName: Panel2End
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  actionScript: {fileID: 11400000, guid: bbbb9bf1dc965664c9bba12d81e178eb, type: 2}
 --- !u!114 &8005211062204580248
 MonoBehaviour:
   m_ObjectHideFlags: 0

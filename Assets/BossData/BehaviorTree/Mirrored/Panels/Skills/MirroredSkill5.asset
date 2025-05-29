@@ -16,7 +16,7 @@ MonoBehaviour:
   position: {x: -2, y: 15}
   nodeName: SequenceNode
   description: SequenceNode
-  nodeState: 2
+  nodeState: 3
   childNodeList:
   - {fileID: -5686374867840028577}
   - {fileID: 523979101697094627}
@@ -38,7 +38,7 @@ MonoBehaviour:
   position: {x: -215, y: 207}
   nodeName: DecoratorNode
   description: IsSkill5CoolReady
-  nodeState: 2
+  nodeState: 3
   methodName: IsSkill5CoolReady
   path: 
   actionNode: {fileID: 0}
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: c9c0bd919fcb38644a2d9ac941bd205a
-  position: {x: -233, y: 467}
+  position: {x: -324.97595, y: 470.39996}
   nodeName: ActionNode
   description: SetFieldBlurTrue
   nodeState: 3
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: ea90451483015d64585da0966a80da78
-  position: {x: 75, y: 470}
+  position: {x: -16.975952, y: 472.8}
   nodeName: ActionNode
   description: SetFieldBlurFalse
   nodeState: 3
@@ -108,7 +108,7 @@ MonoBehaviour:
   position: {x: 1, y: -100}
   nodeName: RootNode
   description: RootNode
-  nodeState: 2
+  nodeState: 3
   child: {fileID: -6471900149919017262}
   panelName: 
 --- !u!114 &-649081684883534148
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 2cacd4e9547c371478eda26999374a70
-  position: {x: -393.0879, y: 467.569}
+  position: {x: -484.97595, y: 470.39996}
   nodeName: ActionNode
   description: SetAttackState
   nodeState: 3
@@ -159,9 +159,9 @@ MonoBehaviour:
   - {fileID: -4543771046711387053}
   - {fileID: 523979101697094627}
   - {fileID: 7216909816667646764}
-  - {fileID: 6281194186431136342}
   - {fileID: -6471900149919017262}
   - {fileID: 8620138491335242180}
+  - {fileID: 8228569178246810712}
 --- !u!114 &523979101697094627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,29 +185,6 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: ce4e90967c5ace04782962495cdb79d9, type: 2}
---- !u!114 &6281194186431136342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: ActionNode
-  m_EditorClassIdentifier: 
-  guid: b24c78a7a04078d4696ac9d7fb082b20
-  position: {x: 387.84, y: 472}
-  nodeName: ActionNode
-  description: SetIdleState
-  nodeState: 3
-  methodName: SetIdleState
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  actionScript: {fileID: 11400000, guid: 21e20838141917141b6c345a82f3321b, type: 2}
 --- !u!114 &7216909816667646764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +198,7 @@ MonoBehaviour:
   m_Name: DelayNode
   m_EditorClassIdentifier: 
   guid: d6d015217c3999647901f8cb4be18999
-  position: {x: 228.84, y: 471}
+  position: {x: 136.62402, y: 474.39996}
   nodeName: DelayNode
   description: 
   nodeState: 3
@@ -232,6 +209,29 @@ MonoBehaviour:
   assetPath: 
   delayTime: 0.5
   interval: 0
+--- !u!114 &8228569178246810712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: ActionNode
+  m_EditorClassIdentifier: 
+  guid: b7d60de6a86c6114b9b306098a249f05
+  position: {x: -484.97595, y: 470.39996}
+  nodeName: ActionNode
+  description: PlaySkill5Animation
+  nodeState: 3
+  methodName: PlaySkill5Animation
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: 5ec21cbc3a33967429801640b735d1b1, type: 2}
 --- !u!114 &8262559591203988359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,17 +245,16 @@ MonoBehaviour:
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
   guid: 1382ac79dfcd5a749892dcfb9af90761
-  position: {x: -175, y: 331}
+  position: {x: -164, y: 328.8}
   nodeName: SequenceNode
   description: SequenceNode
-  nodeState: 1
+  nodeState: 3
   childNodeList:
-  - {fileID: -649081684883534148}
+  - {fileID: 8228569178246810712}
   - {fileID: -5655771486731785091}
   - {fileID: 8620138491335242180}
   - {fileID: -4543771046711387053}
   - {fileID: 7216909816667646764}
-  - {fileID: 6281194186431136342}
   curIndex: 0
   sign: 0
 --- !u!114 &8620138491335242180
@@ -271,7 +270,7 @@ MonoBehaviour:
   m_Name: DelayNode
   m_EditorClassIdentifier: 
   guid: bbc26ea58ce69cf499da02677b317efc
-  position: {x: -80, y: 464}
+  position: {x: -172.17596, y: 467.2}
   nodeName: DelayNode
   description: 
   nodeState: 3
@@ -280,7 +279,7 @@ MonoBehaviour:
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
-  delayTime: 5
+  delayTime: 10
   interval: 0
 --- !u!114 &9170310730552316201
 MonoBehaviour:
@@ -295,7 +294,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 51111b3dc2c68104da903d24d7afd254
-  position: {x: -235.48787, y: 469.16898}
+  position: {x: -327.37592, y: 472}
   nodeName: ActionNode
   description: SetUseSkill5
   nodeState: 3

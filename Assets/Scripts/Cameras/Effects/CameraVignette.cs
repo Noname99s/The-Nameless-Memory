@@ -55,7 +55,7 @@ namespace Orpul1.Camera.Effect
             while (IsArriveAmount(vignette.intensity.value, vignetteMaxAmount))
             {
                 interval += Time.deltaTime;
-                vignette.intensity.value += interval * vignetteSpeed;
+                vignette.intensity.value += interval * vignetteSpeed * Time.deltaTime;
                 yield return null;
             }
             //yield return ExecuteVignette(1, vignetteMaxAmount);
@@ -66,7 +66,7 @@ namespace Orpul1.Camera.Effect
             while (IsArriveAmount(vignetteMinAmount, vignette.intensity.value))
             {
                 interval -= Time.deltaTime;
-                vignette.intensity.value += interval * vignetteSpeed;
+                vignette.intensity.value += interval * vignetteSpeed * Time.deltaTime;
                 yield return null;
             }
             isActived = false;

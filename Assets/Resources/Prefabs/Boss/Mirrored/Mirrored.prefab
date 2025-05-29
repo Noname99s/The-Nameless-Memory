@@ -897,7 +897,13 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: f24d5343b114ece4c9029f5552690c83, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories: []
+    bossSkillFactories:
+    - {fileID: 476782935415161988}
+    - {fileID: 7635351845578495263}
+    - {fileID: 5971091956061334788}
+    - {fileID: 3086106040088971775}
+    - {fileID: 0}
+    - {fileID: 1579159069820882172}
     skillContexts:
     - spawnPoints: []
       skillPrefab: []

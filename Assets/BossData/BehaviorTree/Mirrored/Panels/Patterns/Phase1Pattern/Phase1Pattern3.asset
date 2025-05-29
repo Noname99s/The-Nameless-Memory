@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PanelNode
   m_EditorClassIdentifier: 
   guid: b3243f2332f0d8041871a919c2de1d3c
-  position: {x: -135.76006, y: 372.16006}
+  position: {x: -139.20001, y: 248}
   nodeName: PanelNode
   description: MirroredSkill6
   nodeState: 3
@@ -36,6 +36,7 @@ MonoBehaviour:
   description: RootNode
   nodeState: 3
   child: {fileID: 2492622984298202737}
+  panelName: 
 --- !u!114 &-2203734490739580077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,30 +55,6 @@ MonoBehaviour:
   description: MirroredSkill3
   nodeState: 3
   panel: {fileID: 11400000, guid: f768587eddcfdad459005e6b163128b2, type: 2}
---- !u!114 &-1934525873885010408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddea26520dbede9419a2acd27bd3e83a, type: 3}
-  m_Name: DecoratorNode
-  m_EditorClassIdentifier: 
-  guid: e5a19e6f0bf98514c98390a6a553a8fc
-  position: {x: -184.1201, y: 248.24005}
-  nodeName: DecoratorNode
-  description: IsIdleState
-  nodeState: 3
-  methodName: IsIdleState
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  childNode: {fileID: -4535856263305208270}
-  Decorator: {fileID: 11400000, guid: f0ecd55877ae48a46b9edc921275bcd7, type: 2}
 --- !u!114 &-1762343327818687419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +75,7 @@ MonoBehaviour:
   childNodeList:
   - {fileID: 813916722195151361}
   - {fileID: -2203734490739580077}
+  curIndex: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +94,6 @@ MonoBehaviour:
   nodeList:
   - {fileID: -4137626806142816047}
   - {fileID: 2492622984298202737}
-  - {fileID: -1934525873885010408}
   - {fileID: -4535856263305208270}
   - {fileID: -1762343327818687419}
   - {fileID: 813916722195151361}
@@ -157,5 +134,7 @@ MonoBehaviour:
   description: SequenceNode
   nodeState: 3
   childNodeList:
-  - {fileID: -1934525873885010408}
+  - {fileID: -4535856263305208270}
   - {fileID: -1762343327818687419}
+  curIndex: 0
+  sign: 0
