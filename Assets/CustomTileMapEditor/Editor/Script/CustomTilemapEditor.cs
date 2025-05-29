@@ -33,6 +33,7 @@ public class CustomTilemapEditor : EditorWindow
     string newBGTileName = string.Empty;
     Transform floorParent;
     Transform backGroundParent;
+    Transform rootParent;
 
     private void OnEnable()
     {
@@ -53,11 +54,17 @@ public class CustomTilemapEditor : EditorWindow
         GUILayout.Label("Tilemap Settings", EditorStyles.boldLabel);
         // 레벨 선택 -- 레벨별 파일 로드 + 룰타일 로드
         mapLevel = EditorGUILayout.Popup("Map Level", mapLevel, new string[] { "Map1", "Map2", "Map3", "Map4" });
+        GUILayout.BeginHorizontal("box");
         if (GUILayout.Button("Reset Scene", GUILayout.Width(100f), GUILayout.Height(20f)))
         {
             if (EditorUtility.DisplayDialog("Reset Scene", "Are you sure you want to reset the scene?", "Yes", "No"))
             {
-                if(floorParent != null)
+                if(rootParent != null)
+                {
+                    DestroyImmediate(rootParent.gameObject);
+                    return;
+                }
+                if (floorParent != null)
                     DestroyImmediate(floorParent.gameObject);
                 if (backGroundParent != null)
                     DestroyImmediate(backGroundParent.gameObject);
@@ -69,6 +76,15 @@ public class CustomTilemapEditor : EditorWindow
                 }
             }
         }
+        if (GUILayout.Button("Save Map Prefab", GUILayout.Width(120f), GUILayout.Height(20f)))
+        {
+            SaveMapPrefab();
+        }
+        if (GUILayout.Button("Load Map Prefab", GUILayout.Width(120f), GUILayout.Height(20f)))
+        {
+            LoadMapPrefab();
+        }
+        GUILayout.EndHorizontal();
         EditorGUILayout.Space(guiSpace);
 
         guiSpace = EditorGUILayout.IntSlider("Space", guiSpace, 0, 30);
@@ -216,7 +232,7 @@ public class CustomTilemapEditor : EditorWindow
         parent.transform.position = Vector3.zero;
         parent.transform.rotation = Quaternion.identity;
         parent.transform.localScale = Vector3.one;
-        parent.tag = layerType.ToString();
+        //parent.tag = layerType.ToString();
         parent.layer = LayerMask.NameToLayer(layerType.ToString());
         parent.AddComponent<Grid>();
         if (layerType != LayerType.BackGround)
@@ -224,6 +240,7 @@ public class CustomTilemapEditor : EditorWindow
             parent.AddComponent<Rigidbody2D>();
             parent.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             parent.AddComponent<CompositeCollider2D>();
+            parent.GetComponent<CompositeCollider2D>().geometryType = CompositeCollider2D.GeometryType.Polygons;
         }
         if (layerType == LayerType.Floor)
             floorParent = parent.transform;
@@ -263,6 +280,74 @@ public class CustomTilemapEditor : EditorWindow
         return tilemapObject;
     }
     #region Save & Load
+    private void SaveMapPrefab()
+    {
+        if (floorParent == null|| backGroundParent == null) return;
+        string prefabPath = EditorUtility.SaveFilePanel(
+        "Save Map",
+        "Assets/CustomTileMapEditor/MapPrefab",
+        "Map" + (mapLevel + 1) + ".prefab",
+        "prefab"
+         );
+        if (string.IsNullOrEmpty(prefabPath))
+        {
+            Debug.Log("Save operation cancelled.");
+            return;
+        }
+        GameObject mapPrefab = new GameObject("Map" + (mapLevel + 1));
+        floorParent.SetParent(mapPrefab.transform);
+        backGroundParent.SetParent(mapPrefab.transform);
+        List<GameObject> tilemaps = new List<GameObject>();
+        tilemaps.AddRange(GameObject.FindGameObjectsWithTag("Interact"));
+        foreach (GameObject tilemap in tilemaps)
+        {
+            tilemap.transform.parent.SetParent(mapPrefab.transform);
+        }
+        PrefabUtility.SaveAsPrefabAsset(mapPrefab, prefabPath);
+    }
+    private void LoadMapPrefab()
+    {
+        string prefabPath = EditorUtility.OpenFilePanel(
+        "Load Map",
+        "Assets/CustomTileMapEditor/MapPrefab",
+        "prefab"
+        );
+        if (!string.IsNullOrEmpty(prefabPath))
+        {
+            GameObject prefab = PrefabUtility.LoadPrefabContents(prefabPath);
+            if (prefab != null)
+            {
+                GameObject newMap = Instantiate(prefab);
+                rootParent = newMap.transform;
+                Transform[] children = newMap.GetComponentsInChildren<Transform>(true);
+                foreach (Transform child in children)
+                {
+                    if (child.CompareTag("Floor"))
+                    {
+                        floorParent = child;
+                        floorTile = child.GetComponent<Tilemap>();
+                    }
+                    else if (child.CompareTag("BackGround"))
+                    {
+                        backGroundParent = child;
+                        backGroundTile = child.GetComponent<Tilemap>();
+                    }
+                    else if (child.CompareTag("Interact"))
+                    {
+                        interactTile = child.GetComponent<Tilemap>();
+                    }
+                }
+            }
+            else
+            {
+                Debug.LogError("Failed to load prefab from path: " + prefabPath);
+            }
+        }
+        else
+        {
+            Debug.Log("Load operation cancelled.");
+        }
+    }
     private void SavePrefab(Tilemap saveTile)
     {
         if (saveTile == null)
