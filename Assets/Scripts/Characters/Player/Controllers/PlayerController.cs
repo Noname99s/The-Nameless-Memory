@@ -102,7 +102,6 @@ namespace Orpul1.Player
         private bool IsHitRay(RaycastHit2D hit2D)
         {
             if (hit2D.transform == null) return false;
-            if (!hit2D.transform.CompareTag(ETag.Floor.ToString())) return false;
 
             return true;
         }
