@@ -40,6 +40,7 @@ public class CustomTilemapEditor : EditorWindow
         // Tile Palette 열고 CustomEditor와 붙여주기
         EditorApplication.ExecuteMenuItem("Window/2D/Tile Palette");
 
+        rootParent = GameObject.FindGameObjectWithTag("TileRoot")?.transform;
         //Tilemap 찾기
         floorTile = GameObject.FindGameObjectWithTag("Floor")?.GetComponent<Tilemap>();
         if (floorTile != null)
@@ -53,7 +54,7 @@ public class CustomTilemapEditor : EditorWindow
     {
         GUILayout.Label("Tilemap Settings", EditorStyles.boldLabel);
         // 레벨 선택 -- 레벨별 파일 로드 + 룰타일 로드
-        mapLevel = EditorGUILayout.Popup("Map Level", mapLevel, new string[] { "Map1", "Map2", "Map3", "Map4" });
+        mapLevel = EditorGUILayout.Popup("Map Level", mapLevel, new string[] { "Hub","Map1", "Map2", "Map3", "Map4","Map5" });
         GUILayout.BeginHorizontal("box");
         if (GUILayout.Button("Reset Scene", GUILayout.Width(100f), GUILayout.Height(20f)))
         {
@@ -295,6 +296,7 @@ public class CustomTilemapEditor : EditorWindow
             return;
         }
         GameObject mapPrefab = new GameObject("Map" + (mapLevel + 1));
+        mapPrefab.tag = "TileRoot";
         floorParent.SetParent(mapPrefab.transform);
         backGroundParent.SetParent(mapPrefab.transform);
         List<GameObject> tilemaps = new List<GameObject>();
