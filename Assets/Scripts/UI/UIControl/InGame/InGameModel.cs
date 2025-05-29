@@ -1,0 +1,30 @@
+using UnityEngine;
+
+public class InGameModel
+{
+    public void PauseGame()
+    {
+        Debug.Log("게임 일시정지");
+        Time.timeScale = 0;
+    }
+    public void ResumeGame()
+    {
+        Debug.Log("게임 재개");
+        Time.timeScale = 1;
+    }
+    public void OpenOptions()
+    {
+        Managers.UI.ShowPopupUI<OptionView>();
+    }
+    public void BackToMainMenu()
+    {
+        Debug.Log("메인 메뉴로 돌아가기");
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; // 에디터에서 실행 중지
+#endif
+    }
+}

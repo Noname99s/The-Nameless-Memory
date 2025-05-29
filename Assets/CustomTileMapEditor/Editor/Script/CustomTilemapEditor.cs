@@ -52,7 +52,7 @@ public class CustomTilemapEditor : EditorWindow
     {
         GUILayout.Label("Tilemap Settings", EditorStyles.boldLabel);
         // 레벨 선택 -- 레벨별 파일 로드 + 룰타일 로드
-        mapLevel = EditorGUILayout.Popup("Map Level", mapLevel, new string[] { "Map1", "Map2", "Map3" });
+        mapLevel = EditorGUILayout.Popup("Map Level", mapLevel, new string[] { "Map1", "Map2", "Map3", "Map4" });
         if (GUILayout.Button("Reset Scene", GUILayout.Width(100f), GUILayout.Height(20f)))
         {
             if (EditorUtility.DisplayDialog("Reset Scene", "Are you sure you want to reset the scene?", "Yes", "No"))

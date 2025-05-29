@@ -51,10 +51,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 7e33ece2cc0be814f9daef80eab23e9a, type: 3}
   - {fileID: 21300000, guid: 7f5a7b351274bec4cb210a8a5a79c6de, type: 3}
   m_PackedSpriteNamesToIndex:
-  - "\uAC8C\uC784 \uB85C\uBE44 \uC52C \uAC8C\uC784\uB85C\uACE0"
-  - "\uAC8C\uC784 \uB85C\uBE44 \uC52C \uBC30\uACBD"
-  - "\uAC8C\uC784 \uB85C\uBE44 \uC52C \uC794\uB514"
-  - "\uAC8C\uC784 \uB85C\uBE44 \uC52C \uD0D1"
+  - Image_GameLogo
+  - Image_Background
+  - Image_Grass
+  - Image_Tower
   m_RenderDataMap: {}
   m_Tag: MainMenuImg
   m_IsVariant: 0
