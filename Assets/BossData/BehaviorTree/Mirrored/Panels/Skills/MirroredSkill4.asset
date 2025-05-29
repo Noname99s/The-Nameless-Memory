@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: f93ab3e7f4b609f4b811961688dd13ba
-  position: {x: -315.054, y: 372.1976}
+  position: {x: -474.32056, y: 523.9777}
   nodeName: ActionNode
   description: PlaySkill4Animation
   nodeState: 3
@@ -40,7 +40,8 @@ MonoBehaviour:
   nodeName: RootNode
   description: RootNode
   nodeState: 3
-  child: {fileID: 4466506393591075003}
+  child: {fileID: 6136765184612670086}
+  panelName: 
 --- !u!114 &-1675850352668233005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,7 +55,7 @@ MonoBehaviour:
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
   guid: a67571bde281291499b638e4126d65ac
-  position: {x: -0.8000183, y: 216.00003}
+  position: {x: -159.92053, y: 367.97775}
   nodeName: SequenceNode
   description: SequenceNode
   nodeState: 3
@@ -62,11 +63,11 @@ MonoBehaviour:
   - {fileID: 7876058129853282293}
   - {fileID: -6452086541344026476}
   - {fileID: 7276049131302797126}
-  - {fileID: 4980590356856144514}
   - {fileID: 6843179291271666999}
-  - {fileID: 957526240590018833}
   - {fileID: 4746423274158842430}
   - {fileID: 1704826415463754824}
+  curIndex: 3
+  sign: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,32 +92,9 @@ MonoBehaviour:
   - {fileID: 7276049131302797126}
   - {fileID: 4980590356856144514}
   - {fileID: 6843179291271666999}
-  - {fileID: 957526240590018833}
   - {fileID: 4746423274158842430}
   - {fileID: 1704826415463754824}
---- !u!114 &957526240590018833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: ActionNode
-  m_EditorClassIdentifier: 
-  guid: 997a6ff631db3b9418f55351cd6d09bb
-  position: {x: 311.3461, y: 375.3976}
-  nodeName: ActionNode
-  description: IsLaserActiveFalse
-  nodeState: 3
-  methodName: IsLaserActiveFalse
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  actionScript: {fileID: 0}
+  - {fileID: 6136765184612670086}
 --- !u!114 &1704826415463754824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +108,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: a1ec959540d4feb489fca53218515035
-  position: {x: 613.7459, y: 378.59756}
+  position: {x: 305.67935, y: 525.5777}
   nodeName: ActionNode
   description: SetIdleState
   nodeState: 3
@@ -153,7 +131,7 @@ MonoBehaviour:
   m_Name: DecoratorNode
   m_EditorClassIdentifier: 
   guid: b596e511ca9111f44abcd4689a56e14f
-  position: {x: -51.519928, y: 115.92001}
+  position: {x: -210.3205, y: 267.97775}
   nodeName: DecoratorNode
   description: 
   nodeState: 3
@@ -177,7 +155,7 @@ MonoBehaviour:
   m_Name: DelayNode
   m_EditorClassIdentifier: 
   guid: ee41f0e2ead845a47bde67cd06040e9b
-  position: {x: 462.546, y: 377.79758}
+  position: {x: 154.47934, y: 524.7777}
   nodeName: DelayNode
   description: "0.5\uCD08 \uB300\uAE30"
   nodeState: 3
@@ -201,7 +179,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: cffa164562fad5942a64818ae519300f
-  position: {x: -1.4540032, y: 372.1976}
+  position: {x: 139.97409, y: 273.83203}
   nodeName: ActionNode
   description: SetSkill4CoolDown
   nodeState: 3
@@ -211,6 +189,28 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: aa7148a7ae50f0c44abd2b0600fe7be5, type: 2}
+--- !u!114 &6136765184612670086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e34f5ad2d998d04396ab6413567c1f7, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  guid: c82e3b1664f4f7441aadc7893baf1764
+  position: {x: -0.025901208, y: 112.02602}
+  nodeName: SequenceNode
+  description: SequenceNode
+  nodeState: 3
+  childNodeList:
+  - {fileID: 4466506393591075003}
+  - {fileID: 4980590356856144514}
+  curIndex: 0
+  sign: 0
 --- !u!114 &6843179291271666999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: DelayNode
   m_EditorClassIdentifier: 
   guid: c2876ba046272ed4ab04810951400d14
-  position: {x: 153.746, y: 372.9976}
+  position: {x: -154.32059, y: 519.97766}
   nodeName: DelayNode
   description: Wait until Laser Ended
   nodeState: 3
@@ -234,7 +234,7 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   delayTime: 2
-  interval: 0
+  interval: 0.6211418
 --- !u!114 &7276049131302797126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Name: SpawnLaser
   m_EditorClassIdentifier: 
   guid: dc735d855d20bab4f9eb0f37dbf8a39d
-  position: {x: -157.45401, y: 371.39755}
+  position: {x: -316.72058, y: 523.1777}
   nodeName: SpawnLaser
   description: SpawnLaser
   nodeState: 3
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 7d3b8dd6799959e4c9de52bee0cb2c3a
-  position: {x: -464.65396, y: 372.1976}
+  position: {x: -623.9206, y: 523.9777}
   nodeName: ActionNode
   description: SetAttackState
   nodeState: 3

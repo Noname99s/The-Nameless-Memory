@@ -33,12 +33,11 @@ public class BehaviorTreeView : GraphView
     };
     Type[] controlFlowMenus = new Type[]
     {
-        
         new SequenceNode().GetType(),
         new SelectorNode().GetType(),
         new ParallelNode().GetType(),
         new RandomSelectorNode().GetType(),
-        
+        new RepeatNode().GetType(),
     };
            
 

@@ -2,47 +2,44 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPool : MonoBehaviour
+public abstract class ObjectPool : MonoBehaviour
 {
     private Queue<GameObject> pools = new Queue<GameObject>();
-    private Func<GameObject, GameObject> createObject;
-    private GameObject prefab;
-    private GameObject parent;
-    public ObjectPool(Func<GameObject,GameObject> createObject, GameObject prefab)
+    [SerializeField] private GameObject prefab;
+    [SerializeField] private GameObject parent;
+    private void Start()
     {
-        this.createObject = createObject;
-        this.prefab = prefab;
         Initialize();
     }
-    private void Initialize()
+    protected void Initialize()
     {
-        parent = new GameObject(prefab.name);
         for (int i = 0; i < 5; i++)
         {
             CreateObject();
         }
     }
-    public void SetObject(GameObject obj)
+    protected void EnqueueObject(GameObject obj)
     {
+        obj.SetActive(false);
         pools.Enqueue(obj);
     }
-    public GameObject GetObject()
+    protected T GetObject<T>()
     {
         if (pools.Count <= 0)
             CreateObject();
 
         GameObject pool = pools.Dequeue();
         pool.SetActive(true);
-        return pool;
+        return pool.GetComponent<T>();
     }
     private void CreateObject()
     {
-        GameObject pool = createObject?.Invoke(prefab);
+        GameObject pool = Instantiate(prefab);
         pool.transform.SetParent(parent.transform);
         pool.SetActive(false);
         pools.Enqueue(pool);
     }
-    public void Release()
+    protected void Release()
     {
         int size = pools.Count;
         for (int i = 0; i < size; i++)

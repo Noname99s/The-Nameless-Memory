@@ -8,7 +8,7 @@ using Orpul1.Boss.Mirrored;
 public class PlayBossSkillAnimation : ActionScript
 {
     public MirroredBlackboard blackboard;
-    public EBossAni bossAni;
+    public EBossSkill bossAni;
     public override NodeState OnStart()
     {
         return NodeState.Success;

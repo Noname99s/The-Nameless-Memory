@@ -3,7 +3,7 @@ using Orpul1.Object;
 using SOBehaviorTree;
 using UnityEngine;
 
-public class BossController : MonoBehaviour,IFindTreeAble, IObserver
+public class BossController : MonoBehaviour,IFindTreeAble
 {
     [SerializeField] BehaviorTree tree;
     [SerializeField] MirroredBlackboard mirroredBlackboard;
@@ -18,7 +18,6 @@ public class BossController : MonoBehaviour,IFindTreeAble, IObserver
     {
         //tree.Initialize();
         tree.root.Init();
-        mirroredBlackboardComponent.bossObserver = this;
         mirroredBlackboard.btComponent = mirroredBlackboardComponent;
     }
 
@@ -29,7 +28,7 @@ public class BossController : MonoBehaviour,IFindTreeAble, IObserver
     }
     private void OnDestroy()
     {
-        ObjectPoolManager.Instance.ReleasePool(0);
+        //ObjectPoolManager.Instance.ReleasePool(0);
     }
 
     public void Notify<T>(T t)

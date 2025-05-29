@@ -9,32 +9,18 @@ using Orpul1.Boss.Mirrored;
 public class SpawnShockwave : ActionScript
 {
     public MirroredBlackboard blackboard;
-    [SerializeField] GameObject prefab;
-    [SerializeField] Transform trPlayer;
 
     public override void Init()
     {
         if (!Application.isPlaying) return;
-        ObjectPoolManager.Instance.SetPool((int)EObjectType.ShockWave, prefab);
-        SetValues();
-        
-        Debug.Log("Init ActionScript");
-    }
-    private void SetValues()
-    {
-        if (trPlayer != null) return;
-        trPlayer = blackboard.btComponent.trPlayer;
     }
     public override NodeState OnStart()
     {
-        SetValues();
         return NodeState.Success;
     }
     public override NodeState OnUpdate()
     {
-        BossSkill skill = ObjectPoolManager.Instance.GetObject<BossSkill>((int)EObjectType.ShockWave);
-        skill.transform.position = trPlayer.position;
-        skill.Execute();
+        blackboard.btComponent.bossSkillFactories[(int)EBossSkill.Skill3].Create();
         return NodeState.Success;
     }
     public override NodeState OnExit()

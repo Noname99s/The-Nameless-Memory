@@ -1,5 +1,29 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8610649574382314268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be2c80b47643c24b9fe88ad49869a65, type: 3}
+  m_Name: DelayNode
+  m_EditorClassIdentifier: 
+  guid: 94a3ff6c8e5bbe24f8bccd4041fe81fd
+  position: {x: -407.19998, y: 784.7999}
+  nodeName: DelayNode
+  description: 
+  nodeState: 3
+  methodName: 
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  delayTime: 1
+  interval: 0.0035230017
 --- !u!114 &-6812808636449739441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,7 +37,7 @@ MonoBehaviour:
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
   guid: 72b2888df62b58444b9f583f1f87fdd8
-  position: {x: -190.32002, y: 386.87997}
+  position: {x: -190.39996, y: 385.6}
   nodeName: SequenceNode
   description: SequenceNode
   nodeState: 3
@@ -21,11 +45,33 @@ MonoBehaviour:
   - {fileID: 4743075249697126076}
   - {fileID: -1587835388164970529}
   - {fileID: 6593558253576431607}
-  - {fileID: 6704541996453096168}
+  - {fileID: 8516019283117680192}
   - {fileID: -106665489906637198}
   - {fileID: 9198290371246293564}
   - {fileID: 6164339082010364106}
   - {fileID: 7622602254750574352}
+  curIndex: 0
+  sign: 0
+--- !u!114 &-5866093333879237251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e34f5ad2d998d04396ab6413567c1f7, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  guid: eb6eaf4e9ae8ece48a7b165db5a15ade
+  position: {x: -308.8001, y: 659.8801}
+  nodeName: SequenceNode
+  description: SequenceNode
+  nodeState: 3
+  childNodeList:
+  - {fileID: -8610649574382314268}
+  - {fileID: 6704541996453096168}
   curIndex: 0
   sign: 0
 --- !u!114 &-1587835388164970529
@@ -103,6 +149,9 @@ MonoBehaviour:
   - {fileID: 7622602254750574352}
   - {fileID: 4743075249697126076}
   - {fileID: 8005211062204580248}
+  - {fileID: 8516019283117680192}
+  - {fileID: -5866093333879237251}
+  - {fileID: -8610649574382314268}
 --- !u!114 &69215808000244470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +281,7 @@ MonoBehaviour:
   m_Name: SpawnProjecttile
   m_EditorClassIdentifier: 
   guid: 26e9b23d8504ec349972ebc79f8a3824
-  position: {x: -316.7201, y: 556.4801}
+  position: {x: -224.79999, y: 786.4}
   nodeName: SpawnProjecttile
   description: 
   nodeState: 3
@@ -278,7 +327,7 @@ MonoBehaviour:
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
   guid: 96eb8be8124a6724884e152a366ca32b
-  position: {x: 0.36001506, y: 131.28001}
+  position: {x: 0.8000488, y: 117.487976}
   nodeName: SequenceNode
   description: SequenceNode
   nodeState: 3
@@ -306,6 +355,27 @@ MonoBehaviour:
   nodeState: 3
   child: {fileID: 8005211062204580248}
   panelName: Skill2
+--- !u!114 &8516019283117680192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65650fa90979a474ca9714d8d3a4084c, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  guid: 037461007c61d794f8b19d2f59390cdc
+  position: {x: -306.39996, y: 561.6}
+  nodeName: RepeatNode
+  description: RepeatNode
+  nodeState: 3
+  childNodeList:
+  - {fileID: -5866093333879237251}
+  curIndex: 0
+  repeatCnt: 2
 --- !u!114 &9198290371246293564
 MonoBehaviour:
   m_ObjectHideFlags: 0

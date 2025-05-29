@@ -20,7 +20,8 @@ namespace Orpul1.State
                 states = stateFactory.Create(TransitionState);
             }
         }
-        private void FixedUpdate()
+        
+        public void ProcessState()
         {
             if (curState == null) return;
             curState.OnUpdate();

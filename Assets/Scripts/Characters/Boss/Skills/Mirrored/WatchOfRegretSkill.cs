@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using Orpul1;
 using Orpul1.Object;
 using UnityEngine;
 
-public class WatchOfRegretSkill : BossSkill,ISetDataAble
+public class WatchOfRegretSkill : BossSkill,ISetDataAble<Vector2>
 {
     [SerializeField] Rigidbody2D rigid;
     [SerializeField] Vector2 arrivePosi;
@@ -15,26 +16,21 @@ public class WatchOfRegretSkill : BossSkill,ISetDataAble
     {
         rigid = GetComponent<Rigidbody2D>();
     }
-    private void OnEnable()
-    {
-    }
     private void FixedUpdate()
     {
         if (!isExecute) return;
         MoveArrivePosi();
         if (IsArrivePosi()) return;
-        ObjectPoolManager.Instance.EnqueueObj((int)EObjectType.EnergyBall, gameObject);
+        enqueueAction(gameObject);
     }
     public override void Execute()
     {
         isExecute = true;
     }
 
-    public void SetValue<T>(T t)
+    public void SetValue(Vector2 arrivePosi)
     {
-        if (!(t is Vector2 posi)) return;
-
-        arrivePosi = posi;
+        this.arrivePosi = arrivePosi;
     }
     
     private void MoveArrivePosi()
@@ -54,11 +50,17 @@ public class WatchOfRegretSkill : BossSkill,ISetDataAble
         if (player == null) return;
         player.OnDamage(damage);
     }
-    IEnumerator DelayDeactive()
-    {
-        yield return null;
-    }
     private void OnDisable()
+    {
+        ResetValue();
+    }
+
+    public override void SetValue(Action<GameObject> enqueueAction)
+    {
+        this.enqueueAction = enqueueAction;
+    }
+
+    public override void ResetValue()
     {
         isExecute = false;
     }
