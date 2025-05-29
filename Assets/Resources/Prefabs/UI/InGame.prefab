@@ -1170,6 +1170,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1146978457605101487}
     m_Modifications:
+    - target: {fileID: 1465012146500194557, guid: 15c0c78b679c81045b96117dbc944bf4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1465012146500194559, guid: 15c0c78b679c81045b96117dbc944bf4, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542

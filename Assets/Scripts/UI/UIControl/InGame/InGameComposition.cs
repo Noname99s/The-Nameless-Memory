@@ -13,21 +13,8 @@ public class InGameComposition : UIPopup
     {
         inGamePresenter.Dispose();
     }
-    public void SubScribeHpUpdate(Action<int, int> action)
+    public void OnHpUpdateConnection(int hp, int maxHp)
     {
-        action += inGameView.UpdateHP;
+        inGameView.UpdateHP(hp, maxHp);
     }
-    public void SubScribeDeathCountUpdate(Action<int> action)
-    {
-        action += inGameView.UpdateDeathCount;
-    }
-    public void UnSubScribeHpUpdate(Action<int, int> action)
-    {
-        action -= inGameView.UpdateHP;
-    }
-    public void UnSubScribeDeathCountUpdate(Action<int> action)
-    {
-        action -= inGameView.UpdateDeathCount;
-    }
-
 }

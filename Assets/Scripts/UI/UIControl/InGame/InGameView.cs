@@ -30,7 +30,8 @@ public class InGameView : MonoBehaviour , IInGameView
         backToMainMenuButton.onClick.AddListener(() => OnBackToMainMenu?.Invoke());
         quitGameButton.onClick.AddListener(() => OnQuitGame?.Invoke());
         //dialogText.text = string.Empty;
-
+        hpSlider.value = hpSlider.maxValue; 
+        deathCountText.text = "0"; // Initialize death count to 0
     }
     public void UpdateDeathCount(int deathCount)
     {
@@ -38,6 +39,15 @@ public class InGameView : MonoBehaviour , IInGameView
     }
     public void UpdateHP(int hp, int maxHp)
     {
-        hpSlider.DOValue((float)hp / maxHp, 0.5f).SetEase(Ease.OutQuad);
+        float targetValue = (float)hp / maxHp * hpSlider.maxValue;
+        hpSlider.DOKill();
+
+        hpSlider.DOValue(targetValue, 0.5f).SetEase(Ease.OutQuad).onComplete = () =>
+        {
+            if (hp <= 0)
+            {
+                dialogAnim.gameObject.SetActive(true);
+            }
+        };
     }
 }

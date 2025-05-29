@@ -33,7 +33,7 @@ namespace Orpul1.Player
             stateController.TransitionState((int)EPlayerState.Idle);
             playerData.slideMovement.gravity = Physics2D.gravity;
             playerData.slideMovement.surfaceAnchor = Vector2.down * 0.1f;
-            Managers.UI.GetPopupUI<InGameComposition>().SubScribeHpUpdate(OnPlayerHpChanged);
+            OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
         }
 
         void Update()
