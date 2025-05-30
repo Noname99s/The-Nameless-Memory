@@ -60,11 +60,9 @@ MonoBehaviour:
   description: SequenceNode
   nodeState: 3
   childNodeList:
-  - {fileID: 2028142613070139500}
   - {fileID: 7876058129853282293}
   - {fileID: -6452086541344026476}
   - {fileID: 5598993151068911534}
-  - {fileID: 1070012420971104891}
   - {fileID: 7276049131302797126}
   - {fileID: 6843179291271666999}
   - {fileID: 4746423274158842430}
@@ -97,32 +95,7 @@ MonoBehaviour:
   - {fileID: 4746423274158842430}
   - {fileID: 1704826415463754824}
   - {fileID: 6136765184612670086}
-  - {fileID: 2028142613070139500}
-  - {fileID: 1070012420971104891}
   - {fileID: 5598993151068911534}
---- !u!114 &1070012420971104891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: ActionNode
-  m_EditorClassIdentifier: 
-  guid: 5f896f164d4768a4e9b72932e9a7abe2
-  position: {x: -160, y: 529}
-  nodeName: ActionNode
-  description: AbortCameraShake
-  nodeState: 3
-  methodName: AbortCameraShake
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  actionScript: {fileID: 11400000, guid: d8096940f2361e24286dae5f0166e43b, type: 2}
 --- !u!114 &1704826415463754824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,29 +119,6 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: 21e20838141917141b6c345a82f3321b, type: 2}
---- !u!114 &2028142613070139500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: ActionNode
-  m_EditorClassIdentifier: 
-  guid: 48630d6e28fb2d945adb79de2e38ece2
-  position: {x: -773, y: 526}
-  nodeName: ActionNode
-  description: ExecuteCameraShake
-  nodeState: 3
-  methodName: ExecuteCameraShake
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  actionScript: {fileID: 11400000, guid: 998f059323a12b64e96ededc7a105f93, type: 2}
 --- !u!114 &4466506393591075003
 MonoBehaviour:
   m_ObjectHideFlags: 0
