@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: f93ab3e7f4b609f4b811961688dd13ba
-  position: {x: -474.32056, y: 523.9777}
+  position: {x: -474, y: 525}
   nodeName: ActionNode
   description: PlaySkill4Animation
   nodeState: 3
@@ -60,14 +60,16 @@ MonoBehaviour:
   description: SequenceNode
   nodeState: 3
   childNodeList:
+  - {fileID: 2028142613070139500}
   - {fileID: 7876058129853282293}
   - {fileID: -6452086541344026476}
+  - {fileID: 5598993151068911534}
+  - {fileID: 1070012420971104891}
   - {fileID: 7276049131302797126}
   - {fileID: 6843179291271666999}
   - {fileID: 4746423274158842430}
   - {fileID: 1704826415463754824}
-  curIndex: 3
-  sign: 0
+  curIndex: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +97,32 @@ MonoBehaviour:
   - {fileID: 4746423274158842430}
   - {fileID: 1704826415463754824}
   - {fileID: 6136765184612670086}
+  - {fileID: 2028142613070139500}
+  - {fileID: 1070012420971104891}
+  - {fileID: 5598993151068911534}
+--- !u!114 &1070012420971104891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: ActionNode
+  m_EditorClassIdentifier: 
+  guid: 5f896f164d4768a4e9b72932e9a7abe2
+  position: {x: -160, y: 529}
+  nodeName: ActionNode
+  description: AbortCameraShake
+  nodeState: 3
+  methodName: AbortCameraShake
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: d8096940f2361e24286dae5f0166e43b, type: 2}
 --- !u!114 &1704826415463754824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +136,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: a1ec959540d4feb489fca53218515035
-  position: {x: 305.67935, y: 525.5777}
+  position: {x: 456, y: 532}
   nodeName: ActionNode
   description: SetIdleState
   nodeState: 3
@@ -118,6 +146,29 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: 21e20838141917141b6c345a82f3321b, type: 2}
+--- !u!114 &2028142613070139500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: ActionNode
+  m_EditorClassIdentifier: 
+  guid: 48630d6e28fb2d945adb79de2e38ece2
+  position: {x: -773, y: 526}
+  nodeName: ActionNode
+  description: ExecuteCameraShake
+  nodeState: 3
+  methodName: ExecuteCameraShake
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: 998f059323a12b64e96ededc7a105f93, type: 2}
 --- !u!114 &4466506393591075003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +206,7 @@ MonoBehaviour:
   m_Name: DelayNode
   m_EditorClassIdentifier: 
   guid: ee41f0e2ead845a47bde67cd06040e9b
-  position: {x: 154.47934, y: 524.7777}
+  position: {x: 304, y: 531}
   nodeName: DelayNode
   description: "0.5\uCD08 \uB300\uAE30"
   nodeState: 3
@@ -189,6 +240,30 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: aa7148a7ae50f0c44abd2b0600fe7be5, type: 2}
+--- !u!114 &5598993151068911534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be2c80b47643c24b9fe88ad49869a65, type: 3}
+  m_Name: DelayNode
+  m_EditorClassIdentifier: 
+  guid: 0ce944b77d4474648a7a07272f466e52
+  position: {x: -321, y: 531}
+  nodeName: DelayNode
+  description: Delay 1Second
+  nodeState: 3
+  methodName: Delay 1Second
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  delayTime: 1
+  interval: 0
 --- !u!114 &6136765184612670086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +285,6 @@ MonoBehaviour:
   - {fileID: 4466506393591075003}
   - {fileID: 4980590356856144514}
   curIndex: 0
-  sign: 0
 --- !u!114 &6843179291271666999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +298,7 @@ MonoBehaviour:
   m_Name: DelayNode
   m_EditorClassIdentifier: 
   guid: c2876ba046272ed4ab04810951400d14
-  position: {x: -154.32059, y: 519.97766}
+  position: {x: 154, y: 528}
   nodeName: DelayNode
   description: Wait until Laser Ended
   nodeState: 3
@@ -234,7 +308,7 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   delayTime: 2
-  interval: 0.6211418
+  interval: 0
 --- !u!114 &7276049131302797126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +322,7 @@ MonoBehaviour:
   m_Name: SpawnLaser
   m_EditorClassIdentifier: 
   guid: dc735d855d20bab4f9eb0f37dbf8a39d
-  position: {x: -316.72058, y: 523.1777}
+  position: {x: -9, y: 531}
   nodeName: SpawnLaser
   description: SpawnLaser
   nodeState: 3
@@ -271,7 +345,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 7d3b8dd6799959e4c9de52bee0cb2c3a
-  position: {x: -623.9206, y: 523.9777}
+  position: {x: -624.00006, y: 522.4791}
   nodeName: ActionNode
   description: SetAttackState
   nodeState: 3

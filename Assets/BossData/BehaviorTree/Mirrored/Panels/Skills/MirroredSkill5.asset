@@ -21,7 +21,6 @@ MonoBehaviour:
   - {fileID: -5686374867840028577}
   - {fileID: 523979101697094627}
   curIndex: 0
-  sign: 0
 --- !u!114 &-5686374867840028577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,7 +58,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: c9c0bd919fcb38644a2d9ac941bd205a
-  position: {x: -324.97595, y: 470.39996}
+  position: {x: -11, y: 462}
   nodeName: ActionNode
   description: SetFieldBlurTrue
   nodeState: 3
@@ -82,7 +81,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: ea90451483015d64585da0966a80da78
-  position: {x: -16.975952, y: 472.8}
+  position: {x: 297, y: 465}
   nodeName: ActionNode
   description: SetFieldBlurFalse
   nodeState: 3
@@ -111,29 +110,6 @@ MonoBehaviour:
   nodeState: 3
   child: {fileID: -6471900149919017262}
   panelName: 
---- !u!114 &-649081684883534148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: ActionNode
-  m_EditorClassIdentifier: 
-  guid: 2cacd4e9547c371478eda26999374a70
-  position: {x: -484.97595, y: 470.39996}
-  nodeName: ActionNode
-  description: SetAttackState
-  nodeState: 3
-  methodName: SetAttackState
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  actionScript: {fileID: 11400000, guid: 23fe664909d9b4542a78a9226f92cc9e, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +128,6 @@ MonoBehaviour:
   nodeList:
   - {fileID: -2866830428065178997}
   - {fileID: -5686374867840028577}
-  - {fileID: -649081684883534148}
   - {fileID: 9170310730552316201}
   - {fileID: 8262559591203988359}
   - {fileID: -5655771486731785091}
@@ -198,7 +173,7 @@ MonoBehaviour:
   m_Name: DelayNode
   m_EditorClassIdentifier: 
   guid: d6d015217c3999647901f8cb4be18999
-  position: {x: 136.62402, y: 474.39996}
+  position: {x: 451, y: 466}
   nodeName: DelayNode
   description: 
   nodeState: 3
@@ -222,7 +197,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: b7d60de6a86c6114b9b306098a249f05
-  position: {x: -484.97595, y: 470.39996}
+  position: {x: -255.56, y: 466}
   nodeName: ActionNode
   description: PlaySkill5Animation
   nodeState: 3
@@ -255,8 +230,7 @@ MonoBehaviour:
   - {fileID: 8620138491335242180}
   - {fileID: -4543771046711387053}
   - {fileID: 7216909816667646764}
-  curIndex: 0
-  sign: 0
+  curIndex: 5
 --- !u!114 &8620138491335242180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +244,7 @@ MonoBehaviour:
   m_Name: DelayNode
   m_EditorClassIdentifier: 
   guid: bbc26ea58ce69cf499da02677b317efc
-  position: {x: -172.17596, y: 467.2}
+  position: {x: 142, y: 459}
   nodeName: DelayNode
   description: 
   nodeState: 3
@@ -280,7 +254,7 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   delayTime: 10
-  interval: 0
+  interval: 2.9853387
 --- !u!114 &9170310730552316201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +268,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 51111b3dc2c68104da903d24d7afd254
-  position: {x: -327.37592, y: 472}
+  position: {x: -13, y: 464}
   nodeName: ActionNode
   description: SetUseSkill5
   nodeState: 3
