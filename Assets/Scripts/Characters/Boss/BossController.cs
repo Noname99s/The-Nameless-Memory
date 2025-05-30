@@ -2,6 +2,8 @@ using Orpul1;
 using Orpul1.Boss.Mirrored;
 using Orpul1.Object;
 using SOBehaviorTree;
+using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
@@ -10,16 +12,24 @@ public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
     [SerializeField] MirroredBlackboard mirroredBlackboard;
     [SerializeField] MirroredBlackboardComponent mirroredBlackboardComponent;
     [SerializeField] GameObject skillEffectSpawner;
-
+    MirroredBossInfo bossInfo;
+    MirroredHitStateInfo hitInfo;
+    WaitForSeconds blinkDelay;
+    int curblinkCount = 0;
     public BehaviorTree GetBehaviorTree()
     {
         return tree;
     }
-
+    private void Awake()
+    {
+        bossInfo = mirroredBlackboardComponent.bossInfo;
+        hitInfo = mirroredBlackboardComponent.hitStateInfo;
+        mirroredBlackboard.btComponent = mirroredBlackboardComponent;
+        blinkDelay = new WaitForSeconds(mirroredBlackboard.btComponent.hitStateInfo.blinkeDelay);
+    }
     void Start()
     {
         tree.root.Init();
-        mirroredBlackboard.btComponent = mirroredBlackboardComponent;
     }
 
     void Update()
@@ -29,6 +39,30 @@ public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
 
     public void OnDamage(int damage)
     {
-        mirroredBlackboard.btComponent.hp -= damage;
+        mirroredBlackboard.btComponent.bossInfo.hp -= damage;
+        StartCoroutine("OnDamageCoroutine");
+    }
+    IEnumerator OnDamageCoroutine()
+    {
+        curblinkCount = 0;
+        while (!IsFillHitCount())
+        {
+            yield return BlinkSpriteColorInHitState();
+        }
+    }
+    IEnumerator BlinkSpriteColorInHitState()
+    {
+        bossInfo.bossSprite.color = hitInfo.hitColor;
+        yield return blinkDelay;
+
+        bossInfo.bossSprite.color = hitInfo.orginColor;
+        yield return blinkDelay;
+        curblinkCount++;
+    }
+    private bool IsFillHitCount()
+    {
+        if (curblinkCount < hitInfo.blinkCount)
+            return false;
+        return true;
     }
 }

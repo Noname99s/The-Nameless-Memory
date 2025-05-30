@@ -9,9 +9,11 @@ public class SpawnExplosionCollider : ActionScript
 {
     public MirroredBlackboard blackboard;
     [SerializeField] int spawnCount;
+    MirroredSkillInfo skillInfo;
 
     public override void Init()
     {
+        skillInfo = blackboard.btComponent.bossSkillInfo;
     }
     public override NodeState OnStart()
     {
@@ -21,7 +23,7 @@ public class SpawnExplosionCollider : ActionScript
     {
         for (int i = 0; i < spawnCount; i++)
         {
-            blackboard.btComponent.bossSkillFactories[(int)EBossSkill.Skill1].Create();
+            skillInfo.bossSkillFactories[(int)EBossSkill.Skill1].Create();
         }
 
         return NodeState.Success;

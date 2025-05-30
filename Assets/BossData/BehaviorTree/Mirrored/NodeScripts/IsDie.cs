@@ -7,6 +7,6 @@ public class IsDie : Decorator
    public MirroredBlackboard blackboard;
    public override bool Condition()
    {
-        return blackboard.btComponent.hp <= 0;
+        return blackboard.btComponent.bossInfo.hp <= 0;
    }
 }

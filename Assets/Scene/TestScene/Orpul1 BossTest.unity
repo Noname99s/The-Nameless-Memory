@@ -220,37 +220,40 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: 9a14555b4f3c352499323830f60bf7ae, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories: []
-    skillContexts:
-    - spawnPoints:
-      - {fileID: 640575322}
-      - {fileID: 939923310}
-      - {fileID: 1541463860}
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    bossState: 0
-    bossSprite: {fileID: 0}
-    animator: {fileID: 0}
-    trPlayer: {fileID: 0}
-    phaseHpConditions: []
-    hp: 0
-    leftSkillCoolTimes:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    isSkillUse: 000000000000
+    bossInfo:
+      bossSprite: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      skillContexts:
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
   skillEffectSpawner: {fileID: 0}
 --- !u!4 &32741903
 Transform:
@@ -452,39 +455,40 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: c91c07e910d9b6744b5c3a179f075f23, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories: []
-    skillContexts:
-    - spawnPoints:
-      - {fileID: 640575322}
-      - {fileID: 939923310}
-      - {fileID: 1541463860}
-      skillPrefab: []
-    - spawnPoints:
-      - {fileID: 50632278}
-      - {fileID: 530393333}
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    bossState: 0
-    bossSprite: {fileID: 0}
-    animator: {fileID: 0}
-    trPlayer: {fileID: 1073896485}
-    phaseHpConditions: []
-    hp: 0
-    leftSkillCoolTimes:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    isSkillUse: 000000000000
+    bossInfo:
+      bossSprite: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      skillContexts:
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
   skillEffectSpawner: {fileID: 0}
 --- !u!1 &166024424
 GameObject:
@@ -590,39 +594,40 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: d582332f2e70df84681ccfd477dce733, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories: []
-    skillContexts:
-    - spawnPoints:
-      - {fileID: 640575322}
-      - {fileID: 939923310}
-      - {fileID: 1541463860}
-      skillPrefab: []
-    - spawnPoints:
-      - {fileID: 50632278}
-      - {fileID: 530393333}
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    bossState: 0
-    bossSprite: {fileID: 0}
-    animator: {fileID: 0}
-    trPlayer: {fileID: 1073896485}
-    phaseHpConditions: []
-    hp: 0
-    leftSkillCoolTimes:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    isSkillUse: 000000000000
+    bossInfo:
+      bossSprite: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      skillContexts:
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
   skillEffectSpawner: {fileID: 0}
 --- !u!1 &200754061
 GameObject:
@@ -656,34 +661,40 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: b3675fc7eacdb874daf1f2d447f1614b, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories: []
-    skillContexts:
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    bossState: 0
-    bossSprite: {fileID: 0}
-    animator: {fileID: 0}
-    trPlayer: {fileID: 0}
-    phaseHpConditions: []
-    hp: 0
-    leftSkillCoolTimes:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    isSkillUse: 000000000000
+    bossInfo:
+      bossSprite: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      skillContexts:
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
   skillEffectSpawner: {fileID: 0}
 --- !u!4 &200754063
 Transform:
@@ -804,39 +815,40 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: 578a58c670db7b34a9bda8da5c66f217, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories: []
-    skillContexts:
-    - spawnPoints:
-      - {fileID: 640575322}
-      - {fileID: 939923310}
-      - {fileID: 1541463860}
-      skillPrefab: []
-    - spawnPoints:
-      - {fileID: 50632278}
-      - {fileID: 530393333}
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    bossState: 0
-    bossSprite: {fileID: 0}
-    animator: {fileID: 0}
-    trPlayer: {fileID: 1073896485}
-    phaseHpConditions: []
-    hp: 0
-    leftSkillCoolTimes:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    isSkillUse: 000000000000
+    bossInfo:
+      bossSprite: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      skillContexts:
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
   skillEffectSpawner: {fileID: 0}
 --- !u!1001 &381282911
 PrefabInstance:
@@ -939,40 +951,40 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: adeb3ed760a94094385e9e5c09d09225, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 399979568}
-    skillContexts:
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    bossState: 0
-    bossSprite: {fileID: 0}
-    animator: {fileID: 0}
-    trPlayer: {fileID: 0}
-    phaseHpConditions: []
-    hp: 0
-    leftSkillCoolTimes:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    isSkillUse: 000000000000
+    bossInfo:
+      bossSprite: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      skillContexts:
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
   skillEffectSpawner: {fileID: 0}
 --- !u!4 &399979565
 Transform:
@@ -1038,6 +1050,11 @@ MonoBehaviour:
   - {fileID: 1493141848}
   - {fileID: 24829426}
   - {fileID: 60473091}
+--- !u!95 &410625398 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8417452694250055631, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+  m_PrefabInstance: {fileID: 8077809167897168254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &410625399 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7685511999838097804, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
@@ -1190,34 +1207,40 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: f768587eddcfdad459005e6b163128b2, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories: []
-    skillContexts:
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    bossState: 0
-    bossSprite: {fileID: 0}
-    animator: {fileID: 0}
-    trPlayer: {fileID: 1073896485}
-    phaseHpConditions: []
-    hp: 0
-    leftSkillCoolTimes:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    isSkillUse: 000000000000
+    bossInfo:
+      bossSprite: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      skillContexts:
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
   skillEffectSpawner: {fileID: 0}
 --- !u!4 &519128361
 Transform:
@@ -1284,39 +1307,40 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: 41665ff4c55dc8246a0d342edeb93d83, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories: []
-    skillContexts:
-    - spawnPoints:
-      - {fileID: 640575322}
-      - {fileID: 939923310}
-      - {fileID: 1541463860}
-      skillPrefab: []
-    - spawnPoints:
-      - {fileID: 50632278}
-      - {fileID: 530393333}
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    bossState: 0
-    bossSprite: {fileID: 0}
-    animator: {fileID: 0}
-    trPlayer: {fileID: 1073896485}
-    phaseHpConditions: []
-    hp: 0
-    leftSkillCoolTimes:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    isSkillUse: 000000000000
+    bossInfo:
+      bossSprite: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      skillContexts:
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
   skillEffectSpawner: {fileID: 0}
 --- !u!4 &520925541
 Transform:
@@ -1553,39 +1577,40 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: 19476af8d906fec4283bed9b7519a35d, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories: []
-    skillContexts:
-    - spawnPoints:
-      - {fileID: 640575322}
-      - {fileID: 939923310}
-      - {fileID: 1541463860}
-      skillPrefab: []
-    - spawnPoints:
-      - {fileID: 50632278}
-      - {fileID: 530393333}
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    bossState: 0
-    bossSprite: {fileID: 0}
-    animator: {fileID: 0}
-    trPlayer: {fileID: 1073896485}
-    phaseHpConditions: []
-    hp: 0
-    leftSkillCoolTimes:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    isSkillUse: 000000000000
+    bossInfo:
+      bossSprite: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      skillContexts:
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
   skillEffectSpawner: {fileID: 0}
 --- !u!1 &724320080
 GameObject:
@@ -1724,39 +1749,40 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: a7e574ca7d4530145a9ad4958cbea301, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories: []
-    skillContexts:
-    - spawnPoints:
-      - {fileID: 640575322}
-      - {fileID: 939923310}
-      - {fileID: 1541463860}
-      skillPrefab: []
-    - spawnPoints:
-      - {fileID: 50632278}
-      - {fileID: 530393333}
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    bossState: 0
-    bossSprite: {fileID: 0}
-    animator: {fileID: 0}
-    trPlayer: {fileID: 1073896485}
-    phaseHpConditions: []
-    hp: 0
-    leftSkillCoolTimes:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    isSkillUse: 000000000000
+    bossInfo:
+      bossSprite: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      skillContexts:
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
   skillEffectSpawner: {fileID: 0}
 --- !u!1 &816401598
 GameObject:
@@ -1791,36 +1817,40 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: f425c3837e2613b498c86652fac0bbe9, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories: []
-    skillContexts:
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints:
-      - {fileID: 50632278}
-      - {fileID: 530393333}
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    bossState: 0
-    bossSprite: {fileID: 0}
-    animator: {fileID: 0}
-    trPlayer: {fileID: 0}
-    phaseHpConditions: []
-    hp: 0
-    leftSkillCoolTimes:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    isSkillUse: 000000000000
+    bossInfo:
+      bossSprite: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      skillContexts:
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
   skillEffectSpawner: {fileID: 0}
 --- !u!4 &816401600
 Transform:
@@ -1986,34 +2016,40 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: 38e5da1c56e88fb4c846c590bb965cb0, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories: []
-    skillContexts:
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    bossState: 0
-    bossSprite: {fileID: 0}
-    animator: {fileID: 0}
-    trPlayer: {fileID: 0}
-    phaseHpConditions: []
-    hp: 0
-    leftSkillCoolTimes:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    isSkillUse: 000000000000
+    bossInfo:
+      bossSprite: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      skillContexts:
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
   skillEffectSpawner: {fileID: 0}
 --- !u!4 &977757489
 Transform:
@@ -2644,39 +2680,40 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: 86a5e1be7a156f940a7d60057b5cf37a, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories: []
-    skillContexts:
-    - spawnPoints:
-      - {fileID: 640575322}
-      - {fileID: 939923310}
-      - {fileID: 1541463860}
-      skillPrefab: []
-    - spawnPoints:
-      - {fileID: 50632278}
-      - {fileID: 530393333}
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    bossState: 0
-    bossSprite: {fileID: 0}
-    animator: {fileID: 0}
-    trPlayer: {fileID: 1073896485}
-    phaseHpConditions: []
-    hp: 0
-    leftSkillCoolTimes:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    isSkillUse: 000000000000
+    bossInfo:
+      bossSprite: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      skillContexts:
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
   skillEffectSpawner: {fileID: 0}
 --- !u!1 &1541463859
 GameObject:
@@ -2709,6 +2746,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1002617421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1792530419 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1579159069820882172, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+  m_PrefabInstance: {fileID: 8077809167897168254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88aca246adea0e349a17c9ddb500b427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1792530420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3086106040088971775, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+  m_PrefabInstance: {fileID: 8077809167897168254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9cffc78f84d83f41bf2fff6eb2c107c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1792530421 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5971091956061334788, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+  m_PrefabInstance: {fileID: 8077809167897168254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a28391ae5fbcea4aadfb820cbf7970d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1792530422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7635351845578495263, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+  m_PrefabInstance: {fileID: 8077809167897168254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e8268f5d55a74468257d9690f8223a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1792530423 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 476782935415161988, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+  m_PrefabInstance: {fileID: 8077809167897168254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d1c4ff457d3b147bb11b59900d729b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1887620754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2772,34 +2864,40 @@ MonoBehaviour:
   tree: {fileID: 11400000, guid: f24d5343b114ece4c9029f5552690c83, type: 2}
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
-    bossSkillFactories: []
-    skillContexts:
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    - spawnPoints: []
-      skillPrefab: []
-    bossState: 0
-    bossSprite: {fileID: 0}
-    animator: {fileID: 0}
-    trPlayer: {fileID: 0}
-    phaseHpConditions: []
-    hp: 0
-    leftSkillCoolTimes:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    isSkillUse: 000000000000
+    bossInfo:
+      bossSprite: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      skillContexts:
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      - spawnPoints: []
+        skillPrefab: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
   skillEffectSpawner: {fileID: 0}
 --- !u!4 &1900294606
 Transform:
@@ -3005,6 +3103,86 @@ PrefabInstance:
       propertyPath: mirroredBlackboardComponent.bossSprite
       value: 
       objectReference: {fileID: 410625399}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.bossInfo.hp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.bossInfo.animator
+      value: 
+      objectReference: {fileID: 410625398}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.bossInfo.bossSprite
+      value: 
+      objectReference: {fileID: 410625399}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.hitStateInfo.blinkCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.hitStateInfo.hitColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.hitStateInfo.hitColor.b
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.hitStateInfo.hitColor.g
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.hitStateInfo.hitColor.r
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.hitStateInfo.blinkeDelay
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.hitStateInfo.orginColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.hitStateInfo.orginColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.hitStateInfo.orginColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.hitStateInfo.orginColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.bossSkillInfo.bossSkillFactories.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: 'mirroredBlackboardComponent.bossSkillInfo.bossSkillFactories.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1792530423}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: 'mirroredBlackboardComponent.bossSkillInfo.bossSkillFactories.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1792530422}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: 'mirroredBlackboardComponent.bossSkillInfo.bossSkillFactories.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1792530421}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: 'mirroredBlackboardComponent.bossSkillInfo.bossSkillFactories.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1792530420}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: 'mirroredBlackboardComponent.bossSkillInfo.bossSkillFactories.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1792530420}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: 'mirroredBlackboardComponent.bossSkillInfo.bossSkillFactories.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1792530419}
     - target: {fileID: 5971091956061334788, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: trPlayer
       value: 

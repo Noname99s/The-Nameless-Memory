@@ -10,9 +10,10 @@ using Orpul1;
 public class SpawnProjecttile : ActionScript
 {
     public MirroredBlackboard blackboard;
-
+    MirroredSkillInfo skillInfo;
     public override void Init()
     {
+        skillInfo = blackboard.btComponent.bossSkillInfo;
     }
     public override NodeState OnStart()
     {
@@ -20,7 +21,7 @@ public class SpawnProjecttile : ActionScript
     }
     public override NodeState OnUpdate()
     {
-        blackboard.btComponent.bossSkillFactories[(int)EBossSkill.Skill2].Create();
+        skillInfo.bossSkillFactories[(int)EBossSkill.Skill2].Create();
         return NodeState.Success;
     }
     public override NodeState OnExit()

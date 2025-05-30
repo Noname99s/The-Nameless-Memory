@@ -10,9 +10,10 @@ public class SpawnMonster : ActionScript
     public MirroredBlackboard blackboard;
     [SerializeField] GameObject[] prefabs;
     [SerializeField] int spawnCount;
+    MirroredSkillInfo skillInfo;
     public override void Init()
     {
-        
+        skillInfo = blackboard.btComponent.bossSkillInfo;
     }
     public override NodeState OnStart()
     {
@@ -21,7 +22,7 @@ public class SpawnMonster : ActionScript
     }
     public override NodeState OnUpdate()
     {
-        blackboard.btComponent.bossSkillFactories[(int)EBossSkill.Skill6].Create();
+        skillInfo.bossSkillFactories[(int)EBossSkill.Skill6].Create();
         return NodeState.Success;
     }
     public override NodeState OnExit()

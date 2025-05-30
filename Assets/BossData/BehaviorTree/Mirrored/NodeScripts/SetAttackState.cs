@@ -10,7 +10,7 @@ public class SetAttackState : ActionScript
     public MirroredBlackboard blackboard;
     public override NodeState OnStart()
     {
-        blackboard.btComponent.bossState = EBossState.Attack;
+        blackboard.btComponent.bossInfo.bossState = EBossState.Attack;
         return NodeState.Success;
     }
     public override NodeState OnUpdate()

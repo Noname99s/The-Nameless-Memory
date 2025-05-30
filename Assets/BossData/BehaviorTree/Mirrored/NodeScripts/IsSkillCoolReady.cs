@@ -9,7 +9,7 @@ public class IsSkillCoolReady : Decorator
     public EBossSkill bossSkill;
    public override bool Condition()
    {
-        if (Time.time < blackboard.btComponent.leftSkillCoolTimes[(int)bossSkill]) return false;
+        if (Time.time < blackboard.btComponent.bossSkillInfo.leftSkillCoolTimes[(int)bossSkill]) return false;
         return true;
    }
 }

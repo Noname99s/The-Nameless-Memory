@@ -16,12 +16,11 @@ public class SpawnLaser : ActionScript
     }
     public override NodeState OnStart()
     {
-        //TODO : 레이저 duration 설정
         return NodeState.Success;
     }
     public override NodeState OnUpdate()
     {
-        blackboard.btComponent.bossSkillFactories[(int)EBossSkill.Skill4].Create();
+        blackboard.btComponent.bossSkillInfo.bossSkillFactories[(int)EBossSkill.Skill4].Create();
         return NodeState.Success;
     }
     public override NodeState OnExit()

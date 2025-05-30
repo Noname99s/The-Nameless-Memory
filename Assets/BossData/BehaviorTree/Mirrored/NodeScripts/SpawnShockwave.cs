@@ -9,9 +9,10 @@ using Orpul1.Boss.Mirrored;
 public class SpawnShockwave : ActionScript
 {
     public MirroredBlackboard blackboard;
-
+    MirroredSkillInfo skillInfo;
     public override void Init()
     {
+        skillInfo = blackboard.btComponent.bossSkillInfo;
     }
     public override NodeState OnStart()
     {
@@ -19,7 +20,7 @@ public class SpawnShockwave : ActionScript
     }
     public override NodeState OnUpdate()
     {
-        blackboard.btComponent.bossSkillFactories[(int)EBossSkill.Skill3].Create();
+        skillInfo.bossSkillFactories[(int)EBossSkill.Skill3].Create();
         return NodeState.Success;
     }
     public override NodeState OnExit()

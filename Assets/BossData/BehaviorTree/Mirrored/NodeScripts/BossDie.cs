@@ -13,7 +13,7 @@ public class BossDie : ActionScript
     
     public override NodeState OnStart()
     {
-        bossSprite = blackboard.btComponent.bossSprite;
+        bossSprite = blackboard.btComponent.bossInfo.bossSprite;
         dieStateColor = bossSprite.color;
         return NodeState.Success;
     }

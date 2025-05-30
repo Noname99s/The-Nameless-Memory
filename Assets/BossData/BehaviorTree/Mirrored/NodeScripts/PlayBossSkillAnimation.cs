@@ -9,15 +9,20 @@ public class PlayBossSkillAnimation : ActionScript
 {
     public MirroredBlackboard blackboard;
     public EBossSkill bossAni;
+    Animator animator;
+    public override void Init()
+    {
+        animator = blackboard.btComponent.bossInfo.animator;
+    }
     public override NodeState OnStart()
     {
         return NodeState.Success;
     }
     public override NodeState OnUpdate()
     {
-        if (blackboard.btComponent.animator == null)
+        if (animator == null)
             return NodeState.Success;
-        blackboard.btComponent.animator.SetTrigger(bossAni.ToString());
+        animator.SetTrigger(bossAni.ToString());
         return NodeState.Success;
     }
     public override NodeState OnExit()

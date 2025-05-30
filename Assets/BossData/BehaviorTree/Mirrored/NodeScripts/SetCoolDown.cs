@@ -15,7 +15,7 @@ public class SetCoolDown : ActionScript
     }
     public override NodeState OnUpdate()
     {
-        blackboard.btComponent.leftSkillCoolTimes[(int)bossSkill] = Time.time + coolTime;
+        blackboard.btComponent.bossSkillInfo.leftSkillCoolTimes[(int)bossSkill] = Time.time + coolTime;
         return NodeState.Success;
     }
     public override NodeState OnExit()

@@ -7,7 +7,7 @@ public class IsIdleState : Decorator
    public MirroredBlackboard blackboard;
    public override bool Condition()
     {
-        if (blackboard.btComponent.bossState != EBossState.Idle) return false;
+        if (blackboard.btComponent.bossInfo.bossState != EBossState.Idle) return false;
         return true;
    }
 }

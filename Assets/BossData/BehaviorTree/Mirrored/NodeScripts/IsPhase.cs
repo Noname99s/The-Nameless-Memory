@@ -7,6 +7,11 @@ public class IsPhase : Decorator
 {
     public MirroredBlackboard blackboard;
     [SerializeField] EPhaseType phaseType;
+    MirroredBossInfo bossInfo;
+    public override void Initialize()
+    {
+        bossInfo = blackboard.btComponent.bossInfo;
+    }
    public override bool Condition()
    {
         if(!IsInPhase()) return false;
@@ -14,8 +19,8 @@ public class IsPhase : Decorator
    }
     private bool IsInPhase()
     {
-        if (blackboard.btComponent.hp > blackboard.btComponent.phaseHpConditions[(int)phaseType].range1) return false;
-        if (blackboard.btComponent.hp <= blackboard.btComponent.phaseHpConditions[(int)phaseType].range2) return false;
+        if (bossInfo.hp > bossInfo.phaseHpConditions[(int)phaseType].range1) return false;
+        if (bossInfo.hp <= bossInfo.phaseHpConditions[(int)phaseType].range2) return false;
         return true;
     }
 }

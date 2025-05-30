@@ -9,7 +9,7 @@ public class SetIdleState : ActionScript
     public MirroredBlackboard blackboard;
     public override NodeState OnStart()
     {
-        blackboard.btComponent.bossState = EBossState.Idle;
+        blackboard.btComponent.bossInfo.bossState = EBossState.Idle;
         return NodeState.Success;
     }
     public override NodeState OnUpdate()
