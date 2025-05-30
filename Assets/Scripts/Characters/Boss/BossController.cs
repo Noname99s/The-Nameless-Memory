@@ -4,7 +4,7 @@ using Orpul1.Object;
 using SOBehaviorTree;
 using UnityEngine;
 
-public class BossController : MonoBehaviour,IFindTreeAble
+public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
 {
     [SerializeField] BehaviorTree tree;
     [SerializeField] MirroredBlackboard mirroredBlackboard;
@@ -18,23 +18,17 @@ public class BossController : MonoBehaviour,IFindTreeAble
 
     void Start()
     {
-        //tree.Initialize();
         tree.root.Init();
         mirroredBlackboard.btComponent = mirroredBlackboardComponent;
     }
 
-    // Update is called once per frame
     void Update()
     {
         tree.root.Process();
     }
-    private void OnDestroy()
-    {
-        //ObjectPoolManager.Instance.ReleasePool(0);
-    }
 
-    public void Notify<T>(T t)
+    public void OnDamage(int damage)
     {
-        // TODO : 몬스터 수, 스킬 사용 여부 알림 받기
+        mirroredBlackboard.btComponent.hp -= damage;
     }
 }
