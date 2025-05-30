@@ -1,6 +1,5 @@
 using UnityEngine;
 using Orpul1;
-using UnityEditor.Experimental.GraphView;
 namespace Orpul1.Boss.Mirrored
 {
     public class LaserFactory : BossSkillFactory

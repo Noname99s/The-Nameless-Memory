@@ -5,6 +5,7 @@ using SOBehaviorTree;
 using Orpul1.Boss.Mirrored;
 using Orpul1;
 using Orpul1.Boss;
+using JetBrains.Annotations;
 
 [Serializable]
 public class MirroredSkillContext
@@ -13,15 +14,19 @@ public class MirroredSkillContext
     public GameObject[] skillPrefab;
 }
 [Serializable]
+public struct PhaseCondition
+{
+    public float range1, range2;
+}
+[Serializable]
 public class MirroredBlackboardComponent
 {
-    //Insert blackboard values
     public BossSkillFactory[] bossSkillFactories;
     public MirroredSkillContext[] skillContexts = new MirroredSkillContext[(int)EBossSkill.END];
     public EBossState bossState;
     public Animator animator;
     public Transform trPlayer;
-    public int[] phaseHpConditions;
+    public PhaseCondition[] phaseHpConditions;
     public int hp;
     public float[] leftSkillCoolTimes = new float[(int)EBossSkill.END];
     public bool[] isSkillUse = new bool[(int)EBossSkill.END];

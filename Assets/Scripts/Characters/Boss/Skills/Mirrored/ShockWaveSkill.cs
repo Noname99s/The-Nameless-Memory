@@ -19,6 +19,12 @@ public class ShockWaveSkill : BossSkill
         NotifyAttack,
         SkillAttack,
     }
+    enum ESkillAniName
+    {
+        Idle,
+        NotifyShockWave,
+        ShockWave,
+    }
     [SerializeField] Animator animator;
     [SerializeField] Collider2D attackCollider;
     [SerializeField] float interval = 0, attackAniDuration = 0;
@@ -26,6 +32,7 @@ public class ShockWaveSkill : BossSkill
     EExplosionSkill skillState = EExplosionSkill.Delay;
     private void OnEnable()
     {
+        attackCollider.enabled = false;
     }
     private void OnDisable()
     {
@@ -63,7 +70,7 @@ public class ShockWaveSkill : BossSkill
             return;
 
         skillState = EExplosionSkill.Attack;
-        animator.SetTrigger(EBossAniParam.Notify.ToString());
+        animator.SetTrigger(EMirroredSkillAniParam.Notify.ToString());
 
     }
     private void DoExplosion()
@@ -72,7 +79,7 @@ public class ShockWaveSkill : BossSkill
             return;
 
         skillState = EExplosionSkill.AttackEnd;
-        animator.SetTrigger(EBossAniParam.SkillAttack.ToString());
+        animator.SetTrigger(EMirroredSkillAniParam.SkillAttack.ToString());
         attackCollider.enabled = true;
     }
     private void WaitDeactive()
@@ -80,7 +87,7 @@ public class ShockWaveSkill : BossSkill
         if (skillState != EExplosionSkill.AttackEnd)
             return;
 
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName(EBossAniParam.SkillAttack.ToString()))
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName(ESkillAniName.ShockWave.ToString()))
             return;
 
         attackAniDuration = animator.GetCurrentAnimatorStateInfo(0).length;

@@ -26,22 +26,14 @@ namespace Orpul1.Boss.Mirrored
         }
         private void SetValues(BossSkill skill, int index)
         {
-            SetEnqueueAction(skill);
+            SetSkillValue(skill);
             SetSkillSpawnPosi(skill, index);
             SetArrivePosi(skill as WatchOfRegretSkill, index);
-        }
-        private void SetEnqueueAction(ISetDataAble<Action<GameObject>> skill)
-        {
-            skill.SetValue(SetUsingEndObject);
         }
         private void SetArrivePosi(ISetDataAble<Vector2> skill, int index)
         {
             if (skill == null) return;
             skill.SetValue(arrivePosis[index].position);
-        }
-        private void ResetSkill(IResetAble skill)
-        {
-            skill.ResetValue();
         }
         private void SetSkillSpawnPosi(BossSkill skill, int spawnPosiIndex)
         {

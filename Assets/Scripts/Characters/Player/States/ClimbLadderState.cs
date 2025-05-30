@@ -6,7 +6,6 @@ namespace Orpul1.Player.State
 {
     public class ClimbLadderState : PlayerBaseState
     {
-        float aniSpeed = 1;
         public ClimbLadderState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo)
         {
         }

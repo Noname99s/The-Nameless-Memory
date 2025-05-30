@@ -26,7 +26,7 @@ namespace Orpul1.Boss.Mirrored
         }
         IEnumerator UseSkill()
         {
-            animator.SetTrigger(EBossAniParam.SkillAttack.ToString());
+            animator.SetTrigger(EMirroredSkillAniParam.SkillAttack.ToString());
             while (!IsAniStart())
             {
                 yield return null;

@@ -46,29 +46,6 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: 21e20838141917141b6c345a82f3321b, type: 2}
---- !u!114 &-3660970254963136467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: DebugPanelEnd
-  m_EditorClassIdentifier: 
-  guid: e6df6a3402f1e2c46aee8ec46ce82408
-  position: {x: 255.20013, y: 541.6}
-  nodeName: DebugPanelEnd
-  description: DebugEndPanel
-  nodeState: 3
-  methodName: DebugEndPanel
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  actionScript: {fileID: 11400000, guid: 8b1f8ec2ffd4e664cbf6d86333f71e4d, type: 2}
 --- !u!114 &-1967350410034630488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,8 +113,6 @@ MonoBehaviour:
   - {fileID: 103943353086200805}
   - {fileID: 4052180200886638670}
   - {fileID: -5873378647341803778}
-  - {fileID: -3660970254963136467}
-  - {fileID: 7937070509220378677}
   - {fileID: 1615050533047200746}
 --- !u!114 &103943353086200805
 MonoBehaviour:
@@ -202,14 +177,12 @@ MonoBehaviour:
   description: SequenceNode
   nodeState: 3
   childNodeList:
-  - {fileID: 7937070509220378677}
   - {fileID: -8991214427530209718}
   - {fileID: -1002231953459955441}
   - {fileID: 3146105453523584611}
   - {fileID: 4052180200886638670}
   - {fileID: -5873378647341803778}
-  - {fileID: -3660970254963136467}
-  curIndex: 4
+  curIndex: 0
   sign: 0
 --- !u!114 &2557832587266307469
 MonoBehaviour:
@@ -281,27 +254,4 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   delayTime: 5
-  interval: 1.81611
---- !u!114 &7937070509220378677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: ActionNode
-  m_EditorClassIdentifier: 
-  guid: 66f8bcba098aa0646afcfbc0db6f6e89
-  position: {x: -760.8, y: 532}
-  nodeName: ActionNode
-  description: Panel1Start
-  nodeState: 3
-  methodName: Panel1Start
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  actionScript: {fileID: 11400000, guid: 92c960741503d974a9df26d3bef7cfdd, type: 2}
+  interval: 0

@@ -20,6 +20,7 @@ MonoBehaviour:
   childNodeList:
   - {fileID: 8689162949037857860}
   - {fileID: 5197545711374794189}
+  curIndex: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,7 +39,6 @@ MonoBehaviour:
   nodeList:
   - {fileID: 995652781756303776}
   - {fileID: 3496160491710825313}
-  - {fileID: 7566870110581258011}
   - {fileID: 8708027219680441226}
   - {fileID: -3515266011446814170}
   - {fileID: 8689162949037857860}
@@ -61,6 +61,7 @@ MonoBehaviour:
   description: RootNode
   nodeState: 3
   child: {fileID: 3496160491710825313}
+  panelName: 
 --- !u!114 &3496160491710825313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,13 +75,15 @@ MonoBehaviour:
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
   guid: 998aad645715c6045b6d02d364a3e97d
-  position: {x: -0.7999878, y: 107.584015}
+  position: {x: -0.7999878, y: 99.392006}
   nodeName: SequenceNode
   description: SequenceNode
   nodeState: 3
   childNodeList:
-  - {fileID: 7566870110581258011}
+  - {fileID: 8708027219680441226}
   - {fileID: -3515266011446814170}
+  curIndex: 0
+  sign: 0
 --- !u!114 &5197545711374794189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,30 +102,6 @@ MonoBehaviour:
   description: MirroredSkill6
   nodeState: 3
   panel: {fileID: 11400000, guid: adeb3ed760a94094385e9e5c09d09225, type: 2}
---- !u!114 &7566870110581258011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddea26520dbede9419a2acd27bd3e83a, type: 3}
-  m_Name: DecoratorNode
-  m_EditorClassIdentifier: 
-  guid: 15e654fe72627e84e88359420084a9e6
-  position: {x: -194.39996, y: 240.28802}
-  nodeName: DecoratorNode
-  description: IsIdleState
-  nodeState: 3
-  methodName: IsIdleState
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  childNode: {fileID: 8708027219680441226}
-  Decorator: {fileID: 11400000, guid: f0ecd55877ae48a46b9edc921275bcd7, type: 2}
 --- !u!114 &8689162949037857860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +133,7 @@ MonoBehaviour:
   m_Name: PanelNode
   m_EditorClassIdentifier: 
   guid: 2c0b52096c81e6246b55deb1c2b0f5ff
-  position: {x: -145.59998, y: 370.04803}
+  position: {x: -136, y: 250.4}
   nodeName: PanelNode
   description: MirroredSkill2
   nodeState: 3

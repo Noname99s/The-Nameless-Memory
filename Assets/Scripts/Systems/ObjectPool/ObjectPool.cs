@@ -13,6 +13,7 @@ public abstract class ObjectPool : MonoBehaviour
     }
     protected void Initialize()
     {
+        if (prefab == null) return;
         for (int i = 0; i < 5; i++)
         {
             CreateObject();
@@ -44,7 +45,6 @@ public abstract class ObjectPool : MonoBehaviour
         int size = pools.Count;
         for (int i = 0; i < size; i++)
         {
-            //TODO IDestroyAble 인터페이스를 통해 Release 해주기
             Destroy(pools.Dequeue());
         }
     }

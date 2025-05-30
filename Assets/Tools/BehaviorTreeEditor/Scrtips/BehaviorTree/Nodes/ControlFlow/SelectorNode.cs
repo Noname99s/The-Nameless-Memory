@@ -17,6 +17,7 @@ namespace SOBehaviorTree
 
             else if (nodeState == NodeState.Success)
                 curIndex = 0;
+            
 
             return nodeState;
         }

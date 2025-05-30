@@ -8,6 +8,7 @@ namespace Orpul1.Camera.Effect
     {
         [SerializeField] VolumeProfile profile;
         [SerializeField] Transform trPlayer;
+        [SerializeField] UnityEngine.Camera mainCam;
         [SerializeField, Range(0, 1f)] float vignetteSpeed = 0;
         [SerializeField, Range(0, 1f)] float vignetteMaxAmount = 1;
         [SerializeField, Range(0, 1f)] float vignetteMinAmount = 1;
@@ -15,6 +16,7 @@ namespace Orpul1.Camera.Effect
         Vignette vignette;
         Coroutine activeCoroutine, deactiveCoroutine;
         float interval = 0;
+        bool isActived = false;
 
         private void Awake()
         {
@@ -22,6 +24,17 @@ namespace Orpul1.Camera.Effect
             if (vignette == null)
                 Debug.LogError("Vignette is Null!");
             vignette.intensity.value = vignetteMinAmount;
+        }
+        private void OnDisable()
+        {
+            vignette.intensity.value = vignetteMinAmount;
+            vignette.active = false;
+            isActived = false;
+        }
+        private void Update()
+        {
+            if (!isActived) return;
+            SetVignetteCenter();
         }
         public override void ActiveEffect()
         {
@@ -37,11 +50,12 @@ namespace Orpul1.Camera.Effect
         private IEnumerator ActiveVignette()
         {
             vignette.active = true;
+            isActived = true;
             interval = 0;
             while (IsArriveAmount(vignette.intensity.value, vignetteMaxAmount))
             {
                 interval += Time.deltaTime;
-                vignette.intensity.value += interval * vignetteSpeed;
+                vignette.intensity.value += interval * vignetteSpeed * Time.deltaTime;
                 yield return null;
             }
             //yield return ExecuteVignette(1, vignetteMaxAmount);
@@ -52,14 +66,17 @@ namespace Orpul1.Camera.Effect
             while (IsArriveAmount(vignetteMinAmount, vignette.intensity.value))
             {
                 interval -= Time.deltaTime;
-                vignette.intensity.value += interval * vignetteSpeed;
+                vignette.intensity.value += interval * vignetteSpeed * Time.deltaTime;
                 yield return null;
             }
+            isActived = false;
+            vignette.center.value = Vector2.one * 0.5f;
             //yield return ExecuteVignette(-1, vignetteMinAmount);
         }
         private void SetVignetteCenter()
         {
-            /*vignette.center.*/
+            Vector2 center = mainCam.WorldToViewportPoint(trPlayer.position);
+            vignette.center.value = center;
         }
         private bool IsArriveAmount(float value, float arrive)
         {

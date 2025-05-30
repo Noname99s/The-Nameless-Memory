@@ -1,4 +1,5 @@
 using Orpul1;
+using Orpul1.Boss.Mirrored;
 using Orpul1.Object;
 using SOBehaviorTree;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class BossController : MonoBehaviour,IFindTreeAble
     [SerializeField] BehaviorTree tree;
     [SerializeField] MirroredBlackboard mirroredBlackboard;
     [SerializeField] MirroredBlackboardComponent mirroredBlackboardComponent;
+    [SerializeField] GameObject skillEffectSpawner;
 
     public BehaviorTree GetBehaviorTree()
     {

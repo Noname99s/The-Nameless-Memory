@@ -12,7 +12,6 @@ public class SpawnShockwave : ActionScript
 
     public override void Init()
     {
-        if (!Application.isPlaying) return;
     }
     public override NodeState OnStart()
     {

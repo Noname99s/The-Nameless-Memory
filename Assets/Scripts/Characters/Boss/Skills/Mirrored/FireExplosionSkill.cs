@@ -25,10 +25,12 @@ public class FireExplosionSkill : BossSkill
     EExplosionSkill skillState = EExplosionSkill.Delay;
     private void OnEnable()
     {
+        attackCollider.enabled = false;
         ResetValue();
     }
     private void OnDisable()
     {
+        attackCollider.enabled = false;
     }
     private void Update()
     {
@@ -62,7 +64,7 @@ public class FireExplosionSkill : BossSkill
             return;
 
         skillState = EExplosionSkill.Attack;
-        animator.SetTrigger(EBossAniParam.Notify.ToString());
+        animator.SetTrigger(EMirroredSkillAniParam.Notify.ToString());
 
     }
     private void DoExplosion()
@@ -71,7 +73,7 @@ public class FireExplosionSkill : BossSkill
             return;
 
         skillState = EExplosionSkill.AttackEnd;
-        animator.SetTrigger(EBossAniParam.SkillAttack.ToString());
+        animator.SetTrigger(EMirroredSkillAniParam.SkillAttack.ToString());
         attackCollider.enabled = true;
     }
     private void WaitDeactive()
@@ -79,7 +81,7 @@ public class FireExplosionSkill : BossSkill
         if (skillState != EExplosionSkill.AttackEnd) 
             return;
 
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName(EBossAniParam.SkillAttack.ToString()))
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName(EMirroredSkillAniParam.SkillAttack.ToString()))
             return;
 
         attackAniDuration = animator.GetCurrentAnimatorStateInfo(0).length;
