@@ -1,4 +1,5 @@
 using Orpul1.State;
+using Orpul1.State.Attack;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 
@@ -8,6 +9,7 @@ namespace Orpul1.Player
     {
         [SerializeField] StateController stateController;
         [SerializeField] PlayerContext playerData;
+        [SerializeField] CharacterAttack playerAttack;
         [SerializeField] float groundRayDistance = 1f;
         [SerializeField] float wallRayDistance = 1f;
         [SerializeField] float ladderRayDistance = 1f;
@@ -26,6 +28,7 @@ namespace Orpul1.Player
         private void Awake()
         {
             groundRay.origin = transform.position;
+            playerAttack.SetValue(playerData.damage);
             playerData.Initialize();
         }
         void Start()

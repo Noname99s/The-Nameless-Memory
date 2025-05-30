@@ -29,6 +29,7 @@ public class PlayerContext : MonoBehaviour
     public Animator animator;
     public int hp;
     public int maxHp;
+    public int damage;
 
     [Header("MoveState")]
     public Vector2 moveDir = Vector2.zero;

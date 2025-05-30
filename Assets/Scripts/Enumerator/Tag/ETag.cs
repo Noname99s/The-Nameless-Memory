@@ -1,8 +1,10 @@
-using UnityEngine;
-
 public enum ETag 
 {
-    Player,
-    Enemy,
+    Interact,
     Floor,
+    BackGround,
+    BackGround1,
+    BackGround2,
+    Enemy,
+    Player,
 }
