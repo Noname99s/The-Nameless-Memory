@@ -3156,6 +3156,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.bossInfo.phaseHpConditions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: mirroredBlackboardComponent.bossSkillInfo.bossSkillFactories.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -3183,6 +3187,18 @@ PrefabInstance:
       propertyPath: 'mirroredBlackboardComponent.bossSkillInfo.bossSkillFactories.Array.data[5]'
       value: 
       objectReference: {fileID: 1792530419}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.bossInfo.phaseHpConditions.Array.data[0].range1
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.bossInfo.phaseHpConditions.Array.data[0].range2
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.bossInfo.phaseHpConditions.Array.data[1].range1
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5971091956061334788, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: trPlayer
       value: 
