@@ -379,7 +379,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateController: {fileID: 5725579068212597670}
   playerData: {fileID: 6948962639656468517}
-  playerAttack: {fileID: 7191165317446888281}
   groundRayDistance: 1.25
   wallRayDistance: 0.15
   ladderRayDistance: 1
@@ -429,9 +428,9 @@ MonoBehaviour:
   sprite: {fileID: 764128924490101152}
   trPlayer: {fileID: 1832887567842334404}
   animator: {fileID: 4683667883276261786}
+  originScale: {x: 1, y: 1, z: 1}
   hp: 100
   maxHp: 100
-  damage: 10
   moveDir: {x: 0, y: 0}
   moveSpeed: 600
   jumpState: 0
@@ -462,7 +461,9 @@ MonoBehaviour:
     - 0.5
     - 0.5
     attackCounts: 030000000300000000000000
+    damages: 0a00000014000000
     curAttack: 0
+  characterAttack: {fileID: 7191165317446888281}
   isPressClimbLadder: 0
   canClimbLadder: 0
   canClimbWall: 0

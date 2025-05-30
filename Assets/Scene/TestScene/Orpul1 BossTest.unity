@@ -2339,6 +2339,10 @@ PrefabInstance:
       propertyPath: trPlayer
       value: 
       objectReference: {fileID: 381282912}
+    - target: {fileID: 7317123017795635974, guid: 03d380c3625b99c49a0886cc2d513dc2, type: 3}
+      propertyPath: shakeStrength
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7645745203956452240, guid: 03d380c3625b99c49a0886cc2d513dc2, type: 3}
       propertyPath: target
       value: 

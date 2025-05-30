@@ -293,5 +293,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trCamera: {fileID: 1272658705226869221}
-  shakeStrength: 0.25
+  shakeStrength: 0.05
   delayShake: 0.1
