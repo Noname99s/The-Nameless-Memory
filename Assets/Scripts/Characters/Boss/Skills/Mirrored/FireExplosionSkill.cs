@@ -25,10 +25,12 @@ public class FireExplosionSkill : BossSkill
     EExplosionSkill skillState = EExplosionSkill.Delay;
     private void OnEnable()
     {
+        attackCollider.enabled = false;
         ResetValue();
     }
     private void OnDisable()
     {
+        attackCollider.enabled = false;
     }
     private void Update()
     {

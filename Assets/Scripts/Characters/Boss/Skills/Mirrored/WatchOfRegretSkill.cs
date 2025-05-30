@@ -8,7 +8,7 @@ public class WatchOfRegretSkill : BossSkill,ISetDataAble<Vector2>
 {
     [SerializeField] Rigidbody2D rigid;
     [SerializeField] Vector2 arrivePosi;
-    [SerializeField] int damage = 0;
+    [SerializeField] Collider2D attackCollider;
     [SerializeField] float posiGap = 0.1f;
     [SerializeField] float moveSpeed = 1;
     bool isExecute = false;

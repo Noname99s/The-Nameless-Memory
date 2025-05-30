@@ -158,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delayToAttack: 3
   deativeTime: 0
+  damage: 30
   animator: {fileID: 4665630302578420333}
   attackCollider: {fileID: 1321732606038835807}
   interval: 0
