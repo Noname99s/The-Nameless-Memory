@@ -24,6 +24,7 @@ public class MirroredBlackboardComponent
     public BossSkillFactory[] bossSkillFactories;
     public MirroredSkillContext[] skillContexts = new MirroredSkillContext[(int)EBossSkill.END];
     public EBossState bossState;
+    public SpriteRenderer bossSprite;
     public Animator animator;
     public Transform trPlayer;
     public PhaseCondition[] phaseHpConditions;
