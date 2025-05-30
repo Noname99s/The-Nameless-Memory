@@ -18,7 +18,7 @@ namespace Orpul1.Player.State
         public override void OnUpdate()
         {
             MoveX();
-            FlipX();
+            data.actionFlipX();
             TransitionState();
         }
         public override void OnExit()
@@ -31,14 +31,6 @@ namespace Orpul1.Player.State
             float dirX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
             data.slideResult = data.rigid.Slide(Vector2.right * dirX, Time.deltaTime, data.slideMovement);
             data.animator.SetFloat(EPlayerAni.MoveSpeed.ToString(),1);
-        }
-        private void FlipX()
-        {
-            if (data.moveDir.x == 0) return;
-
-            Vector3 scale = data.originScale;
-            scale.x = (int)data.moveDir.x;
-            data.trPlayer.localScale = scale;
         }
         private void TransitionState()
         {

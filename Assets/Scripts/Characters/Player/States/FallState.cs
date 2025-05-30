@@ -34,7 +34,7 @@ namespace Orpul1.Player.State
         public override void OnUpdate()
         {
             AirMove();
-            FlipX();
+            data.actionFlipX();
             SetFallDamage();
             TransitionState();
         }
@@ -53,14 +53,6 @@ namespace Orpul1.Player.State
             data.rigid.linearVelocityX = Mathf.Clamp(moveX, -maxMoveX, maxMoveX);
         }
 
-        private void FlipX()
-        {
-            if (data.moveDir.x == 0) return;
-
-            Vector3 scale = data.originScale;
-            scale.x = (int)data.moveDir.x;
-            data.trPlayer.localScale = scale;
-        }
 
         private void SetFallDamage()
         {

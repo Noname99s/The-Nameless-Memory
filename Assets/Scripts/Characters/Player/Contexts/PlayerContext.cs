@@ -1,3 +1,4 @@
+using Orpul1;
 using Orpul1.Player.Animation;
 using Orpul1.Player.State.Attack;
 using Orpul1.State.Attack;
@@ -10,6 +11,7 @@ public class AttackContext
     public EPlayerAttack attackType = EPlayerAttack.NormalAttack;
     public float[] attackDelays = new float[3];
     public int[] attackCounts = new int[3];
+    public int[] damages = new int[2];
     public int curAttack = 0;
     public void Initialize()
     {
@@ -30,7 +32,7 @@ public class PlayerContext : MonoBehaviour
     public Vector3 originScale = Vector3.one;
     public int hp;
     public int maxHp;
-    public int damage;
+    public Action actionFlipX;
 
     [Header("MoveState")]
     public Vector2 moveDir = Vector2.zero;
@@ -63,6 +65,11 @@ public class PlayerContext : MonoBehaviour
     public float delayInterval;
     public bool isStillAttack;
     public AttackContext attackContext;
+    [SerializeField] CharacterAttack characterAttack;
+    public ISetDataAble<int> setDamage
+    {
+        get { return characterAttack; }
+    }
 
     [Header("ClimbLadder")]
     public bool isPressClimbLadder;
@@ -134,5 +141,6 @@ public class PlayerContext : MonoBehaviour
         hp = maxHp;
         fallDamage = 0;
         attackContext.attackType = EPlayerAttack.NONE;
+        originScale = transform.localScale;
     }
 }

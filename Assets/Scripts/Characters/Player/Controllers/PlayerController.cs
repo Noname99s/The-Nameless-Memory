@@ -9,7 +9,6 @@ namespace Orpul1.Player
     {
         [SerializeField] StateController stateController;
         [SerializeField] PlayerContext playerData;
-        [SerializeField] CharacterAttack playerAttack;
         [SerializeField] float groundRayDistance = 1f;
         [SerializeField] float wallRayDistance = 1f;
         [SerializeField] float ladderRayDistance = 1f;
@@ -27,9 +26,9 @@ namespace Orpul1.Player
         private void Awake()
         {
             groundRay.origin = transform.position;
-            playerAttack.SetValue(playerData.damage);
             playerData.Initialize();
-            playerData.originScale = transform.localScale;
+            
+            playerData.actionFlipX = FlipX;
         }
         void Start()
         {
@@ -109,7 +108,14 @@ namespace Orpul1.Player
 
             return true;
         }
+        private void FlipX()
+        {
+            if (playerData.moveDir.x == 0) return;
 
+            Vector3 scale = playerData.originScale;
+            scale.x = (int)playerData.moveDir.x;
+            playerData.trPlayer.localScale = scale;
+        }
         public void OnDamage(int damage)
         {
             playerData.hp -= damage;

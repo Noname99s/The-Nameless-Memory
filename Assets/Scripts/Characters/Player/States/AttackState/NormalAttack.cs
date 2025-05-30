@@ -19,6 +19,7 @@ namespace Orpul1.Player.State.Attack
             if (!playerData.animator.GetCurrentAnimatorStateInfo(0).IsName(((ENormalAttack)(playerData.attackContext.curAttack)).ToString()))
                 return;
             aniDuration = playerData.animator.GetCurrentAnimatorStateInfo(0).length;
+            
             SetNextAttack();
         }
 

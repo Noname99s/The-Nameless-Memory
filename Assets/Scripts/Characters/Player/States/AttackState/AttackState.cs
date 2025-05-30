@@ -27,13 +27,8 @@ namespace Orpul1.Player.State
             if ((int)data.attackContext.attackType >= attackCommands.Length)
                 data.attackContext.attackType = EPlayerAttack.NormalAttack;
 
-            attackCommands[(int)data.attackContext.attackType].Initialize();
-            data.animator.SetBool(EPlayerAni.IsAttack.ToString(), false);
-            data.animator.SetBool(EPlayerAni.IsAttack.ToString(), true);
-            prevAttack = data.attackContext.attackType;
-            data.canAttack = true;
-            nextComboTime = 0;
-            attackDelay = 0;
+            Initialize();
+            SetAnimation();
         }
 
         public override void OnUpdate()
@@ -52,6 +47,20 @@ namespace Orpul1.Player.State
             data.animator.SetInteger(EPlayerAni.AttackIndex.ToString(), 0);
         }
 
+        private void Initialize()
+        {
+            attackCommands[(int)data.attackContext.attackType].Initialize();
+            data.setDamage.SetValue(data.attackContext.damages[(int)data.attackContext.attackType]);
+            prevAttack = data.attackContext.attackType;
+            data.canAttack = true;
+            nextComboTime = 0;
+            attackDelay = 0;
+        }
+        private void SetAnimation()
+        {
+            data.animator.SetBool(EPlayerAni.IsAttack.ToString(), false);
+            data.animator.SetBool(EPlayerAni.IsAttack.ToString(), true);
+        }
         private void Attack()
         {
             attackCommands[(int)data.attackContext.attackType].Execute();
