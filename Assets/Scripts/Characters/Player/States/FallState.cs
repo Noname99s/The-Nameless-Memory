@@ -2,6 +2,7 @@ using Orpul1.Player;
 using Orpul1.Player.Animation;
 using Orpul1.State.Attack;
 using System;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 
@@ -26,8 +27,6 @@ namespace Orpul1.Player.State
             data.shouldWallJump = false;
             data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
             data.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
-            //maxMoveX = data.rigid.linearVelocityX < 0 ? -data.rigid.linearVelocityX : data.rigid.linearVelocityX;
-            //maxMoveX = Mathf.Abs(data.rigid.linearVelocityX);
             maxMoveX = Mathf.Max(data.rigid.linearVelocityX, data.onAirMoveSpeed * Time.deltaTime);
 
         }
@@ -56,11 +55,11 @@ namespace Orpul1.Player.State
 
         private void FlipX()
         {
-            if (data.moveDir.x < 0)
-                isFlip = true;
-            else if (data.moveDir.x > 0)
-                isFlip = false;
-            data.sprite.flipX = isFlip;
+            if (data.moveDir.x == 0) return;
+
+            Vector3 scale = data.originScale;
+            scale.x = (int)data.moveDir.x;
+            data.trPlayer.localScale = scale;
         }
 
         private void SetFallDamage()

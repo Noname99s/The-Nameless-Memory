@@ -26,7 +26,6 @@ namespace Orpul1.Player.State
 
         public override void OnUpdate()
         {
-            //DoJump();
             TrainsitionState();
         }
 

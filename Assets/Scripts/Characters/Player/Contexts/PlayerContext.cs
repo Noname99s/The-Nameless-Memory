@@ -27,6 +27,7 @@ public class PlayerContext : MonoBehaviour
     public SpriteRenderer sprite;
     public Transform trPlayer;
     public Animator animator;
+    public Vector3 originScale = Vector3.one;
     public int hp;
     public int maxHp;
     public int damage;

@@ -20,7 +20,6 @@ namespace Orpul1.Player
         Ray2D wallRay = new Ray2D();
         Ray2D ladderRay = new Ray2D();
 
-
         //TODO: 플레이어 HP UI연결 시킬 것
 
         //IInGameView playerHpUI;
@@ -30,6 +29,7 @@ namespace Orpul1.Player
             groundRay.origin = transform.position;
             playerAttack.SetValue(playerData.damage);
             playerData.Initialize();
+            playerData.originScale = transform.localScale;
         }
         void Start()
         {

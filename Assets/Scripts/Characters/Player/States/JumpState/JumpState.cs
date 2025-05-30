@@ -6,6 +6,7 @@ using System;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 namespace Orpul1.Player.State
 {
@@ -61,11 +62,11 @@ namespace Orpul1.Player.State
         }
         private void FlipX()
         {
-            if (data.moveDir.x < 0)
-                isFlip = true;
-            else if (data.moveDir.x > 0)
-                isFlip = false;
-            data.sprite.flipX = isFlip;
+            if (data.moveDir.x == 0) return;
+
+            Vector3 scale = data.originScale;
+            scale.x = (int)data.moveDir.x;
+            data.trPlayer.localScale = scale;
         }
         private void TransitionState()
         {
