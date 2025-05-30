@@ -21,22 +21,36 @@ public partial class BG_DB_PlayerData : BGEntity
 		get => __name[Index];
 		set => __name[Index] = value;
 	}
-	public System.Int32 _PlayerHP
+	public System.Int32 _Value
 	{
-		get => __PlayerHP[Index];
-		set => __PlayerHP[Index] = value;
+		get => __Value[Index];
+		set => __Value[Index] = value;
 	}
-	public System.Int32 _PlayerMP
+	public System.Int32 _Min
 	{
-		get => __PlayerMP[Index];
-		set => __PlayerMP[Index] = value;
+		get => __Min[Index];
+		set => __Min[Index] = value;
+	}
+	public System.Int32 _Max
+	{
+		get => __Max[Index];
+		set => __Max[Index] = value;
+	}
+	public System.String _Description
+	{
+		get => __Description[Index];
+		set => __Description[Index] = value;
 	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77__name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName __name => _ufle12jhs77__name ?? (_ufle12jhs77__name = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldEntityName>(MetaDefault, new BGId(4906240635096822591UL, 9420519791050603430UL), () => _ufle12jhs77__name = null));
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77__PlayerHP;
-	public static BansheeGz.BGDatabase.BGFieldInt __PlayerHP => _ufle12jhs77__PlayerHP ?? (_ufle12jhs77__PlayerHP = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldInt>(MetaDefault, new BGId(4925290437428602829UL, 8445358490258639020UL), () => _ufle12jhs77__PlayerHP = null));
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77__PlayerMP;
-	public static BansheeGz.BGDatabase.BGFieldInt __PlayerMP => _ufle12jhs77__PlayerMP ?? (_ufle12jhs77__PlayerMP = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldInt>(MetaDefault, new BGId(5705504209027001893UL, 7025277409249853583UL), () => _ufle12jhs77__PlayerMP = null));
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77__Value;
+	public static BansheeGz.BGDatabase.BGFieldInt __Value => _ufle12jhs77__Value ?? (_ufle12jhs77__Value = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldInt>(MetaDefault, new BGId(4925290437428602829UL, 8445358490258639020UL), () => _ufle12jhs77__Value = null));
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77__Min;
+	public static BansheeGz.BGDatabase.BGFieldInt __Min => _ufle12jhs77__Min ?? (_ufle12jhs77__Min = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldInt>(MetaDefault, new BGId(5724725725355909888UL, 15215139199677078190UL), () => _ufle12jhs77__Min = null));
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77__Max;
+	public static BansheeGz.BGDatabase.BGFieldInt __Max => _ufle12jhs77__Max ?? (_ufle12jhs77__Max = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldInt>(MetaDefault, new BGId(4642788437120146221UL, 2358182373635996863UL), () => _ufle12jhs77__Max = null));
+	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Description;
+	public static BansheeGz.BGDatabase.BGFieldString __Description => _ufle12jhs77__Description ?? (_ufle12jhs77__Description = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5518288640799412892UL, 863329464018157959UL), () => _ufle12jhs77__Description = null));
 	private BG_DB_PlayerData() : base(MetaDefault) {}
 	private BG_DB_PlayerData(BGId id) : base(MetaDefault, id) {}
 	private BG_DB_PlayerData(BGMetaEntity meta) : base(meta) {}
@@ -62,198 +76,10 @@ public partial class BG_DB_PlayerData : BGEntity
 	{
 		public const string Meta = "PlayerData";
 		public const string name = "name";
-		public const string PlayerHP = "PlayerHP";
-		public const string PlayerMP = "PlayerMP";
-	}
-}
-
-[Preserve]
-public partial class BG_DB_Weapon : BGEntity
-{
-	private static BansheeGz.BGDatabase.BGMetaRow _metaDefault;
-	public static BansheeGz.BGDatabase.BGMetaRow MetaDefault => _metaDefault ?? (_metaDefault = BGCodeGenUtils.GetMeta<BansheeGz.BGDatabase.BGMetaRow>(new BGId(5575752161254264735UL,5133949075809333930UL), () => _metaDefault = null));
-	public static BansheeGz.BGDatabase.BGRepoEvents Events => BGRepo.I.Events;
-	public static int CountEntities => MetaDefault.CountEntities;
-	public System.String _name
-	{
-		get => __name[Index];
-		set => __name[Index] = value;
-	}
-	public List<BG_DB_Sword> _Sword => BGCodeGenUtils.GetNested<BG_DB_Sword>(__Sword, Index);
-	public List<BG_DB_Bow> _Bow => BGCodeGenUtils.GetNested<BG_DB_Bow>(__Bow, Index);
-	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77__name;
-	public static BansheeGz.BGDatabase.BGFieldEntityName __name => _ufle12jhs77__name ?? (_ufle12jhs77__name = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldEntityName>(MetaDefault, new BGId(5006926108185326310UL, 5403866842590731154UL), () => _ufle12jhs77__name = null));
-	private static BansheeGz.BGDatabase.BGFieldNested _ufle12jhs77__Sword;
-	public static BansheeGz.BGDatabase.BGFieldNested __Sword => _ufle12jhs77__Sword ?? (_ufle12jhs77__Sword = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldNested>(MetaDefault, new BGId(5093409586978248418UL, 5913364361999441805UL), () => _ufle12jhs77__Sword = null));
-	private static BansheeGz.BGDatabase.BGFieldNested _ufle12jhs77__Bow;
-	public static BansheeGz.BGDatabase.BGFieldNested __Bow => _ufle12jhs77__Bow ?? (_ufle12jhs77__Bow = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldNested>(MetaDefault, new BGId(5444928789369952127UL, 10829950952476269496UL), () => _ufle12jhs77__Bow = null));
-	private BG_DB_Weapon() : base(MetaDefault) {}
-	private BG_DB_Weapon(BGId id) : base(MetaDefault, id) {}
-	private BG_DB_Weapon(BGMetaEntity meta) : base(meta) {}
-	private BG_DB_Weapon(BGMetaEntity meta, BGId id) : base(meta, id) {}
-	public static BG_DB_Weapon FindEntity(Predicate<BG_DB_Weapon> filter) => BGCodeGenUtils.FindEntity(MetaDefault, filter);
-	public static List<BG_DB_Weapon> FindEntities(Predicate<BG_DB_Weapon> filter, List<BG_DB_Weapon> result=null, Comparison<BG_DB_Weapon> sort=null) => BGCodeGenUtils.FindEntities(MetaDefault, filter, result, sort);
-	public static void ForEachEntity(Action<BG_DB_Weapon> action, Predicate<BG_DB_Weapon> filter=null, Comparison<BG_DB_Weapon> sort=null) => BGCodeGenUtils.ForEachEntity(MetaDefault, action, filter, sort);
-	public static BG_DB_Weapon GetEntity(BGId entityId) => (BG_DB_Weapon) MetaDefault.GetEntity(entityId);
-	public static BG_DB_Weapon GetEntity(int index) => (BG_DB_Weapon) MetaDefault[index];
-	public static BG_DB_Weapon GetEntity(string entityName) => (BG_DB_Weapon) MetaDefault.GetEntity(entityName);
-	public static BG_DB_Weapon NewEntity() => (BG_DB_Weapon) MetaDefault.NewEntity();
-	public static BG_DB_Weapon NewEntity(BGId entityId) => (BG_DB_Weapon) MetaDefault.NewEntity(entityId);
-	public static BG_DB_Weapon NewEntity(Action<BG_DB_Weapon> callback) => (BG_DB_Weapon) MetaDefault.NewEntity(new BGMetaEntity.NewEntityContext(entity => callback((BG_DB_Weapon)entity)));
-	public List<BG_DB_Sword> Fill_Sword(List<BG_DB_Sword> result) => BGCodeGenUtils.GetNested<BG_DB_Sword>(__Sword, Index, result);
-	public List<BG_DB_Bow> Fill_Bow(List<BG_DB_Bow> result) => BGCodeGenUtils.GetNested<BG_DB_Bow>(__Bow, Index, result);
-
-	[Preserve]
-	public class Factory : BGEntity.EntityFactory
-	{
-		public BGEntity NewEntity(BGMetaEntity meta) => new BG_DB_Weapon(meta);
-		public BGEntity NewEntity(BGMetaEntity meta, BGId id) => new BG_DB_Weapon(meta, id);
-	}
-
-	public static class __Names
-	{
-		public const string Meta = "Weapon";
-		public const string name = "name";
-		public const string Sword = "Sword";
-		public const string Bow = "Bow";
-	}
-}
-
-[Preserve]
-public partial class BG_DB_Sword : BGEntity
-{
-	private static BansheeGz.BGDatabase.BGMetaNested _metaDefault;
-	public static BansheeGz.BGDatabase.BGMetaNested MetaDefault => _metaDefault ?? (_metaDefault = BGCodeGenUtils.GetMeta<BansheeGz.BGDatabase.BGMetaNested>(new BGId(4653370697548287728UL,8490757128946126996UL), () => _metaDefault = null));
-	public static BansheeGz.BGDatabase.BGRepoEvents Events => BGRepo.I.Events;
-	public static int CountEntities => MetaDefault.CountEntities;
-	public System.String _name
-	{
-		get => __name[Index];
-		set => __name[Index] = value;
-	}
-	public BG_DB_Weapon _Weapon
-	{
-		get => (BG_DB_Weapon) __Weapon[Index];
-		set => __Weapon[Index] = value;
-	}
-	public System.Int32 _Damage
-	{
-		get => __Damage[Index];
-		set => __Damage[Index] = value;
-	}
-	public System.Int32 _LV
-	{
-		get => __LV[Index];
-		set => __LV[Index] = value;
-	}
-	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77__name;
-	public static BansheeGz.BGDatabase.BGFieldEntityName __name => _ufle12jhs77__name ?? (_ufle12jhs77__name = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldEntityName>(MetaDefault, new BGId(4692545807693887301UL, 1352438370301346185UL), () => _ufle12jhs77__name = null));
-	private static BansheeGz.BGDatabase.BGFieldRelationSingle _ufle12jhs77__Weapon;
-	public static BansheeGz.BGDatabase.BGFieldRelationSingle __Weapon => _ufle12jhs77__Weapon ?? (_ufle12jhs77__Weapon = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldRelationSingle>(MetaDefault, new BGId(5500793989741077483UL, 1966403284555154563UL), () => _ufle12jhs77__Weapon = null));
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77__Damage;
-	public static BansheeGz.BGDatabase.BGFieldInt __Damage => _ufle12jhs77__Damage ?? (_ufle12jhs77__Damage = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldInt>(MetaDefault, new BGId(5004298046486979497UL, 974063795751636888UL), () => _ufle12jhs77__Damage = null));
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77__LV;
-	public static BansheeGz.BGDatabase.BGFieldInt __LV => _ufle12jhs77__LV ?? (_ufle12jhs77__LV = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldInt>(MetaDefault, new BGId(5377613961524127475UL, 14317838083735240620UL), () => _ufle12jhs77__LV = null));
-	private BG_DB_Sword() : base(MetaDefault) {}
-	private BG_DB_Sword(BGId id) : base(MetaDefault, id) {}
-	private BG_DB_Sword(BGMetaEntity meta) : base(meta) {}
-	private BG_DB_Sword(BGMetaEntity meta, BGId id) : base(meta, id) {}
-	public static BG_DB_Sword FindEntity(Predicate<BG_DB_Sword> filter) => BGCodeGenUtils.FindEntity(MetaDefault, filter);
-	public static List<BG_DB_Sword> FindEntities(Predicate<BG_DB_Sword> filter, List<BG_DB_Sword> result=null, Comparison<BG_DB_Sword> sort=null) => BGCodeGenUtils.FindEntities(MetaDefault, filter, result, sort);
-	public static void ForEachEntity(Action<BG_DB_Sword> action, Predicate<BG_DB_Sword> filter=null, Comparison<BG_DB_Sword> sort=null) => BGCodeGenUtils.ForEachEntity(MetaDefault, action, filter, sort);
-	public static BG_DB_Sword GetEntity(BGId entityId) => (BG_DB_Sword) MetaDefault.GetEntity(entityId);
-	public static BG_DB_Sword GetEntity(int index) => (BG_DB_Sword) MetaDefault[index];
-	public static BG_DB_Sword GetEntity(string entityName) => (BG_DB_Sword) MetaDefault.GetEntity(entityName);
-	public static BG_DB_Sword NewEntity() => (BG_DB_Sword) MetaDefault.NewEntity();
-	public static BG_DB_Sword NewEntity(BGId entityId) => (BG_DB_Sword) MetaDefault.NewEntity(entityId);
-	public static BG_DB_Sword NewEntity(Action<BG_DB_Sword> callback) => (BG_DB_Sword) MetaDefault.NewEntity(new BGMetaEntity.NewEntityContext(entity => callback((BG_DB_Sword)entity)));
-	public static BG_DB_Sword NewEntity(BG_DB_Weapon owner) => (BG_DB_Sword) MetaDefault.NewEntity(owner);
-	public static BG_DB_Sword NewEntity(BG_DB_Weapon owner, BGId entityId) => (BG_DB_Sword) MetaDefault.NewEntity(owner, entityId);
-	public static BG_DB_Sword NewEntity(BG_DB_Weapon owner, Action<BG_DB_Sword> callback) => (BG_DB_Sword) MetaDefault.NewEntity(owner, new BGMetaEntity.NewEntityContext(entity => callback((BG_DB_Sword)entity)));
-
-	[Preserve]
-	public class Factory : BGEntity.EntityFactory
-	{
-		public BGEntity NewEntity(BGMetaEntity meta) => new BG_DB_Sword(meta);
-		public BGEntity NewEntity(BGMetaEntity meta, BGId id) => new BG_DB_Sword(meta, id);
-	}
-
-	public static class __Names
-	{
-		public const string Meta = "Sword";
-		public const string name = "name";
-		public const string Weapon = "Weapon";
-		public const string Damage = "Damage";
-		public const string LV = "LV";
-	}
-}
-
-[Preserve]
-public partial class BG_DB_Bow : BGEntity
-{
-	private static BansheeGz.BGDatabase.BGMetaNested _metaDefault;
-	public static BansheeGz.BGDatabase.BGMetaNested MetaDefault => _metaDefault ?? (_metaDefault = BGCodeGenUtils.GetMeta<BansheeGz.BGDatabase.BGMetaNested>(new BGId(4858693314901403227UL,17895064575747950232UL), () => _metaDefault = null));
-	public static BansheeGz.BGDatabase.BGRepoEvents Events => BGRepo.I.Events;
-	public static int CountEntities => MetaDefault.CountEntities;
-	public System.String _name
-	{
-		get => __name[Index];
-		set => __name[Index] = value;
-	}
-	public BG_DB_Weapon _Weapon
-	{
-		get => (BG_DB_Weapon) __Weapon[Index];
-		set => __Weapon[Index] = value;
-	}
-	public System.Int32 _Damage
-	{
-		get => __Damage[Index];
-		set => __Damage[Index] = value;
-	}
-	public System.Int32 _LV
-	{
-		get => __LV[Index];
-		set => __LV[Index] = value;
-	}
-	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77__name;
-	public static BansheeGz.BGDatabase.BGFieldEntityName __name => _ufle12jhs77__name ?? (_ufle12jhs77__name = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldEntityName>(MetaDefault, new BGId(5572256482788928253UL, 3219620760156509834UL), () => _ufle12jhs77__name = null));
-	private static BansheeGz.BGDatabase.BGFieldRelationSingle _ufle12jhs77__Weapon;
-	public static BansheeGz.BGDatabase.BGFieldRelationSingle __Weapon => _ufle12jhs77__Weapon ?? (_ufle12jhs77__Weapon = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldRelationSingle>(MetaDefault, new BGId(5143304393403926118UL, 9670562769387081866UL), () => _ufle12jhs77__Weapon = null));
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77__Damage;
-	public static BansheeGz.BGDatabase.BGFieldInt __Damage => _ufle12jhs77__Damage ?? (_ufle12jhs77__Damage = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldInt>(MetaDefault, new BGId(5224891593353619725UL, 7497586363376887484UL), () => _ufle12jhs77__Damage = null));
-	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77__LV;
-	public static BansheeGz.BGDatabase.BGFieldInt __LV => _ufle12jhs77__LV ?? (_ufle12jhs77__LV = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldInt>(MetaDefault, new BGId(5396743936435060928UL, 14983157447938434487UL), () => _ufle12jhs77__LV = null));
-	private BG_DB_Bow() : base(MetaDefault) {}
-	private BG_DB_Bow(BGId id) : base(MetaDefault, id) {}
-	private BG_DB_Bow(BGMetaEntity meta) : base(meta) {}
-	private BG_DB_Bow(BGMetaEntity meta, BGId id) : base(meta, id) {}
-	public static BG_DB_Bow FindEntity(Predicate<BG_DB_Bow> filter) => BGCodeGenUtils.FindEntity(MetaDefault, filter);
-	public static List<BG_DB_Bow> FindEntities(Predicate<BG_DB_Bow> filter, List<BG_DB_Bow> result=null, Comparison<BG_DB_Bow> sort=null) => BGCodeGenUtils.FindEntities(MetaDefault, filter, result, sort);
-	public static void ForEachEntity(Action<BG_DB_Bow> action, Predicate<BG_DB_Bow> filter=null, Comparison<BG_DB_Bow> sort=null) => BGCodeGenUtils.ForEachEntity(MetaDefault, action, filter, sort);
-	public static BG_DB_Bow GetEntity(BGId entityId) => (BG_DB_Bow) MetaDefault.GetEntity(entityId);
-	public static BG_DB_Bow GetEntity(int index) => (BG_DB_Bow) MetaDefault[index];
-	public static BG_DB_Bow GetEntity(string entityName) => (BG_DB_Bow) MetaDefault.GetEntity(entityName);
-	public static BG_DB_Bow NewEntity() => (BG_DB_Bow) MetaDefault.NewEntity();
-	public static BG_DB_Bow NewEntity(BGId entityId) => (BG_DB_Bow) MetaDefault.NewEntity(entityId);
-	public static BG_DB_Bow NewEntity(Action<BG_DB_Bow> callback) => (BG_DB_Bow) MetaDefault.NewEntity(new BGMetaEntity.NewEntityContext(entity => callback((BG_DB_Bow)entity)));
-	public static BG_DB_Bow NewEntity(BG_DB_Weapon owner) => (BG_DB_Bow) MetaDefault.NewEntity(owner);
-	public static BG_DB_Bow NewEntity(BG_DB_Weapon owner, BGId entityId) => (BG_DB_Bow) MetaDefault.NewEntity(owner, entityId);
-	public static BG_DB_Bow NewEntity(BG_DB_Weapon owner, Action<BG_DB_Bow> callback) => (BG_DB_Bow) MetaDefault.NewEntity(owner, new BGMetaEntity.NewEntityContext(entity => callback((BG_DB_Bow)entity)));
-
-	[Preserve]
-	public class Factory : BGEntity.EntityFactory
-	{
-		public BGEntity NewEntity(BGMetaEntity meta) => new BG_DB_Bow(meta);
-		public BGEntity NewEntity(BGMetaEntity meta, BGId id) => new BG_DB_Bow(meta, id);
-	}
-
-	public static class __Names
-	{
-		public const string Meta = "Bow";
-		public const string name = "name";
-		public const string Weapon = "Weapon";
-		public const string Damage = "Damage";
-		public const string LV = "LV";
+		public const string Value = "Value";
+		public const string Min = "Min";
+		public const string Max = "Max";
+		public const string Description = "Description";
 	}
 }
 
@@ -304,6 +130,346 @@ public partial class BG_DB_LoadingText : BGEntity
 		public const string Meta = "LoadingText";
 		public const string name = "name";
 		public const string detail = "detail";
+	}
+}
+
+[Preserve]
+public partial class BG_DB_Enemydata : BGEntity
+{
+	private static BansheeGz.BGDatabase.BGMetaRow _metaDefault;
+	public static BansheeGz.BGDatabase.BGMetaRow MetaDefault => _metaDefault ?? (_metaDefault = BGCodeGenUtils.GetMeta<BansheeGz.BGDatabase.BGMetaRow>(new BGId(4934612525687796109UL,2362566005715031468UL), () => _metaDefault = null));
+	public static BansheeGz.BGDatabase.BGRepoEvents Events => BGRepo.I.Events;
+	public static int CountEntities => MetaDefault.CountEntities;
+	public System.String _name
+	{
+		get => __name[Index];
+		set => __name[Index] = value;
+	}
+	/**<summary><![CDATA[
+	인게임 / 기획용 몬스터 표시 이름
+	]]></summary>*/
+	public System.String _Displayname
+	{
+		get => __Displayname[Index];
+		set => __Displayname[Index] = value;
+	}
+	/**<summary><![CDATA[
+	몬스터 등급/ Enum으로 수정 예정인 항목입니다.
+	]]></summary>*/
+	public System.String _Grade
+	{
+		get => __Grade[Index];
+		set => __Grade[Index] = value;
+	}
+	/**<summary><![CDATA[
+	몬스터 타입/ Enum으로 수정 예정인 항목입니다.
+	]]></summary>*/
+	public System.String _CombatType
+	{
+		get => __CombatType[Index];
+		set => __CombatType[Index] = value;
+	}
+	public System.Int32 _HP
+	{
+		get => __HP[Index];
+		set => __HP[Index] = value;
+	}
+	public System.Int32 _ATK
+	{
+		get => __ATK[Index];
+		set => __ATK[Index] = value;
+	}
+	public System.Single _SPD
+	{
+		get => __SPD[Index];
+		set => __SPD[Index] = value;
+	}
+	/**<summary><![CDATA[
+	몬스터의 공격 사거리
+	]]></summary>*/
+	public System.Single _AttackRange
+	{
+		get => __AttackRange[Index];
+		set => __AttackRange[Index] = value;
+	}
+	/**<summary><![CDATA[
+	몬스터의 플레이어 감지 범위
+	]]></summary>*/
+	public System.Single _VisionRange
+	{
+		get => __VisionRange[Index];
+		set => __VisionRange[Index] = value;
+	}
+	public System.String _Description
+	{
+		get => __Description[Index];
+		set => __Description[Index] = value;
+	}
+	/**<summary><![CDATA[
+	해당 몬스터 등장하는 Stage / Enum으로 수정 예정인 항목
+	]]></summary>*/
+	public System.String _StageAppear
+	{
+		get => __StageAppear[Index];
+		set => __StageAppear[Index] = value;
+	}
+	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77__name;
+	public static BansheeGz.BGDatabase.BGFieldEntityName __name => _ufle12jhs77__name ?? (_ufle12jhs77__name = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldEntityName>(MetaDefault, new BGId(4757226132745034890UL, 2064046406811705990UL), () => _ufle12jhs77__name = null));
+	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Displayname;
+	public static BansheeGz.BGDatabase.BGFieldString __Displayname => _ufle12jhs77__Displayname ?? (_ufle12jhs77__Displayname = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5664489157372961952UL, 14782590975201341090UL), () => _ufle12jhs77__Displayname = null));
+	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Grade;
+	public static BansheeGz.BGDatabase.BGFieldString __Grade => _ufle12jhs77__Grade ?? (_ufle12jhs77__Grade = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5683700619924574180UL, 15949239267121691550UL), () => _ufle12jhs77__Grade = null));
+	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__CombatType;
+	public static BansheeGz.BGDatabase.BGFieldString __CombatType => _ufle12jhs77__CombatType ?? (_ufle12jhs77__CombatType = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(4879780352354766835UL, 14519813662724620709UL), () => _ufle12jhs77__CombatType = null));
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77__HP;
+	public static BansheeGz.BGDatabase.BGFieldInt __HP => _ufle12jhs77__HP ?? (_ufle12jhs77__HP = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldInt>(MetaDefault, new BGId(5618777750996852760UL, 6208088897088835261UL), () => _ufle12jhs77__HP = null));
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77__ATK;
+	public static BansheeGz.BGDatabase.BGFieldInt __ATK => _ufle12jhs77__ATK ?? (_ufle12jhs77__ATK = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldInt>(MetaDefault, new BGId(5127057165974019693UL, 13635496384164642947UL), () => _ufle12jhs77__ATK = null));
+	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77__SPD;
+	public static BansheeGz.BGDatabase.BGFieldFloat __SPD => _ufle12jhs77__SPD ?? (_ufle12jhs77__SPD = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldFloat>(MetaDefault, new BGId(4686869745208155356UL, 15100020463282854061UL), () => _ufle12jhs77__SPD = null));
+	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77__AttackRange;
+	public static BansheeGz.BGDatabase.BGFieldFloat __AttackRange => _ufle12jhs77__AttackRange ?? (_ufle12jhs77__AttackRange = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldFloat>(MetaDefault, new BGId(5161366422806444072UL, 13414508186751950994UL), () => _ufle12jhs77__AttackRange = null));
+	private static BansheeGz.BGDatabase.BGFieldFloat _ufle12jhs77__VisionRange;
+	public static BansheeGz.BGDatabase.BGFieldFloat __VisionRange => _ufle12jhs77__VisionRange ?? (_ufle12jhs77__VisionRange = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldFloat>(MetaDefault, new BGId(5312777089681639291UL, 13097675885270064555UL), () => _ufle12jhs77__VisionRange = null));
+	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Description;
+	public static BansheeGz.BGDatabase.BGFieldString __Description => _ufle12jhs77__Description ?? (_ufle12jhs77__Description = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5409669755088367152UL, 2187004467447944608UL), () => _ufle12jhs77__Description = null));
+	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__StageAppear;
+	public static BansheeGz.BGDatabase.BGFieldString __StageAppear => _ufle12jhs77__StageAppear ?? (_ufle12jhs77__StageAppear = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5050594324743928841UL, 1859818252804370330UL), () => _ufle12jhs77__StageAppear = null));
+	private BG_DB_Enemydata() : base(MetaDefault) {}
+	private BG_DB_Enemydata(BGId id) : base(MetaDefault, id) {}
+	private BG_DB_Enemydata(BGMetaEntity meta) : base(meta) {}
+	private BG_DB_Enemydata(BGMetaEntity meta, BGId id) : base(meta, id) {}
+	public static BG_DB_Enemydata FindEntity(Predicate<BG_DB_Enemydata> filter) => BGCodeGenUtils.FindEntity(MetaDefault, filter);
+	public static List<BG_DB_Enemydata> FindEntities(Predicate<BG_DB_Enemydata> filter, List<BG_DB_Enemydata> result=null, Comparison<BG_DB_Enemydata> sort=null) => BGCodeGenUtils.FindEntities(MetaDefault, filter, result, sort);
+	public static void ForEachEntity(Action<BG_DB_Enemydata> action, Predicate<BG_DB_Enemydata> filter=null, Comparison<BG_DB_Enemydata> sort=null) => BGCodeGenUtils.ForEachEntity(MetaDefault, action, filter, sort);
+	public static BG_DB_Enemydata GetEntity(BGId entityId) => (BG_DB_Enemydata) MetaDefault.GetEntity(entityId);
+	public static BG_DB_Enemydata GetEntity(int index) => (BG_DB_Enemydata) MetaDefault[index];
+	public static BG_DB_Enemydata GetEntity(string entityName) => (BG_DB_Enemydata) MetaDefault.GetEntity(entityName);
+	public static BG_DB_Enemydata NewEntity() => (BG_DB_Enemydata) MetaDefault.NewEntity();
+	public static BG_DB_Enemydata NewEntity(BGId entityId) => (BG_DB_Enemydata) MetaDefault.NewEntity(entityId);
+	public static BG_DB_Enemydata NewEntity(Action<BG_DB_Enemydata> callback) => (BG_DB_Enemydata) MetaDefault.NewEntity(new BGMetaEntity.NewEntityContext(entity => callback((BG_DB_Enemydata)entity)));
+
+	[Preserve]
+	public class Factory : BGEntity.EntityFactory
+	{
+		public BGEntity NewEntity(BGMetaEntity meta) => new BG_DB_Enemydata(meta);
+		public BGEntity NewEntity(BGMetaEntity meta, BGId id) => new BG_DB_Enemydata(meta, id);
+	}
+
+	public static class __Names
+	{
+		public const string Meta = "Enemydata";
+		public const string name = "name";
+		public const string Displayname = "Displayname";
+		public const string Grade = "Grade";
+		public const string CombatType = "CombatType";
+		public const string HP = "HP";
+		public const string ATK = "ATK";
+		public const string SPD = "SPD";
+		public const string AttackRange = "AttackRange";
+		public const string VisionRange = "VisionRange";
+		public const string Description = "Description";
+		public const string StageAppear = "StageAppear";
+	}
+}
+
+[Preserve]
+public partial class BG_DB_BossSkilldata : BGEntity
+{
+	private static BansheeGz.BGDatabase.BGMetaRow _metaDefault;
+	public static BansheeGz.BGDatabase.BGMetaRow MetaDefault => _metaDefault ?? (_metaDefault = BGCodeGenUtils.GetMeta<BansheeGz.BGDatabase.BGMetaRow>(new BGId(4726974053339475331UL,9993474005036123070UL), () => _metaDefault = null));
+	public static BansheeGz.BGDatabase.BGRepoEvents Events => BGRepo.I.Events;
+	public static int CountEntities => MetaDefault.CountEntities;
+	public System.String _name
+	{
+		get => __name[Index];
+		set => __name[Index] = value;
+	}
+	public System.String _SkillName
+	{
+		get => __SkillName[Index];
+		set => __SkillName[Index] = value;
+	}
+	/**<summary><![CDATA[
+	스킬타입 설정 / enum으로 스크립트 작성 후 수정 필요
+	]]></summary>*/
+	public System.String _Phase
+	{
+		get => __Phase[Index];
+		set => __Phase[Index] = value;
+	}
+	public System.Int32 _Damage
+	{
+		get => __Damage[Index];
+		set => __Damage[Index] = value;
+	}
+	/**<summary><![CDATA[
+	스킬타입 설정 / enum으로 스크립트 작성 후 수정 필요
+	]]></summary>*/
+	public System.String _type
+	{
+		get => __type[Index];
+		set => __type[Index] = value;
+	}
+	public System.String _Description
+	{
+		get => __Description[Index];
+		set => __Description[Index] = value;
+	}
+	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77__name;
+	public static BansheeGz.BGDatabase.BGFieldEntityName __name => _ufle12jhs77__name ?? (_ufle12jhs77__name = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldEntityName>(MetaDefault, new BGId(4651800180061253974UL, 18097405577038179224UL), () => _ufle12jhs77__name = null));
+	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__SkillName;
+	public static BansheeGz.BGDatabase.BGFieldString __SkillName => _ufle12jhs77__SkillName ?? (_ufle12jhs77__SkillName = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5278524942668505757UL, 13237383197145794718UL), () => _ufle12jhs77__SkillName = null));
+	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Phase;
+	public static BansheeGz.BGDatabase.BGFieldString __Phase => _ufle12jhs77__Phase ?? (_ufle12jhs77__Phase = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5676348451163043574UL, 3322357572878792582UL), () => _ufle12jhs77__Phase = null));
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77__Damage;
+	public static BansheeGz.BGDatabase.BGFieldInt __Damage => _ufle12jhs77__Damage ?? (_ufle12jhs77__Damage = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldInt>(MetaDefault, new BGId(5071990526574200968UL, 14509887444755630748UL), () => _ufle12jhs77__Damage = null));
+	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__type;
+	public static BansheeGz.BGDatabase.BGFieldString __type => _ufle12jhs77__type ?? (_ufle12jhs77__type = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5650773864467718149UL, 18437838718549530532UL), () => _ufle12jhs77__type = null));
+	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Description;
+	public static BansheeGz.BGDatabase.BGFieldString __Description => _ufle12jhs77__Description ?? (_ufle12jhs77__Description = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(4806661059228398384UL, 225489134494356354UL), () => _ufle12jhs77__Description = null));
+	private BG_DB_BossSkilldata() : base(MetaDefault) {}
+	private BG_DB_BossSkilldata(BGId id) : base(MetaDefault, id) {}
+	private BG_DB_BossSkilldata(BGMetaEntity meta) : base(meta) {}
+	private BG_DB_BossSkilldata(BGMetaEntity meta, BGId id) : base(meta, id) {}
+	public static BG_DB_BossSkilldata FindEntity(Predicate<BG_DB_BossSkilldata> filter) => BGCodeGenUtils.FindEntity(MetaDefault, filter);
+	public static List<BG_DB_BossSkilldata> FindEntities(Predicate<BG_DB_BossSkilldata> filter, List<BG_DB_BossSkilldata> result=null, Comparison<BG_DB_BossSkilldata> sort=null) => BGCodeGenUtils.FindEntities(MetaDefault, filter, result, sort);
+	public static void ForEachEntity(Action<BG_DB_BossSkilldata> action, Predicate<BG_DB_BossSkilldata> filter=null, Comparison<BG_DB_BossSkilldata> sort=null) => BGCodeGenUtils.ForEachEntity(MetaDefault, action, filter, sort);
+	public static BG_DB_BossSkilldata GetEntity(BGId entityId) => (BG_DB_BossSkilldata) MetaDefault.GetEntity(entityId);
+	public static BG_DB_BossSkilldata GetEntity(int index) => (BG_DB_BossSkilldata) MetaDefault[index];
+	public static BG_DB_BossSkilldata GetEntity(string entityName) => (BG_DB_BossSkilldata) MetaDefault.GetEntity(entityName);
+	public static BG_DB_BossSkilldata NewEntity() => (BG_DB_BossSkilldata) MetaDefault.NewEntity();
+	public static BG_DB_BossSkilldata NewEntity(BGId entityId) => (BG_DB_BossSkilldata) MetaDefault.NewEntity(entityId);
+	public static BG_DB_BossSkilldata NewEntity(Action<BG_DB_BossSkilldata> callback) => (BG_DB_BossSkilldata) MetaDefault.NewEntity(new BGMetaEntity.NewEntityContext(entity => callback((BG_DB_BossSkilldata)entity)));
+
+	[Preserve]
+	public class Factory : BGEntity.EntityFactory
+	{
+		public BGEntity NewEntity(BGMetaEntity meta) => new BG_DB_BossSkilldata(meta);
+		public BGEntity NewEntity(BGMetaEntity meta, BGId id) => new BG_DB_BossSkilldata(meta, id);
+	}
+
+	public static class __Names
+	{
+		public const string Meta = "BossSkilldata";
+		public const string name = "name";
+		public const string SkillName = "SkillName";
+		public const string Phase = "Phase";
+		public const string Damage = "Damage";
+		public const string type = "type";
+		public const string Description = "Description";
+	}
+}
+
+[Preserve]
+public partial class BG_DB_Bossdata : BGEntity
+{
+	private static BansheeGz.BGDatabase.BGMetaRow _metaDefault;
+	public static BansheeGz.BGDatabase.BGMetaRow MetaDefault => _metaDefault ?? (_metaDefault = BGCodeGenUtils.GetMeta<BansheeGz.BGDatabase.BGMetaRow>(new BGId(5719316314338761896UL,12296393996669394091UL), () => _metaDefault = null));
+	public static BansheeGz.BGDatabase.BGRepoEvents Events => BGRepo.I.Events;
+	public static int CountEntities => MetaDefault.CountEntities;
+	public System.String _name
+	{
+		get => __name[Index];
+		set => __name[Index] = value;
+	}
+	public System.String _Displayname
+	{
+		get => __Displayname[Index];
+		set => __Displayname[Index] = value;
+	}
+	public System.Int32 _HP
+	{
+		get => __HP[Index];
+		set => __HP[Index] = value;
+	}
+	public System.String _Description
+	{
+		get => __Description[Index];
+		set => __Description[Index] = value;
+	}
+	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77__name;
+	public static BansheeGz.BGDatabase.BGFieldEntityName __name => _ufle12jhs77__name ?? (_ufle12jhs77__name = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldEntityName>(MetaDefault, new BGId(5563137855449695236UL, 10881277357996275619UL), () => _ufle12jhs77__name = null));
+	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Displayname;
+	public static BansheeGz.BGDatabase.BGFieldString __Displayname => _ufle12jhs77__Displayname ?? (_ufle12jhs77__Displayname = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(4692222921815125452UL, 10011972650090264250UL), () => _ufle12jhs77__Displayname = null));
+	private static BansheeGz.BGDatabase.BGFieldInt _ufle12jhs77__HP;
+	public static BansheeGz.BGDatabase.BGFieldInt __HP => _ufle12jhs77__HP ?? (_ufle12jhs77__HP = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldInt>(MetaDefault, new BGId(5386422053261162125UL, 3801516374991209876UL), () => _ufle12jhs77__HP = null));
+	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Description;
+	public static BansheeGz.BGDatabase.BGFieldString __Description => _ufle12jhs77__Description ?? (_ufle12jhs77__Description = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5154526618863642117UL, 6618014564974563996UL), () => _ufle12jhs77__Description = null));
+	private BG_DB_Bossdata() : base(MetaDefault) {}
+	private BG_DB_Bossdata(BGId id) : base(MetaDefault, id) {}
+	private BG_DB_Bossdata(BGMetaEntity meta) : base(meta) {}
+	private BG_DB_Bossdata(BGMetaEntity meta, BGId id) : base(meta, id) {}
+	public static BG_DB_Bossdata FindEntity(Predicate<BG_DB_Bossdata> filter) => BGCodeGenUtils.FindEntity(MetaDefault, filter);
+	public static List<BG_DB_Bossdata> FindEntities(Predicate<BG_DB_Bossdata> filter, List<BG_DB_Bossdata> result=null, Comparison<BG_DB_Bossdata> sort=null) => BGCodeGenUtils.FindEntities(MetaDefault, filter, result, sort);
+	public static void ForEachEntity(Action<BG_DB_Bossdata> action, Predicate<BG_DB_Bossdata> filter=null, Comparison<BG_DB_Bossdata> sort=null) => BGCodeGenUtils.ForEachEntity(MetaDefault, action, filter, sort);
+	public static BG_DB_Bossdata GetEntity(BGId entityId) => (BG_DB_Bossdata) MetaDefault.GetEntity(entityId);
+	public static BG_DB_Bossdata GetEntity(int index) => (BG_DB_Bossdata) MetaDefault[index];
+	public static BG_DB_Bossdata GetEntity(string entityName) => (BG_DB_Bossdata) MetaDefault.GetEntity(entityName);
+	public static BG_DB_Bossdata NewEntity() => (BG_DB_Bossdata) MetaDefault.NewEntity();
+	public static BG_DB_Bossdata NewEntity(BGId entityId) => (BG_DB_Bossdata) MetaDefault.NewEntity(entityId);
+	public static BG_DB_Bossdata NewEntity(Action<BG_DB_Bossdata> callback) => (BG_DB_Bossdata) MetaDefault.NewEntity(new BGMetaEntity.NewEntityContext(entity => callback((BG_DB_Bossdata)entity)));
+
+	[Preserve]
+	public class Factory : BGEntity.EntityFactory
+	{
+		public BGEntity NewEntity(BGMetaEntity meta) => new BG_DB_Bossdata(meta);
+		public BGEntity NewEntity(BGMetaEntity meta, BGId id) => new BG_DB_Bossdata(meta, id);
+	}
+
+	public static class __Names
+	{
+		public const string Meta = "Bossdata";
+		public const string name = "name";
+		public const string Displayname = "Displayname";
+		public const string HP = "HP";
+		public const string Description = "Description";
+	}
+}
+
+[Preserve]
+public partial class BG_DB_UIData : BGEntity
+{
+	private static BansheeGz.BGDatabase.BGMetaRow _metaDefault;
+	public static BansheeGz.BGDatabase.BGMetaRow MetaDefault => _metaDefault ?? (_metaDefault = BGCodeGenUtils.GetMeta<BansheeGz.BGDatabase.BGMetaRow>(new BGId(4661347853786765614UL,903905485394106812UL), () => _metaDefault = null));
+	public static BansheeGz.BGDatabase.BGRepoEvents Events => BGRepo.I.Events;
+	public static int CountEntities => MetaDefault.CountEntities;
+	public System.String _name
+	{
+		get => __name[Index];
+		set => __name[Index] = value;
+	}
+	public UnityEngine.GameObject _Prefab => __Prefab[Index];
+	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77__name;
+	public static BansheeGz.BGDatabase.BGFieldEntityName __name => _ufle12jhs77__name ?? (_ufle12jhs77__name = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldEntityName>(MetaDefault, new BGId(5675300297062339307UL, 17192795232321453959UL), () => _ufle12jhs77__name = null));
+	private static BansheeGz.BGDatabase.BGFieldUnityPrefab _ufle12jhs77__Prefab;
+	public static BansheeGz.BGDatabase.BGFieldUnityPrefab __Prefab => _ufle12jhs77__Prefab ?? (_ufle12jhs77__Prefab = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldUnityPrefab>(MetaDefault, new BGId(5621163288991757053UL, 6446160968122420903UL), () => _ufle12jhs77__Prefab = null));
+	private BG_DB_UIData() : base(MetaDefault) {}
+	private BG_DB_UIData(BGId id) : base(MetaDefault, id) {}
+	private BG_DB_UIData(BGMetaEntity meta) : base(meta) {}
+	private BG_DB_UIData(BGMetaEntity meta, BGId id) : base(meta, id) {}
+	public static BG_DB_UIData FindEntity(Predicate<BG_DB_UIData> filter) => BGCodeGenUtils.FindEntity(MetaDefault, filter);
+	public static List<BG_DB_UIData> FindEntities(Predicate<BG_DB_UIData> filter, List<BG_DB_UIData> result=null, Comparison<BG_DB_UIData> sort=null) => BGCodeGenUtils.FindEntities(MetaDefault, filter, result, sort);
+	public static void ForEachEntity(Action<BG_DB_UIData> action, Predicate<BG_DB_UIData> filter=null, Comparison<BG_DB_UIData> sort=null) => BGCodeGenUtils.ForEachEntity(MetaDefault, action, filter, sort);
+	public static BG_DB_UIData GetEntity(BGId entityId) => (BG_DB_UIData) MetaDefault.GetEntity(entityId);
+	public static BG_DB_UIData GetEntity(int index) => (BG_DB_UIData) MetaDefault[index];
+	public static BG_DB_UIData GetEntity(string entityName) => (BG_DB_UIData) MetaDefault.GetEntity(entityName);
+	public static BG_DB_UIData NewEntity() => (BG_DB_UIData) MetaDefault.NewEntity();
+	public static BG_DB_UIData NewEntity(BGId entityId) => (BG_DB_UIData) MetaDefault.NewEntity(entityId);
+	public static BG_DB_UIData NewEntity(Action<BG_DB_UIData> callback) => (BG_DB_UIData) MetaDefault.NewEntity(new BGMetaEntity.NewEntityContext(entity => callback((BG_DB_UIData)entity)));
+
+	[Preserve]
+	public class Factory : BGEntity.EntityFactory
+	{
+		public BGEntity NewEntity(BGMetaEntity meta) => new BG_DB_UIData(meta);
+		public BGEntity NewEntity(BGMetaEntity meta, BGId id) => new BG_DB_UIData(meta, id);
+	}
+
+	public static class __Names
+	{
+		public const string Meta = "UIData";
+		public const string name = "name";
+		public const string Prefab = "Prefab";
 	}
 }
 #pragma warning restore 414

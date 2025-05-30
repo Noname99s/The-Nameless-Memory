@@ -5,7 +5,6 @@ namespace SOBehaviorTree
     [CreateAssetMenu(fileName = "SequenceNode", menuName = "BehaviorTree/ControlFlow/SequenceNode")]
     public class SequenceNode : ControlFlowNode
     {
-        [SerializeField] int sign = 0;
         public override NodeState Process()
         {
             if (curIndex >= childNodeList.Count)

@@ -54,7 +54,11 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
 
     private void CreateInputPorts()
     {
-        if (!(node is PanelNode)&&!(node is ActionNode) && !(node is ControlFlowNode) && !(node is LeafNode)) return;
+        if (!(node is RepeatNode) &&
+            !(node is PanelNode)&&
+            !(node is ActionNode) && 
+            !(node is ControlFlowNode) && 
+            !(node is LeafNode)) return;
 
         inputPort = InstantiatePort(Orientation.Vertical,
                                     UnityEditor.Experimental.GraphView.Direction.Input,
@@ -79,7 +83,7 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
                                 Port.Capacity.Multi,
                                 typeof(bool));
         }
-        else if (node is DecoratorNode || node is RootNode) 
+        else if (node is DecoratorNode || node is RootNode|| node is RepeatNode) 
         {
             outputPort = InstantiatePort(Orientation.Vertical,
                                 UnityEditor.Experimental.GraphView.Direction.Output,

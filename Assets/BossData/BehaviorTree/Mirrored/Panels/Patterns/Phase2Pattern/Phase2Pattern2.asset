@@ -36,6 +36,7 @@ MonoBehaviour:
   description: RootNode
   nodeState: 3
   child: {fileID: -509142237134528452}
+  panelName: 
 --- !u!114 &-2455587038196470939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,30 +55,6 @@ MonoBehaviour:
   description: MirroredSkill2
   nodeState: 3
   panel: {fileID: 11400000, guid: f425c3837e2613b498c86652fac0bbe9, type: 2}
---- !u!114 &-1337494524665546922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddea26520dbede9419a2acd27bd3e83a, type: 3}
-  m_Name: DecoratorNode
-  m_EditorClassIdentifier: 
-  guid: 703fb6720389aff4fb25129ba5f92553
-  position: {x: -192, y: 242.38403}
-  nodeName: DecoratorNode
-  description: IsIdleState
-  nodeState: 3
-  methodName: IsIdleState
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  childNode: {fileID: 3184593284709134721}
-  Decorator: {fileID: 11400000, guid: f0ecd55877ae48a46b9edc921275bcd7, type: 2}
 --- !u!114 &-509142237134528452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,8 +73,10 @@ MonoBehaviour:
   description: SequenceNode
   nodeState: 3
   childNodeList:
-  - {fileID: -1337494524665546922}
+  - {fileID: 3184593284709134721}
   - {fileID: 5712905586951504756}
+  curIndex: 0
+  sign: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +95,6 @@ MonoBehaviour:
   nodeList:
   - {fileID: -3412215840211362775}
   - {fileID: -509142237134528452}
-  - {fileID: -1337494524665546922}
   - {fileID: 3184593284709134721}
   - {fileID: 5712905586951504756}
   - {fileID: -2455587038196470939}
@@ -134,7 +112,7 @@ MonoBehaviour:
   m_Name: PanelNode
   m_EditorClassIdentifier: 
   guid: 24973fc95c8bc254cb727406e2a7c598
-  position: {x: -141.59998, y: 345.59998}
+  position: {x: -145.59998, y: 239.20001}
   nodeName: PanelNode
   description: MirroredSkill5
   nodeState: 3
@@ -159,3 +137,4 @@ MonoBehaviour:
   childNodeList:
   - {fileID: -2455587038196470939}
   - {fileID: -7331259632544565574}
+  curIndex: 0

@@ -1,7 +1,7 @@
 namespace Orpul1
 {
-    public interface ISetDataAble
+    public interface ISetDataAble<T>
     {
-        public void SetValue<T>(T t);
+        public void SetValue(T t);
     }
 }

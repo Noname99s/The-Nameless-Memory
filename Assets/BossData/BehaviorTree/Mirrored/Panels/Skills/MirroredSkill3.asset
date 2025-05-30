@@ -23,7 +23,7 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   delayTime: 2
-  interval: 0
+  interval: 1.3708228
 --- !u!114 &-5263636175862439011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,8 +140,6 @@ MonoBehaviour:
   - {fileID: -2533896036925537769}
   - {fileID: -6616022504191900217}
   - {fileID: 5403305344884656275}
-  - {fileID: 4072018426561973233}
-  - {fileID: 6371945559909224383}
   - {fileID: -4385464476971076102}
 --- !u!114 &1827052703971171528
 MonoBehaviour:
@@ -161,38 +159,13 @@ MonoBehaviour:
   description: SequenceNode
   nodeState: 3
   childNodeList:
-  - {fileID: 6371945559909224383}
   - {fileID: -5263636175862439011}
   - {fileID: -843251854676969443}
   - {fileID: 7240800840304111253}
   - {fileID: -6616022504191900217}
   - {fileID: 5403305344884656275}
-  - {fileID: 4072018426561973233}
-  curIndex: 0
+  curIndex: 4
   sign: 0
---- !u!114 &4072018426561973233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: ActionNode
-  m_EditorClassIdentifier: 
-  guid: 7fc89d82e16823a48a89ef577888d51e
-  position: {x: 176.00006, y: 567.2}
-  nodeName: ActionNode
-  description: 
-  nodeState: 3
-  methodName: 
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  actionScript: {fileID: 11400000, guid: 1b26b7b555b100143a5702ce5e0aba0f, type: 2}
 --- !u!114 &5403305344884656275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +179,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: e937ab5bc53b60645a08f4ea6401a4c7
-  position: {x: 23.200012, y: 566.4}
+  position: {x: 24.120018, y: 566.4001}
   nodeName: ActionNode
   description: SetIdleState
   nodeState: 3
@@ -240,29 +213,6 @@ MonoBehaviour:
   assetPath: 
   childNode: {fileID: 1827052703971171528}
   Decorator: {fileID: 11400000, guid: 773168b578cfec8459b4cf8b5947a9e8, type: 2}
---- !u!114 &6371945559909224383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
-  m_Name: ActionNode
-  m_EditorClassIdentifier: 
-  guid: e19ad1f47fe577a4db0902589bd2a1eb
-  position: {x: -769.6, y: 559.2}
-  nodeName: ActionNode
-  description: Panel3Start
-  nodeState: 3
-  methodName: Panel3Start
-  path: 
-  actionNode: {fileID: 0}
-  scriptPath: 
-  assetPath: 
-  actionScript: {fileID: 11400000, guid: d0b713dc9849f8f4eb102293b5aa422c, type: 2}
 --- !u!114 &7240800840304111253
 MonoBehaviour:
   m_ObjectHideFlags: 0
