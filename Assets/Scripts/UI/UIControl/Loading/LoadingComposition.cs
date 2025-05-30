@@ -35,8 +35,9 @@ public class LoadingComposition : UIPopup
         asyncLoad.allowSceneActivation = false;
         asyncLoad.completed += (AsyncOperation obj) =>
         {
+            //Managers.UI.ClosePopupUI<LoadingComposition>();
+            Managers.UI.CloseAllPopupUI();
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(nextScene));
-            Managers.UI.ClosePopupUI<LoadingComposition>();
         };
 
         float time = Time.time + 5.0f; // 3 seconds term

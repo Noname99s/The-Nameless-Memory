@@ -26,7 +26,7 @@ public class SceneLoadManager
     //}
     public void LoadScene(string sceneName)
     {
-        Managers.UI.CloseAllPopupUI();
+        //Managers.UI.CloseAllPopupUI();
         if (loading == null)
         {
             loading = Managers.UI.ShowPopupUI<LoadingComposition>();
