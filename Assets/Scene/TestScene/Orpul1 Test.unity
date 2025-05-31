@@ -72676,22 +72676,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: wallRayDistance
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: wallRayStartPosi.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5680952135707525415, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: playerInfo.slideMovement.<gravity>k__BackingField.y
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 5947109336739971617, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: d17b0abe82061e64f9652bfcd94703d0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
