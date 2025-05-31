@@ -1,3 +1,4 @@
+using Orpul1.Player;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,11 +29,14 @@ namespace Orpul1.State
         }
         public void TransitionState(int index)
         {
-            CurState = index;
             if (curState != null)
             {
+                Debug.Log($"{((EPlayerState)CurState).ToString()} End");
                 curState.OnExit();
             }
+
+            CurState = index;
+            Debug.Log($"{((EPlayerState)CurState).ToString()} Start");
             curState = states[index];
             curState.OnStart();
         }

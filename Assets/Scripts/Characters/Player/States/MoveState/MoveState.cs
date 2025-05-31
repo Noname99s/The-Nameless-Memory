@@ -11,7 +11,6 @@ namespace Orpul1.Player.State
         bool isFlip = false;
         public override void OnStart()
         {
-            Debug.Log("Move Start");
 
             data.jumpInfo.jumpCount = 2;
             data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
@@ -26,6 +25,7 @@ namespace Orpul1.Player.State
         }
         public override void OnExit()
         {
+
             data.playerInfo.animator.SetFloat(EPlayerAni.MoveSpeed.ToString(), 0);
             data.playerInfo.rigid.gravityScale = data.jumpInfo.gravityStrength;
         }

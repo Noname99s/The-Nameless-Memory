@@ -10,7 +10,6 @@ namespace Orpul1.Player.State
     {
         
         float moveX = 0;
-        float maxMoveX = 0;
         IStrategy[] jumpStraties = new IStrategy[2];
         EPlayerJump jumpType = EPlayerJump.NormalJump;
         public JumpState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo) 
@@ -21,12 +20,10 @@ namespace Orpul1.Player.State
         public override void OnStart()
         {
             SetJumpType();
-            Debug.Log("JumpState Start");
 
             jumpStraties[(int)jumpType].Initialize();
             data.playerInfo.animator.SetBool(EPlayerAni.IsJump.ToString(),true);
             data.moveInfo.isPressWallClimb = false;
-            //maxMoveX = data.moveInfo.moveSpeed * Time.deltaTime;
         }
 
         public override void OnUpdate()
@@ -39,6 +36,7 @@ namespace Orpul1.Player.State
 
         public override void OnExit()
         {
+
             data.playerInfo.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
             data.jumpInfo.shouldWallJump = false;
         }
@@ -76,7 +74,8 @@ namespace Orpul1.Player.State
         }
         private bool IsMoveState()
         {
-            if (data.fallInfo.isFalling || !data.IsMoveState|| data.jumpInfo.jumpState != EJumpState.JumpReady) return false;
+            //if (data.fallInfo.isFalling || !data.IsMoveState|| data.jumpInfo.jumpState != EJumpState.JumpReady) return false;
+            if (!data.IsMoveState) return false;
             transitionTo((int)EPlayerState.Move);
 
             return true;

@@ -379,7 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateController: {fileID: 5725579068212597670}
   playerData: {fileID: 6948962639656468517}
-  groundRayDistance: 1.25
+  groundRayDistance: 0.75
   wallRayDistance: 0.35
   ladderRayDistance: 1
   groundRayStartPosi: {x: 0, y: 0.72, z: 0}
@@ -426,6 +426,7 @@ MonoBehaviour:
       <remainingVelocity>k__BackingField: {x: 0, y: 0}
       <position>k__BackingField: {x: 0, y: 0}
       <iterationsUsed>k__BackingField: 0
+    playerCollider: {fileID: 5797288449755540277}
     sprite: {fileID: 764128924490101152}
     trPlayer: {fileID: 1832887567842334404}
     animator: {fileID: 4683667883276261786}
@@ -441,7 +442,7 @@ MonoBehaviour:
     canClimbLadder: 0
     canClimbWall: 0
     isPressWallClimb: 0
-    climbSpeed: 200
+    climbSpeed: 8
   jumpInfo:
     jumpState: 0
     gravityStrength: 5

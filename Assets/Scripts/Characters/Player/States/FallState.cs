@@ -1,8 +1,6 @@
-using Orpul1.Player;
 using Orpul1.Player.Animation;
 using Orpul1.State.Attack;
 using System;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 
@@ -12,23 +10,17 @@ namespace Orpul1.Player.State
     {
         float interval = 0;
         float moveX = 0;
-        float maxMoveX = 0;
-        bool isFlip = false;
         public FallState(PlayerContext data, Action<int> transitionTo) : base(data, transitionTo)
         {
         }
         public override void OnStart()
         {
-            Debug.Log("Fall Start");
 
             interval = 0;
             data.fallInfo.fallDamage = 0;
             data.playerInfo.rigid.linearVelocityY = -data.fallInfo.defaultFallSpeed;
             data.jumpInfo.shouldWallJump = false;
-            //data.playerInfo.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
             data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
-            maxMoveX = Mathf.Max(data.playerInfo.rigid.linearVelocityX, data.fallInfo.onAirMoveSpeed * Time.deltaTime);
-
         }
 
         public override void OnUpdate()

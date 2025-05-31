@@ -37,6 +37,7 @@ public class PlayerInfo
     public Rigidbody2D rigid;
     public Rigidbody2D.SlideMovement slideMovement = new Rigidbody2D.SlideMovement();
     public Rigidbody2D.SlideResults slideResult = new Rigidbody2D.SlideResults();
+    public Collider2D playerCollider;
     public SpriteRenderer sprite;
     public Transform trPlayer;
     public Animator animator;
@@ -132,7 +133,7 @@ public class PlayerContext : MonoBehaviour
     {
         get
         {
-            return moveInfo .moveDir.x != 0 && !fallInfo.isFalling;
+            return moveInfo.moveDir.x != 0 && !fallInfo.isFalling;
         }
     }
     public bool IsAttackState

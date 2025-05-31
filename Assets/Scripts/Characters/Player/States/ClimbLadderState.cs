@@ -16,12 +16,13 @@ namespace Orpul1.Player.State
             data.playerInfo.rigid.gravityScale = 0;
             data.jumpInfo.jumpCount = 2;
             data.playerInfo.animator.SetBool(EPlayerAni.IsClimbLadder.ToString(), true);
+            data.playerInfo.playerCollider.isTrigger = true;
         }
 
         public override void OnUpdate()
         {
-            data.playerInfo.rigid.linearVelocityY = data.moveInfo.moveDir.y * data.moveInfo.climbSpeed * Time.deltaTime;
-            data.playerInfo.rigid.linearVelocityX = data.moveInfo.moveDir.x * data.moveInfo.moveSpeed * Time.deltaTime;
+            data.playerInfo.rigid.linearVelocityY = data.moveInfo.moveDir.y * data.moveInfo.climbSpeed;
+            data.playerInfo.rigid.linearVelocityX = data.moveInfo.moveDir.x * data.moveInfo.moveSpeed;
           
             data.playerInfo.animator.speed = Mathf.Abs(data.moveInfo.moveDir.y);
 
@@ -33,6 +34,7 @@ namespace Orpul1.Player.State
             data.playerInfo.rigid.gravityScale = data.jumpInfo.gravityStrength;
             data.playerInfo.animator.speed = 1;
             data.playerInfo.animator.SetBool(EPlayerAni.IsClimbLadder.ToString(), false);
+            data.playerInfo.playerCollider.isTrigger = false;
         }
         
         

@@ -12,7 +12,6 @@ namespace Orpul1.Player.State
 
         public override void OnStart()
         {
-            Debug.Log("ClimbLadderState Start");
 
             data.playerInfo.animator.SetTrigger(EPlayerAni.DeathTrigger.ToString());
         }
