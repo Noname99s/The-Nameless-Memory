@@ -113,7 +113,7 @@ namespace Orpul1.Player
             if (playerData.moveInfo.moveDir.x == 0) return;
 
             Vector3 scale = playerData.playerInfo.originScale;
-            scale.x = (int)playerData.moveInfo.moveDir.x;
+            scale.x = Mathf.RoundToInt(playerData.moveInfo.moveDir.x);
             playerData.playerInfo.trPlayer.localScale = scale;
         }
         public void OnDamage(int damage)
