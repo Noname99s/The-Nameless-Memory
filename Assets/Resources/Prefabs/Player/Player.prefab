@@ -379,7 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateController: {fileID: 5725579068212597670}
   playerData: {fileID: 6948962639656468517}
-  groundRayDistance: 0.75
+  groundRayDistance: 0.8
   wallRayDistance: 0.35
   ladderRayDistance: 1
   groundRayStartPosi: {x: 0, y: 0.72, z: 0}
@@ -433,6 +433,9 @@ MonoBehaviour:
     originScale: {x: 1, y: 1, z: 1}
     hp: 100
     maxHp: 100
+    knockBackPower: 10
+    invincibleTime: 5
+    canGetDamage: 0
     isHit: 0
     isDeath: 0
   moveInfo:
