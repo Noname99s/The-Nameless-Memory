@@ -433,9 +433,9 @@ MonoBehaviour:
     originScale: {x: 1, y: 1, z: 1}
     hp: 100
     maxHp: 100
-    knockBackPower: 10
-    invincibleTime: 5
-    canGetDamage: 0
+    knockBackPower: 20
+    invincibleTime: 1
+    canGetDamage: 1
     isHit: 0
     isDeath: 0
   moveInfo:

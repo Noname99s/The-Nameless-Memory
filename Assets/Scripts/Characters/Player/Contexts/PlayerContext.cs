@@ -46,7 +46,7 @@ public class PlayerInfo
     public int maxHp;
     public float knockBackPower;
     public float invincibleTime = 0.5f;
-    public bool canGetDamage = false;
+    public bool canGetDamage = true;
     public bool isHit = false;
     public bool isDeath = false;
     public Action actionFlipX;
@@ -166,5 +166,6 @@ public class PlayerContext : MonoBehaviour
         fallInfo.fallDamage = 0;
         attackInfo.attackType = EPlayerAttack.NONE;
         playerInfo.originScale = transform.localScale;
+        playerInfo.canGetDamage = true;
     }
 }

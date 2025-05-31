@@ -6,8 +6,8 @@ public class TestAttack : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag(ETag.Player.ToString())) return;
-        TakeDamage(other.GetComponent<IDamageAble>());
         TakeKnockBack(other.GetComponent<IknockbackAble>(), other.transform.position);
+        TakeDamage(other.GetComponent<IDamageAble>());
     }
     private void TakeDamage(IDamageAble target)
     {

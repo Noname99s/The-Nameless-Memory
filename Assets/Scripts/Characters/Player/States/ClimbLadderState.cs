@@ -22,7 +22,7 @@ namespace Orpul1.Player.State
         public override void OnUpdate()
         {
             data.playerInfo.rigid.linearVelocityY = data.moveInfo.moveDir.y * data.moveInfo.climbSpeed;
-            data.playerInfo.rigid.linearVelocityX = data.moveInfo.moveDir.x * data.moveInfo.moveSpeed;
+            //data.playerInfo.rigid.linearVelocityX = data.moveInfo.moveDir.x * data.moveInfo.moveSpeed;
           
             data.playerInfo.animator.speed = Mathf.Abs(data.moveInfo.moveDir.y);
 
@@ -41,7 +41,7 @@ namespace Orpul1.Player.State
         private void TransitionState()
         {
             if (IsHitState()) return;
-            if (IsJumpState()) return;
+            //if (IsJumpState()) return;
             if (IsIdleState()) return;
             if (IsFallState()) return;
         }
@@ -49,6 +49,7 @@ namespace Orpul1.Player.State
         private bool IsHitState()
         {
             if (!data.playerInfo.isHit) return false;
+            data.moveInfo.canClimbLadder = false;
             transitionTo((int)EPlayerState.Hit);
 
             return true;
@@ -62,7 +63,7 @@ namespace Orpul1.Player.State
         }
         private bool IsIdleState()
         {
-            if (data.IsClimbLadderState) return false;
+            if (data.moveInfo.canClimbLadder) return false;
             if (!data.IsIdleState || data.fallInfo.isFalling) return false;
             transitionTo((int)EPlayerState.Idle);
             Debug.Log("LadderClimb->Idle");
