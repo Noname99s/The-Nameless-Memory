@@ -441,7 +441,7 @@ MonoBehaviour:
     canClimbLadder: 0
     canClimbWall: 0
     isPressWallClimb: 0
-    climbSpeed: 0
+    climbSpeed: 200
   jumpInfo:
     jumpState: 0
     gravityStrength: 5
