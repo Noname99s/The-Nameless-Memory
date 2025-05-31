@@ -14,6 +14,7 @@ namespace Orpul1.Player.State
 
             data.jumpInfo.jumpCount = 2;
             data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
+            data.playerInfo.rigid.gravityScale = 0;
         }
         public override void OnUpdate()
         {
@@ -23,8 +24,8 @@ namespace Orpul1.Player.State
         }
         public override void OnExit()
         {
-            //data.rigid.linearVelocity = new Vector2(0, data.rigid.linearVelocityY) ;
             data.playerInfo.animator.SetFloat(EPlayerAni.MoveSpeed.ToString(), 0);
+            data.playerInfo.rigid.gravityScale = data.jumpInfo.gravityStrength;
         }
         private void MoveX()
         {
@@ -77,7 +78,6 @@ namespace Orpul1.Player.State
         {
             if (!data.IsIdleState) return false;
             transitionTo((int)EPlayerState.Idle);
-
             return true;
         }
 

@@ -15,7 +15,8 @@ namespace Orpul1.Player.State
             data.jumpInfo.jumpCount = 2;
             data.playerInfo.animator.SetBool(EPlayerAni.IsIdle.ToString(), true);
             data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
-            //data.animator.SetTrigger(EPlayerAni.IdleTrigger.ToString());
+            data.playerInfo.rigid.linearVelocity = Vector2.zero;
+            data.playerInfo.rigid.gravityScale = 0;
         }
         public override void OnUpdate()
         {
