@@ -14,7 +14,7 @@ namespace Orpul1.Player.State.Hit
         }
         public override void OnStart()
         {
-            data.animator.SetTrigger(EPlayerAni.HitTrigger.ToString());
+            data.playerInfo.animator.SetTrigger(EPlayerAni.HitTrigger.ToString());
             isHitAni = false;
         }
         
@@ -32,12 +32,12 @@ namespace Orpul1.Player.State.Hit
 
         public override void OnExit()
         {
-            data.isHit = false;
+            data.playerInfo.isHit = false;
         }
         private void SetHitAniDuration()
         {
-            if (!data.animator.GetCurrentAnimatorStateInfo(0).IsName("HitDamage")) return;
-            aniDuration = data.animator.GetCurrentAnimatorStateInfo(0).length;
+            if (!data.playerInfo.animator.GetCurrentAnimatorStateInfo(0).IsName("HitDamage")) return;
+            aniDuration = data.playerInfo.animator.GetCurrentAnimatorStateInfo(0).length;
             isHitAni = true;
         }
         private void WaitForHitAniEnd()

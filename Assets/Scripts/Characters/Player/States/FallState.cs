@@ -22,42 +22,42 @@ namespace Orpul1.Player.State
             Debug.Log("Fall Start");
 
             interval = 0;
-            data.fallDamage = 0;
-            data.rigid.linearVelocityY = -data.defaultFallSpeed;
-            data.shouldWallJump = false;
-            data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
-            data.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
-            maxMoveX = Mathf.Max(data.rigid.linearVelocityX, data.onAirMoveSpeed * Time.deltaTime);
+            data.fallInfo.fallDamage = 0;
+            data.playerInfo.rigid.linearVelocityY = -data.fallInfo.defaultFallSpeed;
+            data.jumpInfo.shouldWallJump = false;
+            data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
+            data.playerInfo.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
+            maxMoveX = Mathf.Max(data.playerInfo.rigid.linearVelocityX, data.fallInfo.onAirMoveSpeed * Time.deltaTime);
 
         }
 
         public override void OnUpdate()
         {
             AirMove();
-            data.actionFlipX();
+            data.playerInfo.actionFlipX();
             SetFallDamage();
             TransitionState();
         }
 
         public override void OnExit() 
         {
-            data.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
-            data.attackContext.attackType = EPlayerAttack.NONE;
+            data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
+            data.attackInfo.attackType = EPlayerAttack.NONE;
         }
 
         private void AirMove()
         {
-            if(data.isFalling)
-                data.rigid.linearVelocityY = Mathf.Clamp(data.rigid.linearVelocityY, -data.maxFallSpeed, 0);
-            moveX = data.rigid.linearVelocityX + data.moveDir.x * data.onAirMoveSpeed * Time.deltaTime;
-            data.rigid.linearVelocityX = Mathf.Clamp(moveX, -maxMoveX, maxMoveX);
+            if(data.fallInfo.isFalling)
+                data.playerInfo.rigid.linearVelocityY = Mathf.Clamp(data.playerInfo.rigid.linearVelocityY, -data.fallInfo.maxFallSpeed, 0);
+            moveX = data.playerInfo.rigid.linearVelocityX + data.moveInfo.moveDir.x * data.fallInfo.onAirMoveSpeed * Time.deltaTime;
+            data.playerInfo.rigid.linearVelocityX = Mathf.Clamp(moveX, -maxMoveX, maxMoveX);
         }
 
 
         private void SetFallDamage()
         {
             if (!IsToHeigh()) return;
-            data.fallDamage = data.maxFallDamage;
+            data.fallInfo.fallDamage = data.fallInfo.maxFallDamage;
         }
 
         private bool IsToHeigh()
@@ -65,7 +65,7 @@ namespace Orpul1.Player.State
             float dot = Vector2.Dot(data.transform.position, Vector2.down);
             if (dot > 0) return false;
             interval += Time.deltaTime;
-            if (interval < data.fallDamageOverTime) return false;
+            if (interval < data.fallInfo.fallDamageOverTime) return false;
             return true;
         }
         private void TransitionState()
@@ -79,7 +79,7 @@ namespace Orpul1.Player.State
         }
         private bool IsHitState()
         {
-            if (!data.isHit) return false;
+            if (!data.playerInfo.isHit) return false;
             transitionTo((int)EPlayerState.Hit);
 
             return true;
@@ -93,7 +93,7 @@ namespace Orpul1.Player.State
         }
         private bool IsDeathState()
         {
-            if (!data.isDeath) return false;
+            if (!data.playerInfo.isDeath) return false;
             transitionTo((int)EPlayerState.Death);
 
             return true;

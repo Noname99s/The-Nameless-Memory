@@ -28,14 +28,14 @@ namespace Orpul1.Player
             groundRay.origin = transform.position;
             playerData.Initialize();
             
-            playerData.actionFlipX = FlipX;
+            playerData.playerInfo.actionFlipX = FlipX;
         }
         void Start()
         {
             //playerHpUI = Managers.UI.GetPopupUI<InGameView>();
             stateController.TransitionState((int)EPlayerState.Idle);
-            playerData.slideMovement.gravity = Physics2D.gravity;
-            playerData.slideMovement.surfaceAnchor = Vector2.down * 0.1f;
+            playerData.playerInfo.slideMovement.gravity = Physics2D.gravity;
+            playerData.playerInfo.slideMovement.surfaceAnchor = Vector2.down * 0.1f;
         }
 
         void Update()
@@ -57,41 +57,41 @@ namespace Orpul1.Player
         {
             if (!IsHitRay(SetRay(groundRay, groundRayStartPosi, Vector2.down, groundRayDistance, floorLayer.value))) 
             {
-                playerData.isFalling = true;
+                playerData.fallInfo.isFalling = true;
                 return;
             }
 
-            playerData.isFalling = false;
-            playerData.jumpState = EJumpState.JumpReady;
-            playerData.hp -= playerData.fallDamage;
-            playerData.fallDamage = 0;
+            playerData.fallInfo.isFalling = false;
+            playerData.jumpInfo.jumpState = EJumpState.JumpReady;
+            playerData.playerInfo.hp -= playerData.fallInfo.fallDamage;
+            playerData.fallInfo.fallDamage = 0;
         }
         private void OnAir()
         {
-            int flipXValue = playerData.sprite.flipX ? -1 : 1;
+            int flipXValue = playerData.playerInfo.sprite.flipX ? -1 : 1;
             SetWallRayPosi();
             if (!IsHitRay(SetRay(wallRay, wallRayStartPosi, Vector2.right * flipXValue, wallRayDistance, floorLayer.value)))
             {
-                playerData.canClimbWall = false;
+                playerData.moveInfo.canClimbWall = false;
                 return;
             }
-            playerData.canClimbWall = true;
+            playerData.moveInfo.canClimbWall = true;
         }
         private void OnLadder()
         {
             
             if (SetRay(ladderRay, Vector2.zero, Vector2.up, ladderRayDistance, ladderLayer.value).transform == null)
             {
-                playerData.canClimbLadder = false;
+                playerData.moveInfo.canClimbLadder = false;
                 return;
             }
-            playerData.canClimbLadder = true;
+            playerData.moveInfo.canClimbLadder = true;
         }
         private void SetWallRayPosi()
         {
-            if (!playerData.sprite.flipX && wallRayStartPosi.x < 0)
+            if (!playerData.playerInfo.sprite.flipX && wallRayStartPosi.x < 0)
                 wallRayStartPosi.x *= -1;
-            else if (playerData.sprite.flipX && wallRayStartPosi.x > 0)
+            else if (playerData.playerInfo.sprite.flipX && wallRayStartPosi.x > 0)
                 wallRayStartPosi.x *= -1;
         }
         private RaycastHit2D SetRay(Ray2D ray, Vector2 rayShootPosi, Vector2 dir,float distance, int detectLayer)
@@ -110,18 +110,18 @@ namespace Orpul1.Player
         }
         private void FlipX()
         {
-            if (playerData.moveDir.x == 0) return;
+            if (playerData.moveInfo.moveDir.x == 0) return;
 
-            Vector3 scale = playerData.originScale;
-            scale.x = (int)playerData.moveDir.x;
-            playerData.trPlayer.localScale = scale;
+            Vector3 scale = playerData.playerInfo.originScale;
+            scale.x = (int)playerData.moveInfo.moveDir.x;
+            playerData.playerInfo.trPlayer.localScale = scale;
         }
         public void OnDamage(int damage)
         {
-            playerData.hp -= damage;
+            playerData.playerInfo.hp -= damage;
             
-            playerData.isHit = playerData.hp > 0;
-            playerData.isDeath = !playerData.isHit;
+            playerData.playerInfo.isHit = playerData.playerInfo.hp > 0;
+            playerData.playerInfo.isDeath = !playerData.playerInfo.isHit;
         }
     }
 

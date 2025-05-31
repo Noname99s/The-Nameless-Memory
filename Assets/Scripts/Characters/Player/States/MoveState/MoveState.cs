@@ -12,25 +12,25 @@ namespace Orpul1.Player.State
         {
             Debug.Log("Move Start");
 
-            data.jumpCount = 2;
-            data.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
+            data.jumpInfo.jumpCount = 2;
+            data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
         }
         public override void OnUpdate()
         {
             MoveX();
-            data.actionFlipX();
+            data.playerInfo.actionFlipX();
             TransitionState();
         }
         public override void OnExit()
         {
             //data.rigid.linearVelocity = new Vector2(0, data.rigid.linearVelocityY) ;
-            data.animator.SetFloat(EPlayerAni.MoveSpeed.ToString(), 0);
+            data.playerInfo.animator.SetFloat(EPlayerAni.MoveSpeed.ToString(), 0);
         }
         private void MoveX()
         {
-            float dirX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
-            data.slideResult = data.rigid.Slide(Vector2.right * dirX, Time.deltaTime, data.slideMovement);
-            data.animator.SetFloat(EPlayerAni.MoveSpeed.ToString(),1);
+            float dirX = data.moveInfo.moveDir.x * data.moveInfo.moveSpeed * Time.deltaTime;
+            data.playerInfo.slideResult = data.playerInfo.rigid.Slide(Vector2.right * dirX, Time.deltaTime, data.playerInfo.slideMovement);
+            data.playerInfo.animator.SetFloat(EPlayerAni.MoveSpeed.ToString(),1);
         }
         private void TransitionState()
         {
@@ -44,7 +44,7 @@ namespace Orpul1.Player.State
         }
         private bool IsHitState()
         {
-            if (!data.isHit) return false;
+            if (!data.playerInfo.isHit) return false;
             transitionTo((int)EPlayerState.Hit);
 
             return true;
@@ -52,7 +52,7 @@ namespace Orpul1.Player.State
 
         private bool IsDeathState()
         {
-            if (!data.isDeath) return false;
+            if (!data.playerInfo.isDeath) return false;
             transitionTo((int)EPlayerState.Death);
 
             return true;
@@ -67,7 +67,7 @@ namespace Orpul1.Player.State
         }
         private bool IsFallState()
         {
-            if (!data.isFalling) return false;
+            if (!data.fallInfo.isFalling) return false;
             transitionTo((int)EPlayerState.Fall);
 
             return true;
@@ -83,7 +83,7 @@ namespace Orpul1.Player.State
 
         private bool IsAttackState()
         {
-            if (!data.isPressAttack) return false;
+            if (!data.attackInfo.isPressAttack) return false;
             transitionTo((int)EPlayerState.Attack);
 
             return true;

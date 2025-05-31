@@ -12,10 +12,10 @@ namespace Orpul1.Player.State.Jump
         }
         public void Initialize()
         {
-            jumpAmount = data.jumpPower;
+            jumpAmount = data.jumpInfo.jumpPower;
 
-            data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
-            data.animator.SetTrigger(EPlayerAni.WallJumpTrigger.ToString());
+            data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
+            data.playerInfo.animator.SetTrigger(EPlayerAni.WallJumpTrigger.ToString());
         }
         public void Execute()
         {
@@ -24,15 +24,15 @@ namespace Orpul1.Player.State.Jump
 
         private void DoJump()
         {
-            if (!data.isPressJump || data.jumpState == EJumpState.JumpEnd) return;
-            jumpAmount *= data.decelerate;
-            data.jumpState = EJumpState.Jumping;
-            data.rigid.linearVelocityY = jumpAmount;
+            if (!data.jumpInfo.isPressJump || data.jumpInfo.jumpState == EJumpState.JumpEnd) return;
+            jumpAmount *= data.jumpInfo.decelerate;
+            data.jumpInfo.jumpState = EJumpState.Jumping;
+            data.playerInfo.rigid.linearVelocityY = jumpAmount;
 
-            if (data.rigid.linearVelocityY < data.minJumpSpeed)
+            if (data.playerInfo.rigid.linearVelocityY < data.jumpInfo.minJumpSpeed)
             {
-                data.jumpState = EJumpState.JumpEnd;
-                data.isPressJump = false;
+                data.jumpInfo.jumpState = EJumpState.JumpEnd;
+                data.jumpInfo.isPressJump = false;
                 jumpAmount = 0;
             }
         }
