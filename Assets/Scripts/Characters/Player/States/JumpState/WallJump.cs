@@ -20,13 +20,18 @@ namespace Orpul1.Player.State.Jump
         public void Execute()
         {
             DoJump();
+            if (jumpAmount <= 0)
+            {
+                data.jumpInfo.jumpState = EJumpState.JumpEnd;
+            }
         }
 
         private void DoJump()
         {
-            if (!data.jumpInfo.isPressJump || data.jumpInfo.jumpState == EJumpState.JumpEnd) return;
+            if (!data.jumpInfo.isPressJump)
+                jumpAmount *= data.jumpInfo.decelerate;
+
             jumpAmount *= data.jumpInfo.decelerate;
-            data.jumpInfo.jumpState = EJumpState.Jumping;
             data.playerInfo.rigid.linearVelocityY = jumpAmount;
 
             if (data.playerInfo.rigid.linearVelocityY < data.jumpInfo.minJumpSpeed)

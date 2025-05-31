@@ -33,6 +33,7 @@ namespace Orpul1.Player.State.Jump
         {
             if (!data.jumpInfo.isPressJump)
                 jumpAmount *= data.jumpInfo.decelerate;
+
             jumpAmount *= data.jumpInfo.decelerate;
             data.playerInfo.rigid.linearVelocityY = jumpAmount;
 

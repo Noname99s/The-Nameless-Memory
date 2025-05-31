@@ -25,6 +25,7 @@ namespace Orpul1.Player.State
 
             jumpStraties[(int)jumpType].Initialize();
             data.playerInfo.animator.SetBool(EPlayerAni.IsJump.ToString(),true);
+            data.moveInfo.isPressWallClimb = false;
             maxMoveX = data.moveInfo.moveSpeed * Time.deltaTime;
         }
 
