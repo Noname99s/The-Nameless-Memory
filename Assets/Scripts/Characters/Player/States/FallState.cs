@@ -25,7 +25,7 @@ namespace Orpul1.Player.State
             data.fallInfo.fallDamage = 0;
             data.playerInfo.rigid.linearVelocityY = -data.fallInfo.defaultFallSpeed;
             data.jumpInfo.shouldWallJump = false;
-            data.playerInfo.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
+            //data.playerInfo.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
             data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
             maxMoveX = Mathf.Max(data.playerInfo.rigid.linearVelocityX, data.fallInfo.onAirMoveSpeed * Time.deltaTime);
 
