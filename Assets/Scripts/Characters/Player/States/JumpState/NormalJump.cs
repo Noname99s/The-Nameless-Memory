@@ -21,8 +21,11 @@ namespace Orpul1.Player.State.Jump
         public void Execute()
         {
             DoJump();
+
             if (jumpAmount <= 0)
+            {
                 data.jumpInfo.jumpState = EJumpState.JumpEnd;
+            }
         }
 
         

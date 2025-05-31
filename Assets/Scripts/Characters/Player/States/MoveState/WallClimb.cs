@@ -18,6 +18,7 @@ namespace Orpul1.Player.State
             data.playerInfo.rigid.gravityScale = 0;
             data.playerInfo.rigid.linearVelocity = Vector2.zero;
             data.playerInfo.animator.SetBool(EPlayerAni.IsWallClimb.ToString(), true);
+            data.jumpInfo.isPressJump = false;
             data.jumpInfo.shouldWallJump = true;
             jumpAmount = data.jumpInfo.jumpPower;
             Debug.Log("Climb Wall");
@@ -50,7 +51,7 @@ namespace Orpul1.Player.State
         private bool IsJumpState()
         {
             if (!data.jumpInfo.isPressJump && data.moveInfo.isPressWallClimb) return false;
-            data.playerInfo.rigid.linearVelocityX = data.moveInfo.moveDir.x * data.moveInfo.moveSpeed * Time.deltaTime;
+            //data.playerInfo.rigid.linearVelocityX = data.moveInfo.moveDir.x * data.moveInfo.moveSpeed * Time.deltaTime;
             data.moveInfo.isPressWallClimb = false;
             transitionTo((int)EPlayerState.Jump);
 

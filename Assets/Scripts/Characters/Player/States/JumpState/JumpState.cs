@@ -21,6 +21,8 @@ namespace Orpul1.Player.State
         public override void OnStart()
         {
             SetJumpType();
+            Debug.Log("JumpState Start");
+
             jumpStraties[(int)jumpType].Initialize();
             data.playerInfo.animator.SetBool(EPlayerAni.IsJump.ToString(),true);
             maxMoveX = data.moveInfo.moveSpeed * Time.deltaTime;
@@ -65,7 +67,8 @@ namespace Orpul1.Player.State
         }
         private bool IsIdleState()
         {
-            if (data.fallInfo.isFalling || !data.IsIdleState||data.jumpInfo.jumpState != EJumpState.JumpReady) return false;
+            if (data.jumpInfo.jumpState != EJumpState.JumpEnd) return false;    
+            if (!data.IsIdleState) return false;
             transitionTo((int)EPlayerState.Idle);
 
             return true;
@@ -95,6 +98,8 @@ namespace Orpul1.Player.State
 
         private bool IsFallState()
         {
+
+            if (data.jumpInfo.jumpState != EJumpState.JumpEnd) return false;
             if (!data.IsFallState) return false;
             transitionTo((int)EPlayerState.Fall);
 
