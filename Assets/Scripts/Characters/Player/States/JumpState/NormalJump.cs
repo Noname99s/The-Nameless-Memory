@@ -28,7 +28,6 @@ namespace Orpul1.Player.State.Jump
         
         private void DoJump()
         {
-            //if (!data.jumpInfo.isPressJump || data.jumpInfo.jumpState == EJumpState.JumpEnd) return;
             if (!data.jumpInfo.isPressJump)
                 jumpAmount *= data.jumpInfo.decelerate;
             jumpAmount *= data.jumpInfo.decelerate;

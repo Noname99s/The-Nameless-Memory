@@ -68,9 +68,8 @@ namespace Orpul1.Player
         }
         private void OnAir()
         {
-            int flipXValue = playerData.playerInfo.sprite.flipX ? -1 : 1;
             SetWallRayPosi();
-            if (!IsHitRay(SetRay(wallRay, wallRayStartPosi, Vector2.right * flipXValue, wallRayDistance, floorLayer.value)))
+            if (!IsHitRay(SetRay(wallRay, wallRayStartPosi, Vector2.right * transform.localScale.x, wallRayDistance, floorLayer.value))) 
             {
                 playerData.moveInfo.canClimbWall = false;
                 return;

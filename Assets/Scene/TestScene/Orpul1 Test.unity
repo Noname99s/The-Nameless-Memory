@@ -72637,10 +72637,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.31
       objectReference: {fileID: 0}
@@ -72680,13 +72676,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: wallRayDistance
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824057978208184363, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: wallRayStartPosi.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5680952135707525415, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: moveInfo.climbSpeed
-      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
