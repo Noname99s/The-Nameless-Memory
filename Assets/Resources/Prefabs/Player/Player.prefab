@@ -403,74 +403,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82e898cbc5606c4d9a7239329b1151d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigid: {fileID: 5947109336739971617}
-  slideMovement:
-    <maxIterations>k__BackingField: 5
-    <surfaceSlideAngle>k__BackingField: 45
-    <gravitySlipAngle>k__BackingField: 90
-    <surfaceUp>k__BackingField: {x: 0, y: 1}
-    <surfaceAnchor>k__BackingField: {x: 0, y: -0.1}
-    <gravity>k__BackingField: {x: 0, y: -9.81}
-    <startPosition>k__BackingField: {x: 0, y: 0}
-    <selectedCollider>k__BackingField: {fileID: 0}
-    <layerMask>k__BackingField:
-      serializedVersion: 2
-      m_Bits: 64
-    <useLayerMask>k__BackingField: 1
-    <useStartPosition>k__BackingField: 0
-    <useNoMove>k__BackingField: 0
-    <useSimulationMove>k__BackingField: 1
-    <useAttachedTriggers>k__BackingField: 0
-  slideResult:
-    <remainingVelocity>k__BackingField: {x: 0, y: 0}
-    <position>k__BackingField: {x: 7.854174, y: 3.0024076}
-    <iterationsUsed>k__BackingField: 1
-  sprite: {fileID: 764128924490101152}
-  trPlayer: {fileID: 1832887567842334404}
-  animator: {fileID: 4683667883276261786}
-  originScale: {x: 1, y: 1, z: 1}
-  hp: 100
-  maxHp: 100
-  moveDir: {x: 0, y: 0}
-  moveSpeed: 600
-  jumpState: 0
-  gravityStrength: 5
-  jumpPower: 38
-  decelerate: 0.8
-  minJumpSpeed: 0.8
-  jumpCount: 0
-  isPressJump: 0
-  shouldWallJump: 0
-  isFalling: 0
-  damageFallHeight: 30
-  defaultFallSpeed: 1
-  maxFallSpeed: 15
-  fallDamageOverTime: 1.2
-  onAirMoveSpeed: 300
-  decelerateMoveSpeed: 0.2
-  fallDamage: 0
-  maxFallDamage: 5
-  isPressAttack: 0
-  canAttack: 0
-  delayInterval: 0
-  isStillAttack: 0
-  attackContext:
-    attackType: 3
+  playerInfo:
+    rigid: {fileID: 5947109336739971617}
+    slideMovement:
+      <maxIterations>k__BackingField: 3
+      <surfaceSlideAngle>k__BackingField: 90
+      <gravitySlipAngle>k__BackingField: 90
+      <surfaceUp>k__BackingField: {x: 0, y: 1}
+      <surfaceAnchor>k__BackingField: {x: 0, y: -1}
+      <gravity>k__BackingField: {x: 0, y: -9.81}
+      <startPosition>k__BackingField: {x: 0, y: 0}
+      <selectedCollider>k__BackingField: {fileID: 0}
+      <layerMask>k__BackingField:
+        serializedVersion: 2
+        m_Bits: 4294967295
+      <useLayerMask>k__BackingField: 0
+      <useStartPosition>k__BackingField: 0
+      <useNoMove>k__BackingField: 0
+      <useSimulationMove>k__BackingField: 0
+      <useAttachedTriggers>k__BackingField: 0
+    slideResult:
+      <remainingVelocity>k__BackingField: {x: 0, y: 0}
+      <position>k__BackingField: {x: 0, y: 0}
+      <iterationsUsed>k__BackingField: 0
+    sprite: {fileID: 764128924490101152}
+    trPlayer: {fileID: 1832887567842334404}
+    animator: {fileID: 4683667883276261786}
+    originScale: {x: 1, y: 1, z: 1}
+    hp: 100
+    maxHp: 100
+    isHit: 0
+    isDeath: 0
+  moveInfo:
+    moveDir: {x: 0, y: 0}
+    moveSpeed: 600
+    isPressClimbLadder: 0
+    canClimbLadder: 0
+    canClimbWall: 0
+    isPressWallClimb: 0
+    climbSpeed: 0
+  jumpInfo:
+    jumpState: 0
+    gravityStrength: 5
+    jumpPower: 38
+    decelerate: 0.8
+    minJumpSpeed: 0.2
+    jumpCount: 0
+    isPressJump: 0
+    shouldWallJump: 0
+  fallInfo:
+    isFalling: 0
+    damageFallHeight: 30
+    defaultFallSpeed: 1
+    maxFallSpeed: 15
+    fallDamageOverTime: 1.2
+    onAirMoveSpeed: 300
+    decelerateMoveSpeed: 0.2
+    fallDamage: 0
+    maxFallDamage: 5
+  attackInfo:
+    attackType: 0
     attackDelays:
     - 0.3
-    - 0.5
-    - 0.5
+    - 0.3
+    - 0.3
     attackCounts: 030000000300000000000000
     damages: 0a00000014000000
     curAttack: 0
-  characterAttack: {fileID: 7191165317446888281}
-  isPressClimbLadder: 0
-  canClimbLadder: 0
-  canClimbWall: 0
-  isPressWallClimb: 0
-  climbSpeed: 200
-  isHit: 0
-  isDeath: 0
+    isPressAttack: 0
+    canAttack: 0
+    delayInterval: 0
+    isStillAttack: 0
+    characterAttack: {fileID: 7191165317446888281}
 --- !u!114 &5725579068212597670
 MonoBehaviour:
   m_ObjectHideFlags: 0

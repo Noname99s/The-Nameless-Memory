@@ -902,82 +902,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: playerInfo.hp
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: characterAttack
-      value: 
-      objectReference: {fileID: 538542053}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: playerInfo.maxHp
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: playerInfo.rigid
-      value: 
-      objectReference: {fileID: 381282915}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: playerInfo.sprite
-      value: 
-      objectReference: {fileID: 381282914}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: jumpInfo.jumpPower
-      value: 38
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: moveInfo.moveSpeed
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: playerInfo.animator
-      value: 
-      objectReference: {fileID: 381282913}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: playerInfo.trPlayer
-      value: 
-      objectReference: {fileID: 381282912}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: fallInfo.maxFallSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: fallInfo.maxFallDamage
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: fallInfo.onAirMoveSpeed
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: jumpInfo.gravityStrength
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: fallInfo.damageFallHeight
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: fallInfo.defaultFallSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: fallInfo.fallDamageOverTime
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: fallInfo.decelerateMoveSpeed
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: 'attackContext.damages.Array.data[0]'
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-      propertyPath: 'attackContext.damages.Array.data[1]'
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -986,21 +910,6 @@ PrefabInstance:
 --- !u!4 &381282912 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-  m_PrefabInstance: {fileID: 381282911}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &381282913 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4683667883276261786, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-  m_PrefabInstance: {fileID: 381282911}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &381282914 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 764128924490101152, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-  m_PrefabInstance: {fileID: 381282911}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &381282915 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 5947109336739971617, guid: c35607954bd06ce4f90ba46330960132, type: 3}
   m_PrefabInstance: {fileID: 381282911}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &399979563
@@ -1519,17 +1428,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2068268192}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &538542053 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7191165317446888281, guid: c35607954bd06ce4f90ba46330960132, type: 3}
-  m_PrefabInstance: {fileID: 381282911}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &640575321
 GameObject:
   m_ObjectHideFlags: 0
