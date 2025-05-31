@@ -109,7 +109,7 @@ namespace Orpul1.Player.State
 
         private bool IsIdleState()
         {
-            if (data.IsFallState) return false;
+            if (!data.IsIdleState) return false;
             transitionTo((int)EPlayerState.Idle);
 
             return true;

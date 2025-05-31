@@ -1,5 +1,6 @@
 using System;
 using Orpul1.Player.Animation;
+using UnityEngine;
 
 namespace Orpul1.Player.State
 {
@@ -11,6 +12,8 @@ namespace Orpul1.Player.State
 
         public override void OnStart()
         {
+            Debug.Log("ClimbLadderState Start");
+
             data.playerInfo.animator.SetTrigger(EPlayerAni.DeathTrigger.ToString());
         }
 

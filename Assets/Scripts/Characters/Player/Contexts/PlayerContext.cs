@@ -110,7 +110,7 @@ public class PlayerContext : MonoBehaviour
     {
         get
         {
-            return moveInfo.moveDir.x == 0;
+            return moveInfo.moveDir.x == 0 && !fallInfo.isFalling;
         }
     }
 
