@@ -47,10 +47,8 @@ namespace Orpul1.Player.State
 
         private void AirMove()
         {
-            if(data.fallInfo.isFalling)
-                data.playerInfo.rigid.linearVelocityY = Mathf.Clamp(data.playerInfo.rigid.linearVelocityY, -data.fallInfo.maxFallSpeed, 0);
-            moveX = data.playerInfo.rigid.linearVelocityX + data.moveInfo.moveDir.x * data.fallInfo.onAirMoveSpeed * Time.deltaTime;
-            data.playerInfo.rigid.linearVelocityX = Mathf.Clamp(moveX, -maxMoveX, maxMoveX);
+            moveX = data.moveInfo.moveDir.x * data.fallInfo.onAirMoveSpeed;
+            data.playerInfo.rigid.linearVelocityX = moveX;
         }
 
 

@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using Orpul1.Player.Animation;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ namespace Orpul1.Player.State
             data.jumpInfo.jumpCount = 2;
             data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
             data.playerInfo.rigid.gravityScale = 0;
+            data.playerInfo.rigid.linearVelocityX = 0;
         }
         public override void OnUpdate()
         {
@@ -29,7 +31,7 @@ namespace Orpul1.Player.State
         }
         private void MoveX()
         {
-            float dirX = data.moveInfo.moveDir.x * data.moveInfo.moveSpeed * Time.deltaTime;
+            float dirX = data.moveInfo.moveDir.x * data.moveInfo.moveSpeed;
             data.playerInfo.slideResult = data.playerInfo.rigid.Slide(Vector2.right * dirX, Time.deltaTime, data.playerInfo.slideMovement);
             data.playerInfo.animator.SetFloat(EPlayerAni.MoveSpeed.ToString(),1);
         }

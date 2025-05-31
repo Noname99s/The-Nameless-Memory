@@ -26,7 +26,7 @@ namespace Orpul1.Player.State
             jumpStraties[(int)jumpType].Initialize();
             data.playerInfo.animator.SetBool(EPlayerAni.IsJump.ToString(),true);
             data.moveInfo.isPressWallClimb = false;
-            maxMoveX = data.moveInfo.moveSpeed * Time.deltaTime;
+            //maxMoveX = data.moveInfo.moveSpeed * Time.deltaTime;
         }
 
         public override void OnUpdate()
@@ -53,8 +53,8 @@ namespace Orpul1.Player.State
         }
         private void AirMove()
         {
-            moveX = data.playerInfo.rigid.linearVelocityX + data.moveInfo.moveDir.x * data.fallInfo.onAirMoveSpeed * Time.deltaTime;
-            data.playerInfo.rigid.linearVelocityX = Mathf.Clamp(moveX, -maxMoveX, maxMoveX);
+            moveX = data.moveInfo.moveDir.x * data.fallInfo.onAirMoveSpeed;
+            data.playerInfo.rigid.linearVelocityX = moveX;
         }
         private void TransitionState()
         {

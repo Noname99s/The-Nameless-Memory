@@ -436,7 +436,7 @@ MonoBehaviour:
     isDeath: 0
   moveInfo:
     moveDir: {x: 0, y: 0}
-    moveSpeed: 600
+    moveSpeed: 15
     isPressClimbLadder: 0
     canClimbLadder: 0
     canClimbWall: 0
@@ -457,7 +457,7 @@ MonoBehaviour:
     defaultFallSpeed: 1
     maxFallSpeed: 15
     fallDamageOverTime: 1.2
-    onAirMoveSpeed: 300
+    onAirMoveSpeed: 10
     decelerateMoveSpeed: 0.2
     fallDamage: 0
     maxFallDamage: 5
