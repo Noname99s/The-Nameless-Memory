@@ -76,6 +76,7 @@ namespace Orpul1.Player.State
             if (IsClimbLadderState()) return;
             if (IsIdleState()) return;
             if (IsJumpState()) return;
+            if (IsMoveState()) return;
         }
         private bool IsHitState()
         {
@@ -118,6 +119,13 @@ namespace Orpul1.Player.State
         {
             if (!data.IsJumpState) return false;
             transitionTo((int)EPlayerState.Jump);
+
+            return true;
+        }
+        private bool IsMoveState()
+        {
+            if (!data.IsMoveState) return false;
+            transitionTo((int)EPlayerState.Move);
 
             return true;
         }
