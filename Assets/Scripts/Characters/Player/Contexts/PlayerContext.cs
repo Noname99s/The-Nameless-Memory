@@ -46,6 +46,7 @@ public class PlayerInfo
     public int maxHp;
     public float knockBackPower;
     public float invincibleTime = 0.5f;
+    public float hitDuration = 1f;
     public bool canGetDamage = true;
     public bool isHit = false;
     public bool isDeath = false;

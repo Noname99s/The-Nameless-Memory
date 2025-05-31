@@ -130,6 +130,7 @@ namespace Orpul1.Player
         public void knockback(Vector2 dir)
         {
             if (!playerData.playerInfo.canGetDamage) return;
+            playerData.playerInfo.rigid.linearVelocity = Vector2.zero;
             playerData.playerInfo.rigid.AddForce(dir * playerData.playerInfo.knockBackPower, ForceMode2D.Impulse);
         }
 
