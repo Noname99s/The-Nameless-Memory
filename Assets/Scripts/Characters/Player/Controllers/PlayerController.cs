@@ -1,11 +1,12 @@
 using Orpul1.State;
 using Orpul1.State.Attack;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 
 namespace Orpul1.Player
 {
-    public class PlayerController : MonoBehaviour,IDamageAble
+    public class PlayerController : MonoBehaviour,IDamageAble, IknockbackAble
     {
         [SerializeField] StateController stateController;
         [SerializeField] PlayerContext playerData;
@@ -18,7 +19,7 @@ namespace Orpul1.Player
         Ray2D groundRay = new Ray2D();
         Ray2D wallRay = new Ray2D();
         Ray2D ladderRay = new Ray2D();
-
+        WaitForSeconds delayInvincible;
         //TODO: 플레이어 HP UI연결 시킬 것
 
         //IInGameView playerHpUI;
@@ -29,6 +30,7 @@ namespace Orpul1.Player
             playerData.Initialize();
             
             playerData.playerInfo.actionFlipX = FlipX;
+            delayInvincible = new WaitForSeconds(playerData.playerInfo.invincibleTime);
         }
         void Start()
         {
@@ -117,10 +119,25 @@ namespace Orpul1.Player
         }
         public void OnDamage(int damage)
         {
+            if (!playerData.playerInfo.canGetDamage) return;
+
             playerData.playerInfo.hp -= damage;
-            
             playerData.playerInfo.isHit = playerData.playerInfo.hp > 0;
             playerData.playerInfo.isDeath = !playerData.playerInfo.isHit;
+            StartCoroutine("CountInvincibleTime");
+        }
+
+        public void knockback(Vector2 dir)
+        {
+            if (!playerData.playerInfo.canGetDamage) return;
+            playerData.playerInfo.rigid.AddForce(dir * playerData.playerInfo.knockBackPower, ForceMode2D.Impulse);
+        }
+
+        IEnumerator CountInvincibleTime()
+        {
+            playerData.playerInfo.canGetDamage = false;
+            yield return delayInvincible;
+            playerData.playerInfo.canGetDamage = true;
         }
     }
 

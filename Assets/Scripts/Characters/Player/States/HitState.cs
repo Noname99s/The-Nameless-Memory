@@ -14,7 +14,6 @@ namespace Orpul1.Player.State.Hit
         }
         public override void OnStart()
         {
-
             data.playerInfo.animator.SetTrigger(EPlayerAni.HitTrigger.ToString());
             isHitAni = false;
         }

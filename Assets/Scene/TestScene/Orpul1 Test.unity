@@ -72680,6 +72680,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6948962639656468517, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: playerInfo.knockBackPower
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
