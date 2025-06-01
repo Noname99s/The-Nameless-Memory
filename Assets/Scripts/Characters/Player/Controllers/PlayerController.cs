@@ -49,8 +49,8 @@ namespace Orpul1.Player
             //playerHpUI = Managers.UI.GetPopupUI<InGameView>();
             cameraEffect = CameraManager.Instance.GetCamera((int)ECameraType.MainCamera).GetComponent<ICameraEffectAble>();
             stateController.TransitionState((int)EPlayerState.Idle);
-            playerData.playerInfo.slideMovement.gravity = Physics2D.gravity;
-            playerData.playerInfo.slideMovement.surfaceAnchor = Vector2.down * 0.1f;
+            playerData.moveInfo.slideMovement.gravity = playerData.moveInfo.slideMoveGravity;
+            playerData.moveInfo.slideMovement.surfaceAnchor = Vector2.down * 0.1f;
         }
 
         void Update()

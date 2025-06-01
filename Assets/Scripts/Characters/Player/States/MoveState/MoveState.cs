@@ -14,6 +14,7 @@ namespace Orpul1.Player.State
 
             data.jumpInfo.jumpCount = 2;
             data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
+            data.moveInfo.slideMovement.gravity = data.moveInfo.slideMoveGravity;
             data.playerInfo.rigid.gravityScale = 0;
             data.playerInfo.rigid.linearVelocityX = 0;
         }
@@ -32,7 +33,7 @@ namespace Orpul1.Player.State
         private void MoveX()
         {
             float dirX = data.moveInfo.moveDir.x * data.moveInfo.moveSpeed;
-            data.playerInfo.slideResult = data.playerInfo.rigid.Slide(Vector2.right * dirX, Time.deltaTime, data.playerInfo.slideMovement);
+            data.moveInfo.slideResult = data.playerInfo.rigid.Slide(Vector2.right * dirX, Time.deltaTime, data.moveInfo.slideMovement);
             data.playerInfo.animator.SetFloat(EPlayerAni.MoveSpeed.ToString(),1);
         }
         private void TransitionState()

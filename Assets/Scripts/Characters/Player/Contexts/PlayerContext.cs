@@ -35,8 +35,7 @@ public class PlayerAttackInfo
 public class PlayerInfo
 {
     public Rigidbody2D rigid;
-    public Rigidbody2D.SlideMovement slideMovement = new Rigidbody2D.SlideMovement();
-    public Rigidbody2D.SlideResults slideResult = new Rigidbody2D.SlideResults();
+    
     public Collider2D playerCollider;
     public SpriteRenderer sprite;
     public Transform trPlayer;
@@ -50,8 +49,12 @@ public class PlayerInfo
 [Serializable]
 public class PlayerMoveInfo
 {
+    public Rigidbody2D.SlideMovement slideMovement = new Rigidbody2D.SlideMovement();
+    public Rigidbody2D.SlideResults slideResult = new Rigidbody2D.SlideResults();
+
     [Header("MoveInfo")]
     public Vector2 moveDir = Vector2.zero;
+    public Vector2 slideMoveGravity = new Vector2(0,-20);
     public float moveSpeed = 5;
 
     [Header("ClimbLadder")]

@@ -15,6 +15,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         stateController.TransitionState((int)ECameraState.Follow);
+        context.target = PlayerManager.Instance.GetPlayer().transform;
     }
     private void LateUpdate()
     {

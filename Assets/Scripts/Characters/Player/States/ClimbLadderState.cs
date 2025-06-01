@@ -17,6 +17,7 @@ namespace Orpul1.Player.State
             data.jumpInfo.jumpCount = 2;
             data.playerInfo.animator.SetBool(EPlayerAni.IsClimbLadder.ToString(), true);
             data.playerInfo.playerCollider.isTrigger = true;
+            data.playerInfo.rigid.linearVelocityX = 0;
         }
 
         public override void OnUpdate()
