@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scene/ManagerScene.unity
+    path: Assets/Scene/RootScene.unity
     guid: 69de2fb9d7422234f808875082a8604f
   - enabled: 1
     path: Assets/Scene/TestScene/Orpul1 BossTest.unity
