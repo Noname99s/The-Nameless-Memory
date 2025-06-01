@@ -36,6 +36,8 @@ public class CustomTilemapEditor : EditorWindow
     Transform floorParent;
     Transform backGroundParent;
     Transform rootParent;
+    bool floorIsTrigger = false;
+    bool interactIsTrigger = false;
 
     private void OnEnable()
     {
@@ -96,6 +98,7 @@ public class CustomTilemapEditor : EditorWindow
 
         if (EditorGUILayout.BeginFadeGroup(toggleSwitch[(int)LayerType.Floor]))
         {
+            floorIsTrigger = EditorGUILayout.Toggle("Is Trigger", floorIsTrigger);  
             GUILayout.BeginHorizontal("box");
             if (GUILayout.Button("Create", GUILayout.Width(50f), GUILayout.Height(15f)))
             {
@@ -144,6 +147,7 @@ public class CustomTilemapEditor : EditorWindow
         toggleSwitch[(int)LayerType.Interact] = EditorGUILayout.ToggleLeft("Interact", toggleSwitch[(int)LayerType.Interact] == 1) ? 1 : 0;
         if (EditorGUILayout.BeginFadeGroup(toggleSwitch[(int)LayerType.Interact]))
         {
+            interactIsTrigger = EditorGUILayout.Toggle("Is Trigger", interactIsTrigger);
             GUILayout.BeginHorizontal("box");
             if (GUILayout.Button("Create", GUILayout.Width(50f), GUILayout.Height(20f)))
             {
@@ -244,6 +248,16 @@ public class CustomTilemapEditor : EditorWindow
             parent.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             parent.AddComponent<CompositeCollider2D>();
             parent.GetComponent<CompositeCollider2D>().geometryType = CompositeCollider2D.GeometryType.Polygons;
+            bool isTriggerOn = false;
+            if (layerType == LayerType.Floor)
+            {
+                isTriggerOn = floorIsTrigger;
+            }
+            else if (layerType == LayerType.Interact)
+            {
+                isTriggerOn = interactIsTrigger;
+            }
+            parent.GetComponent<CompositeCollider2D>().isTrigger = isTriggerOn;
         }
         if (layerType == LayerType.Floor)
             floorParent = parent.transform;
@@ -270,6 +284,16 @@ public class CustomTilemapEditor : EditorWindow
                 {
                     tilemapObject.AddComponent<TilemapCollider2D>();
                     tilemapObject.GetComponent<TilemapCollider2D>().compositeOperation = Collider2D.CompositeOperation.Merge;
+                    bool isTriggerOn = false;
+                    if (layerType == LayerType.Floor)
+                    {
+                        isTriggerOn = floorIsTrigger;
+                    }
+                    else if (layerType == LayerType.Interact)
+                    {
+                        isTriggerOn = interactIsTrigger;
+                    }
+                    tilemapObject.GetComponent<TilemapCollider2D>().isTrigger = isTriggerOn;
                 }
             }
         }
@@ -289,7 +313,7 @@ public class CustomTilemapEditor : EditorWindow
         string prefabPath = EditorUtility.SaveFilePanel(
         "Save Map",
         "Assets/CustomTileMapEditor/MapPrefab",
-        mapFolder[mapLevel] + ".prefab",
+        "",
         "prefab"
          );
         if (string.IsNullOrEmpty(prefabPath))
@@ -297,15 +321,24 @@ public class CustomTilemapEditor : EditorWindow
             Debug.Log("Save operation cancelled.");
             return;
         }
-        GameObject mapPrefab = new GameObject(mapFolder[mapLevel]);
-        mapPrefab.tag = "TileRoot";
-        floorParent.SetParent(mapPrefab.transform);
-        backGroundParent.SetParent(mapPrefab.transform);
-        List<GameObject> tilemaps = new List<GameObject>();
-        tilemaps.AddRange(GameObject.FindGameObjectsWithTag("Interact"));
-        foreach (GameObject tilemap in tilemaps)
+        GameObject mapPrefab = null;
+        if (rootParent == null)
         {
-            tilemap.transform.parent.SetParent(mapPrefab.transform);
+            mapPrefab = new GameObject(mapFolder[mapLevel]);
+            mapPrefab.tag = "TileRoot";
+            floorParent.SetParent(mapPrefab.transform);
+            backGroundParent.SetParent(mapPrefab.transform);
+            List<GameObject> tilemaps = new List<GameObject>();
+            tilemaps.AddRange(GameObject.FindGameObjectsWithTag("Interact"));
+            foreach (GameObject tilemap in tilemaps)
+            {
+                tilemap.transform.parent.SetParent(mapPrefab.transform);
+            }
+        }
+        else
+        {
+            mapPrefab = rootParent.gameObject;
+            mapPrefab.name = mapFolder[mapLevel];
         }
         PrefabUtility.SaveAsPrefabAsset(mapPrefab, prefabPath);
     }
