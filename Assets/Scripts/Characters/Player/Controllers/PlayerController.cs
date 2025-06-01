@@ -31,6 +31,7 @@ namespace Orpul1.Player
             
             playerData.playerInfo.actionFlipX = FlipX;
             delayInvincible = new WaitForSeconds(playerData.hitInfo.invincibleTime);
+            PlayerManager.Instance.SetPlayer(gameObject);
         }
         void Start()
         {
@@ -140,6 +141,8 @@ namespace Orpul1.Player
             yield return delayInvincible;
             playerData.hitInfo.canGetDamage = true;
         }
+
+        
     }
 
 }

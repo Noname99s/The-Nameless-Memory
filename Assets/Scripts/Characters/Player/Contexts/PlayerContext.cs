@@ -112,8 +112,8 @@ public class PlayerContext : MonoBehaviour
     public PlayerFallInfo fallInfo;
 
     public PlayerAttackInfo attackInfo;
-    public PlayerHitInfo hitInfo;
 
+    public PlayerHitInfo hitInfo;
 
     public bool IsIdleState
     {

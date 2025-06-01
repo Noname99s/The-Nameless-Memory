@@ -233,19 +233,6 @@ MonoBehaviour:
       blinkeDelay: 0
     bossSkillInfo:
       bossSkillFactories: []
-      skillContexts:
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
       leftSkillCoolTimes:
       - 0
       - 0
@@ -468,19 +455,6 @@ MonoBehaviour:
       blinkeDelay: 0
     bossSkillInfo:
       bossSkillFactories: []
-      skillContexts:
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
       leftSkillCoolTimes:
       - 0
       - 0
@@ -607,19 +581,6 @@ MonoBehaviour:
       blinkeDelay: 0
     bossSkillInfo:
       bossSkillFactories: []
-      skillContexts:
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
       leftSkillCoolTimes:
       - 0
       - 0
@@ -674,19 +635,6 @@ MonoBehaviour:
       blinkeDelay: 0
     bossSkillInfo:
       bossSkillFactories: []
-      skillContexts:
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
       leftSkillCoolTimes:
       - 0
       - 0
@@ -828,19 +776,6 @@ MonoBehaviour:
       blinkeDelay: 0
     bossSkillInfo:
       bossSkillFactories: []
-      skillContexts:
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
       leftSkillCoolTimes:
       - 0
       - 0
@@ -898,19 +833,6 @@ MonoBehaviour:
       blinkeDelay: 0
     bossSkillInfo:
       bossSkillFactories: []
-      skillContexts:
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
       leftSkillCoolTimes:
       - 0
       - 0
@@ -1201,19 +1123,6 @@ MonoBehaviour:
       blinkeDelay: 0
     bossSkillInfo:
       bossSkillFactories: []
-      skillContexts:
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
       leftSkillCoolTimes:
       - 0
       - 0
@@ -1301,19 +1210,6 @@ MonoBehaviour:
       blinkeDelay: 0
     bossSkillInfo:
       bossSkillFactories: []
-      skillContexts:
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
       leftSkillCoolTimes:
       - 0
       - 0
@@ -1571,19 +1467,6 @@ MonoBehaviour:
       blinkeDelay: 0
     bossSkillInfo:
       bossSkillFactories: []
-      skillContexts:
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
       leftSkillCoolTimes:
       - 0
       - 0
@@ -1743,19 +1626,6 @@ MonoBehaviour:
       blinkeDelay: 0
     bossSkillInfo:
       bossSkillFactories: []
-      skillContexts:
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
       leftSkillCoolTimes:
       - 0
       - 0
@@ -1811,19 +1681,6 @@ MonoBehaviour:
       blinkeDelay: 0
     bossSkillInfo:
       bossSkillFactories: []
-      skillContexts:
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
       leftSkillCoolTimes:
       - 0
       - 0
@@ -2010,19 +1867,6 @@ MonoBehaviour:
       blinkeDelay: 0
     bossSkillInfo:
       bossSkillFactories: []
-      skillContexts:
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
       leftSkillCoolTimes:
       - 0
       - 0
@@ -2310,7 +2154,7 @@ PrefabInstance:
     - target: {fileID: 7112557372877177303, guid: 03d380c3625b99c49a0886cc2d513dc2, type: 3}
       propertyPath: trPlayer
       value: 
-      objectReference: {fileID: 1310783557}
+      objectReference: {fileID: 0}
     - target: {fileID: 7317123017795635974, guid: 03d380c3625b99c49a0886cc2d513dc2, type: 3}
       propertyPath: shakeStrength
       value: 0.05
@@ -2647,19 +2491,6 @@ MonoBehaviour:
       blinkeDelay: 0
     bossSkillInfo:
       bossSkillFactories: []
-      skillContexts:
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
       leftSkillCoolTimes:
       - 0
       - 0
@@ -2776,19 +2607,6 @@ MonoBehaviour:
       blinkeDelay: 0
     bossSkillInfo:
       bossSkillFactories: []
-      skillContexts:
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
-      - spawnPoints: []
-        skillPrefab: []
       leftSkillCoolTimes:
       - 0
       - 0
@@ -2930,7 +2748,7 @@ PrefabInstance:
     - target: {fileID: 5971091956061334788, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: trPlayer
       value: 
-      objectReference: {fileID: 1310783557}
+      objectReference: {fileID: 0}
     - target: {fileID: 7456571372819098835, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: m_Name
       value: Mirrored

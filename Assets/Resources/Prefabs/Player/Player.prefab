@@ -475,7 +475,7 @@ MonoBehaviour:
     isStillAttack: 0
     characterAttack: {fileID: 7191165317446888281}
   hitInfo:
-    knockBackPower: 1
+    knockBackPower: 20
     invincibleTime: 1
     hitDuration: 0.05
     canGetDamage: 1
