@@ -380,7 +380,7 @@ MonoBehaviour:
   stateController: {fileID: 5725579068212597670}
   playerData: {fileID: 6948962639656468517}
   rayInfo:
-    groundRayDistance: 0.8
+    groundRayDistance: 0.9
     wallRayDistance: 0.35
     ladderRayDistance: 1
     groundRayStartPosi: {x: 0, y: 0.72, z: 0}
@@ -406,13 +406,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInfo:
     rigid: {fileID: 5947109336739971617}
+    playerCollider: {fileID: 5797288449755540277}
+    sprite: {fileID: 764128924490101152}
+    trPlayer: {fileID: 1832887567842334404}
+    animator: {fileID: 4683667883276261786}
+    originScale: {x: 1, y: 1, z: 1}
+    hp: 100
+    maxHp: 100
+  moveInfo:
     slideMovement:
       <maxIterations>k__BackingField: 3
       <surfaceSlideAngle>k__BackingField: 90
       <gravitySlipAngle>k__BackingField: 90
       <surfaceUp>k__BackingField: {x: 0, y: 1}
       <surfaceAnchor>k__BackingField: {x: 0, y: -1}
-      <gravity>k__BackingField: {x: 0, y: 0}
+      <gravity>k__BackingField: {x: 0, y: -9.81}
       <startPosition>k__BackingField: {x: 0, y: 0}
       <selectedCollider>k__BackingField: {fileID: 0}
       <layerMask>k__BackingField:
@@ -427,15 +435,8 @@ MonoBehaviour:
       <remainingVelocity>k__BackingField: {x: 0, y: 0}
       <position>k__BackingField: {x: 0, y: 0}
       <iterationsUsed>k__BackingField: 0
-    playerCollider: {fileID: 5797288449755540277}
-    sprite: {fileID: 764128924490101152}
-    trPlayer: {fileID: 1832887567842334404}
-    animator: {fileID: 4683667883276261786}
-    originScale: {x: 1, y: 1, z: 1}
-    hp: 100
-    maxHp: 100
-  moveInfo:
     moveDir: {x: 0, y: 0}
+    slideMoveGravity: {x: 0, y: -20}
     moveSpeed: 15
     isPressClimbLadder: 0
     canClimbLadder: 0
