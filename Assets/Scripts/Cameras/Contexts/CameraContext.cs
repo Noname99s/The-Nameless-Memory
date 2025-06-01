@@ -1,6 +1,7 @@
 using Orpul1.Camera;
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 
 public class CameraContext : MonoBehaviour
 {
@@ -10,8 +11,10 @@ public class CameraContext : MonoBehaviour
 
     public float moveSpeed;
     public ECameraEffect cameraEffect;
-    public List<Transform> viewBoundary;
     public Vector2 cameraView;
+    public CinemachineCamera cinemachineCamera;
+    public CinemachineConfiner2D confiner;
+    public CameraTarget cameraTarget;
     public bool IsFollowState
     {
         get
