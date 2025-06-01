@@ -14,6 +14,7 @@ namespace Orpul1.State
             return new List<IState>()
             {
                 new FollowState(context, transitionTo),
+                new StanbyState(context, transitionTo)
             };
         }
     }
