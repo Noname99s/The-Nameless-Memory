@@ -14,8 +14,7 @@ public class SetCameraEffect : ActionScript
     ICameraEffectAble setCameraEffect;
     public override void Init()
     {
-        setCameraEffect = CameraManager.Instance.GetCamera((int)ECameraType.MainCamera).
-            GetComponent<ICameraEffectAble>();
+        setCameraEffect = blackboard.btComponent.bossSkillInfo.cameraEffect;
     }
     public override NodeState OnStart()
     {

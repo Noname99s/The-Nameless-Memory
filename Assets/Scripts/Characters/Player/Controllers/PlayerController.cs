@@ -31,6 +31,7 @@ namespace Orpul1.Player
         WaitForSeconds delayInvincible;
         WaitForSeconds delayCameraShake;
         ICameraEffectAble cameraEffect;
+        ISetCamerGroupAble cameraGroup;
         //TODO: 플레이어 HP UI연결 시킬 것
 
         //IInGameView playerHpUI;
@@ -49,7 +50,11 @@ namespace Orpul1.Player
         void Start()
         {
             //playerHpUI = Managers.UI.GetPopupUI<InGameView>();
-            cameraEffect = CameraManager.Instance.GetCamera((int)ECameraType.MainCamera).GetComponent<ICameraEffectAble>();
+            Transform camera = CameraManager.Instance.GetCamera<Transform>((int)ECameraType.MainCamera);
+            cameraEffect = camera.GetComponent<ICameraEffectAble>();
+            cameraGroup = camera.GetComponent<ISetCamerGroupAble>();
+
+            cameraGroup.SetGroup(transform, 0, 1);
             stateController.TransitionState((int)EPlayerState.Idle);
             playerData.moveInfo.slideMovement.gravity = playerData.moveInfo.slideMoveGravity;
             playerData.moveInfo.slideMovement.surfaceAnchor = Vector2.down * 0.1f;

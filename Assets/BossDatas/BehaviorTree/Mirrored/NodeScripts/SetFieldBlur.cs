@@ -14,16 +14,15 @@ public class SetFieldBlur : ActionScript
     public bool isActive = false;
     public override void Init()
     {
-        SetCameraEffect();
+        setCameraEffect = blackboard.btComponent.bossSkillInfo.cameraEffect;
     }
     public override NodeState OnStart()
     {
-        SetCameraEffect();
         return NodeState.Success;
     }
     public override NodeState OnUpdate()
     {
-        if(isActive)
+        if (isActive)
             setCameraEffect.Execute((int)effectType);
         else
             setCameraEffect.Stop((int)effectType);
@@ -32,12 +31,5 @@ public class SetFieldBlur : ActionScript
     public override NodeState OnExit()
     {
         return NodeState.Success;
-    }
-    private void SetCameraEffect()
-    {
-        if (setCameraEffect != null)
-            return;
-        setCameraEffect = CameraManager.Instance.GetCamera((int)ECameraType.MainCamera).GetComponent<ICameraEffectAble>();
-
     }
 }

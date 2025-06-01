@@ -5,16 +5,15 @@ using Unity.Cinemachine;
 
 public class CameraContext : MonoBehaviour
 {
-    public Transform target;
-    public Rigidbody2D rigid;
+    [HideInInspector] public Transform target;
     public Camera mainCam;
-
+    public CinemachineTargetGroup targetGroup;
     public float moveSpeed;
     public ECameraEffect cameraEffect;
     public Vector2 cameraView;
     public CinemachineCamera cinemachineCamera;
     public CinemachineConfiner2D confiner;
-    public CameraTarget cameraTarget;
+    public CameraTarget cameraTarget;//[HideInInspector]
     public bool IsFollowState
     {
         get

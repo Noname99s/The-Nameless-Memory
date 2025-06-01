@@ -25,7 +25,7 @@ public class CameraBoundary : MonoBehaviour
 
     private void Start()
     {
-        ISetDataAble<Collider2D> setConfinder = CameraManager.Instance.GetCamera((int)ECameraType.MainCamera).GetComponent<ISetDataAble<Collider2D>>();
+        ISetDataAble<Collider2D> setConfinder = CameraManager.Instance.GetCamera <ISetDataAble<Collider2D>>((int)ECameraType.MainCamera);
         setConfinder.SetValue(boundary);
     }
     private void OnDrawGizmos()
