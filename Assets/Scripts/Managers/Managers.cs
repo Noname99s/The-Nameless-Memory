@@ -5,6 +5,7 @@ using UnityEngine;
 public class Managers : MonoBehaviour
 {
     static Managers s_instance;
+    GameManager _game = new GameManager();
     SceneLoadManager _sceneLoad = new SceneLoadManager();
     //SoundManager _sound;
 
@@ -12,7 +13,7 @@ public class Managers : MonoBehaviour
     [SerializeField] ResourceManager _resource;
     
     public static SceneLoadManager SceneLoad { get { return Instance._sceneLoad; } }
-
+    public static GameManager Game { get { return Instance._game; } }
     public static UIManager UI { get { return Instance._ui; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     static Managers Instance 

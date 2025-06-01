@@ -5,12 +5,14 @@ public class InGameModel
     public void PauseGame()
     {
         Debug.Log("게임 일시정지");
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
+        Managers.Game.ChangeState(GameState.Paused);
     }
     public void ResumeGame()
     {
         Debug.Log("게임 재개");
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
+        Managers.Game.ChangeState(GameState.Playing);
     }
     public void OpenOptions()
     {
