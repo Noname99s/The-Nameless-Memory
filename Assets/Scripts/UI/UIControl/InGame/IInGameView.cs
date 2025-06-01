@@ -8,4 +8,9 @@ public interface IInGameView
     event Action OnOpenOptions;
     event Action OnBackToMainMenu;
     event Action OnQuitGame;
+
+
+    //Player
+    void UpdateDeathCount(int deathCount);
+    void UpdateHP(int hp, int maxHp);
 }

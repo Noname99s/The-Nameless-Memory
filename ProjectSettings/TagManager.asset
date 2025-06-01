@@ -7,8 +7,8 @@ TagManager:
   - Interact
   - Floor
   - BackGround
-  - BackGround1
-  - BackGround2
+  - InventorySlot
+  - TileRoot
   layers:
   - Default
   - TransparentFX
@@ -18,8 +18,8 @@ TagManager:
   - UI
   - Floor
   - Climb
-  - 
-  - 
+  - BackGround
+  - Interact
   - 
   - 
   - 

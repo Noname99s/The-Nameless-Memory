@@ -1,0 +1,61 @@
+using System.Collections;
+using System.Collections.Generic;
+using DG.Tweening;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class LoadingComposition : UIPopup
+{
+    [SerializeField] Text loadingText;
+    BG_DB_LoadingText loadingTextData;
+    public string nextScene;
+
+
+    private void Start()
+    {
+        loadingTextData = BG_DB_LoadingText.GetEntity(Random.Range(0, 4));
+
+        if (loadingText != null)
+        {
+            loadingText.DOText(loadingTextData._detail + "\n" + loadingTextData._name, 3f, true)
+                .SetEase(Ease.Linear)
+                .SetLoops(1, LoopType.Restart);
+        }
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        nextScene = sceneName;
+        StartCoroutine(LoadScene());
+    }
+    IEnumerator LoadScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nextScene, LoadSceneMode.Additive);
+        asyncLoad.allowSceneActivation = false;
+        asyncLoad.completed += (AsyncOperation obj) =>
+        {
+            //Managers.UI.ClosePopupUI<LoadingComposition>();
+            Managers.UI.CloseAllPopupUI();
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(nextScene));
+        };
+
+        float time = Time.time + 5.0f; // 3 seconds term
+
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+            {
+                if (asyncLoad.progress / 1.0f > 0.7f)
+                {
+                    if (Time.time > time)
+                    {
+                        asyncLoad.allowSceneActivation = true;
+                        yield break;
+                    }
+                }
+            }
+        }
+    }
+}

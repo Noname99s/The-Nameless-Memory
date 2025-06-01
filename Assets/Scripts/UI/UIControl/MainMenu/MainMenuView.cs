@@ -2,7 +2,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-public class MainMenuView : UIPopup , IMainMenuView
+public class MainMenuView : MonoBehaviour , IMainMenuView
 {
 
     [SerializeField] DOTweenAnimation[] dOTweenAnimations;
