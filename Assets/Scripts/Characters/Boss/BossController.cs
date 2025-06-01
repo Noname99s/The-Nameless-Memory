@@ -34,13 +34,12 @@ public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
         Transform camera = CameraManager.Instance.GetCamera<Transform>((int)ECameraType.MainCamera);
         mirroredBlackboardComponent.bossSkillInfo.cameraEffect = camera.GetComponent<ICameraEffectAble>();
         cameraGroup = camera.GetComponent<ISetCamerGroupAble>();
-        cameraGroup.SetGroup(transform, 0, 1);
 
         tree.root.Init();
     }
     private void OnDisable()
     {
-        cameraGroup.RemoveGroup(transform);
+        //cameraGroup.RemoveGroup(transform);
     }
 
     void Update()

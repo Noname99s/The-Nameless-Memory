@@ -54,7 +54,6 @@ namespace Orpul1.Player
             cameraEffect = camera.GetComponent<ICameraEffectAble>();
             cameraGroup = camera.GetComponent<ISetCamerGroupAble>();
 
-            cameraGroup.SetGroup(transform, 0, 1);
             stateController.TransitionState((int)EPlayerState.Idle);
             playerData.moveInfo.slideMovement.gravity = playerData.moveInfo.slideMoveGravity;
             playerData.moveInfo.slideMovement.surfaceAnchor = Vector2.down * 0.1f;
