@@ -1,16 +1,17 @@
 using Orpul1.Camera;
-using Orpul1.Camera.State;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
+using System.Collections.Generic;
 
 public class CameraContext : MonoBehaviour
 {
     public Transform target;
     public Rigidbody2D rigid;
+    public Camera mainCam;
 
     public float moveSpeed;
     public ECameraEffect cameraEffect;
+    public List<Transform> viewBoundary;
+    public Vector2 cameraView;
     public bool IsFollowState
     {
         get
