@@ -16,6 +16,7 @@ namespace Orpul1.Player.State
             data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
             data.playerInfo.rigid.linearVelocity = Vector2.zero;
             data.playerInfo.rigid.gravityScale = 0;
+            data.playerInfo.trPlayer.position = data.playerInfo.dectectedGroundPosi;
         }
         public override void OnUpdate()
         {

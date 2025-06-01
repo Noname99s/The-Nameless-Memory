@@ -21,6 +21,7 @@ namespace Orpul1.Player
         public Ray2D groundRay;
         public Ray2D wallRay;
         public Ray2D ladderRay;
+        public RaycastHit2D groundHit;
     }
     public class PlayerController : MonoBehaviour,IDamageAble, IknockbackAble
     {
@@ -40,6 +41,7 @@ namespace Orpul1.Player
             playerData.Initialize();
             
             playerData.playerInfo.actionFlipX = FlipX;
+            playerData.playerInfo.dectectedGroundPosi = transform.position;
             delayInvincible = new WaitForSeconds(playerData.hitInfo.invincibleTime);
             delayCameraShake = new WaitForSeconds(playerData.hitInfo.cameraShakeDuration);
             PlayerManager.Instance.SetPlayer(gameObject);
@@ -70,14 +72,15 @@ namespace Orpul1.Player
         }
         private void OnGround()
         {
-            if (!IsHitRay(SetRay(rayInfo.groundRay, rayInfo.groundRayStartPosi, Vector2.down, rayInfo.groundRayDistance, rayInfo.floorLayer.value))) 
+            rayInfo.groundHit = SetRay(rayInfo.groundRay, rayInfo.groundRayStartPosi, Vector2.down, rayInfo.groundRayDistance, rayInfo.floorLayer.value);
+            if (!IsHitRay(rayInfo.groundHit)) 
             {
                 playerData.fallInfo.isFalling = true;
                 return;
             }
-
             playerData.fallInfo.isFalling = false;
             playerData.playerInfo.hp -= playerData.fallInfo.fallDamage;
+            playerData.playerInfo.dectectedGroundPosi = rayInfo.groundHit.point;
             playerData.fallInfo.fallDamage = 0;
         }
         private void OnAir()

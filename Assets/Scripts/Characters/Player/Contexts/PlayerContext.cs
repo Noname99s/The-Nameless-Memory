@@ -43,6 +43,7 @@ public class PlayerInfo
     public Vector3 originScale = Vector3.one;
     public int hp;
     public int maxHp;
+    public Vector3 dectectedGroundPosi;
     public Action actionFlipX;
 }
 
