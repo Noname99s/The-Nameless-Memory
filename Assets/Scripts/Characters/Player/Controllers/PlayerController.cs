@@ -77,7 +77,6 @@ namespace Orpul1.Player
             }
 
             playerData.fallInfo.isFalling = false;
-            playerData.jumpInfo.jumpState = EJumpState.JumpReady;
             playerData.playerInfo.hp -= playerData.fallInfo.fallDamage;
             playerData.fallInfo.fallDamage = 0;
         }

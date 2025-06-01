@@ -16,6 +16,7 @@ namespace Orpul1.Player.State.Jump
 
             data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
             data.playerInfo.animator.SetTrigger(EPlayerAni.WallJumpTrigger.ToString());
+            data.jumpInfo.jumpState = EJumpState.Jumping;
         }
         public void Execute()
         {

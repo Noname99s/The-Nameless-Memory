@@ -31,6 +31,10 @@ namespace Orpul1.Player.State
             data.playerInfo.actionFlipX();
             AirMove();
             jumpStraties[(int)jumpType].Execute();
+
+            if (data.jumpInfo.jumpState == EJumpState.JumpReady && data.jumpInfo.isPressJump)
+                jumpStraties[(int)jumpType].Initialize();
+
             TransitionState();
         }
 
@@ -75,6 +79,7 @@ namespace Orpul1.Player.State
         private bool IsMoveState()
         {
             //if (data.fallInfo.isFalling || !data.IsMoveState|| data.jumpInfo.jumpState != EJumpState.JumpReady) return false;
+            if (data.jumpInfo.jumpState != EJumpState.JumpEnd) return false;
             if (!data.IsMoveState) return false;
             transitionTo((int)EPlayerState.Move);
 
