@@ -1,5 +1,6 @@
 using System;
 using Orpul1.Player.Animation;
+using UnityEngine;
 
 namespace Orpul1.Player.State
 {
@@ -11,7 +12,8 @@ namespace Orpul1.Player.State
 
         public override void OnStart()
         {
-            data.animator.SetTrigger(EPlayerAni.DeathTrigger.ToString());
+
+            data.playerInfo.animator.SetTrigger(EPlayerAni.DeathTrigger.ToString());
         }
 
         public override void OnUpdate()
@@ -26,7 +28,7 @@ namespace Orpul1.Player.State
         }
         private void TransitionState()
         {
-            if (data.isDeath) return;
+            if (data.hitInfo.isDeath) return;
             transitionTo((int)EPlayerState.Idle);
         }
     }

@@ -1,4 +1,3 @@
-using Orpul1.Player;
 using Orpul1.Player.Animation;
 using Orpul1.State.Attack;
 using System;
@@ -11,62 +10,44 @@ namespace Orpul1.Player.State
     {
         float interval = 0;
         float moveX = 0;
-        float maxMoveX = 0;
-        bool isFlip = false;
         public FallState(PlayerContext data, Action<int> transitionTo) : base(data, transitionTo)
         {
         }
         public override void OnStart()
         {
-            Debug.Log("Fall Start");
 
             interval = 0;
-            data.fallDamage = 0;
-            data.rigid.linearVelocityY = -data.defaultFallSpeed;
-            data.shouldWallJump = false;
-            data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
-            data.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
-            //maxMoveX = data.rigid.linearVelocityX < 0 ? -data.rigid.linearVelocityX : data.rigid.linearVelocityX;
-            //maxMoveX = Mathf.Abs(data.rigid.linearVelocityX);
-            maxMoveX = Mathf.Max(data.rigid.linearVelocityX, data.onAirMoveSpeed * Time.deltaTime);
-
+            data.fallInfo.fallDamage = 0;
+            data.playerInfo.rigid.linearVelocityY = -data.fallInfo.defaultFallSpeed;
+            data.jumpInfo.shouldWallJump = false;
+            data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
         }
 
         public override void OnUpdate()
         {
             AirMove();
-            FlipX();
+            data.playerInfo.actionFlipX();
             SetFallDamage();
             TransitionState();
         }
 
         public override void OnExit() 
         {
-            data.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
-            data.attackContext.attackType = EPlayerAttack.NONE;
+            data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
+            data.attackInfo.attackType = EPlayerAttack.NONE;
         }
 
         private void AirMove()
         {
-            if(data.isFalling)
-                data.rigid.linearVelocityY = Mathf.Clamp(data.rigid.linearVelocityY, -data.maxFallSpeed, 0);
-            moveX = data.rigid.linearVelocityX + data.moveDir.x * data.onAirMoveSpeed * Time.deltaTime;
-            data.rigid.linearVelocityX = Mathf.Clamp(moveX, -maxMoveX, maxMoveX);
+            moveX = data.moveInfo.moveDir.x * data.fallInfo.onAirMoveSpeed;
+            data.playerInfo.rigid.linearVelocityX = moveX;
         }
 
-        private void FlipX()
-        {
-            if (data.moveDir.x < 0)
-                isFlip = true;
-            else if (data.moveDir.x > 0)
-                isFlip = false;
-            data.sprite.flipX = isFlip;
-        }
 
         private void SetFallDamage()
         {
             if (!IsToHeigh()) return;
-            data.fallDamage = data.maxFallDamage;
+            data.fallInfo.fallDamage = data.fallInfo.maxFallDamage;
         }
 
         private bool IsToHeigh()
@@ -74,7 +55,7 @@ namespace Orpul1.Player.State
             float dot = Vector2.Dot(data.transform.position, Vector2.down);
             if (dot > 0) return false;
             interval += Time.deltaTime;
-            if (interval < data.fallDamageOverTime) return false;
+            if (interval < data.fallInfo.fallDamageOverTime) return false;
             return true;
         }
         private void TransitionState()
@@ -85,10 +66,11 @@ namespace Orpul1.Player.State
             if (IsClimbLadderState()) return;
             if (IsIdleState()) return;
             if (IsJumpState()) return;
+            if (IsMoveState()) return;
         }
         private bool IsHitState()
         {
-            if (!data.isHit) return false;
+            if (!data.hitInfo.isHit) return false;
             transitionTo((int)EPlayerState.Hit);
 
             return true;
@@ -102,7 +84,7 @@ namespace Orpul1.Player.State
         }
         private bool IsDeathState()
         {
-            if (!data.isDeath) return false;
+            if (!data.hitInfo.isDeath) return false;
             transitionTo((int)EPlayerState.Death);
 
             return true;
@@ -118,7 +100,7 @@ namespace Orpul1.Player.State
 
         private bool IsIdleState()
         {
-            if (data.IsFallState) return false;
+            if (!data.IsIdleState) return false;
             transitionTo((int)EPlayerState.Idle);
 
             return true;
@@ -127,6 +109,13 @@ namespace Orpul1.Player.State
         {
             if (!data.IsJumpState) return false;
             transitionTo((int)EPlayerState.Jump);
+
+            return true;
+        }
+        private bool IsMoveState()
+        {
+            if (!data.IsMoveState) return false;
+            transitionTo((int)EPlayerState.Move);
 
             return true;
         }

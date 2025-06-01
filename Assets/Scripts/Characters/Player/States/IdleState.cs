@@ -10,22 +10,22 @@ namespace Orpul1.Player.State
 
         public override void OnStart()
         {
-            Debug.Log("Idle Start");
 
-            data.jumpCount = 2;
-            data.animator.SetBool(EPlayerAni.IsIdle.ToString(), true);
-            //data.animator.SetTrigger(EPlayerAni.IdleTrigger.ToString());
-            data.rigid.gravityScale = 0;
+            data.jumpInfo.jumpCount = 2;
+            data.playerInfo.animator.SetBool(EPlayerAni.IsIdle.ToString(), true);
+            data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
+            data.playerInfo.rigid.linearVelocity = Vector2.zero;
+            data.playerInfo.rigid.gravityScale = 0;
         }
         public override void OnUpdate()
         {
-            data.rigid.linearVelocityX = 0;
+            data.playerInfo.rigid.linearVelocityX = 0;
             TransitionState();
         }
         public override void OnExit()
         {
-            data.animator.SetBool(EPlayerAni.IsIdle.ToString(), false);
-            data.rigid.gravityScale = 5;
+            data.playerInfo.animator.SetBool(EPlayerAni.IsIdle.ToString(), false);
+            data.playerInfo.rigid.gravityScale = 5;
         }
 
         private void TransitionState()
@@ -40,7 +40,7 @@ namespace Orpul1.Player.State
         }
         private bool IsHitState()
         {
-            if (!data.isHit) return false;
+            if (!data.hitInfo.isHit) return false;
             transitionTo((int)EPlayerState.Hit);
 
             return true;
@@ -48,7 +48,7 @@ namespace Orpul1.Player.State
 
         private bool IsDeathState()
         {
-            if (!data.isDeath) return false;
+            if (!data.hitInfo.isDeath) return false;
             transitionTo((int)EPlayerState.Death);
 
             return true;
@@ -70,14 +70,14 @@ namespace Orpul1.Player.State
         }
         private bool IsFallState()
         {
-            if (!data.isFalling) return false;
+            if (!data.fallInfo.isFalling) return false;
             transitionTo((int)EPlayerState.Fall);
 
             return true;
         }
         private bool IsAttackState()
         {
-            if (!data.isPressAttack) return false;
+            if (!data.attackInfo.isPressAttack) return false;
             transitionTo((int)EPlayerState.Attack);
 
             return true;

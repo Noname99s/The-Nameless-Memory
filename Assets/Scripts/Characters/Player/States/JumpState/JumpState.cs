@@ -1,10 +1,6 @@
-using Orpul1.Player;
 using Orpul1.Player.Animation;
 using Orpul1.Player.State.Jump;
-using Orpul1.State.Attack;
 using System;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 namespace Orpul1.Player.State
@@ -14,8 +10,6 @@ namespace Orpul1.Player.State
     {
         
         float moveX = 0;
-        float maxMoveX = 0;
-        bool isFlip = false;
         IStrategy[] jumpStraties = new IStrategy[2];
         EPlayerJump jumpType = EPlayerJump.NormalJump;
         public JumpState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo) 
@@ -26,15 +20,15 @@ namespace Orpul1.Player.State
         public override void OnStart()
         {
             SetJumpType();
+
             jumpStraties[(int)jumpType].Initialize();
-            data.animator.SetBool(EPlayerAni.IsJump.ToString(),true);
-            maxMoveX = data.moveSpeed * Time.deltaTime;
-            isFlip = data.sprite.flipX;
+            data.playerInfo.animator.SetBool(EPlayerAni.IsJump.ToString(),true);
+            data.moveInfo.isPressWallClimb = false;
         }
 
         public override void OnUpdate()
         {
-            FlipX();
+            data.playerInfo.actionFlipX();
             AirMove();
             jumpStraties[(int)jumpType].Execute();
             TransitionState();
@@ -42,30 +36,23 @@ namespace Orpul1.Player.State
 
         public override void OnExit()
         {
-            data.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
-            data.shouldWallJump = false;
+
+            data.playerInfo.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
+            data.jumpInfo.shouldWallJump = false;
         }
 
         
         private void SetJumpType()
         {
-            if(data.shouldWallJump)
+            if(data.jumpInfo.shouldWallJump)
                 jumpType = EPlayerJump.WallJump;
             else
                 jumpType = EPlayerJump.NormalJump;
         }
         private void AirMove()
         {
-            moveX = data.rigid.linearVelocityX + data.moveDir.x * data.onAirMoveSpeed * Time.deltaTime;
-            data.rigid.linearVelocityX = Mathf.Clamp(moveX, -maxMoveX, maxMoveX);
-        }
-        private void FlipX()
-        {
-            if (data.moveDir.x < 0)
-                isFlip = true;
-            else if (data.moveDir.x > 0)
-                isFlip = false;
-            data.sprite.flipX = isFlip;
+            moveX = data.moveInfo.moveDir.x * data.fallInfo.onAirMoveSpeed;
+            data.playerInfo.rigid.linearVelocityX = moveX;
         }
         private void TransitionState()
         {
@@ -79,21 +66,23 @@ namespace Orpul1.Player.State
         }
         private bool IsIdleState()
         {
-            if (data.isFalling || !data.IsIdleState||data.jumpState != EJumpState.JumpReady) return false;
+            if (data.jumpInfo.jumpState != EJumpState.JumpEnd) return false;    
+            if (!data.IsIdleState) return false;
             transitionTo((int)EPlayerState.Idle);
 
             return true;
         }
         private bool IsMoveState()
         {
-            if (data.isFalling || !data.IsMoveState|| data.jumpState != EJumpState.JumpReady) return false;
+            //if (data.fallInfo.isFalling || !data.IsMoveState|| data.jumpInfo.jumpState != EJumpState.JumpReady) return false;
+            if (!data.IsMoveState) return false;
             transitionTo((int)EPlayerState.Move);
 
             return true;
         }
         private bool IsHitState()
         {
-            if (!data.isHit) return false;
+            if (!data.hitInfo.isHit) return false;
             transitionTo((int)EPlayerState.Hit);
 
             return true;
@@ -101,7 +90,7 @@ namespace Orpul1.Player.State
 
         private bool IsDeathState()
         {
-            if (!data.isDeath) return false;
+            if (!data.hitInfo.isDeath) return false;
             transitionTo((int)EPlayerState.Death);
 
             return true;
@@ -109,6 +98,8 @@ namespace Orpul1.Player.State
 
         private bool IsFallState()
         {
+
+            if (data.jumpInfo.jumpState != EJumpState.JumpEnd) return false;
             if (!data.IsFallState) return false;
             transitionTo((int)EPlayerState.Fall);
 

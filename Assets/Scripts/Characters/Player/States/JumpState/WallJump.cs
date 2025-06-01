@@ -12,27 +12,32 @@ namespace Orpul1.Player.State.Jump
         }
         public void Initialize()
         {
-            jumpAmount = data.jumpPower;
+            jumpAmount = data.jumpInfo.jumpPower;
 
-            data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
-            data.animator.SetTrigger(EPlayerAni.WallJumpTrigger.ToString());
+            data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
+            data.playerInfo.animator.SetTrigger(EPlayerAni.WallJumpTrigger.ToString());
         }
         public void Execute()
         {
             DoJump();
+            if (jumpAmount <= 0)
+            {
+                data.jumpInfo.jumpState = EJumpState.JumpEnd;
+            }
         }
 
         private void DoJump()
         {
-            if (!data.isPressJump || data.jumpState == EJumpState.JumpEnd) return;
-            jumpAmount *= data.decelerate;
-            data.jumpState = EJumpState.Jumping;
-            data.rigid.linearVelocityY = jumpAmount;
+            if (!data.jumpInfo.isPressJump)
+                jumpAmount *= data.jumpInfo.decelerate;
 
-            if (data.rigid.linearVelocityY < data.minJumpSpeed)
+            jumpAmount *= data.jumpInfo.decelerate;
+            data.playerInfo.rigid.linearVelocityY = jumpAmount;
+
+            if (data.playerInfo.rigid.linearVelocityY < data.jumpInfo.minJumpSpeed)
             {
-                data.jumpState = EJumpState.JumpEnd;
-                data.isPressJump = false;
+                data.jumpInfo.jumpState = EJumpState.JumpEnd;
+                data.jumpInfo.isPressJump = false;
                 jumpAmount = 0;
             }
         }

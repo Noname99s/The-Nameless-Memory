@@ -13,7 +13,7 @@ namespace Orpul1.Player.State.Attack
 
         public void Initialize()
         {
-            playerData.attackContext.curAttack = 0;
+            playerData.attackInfo.curAttack = 0;
         }
     }
 }

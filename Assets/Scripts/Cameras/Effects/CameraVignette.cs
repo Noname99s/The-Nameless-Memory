@@ -25,6 +25,10 @@ namespace Orpul1.Camera.Effect
                 Debug.LogError("Vignette is Null!");
             vignette.intensity.value = vignetteMinAmount;
         }
+        private void Start()
+        {
+            trPlayer = PlayerManager.Instance.GetPlayer().transform;
+        }
         private void OnDisable()
         {
             vignette.intensity.value = vignetteMinAmount;

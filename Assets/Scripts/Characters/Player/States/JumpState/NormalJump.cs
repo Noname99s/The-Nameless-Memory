@@ -12,31 +12,36 @@ namespace Orpul1.Player.State.Jump
         }
         public void Initialize()
         {
-            jumpAmount = data.jumpPower;
+            jumpAmount = data.jumpInfo.jumpPower;
 
-            data.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
-            data.animator.SetTrigger(EPlayerAni.JumpTrigger.ToString());
+            data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
+            data.playerInfo.animator.SetTrigger(EPlayerAni.JumpTrigger.ToString());
+            data.jumpInfo.jumpState = EJumpState.Jumping;
         }
         public void Execute()
         {
             DoJump();
+
+            if (jumpAmount <= 0)
+            {
+                data.jumpInfo.jumpState = EJumpState.JumpEnd;
+            }
         }
 
         
         private void DoJump()
         {
-            if (!data.isPressJump || data.jumpState == EJumpState.JumpEnd) return;
+            if (!data.jumpInfo.isPressJump)
+                jumpAmount *= data.jumpInfo.decelerate;
 
-            jumpAmount *= data.decelerate;
-            data.jumpState = EJumpState.Jumping;
-            data.rigid.linearVelocityY = jumpAmount;
+            jumpAmount *= data.jumpInfo.decelerate;
+            data.playerInfo.rigid.linearVelocityY = jumpAmount;
 
-            if (data.rigid.linearVelocityY < data.minJumpSpeed)
+            if (data.playerInfo.rigid.linearVelocityY < data.jumpInfo.minJumpSpeed)
             {
-                data.jumpState = EJumpState.JumpEnd;
-                data.isPressJump = false;
+                data.jumpInfo.jumpState = EJumpState.JumpEnd;
+                data.jumpInfo.isPressJump = false;
                 jumpAmount = 0;
-                //transitionTo((int)EPlayerState.Fall);
             }
         }
     }
