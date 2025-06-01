@@ -72749,11 +72749,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.26
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.24
+      value: 24.6
       objectReference: {fileID: 0}
     - target: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_LocalPosition.z
@@ -73108,11 +73108,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1272658705226869221, guid: 03d380c3625b99c49a0886cc2d513dc2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.94
+      value: 12.2
       objectReference: {fileID: 0}
     - target: {fileID: 1272658705226869221, guid: 03d380c3625b99c49a0886cc2d513dc2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.69
+      value: 13.7
       objectReference: {fileID: 0}
     - target: {fileID: 1272658705226869221, guid: 03d380c3625b99c49a0886cc2d513dc2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -73146,6 +73146,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2987317786434917746, guid: 03d380c3625b99c49a0886cc2d513dc2, type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3935972499878809373, guid: 03d380c3625b99c49a0886cc2d513dc2, type: 3}
       propertyPath: viewBoundary
       value: 
@@ -73156,6 +73160,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7645745203956452240, guid: 03d380c3625b99c49a0886cc2d513dc2, type: 3}
       propertyPath: camera
+      value: 
+      objectReference: {fileID: 2146787568}
+    - target: {fileID: 7645745203956452240, guid: 03d380c3625b99c49a0886cc2d513dc2, type: 3}
+      propertyPath: mainCam
       value: 
       objectReference: {fileID: 2146787568}
     m_RemovedComponents: []
