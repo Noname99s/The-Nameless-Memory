@@ -36,10 +36,10 @@ public class Managers : MonoBehaviour
     }
     public void Init()
     {
-        //_sceneLoad.Init();
         s_instance = GetComponent<Managers>();
+        _sceneLoad.Init();
         _ui.Init();
-        _ui.ShowPopupUI<MainMenuComposition>();
+        //_ui.ShowPopupUI<MainMenuComposition>();
     }
     private void Start()
     {
