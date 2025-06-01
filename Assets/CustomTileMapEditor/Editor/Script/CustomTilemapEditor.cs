@@ -27,6 +27,8 @@ public class CustomTilemapEditor : EditorWindow
 
     int guiSpace = 20;
     int mapLevel = 0;
+
+    string[] mapFolder = new string[] { "Hub", "Map1", "Map2", "Map3", "Map4", "Map5" };
     int[] toggleSwitch = new int[(int)LayerType.Max];
     string newFloorTileName = string.Empty;
     string newInteractTileName = string.Empty;
@@ -54,7 +56,7 @@ public class CustomTilemapEditor : EditorWindow
     {
         GUILayout.Label("Tilemap Settings", EditorStyles.boldLabel);
         // 레벨 선택 -- 레벨별 파일 로드 + 룰타일 로드
-        mapLevel = EditorGUILayout.Popup("Map Level", mapLevel, new string[] { "Hub","Map1", "Map2", "Map3", "Map4","Map5" });
+        mapLevel = EditorGUILayout.Popup("Map Level", mapLevel, mapFolder);
         GUILayout.BeginHorizontal("box");
         if (GUILayout.Button("Reset Scene", GUILayout.Width(100f), GUILayout.Height(20f)))
         {
@@ -287,7 +289,7 @@ public class CustomTilemapEditor : EditorWindow
         string prefabPath = EditorUtility.SaveFilePanel(
         "Save Map",
         "Assets/CustomTileMapEditor/MapPrefab",
-        "Map" + (mapLevel + 1) + ".prefab",
+        mapFolder[mapLevel] + ".prefab",
         "prefab"
          );
         if (string.IsNullOrEmpty(prefabPath))
@@ -295,7 +297,7 @@ public class CustomTilemapEditor : EditorWindow
             Debug.Log("Save operation cancelled.");
             return;
         }
-        GameObject mapPrefab = new GameObject("Map" + (mapLevel + 1));
+        GameObject mapPrefab = new GameObject(mapFolder[mapLevel]);
         mapPrefab.tag = "TileRoot";
         floorParent.SetParent(mapPrefab.transform);
         backGroundParent.SetParent(mapPrefab.transform);
@@ -359,7 +361,7 @@ public class CustomTilemapEditor : EditorWindow
         }
         string prefabPath = EditorUtility.SaveFilePanel(
         "Save Tilemap Data",
-        "Assets/CustomTileMapEditor/MapData/Map" + (mapLevel + 1),
+        "Assets/CustomTileMapEditor/MapData/" + mapFolder[mapLevel],
         "tilemap_data.prefab",
         "prefab"
          );
@@ -375,7 +377,7 @@ public class CustomTilemapEditor : EditorWindow
     {
         string prefabPath = EditorUtility.OpenFilePanel(
         "Load Tilemap Data",
-        "Assets/CustomTileMapEditor/MapData/Map" + (mapLevel + 1),
+        "Assets/CustomTileMapEditor/MapData/" + mapFolder[mapLevel],
         "prefab"
         );
         if (!string.IsNullOrEmpty(prefabPath))
@@ -400,7 +402,7 @@ public class CustomTilemapEditor : EditorWindow
     {
         string prefabPath = EditorUtility.OpenFilePanel(
         "Paint Tilemap Data",
-        "Assets/CustomTileMapEditor/MapData/Map" + (mapLevel + 1),
+        "Assets/CustomTileMapEditor/MapData/" + mapFolder[mapLevel],
         "prefab"
         );
         if (!string.IsNullOrEmpty(prefabPath))
