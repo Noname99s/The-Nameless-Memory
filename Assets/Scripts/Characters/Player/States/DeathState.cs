@@ -28,7 +28,7 @@ namespace Orpul1.Player.State
         }
         private void TransitionState()
         {
-            if (data.playerInfo.isDeath) return;
+            if (data.hitInfo.isDeath) return;
             transitionTo((int)EPlayerState.Idle);
         }
     }

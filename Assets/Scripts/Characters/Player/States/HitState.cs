@@ -13,7 +13,7 @@ namespace Orpul1.Player.State.Hit
         public override void OnStart()
         {
             data.playerInfo.animator.SetTrigger(EPlayerAni.HitTrigger.ToString());
-            hitTime = Time.time + data.playerInfo.hitDuration;
+            hitTime = Time.time + data.hitInfo.hitDuration;
         }
         
         public override void OnUpdate()
@@ -24,7 +24,7 @@ namespace Orpul1.Player.State.Hit
 
         public override void OnExit()
         {
-            data.playerInfo.isHit = false;
+            data.hitInfo.isHit = false;
         }
     }
 }

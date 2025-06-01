@@ -30,7 +30,7 @@ namespace Orpul1.Player
             playerData.Initialize();
             
             playerData.playerInfo.actionFlipX = FlipX;
-            delayInvincible = new WaitForSeconds(playerData.playerInfo.invincibleTime);
+            delayInvincible = new WaitForSeconds(playerData.hitInfo.invincibleTime);
         }
         void Start()
         {
@@ -119,26 +119,26 @@ namespace Orpul1.Player
         }
         public void OnDamage(int damage)
         {
-            if (!playerData.playerInfo.canGetDamage) return;
+            if (!playerData.hitInfo.canGetDamage) return;
 
             playerData.playerInfo.hp -= damage;
-            playerData.playerInfo.isHit = playerData.playerInfo.hp > 0;
-            playerData.playerInfo.isDeath = !playerData.playerInfo.isHit;
+            playerData.hitInfo.isHit = playerData.playerInfo.hp > 0;
+            playerData.hitInfo.isDeath = !playerData.hitInfo.isHit;
             StartCoroutine("CountInvincibleTime");
         }
 
         public void knockback(Vector2 dir)
         {
-            if (!playerData.playerInfo.canGetDamage) return;
+            if (!playerData.hitInfo.canGetDamage) return;
             playerData.playerInfo.rigid.linearVelocity = Vector2.zero;
-            playerData.playerInfo.rigid.AddForce(dir * playerData.playerInfo.knockBackPower, ForceMode2D.Impulse);
+            playerData.playerInfo.rigid.AddForce(dir * playerData.hitInfo.knockBackPower, ForceMode2D.Impulse);
         }
 
         IEnumerator CountInvincibleTime()
         {
-            playerData.playerInfo.canGetDamage = false;
+            playerData.hitInfo.canGetDamage = false;
             yield return delayInvincible;
-            playerData.playerInfo.canGetDamage = true;
+            playerData.hitInfo.canGetDamage = true;
         }
     }
 

@@ -48,7 +48,7 @@ namespace Orpul1.Player.State
         
         private bool IsHitState()
         {
-            if (!data.playerInfo.isHit) return false;
+            if (!data.hitInfo.isHit) return false;
             data.moveInfo.canClimbLadder = false;
             transitionTo((int)EPlayerState.Hit);
 

@@ -70,7 +70,7 @@ namespace Orpul1.Player.State
         }
         private bool IsHitState()
         {
-            if (!data.playerInfo.isHit) return false;
+            if (!data.hitInfo.isHit) return false;
             transitionTo((int)EPlayerState.Hit);
 
             return true;
@@ -84,7 +84,7 @@ namespace Orpul1.Player.State
         }
         private bool IsDeathState()
         {
-            if (!data.playerInfo.isDeath) return false;
+            if (!data.hitInfo.isDeath) return false;
             transitionTo((int)EPlayerState.Death);
 
             return true;

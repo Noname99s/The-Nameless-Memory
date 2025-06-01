@@ -44,14 +44,7 @@ public class PlayerInfo
     public Vector3 originScale = Vector3.one;
     public int hp;
     public int maxHp;
-    public float knockBackPower;
-    public float invincibleTime = 0.5f;
-    public float hitDuration = 1f;
-    public bool canGetDamage = true;
-    public bool isHit = false;
-    public bool isDeath = false;
     public Action actionFlipX;
-
 }
 
 [Serializable]
@@ -98,6 +91,16 @@ public class PlayerFallInfo
     public int maxFallDamage;
 }
 
+[Serializable]
+public class PlayerHitInfo
+{
+    public float knockBackPower;
+    public float invincibleTime = 0.5f;
+    public float hitDuration = 1f;
+    public bool canGetDamage = true;
+    public bool isHit = false;
+    public bool isDeath = false;
+}
 public class PlayerContext : MonoBehaviour
 {
     public PlayerInfo playerInfo;
@@ -109,6 +112,7 @@ public class PlayerContext : MonoBehaviour
     public PlayerFallInfo fallInfo;
 
     public PlayerAttackInfo attackInfo;
+    public PlayerHitInfo hitInfo;
 
 
     public bool IsIdleState
@@ -167,6 +171,6 @@ public class PlayerContext : MonoBehaviour
         fallInfo.fallDamage = 0;
         attackInfo.attackType = EPlayerAttack.NONE;
         playerInfo.originScale = transform.localScale;
-        playerInfo.canGetDamage = true;
+        hitInfo.canGetDamage = true;
     }
 }
