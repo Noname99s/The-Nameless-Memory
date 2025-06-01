@@ -26,7 +26,7 @@ public class SetFieldBlur : ActionScript
         if(isActive)
             setCameraEffect.Execute((int)effectType);
         else
-            setCameraEffect.Abort((int)effectType);
+            setCameraEffect.Stop((int)effectType);
         return NodeState.Success;
     }
     public override NodeState OnExit()

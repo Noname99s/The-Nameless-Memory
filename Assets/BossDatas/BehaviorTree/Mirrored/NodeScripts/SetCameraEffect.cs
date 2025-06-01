@@ -26,7 +26,7 @@ public class SetCameraEffect : ActionScript
         if (isExecute)
             setCameraEffect.Execute((int)effectType);
         else
-            setCameraEffect.Abort((int)effectType);
+            setCameraEffect.Stop((int)effectType);
             return NodeState.Success;
     }
     public override NodeState OnExit()

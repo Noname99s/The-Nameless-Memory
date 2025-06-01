@@ -151,7 +151,8 @@ namespace Orpul1.Player
         {
             cameraEffect.Execute((int)ECameraEffect.Shake);
             yield return delayCameraShake;
-            cameraEffect.Abort((int)ECameraEffect.Shake);
+            cameraEffect.Stop((int)ECameraEffect.Shake);
+            
         }
         IEnumerator CountInvincibleTime()
         {
