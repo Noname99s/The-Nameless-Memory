@@ -11,12 +11,11 @@ namespace Orpul1.Player.State
         bool isFlip = false;
         public override void OnStart()
         {
-
             data.jumpInfo.jumpCount = 2;
             data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
             data.moveInfo.slideMovement.gravity = data.moveInfo.slideMoveGravity;
             data.playerInfo.rigid.gravityScale = 0;
-            data.playerInfo.rigid.linearVelocityX = 0;
+            data.playerInfo.rigid.linearVelocity = Vector2.zero;
         }
         public override void OnUpdate()
         {

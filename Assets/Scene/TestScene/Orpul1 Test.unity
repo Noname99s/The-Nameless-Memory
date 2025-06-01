@@ -73051,10 +73051,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 5394511368529111179, guid: 4f7460ad7a8cefe4b8da11d63c8b6d96, type: 3}
+      propertyPath: Lens.OrthographicSize
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5672712967279825964, guid: 4f7460ad7a8cefe4b8da11d63c8b6d96, type: 3}
       propertyPath: cameraTarget.TrackingTarget
       value: 
       objectReference: {fileID: 1274096346}
+    - target: {fileID: 6650672960162091266, guid: 4f7460ad7a8cefe4b8da11d63c8b6d96, type: 3}
+      propertyPath: orthographic size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6919881046545843364, guid: 4f7460ad7a8cefe4b8da11d63c8b6d96, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.5

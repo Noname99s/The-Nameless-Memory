@@ -33,7 +33,10 @@ namespace Orpul1.Player.State
             jumpStraties[(int)jumpType].Execute();
 
             if (data.jumpInfo.jumpState == EJumpState.JumpReady && data.jumpInfo.isPressJump)
+            {
+                data.playerInfo.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
                 jumpStraties[(int)jumpType].Initialize();
+            }
 
             TransitionState();
         }
