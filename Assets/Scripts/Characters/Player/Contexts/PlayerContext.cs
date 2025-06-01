@@ -97,6 +97,7 @@ public class PlayerHitInfo
     public float knockBackPower;
     public float invincibleTime = 0.5f;
     public float hitDuration = 1f;
+    public float cameraShakeDuration = 0;
     public bool canGetDamage = true;
     public bool isHit = false;
     public bool isDeath = false;

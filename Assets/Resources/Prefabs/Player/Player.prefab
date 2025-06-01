@@ -379,17 +379,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateController: {fileID: 5725579068212597670}
   playerData: {fileID: 6948962639656468517}
-  groundRayDistance: 0.8
-  wallRayDistance: 0.35
-  ladderRayDistance: 1
-  groundRayStartPosi: {x: 0, y: 0.72, z: 0}
-  wallRayStartPosi: {x: 0, y: 0.5, z: 0}
-  floorLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  ladderLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  rayInfo:
+    groundRayDistance: 0.8
+    wallRayDistance: 0.35
+    ladderRayDistance: 1
+    groundRayStartPosi: {x: 0, y: 0.72, z: 0}
+    wallRayStartPosi: {x: 0, y: 0.5, z: 0}
+    floorLayer:
+      serializedVersion: 2
+      m_Bits: 64
+    ladderLayer:
+      serializedVersion: 2
+      m_Bits: 128
   state: 0
 --- !u!114 &6948962639656468517
 MonoBehaviour:
@@ -478,6 +479,7 @@ MonoBehaviour:
     knockBackPower: 20
     invincibleTime: 1
     hitDuration: 0.05
+    cameraShakeDuration: 1
     canGetDamage: 1
     isHit: 0
     isDeath: 0

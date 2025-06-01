@@ -1,10 +1,7 @@
-using Orpul1;
 using Orpul1.Camera;
 using Orpul1.Camera.State;
 using Orpul1.State;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 
 public class CameraController : MonoBehaviour
 {

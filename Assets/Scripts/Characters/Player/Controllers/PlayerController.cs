@@ -1,41 +1,53 @@
+using Orpul1.Camera;
+using Orpul1.Camera.Effect;
 using Orpul1.State;
 using Orpul1.State.Attack;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 
 namespace Orpul1.Player
 {
+    [Serializable]
+    public struct PlayerRayInfo
+    {
+        public float groundRayDistance;
+        public float wallRayDistance;
+        public float ladderRayDistance;
+        public Vector3 groundRayStartPosi;
+        public Vector3 wallRayStartPosi;
+        public LayerMask floorLayer, ladderLayer;
+        public Ray2D groundRay;
+        public Ray2D wallRay;
+        public Ray2D ladderRay;
+    }
     public class PlayerController : MonoBehaviour,IDamageAble, IknockbackAble
     {
         [SerializeField] StateController stateController;
         [SerializeField] PlayerContext playerData;
-        [SerializeField] float groundRayDistance = 1f;
-        [SerializeField] float wallRayDistance = 1f;
-        [SerializeField] float ladderRayDistance = 1f;
-        [SerializeField] Vector3 groundRayStartPosi = Vector3.zero;
-        [SerializeField] Vector3 wallRayStartPosi = Vector3.zero;
-        [SerializeField] LayerMask floorLayer, ladderLayer;
-        Ray2D groundRay = new Ray2D();
-        Ray2D wallRay = new Ray2D();
-        Ray2D ladderRay = new Ray2D();
+        [SerializeField] PlayerRayInfo rayInfo;
         WaitForSeconds delayInvincible;
+        WaitForSeconds delayCameraShake;
+        ICameraEffectAble cameraEffect;
         //TODO: 플레이어 HP UI연결 시킬 것
 
         //IInGameView playerHpUI;
         [SerializeField] EPlayerState state;
         private void Awake()
         {
-            groundRay.origin = transform.position;
+            rayInfo.groundRay.origin = transform.position;
             playerData.Initialize();
             
             playerData.playerInfo.actionFlipX = FlipX;
             delayInvincible = new WaitForSeconds(playerData.hitInfo.invincibleTime);
+            delayCameraShake = new WaitForSeconds(playerData.hitInfo.cameraShakeDuration);
             PlayerManager.Instance.SetPlayer(gameObject);
         }
         void Start()
         {
             //playerHpUI = Managers.UI.GetPopupUI<InGameView>();
+            cameraEffect = CameraManager.Instance.GetCamera((int)ECameraType.MainCamera).GetComponent<ICameraEffectAble>();
             stateController.TransitionState((int)EPlayerState.Idle);
             playerData.playerInfo.slideMovement.gravity = Physics2D.gravity;
             playerData.playerInfo.slideMovement.surfaceAnchor = Vector2.down * 0.1f;
@@ -58,7 +70,7 @@ namespace Orpul1.Player
         }
         private void OnGround()
         {
-            if (!IsHitRay(SetRay(groundRay, groundRayStartPosi, Vector2.down, groundRayDistance, floorLayer.value))) 
+            if (!IsHitRay(SetRay(rayInfo.groundRay, rayInfo.groundRayStartPosi, Vector2.down, rayInfo.groundRayDistance, rayInfo.floorLayer.value))) 
             {
                 playerData.fallInfo.isFalling = true;
                 return;
@@ -72,7 +84,7 @@ namespace Orpul1.Player
         private void OnAir()
         {
             SetWallRayPosi();
-            if (!IsHitRay(SetRay(wallRay, wallRayStartPosi, Vector2.right * transform.localScale.x, wallRayDistance, floorLayer.value))) 
+            if (!IsHitRay(SetRay(rayInfo.wallRay, rayInfo.wallRayStartPosi, Vector2.right * transform.localScale.x, rayInfo.wallRayDistance, rayInfo.floorLayer.value))) 
             {
                 playerData.moveInfo.canClimbWall = false;
                 return;
@@ -82,7 +94,7 @@ namespace Orpul1.Player
         private void OnLadder()
         {
             
-            if (SetRay(ladderRay, Vector2.zero, Vector2.up, ladderRayDistance, ladderLayer.value).transform == null)
+            if (SetRay(rayInfo.ladderRay, Vector2.zero, Vector2.up, rayInfo.ladderRayDistance, rayInfo.ladderLayer.value).transform == null)
             {
                 playerData.moveInfo.canClimbLadder = false;
                 return;
@@ -91,10 +103,10 @@ namespace Orpul1.Player
         }
         private void SetWallRayPosi()
         {
-            if (!playerData.playerInfo.sprite.flipX && wallRayStartPosi.x < 0)
-                wallRayStartPosi.x *= -1;
-            else if (playerData.playerInfo.sprite.flipX && wallRayStartPosi.x > 0)
-                wallRayStartPosi.x *= -1;
+            if (!playerData.playerInfo.sprite.flipX && rayInfo.wallRayStartPosi.x < 0)
+                rayInfo.wallRayStartPosi.x *= -1;
+            else if (playerData.playerInfo.sprite.flipX && rayInfo.wallRayStartPosi.x > 0)
+                rayInfo.wallRayStartPosi.x *= -1;
         }
         private RaycastHit2D SetRay(Ray2D ray, Vector2 rayShootPosi, Vector2 dir,float distance, int detectLayer)
         {
@@ -126,6 +138,7 @@ namespace Orpul1.Player
             playerData.hitInfo.isHit = playerData.playerInfo.hp > 0;
             playerData.hitInfo.isDeath = !playerData.hitInfo.isHit;
             StartCoroutine("CountInvincibleTime");
+            StartCoroutine("CameraShake");
         }
 
         public void knockback(Vector2 dir)
@@ -134,15 +147,17 @@ namespace Orpul1.Player
             playerData.playerInfo.rigid.linearVelocity = Vector2.zero;
             playerData.playerInfo.rigid.AddForce(dir * playerData.hitInfo.knockBackPower, ForceMode2D.Impulse);
         }
-
+        IEnumerator CameraShake()
+        {
+            cameraEffect.Execute((int)ECameraEffect.Shake);
+            yield return delayCameraShake;
+            cameraEffect.Abort((int)ECameraEffect.Shake);
+        }
         IEnumerator CountInvincibleTime()
         {
             playerData.hitInfo.canGetDamage = false;
             yield return delayInvincible;
             playerData.hitInfo.canGetDamage = true;
         }
-
-        
     }
-
 }
