@@ -19,12 +19,39 @@ namespace Orpul1.Player.State.Hit
         public override void OnUpdate()
         {
             if (Time.time < hitTime) return;
-            transitionTo((int)EPlayerState.Idle);
+            TransitionState();
         }
 
         public override void OnExit()
         {
             data.hitInfo.isHit = false;
+        }
+        private void TransitionState()
+        {
+            if (IsIdleState()) return;
+            if (IsFallState()) return;
+            if (IsMoveState()) return;
+        }
+        private bool IsIdleState()
+        {
+            if(!data.IsIdleState) return false;
+            transitionTo((int)EPlayerState.Idle);
+
+            return true;
+        }
+        private bool IsFallState()
+        {
+            if (!data.IsFallState) return false;
+            transitionTo((int)EPlayerState.Fall);
+
+            return true;
+        }
+        private bool IsMoveState()
+        {
+            if (!data.IsMoveState) return false;
+            transitionTo((int)EPlayerState.Move);
+
+            return true;
         }
     }
 }

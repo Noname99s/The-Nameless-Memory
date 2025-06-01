@@ -413,6 +413,7 @@ MonoBehaviour:
     originScale: {x: 1, y: 1, z: 1}
     hp: 100
     maxHp: 100
+    dectectedGroundPosi: {x: 0, y: 0, z: 0}
   moveInfo:
     slideMovement:
       <maxIterations>k__BackingField: 3
@@ -480,7 +481,7 @@ MonoBehaviour:
     knockBackPower: 20
     invincibleTime: 1
     hitDuration: 0.05
-    cameraShakeDuration: 1
+    cameraShakeDuration: 0.5
     canGetDamage: 1
     isHit: 0
     isDeath: 0
