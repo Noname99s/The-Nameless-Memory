@@ -25,6 +25,7 @@ namespace Orpul1.Enemy.State
             context.enemyInfo.slideResult = context.enemyInfo.rigid.Slide(Vector2.right * dir.x, 
                                                                             Time.deltaTime * context.patrolInfo.patrolMoveSpeed,
                                                                             context.enemyInfo.slideMovement);
+            context.enemyInfo.flipX(dir.x);
         }
 
         public override void OnExit()

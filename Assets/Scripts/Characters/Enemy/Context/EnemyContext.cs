@@ -10,6 +10,8 @@ namespace Orpul1.Enemy
         public Rigidbody2D.SlideMovement slideMovement = new Rigidbody2D.SlideMovement();
         public Rigidbody2D.SlideResults slideResult = new Rigidbody2D.SlideResults();
         public Animator animator;
+        public Vector3 originScale = Vector3.one;
+        public Action<float> flipX;
     }
     [Serializable]
     public class PatrolInfo

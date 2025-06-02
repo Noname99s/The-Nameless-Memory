@@ -21,6 +21,8 @@ namespace Orpul1.Enemy.State
             dir = dir * context.chaseInfo.chaseMoveSpeed;
             context.enemyInfo.slideResult = context.enemyInfo.rigid.Slide(Vector2.right * dir.x, Time.deltaTime, context.enemyInfo.slideMovement);
             context.enemyInfo.animator.SetFloat(EEnemyAni.MoveSpeed.ToString(), 1);
+
+            context.enemyInfo.flipX(dir.x);
         }
 
         public override void OnExit()
