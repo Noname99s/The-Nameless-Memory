@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 1447691041}
   - component: {fileID: 1447691040}
   - component: {fileID: 1447691042}
+  - component: {fileID: 1447691043}
   m_Layer: 0
   m_Name: '@Managers'
   m_TagString: Untagged
@@ -150,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resource: {fileID: 1447691042}
+  _mapManager: {fileID: 1447691043}
 --- !u!4 &1447691041
 Transform:
   m_ObjectHideFlags: 0
@@ -177,6 +179,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b4d980695c3e94db40eff0f0cbcde3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1447691043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447691039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08194825720c7364ba8ec22c5ce58d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapListType: 6
+  mapObjects: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

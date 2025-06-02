@@ -11,11 +11,13 @@ public class Managers : MonoBehaviour
 
     UIManager _ui = new UIManager();
     [SerializeField] ResourceManager _resource;
-    
+    [SerializeField] MapManager _mapManager;
+
     public static SceneLoadManager SceneLoad { get { return Instance._sceneLoad; } }
     public static GameManager Game { get { return Instance._game; } }
     public static UIManager UI { get { return Instance._ui; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
+    public static MapManager Map { get { return Instance._mapManager; } }
     static Managers Instance 
     { 
         get 
@@ -38,9 +40,9 @@ public class Managers : MonoBehaviour
     public void Init()
     {
         s_instance = GetComponent<Managers>();
+        _game.Init();
         _sceneLoad.Init();
         _ui.Init();
-        //_ui.ShowPopupUI<MainMenuComposition>();
     }
     private void Start()
     {
