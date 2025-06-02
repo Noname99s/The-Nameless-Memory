@@ -7,30 +7,16 @@ using UnityEngine;
 using UnityEngine.Experimental.AI;
 namespace Orpul1.Enemy
 {
-    [Serializable]
-    public class SightInfo
-    {
-        public Transform trTarget;
-        public Vector3 originPosi;
-        public LayerMask detectMask;
-        public float viewRadius = 1;
-        public float distance = 0;
-        public int flipValue = 1;
-
-        public Ray ray;
-        public RaycastHit2D hit;
-    }
     public class EnemyController : MonoBehaviour,IDamageAble,IknockbackAble, ISetDataAble<Action<GameObject>>, IResetAble
     {
-        [SerializeField] SightInfo sightInfo;
         [SerializeField] StateController stateController;
         [SerializeField] EnemyContext context;
         [SerializeField] EEnemyState state;
+        [SerializeField] FieldOfView fieldOfView;
         ISightFindAble enemySight;
-
         private void Awake()
         {
-            enemySight = new FieldOfView(sightInfo);
+            enemySight = fieldOfView;
             context.Initialize();
             context.enemyInfo.flipX = FlipX;
             context.dieInfo.destroyAction = DestroyObject;
@@ -75,7 +61,6 @@ namespace Orpul1.Enemy
             if (xScale == 0) return;
 
             Vector3 scale = context.enemyInfo.originScale;
-            sightInfo.flipValue = scale.x < 0 ? -1 : 1;
             scale.x *= xScale;
             transform.localScale = scale;
         }
@@ -93,18 +78,6 @@ namespace Orpul1.Enemy
             context.dieInfo.deactiveAction = enqueueAction;
         }
 
-
-        private void OnDrawGizmos()
-        {
-            if (IsNullInfo()) return;
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(sightInfo.trTarget.position + sightInfo.originPosi, sightInfo.viewRadius);
-        }
-        private bool IsNullInfo()
-        {
-            if (sightInfo.trTarget == null) return true;
-            return false;
-        }
 
         public void OnDamage(int damage)
         {

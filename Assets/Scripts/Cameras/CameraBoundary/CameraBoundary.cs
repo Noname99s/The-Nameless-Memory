@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using DG.Tweening;
 using Orpul1.Camera;
 using Orpul1;
 
