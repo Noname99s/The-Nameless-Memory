@@ -1,0 +1,29 @@
+using UnityEngine;
+
+public class StageDoor : MonoBehaviour
+{
+    [SerializeField] bool isNextStage = true; // true for next stage, false for previous stage
+
+    bool isInDoor = false;
+    void Update()
+    {
+        if (isInDoor && Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Managers.Map.EntranceMap(isNextStage);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isInDoor = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isInDoor = false;
+        }
+    }
+}

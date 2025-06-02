@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5680952135707525415, guid: c35607954bd06ce4f90ba46330960132, type: 3}
   cameraPrefab: {fileID: 1495233070739381293, guid: 4f7460ad7a8cefe4b8da11d63c8b6d96, type: 3}
+  cameraViewBoundaryPrefab: {fileID: 8950893359795197802, guid: 7699afde3b4995c479a32e116ed985de, type: 3}
   startPosition: {x: 9, y: 8, z: 0}

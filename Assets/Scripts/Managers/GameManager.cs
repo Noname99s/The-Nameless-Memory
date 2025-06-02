@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -34,7 +35,7 @@ public class GameManager
         if (CurrentState == newState) return;
         CurrentState = newState;
         Debug.Log($"Game state changed to: {CurrentState}");
-        Managers.Player.MoveStage(); // Move player to the new state
+        Managers.Player.MoveStage(false); // Move player to the new state
         Managers.SceneLoad.LoadScene(newState.ToString());
         
     }
@@ -49,14 +50,17 @@ public class GameManager
             case GameState.Home:
                 // Logic for home
                 Managers.UI.ShowPopupUI<InGameComposition>();
-                Managers.Player.Init(true); // Initialize player
+                Managers.Player.Init(); // Initialize player
+                Managers.Player.ChangePlayerPos(true); // Set player position to home
+                Managers.Player.MoveStage(true); // Activate player and camera
                 break;
 
             case GameState.Battle:
                 // Logic for battle
                 Managers.UI.ShowPopupUI<InGameComposition>(); 
                 Managers.Map.EntranceMap(); // Load the current map
-                Managers.Player.Init(false); // Initialize player for battle
+                Managers.Player.ChangePlayerPos(false); // Set player position to the current map
+                Managers.Player.MoveStage(true); // Activate player and camera
                 break;
 
             case GameState.Boss:

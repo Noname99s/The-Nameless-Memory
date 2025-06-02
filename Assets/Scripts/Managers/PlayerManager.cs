@@ -7,35 +7,37 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] SO_PlayerInfo playerInfo;
     GameObject player;
     GameObject playerCamera;
-
+    GameObject cameraViewBoundary;
     
-    public void Init(bool isHub)
+    public void Init()
     {
         if (player == null)
         {
-            player = Managers.Resource.Instantiate(playerInfo.playerPrefab);
-            playerCamera = Managers.Resource.Instantiate(playerInfo.cameraPrefab);
+            player = Instantiate(playerInfo.playerPrefab, playerInfo.startPosition , Quaternion.identity);
+            playerCamera = Instantiate(playerInfo.cameraPrefab);
+            cameraViewBoundary = Instantiate(playerInfo.cameraViewBoundaryPrefab);
             DontDestroyOnLoad(player);
             DontDestroyOnLoad(playerCamera);
+            DontDestroyOnLoad(cameraViewBoundary);
         }
-        StartCoroutine(MoveSpawnPos(isHub));
     }
-    IEnumerator MoveSpawnPos(bool isHub)
+    public void ChangePlayerPos(bool isHub)
     {
-        yield return new WaitForSeconds(0.1f);
-        player.SetActive(true);
-        playerCamera.SetActive(true);
-        if (isHub)
-            player.transform.position = playerInfo.startPosition;
-        else
+        if (player == null) return;
+        if (!isHub)
             player.transform.position = Managers.Map.playerSpawnPoint;
-        player.GetComponent<PlayerController>().RecoverHp(isHub);
+        else
+        {
+            player.transform.position = playerInfo.startPosition;
+            player.GetComponent<PlayerController>().RecoverHp(isHub);
+        }
     }
-    public void MoveStage()
+    public void MoveStage(bool setActive)
     {
         if(player == null || playerCamera == null) return;
-        player.SetActive(false);
-        playerCamera.SetActive(false);
+        player.SetActive(setActive);
+        playerCamera.SetActive(setActive);
+        cameraViewBoundary.SetActive(setActive);
     }
     public GameObject GetPlayer()
     {
@@ -45,8 +47,9 @@ public class PlayerManager : MonoBehaviour
     public void RemovePlayer()
     {
         if (player == null) return;
-        Destroy(playerCamera);
         Destroy(player);
+        Destroy(playerCamera);
+        Destroy(cameraViewBoundary);
         player = null;
     }
 }

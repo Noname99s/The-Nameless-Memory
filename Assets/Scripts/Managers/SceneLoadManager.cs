@@ -16,9 +16,10 @@ public class SceneLoadManager
     public void LoadScene(string sceneName)
     {
         AsyncOperation async = SceneManager.UnloadSceneAsync(currentScene);
-        loading = Managers.UI.ShowPopupUI<LoadingComposition>();
         async.completed += (AsyncOperation obj) =>
         {
+            Managers.UI.CloseAllPopupUI(); // Close all UI popups before loading new scene
+            loading = Managers.UI.ShowPopupUI<LoadingComposition>();
             loading.LoadScene(sceneName);
         };
         currentScene = sceneName;

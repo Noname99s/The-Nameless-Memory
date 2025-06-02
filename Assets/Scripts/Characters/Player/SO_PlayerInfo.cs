@@ -5,5 +5,6 @@ public class SO_PlayerInfo : ScriptableObject
 {
     public GameObject playerPrefab;
     public GameObject cameraPrefab;
+    public GameObject cameraViewBoundaryPrefab;
     public Vector3 startPosition = new Vector3(9,8,0); // Default starting position
 }

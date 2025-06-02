@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2485917188359765383}
   - component: {fileID: 311684621109839527}
   - component: {fileID: 3428360384020197226}
+  - component: {fileID: 3889669829452111284}
   m_Layer: 9
   m_Name: Tilemap
   m_TagString: Untagged
@@ -172,6 +173,19 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 100002511460951390}
+--- !u!114 &3889669829452111284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100002511460951390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21a2a36a3396ee40a4a7038005a71bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isNextStage: 0
 --- !u!1 &154644808455471654
 GameObject:
   m_ObjectHideFlags: 0
@@ -40991,7 +41005,7 @@ Tilemap:
       - {fileID: 21300004, guid: 27df11ebd9f54314a9f96ea8a85a4e0f, type: 3}
       - {fileID: 21300006, guid: 27df11ebd9f54314a9f96ea8a85a4e0f, type: 3}
       - {fileID: 21300008, guid: 27df11ebd9f54314a9f96ea8a85a4e0f, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 50, y: 114, z: 0}
@@ -93341,6 +93355,7 @@ GameObject:
   - component: {fileID: 7604663695197610674}
   - component: {fileID: 4811910103562625752}
   - component: {fileID: 4419495445990802203}
+  - component: {fileID: 946178595310616165}
   m_Layer: 9
   m_Name: Tilemap
   m_TagString: Untagged
@@ -93501,6 +93516,19 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 4411861571178474183}
+--- !u!114 &946178595310616165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4411861571178474183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21a2a36a3396ee40a4a7038005a71bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isNextStage: 1
 --- !u!1 &5307184710853226894
 GameObject:
   m_ObjectHideFlags: 0
