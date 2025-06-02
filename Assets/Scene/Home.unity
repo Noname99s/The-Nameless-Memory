@@ -317,6 +317,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hub
       objectReference: {fileID: 0}
+    - target: {fileID: 3385274220026968203, guid: 6a18cb52d022ba148ad0f2c93b61f178, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5759290845767503427, guid: 6a18cb52d022ba148ad0f2c93b61f178, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
       value: 3
