@@ -9,6 +9,9 @@ TagManager:
   - BackGround
   - TileRoot
   - Enemy
+  - InventorySlot
+  - BackGround1
+  - BackGround2
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - Climb
   - BackGround
   - Interact
-  - 
+  - Player
   - 
   - 
   - 

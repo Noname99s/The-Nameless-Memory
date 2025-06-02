@@ -8,7 +8,6 @@ namespace Orpul1.Player.State
     public class MoveState : PlayerBaseState
     {
         public MoveState(PlayerContext playerdata, Action<int> transitionTo) : base(playerdata, transitionTo) {}
-        bool isFlip = false;
         public override void OnStart()
         {
             data.jumpInfo.jumpCount = 2;

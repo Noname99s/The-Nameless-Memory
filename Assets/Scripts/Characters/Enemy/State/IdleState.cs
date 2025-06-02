@@ -34,8 +34,7 @@ namespace Orpul1.Enemy.State
         protected override void TransitionState()
         {
             if (IsChaseState()) return;
-            //if (IsAttackState()) return;
-            //if (IsDieState()) return;
+            if (IsDieState()) return;
         }
         private bool IsChaseState()
         {
@@ -44,14 +43,12 @@ namespace Orpul1.Enemy.State
 
             return true;
         }
-        private bool IsAttackState()
-        {
-            
-            return true;
-        }
+
         private bool IsDieState()
         {
-            
+            if (!context.IsDieState) return false;
+            transitionTo((int)EEnemyState.Die);
+
             return true;
         }
 

@@ -6,6 +6,6 @@ namespace Orpul1.Enemy
     {
         MoveSpeed,
         IsAttack,
-        IsDie,
+        DieTrigger,
     }
 }

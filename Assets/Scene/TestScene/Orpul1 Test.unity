@@ -72952,9 +72952,10 @@ MonoBehaviour:
     originPosi: {x: 0, y: 0.6, z: 0}
     detectMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 1024
     viewRadius: 5
     distance: 35.5
+    flipValue: 1
   stateController: {fileID: 2010394121}
   context: {fileID: 2010394119}
   state: 0
@@ -73008,6 +73009,8 @@ MonoBehaviour:
       <iterationsUsed>k__BackingField: 0
     animator: {fileID: 1949475422}
     originScale: {x: 4.8, y: 4.8, z: 1}
+    hp: 100
+    flipValue: 1
   idleInfo:
     idleDuration: 5
   patrolInfo:
@@ -73018,9 +73021,11 @@ MonoBehaviour:
   chaseInfo:
     chaseTarget: {fileID: 0}
     isFindChaseTarget: 0
-    chaseMoveSpeed: 0
+    chaseMoveSpeed: 5
+    chaseDistance: 0
   attackInfo:
     damage: 0
+    attackDistance: 0
 --- !u!114 &2010394121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73043,13 +73048,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 573073216578718746, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.29
+      value: 12.2
       objectReference: {fileID: 0}
     - target: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.93
+      value: 23.5
       objectReference: {fileID: 0}
     - target: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_LocalPosition.z
@@ -73088,8 +73097,16 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5680952135707525415, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680952135707525415, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130471573606573381, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

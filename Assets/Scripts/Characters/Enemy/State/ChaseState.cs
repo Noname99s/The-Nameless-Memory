@@ -24,6 +24,7 @@ namespace Orpul1.Enemy.State
             context.enemyInfo.animator.SetFloat(EEnemyAni.MoveSpeed.ToString(), 1);
 
             context.enemyInfo.flipX(dir.x);
+            TransitionState();
         }
 
         public override void OnExit()
@@ -33,11 +34,29 @@ namespace Orpul1.Enemy.State
         protected override void TransitionState()
         {
             if (IsPatrolState()) return;
+            if (IsAttackState()) return;
+            if (IsDieState()) return;
         }
         private bool IsPatrolState()
         {
             if (!context.IsPatrolState) return false;
             transitionTo((int)EEnemyState.Patrol);
+
+            return true;
+        }
+        private bool IsAttackState()
+        {
+            if (!context.IsAttackState) return false;
+            Debug.Log("Transition AttackState");
+
+            return true;
+        }
+
+
+        private bool IsDieState()
+        {
+            if (!context.IsDieState) return false;
+            transitionTo((int)EEnemyState.Die);
 
             return true;
         }

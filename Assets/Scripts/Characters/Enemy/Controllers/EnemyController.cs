@@ -30,10 +30,11 @@ namespace Orpul1.Enemy
         private void Awake()
         {
             enemySight = new FieldOfView(sightInfo);
+            context.enemyInfo.flipX = FlipX;
+            context.dieInfo.destroyAction = DestroyObject;
         }
         private void Start()
         {
-            context.enemyInfo.flipX = FlipX;
             stateController.TransitionState((int)state);
         }
         void Update()
@@ -76,9 +77,13 @@ namespace Orpul1.Enemy
             scale.x *= xScale;
             transform.localScale = scale;
         }
-
+        private void DestroyObject()
+        {
+            Destroy(gameObject);
+        }
         public void ResetValue()
         {
+            stateController.TransitionState((int)state);
         }
 
         public void SetValue(Action<GameObject> enqueueAction)
