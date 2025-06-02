@@ -18,6 +18,7 @@ namespace Orpul1.Enemy.State
 
         public override void OnUpdate()
         {
+            IsDieState();
             if (Time.time < hitStateEnterTime) return;
             TransitionState();
         }
@@ -31,7 +32,38 @@ namespace Orpul1.Enemy.State
 
         protected override void TransitionState()
         {
-            transitionTo((int)EEnemyState.Idle);
+            if (IsPatrolState()) return;
+            if (IsChaseState()) return;
+            if (IsAttackState()) return;
         }
+        private bool IsPatrolState()
+        {
+            if (!context.IsPatrolState) return false;
+            transitionTo((int)EEnemyState.Patrol);
+
+            return true;
+        }
+        private bool IsChaseState()
+        {
+            if (!context.IsChaseState) return false;
+            transitionTo((int)EEnemyState.Chase);
+
+            return true;
+        }
+        private bool IsAttackState()
+        {
+            if (!context.IsAttackState) return false;
+            transitionTo((int)EEnemyState.Attack);
+
+            return true;
+        }
+        private bool IsDieState()
+        {
+            if (!context.IsDieState) return false;
+            transitionTo((int)EEnemyState.Die);
+
+            return true;
+        }
+        
     }
 }

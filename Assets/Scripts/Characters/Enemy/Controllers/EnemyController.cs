@@ -17,6 +17,7 @@ namespace Orpul1.Enemy
         private void Awake()
         {
             enemySight = fieldOfView;
+            context.enemyInfo.setSight = fieldOfView;
             context.Initialize();
             context.enemyInfo.flipX = FlipX;
             context.dieInfo.destroyAction = DestroyObject;

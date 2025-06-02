@@ -1,5 +1,6 @@
 using Orpul1.Enemy.State.Attack;
 using System;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 namespace Orpul1.Enemy.State
@@ -19,18 +20,21 @@ namespace Orpul1.Enemy.State
 
         public override void OnStart()
         {
+            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
+            context.enemyInfo.rigid.gravityScale = context.enemyInfo.gravityStrength;
             context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), true);
             interval = 0;
         }
 
         public override void OnUpdate()
         {
-            TransitionState();
+            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
+            if (IsHitState()) return;
             if (!IsAttackAni()) return;
             interval += Time.deltaTime;
 
             if (!IsAttackAniEnd()) return;
-            transitionTo((int)EEnemyState.Idle);
+            TransitionState();
         }
 
         public override void OnExit()
@@ -52,12 +56,26 @@ namespace Orpul1.Enemy.State
         }
         protected override void TransitionState()
         {
-            if (IsPatrolState()) return;
+            transitionTo((int)EEnemyState.Chase);
+        }
+        private bool IsChaseState()
+        {
+            if (!context.IsChaseState) return false;
+            transitionTo((int)EEnemyState.Chase);
+
+            return true;
         }
         private bool IsPatrolState()
         {
             if (!context.IsPatrolState) return false;
             transitionTo((int)EEnemyState.Patrol);
+
+            return true;
+        }
+        private bool IsHitState()
+        {
+            if (!context.IsHitState) return false;
+            transitionTo((int)EEnemyState.Hit);
 
             return true;
         }

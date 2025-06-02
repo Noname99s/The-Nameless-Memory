@@ -13,6 +13,7 @@ namespace Orpul1.Enemy.State
         {
             context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), 1);
             context.enemyInfo.rigid.gravityScale = 0;
+            context.enemyInfo.setSight.SetValue(context.patrolInfo.sightRadius, context.patrolInfo.sightAngle);
         }
 
         public override void OnUpdate()

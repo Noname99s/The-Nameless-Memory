@@ -73232,6 +73232,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 379403530807707627, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
+      propertyPath: chaseInfo.sightAngle
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 379403530807707627, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
+      propertyPath: chaseInfo.sightRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 379403530807707627, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
+      propertyPath: patrolInfo.sightAngle
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 379403530807707627, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
+      propertyPath: patrolInfo.sightRadius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 379403530807707627, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
       propertyPath: chaseInfo.chaseDistance
       value: 10
       objectReference: {fileID: 0}

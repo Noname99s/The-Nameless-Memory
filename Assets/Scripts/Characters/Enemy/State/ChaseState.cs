@@ -13,10 +13,21 @@ namespace Orpul1.Enemy.State
         public override void OnStart()
         {
             context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), context.chaseInfo.chaseMoveSpeed);
+            context.enemyInfo.setSight.SetValue(context.chaseInfo.sightRadius, context.chaseInfo.sightAngle);
         }
 
         public override void OnUpdate()
         {
+            DoChase();
+            TransitionState();
+        }
+
+        public override void OnExit()
+        {
+        }
+        private void DoChase()
+        {
+            if (context.chaseInfo.chaseTarget == null) return;
             Vector2 dir = (context.chaseInfo.chaseTarget.position - context.transform.position).normalized;
             context.enemyInfo.slideResult = context.enemyInfo.rigid.Slide(Vector2.right * dir.x,
                                                                             Time.deltaTime * context.chaseInfo.chaseMoveSpeed,
@@ -24,13 +35,7 @@ namespace Orpul1.Enemy.State
             context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), 1);
 
             context.enemyInfo.flipX(dir.x);
-            TransitionState();
         }
-
-        public override void OnExit()
-        {
-        }
-
         protected override void TransitionState()
         {
             if (IsPatrolState()) return;

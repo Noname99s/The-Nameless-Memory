@@ -14,6 +14,7 @@ namespace Orpul1.Enemy
         public Animator animator;
         public Vector3 originScale = Vector3.one;
         public Action<float> flipX;
+        public ISetDataAble<float, float> setSight;
         public float gravityStrength;
         public int hp;
         public int flipValue = 1;
@@ -23,6 +24,8 @@ namespace Orpul1.Enemy
     {
         public Transform[] movePosis;
         public float patrolMoveSpeed;
+        [Range(0,360)] public float sightAngle;
+        public float sightRadius;
     }
 
     [Serializable]
@@ -38,6 +41,8 @@ namespace Orpul1.Enemy
         public bool isFindChaseTarget = false;
         public float chaseMoveSpeed;
         public float chaseDistance;
+        [Range(0, 360)] public float sightAngle;
+        public float sightRadius;
     }
 
     [Serializable]
@@ -110,6 +115,13 @@ namespace Orpul1.Enemy
                 float distance = Vector2.Distance(transform.position, chaseInfo.chaseTarget.position);
 
                 return distance <= attackInfo.attackDistance; 
+            }
+        }
+        public bool IsHitState
+        {
+            get
+            {
+                return hitInfo.isHit;
             }
         }
         public bool IsDieState
