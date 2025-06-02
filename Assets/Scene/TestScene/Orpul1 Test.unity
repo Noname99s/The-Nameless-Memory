@@ -73033,7 +73033,7 @@ MonoBehaviour:
     blinkCount: 3
     blinkDuration: 0.1
     blinkColors:
-    - {r: 1, g: 1, b: 1, a: 0.5019608}
+    - {r: 1, g: 1, b: 1, a: 0.23529412}
     - {r: 1, g: 1, b: 1, a: 1}
     stillBlink: 0
     isHit: 0
