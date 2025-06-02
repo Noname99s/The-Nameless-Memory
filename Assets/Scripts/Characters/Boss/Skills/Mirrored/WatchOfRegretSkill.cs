@@ -46,7 +46,7 @@ public class WatchOfRegretSkill : BossSkill,ISetDataAble<Vector2>
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag(ETag.Player.ToString())) return;
-        IDamageAble player = other as IDamageAble;
+        IDamageAble player = other.GetComponent<IDamageAble>();
         if (player == null) return;
         player.OnDamage(damage);
     }
