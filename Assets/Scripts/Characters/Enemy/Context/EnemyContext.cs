@@ -14,28 +14,61 @@ namespace Orpul1.Enemy
         public Action<float> flipX;
     }
     [Serializable]
-    public class PatrolInfo
+    public class EnemyPatrolInfo
     {
         public Transform[] movePosis;
         public float patrolMoveSpeed;
     }
+
     [Serializable]
-    public class ChaseInfo
+    public class  EnemyIdleInfo
     {
-        public Transform target;
+        public float idleDuration;
+    }
+
+    [Serializable]
+    public class EnemyChaseInfo
+    {
+        public Transform chaseTarget;
+        public bool isFindChaseTarget = false;
         public float chaseMoveSpeed;
     }
     [Serializable]
-    public class AttackInfo
+    public class HitInfo
+    {
+        public bool isHit = false;
+    }
+    [Serializable]
+    public class EnemyAttackInfo
     {
         public int damage;
+    }
+    [Serializable] 
+    public class EnemyDieInfo
+    {
+        public Action<GameObject> deactiveAction;
     }
     public class EnemyContext : MonoBehaviour
     {
         public EnemyInfo enemyInfo;
-        public PatrolInfo patrolInfo;
-        public ChaseInfo chaseInfo;
-        public AttackInfo attackInfo;
+        public EnemyIdleInfo idleInfo;
+        public EnemyPatrolInfo patrolInfo;
+        public EnemyChaseInfo chaseInfo;
+        public EnemyAttackInfo attackInfo;
+        public EnemyDieInfo dieInfo;
+
+        public bool IsIdleState
+        {
+            get { return true; }
+        }
+        public bool IsPatrolState
+        {
+            get { return !chaseInfo.isFindChaseTarget; }
+        }
+        public bool IsChaseState
+        {
+            get { return chaseInfo.isFindChaseTarget; }
+        }
     }
 
 }

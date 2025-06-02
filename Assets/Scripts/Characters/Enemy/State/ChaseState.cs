@@ -17,7 +17,7 @@ namespace Orpul1.Enemy.State
 
         public override void OnUpdate()
         {
-            Vector2 dir = (context.chaseInfo.target.position - context.transform.position).normalized;
+            Vector2 dir = (context.chaseInfo.chaseTarget.position - context.transform.position).normalized;
             dir = dir * context.chaseInfo.chaseMoveSpeed;
             context.enemyInfo.slideResult = context.enemyInfo.rigid.Slide(Vector2.right * dir.x, Time.deltaTime, context.enemyInfo.slideMovement);
             context.enemyInfo.animator.SetFloat(EEnemyAni.MoveSpeed.ToString(), 1);
@@ -27,6 +27,18 @@ namespace Orpul1.Enemy.State
 
         public override void OnExit()
         {
+        }
+
+        protected override void TransitionState()
+        {
+            if (IsPatrolState()) return;
+        }
+        private bool IsPatrolState()
+        {
+            if (!context.IsPatrolState) return false;
+            transitionTo((int)EEnemyState.Patrol);
+
+            return true;
         }
     }
 }

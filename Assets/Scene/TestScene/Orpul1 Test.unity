@@ -72846,7 +72846,6 @@ GameObject:
   - component: {fileID: 2010394115}
   - component: {fileID: 2010394117}
   - component: {fileID: 2010394121}
-  - component: {fileID: 2010394120}
   - component: {fileID: 2010394119}
   - component: {fileID: 2010394118}
   m_Layer: 0
@@ -72948,6 +72947,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d5fec515647ea41b700e7de6914c5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sightInfo:
+    trTarget: {fileID: 2010394114}
+    originPosi: {x: 0, y: 0.6, z: 0}
+    detectMask:
+      serializedVersion: 2
+      m_Bits: 0
+    viewRadius: 5
+    distance: 5
   stateController: {fileID: 2010394121}
   context: {fileID: 2010394119}
   state: 1
@@ -73007,29 +73014,10 @@ MonoBehaviour:
     - {fileID: 1619117285}
     patrolMoveSpeed: 5
   chaseInfo:
-    target: {fileID: 0}
+    chaseTarget: {fileID: 0}
     chaseMoveSpeed: 0
   attackInfo:
     damage: 0
---- !u!114 &2010394120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010394113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 187cb1f14fe6c7743acb158ac5cc2cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originPosi: {x: 0, y: 0.8, z: 0}
-  viewRadius: 1
-  distance: 0
-  detectMask:
-    serializedVersion: 2
-    m_Bits: 0
-  objController: {fileID: 0}
 --- !u!114 &2010394121
 MonoBehaviour:
   m_ObjectHideFlags: 0
