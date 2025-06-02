@@ -21,8 +21,9 @@ public class PlayerManager : MonoBehaviour
             DontDestroyOnLoad(cameraViewBoundary);
         }
     }
-    public void ChangePlayerPos(bool isHub)
+    public void ChangePlayerPos()
     {
+        bool isHub = Managers.Game.CurrentState == GameState.Home;
         if (player == null) return;
         if (!isHub)
             player.transform.position = Managers.Map.playerSpawnPoint;
@@ -31,8 +32,9 @@ public class PlayerManager : MonoBehaviour
             player.transform.position = playerInfo.startPosition;
             player.GetComponent<PlayerController>().RecoverHp(isHub);
         }
+        playerCamera.transform.position = player.transform.position;
     }
-    public void MoveStage(bool setActive)
+    public void SetActivePlayer(bool setActive)
     {
         if(player == null || playerCamera == null) return;
         player.SetActive(setActive);

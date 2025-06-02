@@ -35,7 +35,8 @@ public class GameManager
         if (CurrentState == newState) return;
         CurrentState = newState;
         Debug.Log($"Game state changed to: {CurrentState}");
-        Managers.Player.MoveStage(false); // Move player to the new state
+        Managers.Player.ChangePlayerPos();
+        Managers.Player.SetActivePlayer(false); // Move player to the new state
         Managers.SceneLoad.LoadScene(newState.ToString());
         
     }
@@ -51,16 +52,16 @@ public class GameManager
                 // Logic for home
                 Managers.UI.ShowPopupUI<InGameComposition>();
                 Managers.Player.Init(); // Initialize player
-                Managers.Player.ChangePlayerPos(true); // Set player position to home
-                Managers.Player.MoveStage(true); // Activate player and camera
+                Managers.Player.SetActivePlayer(true); // Activate player and camera
+                Managers.Player.ChangePlayerPos(); // Set player position to home
                 break;
 
             case GameState.Battle:
                 // Logic for battle
                 Managers.UI.ShowPopupUI<InGameComposition>(); 
                 Managers.Map.EntranceMap(); // Load the current map
-                Managers.Player.ChangePlayerPos(false); // Set player position to the current map
-                Managers.Player.MoveStage(true); // Activate player and camera
+                Managers.Player.SetActivePlayer(true); // Activate player and camera
+                Managers.Player.ChangePlayerPos(); // Set player position to the current map
                 break;
 
             case GameState.Boss:

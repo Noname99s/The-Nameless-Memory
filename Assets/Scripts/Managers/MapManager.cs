@@ -26,6 +26,7 @@ public class MapManager : MonoBehaviour
             Managers.Game.ChangeState(GameState.Home);
             return;
         }
+        Managers.Player.ChangePlayerPos();
         currentMapObject = Managers.Resource.Instantiate(mapObjects[currentMapIndex]);
         if(isNext) currentMapIndex++;
         else currentMapIndex--;
