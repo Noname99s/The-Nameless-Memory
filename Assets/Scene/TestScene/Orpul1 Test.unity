@@ -73232,6 +73232,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 379403530807707627, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
+      propertyPath: chaseInfo.chaseDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 379403530807707627, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
+      propertyPath: attackInfo.attackDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 379403530807707627, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
+      propertyPath: enemyInfo.gravityStrength
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 379403530807707627, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
       propertyPath: 'patrolInfo.movePosis.Array.data[0]'
       value: 
       objectReference: {fileID: 1960183804}
@@ -73324,8 +73336,8 @@ MonoBehaviour:
     originPosi: {x: 0, y: 1, z: 0}
     detectMask:
       serializedVersion: 2
-      m_Bits: 0
-    angle: 90
+      m_Bits: 1024
+    angle: 150
     radius: 3
     rotateZ: 90
   originScale: {x: 4.8, y: 4.8, z: 1}

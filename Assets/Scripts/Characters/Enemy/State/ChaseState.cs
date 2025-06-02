@@ -12,7 +12,7 @@ namespace Orpul1.Enemy.State
 
         public override void OnStart()
         {
-            context.enemyInfo.animator.SetFloat(EEnemyAni.MoveSpeed.ToString(), context.chaseInfo.chaseMoveSpeed);
+            context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), context.chaseInfo.chaseMoveSpeed);
         }
 
         public override void OnUpdate()
@@ -21,7 +21,7 @@ namespace Orpul1.Enemy.State
             context.enemyInfo.slideResult = context.enemyInfo.rigid.Slide(Vector2.right * dir.x,
                                                                             Time.deltaTime * context.chaseInfo.chaseMoveSpeed,
                                                                             context.enemyInfo.slideMovement);
-            context.enemyInfo.animator.SetFloat(EEnemyAni.MoveSpeed.ToString(), 1);
+            context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), 1);
 
             context.enemyInfo.flipX(dir.x);
             TransitionState();
@@ -47,7 +47,7 @@ namespace Orpul1.Enemy.State
         private bool IsAttackState()
         {
             if (!context.IsAttackState) return false;
-            Debug.Log("Transition AttackState");
+            transitionTo((int)EEnemyState.Attack);
 
             return true;
         }

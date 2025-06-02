@@ -11,9 +11,9 @@ namespace Orpul1.Enemy.State
         }
         public override void OnStart()
         {
-            context.enemyInfo.animator.SetTrigger(EEnemyAni.HitTrigger.ToString());
+            context.enemyInfo.animator.SetTrigger(EEnemyAniTransition.HitTrigger.ToString());
             hitStateEnterTime = Time.time + context.hitInfo.hitDuration;
-
+            context.enemyInfo.rigid.gravityScale = context.enemyInfo.gravityStrength;
         }
 
         public override void OnUpdate()
@@ -25,6 +25,7 @@ namespace Orpul1.Enemy.State
         public override void OnExit()
         {
             context.hitInfo.isHit = false;
+            context.enemyInfo.rigid.gravityScale = 0;
         }
 
 

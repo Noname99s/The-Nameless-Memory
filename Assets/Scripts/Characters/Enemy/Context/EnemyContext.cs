@@ -14,6 +14,7 @@ namespace Orpul1.Enemy
         public Animator animator;
         public Vector3 originScale = Vector3.one;
         public Action<float> flipX;
+        public float gravityStrength;
         public int hp;
         public int flipValue = 1;
     }
@@ -89,20 +90,26 @@ namespace Orpul1.Enemy
         }
         public bool IsChaseState
         {
-            get { return chaseInfo.isFindChaseTarget; }
+            get 
+            {
+                if (!chaseInfo.isFindChaseTarget)
+                    return false;
+                float distance = Vector2.Distance(transform.position, chaseInfo.chaseTarget.position);
+
+                return distance < chaseInfo.chaseDistance && distance > attackInfo.attackDistance;
+            }
         }
 
         public bool IsAttackState
         {
             get
             {
-                if (chaseInfo.chaseTarget == null)
+                if (!chaseInfo.isFindChaseTarget)
                     return false;
 
-                if (Vector2.Distance(chaseInfo.chaseTarget.position, transform.position) > attackInfo.attackDistance)
-                    return false;
+                float distance = Vector2.Distance(transform.position, chaseInfo.chaseTarget.position);
 
-                return true; 
+                return distance <= attackInfo.attackDistance; 
             }
         }
         public bool IsDieState

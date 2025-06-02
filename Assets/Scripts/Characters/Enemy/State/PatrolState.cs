@@ -11,7 +11,7 @@ namespace Orpul1.Enemy.State
         int moveIndex = 0;
         public override void OnStart()
         {
-            context.enemyInfo.animator.SetFloat(EEnemyAni.MoveSpeed.ToString(), 1);
+            context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), 1);
             context.enemyInfo.rigid.gravityScale = 0;
         }
 
@@ -28,7 +28,7 @@ namespace Orpul1.Enemy.State
 
         public override void OnExit()
         {
-            context.enemyInfo.animator.SetFloat(EEnemyAni.MoveSpeed.ToString(), 0);
+            context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), 0);
         }
         private void MovePosi()
         {
@@ -48,6 +48,7 @@ namespace Orpul1.Enemy.State
         protected override void TransitionState()
         {
             if (IsChaseState()) return;
+            if (IsAttackState()) return;
             if (IsDieState()) return;
         }
 
@@ -58,7 +59,13 @@ namespace Orpul1.Enemy.State
 
             return true;
         }
+        private bool IsAttackState()
+        {
+            if (!context.IsAttackState) return false;
+            transitionTo((int)EEnemyState.Attack);
 
+            return true;
+        }
         private bool IsDieState()
         {
             if (!context.IsDieState) return false;

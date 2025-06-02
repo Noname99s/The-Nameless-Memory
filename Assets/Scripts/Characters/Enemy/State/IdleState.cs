@@ -11,7 +11,7 @@ namespace Orpul1.Enemy.State
 
         public override void OnStart()
         {
-            context.enemyInfo.rigid.linearVelocityX = 0;
+            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             idleEnterTime = Time.time + context.idleInfo.idleDuration;
         }
 

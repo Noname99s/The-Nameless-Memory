@@ -15,8 +15,8 @@ namespace Orpul1.Enemy.State
                 new IdleState(context,transitionTo),
                 new PatrolState(context,transitionTo),
                 new ChaseState(context,transitionTo),
-                null, // attack
-                null, // hit
+                new AttackState(context,transitionTo),
+                new HitState(context,transitionTo),
                 new DieState(context,transitionTo),
             };
         }
