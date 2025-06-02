@@ -11,8 +11,8 @@ namespace Orpul1.Enemy.State
         {
             attackStrategies = new IStrategy[2]
             {
-                new MeleeAttack(),
-                new RangedAttack()
+                new MeleeAttack(context),
+                new RangedAttack(context)
             };
         }
 
