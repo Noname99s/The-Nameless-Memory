@@ -536,7 +536,7 @@ public partial class BG_DB_ActionData : BGEntity
 public partial class BG_DB_UIData : BGEntity
 {
 	private static BansheeGz.BGDatabase.BGMetaRow _metaDefault;
-	public static BansheeGz.BGDatabase.BGMetaRow MetaDefault => _metaDefault ?? (_metaDefault = BGCodeGenUtils.GetMeta<BansheeGz.BGDatabase.BGMetaRow>(new BGId(4874055211634015603UL,3122639296033284277UL), () => _metaDefault = null));
+	public static BansheeGz.BGDatabase.BGMetaRow MetaDefault => _metaDefault ?? (_metaDefault = BGCodeGenUtils.GetMeta<BansheeGz.BGDatabase.BGMetaRow>(new BGId(5439206473668812153UL,5035717311516997809UL), () => _metaDefault = null));
 	public static BansheeGz.BGDatabase.BGRepoEvents Events => BGRepo.I.Events;
 	public static int CountEntities => MetaDefault.CountEntities;
 	public System.String _name
@@ -546,9 +546,9 @@ public partial class BG_DB_UIData : BGEntity
 	}
 	public UnityEngine.GameObject _Prefab => __Prefab[Index];
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77__name;
-	public static BansheeGz.BGDatabase.BGFieldEntityName __name => _ufle12jhs77__name ?? (_ufle12jhs77__name = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldEntityName>(MetaDefault, new BGId(5149179563636471574UL, 17165274833422435261UL), () => _ufle12jhs77__name = null));
+	public static BansheeGz.BGDatabase.BGFieldEntityName __name => _ufle12jhs77__name ?? (_ufle12jhs77__name = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldEntityName>(MetaDefault, new BGId(5455525928841690515UL, 9824726030055092361UL), () => _ufle12jhs77__name = null));
 	private static BansheeGz.BGDatabase.BGFieldUnityPrefab _ufle12jhs77__Prefab;
-	public static BansheeGz.BGDatabase.BGFieldUnityPrefab __Prefab => _ufle12jhs77__Prefab ?? (_ufle12jhs77__Prefab = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldUnityPrefab>(MetaDefault, new BGId(5545523070622807425UL, 12700094320615020479UL), () => _ufle12jhs77__Prefab = null));
+	public static BansheeGz.BGDatabase.BGFieldUnityPrefab __Prefab => _ufle12jhs77__Prefab ?? (_ufle12jhs77__Prefab = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldUnityPrefab>(MetaDefault, new BGId(4973196923248601729UL, 2415604158448439180UL), () => _ufle12jhs77__Prefab = null));
 	private BG_DB_UIData() : base(MetaDefault) {}
 	private BG_DB_UIData(BGId id) : base(MetaDefault, id) {}
 	private BG_DB_UIData(BGMetaEntity meta) : base(meta) {}

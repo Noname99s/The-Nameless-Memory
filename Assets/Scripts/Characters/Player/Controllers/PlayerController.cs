@@ -50,7 +50,7 @@ namespace Orpul1.Player
         void Start()
         {
             //playerHpUI = Managers.UI.GetPopupUI<InGameView>();
-            //OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
+            OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
             Transform camera = CameraManager.Instance.GetCamera<Transform>((int)ECameraType.MainCamera);
             cameraEffect = camera.GetComponent<ICameraEffectAble>();
             cameraGroup = camera.GetComponent<ISetCamerGroupAble>();
