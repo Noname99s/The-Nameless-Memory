@@ -222,6 +222,7 @@ MonoBehaviour:
   mirroredBlackboardComponent:
     bossInfo:
       bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
       animator: {fileID: 0}
       phaseHpConditions: []
       bossState: 0
@@ -525,6 +526,7 @@ MonoBehaviour:
   mirroredBlackboardComponent:
     bossInfo:
       bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
       animator: {fileID: 0}
       phaseHpConditions: []
       bossState: 0
@@ -651,6 +653,7 @@ MonoBehaviour:
   mirroredBlackboardComponent:
     bossInfo:
       bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
       animator: {fileID: 0}
       phaseHpConditions: []
       bossState: 0
@@ -705,6 +708,7 @@ MonoBehaviour:
   mirroredBlackboardComponent:
     bossInfo:
       bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
       animator: {fileID: 0}
       phaseHpConditions: []
       bossState: 0
@@ -740,6 +744,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 18400876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &251533373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7456571372819098835, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+  m_PrefabInstance: {fileID: 8077809167897168254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &302560271
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,6 +855,7 @@ MonoBehaviour:
   mirroredBlackboardComponent:
     bossInfo:
       bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
       animator: {fileID: 0}
       phaseHpConditions: []
       bossState: 0
@@ -903,6 +913,7 @@ MonoBehaviour:
   mirroredBlackboardComponent:
     bossInfo:
       bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
       animator: {fileID: 0}
       phaseHpConditions: []
       bossState: 0
@@ -1193,6 +1204,7 @@ MonoBehaviour:
   mirroredBlackboardComponent:
     bossInfo:
       bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
       animator: {fileID: 0}
       phaseHpConditions: []
       bossState: 0
@@ -1280,6 +1292,7 @@ MonoBehaviour:
   mirroredBlackboardComponent:
     bossInfo:
       bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
       animator: {fileID: 0}
       phaseHpConditions: []
       bossState: 0
@@ -1537,6 +1550,7 @@ MonoBehaviour:
   mirroredBlackboardComponent:
     bossInfo:
       bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
       animator: {fileID: 0}
       phaseHpConditions: []
       bossState: 0
@@ -1696,6 +1710,7 @@ MonoBehaviour:
   mirroredBlackboardComponent:
     bossInfo:
       bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
       animator: {fileID: 0}
       phaseHpConditions: []
       bossState: 0
@@ -1751,6 +1766,7 @@ MonoBehaviour:
   mirroredBlackboardComponent:
     bossInfo:
       bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
       animator: {fileID: 0}
       phaseHpConditions: []
       bossState: 0
@@ -1937,6 +1953,7 @@ MonoBehaviour:
   mirroredBlackboardComponent:
     bossInfo:
       bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
       animator: {fileID: 0}
       phaseHpConditions: []
       bossState: 0
@@ -2639,6 +2656,7 @@ MonoBehaviour:
   mirroredBlackboardComponent:
     bossInfo:
       bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
       animator: {fileID: 0}
       phaseHpConditions: []
       bossState: 0
@@ -2755,6 +2773,7 @@ MonoBehaviour:
   mirroredBlackboardComponent:
     bossInfo:
       bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
       animator: {fileID: 0}
       phaseHpConditions: []
       bossState: 0
@@ -3014,6 +3033,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.bossInfo.bossObj
+      value: 
+      objectReference: {fileID: 251533373}
     - target: {fileID: 7456571372819098835, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: m_Name
       value: Mirrored

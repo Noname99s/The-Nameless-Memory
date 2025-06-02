@@ -15,6 +15,7 @@ public struct PhaseCondition
 public class MirroredBossInfo
 {
     public SpriteRenderer bossSprite;
+    public GameObject bossObj;
     public Animator animator;
     public PhaseCondition[] phaseHpConditions;
     public EBossState bossState;

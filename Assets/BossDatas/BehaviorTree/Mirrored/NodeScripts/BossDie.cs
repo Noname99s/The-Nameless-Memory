@@ -9,11 +9,13 @@ public class BossDie : ActionScript
     public MirroredBlackboard blackboard;
     [SerializeField] Color dieStateColor;
     [SerializeField] float dissapearSpeed;
+    private GameObject bossObj;
     private SpriteRenderer bossSprite;
     
     public override NodeState OnStart()
     {
         bossSprite = blackboard.btComponent.bossInfo.bossSprite;
+        bossObj = blackboard.btComponent.bossInfo.bossObj;
         dieStateColor = bossSprite.color;
         return NodeState.Success;
     }
@@ -26,6 +28,7 @@ public class BossDie : ActionScript
     }
     public override NodeState OnExit()
     {
+        bossObj.SetActive(false);
         return NodeState.Success;
     }
 }
