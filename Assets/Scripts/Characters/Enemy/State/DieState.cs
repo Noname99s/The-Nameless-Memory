@@ -14,7 +14,7 @@ namespace Orpul1.Enemy.State
         public override void OnStart()
         {
             context.enemyInfo.animator.SetBool(EEnemyAni.DieTrigger.ToString(), true);
-            context.enemyInfo.rigid.linearVelocityX = 0;
+            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             dieStateEnterTime = Time.time + context.dieInfo.deactiveTime;
             Debug.Log("DieState Start");
         }

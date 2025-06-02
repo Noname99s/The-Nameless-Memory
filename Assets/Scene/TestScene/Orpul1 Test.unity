@@ -72850,7 +72850,7 @@ GameObject:
   - component: {fileID: 2010394118}
   m_Layer: 0
   m_Name: RedMeleeEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73007,6 +73007,7 @@ MonoBehaviour:
       <remainingVelocity>k__BackingField: {x: 0, y: 0}
       <position>k__BackingField: {x: 0, y: 0}
       <iterationsUsed>k__BackingField: 0
+    sprite: {fileID: 1949475423}
     animator: {fileID: 1949475422}
     originScale: {x: 4.8, y: 4.8, z: 1}
     hp: 100
@@ -73026,6 +73027,19 @@ MonoBehaviour:
   attackInfo:
     damage: 0
     attackDistance: 0
+  hitInfo:
+    hitDuration: 0.5
+    knockBackPower: 10
+    blinkCount: 3
+    blinkDuration: 0.1
+    blinkColors:
+    - {r: 1, g: 1, b: 1, a: 0.5019608}
+    - {r: 1, g: 1, b: 1, a: 1}
+    stillBlink: 0
+    isHit: 0
+  dieInfo:
+    isDie: 0
+    deactiveTime: 2
 --- !u!114 &2010394121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73107,6 +73121,10 @@ PrefabInstance:
     - target: {fileID: 7130471573606573381, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191165317446888281, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: attackAbleTag
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

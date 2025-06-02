@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Orpul1;
 using Orpul1.Enemy.State;
 using Orpul1.State;
@@ -19,7 +20,7 @@ namespace Orpul1.Enemy
         public Ray ray;
         public RaycastHit2D hit;
     }
-    public class EnemyController : MonoBehaviour, ISetDataAble<Action<GameObject>>, IResetAble
+    public class EnemyController : MonoBehaviour,IDamageAble,IknockbackAble, ISetDataAble<Action<GameObject>>, IResetAble
     {
         [SerializeField] SightInfo sightInfo;
         [SerializeField] StateController stateController;
@@ -30,6 +31,7 @@ namespace Orpul1.Enemy
         private void Awake()
         {
             enemySight = new FieldOfView(sightInfo);
+            context.Initialize();
             context.enemyInfo.flipX = FlipX;
             context.dieInfo.destroyAction = DestroyObject;
         }
@@ -102,6 +104,33 @@ namespace Orpul1.Enemy
         {
             if (sightInfo.trTarget == null) return true;
             return false;
+        }
+
+        public void OnDamage(int damage)
+        {
+            context.hitInfo.isHit = true;
+            context.enemyInfo.hp -= damage;
+
+            if (context.hitInfo.stillBlink) return;
+            StartCoroutine("HitBlink");
+        }
+
+        public void knockback(Vector2 dir)
+        {
+            context.enemyInfo.rigid.AddForce(dir * context.hitInfo.knockBackPower, ForceMode2D.Impulse);
+        }
+        IEnumerator HitBlink()
+        {
+            context.hitInfo.stillBlink = true;
+
+            for (int i = 0; i < context.hitInfo.blinkCount; i++)
+            {
+                context.enemyInfo.sprite.color = context.hitInfo.blinkColors[(int)EnemyHitInfo.EBlinkType.OnBlink];
+                yield return context.hitInfo.waitNextBlink;
+                context.enemyInfo.sprite.color = context.hitInfo.blinkColors[(int)EnemyHitInfo.EBlinkType.OffBlink];
+                yield return context.hitInfo.waitNextBlink;
+            }
+            context.hitInfo.stillBlink = false;
         }
     }
 }

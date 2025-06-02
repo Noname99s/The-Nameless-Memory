@@ -7,5 +7,6 @@ namespace Orpul1.Enemy
         MoveSpeed,
         IsAttack,
         DieTrigger,
+        HitTrigger,
     }
 }

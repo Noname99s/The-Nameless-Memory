@@ -20,10 +20,19 @@ public class CharacterAttack : MonoBehaviour, ISetDataAble<int>
         if (!other.CompareTag(attackAbleTag.ToString()))
             return;
 
-        IDamageAble target = other.GetComponent<IDamageAble>();
-        if (target == null) 
-            return;
-        Debug.Log($"Hit Attack to {other.name}");
+        KnockbackTarget(other.GetComponent<IknockbackAble>(),other.transform.position);
+        DamageTarget(other.GetComponent<IDamageAble>());
+    }
+    private void DamageTarget(IDamageAble target)
+    {
+        if (target == null) return;
         target.OnDamage(damage);
+    }
+    private void KnockbackTarget(IknockbackAble target,Vector2 targetPosi)
+    {
+        if (target == null) return;
+        Vector2 dir = targetPosi - (Vector2)transform.position;
+        dir.y = 1;
+        target.knockback(dir.normalized);
     }
 }

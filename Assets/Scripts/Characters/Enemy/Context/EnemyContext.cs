@@ -10,6 +10,7 @@ namespace Orpul1.Enemy
         public Rigidbody2D rigid;
         public Rigidbody2D.SlideMovement slideMovement = new Rigidbody2D.SlideMovement();
         public Rigidbody2D.SlideResults slideResult = new Rigidbody2D.SlideResults();
+        public SpriteRenderer sprite;
         public Animator animator;
         public Vector3 originScale = Vector3.one;
         public Action<float> flipX;
@@ -37,22 +38,36 @@ namespace Orpul1.Enemy
         public float chaseMoveSpeed;
         public float chaseDistance;
     }
-    [Serializable]
-    public class HitInfo
-    {
-        public bool isHit = false;
-    }
+
     [Serializable]
     public class EnemyAttackInfo
     {
         public int damage;
         public float attackDistance;
     }
+    [Serializable]
+    public class EnemyHitInfo
+    {
+        public enum EBlinkType
+        {
+            OnBlink,
+            OffBlink,
+        }
+        public float hitDuration;
+        public float knockBackPower;
+        public int blinkCount = 3;
+        public float blinkDuration = 0.1f;
+        public Color[] blinkColors;
+        public WaitForSeconds waitNextBlink;
+        public bool stillBlink = false;
+        public bool isHit = false;
+    }
     [Serializable] 
     public class EnemyDieInfo
     {
         public Action<GameObject> deactiveAction;
         public Action destroyAction;
+        public bool isDie = false;
         public float deactiveTime = 2;
     }
     public class EnemyContext : MonoBehaviour
@@ -62,8 +77,12 @@ namespace Orpul1.Enemy
         public EnemyPatrolInfo patrolInfo;
         public EnemyChaseInfo chaseInfo;
         public EnemyAttackInfo attackInfo;
+        public EnemyHitInfo hitInfo;
         public EnemyDieInfo dieInfo;
-
+        public void Initialize()
+        {
+            hitInfo.waitNextBlink = new WaitForSeconds(hitInfo.blinkDuration);
+        }
         public bool IsPatrolState
         {
             get { return !chaseInfo.isFindChaseTarget; }
