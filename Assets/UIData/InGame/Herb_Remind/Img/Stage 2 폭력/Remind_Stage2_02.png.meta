@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 40ee8bafad9423f4d99bb5d253b1ae09
+guid: 8dbbbf94f89f89b418ae78b4a25f7518
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4568473154386095986
-    second: FightMan_0
+      213: -1919761127691043554
+    second: Remind_Stage2_02_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FightMan_0
+      name: Remind_Stage2_02_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
+        width: 1536
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 27f671d012a766f30800000000000000
-      internalID: 4568473154386095986
+      spriteID: e1d3f5afc63ab55e0800000000000000
+      internalID: -1919761127691043554
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      FightMan_0: 4568473154386095986
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
