@@ -12,6 +12,7 @@ namespace Orpul1.Enemy
         public Animator animator;
         public Vector3 originScale = Vector3.one;
         public Action<float> flipX;
+        public int flipValue = 1;
     }
     [Serializable]
     public class EnemyPatrolInfo

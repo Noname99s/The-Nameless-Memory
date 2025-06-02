@@ -72954,10 +72954,10 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 0
     viewRadius: 5
-    distance: 5
+    distance: 35.5
   stateController: {fileID: 2010394121}
   context: {fileID: 2010394119}
-  state: 1
+  state: 0
 --- !u!114 &2010394118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73008,6 +73008,8 @@ MonoBehaviour:
       <iterationsUsed>k__BackingField: 0
     animator: {fileID: 1949475422}
     originScale: {x: 4.8, y: 4.8, z: 1}
+  idleInfo:
+    idleDuration: 5
   patrolInfo:
     movePosis:
     - {fileID: 1960183804}
@@ -73015,6 +73017,7 @@ MonoBehaviour:
     patrolMoveSpeed: 5
   chaseInfo:
     chaseTarget: {fileID: 0}
+    isFindChaseTarget: 0
     chaseMoveSpeed: 0
   attackInfo:
     damage: 0

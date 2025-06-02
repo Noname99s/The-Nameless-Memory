@@ -18,8 +18,9 @@ namespace Orpul1.Enemy.State
         public override void OnUpdate()
         {
             Vector2 dir = (context.chaseInfo.chaseTarget.position - context.transform.position).normalized;
-            dir = dir * context.chaseInfo.chaseMoveSpeed;
-            context.enemyInfo.slideResult = context.enemyInfo.rigid.Slide(Vector2.right * dir.x, Time.deltaTime, context.enemyInfo.slideMovement);
+            context.enemyInfo.slideResult = context.enemyInfo.rigid.Slide(Vector2.right * dir.x,
+                                                                            Time.deltaTime * context.chaseInfo.chaseMoveSpeed,
+                                                                            context.enemyInfo.slideMovement);
             context.enemyInfo.animator.SetFloat(EEnemyAni.MoveSpeed.ToString(), 1);
 
             context.enemyInfo.flipX(dir.x);

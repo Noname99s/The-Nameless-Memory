@@ -23,6 +23,7 @@ namespace Orpul1.Enemy.State
                 moveIndex = (moveIndex + 1) % context.patrolInfo.movePosis.Length;
                 transitionTo((int)EEnemyState.Idle);
             }
+            TransitionState();
         }
 
         public override void OnExit()
@@ -46,7 +47,7 @@ namespace Orpul1.Enemy.State
 
         protected override void TransitionState()
         {
-            if (IsIdleState()) return;
+            //if (IsIdleState()) return;
             if (IsChaseState()) return;
         }
 

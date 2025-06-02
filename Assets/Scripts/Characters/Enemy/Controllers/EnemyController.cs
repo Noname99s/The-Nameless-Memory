@@ -14,6 +14,7 @@ namespace Orpul1.Enemy
         public LayerMask detectMask;
         public float viewRadius = 1;
         public float distance = 0;
+        public int flipValue = 1;
 
         public Ray ray;
         public RaycastHit2D hit;
@@ -58,8 +59,7 @@ namespace Orpul1.Enemy
         }
         private bool IsFindTarget(Transform target)
         {
-            if (target == null) return false;
-            return true;
+            return !(target == null);
         }
 
         private void FixedUpdate()
@@ -72,6 +72,7 @@ namespace Orpul1.Enemy
             if (xScale == 0) return;
 
             Vector3 scale = context.enemyInfo.originScale;
+            sightInfo.flipValue = scale.x < 0 ? -1 : 1;
             scale.x *= xScale;
             transform.localScale = scale;
         }
