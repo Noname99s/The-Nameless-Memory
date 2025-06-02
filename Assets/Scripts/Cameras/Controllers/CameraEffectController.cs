@@ -11,7 +11,7 @@ namespace Orpul1.Camera.Effect
         {
             effects[type].ActiveEffect();
         }
-        public void Abort(int type)
+        public void Stop(int type)
         {
             effects[type].DeactiveEffect();
         }

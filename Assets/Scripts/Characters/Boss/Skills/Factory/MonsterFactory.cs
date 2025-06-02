@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using Orpul1.Enemy;
 namespace Orpul1.Boss.Mirrored
 {
     public class MonsterFactory : BossSkillFactory

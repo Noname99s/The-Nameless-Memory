@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using Orpul1.Player.Animation;
 using UnityEngine;
 
@@ -10,35 +11,29 @@ namespace Orpul1.Player.State
         bool isFlip = false;
         public override void OnStart()
         {
-            Debug.Log("Move Start");
-
-            data.jumpCount = 2;
-            data.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
+            data.jumpInfo.jumpCount = 2;
+            data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
+            data.moveInfo.slideMovement.gravity = data.moveInfo.slideMoveGravity;
+            data.playerInfo.rigid.gravityScale = 0;
+            data.playerInfo.rigid.linearVelocity = Vector2.zero;
         }
         public override void OnUpdate()
         {
             MoveX();
-            FlipX();
+            data.playerInfo.actionFlipX();
             TransitionState();
         }
         public override void OnExit()
         {
-            //data.rigid.linearVelocity = new Vector2(0, data.rigid.linearVelocityY) ;
-            data.animator.SetFloat(EPlayerAni.MoveSpeed.ToString(), 0);
+
+            data.playerInfo.animator.SetFloat(EPlayerAni.MoveSpeed.ToString(), 0);
+            data.playerInfo.rigid.gravityScale = data.jumpInfo.gravityStrength;
         }
         private void MoveX()
         {
-            float dirX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
-            data.slideResult = data.rigid.Slide(Vector2.right * dirX, Time.deltaTime, data.slideMovement);
-            data.animator.SetFloat(EPlayerAni.MoveSpeed.ToString(),1);
-        }
-        private void FlipX()
-        {
-            if (data.moveDir.x < 0) 
-                isFlip = true;
-            else if (data.moveDir.x > 0) 
-                isFlip = false;
-            data.sprite.flipX = isFlip;
+            float dirX = data.moveInfo.moveDir.x * data.moveInfo.moveSpeed;
+            data.moveInfo.slideResult = data.playerInfo.rigid.Slide(Vector2.right * dirX, Time.deltaTime, data.moveInfo.slideMovement);
+            data.playerInfo.animator.SetFloat(EPlayerAni.MoveSpeed.ToString(),1);
         }
         private void TransitionState()
         {
@@ -52,7 +47,7 @@ namespace Orpul1.Player.State
         }
         private bool IsHitState()
         {
-            if (!data.isHit) return false;
+            if (!data.hitInfo.isHit) return false;
             transitionTo((int)EPlayerState.Hit);
 
             return true;
@@ -60,7 +55,7 @@ namespace Orpul1.Player.State
 
         private bool IsDeathState()
         {
-            if (!data.isDeath) return false;
+            if (!data.hitInfo.isDeath) return false;
             transitionTo((int)EPlayerState.Death);
 
             return true;
@@ -75,7 +70,7 @@ namespace Orpul1.Player.State
         }
         private bool IsFallState()
         {
-            if (!data.isFalling) return false;
+            if (!data.fallInfo.isFalling) return false;
             transitionTo((int)EPlayerState.Fall);
 
             return true;
@@ -85,13 +80,12 @@ namespace Orpul1.Player.State
         {
             if (!data.IsIdleState) return false;
             transitionTo((int)EPlayerState.Idle);
-
             return true;
         }
 
         private bool IsAttackState()
         {
-            if (!data.isPressAttack) return false;
+            if (!data.attackInfo.isPressAttack) return false;
             transitionTo((int)EPlayerState.Attack);
 
             return true;

@@ -24,16 +24,11 @@ namespace Orpul1.Player.State
         public override void OnStart()
         {
             Debug.Log("StartAttack");
-            if ((int)data.attackContext.attackType >= attackCommands.Length)
-                data.attackContext.attackType = EPlayerAttack.NormalAttack;
+            if ((int)data.attackInfo.attackType >= attackCommands.Length)
+                data.attackInfo.attackType = EPlayerAttack.NormalAttack;
 
-            attackCommands[(int)data.attackContext.attackType].Initialize();
-            data.animator.SetBool(EPlayerAni.IsAttack.ToString(), false);
-            data.animator.SetBool(EPlayerAni.IsAttack.ToString(), true);
-            prevAttack = data.attackContext.attackType;
-            data.canAttack = true;
-            nextComboTime = 0;
-            attackDelay = 0;
+            Initialize();
+            SetAnimation();
         }
 
         public override void OnUpdate()
@@ -46,18 +41,32 @@ namespace Orpul1.Player.State
         public override void OnExit()
         {
             Debug.Log("EndAttack");
-            data.attackContext.Initialize();
+            data.attackInfo.Initialize();
              
-            data.animator.SetBool(EPlayerAni.IsAttack.ToString(), false);
-            data.animator.SetInteger(EPlayerAni.AttackIndex.ToString(), 0);
+            data.playerInfo.animator.SetBool(EPlayerAni.IsAttack.ToString(), false);
+            data.playerInfo.animator.SetInteger(EPlayerAni.AttackIndex.ToString(), 0);
         }
 
+        private void Initialize()
+        {
+            attackCommands[(int)data.attackInfo.attackType].Initialize();
+            data.attackInfo.setDamage.SetValue(data.attackInfo.damages[(int)data.attackInfo.attackType]);
+            prevAttack = data.attackInfo.attackType;
+            data.attackInfo.canAttack = true;
+            nextComboTime = 0;
+            attackDelay = 0;
+        }
+        private void SetAnimation()
+        {
+            data.playerInfo.animator.SetBool(EPlayerAni.IsAttack.ToString(), false);
+            data.playerInfo.animator.SetBool(EPlayerAni.IsAttack.ToString(), true);
+        }
         private void Attack()
         {
-            attackCommands[(int)data.attackContext.attackType].Execute();
+            attackCommands[(int)data.attackInfo.attackType].Execute();
 
             if (Time.time < nextComboTime) return;
-            if (!data.canAttack)
+            if (!data.attackInfo.canAttack)
             {
                 TransitionState();
                 return;
@@ -67,18 +76,18 @@ namespace Orpul1.Player.State
         private void PrepareNextComboAttack()
         {
             attackDelay = Time.time;
-            nextComboTime = attackDelay + data.attackContext.attackDelays[(int)data.attackContext.attackType];
-            data.canAttack = false;
-            data.isPressAttack = false;
+            nextComboTime = attackDelay + data.attackInfo.attackDelays[(int)data.attackInfo.attackType];
+            data.attackInfo.canAttack = false;
+            data.attackInfo.isPressAttack = false;
         }
         
         private void SetReadyNextAttack()
         {
-            if (data.canAttack) return;
+            if (data.attackInfo.canAttack) return;
             if (!CanComboAttack())
                 return;
 
-            data.canAttack = data.isPressAttack;
+            data.attackInfo.canAttack = data.attackInfo.isPressAttack;
         }
 
         private bool CanComboAttack()
@@ -91,9 +100,9 @@ namespace Orpul1.Player.State
        
         private bool IsChangeAttackType()
         {
-            if (prevAttack == data.attackContext.attackType) return false;
+            if (prevAttack == data.attackInfo.attackType) return false;
             Debug.Log("Diff Attack State");
-            data.canAttack = false;
+            data.attackInfo.canAttack = false;
             TransitionState();
             return true;
         }
@@ -108,7 +117,7 @@ namespace Orpul1.Player.State
 
         private bool IsHitState()
         {
-            if (!data.isHit) return false;
+            if (!data.hitInfo.isHit) return false;
             transitionTo((int)EPlayerState.Hit);
 
             return true;
@@ -116,7 +125,7 @@ namespace Orpul1.Player.State
 
         private bool IsDeathState()
         {
-            if (!data.isDeath) return false;
+            if (!data.hitInfo.isDeath) return false;
             transitionTo((int)EPlayerState.Death);
 
             return true;

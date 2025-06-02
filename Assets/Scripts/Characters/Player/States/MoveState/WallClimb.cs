@@ -14,26 +14,26 @@ namespace Orpul1.Player.State
 
         public override void OnStart()
         {
-            data.jumpCount = 2;
-            data.rigid.gravityScale = 0;
-            data.rigid.linearVelocity = Vector2.zero;
-            data.animator.SetBool(EPlayerAni.IsWallClimb.ToString(), true);
-            data.shouldWallJump = true;
-            jumpAmount = data.jumpPower;
+            data.jumpInfo.jumpCount = 2;
+            data.playerInfo.rigid.gravityScale = 0;
+            data.playerInfo.rigid.linearVelocity = Vector2.zero;
+            data.playerInfo.animator.SetBool(EPlayerAni.IsWallClimb.ToString(), true);
+            data.jumpInfo.isPressJump = false;
+            data.jumpInfo.shouldWallJump = true;
+            jumpAmount = data.jumpInfo.jumpPower;
             Debug.Log("Climb Wall");
 
         }
 
         public override void OnUpdate()
         {
-            //DoJump();
             TrainsitionState();
         }
 
         public override void OnExit()
         {
-            data.rigid.gravityScale = data.gravityStrength;
-            data.animator.SetBool(EPlayerAni.IsWallClimb.ToString(), false);
+            data.playerInfo.rigid.gravityScale = data.jumpInfo.gravityStrength;
+            data.playerInfo.animator.SetBool(EPlayerAni.IsWallClimb.ToString(), false);
         }
         private void TrainsitionState()
         {
@@ -43,16 +43,16 @@ namespace Orpul1.Player.State
         }
         private bool IsHitState()
         {
-            if (!data.isHit) return false;
+            if (!data.hitInfo.isHit) return false;
             transitionTo((int)EPlayerState.Hit);
 
             return true;
         }
         private bool IsJumpState()
         {
-            if (!data.isPressJump && data.isPressWallClimb) return false;
-            data.rigid.linearVelocityX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
-            data.isPressWallClimb = false;
+            if (!data.jumpInfo.isPressJump && data.moveInfo.isPressWallClimb) return false;
+            //data.playerInfo.rigid.linearVelocityX = data.moveInfo.moveDir.x * data.moveInfo.moveSpeed * Time.deltaTime;
+            data.moveInfo.isPressWallClimb = false;
             transitionTo((int)EPlayerState.Jump);
 
             return true;
