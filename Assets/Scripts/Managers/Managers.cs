@@ -12,12 +12,14 @@ public class Managers : MonoBehaviour
     UIManager _ui = new UIManager();
     [SerializeField] ResourceManager _resource;
     [SerializeField] MapManager _mapManager;
+    [SerializeField] PlayerManager _playerManager;
 
     public static SceneLoadManager SceneLoad { get { return Instance._sceneLoad; } }
     public static GameManager Game { get { return Instance._game; } }
     public static UIManager UI { get { return Instance._ui; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static MapManager Map { get { return Instance._mapManager; } }
+    public static PlayerManager Player { get { return Instance._playerManager; } }
     static Managers Instance 
     { 
         get 

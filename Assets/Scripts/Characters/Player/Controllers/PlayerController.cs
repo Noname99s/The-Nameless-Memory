@@ -45,11 +45,10 @@ namespace Orpul1.Player
             playerData.playerInfo.dectectedGroundPosi = transform.position;
             delayInvincible = new WaitForSeconds(playerData.hitInfo.invincibleTime);
             delayCameraShake = new WaitForSeconds(playerData.hitInfo.cameraShakeDuration);
-            PlayerManager.Instance.SetPlayer(gameObject);
+            //PlayerManager.Instance.SetPlayer(gameObject);
         }
         void Start()
         {
-            //playerHpUI = Managers.UI.GetPopupUI<InGameView>();
             OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
             Transform camera = CameraManager.Instance.GetCamera<Transform>((int)ECameraType.MainCamera);
             cameraEffect = camera.GetComponent<ICameraEffectAble>();
@@ -135,6 +134,17 @@ namespace Orpul1.Player
             Vector3 scale = playerData.playerInfo.originScale;
             scale.x = Mathf.RoundToInt(playerData.moveInfo.moveDir.x);
             playerData.playerInfo.trPlayer.localScale = scale;
+        }
+        public void RecoverHp(bool max , int recoverAmount = 0)
+        {
+            if (playerData.playerInfo.hp <= 0) return;
+            if (max)
+                recoverAmount = playerData.playerInfo.maxHp - playerData.playerInfo.hp;
+            playerData.playerInfo.hp += recoverAmount;
+            // Ensure hp does not exceed maxHp
+            playerData.playerInfo.hp = Mathf.Clamp(playerData.playerInfo.hp, 0, playerData.playerInfo.maxHp);
+            OnPlayerHpChanged?.Invoke(playerData.playerInfo.hp, playerData.playerInfo.maxHp);
+
         }
         public void OnDamage(int damage)
         {

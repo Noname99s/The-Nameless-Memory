@@ -16,17 +16,14 @@ public enum Stage
     Stage4,
     BossStage,
     Max,
-    NONE, // Used for no stage selected
+    Hub, // Used for no stage selected
 }
 public class GameManager 
 {
     public bool[] stageCleared = new bool[(int)Stage.Max];
-    //PlayerContext playerData;
     public GameState CurrentState { get; private set; } = GameState.MainMenu;
     public void Init()
     {
-        //playerData = Managers.Player.GetPlayerData();
-        //playerData.Initialize();
         for(int i = 0; i < stageCleared.Length; i++)
         {
             stageCleared[i] = false; 
@@ -37,6 +34,7 @@ public class GameManager
         if (CurrentState == newState) return;
         CurrentState = newState;
         Debug.Log($"Game state changed to: {CurrentState}");
+        Managers.Player.MoveStage(); // Move player to the new state
         Managers.SceneLoad.LoadScene(newState.ToString());
         
     }
@@ -46,16 +44,19 @@ public class GameManager
         {
             case GameState.MainMenu:
                 // Logic for main menu
+                Managers.Player.RemovePlayer(); // Remove player if exists
                 break;
             case GameState.Home:
                 // Logic for home
-                //playerData.hp = playerData.maxHp; // Reset player HP when entering home
+                Managers.UI.ShowPopupUI<InGameComposition>();
+                Managers.Player.Init(true); // Initialize player
                 break;
 
             case GameState.Battle:
                 // Logic for battle
-                Managers.UI.ShowPopupUI<InGameComposition>(); // Show loading UI
+                Managers.UI.ShowPopupUI<InGameComposition>(); 
                 Managers.Map.EntranceMap(); // Load the current map
+                Managers.Player.Init(false); // Initialize player for battle
                 break;
 
             case GameState.Boss:

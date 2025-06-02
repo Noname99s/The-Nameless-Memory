@@ -3,7 +3,8 @@ using System.Collections.Generic;
 
 public class MapManager : MonoBehaviour
 {
-    public Stage mapListType = Stage.NONE;
+    public Vector2 playerSpawnPoint;
+    public Stage mapListType = Stage.Hub;
     public List<GameObject> mapObjects = new List<GameObject>();
     int currentMapIndex = 0;
     GameObject currentMapObject = null;

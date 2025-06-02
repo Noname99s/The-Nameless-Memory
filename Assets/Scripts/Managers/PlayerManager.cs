@@ -1,15 +1,41 @@
+using Orpul1.Player;
+using System.Collections;
 using UnityEngine;
 
-public class PlayerManager : SingleTon<PlayerManager>
+public class PlayerManager : MonoBehaviour
 {
+    [SerializeField] SO_PlayerInfo playerInfo;
     GameObject player;
-    private void OnDisable()
+    GameObject playerCamera;
+
+    
+    public void Init(bool isHub)
     {
-        player = null;
+        if (player == null)
+        {
+            player = Managers.Resource.Instantiate(playerInfo.playerPrefab);
+            playerCamera = Managers.Resource.Instantiate(playerInfo.cameraPrefab);
+            DontDestroyOnLoad(player);
+            DontDestroyOnLoad(playerCamera);
+        }
+        StartCoroutine(MoveSpawnPos(isHub));
     }
-    public void SetPlayer(GameObject player)
+    IEnumerator MoveSpawnPos(bool isHub)
     {
-        this.player = player;
+        yield return new WaitForSeconds(0.1f);
+        player.SetActive(true);
+        playerCamera.SetActive(true);
+        if (isHub)
+            player.transform.position = playerInfo.startPosition;
+        else
+            player.transform.position = Managers.Map.playerSpawnPoint;
+        player.GetComponent<PlayerController>().RecoverHp(isHub);
+    }
+    public void MoveStage()
+    {
+        if(player == null || playerCamera == null) return;
+        player.SetActive(false);
+        playerCamera.SetActive(false);
     }
     public GameObject GetPlayer()
     {
@@ -18,6 +44,9 @@ public class PlayerManager : SingleTon<PlayerManager>
     }
     public void RemovePlayer()
     {
+        if (player == null) return;
+        Destroy(playerCamera);
+        Destroy(player);
         player = null;
     }
 }

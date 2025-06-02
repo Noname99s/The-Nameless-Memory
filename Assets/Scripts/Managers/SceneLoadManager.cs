@@ -19,8 +19,6 @@ public class SceneLoadManager
         loading = Managers.UI.ShowPopupUI<LoadingComposition>();
         async.completed += (AsyncOperation obj) =>
         {
-            // close all popup UI 잘 안되서 임시로 다 지워지게 코드 바꿈
-            //Managers.UI.CloseAllPopupUI(); 
             loading.LoadScene(sceneName);
         };
         currentScene = sceneName;

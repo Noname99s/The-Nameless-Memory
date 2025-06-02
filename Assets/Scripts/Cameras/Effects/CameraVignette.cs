@@ -27,7 +27,7 @@ namespace Orpul1.Camera.Effect
         }
         private void Start()
         {
-            trPlayer = PlayerManager.Instance.GetPlayer().transform;
+            trPlayer = Managers.Player.GetPlayer().transform;
         }
         private void OnDisable()
         {

@@ -8,7 +8,7 @@ namespace Orpul1.Boss.Mirrored
         [SerializeField] Transform trPlayer;
         private void Start()
         {
-            trPlayer = PlayerManager.Instance.GetPlayer().transform;
+            trPlayer = Managers.Player.GetPlayer().transform;
         }
         public override GameObject Create()
         {

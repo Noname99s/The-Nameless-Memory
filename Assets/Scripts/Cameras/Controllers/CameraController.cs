@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetCame
     }
     private void Start()
     {
-        context.cameraTarget.TrackingTarget = PlayerManager.Instance.GetPlayer().transform;
+        context.cameraTarget.TrackingTarget = Managers.Player.GetPlayer().transform;
         stateController.TransitionState((int)ECameraState.Follow);
     }
     private void LateUpdate()

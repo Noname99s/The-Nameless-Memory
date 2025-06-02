@@ -14,6 +14,7 @@ public class LoadingComposition : UIPopup
 
     private void OnEnable()
     {
+        loadingText.text = string.Empty; 
         loadingTextData = BG_DB_LoadingText.GetEntity(Random.Range(0, 4));
 
         if (loadingText != null)
@@ -35,7 +36,6 @@ public class LoadingComposition : UIPopup
         asyncLoad.allowSceneActivation = false;
         asyncLoad.completed += (AsyncOperation obj) =>
         {
-            //Managers.UI.ClosePopupUI<LoadingComposition>();
             Managers.UI.CloseAllPopupUI();
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(nextScene));
             Managers.Game.SettingScene(); 
