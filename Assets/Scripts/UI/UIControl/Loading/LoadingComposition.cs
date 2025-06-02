@@ -12,7 +12,7 @@ public class LoadingComposition : UIPopup
     public string nextScene;
 
 
-    private void Start()
+    private void OnEnable()
     {
         loadingTextData = BG_DB_LoadingText.GetEntity(Random.Range(0, 4));
 
@@ -38,6 +38,7 @@ public class LoadingComposition : UIPopup
             //Managers.UI.ClosePopupUI<LoadingComposition>();
             Managers.UI.CloseAllPopupUI();
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(nextScene));
+            Managers.Game.SettingScene(); 
         };
 
         float time = Time.time + 5.0f; // 3 seconds term
