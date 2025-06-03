@@ -28,35 +28,53 @@ namespace Orpul1.Enemy.State
             context.enemyInfo.setSight.SetValue(context.chaseInfo.sightRadius, context.chaseInfo.sightAngle);
             context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             context.enemyInfo.rigid.gravityScale = context.enemyInfo.gravityStrength;
-
-            if(isAttackEnd)
-            {
-                context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), true);
-                attackStrategies[(int)attackType].Execute();
-                attackStateEnterTime = Time.time + context.attackInfo.attackDelay;
-                isAttackEnd = false;
-                interval = 0;
-            }
-            else
-            {
-                context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), false);
-                context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), 0);
-            }
+            AbleAttack();
+            DoAttack();
         }
 
         public override void OnUpdate()
         {
             TransitionState();
-            FlipX();
+            TransitionAni();
+
             context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             if (attackStateEnterTime > Time.time) return;
-            isAttackEnd = true;
-            attackStateEnterTime = 0;
+
+            transitionTo((int)EEnemyState.Idle);
         }
 
         public override void OnExit()
         {
             context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), false);
+        }
+        private void TransitionAni()
+        {
+            if (!IsAttackAni()) return;
+            if (!IsAttackAniEnd()) return;
+            context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), false);
+        }
+        private void AbleAttack()
+        {
+            if (attackStateEnterTime < Time.time)
+            {
+                attackStateEnterTime = 0;
+                isAttackEnd = true;
+            }
+            else
+            {
+                context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), 0);
+                context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), false);
+            }
+        }
+        private void DoAttack()
+        {
+            if (!isAttackEnd) return;
+            FlipX();
+            context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), true);
+            attackStrategies[(int)attackType].Execute();
+            attackStateEnterTime = Time.time + context.attackInfo.attackDelay;
+            isAttackEnd = false;
+            interval = 0;
         }
         private void FlipX()
         {
@@ -71,28 +89,21 @@ namespace Orpul1.Enemy.State
         }
         private bool IsAttackAniEnd()
         {
+            interval += Time.deltaTime;
             if (interval < context.enemyInfo.animator.GetCurrentAnimatorStateInfo(0).length)
                 return false;
             return true;
+
         }
         protected override void TransitionState()
         {
             if (IsHitState()) return;
             if (IsChaseState()) return;
-            if (!isAttackEnd) return;
-            transitionTo((int)EEnemyState.Idle);
         }
         private bool IsChaseState()
         {
             if (!context.IsChaseState) return false;
             transitionTo((int)EEnemyState.Chase);
-
-            return true;
-        }
-        private bool IsAttackState()
-        {
-            if (!context.IsAttackState) return false;
-            transitionTo((int)EEnemyState.Attack);
 
             return true;
         }
