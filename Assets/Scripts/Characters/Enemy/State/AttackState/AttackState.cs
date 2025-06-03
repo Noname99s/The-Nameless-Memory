@@ -10,8 +10,6 @@ namespace Orpul1.Enemy.State
         IStrategy[] attackStrategies ;
         EEnemyAttack attackType;
         float interval = 0;
-        float attackStateEnterTime = 0;
-        bool isAttackEnd = true;
         public AttackState(EnemyContext context, Action<int> transitionTo) : base(context, transitionTo)
         {
             attackType = context.attackInfo.attackType;
@@ -29,12 +27,7 @@ namespace Orpul1.Enemy.State
             context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             context.enemyInfo.rigid.gravityScale = context.enemyInfo.gravityStrength;
 
-            attackStrategies[(int)context.attackInfo.attackType].Initialize();
-            /*context.enemyInfo.setSight.SetValue(context.chaseInfo.sightRadius, context.chaseInfo.sightAngle);
-            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
-            context.enemyInfo.rigid.gravityScale = context.enemyInfo.gravityStrength;
-            AbleAttack();
-            DoAttack();*/
+            attackStrategies[(int)attackType].Initialize();
         }
 
         public override void OnUpdate()
@@ -42,7 +35,7 @@ namespace Orpul1.Enemy.State
             TransitionState();
             TransitionAni();
 
-            attackStrategies[(int)context.attackInfo.attackType].Execute();
+            attackStrategies[(int)attackType].Execute();
         }
 
         public override void OnExit()
@@ -54,34 +47,6 @@ namespace Orpul1.Enemy.State
             if (!IsAttackAni()) return;
             if (!IsAttackAniEnd()) return;
             context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), false);
-        }
-        private void AbleAttack()
-        {
-            if (attackStateEnterTime < Time.time)
-            {
-                attackStateEnterTime = 0;
-                isAttackEnd = true;
-            }
-            else
-            {
-                context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), 0);
-                context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), false);
-            }
-        }
-        private void DoAttack()
-        {
-            if (!isAttackEnd) return;
-            FlipX();
-            context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), true);
-            attackStrategies[(int)attackType].Execute();
-            attackStateEnterTime = Time.time + context.attackInfo.attackDelay;
-            isAttackEnd = false;
-            interval = 0;
-        }
-        private void FlipX()
-        {
-            Vector2 dir = context.chaseInfo.chaseTarget.position - context.transform.position;
-            context.enemyInfo.flipX(dir.normalized.x);
         }
         private bool IsAttackAni()
         {
