@@ -36,7 +36,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void SetActivePlayer(bool setActive)
     {
-        if(player == null || playerCamera == null) return;
+        if(player == null || playerCamera == null || cameraViewBoundary == null) return;
         player.SetActive(setActive);
         playerCamera.SetActive(setActive);
         cameraViewBoundary.SetActive(setActive);
@@ -53,5 +53,7 @@ public class PlayerManager : MonoBehaviour
         Destroy(playerCamera);
         Destroy(cameraViewBoundary);
         player = null;
+        playerCamera = null;
+        cameraViewBoundary = null;
     }
 }
