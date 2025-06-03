@@ -6,7 +6,8 @@ public class SO_ScenarioData : ScriptableObject
 {
     [SerializeField] string _scenarioType = "Text_Prologue";
     [HideInInspector] public List<string> _text = new List<string>();
-    [HideInInspector] public List<Sprite> _sprites = new List<Sprite>();
+    // Key : Enable use of scene sprites, Value : Sprite
+    [HideInInspector] public Dictionary<int, Sprite> _sprites = new Dictionary<int, Sprite>();
 
     public void Init()
     {
@@ -16,7 +17,10 @@ public class SO_ScenarioData : ScriptableObject
         for (int i = 0; i < listCount; i++)
         {
             _text.Add(BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines[i]._Text);
-            _sprites.Add(BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines[i]._SceneSprite);
+            if (BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines[i]._SceneSprite != null)
+            {
+                _sprites.Add(i, BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines[i]._SceneSprite);
+            }
         }
     }
 }

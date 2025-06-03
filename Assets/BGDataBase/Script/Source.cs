@@ -612,9 +612,6 @@ public partial class BG_DB_DialogLines : BGEntity
 		get => __Tag[Index];
 		set => __Tag[Index] = value;
 	}
-	/**<summary><![CDATA[
-	실제 대사
-	]]></summary>*/
 	public System.String _Text
 	{
 		get => __Text[Index];
@@ -651,8 +648,8 @@ public partial class BG_DB_DialogLines : BGEntity
 	public static BansheeGz.BGDatabase.BGFieldRelationSingle __Dialogtext => _ufle12jhs77__Dialogtext ?? (_ufle12jhs77__Dialogtext = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldRelationSingle>(MetaDefault, new BGId(5268992670489727964UL, 17145958256129923242UL), () => _ufle12jhs77__Dialogtext = null));
 	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Tag;
 	public static BansheeGz.BGDatabase.BGFieldString __Tag => _ufle12jhs77__Tag ?? (_ufle12jhs77__Tag = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5156086773477075151UL, 16013407037302598537UL), () => _ufle12jhs77__Tag = null));
-	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Text;
-	public static BansheeGz.BGDatabase.BGFieldString __Text => _ufle12jhs77__Text ?? (_ufle12jhs77__Text = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(4891777859670991267UL, 11053801175997195947UL), () => _ufle12jhs77__Text = null));
+	private static BansheeGz.BGDatabase.BGFieldText _ufle12jhs77__Text;
+	public static BansheeGz.BGDatabase.BGFieldText __Text => _ufle12jhs77__Text ?? (_ufle12jhs77__Text = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldText>(MetaDefault, new BGId(4891777859670991267UL, 11053801175997195947UL), () => _ufle12jhs77__Text = null));
 	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Speaker;
 	public static BansheeGz.BGDatabase.BGFieldString __Speaker => _ufle12jhs77__Speaker ?? (_ufle12jhs77__Speaker = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5454848735051995238UL, 958894221609955759UL), () => _ufle12jhs77__Speaker = null));
 	private static BansheeGz.BGDatabase.BGFieldBool _ufle12jhs77__Autonext;
