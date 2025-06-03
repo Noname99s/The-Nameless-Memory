@@ -128,7 +128,7 @@ MonoBehaviour:
   arrowAttack: {fileID: 4959779381370595387}
   targetPosiBezierGap: {x: 1, y: 2}
   deactiveTime: 5
-  shootSpeed: 1
+  shootSpeed: 10
   executeTime: 0
   dir: {x: 0, y: 0}
   angle: 0

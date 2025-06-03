@@ -31,8 +31,8 @@ public class CharacterAttack : MonoBehaviour, ISetDataAble<int>
     private void KnockbackTarget(IknockbackAble target,Vector2 targetPosi)
     {
         if (target == null) return;
-        Vector2 dir = targetPosi - (Vector2)transform.position;
-        dir.y = 1;
-        target.knockback(dir.normalized);
+        /*  Vector2 pushDir = -(targetPosi - (Vector2)transform.position);
+          pushDir.y = 1;*/
+        target.knockback(Vector2.up);
     }
 }

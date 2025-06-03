@@ -29,6 +29,7 @@ public class CameraManager : SingleTon<CameraManager>
     }
     public void RemoveCamera(int key)
     {
+        dictCamera[key] = null;
         dictCamera.Remove(key);
         setCameraEvent.RemoveAllListeners();
     }

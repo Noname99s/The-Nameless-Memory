@@ -127,6 +127,9 @@ namespace Orpul1.Enemy
 
         public void knockback(Vector2 dir)
         {
+            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
+            dir.y = 1;
+
             context.enemyInfo.rigid.AddForce(dir * context.hitInfo.knockBackPower, ForceMode2D.Impulse);
         }
         IEnumerator HitBlink()
