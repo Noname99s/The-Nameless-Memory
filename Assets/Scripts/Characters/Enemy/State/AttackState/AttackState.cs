@@ -1,6 +1,5 @@
 using Orpul1.Enemy.State.Attack;
 using System;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 namespace Orpul1.Enemy.State
@@ -10,6 +9,7 @@ namespace Orpul1.Enemy.State
         IStrategy[] attackStrategies ;
         EEnemyAttack attackType;
         float interval = 0;
+        bool isAttacking = false;
         public AttackState(EnemyContext context, Action<int> transitionTo) : base(context, transitionTo)
         {
             attackType = context.attackInfo.attackType;
@@ -28,13 +28,13 @@ namespace Orpul1.Enemy.State
             context.enemyInfo.rigid.gravityScale = context.enemyInfo.gravityStrength;
 
             attackStrategies[(int)attackType].Initialize();
+            isAttacking = true;
         }
 
         public override void OnUpdate()
         {
-            TransitionState();
             TransitionAni();
-
+            TransitionState();
             attackStrategies[(int)attackType].Execute();
         }
 
@@ -46,6 +46,7 @@ namespace Orpul1.Enemy.State
         {
             if (!IsAttackAni()) return;
             if (!IsAttackAniEnd()) return;
+            isAttacking = false;
             context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), false);
         }
         private bool IsAttackAni()
@@ -65,6 +66,7 @@ namespace Orpul1.Enemy.State
         }
         protected override void TransitionState()
         {
+            if (isAttacking) return;
             if (IsHitState()) return;
             if (IsChaseState()) return;
         }
