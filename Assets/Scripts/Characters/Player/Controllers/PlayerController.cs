@@ -1,39 +1,62 @@
+using Orpul1.Camera;
+using Orpul1.Camera.Effect;
 using Orpul1.State;
+using Orpul1.State.Attack;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 
 namespace Orpul1.Player
 {
-    public class PlayerController : MonoBehaviour,IDamageAble
+    [Serializable]
+    public struct PlayerRayInfo
+    {
+        public float groundRayDistance;
+        public float wallRayDistance;
+        public float ladderRayDistance;
+        public Vector3 groundRayStartPosi;
+        public Vector3 wallRayStartPosi;
+        public LayerMask floorLayer, ladderLayer;
+        public Ray2D groundRay;
+        public Ray2D wallRay;
+        public Ray2D ladderRay;
+        public RaycastHit2D groundHit;
+    }
+    public class PlayerController : MonoBehaviour,IDamageAble, IknockbackAble
     {
         [SerializeField] StateController stateController;
         [SerializeField] PlayerContext playerData;
-        [SerializeField] float groundRayDistance = 1f;
-        [SerializeField] float wallRayDistance = 1f;
-        [SerializeField] float ladderRayDistance = 1f;
-        [SerializeField] Vector3 groundRayStartPosi = Vector3.zero;
-        [SerializeField] Vector3 wallRayStartPosi = Vector3.zero;
-        [SerializeField] LayerMask floorLayer, ladderLayer;
-        Ray2D groundRay = new Ray2D();
-        Ray2D wallRay = new Ray2D();
-        Ray2D ladderRay = new Ray2D();
-
-
+        [SerializeField] PlayerRayInfo rayInfo;
+        WaitForSeconds delayInvincible;
+        WaitForSeconds delayCameraShake;
+        ICameraEffectAble cameraEffect;
+        ISetCamerGroupAble cameraGroup;
         //TODO: 플레이어 HP UI연결 시킬 것
         public event System.Action<int ,int> OnPlayerHpChanged;
 
         [SerializeField] EPlayerState state;
         private void Awake()
         {
-            groundRay.origin = transform.position;
+            rayInfo.groundRay.origin = transform.position;
             playerData.Initialize();
+            
+            playerData.playerInfo.actionFlipX = FlipX;
+            playerData.playerInfo.dectectedGroundPosi = transform.position;
+            delayInvincible = new WaitForSeconds(playerData.hitInfo.invincibleTime);
+            delayCameraShake = new WaitForSeconds(playerData.hitInfo.cameraShakeDuration);
+            //PlayerManager.Instance.SetPlayer(gameObject);
         }
         void Start()
         {
-            stateController.TransitionState((int)EPlayerState.Idle);
-            playerData.slideMovement.gravity = Physics2D.gravity;
-            playerData.slideMovement.surfaceAnchor = Vector2.down * 0.1f;
             OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
+            Transform camera = CameraManager.Instance.GetCamera<Transform>((int)ECameraType.MainCamera);
+            cameraEffect = camera.GetComponent<ICameraEffectAble>();
+            cameraGroup = camera.GetComponent<ISetCamerGroupAble>();
+
+            stateController.TransitionState((int)EPlayerState.Idle);
+            playerData.moveInfo.slideMovement.gravity = playerData.moveInfo.slideMoveGravity;
+            playerData.moveInfo.slideMovement.surfaceAnchor = Vector2.down * 0.1f;
         }
 
         void Update()
@@ -53,44 +76,43 @@ namespace Orpul1.Player
         }
         private void OnGround()
         {
-            if (!IsHitRay(SetRay(groundRay, groundRayStartPosi, Vector2.down, groundRayDistance, floorLayer.value))) 
+            rayInfo.groundHit = SetRay(rayInfo.groundRay, rayInfo.groundRayStartPosi, Vector2.down, rayInfo.groundRayDistance, rayInfo.floorLayer.value);
+            if (!IsHitRay(rayInfo.groundHit)) 
             {
-                playerData.isFalling = true;
+                playerData.fallInfo.isFalling = true;
                 return;
             }
-
-            playerData.isFalling = false;
-            playerData.jumpState = EJumpState.JumpReady;
-            playerData.hp -= playerData.fallDamage;
-            playerData.fallDamage = 0;
+            playerData.fallInfo.isFalling = false;
+            playerData.playerInfo.hp -= playerData.fallInfo.fallDamage;
+            playerData.playerInfo.dectectedGroundPosi = rayInfo.groundHit.point;
+            playerData.fallInfo.fallDamage = 0;
         }
         private void OnAir()
         {
-            int flipXValue = playerData.sprite.flipX ? -1 : 1;
             SetWallRayPosi();
-            if (!IsHitRay(SetRay(wallRay, wallRayStartPosi, Vector2.right * flipXValue, wallRayDistance, floorLayer.value)))
+            if (!IsHitRay(SetRay(rayInfo.wallRay, rayInfo.wallRayStartPosi, Vector2.right * transform.localScale.x, rayInfo.wallRayDistance, rayInfo.floorLayer.value))) 
             {
-                playerData.canClimbWall = false;
+                playerData.moveInfo.canClimbWall = false;
                 return;
             }
-            playerData.canClimbWall = true;
+            playerData.moveInfo.canClimbWall = true;
         }
         private void OnLadder()
         {
             
-            if (SetRay(ladderRay, Vector2.zero, Vector2.up, ladderRayDistance, ladderLayer.value).transform == null)
+            if (SetRay(rayInfo.ladderRay, Vector2.zero, Vector2.up, rayInfo.ladderRayDistance, rayInfo.ladderLayer.value).transform == null)
             {
-                playerData.canClimbLadder = false;
+                playerData.moveInfo.canClimbLadder = false;
                 return;
             }
-            playerData.canClimbLadder = true;
+            playerData.moveInfo.canClimbLadder = true;
         }
         private void SetWallRayPosi()
         {
-            if (!playerData.sprite.flipX && wallRayStartPosi.x < 0)
-                wallRayStartPosi.x *= -1;
-            else if (playerData.sprite.flipX && wallRayStartPosi.x > 0)
-                wallRayStartPosi.x *= -1;
+            if (!playerData.playerInfo.sprite.flipX && rayInfo.wallRayStartPosi.x < 0)
+                rayInfo.wallRayStartPosi.x *= -1;
+            else if (playerData.playerInfo.sprite.flipX && rayInfo.wallRayStartPosi.x > 0)
+                rayInfo.wallRayStartPosi.x *= -1;
         }
         private RaycastHit2D SetRay(Ray2D ray, Vector2 rayShootPosi, Vector2 dir,float distance, int detectLayer)
         {
@@ -105,16 +127,55 @@ namespace Orpul1.Player
 
             return true;
         }
+        private void FlipX()
+        {
+            if (playerData.moveInfo.moveDir.x == 0) return;
 
+            Vector3 scale = playerData.playerInfo.originScale;
+            scale.x = Mathf.RoundToInt(playerData.moveInfo.moveDir.x);
+            playerData.playerInfo.trPlayer.localScale = scale;
+        }
+        public void RecoverHp(bool max , int recoverAmount = 0)
+        {
+            if (playerData.playerInfo.hp <= 0) return;
+            if (max)
+                recoverAmount = playerData.playerInfo.maxHp - playerData.playerInfo.hp;
+            playerData.playerInfo.hp += recoverAmount;
+            // Ensure hp does not exceed maxHp
+            playerData.playerInfo.hp = Mathf.Clamp(playerData.playerInfo.hp, 0, playerData.playerInfo.maxHp);
+            OnPlayerHpChanged?.Invoke(playerData.playerInfo.hp, playerData.playerInfo.maxHp);
+
+        }
         public void OnDamage(int damage)
         {
-            playerData.hp -= damage;
-            // 추가 로직
-            OnPlayerHpChanged?.Invoke(playerData.hp, playerData.maxHp);
+            if (!playerData.hitInfo.canGetDamage) return;
+            OnPlayerHpChanged?.Invoke(playerData.playerInfo.hp, playerData.playerInfo.maxHp);
 
-            playerData.isHit = playerData.hp > 0;
-            playerData.isDeath = !playerData.isHit;
+            playerData.playerInfo.hp -= damage;
+            playerData.hitInfo.isHit = playerData.playerInfo.hp > 0;
+            playerData.hitInfo.isDeath = !playerData.hitInfo.isHit;
+            StartCoroutine("CountInvincibleTime");
+            StartCoroutine("CameraShake");
+        }
+
+        public void knockback(Vector2 dir)
+        {
+            if (!playerData.hitInfo.canGetDamage) return;
+            playerData.playerInfo.rigid.linearVelocity = Vector2.zero;
+            playerData.playerInfo.rigid.AddForce(dir * playerData.hitInfo.knockBackPower, ForceMode2D.Impulse);
+        }
+        IEnumerator CameraShake()
+        {
+            cameraEffect.Execute((int)ECameraEffect.Shake);
+            yield return delayCameraShake;
+            cameraEffect.Stop((int)ECameraEffect.Shake);
+            
+        }
+        IEnumerator CountInvincibleTime()
+        {
+            playerData.hitInfo.canGetDamage = false;
+            yield return delayInvincible;
+            playerData.hitInfo.canGetDamage = true;
         }
     }
-
 }
