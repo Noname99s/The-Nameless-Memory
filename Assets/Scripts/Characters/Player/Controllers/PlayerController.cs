@@ -1,11 +1,8 @@
 using Orpul1.Camera;
-using Orpul1.Camera.Effect;
 using Orpul1.State;
-using Orpul1.State.Attack;
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
 
 namespace Orpul1.Player
 {
@@ -23,10 +20,11 @@ namespace Orpul1.Player
         public Ray2D ladderRay;
         public RaycastHit2D groundHit;
     }
-    public class PlayerController : MonoBehaviour,IDamageAble, IknockbackAble
+    public class PlayerController : MonoBehaviour,IDamageAble, IknockbackAble, IGetValue<Transform>
     {
         [SerializeField] StateController stateController;
         [SerializeField] PlayerContext playerData;
+        [SerializeField] Transform targetPosition;
         [SerializeField] PlayerRayInfo rayInfo;
         WaitForSeconds delayInvincible;
         WaitForSeconds delayCameraShake;
@@ -166,6 +164,15 @@ namespace Orpul1.Player
             playerData.hitInfo.canGetDamage = false;
             yield return delayInvincible;
             playerData.hitInfo.canGetDamage = true;
+        }
+
+        /// <summary>
+        /// 위치 정보 전달
+        /// </summary>
+        /// <returns></returns>
+        public Transform GetValue()
+        {
+            return targetPosition;
         }
     }
 }

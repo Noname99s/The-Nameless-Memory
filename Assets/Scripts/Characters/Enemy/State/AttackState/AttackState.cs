@@ -10,6 +10,8 @@ namespace Orpul1.Enemy.State
         IStrategy[] attackStrategies ;
         EEnemyAttack attackType;
         float interval = 0;
+        float attackStateEnterTime = 0;
+        bool isAttackEnd = true;
         public AttackState(EnemyContext context, Action<int> transitionTo) : base(context, transitionTo)
         {
             attackType = context.attackInfo.attackType;
@@ -22,30 +24,45 @@ namespace Orpul1.Enemy.State
 
         public override void OnStart()
         {
+            Debug.Log("Enemy AttackState");
+            context.enemyInfo.setSight.SetValue(context.chaseInfo.sightRadius, context.chaseInfo.sightAngle);
             context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             context.enemyInfo.rigid.gravityScale = context.enemyInfo.gravityStrength;
-            context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), true);
-            attackStrategies[(int)attackType].Initialize();
-            interval = 0;
+
+            if(isAttackEnd)
+            {
+                context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), true);
+                attackStrategies[(int)attackType].Execute();
+                attackStateEnterTime = Time.time + context.attackInfo.attackDelay;
+                isAttackEnd = false;
+                interval = 0;
+            }
+            else
+            {
+                context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), false);
+                context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), 0);
+            }
         }
 
         public override void OnUpdate()
         {
-            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
-            attackStrategies[(int)attackType].Execute();
-            if (IsHitState()) return;
-            if (!IsAttackAni()) return;
-            interval += Time.deltaTime;
-
-            if (!IsAttackAniEnd()) return;
             TransitionState();
+            FlipX();
+            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
+            if (attackStateEnterTime > Time.time) return;
+            isAttackEnd = true;
+            attackStateEnterTime = 0;
         }
 
         public override void OnExit()
         {
             context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), false);
         }
-
+        private void FlipX()
+        {
+            Vector2 dir = context.chaseInfo.chaseTarget.position - context.transform.position;
+            context.enemyInfo.flipX(dir.normalized.x);
+        }
         private bool IsAttackAni()
         {
             if (!context.enemyInfo.animator.GetCurrentAnimatorStateInfo(0).IsName(EEnemyAni.Attack.ToString()))
@@ -60,7 +77,10 @@ namespace Orpul1.Enemy.State
         }
         protected override void TransitionState()
         {
-            transitionTo((int)EEnemyState.Chase);
+            if (IsHitState()) return;
+            if (IsChaseState()) return;
+            if (!isAttackEnd) return;
+            transitionTo((int)EEnemyState.Idle);
         }
         private bool IsChaseState()
         {
@@ -69,10 +89,10 @@ namespace Orpul1.Enemy.State
 
             return true;
         }
-        private bool IsPatrolState()
+        private bool IsAttackState()
         {
-            if (!context.IsPatrolState) return false;
-            transitionTo((int)EEnemyState.Patrol);
+            if (!context.IsAttackState) return false;
+            transitionTo((int)EEnemyState.Attack);
 
             return true;
         }

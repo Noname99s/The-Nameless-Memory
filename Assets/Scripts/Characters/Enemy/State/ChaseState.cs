@@ -12,6 +12,8 @@ namespace Orpul1.Enemy.State
 
         public override void OnStart()
         {
+
+            Debug.Log("Enemy ChaseState");
             context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), context.chaseInfo.chaseMoveSpeed);
             context.enemyInfo.setSight.SetValue(context.chaseInfo.sightRadius, context.chaseInfo.sightAngle);
         }

@@ -42,7 +42,9 @@ namespace Orpul1
             if (target == null) return null;
             if (!IsInSight(target, originPosi,flipX)) return null;
             Debug.DrawRay(originPosi,target.transform.position,Color.yellow);
-            return target.transform;
+            IGetValue<Transform> targetTransform = target.GetComponent<IGetValue<Transform>>();
+            if (targetTransform == null) return null;
+            return targetTransform.GetValue();
         }
         private bool IsInSight(Collider2D target, Vector3 originPosi, int flipX)
         {

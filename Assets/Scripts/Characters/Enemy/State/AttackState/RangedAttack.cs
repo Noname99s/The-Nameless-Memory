@@ -1,3 +1,5 @@
+using Orpul1.Enemy.Weapon;
+using System;
 using UnityEngine;
 
 namespace Orpul1.Enemy.State.Attack
@@ -13,10 +15,19 @@ namespace Orpul1.Enemy.State.Attack
         }
         public void Initialize()
         {
-            arrowFactory.Create<GameObject>();
+            
         }
         public void Execute()
         {
+            ArrowWeapon arrow = arrowFactory.Create<ArrowWeapon>();
+            SetArrow(arrow);
+            arrow.Execute();
+        }
+        private void SetArrow(ISetDataAble<Vector3, float> arrow)
+        {
+            if (arrow == null) return;
+            //1. targetPosi , 2. damage
+            arrow.SetValue(context.chaseInfo.chaseTarget.position, context.attackInfo.damage);
         }
     }
 }

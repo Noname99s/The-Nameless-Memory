@@ -50,6 +50,7 @@ namespace Orpul1.Enemy
     {
         public EEnemyAttack attackType = EEnemyAttack.MeleeAttack;
         public EnemyFactory arrowFactory;
+        public float attackDelay;
         public float attackDistance;
         public int damage;
     }

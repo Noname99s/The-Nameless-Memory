@@ -11,7 +11,7 @@ public abstract class ObjectPool : MonoBehaviour
     {
         Initialize();
     }
-    protected void Initialize()
+    protected virtual void Initialize()
     {
         if (prefab == null) return;
         for (int i = 0; i < 5; i++)

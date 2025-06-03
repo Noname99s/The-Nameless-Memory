@@ -11,6 +11,8 @@ namespace Orpul1.Enemy.State
         int moveIndex = 0;
         public override void OnStart()
         {
+
+            Debug.Log("Enemy PatrolState");
             context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), 1);
             context.enemyInfo.rigid.gravityScale = 0;
             context.enemyInfo.setSight.SetValue(context.patrolInfo.sightRadius, context.patrolInfo.sightAngle);

@@ -5,14 +5,18 @@ namespace Orpul1.Enemy.State
     public class IdleState : EnemyState
     {
         float idleEnterTime = 0;
+        bool isIdleEnd = false;
         public IdleState(EnemyContext context, Action<int> transitionTo) : base(context, transitionTo)
         {
         }
 
         public override void OnStart()
         {
+
+            Debug.Log("Enemy IdleState");
             context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             idleEnterTime = Time.time + context.idleInfo.idleDuration;
+            isIdleEnd = false;
         }
 
         public override void OnUpdate()
@@ -29,14 +33,17 @@ namespace Orpul1.Enemy.State
         private void DoIdleBehavior()
         {
             if (Time.time < idleEnterTime) return;
-            transitionTo((int)EEnemyState.Patrol);
+            isIdleEnd = true;
         }
         protected override void TransitionState()
         {
-            if (IsChaseState()) return;
-            if (IsPatrolState()) return;
             if (IsAttackState()) return;
+            if (IsChaseState()) return;
+            if (IsHitState()) return;
             if (IsDieState()) return;
+
+            if (!isIdleEnd) return;
+            if (IsPatrolState()) return;
         }
         private bool IsChaseState()
         {
@@ -56,6 +63,13 @@ namespace Orpul1.Enemy.State
         {
             if (!context.IsPatrolState) return false;
             transitionTo((int)EEnemyState.Patrol);
+
+            return true;
+        }
+        private bool IsHitState()
+        {
+            if (!context.IsHitState) return false;
+            transitionTo((int)EEnemyState.Hit);
 
             return true;
         }
