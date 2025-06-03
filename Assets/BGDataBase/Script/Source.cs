@@ -612,6 +612,9 @@ public partial class BG_DB_DialogLines : BGEntity
 		get => __Tag[Index];
 		set => __Tag[Index] = value;
 	}
+	/**<summary><![CDATA[
+	대사내용
+	]]></summary>*/
 	public System.String _Text
 	{
 		get => __Text[Index];
@@ -632,6 +635,11 @@ public partial class BG_DB_DialogLines : BGEntity
 	{
 		get => __Autonext[Index];
 		set => __Autonext[Index] = value;
+	}
+	public System.String _Trigger
+	{
+		get => __Trigger[Index];
+		set => __Trigger[Index] = value;
 	}
 	/**<summary><![CDATA[
 	컷씬 상황별 묘사
@@ -654,10 +662,12 @@ public partial class BG_DB_DialogLines : BGEntity
 	public static BansheeGz.BGDatabase.BGFieldString __Speaker => _ufle12jhs77__Speaker ?? (_ufle12jhs77__Speaker = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5454848735051995238UL, 958894221609955759UL), () => _ufle12jhs77__Speaker = null));
 	private static BansheeGz.BGDatabase.BGFieldBool _ufle12jhs77__Autonext;
 	public static BansheeGz.BGDatabase.BGFieldBool __Autonext => _ufle12jhs77__Autonext ?? (_ufle12jhs77__Autonext = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldBool>(MetaDefault, new BGId(5231245614497276572UL, 16140902492892066452UL), () => _ufle12jhs77__Autonext = null));
+	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Trigger;
+	public static BansheeGz.BGDatabase.BGFieldString __Trigger => _ufle12jhs77__Trigger ?? (_ufle12jhs77__Trigger = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5723491798378276011UL, 18068096768651803778UL), () => _ufle12jhs77__Trigger = null));
 	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Description;
 	public static BansheeGz.BGDatabase.BGFieldString __Description => _ufle12jhs77__Description ?? (_ufle12jhs77__Description = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5731893057041368311UL, 4354075676197294492UL), () => _ufle12jhs77__Description = null));
 	private static BansheeGz.BGDatabase.BGFieldUnitySprite _ufle12jhs77__SceneSprite;
-	public static BansheeGz.BGDatabase.BGFieldUnitySprite __SceneSprite => _ufle12jhs77__SceneSprite ?? (_ufle12jhs77__SceneSprite = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldUnitySprite>(MetaDefault, new BGId(4629043184524046381UL, 4157119071605329296UL), () => _ufle12jhs77__SceneSprite = null));
+	public static BansheeGz.BGDatabase.BGFieldUnitySprite __SceneSprite => _ufle12jhs77__SceneSprite ?? (_ufle12jhs77__SceneSprite = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldUnitySprite>(MetaDefault, new BGId(5234539877580158166UL, 10956761208993170821UL), () => _ufle12jhs77__SceneSprite = null));
 	private BG_DB_DialogLines() : base(MetaDefault) {}
 	private BG_DB_DialogLines(BGId id) : base(MetaDefault, id) {}
 	private BG_DB_DialogLines(BGMetaEntity meta) : base(meta) {}
@@ -691,6 +701,7 @@ public partial class BG_DB_DialogLines : BGEntity
 		public const string Text = "Text";
 		public const string Speaker = "Speaker";
 		public const string Autonext = "Autonext";
+		public const string Trigger = "Trigger";
 		public const string Description = "Description";
 		public const string SceneSprite = "SceneSprite";
 	}
