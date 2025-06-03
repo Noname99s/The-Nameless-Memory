@@ -29,6 +29,10 @@ public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetCame
     {
         CameraManager.Instance.RemoveCamera((int)ECameraType.MainCamera);
     }
+    private void OnDestroy()
+    {
+        CameraManager.Instance.RemoveCamera((int)ECameraType.MainCamera);
+    }
     private void LateUpdate()
     {
         stateController.ProcessState();

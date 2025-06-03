@@ -570,6 +570,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5520470106054572785, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
+      propertyPath: enemyRay.distance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6766174714432795180, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
       propertyPath: m_Name
       value: RedMeleeEnemy
@@ -676,6 +680,10 @@ PrefabInstance:
     - target: {fileID: 7523100063337533526, guid: 5b8c41c5ffe72df42a66f2348719c3a5, type: 3}
       propertyPath: m_Name
       value: BlueMeleeEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765007667480621302, guid: 5b8c41c5ffe72df42a66f2348719c3a5, type: 3}
+      propertyPath: enemyRay.distance
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1841,6 +1849,10 @@ PrefabInstance:
       propertyPath: 'patrolInfo.movePosis.Array.data[1]'
       value: 
       objectReference: {fileID: 1619117285}
+    - target: {fileID: 4326797745444680025, guid: 12e0fcf671d828a409ab6062c727da63, type: 3}
+      propertyPath: enemyRay.distance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6422860637579694475, guid: 12e0fcf671d828a409ab6062c727da63, type: 3}
       propertyPath: m_Name
       value: BlueEliteEnemy
@@ -2239,6 +2251,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedEliteEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6753734243449116313, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+      propertyPath: enemyRay.distance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7087380159888766392, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
       propertyPath: 'patrolInfo.movePosis.Array.data[0]'
       value: 
@@ -2367,6 +2383,10 @@ PrefabInstance:
     - target: {fileID: 2370405413480170243, guid: 4ec25d6c5b05b4b4bad93f52ccca6f79, type: 3}
       propertyPath: m_Name
       value: RedArchorEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317940562556392825, guid: 4ec25d6c5b05b4b4bad93f52ccca6f79, type: 3}
+      propertyPath: enemyRay.distance
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7228047464810543710, guid: 4ec25d6c5b05b4b4bad93f52ccca6f79, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3363,6 +3383,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1388498513}
     m_Modifications:
+    - target: {fileID: 140882946903035707, guid: e019ad519a8261d499f442511bfdeac0, type: 3}
+      propertyPath: enemyRay.distance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 907031759396401521, guid: e019ad519a8261d499f442511bfdeac0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.139999
@@ -74207,11 +74231,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50.75
+      value: 16.29
       objectReference: {fileID: 0}
     - target: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 41.5
+      value: 29.46
       objectReference: {fileID: 0}
     - target: {fileID: 1832887567842334404, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_LocalPosition.z

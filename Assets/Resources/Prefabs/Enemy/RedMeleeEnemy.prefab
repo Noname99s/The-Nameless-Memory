@@ -234,7 +234,7 @@ MonoBehaviour:
     detectLayer:
       serializedVersion: 2
       m_Bits: 64
-    distance: 1.2
+    distance: 0.5
 --- !u!114 &3881765726750798974
 MonoBehaviour:
   m_ObjectHideFlags: 0
