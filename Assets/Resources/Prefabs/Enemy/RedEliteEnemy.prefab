@@ -229,6 +229,12 @@ MonoBehaviour:
   context: {fileID: 7087380159888766392}
   state: 0
   fieldOfView: {fileID: 958986727120374460}
+  enemyRay:
+    groundRayPos: {x: 0.1, y: 0, z: 0}
+    detectLayer:
+      serializedVersion: 2
+      m_Bits: 64
+    distance: 1.2
 --- !u!114 &4526851023112794315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +288,7 @@ MonoBehaviour:
     animator: {fileID: 9192561038414786464}
     originScale: {x: 4.8, y: 4.8, z: 1}
     gravityStrength: 5
+    isGround: 1
     hp: 100
     flipValue: 1
   idleInfo:
@@ -349,6 +356,9 @@ MonoBehaviour:
     detectMask:
       serializedVersion: 2
       m_Bits: 1024
+    ignoreMask:
+      serializedVersion: 2
+      m_Bits: 64
     angle: 150
     radius: 3
     rotateZ: 90

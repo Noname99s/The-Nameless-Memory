@@ -12,6 +12,7 @@ namespace Orpul1.Enemy
         public Rigidbody2D.SlideResults slideResult = new Rigidbody2D.SlideResults();
         public SpriteRenderer sprite;
         public Animator animator;
+        public Collider2D enemyCollider;
         public Vector3 originScale = Vector3.one;
         public Action<float> flipX;
         public ISetDataAble<float, float> setSight;

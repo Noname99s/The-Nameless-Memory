@@ -107,6 +107,7 @@ namespace Orpul1.Enemy
         public void ResetValue()
         {
             stateController.TransitionState((int)state);
+            context.enemyInfo.enemyCollider.enabled = true;
         }
 
         public void SetValue(Action<GameObject> enqueueAction)

@@ -83,6 +83,7 @@ namespace Orpul1.Player
             }
             playerData.fallInfo.isFalling = false;
             playerData.playerInfo.hp -= playerData.fallInfo.fallDamage;
+            playerData.jumpInfo.jumpCount = 2;
             playerData.playerInfo.dectectedGroundPosi = rayInfo.groundHit.point;
             playerData.fallInfo.fallDamage = 0;
         }
