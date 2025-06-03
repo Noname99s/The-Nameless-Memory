@@ -16,12 +16,14 @@ public class UIManager
             return root;
         }
     }
+    UIData _uiData = new UIData();
     int _order = 0;
     Dictionary<Type , UIPopup> _popupDictionary = new Dictionary<Type, UIPopup>();
 
     public void Init()
     {
         _order = 0;
+        _uiData.Init();
     }
 
     public T GetPopupUI<T>() where T : UIPopup
@@ -44,7 +46,8 @@ public class UIManager
             {
                 prefabName = prefabName.Substring(0, index);
             }
-            go = Managers.Resource.Instantiate(BG_DB_UIData.GetEntity(prefabName)?._Prefab , Root.transform);
+            //go = Managers.Resource.Instantiate(BG_DB_UIData.GetEntity(prefabName)?._Prefab , Root.transform);
+            go = Managers.Resource.Instantiate(_uiData.prefabList[typeof(T)], Root.transform);
             if (go == null)
             {
                 Debug.LogError($"Failed to load prefab for {typeof(T).Name}");
