@@ -10,7 +10,8 @@ namespace Orpul1.Enemy.State.Attack
         EnemyFactory arrowFactory;
         Action<int> transitionTo;
         float attackStateEnterTime = 0;
-        float interval = 0;
+        float attackTime = 0;
+        bool isAttack = false;
         bool isAttackEnd;
         public RangedAttack(EnemyContext context, Action<int> transitionTo)
         {
@@ -26,6 +27,13 @@ namespace Orpul1.Enemy.State.Attack
         public void Execute()
         {
             context.enemyInfo.rigid.linearVelocity = Vector2.zero;
+            if (attackTime <= Time.time && !isAttack) 
+            {
+                ArrowWeapon arrow = arrowFactory.Create<ArrowWeapon>();
+                SetArrow(arrow);
+                arrow.Execute();
+                isAttack = true;
+            }
             if (attackStateEnterTime > Time.time) return;
             transitionTo((int)EEnemyState.Idle);
         }
@@ -41,6 +49,7 @@ namespace Orpul1.Enemy.State.Attack
             {
                 attackStateEnterTime = 0;
                 isAttackEnd = true;
+                isAttack = false;
             }
             else
             {
@@ -52,14 +61,16 @@ namespace Orpul1.Enemy.State.Attack
         {
             if (!isAttackEnd) return;
             FlipX();
+
+            context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), 0);
             context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), true);
             attackStateEnterTime = Time.time + context.attackInfo.attackDelay;
             isAttackEnd = false;
-            interval = 0;
+            attackTime = Time.time + 0.4f;
 
-            ArrowWeapon arrow = arrowFactory.Create<ArrowWeapon>();
+           /* ArrowWeapon arrow = arrowFactory.Create<ArrowWeapon>();
             SetArrow(arrow);
-            arrow.Execute();
+            arrow.Execute();*/
         }
         private void FlipX()
         {

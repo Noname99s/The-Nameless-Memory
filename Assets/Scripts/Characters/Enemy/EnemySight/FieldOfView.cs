@@ -8,9 +8,12 @@ namespace Orpul1
     {
         public Vector3 originPosi;
         public LayerMask detectMask;
+        public LayerMask ignoreMask;
         [Range(0,360)] public float angle;
         public float radius;
         public float rotateZ;
+        public Ray2D obstacleRay;
+        public RaycastHit2D obstacleHit;
     }
     public class FieldOfView : MonoBehaviour, ISightFindAble, ISetDataAble<float,float>
     {
@@ -41,6 +44,7 @@ namespace Orpul1
             Collider2D target = Physics2D.OverlapCircle(originPosi, sightInfo.radius, sightInfo.detectMask.value);
             if (target == null) return null;
             if (!IsInSight(target, originPosi,flipX)) return null;
+            if(!IsPlayer(target)) return null;
             Debug.DrawRay(originPosi,target.transform.position,Color.yellow);
             IGetValue<Transform> targetTransform = target.GetComponent<IGetValue<Transform>>();
             if (targetTransform == null) return null;
@@ -48,12 +52,24 @@ namespace Orpul1
         }
         private bool IsInSight(Collider2D target, Vector3 originPosi, int flipX)
         {
-
             Vector2 dir = (target.transform.position - originPosi).normalized;
             float dot = Vector2.Dot(dir, RadToDeg(sightInfo.rotateZ * flipX));
             float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
             if (angle >= (sightInfo.angle * 0.5f)) return false;
             return true;
+        }
+
+        private bool IsPlayer(Collider2D target)
+        {
+            sightInfo.obstacleRay.origin = transform.position + sightInfo.originPosi;
+            sightInfo.obstacleRay.direction = (target.transform.position - transform.position).normalized;
+            float distance = Vector2.Distance(target.transform.position, transform.position);
+            sightInfo.obstacleHit = Physics2D.Raycast(sightInfo.obstacleRay.origin, sightInfo.obstacleRay.direction, distance, sightInfo.ignoreMask.value);
+            return IsDetectedIgnoreLayer(sightInfo.obstacleHit.collider);
+        }
+        private bool IsDetectedIgnoreLayer(Collider2D target)
+        {
+            return target == null;
         }
         private void OnDrawGizmos()
         {
@@ -88,6 +104,5 @@ namespace Orpul1
             Gizmos.DrawLine(origin, anglePosi);
         }
 
-        
     }
 }

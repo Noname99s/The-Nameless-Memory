@@ -16,6 +16,7 @@ namespace Orpul1.Enemy
         public Action<float> flipX;
         public ISetDataAble<float, float> setSight;
         public float gravityStrength;
+        public bool isGround = true;
         public int hp;
         public int flipValue = 1;
     }

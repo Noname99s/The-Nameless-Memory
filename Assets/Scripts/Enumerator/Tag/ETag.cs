@@ -7,4 +7,5 @@ public enum ETag
     BackGround2,
     Enemy,
     Player,
+    NONE,
 }

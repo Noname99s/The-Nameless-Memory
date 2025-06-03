@@ -1,19 +1,33 @@
 using System;
 using System.Collections;
-using Orpul1;
 using Orpul1.Enemy.State;
 using Orpul1.State;
 using UnityEngine;
-using UnityEngine.Experimental.AI;
 namespace Orpul1.Enemy
 {
+    [Serializable]
+    public class EnemyRayInfo
+    {
+        public Ray2D ray;
+        public RaycastHit2D hit;
+        public Vector3 groundRayPos;
+        public LayerMask detectLayer;
+        public float distance;
+    }
     public class EnemyController : MonoBehaviour,IDamageAble,IknockbackAble, ISetDataAble<Action<GameObject>>, IResetAble
     {
         [SerializeField] StateController stateController;
         [SerializeField] EnemyContext context;
         [SerializeField] EEnemyState state;
         [SerializeField] FieldOfView fieldOfView;
+        [SerializeField] EnemyRayInfo enemyRay;
         ISightFindAble enemySight;
+        Vector3 scale = Vector3.zero;
+        [ContextMenu("SetDebugScale")]
+        private void DebugSetScale()
+        {
+            scale = transform.localScale;
+        }
         private void Awake()
         {
             enemySight = fieldOfView;
@@ -29,6 +43,27 @@ namespace Orpul1.Enemy
         void Update()
         {
             LookForward();
+            OnGround();
+        }
+        private void OnGround()
+        {
+            enemyRay.hit = SetRay(enemyRay.ray, enemyRay.groundRayPos, Vector2.down, enemyRay.distance, enemyRay.detectLayer.value);
+            Debug.DrawRay(enemyRay.ray.origin, enemyRay.ray.direction * enemyRay.distance, Color.green);
+            context.enemyInfo.isGround = IsHitRay(enemyRay.hit);
+        }
+        private RaycastHit2D SetRay(Ray2D ray, Vector2 rayShootPosi, Vector2 dir, float distance, int detectLayer)
+        {
+            rayShootPosi.x *= scale.x;
+            ray.origin = (Vector2)transform.position + rayShootPosi;
+            ray.direction = dir;
+            Debug.DrawRay(ray.origin, ray.direction * distance, Color.green);
+            return Physics2D.Raycast(ray.origin, ray.direction, distance, detectLayer);
+        }
+        private bool IsHitRay(RaycastHit2D hit2D)
+        {
+            if (hit2D.transform == null) return false;
+
+            return true;
         }
         private void LookForward()
         {
@@ -61,7 +96,7 @@ namespace Orpul1.Enemy
             float xScale = Mathf.RoundToInt(dir);
             if (xScale == 0) return;
 
-            Vector3 scale = context.enemyInfo.originScale;
+            scale = context.enemyInfo.originScale;
             scale.x *= xScale;
             transform.localScale = scale;
         }
@@ -105,6 +140,11 @@ namespace Orpul1.Enemy
                 yield return context.hitInfo.waitNextBlink;
             }
             context.hitInfo.stillBlink = false;
+        }
+        private void OnDrawGizmos()
+        {
+            SetRay(enemyRay.ray, enemyRay.groundRayPos, Vector2.down, enemyRay.distance, enemyRay.detectLayer.value);
+            Debug.DrawRay(enemyRay.ray.origin, enemyRay.ray.direction * enemyRay.distance, Color.green);
         }
     }
 }

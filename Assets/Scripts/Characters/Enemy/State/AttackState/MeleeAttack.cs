@@ -10,7 +10,6 @@ namespace Orpul1.Enemy.State.Attack
         Action<int> transitionTo;
         bool isAttackEnd = true;
         float attackStateEnterTime = 0;
-        float interval = 0;
         public MeleeAttack(EnemyContext context, Action<int> transitionTo)
         {
             this.context = context;
@@ -50,7 +49,6 @@ namespace Orpul1.Enemy.State.Attack
             context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), true);
             attackStateEnterTime = Time.time + context.attackInfo.attackDelay;
             isAttackEnd = false;
-            interval = 0;
         }
         private void FlipX()
         {
