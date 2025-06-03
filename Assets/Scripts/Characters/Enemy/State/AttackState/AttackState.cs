@@ -17,8 +17,8 @@ namespace Orpul1.Enemy.State
             attackType = context.attackInfo.attackType;
             attackStrategies = new IStrategy[2]
             {
-                new MeleeAttack(context),
-                new RangedAttack(context)
+                new MeleeAttack(context, transitionTo),
+                new RangedAttack(context,transitionTo)
             };
         }
 
@@ -28,8 +28,13 @@ namespace Orpul1.Enemy.State
             context.enemyInfo.setSight.SetValue(context.chaseInfo.sightRadius, context.chaseInfo.sightAngle);
             context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             context.enemyInfo.rigid.gravityScale = context.enemyInfo.gravityStrength;
+
+            attackStrategies[(int)context.attackInfo.attackType].Initialize();
+            /*context.enemyInfo.setSight.SetValue(context.chaseInfo.sightRadius, context.chaseInfo.sightAngle);
+            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
+            context.enemyInfo.rigid.gravityScale = context.enemyInfo.gravityStrength;
             AbleAttack();
-            DoAttack();
+            DoAttack();*/
         }
 
         public override void OnUpdate()
@@ -37,10 +42,7 @@ namespace Orpul1.Enemy.State
             TransitionState();
             TransitionAni();
 
-            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
-            if (attackStateEnterTime > Time.time) return;
-
-            transitionTo((int)EEnemyState.Idle);
+            attackStrategies[(int)context.attackInfo.attackType].Execute();
         }
 
         public override void OnExit()
@@ -92,6 +94,7 @@ namespace Orpul1.Enemy.State
             interval += Time.deltaTime;
             if (interval < context.enemyInfo.animator.GetCurrentAnimatorStateInfo(0).length)
                 return false;
+            interval = 0;
             return true;
 
         }

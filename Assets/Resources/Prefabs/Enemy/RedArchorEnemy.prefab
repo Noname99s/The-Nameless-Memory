@@ -38,6 +38,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8189425001848056170}
+  - {fileID: 1469584915968846280}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2136953133527321889
@@ -192,8 +193,9 @@ MonoBehaviour:
     sightAngle: 360
     sightRadius: 10
   attackInfo:
-    attackType: 0
-    arrowFactory: {fileID: 0}
+    attackType: 1
+    arrowFactory: {fileID: -3434185656850362812}
+    attackDelay: 3
     attackDistance: 5
     damage: 0
   hitInfo:
@@ -257,6 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 4860928162030497841, guid: cc8d121dd9ae0bf489b4565fcd4b2f03, type: 3}
   parent: {fileID: 0}
+  shootPosition: {fileID: 1469584915968846280}
 --- !u!1 &3165512399934802935
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,3 +370,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &7908569285118170031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1469584915968846280}
+  m_Layer: 0
+  m_Name: ShootPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1469584915968846280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7908569285118170031}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.11600017, y: 0.1540001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7228047464810543710}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

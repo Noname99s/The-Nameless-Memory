@@ -16,6 +16,7 @@ namespace Orpul1.Enemy.State
             Debug.Log("Enemy IdleState");
             context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             idleEnterTime = Time.time + context.idleInfo.idleDuration;
+            context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), 0);
             isIdleEnd = false;
         }
 
