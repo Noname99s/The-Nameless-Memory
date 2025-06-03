@@ -11,8 +11,6 @@ public class PrologAnim : MonoBehaviour
     [SerializeField] Image prologImg;
     [Header("Data Setting")]
     [SerializeField] SO_ScenarioData scenarioData;
-    //[SerializeField] string[] scenarioText = new string[5];
-    //[SerializeField] Sprite[] scenarioImages = new Sprite[5];
 
     [Header("Prolog Anim Settings")]
     [SerializeField] float fadeDuration = 2f;
@@ -28,13 +26,13 @@ public class PrologAnim : MonoBehaviour
         scenarioData.Init();
         // Build the animation sequence
         BuilSequence();
-        
+
         // Start the animation sequence
         prologAnimSequence.Play();
     }
     private void Update()
     {
-        if(isPrologAnimFinished)
+        if (isPrologAnimFinished)
         {
             timeCount += Time.deltaTime;
             if (timeCount >= textDisplayDelay || Input.anyKeyDown)
@@ -51,8 +49,7 @@ public class PrologAnim : MonoBehaviour
             return;
         }
         isPrologAnimFinished = false;
-        //prologImg.sprite = scenarioImages[currentScenarioIndex];
-        if(scenarioData._sprites.ContainsKey(currentScenarioIndex))
+        if (scenarioData._sprites.ContainsKey(currentScenarioIndex))
         {
             prologImg.sprite = scenarioData._sprites[currentScenarioIndex];
         }
@@ -63,7 +60,16 @@ public class PrologAnim : MonoBehaviour
             .OnComplete(() =>
             {
                 isPrologAnimFinished = true;
-            });
+            })
+            .onUpdate += () =>
+            {
+                if (Input.anyKeyDown)
+                {
+                    prologText.DOPause();
+                    prologText.text = scenarioData._text[currentScenarioIndex - 1];
+                    isPrologAnimFinished = true;
+                }
+            };
     }
 
     void BuilSequence()
@@ -75,12 +81,22 @@ public class PrologAnim : MonoBehaviour
             .Append(fadeScreen.DOFade(1f, fadeDuration).SetEase(Ease.InQuad))
             .Append(fadeScreen.DOFade(0.7f, fadeDuration).SetEase(Ease.InQuad))
             .Append(fadeScreen.DOFade(1f, fadeDuration).SetEase(Ease.InQuad))
-            .Append(fadeScreen.DOFade(0f, fadeDuration).SetEase(Ease.InQuad));
-
-        prologAnimSequence.OnComplete(() =>
-        {
-            isPrologAnimFinished = true;
-            ScenarioSequence();
-        });
+            .Append(fadeScreen.DOFade(0f, fadeDuration).SetEase(Ease.InQuad))
+            .OnComplete(() =>
+            {
+                isPrologAnimFinished = true;
+                ScenarioSequence();
+            })
+            .onUpdate += () =>
+            {
+                if (Input.anyKeyDown)
+                {
+                    prologAnimSequence.Pause();
+                    fadeScreen.DOPause();
+                    fadeScreen.color = new Color(0, 0, 0, 0);
+                    isPrologAnimFinished = true;
+                    ScenarioSequence();
+                }
+            };
     }
 }
