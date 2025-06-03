@@ -6,6 +6,7 @@ public enum GameState
     MainMenu,
     Home,
     Battle,
+    CutScene,
     Boss,
     Ending,
 }
@@ -54,6 +55,8 @@ public class GameManager
                 Managers.Player.Init(); // Initialize player
                 Managers.Player.SetActivePlayer(true); // Activate player and camera
                 Managers.Player.ChangePlayerPos(); // Set player position to home
+                break;
+            case GameState.CutScene:
                 break;
 
             case GameState.Battle:

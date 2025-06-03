@@ -2,81 +2,29 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 
-public class PrologAnim : MonoBehaviour
+public class PrologAnim : CutSceneAnimBase, ICutSceneSequenceBuilder
 {
-    Sequence prologAnimSequence;
-    [Header("UI Setting")]
+    [Header("Prolog Anim UI Setting")]
     [SerializeField] Image fadeScreen;
-    [SerializeField] Text prologText;
-    [SerializeField] Image prologImg;
-    [Header("Data Setting")]
-    [SerializeField] SO_ScenarioData scenarioData;
 
     [Header("Prolog Anim Settings")]
     [SerializeField] float fadeDuration = 2f;
-    [SerializeField] float textDisplayDuration = 5f;
-    [SerializeField] float textDisplayDelay = 2f;
 
-    int currentScenarioIndex = 0;
-    bool isPrologAnimFinished = false;
-    float timeCount = 0f;
+    Sequence startAnimSequence;
 
-    void Start()
+    protected override void Start()
     {
-        scenarioData.Init();
-        // Build the animation sequence
-        BuilSequence();
-
+        base.Start();
+        BuildSequence();
         // Start the animation sequence
-        prologAnimSequence.Play();
-    }
-    private void Update()
-    {
-        if (isPrologAnimFinished)
-        {
-            timeCount += Time.deltaTime;
-            if (timeCount >= textDisplayDelay || Input.anyKeyDown)
-            {
-                ScenarioSequence();
-                timeCount = 0f;
-            }
-        }
-    }
-    void ScenarioSequence()
-    {
-        if (currentScenarioIndex >= scenarioData._text.Count)
-        {
-            return;
-        }
-        isPrologAnimFinished = false;
-        if (scenarioData._sprites.ContainsKey(currentScenarioIndex))
-        {
-            prologImg.sprite = scenarioData._sprites[currentScenarioIndex];
-        }
-        prologText.text = string.Empty;
-        prologText.DOText(scenarioData._text[currentScenarioIndex++], textDisplayDuration, true)
-            .SetEase(Ease.Linear)
-            .SetLoops(1, LoopType.Restart)
-            .OnComplete(() =>
-            {
-                isPrologAnimFinished = true;
-            })
-            .onUpdate += () =>
-            {
-                if (Input.anyKeyDown)
-                {
-                    prologText.DOPause();
-                    prologText.text = scenarioData._text[currentScenarioIndex - 1];
-                    isPrologAnimFinished = true;
-                }
-            };
+        startAnimSequence.Play();
     }
 
-    void BuilSequence()
+    public void BuildSequence()
     {
-        prologAnimSequence = DOTween.Sequence();
+        startAnimSequence = DOTween.Sequence();
         // fade Squence
-        prologAnimSequence
+        startAnimSequence
             .Append(fadeScreen.DOFade(0.7f, fadeDuration).SetEase(Ease.InQuad))
             .Append(fadeScreen.DOFade(1f, fadeDuration).SetEase(Ease.InQuad))
             .Append(fadeScreen.DOFade(0.7f, fadeDuration).SetEase(Ease.InQuad))
@@ -84,19 +32,28 @@ public class PrologAnim : MonoBehaviour
             .Append(fadeScreen.DOFade(0f, fadeDuration).SetEase(Ease.InQuad))
             .OnComplete(() =>
             {
-                isPrologAnimFinished = true;
-                ScenarioSequence();
+                if (!cutSceneFinished)
+                    SequenceResult();
+                else
+                    Managers.Game.ChangeState(GameState.Home);
             })
             .onUpdate += () =>
             {
                 if (Input.anyKeyDown)
                 {
-                    prologAnimSequence.Pause();
-                    fadeScreen.DOPause();
+                    startAnimSequence.Pause();
                     fadeScreen.color = new Color(0, 0, 0, 0);
-                    isPrologAnimFinished = true;
-                    ScenarioSequence();
+                    SequenceResult();
                 }
             };
+    }
+    public void SequenceResult()
+    {
+        isAnimFinished = true;
+        ScenarioSequence();
+    }
+    void OnDestroy()
+    {
+        startAnimSequence.Kill();
     }
 }

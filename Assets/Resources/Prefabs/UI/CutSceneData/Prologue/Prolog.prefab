@@ -97,7 +97,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6906363466434647765
 RectTransform:
   m_ObjectHideFlags: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -855298285791758126, guid: c26bbb18b93048847badd820fd0c2576, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56f6a5c8faa8d5341b607134ad32ec35, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -169,38 +169,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd060db073bb50489b38065943404c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeScreen: {fileID: 388413102913151601}
-  prologText: {fileID: 2244041531655709527}
-  prologImg: {fileID: 1208859554717414319}
-  scenarioText:
-  - "\u201C\uC544\uBB34\uAC83\uB3C4 \uBCF4\uC774\uC9C0 \uC54A\uC558\uB2E4.  \uC0C9\uB3C4,
-    \uD615\uCCB4\uB3C4, \uBC29\uD5A5\uB3C4\u2026 \uBAA8\uB4E0 \uAC83\uC774 \uC0BC\uCF1C\uC9C4
-    \uACF3.  \uB0A8\uC740 \uAC74 \uB205\uB205\uD55C \uB3CC\uBC14\uB2E5\uC758 \uCC28\uAC00\uC6C0\uBFD0\uC774\uC5C8\uB2E4.\u201D"
-  - "\uCC9C\uCC9C\uD788 \uACE0\uAC1C\uB97C \uB4E4\uC5C8\uB2E4. \uADE0\uC5F4\uC774
-    \uAC00\uB4DD\uD55C \uBCBD\uACFC \uACF0\uD321\uC774\uB85C \uB4A4\uB36E\uC778 \uD0D1\uC758
-    \uB0B4\uBD80.  \uADF8\uB9AC\uACE0\u2026 \uBCF8\uB2A5\uC801\uC73C\uB85C \uB290\uB084
-    \uC218 \uC788\uC5C8\uB2E4. \uC5EC\uAE34 \uAC10\uC625\uC774\uC5C8\uB2E4.\u201D"
-  - "\u201C\uADF8 \uC21C\uAC04, \uC5B4\uB460 \uC18D\uC5D0\uC11C \uB0AF\uC120 \uC18C\uB9AC\uAC00
-    \uB4E4\uB824\uC654\uB2E4. \uBC1C\uD1B1\uC774 \uBC14\uB2E5\uC744 \uAE01\uB294
-    \uB4EF\uD55C \uC18C\uB9AC. \uADF8\uB9BC\uC790 \uC18D\uC5D0\uC11C, \uD669\uAE08\uBE5B
-    \uB208\uC774 \uB5A0\uC62C\uB790\uB2E4.\u201D"
-  - "\u201C\uC624~ \uB4DC\uB514\uC5B4 \uAE7C\uB124?\u201D \uB9D0\uD558\uB294 \uACE0\uC591\uC774.
-    \uC7A5\uB09C\uC2A4\uB7EC\uC6B4 \uBAA9\uC18C\uB9AC \uB4A4\uC5D0 \uC5B4\uB518\uAC00
-    \uBD88\uD3B8\uD55C \uBBF8\uC18C. \uADF8\uB294 \uBCF8\uB2A5\uC801\uC73C\uB85C
-    \uB290\uAF08\uB2E4. \uC774 \uC874\uC7AC\uB294\u2026 \uBAA8\uB4E0 \uAC78 \uC54C\uACE0
-    \uC788\uB2E4."
-  - "\u201C\uC54C\uACE0 \uC2F6\uB2E4\uBA74\u2026 \uC62C\uB77C\uBD10.\u201D \uC774
-    \uD0D1\uC740, \uC78A\uACE0 \uC788\uB358 \uAC78 \uD558\uB098\uC529 \uBCF4\uC5EC\uC904
-    \uD14C\uB2C8\uAE4C.\u201D"
-  scenarioImages:
-  - {fileID: -855298285791758126, guid: c26bbb18b93048847badd820fd0c2576, type: 3}
-  - {fileID: 6937817954938267909, guid: f3ee0552e9c181f4aa11b8bf78509629, type: 3}
-  - {fileID: -6470460504253458178, guid: 347aae9584074044382ce284198b2541, type: 3}
-  - {fileID: -4178046375966092550, guid: 535374d1c76d9d7449b0fd2bc9ec451a, type: 3}
-  - {fileID: 4130640169021434097, guid: 8c03c5c3eadbcaf45a4a98f65c032ce5, type: 3}
-  fadeDuration: 2
+  scenarioData: {fileID: 11400000, guid: ecf3cb949b575564b9f93aab483181d5, type: 2}
+  scenarioText: {fileID: 2244041531655709527}
+  scenarioSprite: {fileID: 1208859554717414319}
   textDisplayDuration: 5
   textDisplayDelay: 2
+  fadeScreen: {fileID: 388413102913151601}
+  fadeDuration: 2
 --- !u!1 &9200225474043987304
 GameObject:
   m_ObjectHideFlags: 0
