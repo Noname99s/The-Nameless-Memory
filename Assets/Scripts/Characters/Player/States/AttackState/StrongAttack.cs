@@ -13,16 +13,16 @@ namespace Orpul1.Player.State.Attack
         }
         public void Initialize()
         {
-            playerData.animator.SetBool(EPlayerAni.IsStrongAttack.ToString(), true);
+            playerData.playerInfo.animator.SetBool(EPlayerAni.IsStrongAttack.ToString(), true);
             SetNextAttack();
         }
         public void Execute()
         {
             if (Time.time < aniDuration) return;
-            playerData.animator.SetInteger(EPlayerAni.AttackIndex.ToString(), playerData.attackContext.curAttack);
-            if (!playerData.animator.GetCurrentAnimatorStateInfo(0).IsName(((EStrongAttack)(playerData.attackContext.curAttack)).ToString()))
+            playerData.playerInfo.animator.SetInteger(EPlayerAni.AttackIndex.ToString(), playerData.attackInfo.curAttack);
+            if (!playerData.playerInfo.animator.GetCurrentAnimatorStateInfo(0).IsName(((EStrongAttack)(playerData.attackInfo.curAttack)).ToString()))
                 return;
-            aniDuration = playerData.animator.GetCurrentAnimatorStateInfo(0).length;
+            aniDuration = playerData.playerInfo.animator.GetCurrentAnimatorStateInfo(0).length;
             SetNextAttack();
         }
 
@@ -30,7 +30,7 @@ namespace Orpul1.Player.State.Attack
 
         private void SetNextAttack()
         {
-            playerData.attackContext.curAttack = Random.Range(0, (int)EStrongAttack.END);
+            playerData.attackInfo.curAttack = Random.Range(0, (int)EStrongAttack.END);
         }
     }
 }

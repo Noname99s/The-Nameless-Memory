@@ -5,16 +5,21 @@ using UnityEngine;
 public class Managers : MonoBehaviour
 {
     static Managers s_instance;
+    GameManager _game = new GameManager();
     SceneLoadManager _sceneLoad = new SceneLoadManager();
     //SoundManager _sound;
 
     UIManager _ui = new UIManager();
     [SerializeField] ResourceManager _resource;
-    
-    public static SceneLoadManager SceneLoad { get { return Instance._sceneLoad; } }
+    [SerializeField] MapManager _mapManager;
+    [SerializeField] PlayerManager _playerManager;
 
+    public static SceneLoadManager SceneLoad { get { return Instance._sceneLoad; } }
+    public static GameManager Game { get { return Instance._game; } }
     public static UIManager UI { get { return Instance._ui; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
+    public static MapManager Map { get { return Instance._mapManager; } }
+    public static PlayerManager Player { get { return Instance._playerManager; } }
     static Managers Instance 
     { 
         get 
@@ -37,9 +42,9 @@ public class Managers : MonoBehaviour
     public void Init()
     {
         s_instance = GetComponent<Managers>();
+        _game.Init();
         _sceneLoad.Init();
         _ui.Init();
-        //_ui.ShowPopupUI<MainMenuComposition>();
     }
     private void Start()
     {

@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 288680844372688899}
   m_Father: {fileID: 1832887567842334404}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &764128924490101152
@@ -166,7 +167,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d17b0abe82061e64f9652bfcd94703d0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -378,17 +379,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateController: {fileID: 5725579068212597670}
   playerData: {fileID: 6948962639656468517}
-  groundRayDistance: 1.25
-  wallRayDistance: 0.15
-  ladderRayDistance: 1
-  groundRayStartPosi: {x: 0, y: 0.72, z: 0}
-  wallRayStartPosi: {x: -0.2, y: 0.5, z: 0}
-  floorLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  ladderLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  rayInfo:
+    groundRayDistance: 0.9
+    wallRayDistance: 0.35
+    ladderRayDistance: 1
+    groundRayStartPosi: {x: 0, y: 0.72, z: 0}
+    wallRayStartPosi: {x: 0, y: 0.5, z: 0}
+    floorLayer:
+      serializedVersion: 2
+      m_Bits: 64
+    ladderLayer:
+      serializedVersion: 2
+      m_Bits: 128
   state: 0
 --- !u!114 &6948962639656468517
 MonoBehaviour:
@@ -402,71 +404,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82e898cbc5606c4d9a7239329b1151d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigid: {fileID: 5947109336739971617}
-  slideMovement:
-    <maxIterations>k__BackingField: 5
-    <surfaceSlideAngle>k__BackingField: 45
-    <gravitySlipAngle>k__BackingField: 90
-    <surfaceUp>k__BackingField: {x: 0, y: 1}
-    <surfaceAnchor>k__BackingField: {x: 0, y: -0.1}
-    <gravity>k__BackingField: {x: 0, y: -9.81}
-    <startPosition>k__BackingField: {x: 0, y: 0}
-    <selectedCollider>k__BackingField: {fileID: 0}
-    <layerMask>k__BackingField:
-      serializedVersion: 2
-      m_Bits: 64
-    <useLayerMask>k__BackingField: 1
-    <useStartPosition>k__BackingField: 0
-    <useNoMove>k__BackingField: 0
-    <useSimulationMove>k__BackingField: 1
-    <useAttachedTriggers>k__BackingField: 0
-  slideResult:
-    <remainingVelocity>k__BackingField: {x: 0, y: 0}
-    <position>k__BackingField: {x: 7.854174, y: 3.0024076}
-    <iterationsUsed>k__BackingField: 1
-  sprite: {fileID: 764128924490101152}
-  trPlayer: {fileID: 1832887567842334404}
-  animator: {fileID: 4683667883276261786}
-  hp: 100
-  maxHp: 100
-  moveDir: {x: 0, y: 0}
-  moveSpeed: 600
-  jumpState: 0
-  gravityStrength: 5
-  jumpPower: 38
-  decelerate: 0.8
-  minJumpSpeed: 0.8
-  jumpCount: 0
-  isPressJump: 0
-  shouldWallJump: 0
-  isFalling: 0
-  damageFallHeight: 30
-  defaultFallSpeed: 1
-  maxFallSpeed: 15
-  fallDamageOverTime: 1.2
-  onAirMoveSpeed: 300
-  decelerateMoveSpeed: 0.2
-  fallDamage: 0
-  maxFallDamage: 5
-  isPressAttack: 0
-  canAttack: 0
-  delayInterval: 0
-  isStillAttack: 0
-  attackContext:
-    attackType: 3
+  playerInfo:
+    rigid: {fileID: 5947109336739971617}
+    playerCollider: {fileID: 5797288449755540277}
+    sprite: {fileID: 764128924490101152}
+    trPlayer: {fileID: 1832887567842334404}
+    animator: {fileID: 4683667883276261786}
+    originScale: {x: 1, y: 1, z: 1}
+    hp: 100
+    maxHp: 100
+    dectectedGroundPosi: {x: 0, y: 0, z: 0}
+  moveInfo:
+    slideMovement:
+      <maxIterations>k__BackingField: 3
+      <surfaceSlideAngle>k__BackingField: 90
+      <gravitySlipAngle>k__BackingField: 90
+      <surfaceUp>k__BackingField: {x: 0, y: 1}
+      <surfaceAnchor>k__BackingField: {x: 0, y: -1}
+      <gravity>k__BackingField: {x: 0, y: -9.81}
+      <startPosition>k__BackingField: {x: 0, y: 0}
+      <selectedCollider>k__BackingField: {fileID: 0}
+      <layerMask>k__BackingField:
+        serializedVersion: 2
+        m_Bits: 4294967295
+      <useLayerMask>k__BackingField: 0
+      <useStartPosition>k__BackingField: 0
+      <useNoMove>k__BackingField: 0
+      <useSimulationMove>k__BackingField: 0
+      <useAttachedTriggers>k__BackingField: 0
+    slideResult:
+      <remainingVelocity>k__BackingField: {x: 0, y: 0}
+      <position>k__BackingField: {x: 0, y: 0}
+      <iterationsUsed>k__BackingField: 0
+    moveDir: {x: 0, y: 0}
+    slideMoveGravity: {x: 0, y: -20}
+    moveSpeed: 15
+    isPressClimbLadder: 0
+    canClimbLadder: 0
+    canClimbWall: 0
+    isPressWallClimb: 0
+    climbSpeed: 8
+  jumpInfo:
+    jumpState: 0
+    gravityStrength: 5
+    jumpPower: 38
+    decelerate: 0.8
+    minJumpSpeed: 0.2
+    jumpCount: 0
+    isPressJump: 0
+    shouldWallJump: 0
+  fallInfo:
+    isFalling: 0
+    damageFallHeight: 30
+    defaultFallSpeed: 1
+    maxFallSpeed: 15
+    fallDamageOverTime: 1.2
+    onAirMoveSpeed: 10
+    decelerateMoveSpeed: 0.2
+    fallDamage: 0
+    maxFallDamage: 5
+  attackInfo:
+    attackType: 0
     attackDelays:
     - 0.3
-    - 0.5
-    - 0.5
+    - 0.3
+    - 0.3
     attackCounts: 030000000300000000000000
+    damages: 0a00000014000000
     curAttack: 0
-  isPressClimbLadder: 0
-  canClimbLadder: 0
-  canClimbWall: 0
-  isPressWallClimb: 0
-  climbSpeed: 200
-  isHit: 0
-  isDeath: 0
+    isPressAttack: 0
+    canAttack: 0
+    delayInterval: 0
+    isStillAttack: 0
+    characterAttack: {fileID: 7191165317446888281}
+  hitInfo:
+    knockBackPower: 20
+    invincibleTime: 1
+    hitDuration: 0.05
+    cameraShakeDuration: 0.5
+    canGetDamage: 1
+    isHit: 0
+    isDeath: 0
 --- !u!114 &5725579068212597670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,3 +525,124 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 6948962639656468517}
+--- !u!1 &7130471573606573381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 288680844372688899}
+  - component: {fileID: 597267509707807459}
+  - component: {fileID: 3476999195374640395}
+  - component: {fileID: 7191165317446888281}
+  m_Layer: 0
+  m_Name: AttackCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &288680844372688899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7130471573606573381}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1310474997127015934}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &597267509707807459
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7130471573606573381}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!61 &3476999195374640395
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7130471573606573381}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &7191165317446888281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7130471573606573381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackAbleTag: 5
+  attackCollider: {fileID: 3476999195374640395}

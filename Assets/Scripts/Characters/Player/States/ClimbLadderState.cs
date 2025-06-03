@@ -12,55 +12,60 @@ namespace Orpul1.Player.State
 
         public override void OnStart()
         {
-            data.rigid.gravityScale = 0;
-            data.jumpCount = 2;
-            data.animator.SetBool(EPlayerAni.IsClimbLadder.ToString(), true);
+            Debug.Log("ClimbLadderState Start");
+            data.playerInfo.rigid.gravityScale = 0;
+            data.jumpInfo.jumpCount = 2;
+            data.playerInfo.animator.SetBool(EPlayerAni.IsClimbLadder.ToString(), true);
+            data.playerInfo.playerCollider.isTrigger = true;
+            data.playerInfo.rigid.linearVelocityX = 0;
         }
 
         public override void OnUpdate()
         {
-            data.rigid.linearVelocityY = data.moveDir.y * data.climbSpeed * Time.deltaTime;
-            data.rigid.linearVelocityX = data.moveDir.x * data.moveSpeed * Time.deltaTime;
+            data.playerInfo.rigid.linearVelocityY = data.moveInfo.moveDir.y * data.moveInfo.climbSpeed;
+            //data.playerInfo.rigid.linearVelocityX = data.moveInfo.moveDir.x * data.moveInfo.moveSpeed;
           
-            data.animator.speed = Mathf.Abs(data.moveDir.y);
+            data.playerInfo.animator.speed = Mathf.Abs(data.moveInfo.moveDir.y);
 
             TransitionState();
         }
 
         public override void OnExit()
         {
-            data.rigid.gravityScale = data.gravityStrength;
-            data.animator.speed = 1;
-            data.animator.SetBool(EPlayerAni.IsClimbLadder.ToString(), false);
+            data.playerInfo.rigid.gravityScale = data.jumpInfo.gravityStrength;
+            data.playerInfo.animator.speed = 1;
+            data.playerInfo.animator.SetBool(EPlayerAni.IsClimbLadder.ToString(), false);
+            data.playerInfo.playerCollider.isTrigger = false;
         }
         
         
         private void TransitionState()
         {
             if (IsHitState()) return;
-            if (IsJumpState()) return;
+            //if (IsJumpState()) return;
             if (IsIdleState()) return;
             if (IsFallState()) return;
         }
         
         private bool IsHitState()
         {
-            if (!data.isHit) return false;
+            if (!data.hitInfo.isHit) return false;
+            data.moveInfo.canClimbLadder = false;
             transitionTo((int)EPlayerState.Hit);
 
             return true;
         }
         private bool IsFallState()
         {
-            if (data.canClimbLadder || !data.isFalling) return false;
+            if (data.moveInfo.canClimbLadder || !data.fallInfo.isFalling) return false;
             transitionTo((int)EPlayerState.Fall);
 
             return true;
         }
         private bool IsIdleState()
         {
-            if (data.IsClimbLadderState) return false;
-            if (!data.IsIdleState || data.isFalling) return false;
+            if (data.moveInfo.canClimbLadder) return false;
+            if (!data.IsIdleState || data.fallInfo.isFalling) return false;
             transitionTo((int)EPlayerState.Idle);
             Debug.Log("LadderClimb->Idle");
 

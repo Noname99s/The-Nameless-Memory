@@ -6,6 +6,17 @@ public class ResourceManager : MonoBehaviour
     {
         return Resources.Load<T>(path);
     }
+    public GameObject Instantiate(GameObject prefab, Vector3 position, Quaternion rotation, Transform parent = null)
+    {
+        // Clone text delete
+        GameObject go = Object.Instantiate(prefab, position, rotation, parent);
+        int index = go.name.IndexOf("(Clone)");
+        if (index > 0)
+        {
+            go.name = go.name.Substring(0, index);
+        }
+        return go;
+    }
     public GameObject Instantiate(GameObject prefab , Transform parent = null)
     {
         // Clone text delete

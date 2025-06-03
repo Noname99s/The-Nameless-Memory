@@ -6,45 +6,52 @@ namespace Orpul1.Player.State.Hit
 {
     public class HitState : PlayerBaseState
     {
-        bool isHitAni = false;
-        float aniDuration = 0;
-        float interval = 0;
+        float hitTime = 0;
         public HitState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo)
         {
         }
         public override void OnStart()
         {
-            data.animator.SetTrigger(EPlayerAni.HitTrigger.ToString());
-            isHitAni = false;
+            data.playerInfo.animator.SetTrigger(EPlayerAni.HitTrigger.ToString());
+            hitTime = Time.time + data.hitInfo.hitDuration;
         }
         
         public override void OnUpdate()
         {
-            if (!isHitAni)
-            {
-                SetHitAniDuration();
-            }
-            else
-            {
-                WaitForHitAniEnd();
-            }
+            if (Time.time < hitTime) return;
+            TransitionState();
         }
 
         public override void OnExit()
         {
-            data.isHit = false;
+            data.hitInfo.isHit = false;
         }
-        private void SetHitAniDuration()
+        private void TransitionState()
         {
-            if (!data.animator.GetCurrentAnimatorStateInfo(0).IsName("HitDamage")) return;
-            aniDuration = data.animator.GetCurrentAnimatorStateInfo(0).length;
-            isHitAni = true;
+            if (IsIdleState()) return;
+            if (IsFallState()) return;
+            if (IsMoveState()) return;
         }
-        private void WaitForHitAniEnd()
+        private bool IsIdleState()
         {
-            interval += Time.deltaTime;
-            if (interval < aniDuration) return;
+            if(!data.IsIdleState) return false;
             transitionTo((int)EPlayerState.Idle);
+
+            return true;
+        }
+        private bool IsFallState()
+        {
+            if (!data.IsFallState) return false;
+            transitionTo((int)EPlayerState.Fall);
+
+            return true;
+        }
+        private bool IsMoveState()
+        {
+            if (!data.IsMoveState) return false;
+            transitionTo((int)EPlayerState.Move);
+
+            return true;
         }
     }
 }

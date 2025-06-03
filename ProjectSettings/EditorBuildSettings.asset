@@ -6,19 +6,22 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scene/ManagerScene.unity
+    path: Assets/Scene/RootScene.unity
     guid: 69de2fb9d7422234f808875082a8604f
   - enabled: 1
     path: Assets/Scene/TestScene/Orpul1 BossTest.unity
     guid: d007c190dd0fe034391f847520b2bfdf
   - enabled: 1
-    path: Assets/Scene/PlayTest.unity
-    guid: dd9f3af38e772e74893983e1926aa48e
+    path: Assets/Scene/Home.unity
+    guid: 5cb80814d71987a44b401d4f7c0cf821
+  - enabled: 1
+    path: Assets/Scene/Battle.unity
+    guid: 5c355862a66f40845b9effd57e92191f
   - enabled: 1
     path: Assets/Scene/UIScene.unity
     guid: f44e67ec6f5cda64cbddd70934f2769c
   - enabled: 1
-    path: Assets/Scene/MainMenuScene.unity
+    path: Assets/Scene/MainMenu.unity
     guid: 206fb69e836361a469964e34ccdf837e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
