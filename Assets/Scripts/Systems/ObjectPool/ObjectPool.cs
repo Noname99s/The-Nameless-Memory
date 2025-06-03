@@ -5,8 +5,8 @@ using UnityEngine;
 public abstract class ObjectPool : MonoBehaviour
 {
     private Queue<GameObject> pools = new Queue<GameObject>();
-    [SerializeField] private GameObject prefab;
-    [SerializeField] private GameObject parent;
+    [SerializeField] protected GameObject prefab;
+    [SerializeField] protected GameObject parent;
     private void Start()
     {
         Initialize();

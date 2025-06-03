@@ -48,8 +48,10 @@ namespace Orpul1.Enemy
     [Serializable]
     public class EnemyAttackInfo
     {
-        public int damage;
+        public EEnemyAttack attackType = EEnemyAttack.MeleeAttack;
+        public EnemyFactory arrowFactory;
         public float attackDistance;
+        public int damage;
     }
     [Serializable]
     public class EnemyHitInfo

@@ -8,9 +8,11 @@ namespace Orpul1.Enemy.State
     public class AttackState : EnemyState
     {
         IStrategy[] attackStrategies ;
+        EEnemyAttack attackType;
         float interval = 0;
         public AttackState(EnemyContext context, Action<int> transitionTo) : base(context, transitionTo)
         {
+            attackType = context.attackInfo.attackType;
             attackStrategies = new IStrategy[2]
             {
                 new MeleeAttack(context),
@@ -23,12 +25,14 @@ namespace Orpul1.Enemy.State
             context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             context.enemyInfo.rigid.gravityScale = context.enemyInfo.gravityStrength;
             context.enemyInfo.animator.SetBool(EEnemyAniTransition.IsAttack.ToString(), true);
+            attackStrategies[(int)attackType].Initialize();
             interval = 0;
         }
 
         public override void OnUpdate()
         {
             context.enemyInfo.rigid.linearVelocity = Vector2.zero;
+            attackStrategies[(int)attackType].Execute();
             if (IsHitState()) return;
             if (!IsAttackAni()) return;
             interval += Time.deltaTime;

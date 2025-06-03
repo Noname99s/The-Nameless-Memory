@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 3881765726750798974}
   - component: {fileID: 379403530807707627}
   - component: {fileID: 839102815045252382}
+  - component: {fileID: 6549227348212945112}
   m_Layer: 0
   m_Name: RedMeleeEnemy
   m_TagString: Enemy
@@ -224,18 +225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d5fec515647ea41b700e7de6914c5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightInfo:
-    trTarget: {fileID: 4253996545834453446}
-    originPosi: {x: 0, y: 0.6, z: 0}
-    detectMask:
-      serializedVersion: 2
-      m_Bits: 1024
-    viewRadius: 5
-    distance: 35.5
-    flipValue: 1
   stateController: {fileID: 3881765726750798974}
   context: {fileID: 379403530807707627}
   state: 0
+  fieldOfView: {fileID: 6549227348212945112}
 --- !u!114 &3881765726750798974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +281,7 @@ MonoBehaviour:
     sprite: {fileID: 6072098305812604063}
     animator: {fileID: 2574848211539833051}
     originScale: {x: 4.8, y: 4.8, z: 1}
+    gravityStrength: 5
     hp: 100
     flipValue: 1
   idleInfo:
@@ -297,17 +291,21 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     patrolMoveSpeed: 5
+    sightAngle: 150
+    sightRadius: 3
   chaseInfo:
     chaseTarget: {fileID: 0}
     isFindChaseTarget: 0
     chaseMoveSpeed: 5
-    chaseDistance: 0
+    chaseDistance: 10
+    sightAngle: 360
+    sightRadius: 10
   attackInfo:
     damage: 0
-    attackDistance: 0
+    attackDistance: 1
   hitInfo:
-    hitDuration: 0.5
-    knockBackPower: 10
+    hitDuration: 1
+    knockBackPower: 5
     blinkCount: 3
     blinkDuration: 0.1
     blinkColors:
@@ -331,3 +329,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   context: {fileID: 379403530807707627}
+--- !u!114 &6549227348212945112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6766174714432795180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187cb1f14fe6c7743acb158ac5cc2cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sightInfo:
+    originPosi: {x: -0.1, y: 1, z: 0}
+    detectMask:
+      serializedVersion: 2
+      m_Bits: 1024
+    angle: 150
+    radius: 3
+    rotateZ: 90
+  originScale: {x: 4.8, y: 4.8, z: 1}
