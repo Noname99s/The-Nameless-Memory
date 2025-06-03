@@ -286,6 +286,7 @@ MonoBehaviour:
       <iterationsUsed>k__BackingField: 0
     sprite: {fileID: 6072098305812604063}
     animator: {fileID: 2574848211539833051}
+    enemyCollider: {fileID: 8041543517621093557}
     originScale: {x: 4.8, y: 4.8, z: 1}
     gravityStrength: 5
     isGround: 1

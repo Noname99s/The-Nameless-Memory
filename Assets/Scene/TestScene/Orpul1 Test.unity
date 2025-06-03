@@ -74643,6 +74643,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 1495233070739381293, guid: 4f7460ad7a8cefe4b8da11d63c8b6d96, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5394511368529111179, guid: 4f7460ad7a8cefe4b8da11d63c8b6d96, type: 3}
       propertyPath: Lens.OrthographicSize
       value: 5

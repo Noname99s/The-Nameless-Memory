@@ -26,7 +26,7 @@ namespace Orpul1.Player.State
             Debug.Log("StartAttack");
             if ((int)data.attackInfo.attackType >= attackCommands.Length)
                 data.attackInfo.attackType = EPlayerAttack.NormalAttack;
-
+            data.playerInfo.rigid.gravityScale = 0;
             Initialize();
             SetAnimation();
         }
@@ -45,6 +45,7 @@ namespace Orpul1.Player.State
              
             data.playerInfo.animator.SetBool(EPlayerAni.IsAttack.ToString(), false);
             data.playerInfo.animator.SetInteger(EPlayerAni.AttackIndex.ToString(), 0);
+            data.playerInfo.rigid.gravityScale = data.jumpInfo.gravityStrength;
         }
 
         private void Initialize()

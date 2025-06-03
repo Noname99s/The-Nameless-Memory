@@ -43,21 +43,26 @@ namespace Orpul1.Player
             playerData.playerInfo.dectectedGroundPosi = transform.position;
             delayInvincible = new WaitForSeconds(playerData.hitInfo.invincibleTime);
             delayCameraShake = new WaitForSeconds(playerData.hitInfo.cameraShakeDuration);
+            CameraManager.Instance.SetCameraEvent(SetCameraEvent);
             PlayerManager.Instance.SetPlayer(gameObject);
         }
         void Start()
         {
             //playerHpUI = Managers.UI.GetPopupUI<InGameView>();
             //OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
-            Transform camera = CameraManager.Instance.GetCamera<Transform>((int)ECameraType.MainCamera);
-            cameraEffect = camera.GetComponent<ICameraEffectAble>();
-            cameraGroup = camera.GetComponent<ISetCamerGroupAble>();
 
+            SetCameraEvent();
             stateController.TransitionState((int)EPlayerState.Idle);
             playerData.moveInfo.slideMovement.gravity = playerData.moveInfo.slideMoveGravity;
             playerData.moveInfo.slideMovement.surfaceAnchor = Vector2.down * 0.1f;
         }
-
+        private void SetCameraEvent()
+        {
+            Transform camera = CameraManager.Instance.GetCamera<Transform>((int)ECameraType.MainCamera);
+            if (camera == null) return;
+            cameraEffect = camera.GetComponent<ICameraEffectAble>();
+            cameraGroup = camera.GetComponent<ISetCamerGroupAble>();
+        }
         void Update()
         {
             state = (EPlayerState)stateController.CurState;

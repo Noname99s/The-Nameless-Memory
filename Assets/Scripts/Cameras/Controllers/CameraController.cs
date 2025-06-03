@@ -13,8 +13,6 @@ public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetCame
      
     private void Awake()
     {
-        CameraManager.Instance.SetCamera((int)ECameraType.MainCamera, gameObject);
-
         context.cameraView.y = context.mainCam.orthographicSize;
         context.cameraView.x = context.mainCam.orthographicSize * ((float)Screen.width / Screen.height);
     }
@@ -22,6 +20,14 @@ public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetCame
     {
         context.cameraTarget.TrackingTarget = PlayerManager.Instance.GetPlayer().transform;
         stateController.TransitionState((int)ECameraState.Follow);
+    }
+    private void OnEnable()
+    {
+        CameraManager.Instance.SetCamera((int)ECameraType.MainCamera, gameObject);
+    }
+    private void OnDisable()
+    {
+        CameraManager.Instance.RemoveCamera((int)ECameraType.MainCamera);
     }
     private void LateUpdate()
     {
