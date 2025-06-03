@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ButtonPointHandler : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler
+public class MainMenuButtonPointHandler : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] TextMeshProUGUI[] texts = new TextMeshProUGUI[4];
     public void OnPointerEnter(PointerEventData eventData)

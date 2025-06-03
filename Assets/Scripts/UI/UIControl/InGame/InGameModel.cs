@@ -18,7 +18,8 @@ public class InGameModel
     }
     public void BackToMainMenu()
     {
-        Debug.Log("메인 메뉴로 돌아가기");
+        ResumeGame(); // 게임이 일시정지 상태라면 재개
+        Managers.Game.ChangeState(GameState.MainMenu);
     }
     public void QuitGame()
     {

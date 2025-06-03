@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class RemindPointHandler : MonoBehaviour, IPointerEnterHandler , IPointerExitHandler
+public class ChooseRemindPointHandler : MonoBehaviour, IPointerEnterHandler , IPointerExitHandler
 {
     [SerializeField] Image slicedImage;
     [SerializeField] GameObject originalImage;
