@@ -73223,6 +73223,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f7460ad7a8cefe4b8da11d63c8b6d96, type: 3}
+--- !u!1001 &7574602004173701107
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 193104871094878170, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 193104871094878170, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 193104871094878170, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193104871094878170, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193104871094878170, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193104871094878170, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193104871094878170, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193104871094878170, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193104871094878170, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193104871094878170, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2941019710068191738, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+      propertyPath: m_Name
+      value: RedEliteEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087380159888766392, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+      propertyPath: 'patrolInfo.movePosis.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1960183804}
+    - target: {fileID: 7087380159888766392, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+      propertyPath: 'patrolInfo.movePosis.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1619117285}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
 --- !u!1001 &8683717750252608012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73231,6 +73296,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 379403530807707627, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
+      propertyPath: hitInfo.hitDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 379403530807707627, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
       propertyPath: chaseInfo.sightAngle
       value: 360
@@ -73242,6 +73311,10 @@ PrefabInstance:
     - target: {fileID: 379403530807707627, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
       propertyPath: patrolInfo.sightAngle
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 379403530807707627, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
+      propertyPath: hitInfo.knockBackPower
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 379403530807707627, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
       propertyPath: patrolInfo.sightRadius
@@ -73323,6 +73396,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedMeleeEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6766174714432795180, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -73349,7 +73426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sightInfo:
-    originPosi: {x: 0, y: 1, z: 0}
+    originPosi: {x: -0.1, y: 1, z: 0}
     detectMask:
       serializedVersion: 2
       m_Bits: 1024
@@ -73375,4 +73452,5 @@ SceneRoots:
   - {fileID: 1560997736315849248}
   - {fileID: 5736843501798974121}
   - {fileID: 8683717750252608012}
+  - {fileID: 7574602004173701107}
   - {fileID: 954138994}
