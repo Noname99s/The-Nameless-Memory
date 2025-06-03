@@ -53,13 +53,14 @@ public class UIManager
                 Debug.LogError($"Failed to load prefab for {typeof(T).Name}");
                 return null;
             }
-
-            T sceneUI = Util.GetOrAddComponent<T>(go);
-            sceneUI.Init();
-            _popupDictionary[typeof(T)] = sceneUI;
         }
+
         go.SetActive(true);
-        
+
+        T sceneUI = Util.GetOrAddComponent<T>(go);
+        sceneUI.Init();
+        _popupDictionary[typeof(T)] = sceneUI;
+
         return _popupDictionary[typeof(T)] as T;
     }
     public void ClosePopupUI<T>() where T : UIPopup

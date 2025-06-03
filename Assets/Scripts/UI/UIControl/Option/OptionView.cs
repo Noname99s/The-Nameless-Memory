@@ -32,17 +32,13 @@ public class OptionView : MonoBehaviour , IOptionView
         int currentIndex = 0;
         for (int i = 0; i < resolutions.Length; i++)
         {
-            if(i == 0 || // Always add the first resolution
-                resolutions[i].width != resolutions[i-1].width 
-                || resolutions[i].height != resolutions[i-1].height) // Avoid duplicate resolutions
-            {
-                options.Add($"{resolutions[i].width}x{resolutions[i].height}");
-            }
+            options.Add($"{resolutions[i].width}x{resolutions[i].height}");
             if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
             {
                 currentIndex = i;
             }
         }
+
         resolutionDropdown.ClearOptions();
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentIndex;
