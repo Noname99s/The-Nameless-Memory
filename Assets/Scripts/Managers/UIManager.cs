@@ -39,7 +39,7 @@ public class UIManager
         if (go == null)
         {
             string prefabName = typeof(T).Name;
-            int index = prefabName.IndexOf("View");
+            int index = prefabName.IndexOf("Composition");
             if (index > 0)
             {
                 prefabName = prefabName.Substring(0, index);

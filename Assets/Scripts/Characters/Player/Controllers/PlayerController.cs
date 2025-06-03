@@ -20,8 +20,8 @@ namespace Orpul1.Player
 
 
         //TODO: 플레이어 HP UI연결 시킬 것
+        public event System.Action<int ,int> OnPlayerHpChanged;
 
-        //IInGameView playerHpUI;
         [SerializeField] EPlayerState state;
         private void Awake()
         {
@@ -30,10 +30,10 @@ namespace Orpul1.Player
         }
         void Start()
         {
-            //playerHpUI = Managers.UI.GetPopupUI<InGameView>();
             stateController.TransitionState((int)EPlayerState.Idle);
             playerData.slideMovement.gravity = Physics2D.gravity;
             playerData.slideMovement.surfaceAnchor = Vector2.down * 0.1f;
+            OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
         }
 
         void Update()
@@ -102,7 +102,6 @@ namespace Orpul1.Player
         private bool IsHitRay(RaycastHit2D hit2D)
         {
             if (hit2D.transform == null) return false;
-            if (!hit2D.transform.CompareTag(ETag.Floor.ToString())) return false;
 
             return true;
         }
@@ -110,7 +109,9 @@ namespace Orpul1.Player
         public void OnDamage(int damage)
         {
             playerData.hp -= damage;
-            
+            // 추가 로직
+            OnPlayerHpChanged?.Invoke(playerData.hp, playerData.maxHp);
+
             playerData.isHit = playerData.hp > 0;
             playerData.isDeath = !playerData.isHit;
         }

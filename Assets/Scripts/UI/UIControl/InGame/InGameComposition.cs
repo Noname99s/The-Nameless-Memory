@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class InGameComposition : MonoBehaviour
+public class InGameComposition : UIPopup
 {
     [SerializeField] InGameView inGameView;
     InGamePresenter inGamePresenter;
@@ -12,5 +13,8 @@ public class InGameComposition : MonoBehaviour
     {
         inGamePresenter.Dispose();
     }
-
+    public void OnHpUpdateConnection(int hp, int maxHp)
+    {
+        inGameView.UpdateHP(hp, maxHp);
+    }
 }

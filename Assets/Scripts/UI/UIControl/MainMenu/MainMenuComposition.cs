@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MainMenuComposition : MonoBehaviour
+public class MainMenuComposition : UIPopup
 {
     [SerializeField] MainMenuView mainMenuView;
     private MainMenuPresenter mainMenuPresenter;

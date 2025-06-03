@@ -29,6 +29,6 @@ public class OptionModel
 
     public void ExitOption()
     {
-        Managers.UI.ClosePopupUI<OptionView>();
+        Managers.UI.ClosePopupUI<OptionComposition>();
     }
 }

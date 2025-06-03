@@ -4,7 +4,7 @@ using System;
 using TMPro;
 using DG.Tweening;
 
-public class InGameView : UIPopup , IInGameView
+public class InGameView : MonoBehaviour , IInGameView
 {
     [SerializeField] DialogAnim dialogAnim;
     [SerializeField] Button pauseButton;
@@ -12,6 +12,10 @@ public class InGameView : UIPopup , IInGameView
     [SerializeField] Button openOptionsButton;
     [SerializeField] Button backToMainMenuButton;
     [SerializeField] Button quitGameButton;
+
+    [Header("Player Stats")]
+    [SerializeField] TextMeshProUGUI deathCountText;
+    [SerializeField] Slider hpSlider;
 
     public event Action OnPauseGame;
     public event Action OnResumeGame;
@@ -26,5 +30,24 @@ public class InGameView : UIPopup , IInGameView
         backToMainMenuButton.onClick.AddListener(() => OnBackToMainMenu?.Invoke());
         quitGameButton.onClick.AddListener(() => OnQuitGame?.Invoke());
         //dialogText.text = string.Empty;
+        hpSlider.value = hpSlider.maxValue; 
+        deathCountText.text = "0"; // Initialize death count to 0
+    }
+    public void UpdateDeathCount(int deathCount)
+    {
+        deathCountText.text = $"{deathCount}";
+    }
+    public void UpdateHP(int hp, int maxHp)
+    {
+        float targetValue = (float)hp / maxHp * hpSlider.maxValue;
+        hpSlider.DOKill();
+
+        hpSlider.DOValue(targetValue, 0.5f).SetEase(Ease.OutQuad).onComplete = () =>
+        {
+            if (hp <= 0)
+            {
+                dialogAnim.gameObject.SetActive(true);
+            }
+        };
     }
 }

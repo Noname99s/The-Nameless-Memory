@@ -1,3 +1,4 @@
+using Orpul1.Player;
 using UnityEngine;
 
 public class InGamePresenter
@@ -14,7 +15,7 @@ public class InGamePresenter
         inGameView.OnOpenOptions += HandleOpenOptions;
         inGameView.OnBackToMainMenu += HandleBackToMainMenu;
         inGameView.OnQuitGame += HandleQuitGame;
-
+        
     }
 
     void HandlePauseGame()
