@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed8abbe7804e2e84f849cd8febd4bf39, type: 3}
-  m_Name: PrologData
+  m_Name: PrologueData
   m_EditorClassIdentifier: 
   _scenarioType: Text_Prologue
   _text: []

@@ -2,12 +2,12 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 
-public class PrologAnim : CutSceneAnimBase, ICutSceneSequenceBuilder
+public class PrologueAnim : CutSceneAnimBase, ICutSceneSequenceBuilder
 {
-    [Header("Prolog Anim UI Setting")]
+    [Header("Prologue Anim UI Setting")]
     [SerializeField] Image fadeScreen;
 
-    [Header("Prolog Anim Settings")]
+    [Header("Prologue Anim Settings")]
     [SerializeField] float fadeDuration = 2f;
 
     Sequence startAnimSequence;
@@ -19,7 +19,12 @@ public class PrologAnim : CutSceneAnimBase, ICutSceneSequenceBuilder
         // Start the animation sequence
         startAnimSequence.Play();
     }
-
+    protected override void ScenarioSequence()
+    {
+        base.ScenarioSequence();
+        if(cutSceneFinished)
+            Managers.Game.ChangeState(GameState.Home);
+    }
     public void BuildSequence()
     {
         startAnimSequence = DOTween.Sequence();
@@ -32,10 +37,7 @@ public class PrologAnim : CutSceneAnimBase, ICutSceneSequenceBuilder
             .Append(fadeScreen.DOFade(0f, fadeDuration).SetEase(Ease.InQuad))
             .OnComplete(() =>
             {
-                if (!cutSceneFinished)
-                    SequenceResult();
-                else
-                    Managers.Game.ChangeState(GameState.Home);
+                SequenceResult();
             })
             .onUpdate += () =>
             {

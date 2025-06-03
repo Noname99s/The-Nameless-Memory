@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 1208859554717414319}
   - component: {fileID: 1054058455455206654}
   m_Layer: 5
-  m_Name: Prolog
+  m_Name: Prologue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
