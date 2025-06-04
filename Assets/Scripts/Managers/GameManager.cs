@@ -22,14 +22,17 @@ public enum Stage
 }
 public class GameManager 
 {
-    public bool[] stageCleared = new bool[(int)Stage.Max];
+    public PlayData playData; // Game data
+    //public bool[] stageCleared = new bool[(int)Stage.Max];
     public GameState CurrentState { get; private set; } = GameState.MainMenu;
     public void Init()
     {
-        for(int i = 0; i < stageCleared.Length; i++)
-        {
-            stageCleared[i] = false; 
-        }
+        playData = new PlayData(); // Initialize play data
+    }
+    public void UpdatePlayTime()
+    {
+        if (CurrentState == GameState.MainMenu || CurrentState == GameState.Ending) return;
+        playData.playTime += Time.deltaTime; 
     }
     public void ChangeState(GameState newState)
     {

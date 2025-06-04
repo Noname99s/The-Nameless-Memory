@@ -18,7 +18,7 @@ public class MapManager : MonoBehaviour
         if((isNext && currentMapIndex + 1 >= mapInfos.Count)|| (!isNext && currentMapIndex - 1 < 0))
         {
             if(isNext)
-                Managers.Game.stageCleared[(int)stageType] = true;
+                Managers.Game.playData.stageCleared[(int)stageType] = true;
             currentMapIndex = -1;
             Managers.Game.ChangeState(GameState.Home);
             return;

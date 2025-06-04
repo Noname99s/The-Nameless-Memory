@@ -19,11 +19,11 @@ public class HubDoor : MonoBehaviour
     }
     void ConfirmClear()
     {
-        if (stageType != Stage.Stage1 && Managers.Game.stageCleared[(int)stageType - 1])
+        if (stageType != Stage.Stage1 && Managers.Game.playData.stageCleared[(int)stageType - 1])
         {
             isOpen = true;
         }
-        if(stageType == Stage.BossStage && Managers.Game.stageCleared[(int)Stage.Stage2])
+        if(stageType == Stage.BossStage && Managers.Game.playData.stageCleared[(int)Stage.Stage2])
         {
             isOpen = true;
         }

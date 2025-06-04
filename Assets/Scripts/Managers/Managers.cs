@@ -6,6 +6,7 @@ public class Managers : MonoBehaviour
 {
     static Managers s_instance;
     GameManager _game = new GameManager();
+    GameDataManager _gameData = new GameDataManager();
     SceneLoadManager _sceneLoad = new SceneLoadManager();
     CameraManager _camera = new CameraManager();
     //SoundManager _sound;
@@ -16,6 +17,7 @@ public class Managers : MonoBehaviour
     [SerializeField] PlayerManager _playerManager;
 
     public static GameManager Game { get { return Instance._game; } }
+    public static GameDataManager GameData { get { return Instance._gameData; } }
     public static SceneLoadManager SceneLoad { get { return Instance._sceneLoad; } }
     public static CameraManager Camera { get { return Instance._camera; } }
     public static UIManager UI { get { return Instance._ui; } }
@@ -52,6 +54,10 @@ public class Managers : MonoBehaviour
     private void Start()
     {
         Init();
+    }
+    void Update()
+    {
+        _game.UpdatePlayTime(); 
     }
     void OnDestroy()
     {
