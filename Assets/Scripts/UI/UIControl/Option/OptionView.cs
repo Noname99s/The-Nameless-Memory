@@ -32,7 +32,7 @@ public class OptionView : MonoBehaviour , IOptionView
         int currentIndex = 0;
         for (int i = 0; i < resolutions.Length; i++)
         {
-            options.Add($"{resolutions[i].width}x{resolutions[i].height}");
+            options.Add($"{resolutions[i].width}x{resolutions[i].height}@{resolutions[i].refreshRateRatio.value}Hz");
             if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
             {
                 currentIndex = i;
