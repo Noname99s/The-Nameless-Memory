@@ -64,17 +64,9 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
         fadeSequence.Append(fadeImage.DOFade(1, 0.5f).SetEase(Ease.OutQuad))
                     .AppendCallback(() => currentAction?.Invoke())
                     .AppendInterval(2f)
+                    .Append(fadeImage.DOFade(0, 0.5f).SetEase(Ease.InQuad))
                     .SetAutoKill(false)
-                    .Pause()
-                    .OnComplete
-                    (
-                        () =>
-                        {
-                            Color color = fadeImage.color;
-                            color.a = 0; // Reset alpha to 0 after fade-in
-                            fadeImage.color = color; // Apply the reset color
-                        }
-                    );
+                    .Pause();
     }
     public void SequenceStart(Action action)
     {
