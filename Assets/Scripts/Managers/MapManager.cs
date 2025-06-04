@@ -1,6 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+using System;
+[Serializable]
+public class DeathInfo
+{
+    public Stage stageType;
+    public Vector3 deathPosition;
+    public int deathStageIndex;
+}
 public class MapManager : MonoBehaviour
 {
     public Stage stageType = Stage.Hub; // Default to Hub stage
@@ -8,6 +15,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] int currentMapIndex = -1;
     GameObject currentMapObject = null;
     public Vector3 movePoint = Vector3.zero;
+    [SerializeField] DeathInfo deathInfo = new DeathInfo();
     public void EntranceMap(bool isNext = true)
     {
         if (currentMapObject != null)
@@ -34,5 +42,12 @@ public class MapManager : MonoBehaviour
             movePoint = mapInfos[currentMapIndex].exitPoint;
         }
         Managers.Player.ChangePlayerPos(movePoint);
+    }
+    public void RecordDeathInfo(Vector2 deathPoint)
+    {
+        deathInfo.deathPosition = deathPoint;
+        deathInfo.stageType = stageType;
+        deathInfo.deathStageIndex = currentMapIndex;
+        Debug.Log("Death recorded at: " + deathPoint + " in stage: " + stageType + " at index: " + currentMapIndex);
     }
 }

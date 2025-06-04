@@ -6,13 +6,17 @@ namespace Orpul1.Player.State
 {
     public class DeathState : PlayerBaseState
     {
+        public event System.Action<int> OnPlayerDeath;
+
         public DeathState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo)
         {
+            OnPlayerDeath += Managers.UI.GetPopupUI<InGameComposition>().OnDeathCountUpdateConnection;
         }
 
         public override void OnStart()
         {
-
+            OnPlayerDeath?.Invoke(++Managers.Game.playData.deathCount);
+            Managers.Map.RecordDeathInfo(data.playerInfo.dectectedGroundPosi);
             data.playerInfo.animator.SetTrigger(EPlayerAni.DeathTrigger.ToString());
         }
 

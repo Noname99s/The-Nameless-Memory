@@ -13,6 +13,10 @@ public class InGameComposition : UIPopup
     {
         inGamePresenter.Dispose();
     }
+    public void OnDeathCountUpdateConnection(int deathCount)
+    {
+        inGameView.UpdateDeathCount(deathCount);
+    }
     public void OnHpUpdateConnection(int hp, int maxHp)
     {
         inGameView.UpdateHP(hp, maxHp);

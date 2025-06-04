@@ -23,7 +23,6 @@ public enum Stage
 public class GameManager 
 {
     public PlayData playData; // Game data
-    //public bool[] stageCleared = new bool[(int)Stage.Max];
     public GameState CurrentState { get; private set; } = GameState.MainMenu;
     public void Init()
     {
