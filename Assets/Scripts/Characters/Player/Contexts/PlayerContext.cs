@@ -118,6 +118,10 @@ public class PlayerContext : MonoBehaviour
     public PlayerHitInfo hitInfo;
     private void Awake()
     {
+        //SetContextInfos();
+    }
+    private void SetContextInfos()
+    {
         contextDB.SetPlayerInfo(playerInfo);
         contextDB.SetPlayerMoveInfo(moveInfo);
         contextDB.SetPlayerJumpInfo(jumpInfo);
