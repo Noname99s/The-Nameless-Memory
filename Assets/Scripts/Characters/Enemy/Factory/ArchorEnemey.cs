@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 namespace Orpul1.Enemy.TestEnemy
 {
-    public class BowEnemey : EnemyFactory
+    public class ArchorEnemey : EnemyFactory
     {
         public override T Create<T>()
         {

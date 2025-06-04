@@ -18,6 +18,7 @@ namespace Orpul1.Enemy
         public ISetDataAble<float, float> setSight;
         public float gravityStrength;
         public bool isGround = true;
+        public bool isAlwayChasePlayer = false;
         public int hp;
         public int flipValue = 1;
     }

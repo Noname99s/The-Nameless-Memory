@@ -16,9 +16,12 @@ public class CameraBoundary : MonoBehaviour
     [ContextMenu("Set Camera boundary")]
     public void SetBoundary()
     {
-        Vector2 middlePosi = (posis[(int)EViewPosi.StartPosi].position + posis[(int)EViewPosi.EndPosi].position) * 0.5f;
+        Vector3 startPosi = posis[(int)EViewPosi.StartPosi].localPosition;
+        Vector3 endPosi = posis[(int)EViewPosi.EndPosi].localPosition;
+
+        Vector2 middlePosi = (startPosi + endPosi) * 0.5f;
         boundary.offset = middlePosi;
-        boundary.size = posis[(int)EViewPosi.EndPosi].position- posis[(int)EViewPosi.StartPosi].position;
+        boundary.size = endPosi - startPosi;
     }
 
 
@@ -38,16 +41,22 @@ public class CameraBoundary : MonoBehaviour
         if (IsNullPosis()) return;
         Gizmos.color = Color.yellow;
         List<Vector2> lines = new List<Vector2>();
-        lines.Add(new Vector2(posis[(int)EViewPosi.StartPosi].position.x, posis[(int)EViewPosi.EndPosi].position.y));
-        lines.Add(posis[(int)EViewPosi.EndPosi].position);
-        lines.Add(new Vector2(posis[(int)EViewPosi.EndPosi].position.x, posis[(int)EViewPosi.StartPosi].position.y));
-        lines.Add(posis[(int)EViewPosi.StartPosi].position);
-        lines.Add(new Vector2(posis[(int)EViewPosi.StartPosi].position.x, posis[(int)EViewPosi.EndPosi].position.y));
+        Vector3 startPosi = posis[(int)EViewPosi.StartPosi].position;
+        Vector3 endPosi = posis[(int)EViewPosi.EndPosi].position;
+        lines.Add(new Vector2(startPosi.x, endPosi.y));
+        lines.Add(endPosi);
+        lines.Add(new Vector2(endPosi.x, startPosi.y));
+        lines.Add(startPosi);
+        lines.Add(new Vector2(startPosi.x, endPosi.y));
 
         for (int i = 0; i < lines.Count - 1; i++) 
         {
             Gizmos.DrawLine(lines[i], lines[i + 1]);
         }
+    }
+    private Vector3 GetColliderOriginPosi(Vector3 posi)
+    {
+        return transform.position + posi;
     }
     private bool IsNullPosis()
     {
