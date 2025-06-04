@@ -2,16 +2,13 @@ using UnityEngine;
 
 public class HubDoor : MonoBehaviour
 {
-    [SerializeField] SO_StageInfo stageInfo;
+    [SerializeField] Stage stageType = Stage.Stage1;
+    [SerializeField] SO_MapInfo[] stageInfo;
     [SerializeField] bool isOpen = false;
     bool isInDoor = false;
     void Start()
     {
         ConfirmClear();
-        if (stageInfo.stageIndex != Stage.Stage1 && Managers.Game.stageCleared[(int)stageInfo.stageIndex - 1])
-        {
-            isOpen = true;
-        }
     }
     void Update()
     {
@@ -22,7 +19,14 @@ public class HubDoor : MonoBehaviour
     }
     void ConfirmClear()
     {
-        gameObject.SetActive(!Managers.Game.stageCleared[(int)stageInfo.stageIndex]);
+        if (stageType != Stage.Stage1 && Managers.Game.stageCleared[(int)stageType - 1])
+        {
+            isOpen = true;
+        }
+        if(stageType == Stage.BossStage && Managers.Game.stageCleared[(int)Stage.Stage2])
+        {
+            isOpen = true;
+        }
     }
 
     public void Entrance()
@@ -33,16 +37,21 @@ public class HubDoor : MonoBehaviour
             Debug.Log("Cannot enter this stage yet.");
             return;
         }
-        if (Managers.Map.mapListType != stageInfo.stageIndex)
+        if(stageType == Stage.BossStage)
         {
-            Managers.Map.playerSpawnPoint = stageInfo.spawnPoint;
-            Managers.Map.mapListType = stageInfo.stageIndex;
-            Managers.Map.mapObjects.Clear();
-            for (int i = 0; i < stageInfo.stageObjects.Length; i++)
+            Managers.Game.ChangeState(GameState.Boss);
+            return;
+        }
+        if (Managers.Map.stageType != stageType)
+        {
+            Managers.Map.stageType = stageType;
+            Managers.Map.mapInfos.Clear(); 
+            for (int i = 0; i < stageInfo.Length; i++)
             {
-                Managers.Map.mapObjects.Add(stageInfo.stageObjects[i]);
+                Managers.Map.mapInfos.Add(stageInfo[i]);
             }
         }
+        Managers.Map.movePoint = Managers.Map.mapInfos[0].entrancePoint;
         Managers.Game.ChangeState(GameState.Battle);
     }
 

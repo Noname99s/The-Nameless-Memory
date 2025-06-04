@@ -2,7 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 
-public class PrologueAnim : CutSceneAnimBase, ICutSceneSequenceBuilder
+public class PrologueAnim : CutSceneAnimBase, ISequenceBuilder , ISequnceResulter
 {
     [Header("Prologue Anim UI Setting")]
     [SerializeField] Image fadeScreen;

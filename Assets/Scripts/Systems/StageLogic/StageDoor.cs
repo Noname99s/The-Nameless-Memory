@@ -9,7 +9,10 @@ public class StageDoor : MonoBehaviour
     {
         if (isInDoor && Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Managers.Map.EntranceMap(isNextStage);
+            Managers.UI.GetPopupUI<InGameComposition>().OnFadeInSequence(() =>
+            {
+                Managers.Map.EntranceMap(isNextStage);
+            });
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

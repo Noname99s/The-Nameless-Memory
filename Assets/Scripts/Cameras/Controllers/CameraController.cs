@@ -18,8 +18,7 @@ public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetCame
     }
     private void Start()
     {
-        context.cameraTarget.TrackingTarget = Managers.Player.GetPlayer().transform;
-        stateController.TransitionState((int)ECameraState.Follow);
+        TrackingTarget();
     }
     private void OnEnable()
     {
@@ -28,6 +27,11 @@ public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetCame
     private void OnDisable()
     {
         //RemoveCamera();
+    }
+    public void TrackingTarget()
+    {
+        context.cameraTarget.TrackingTarget = Managers.Player.GetPlayer().transform;
+        stateController.TransitionState((int)ECameraState.Follow);
     }
     private void RemoveCamera()
     {

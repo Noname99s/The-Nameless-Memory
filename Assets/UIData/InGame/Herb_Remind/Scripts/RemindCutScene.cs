@@ -2,7 +2,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RemindCutScene : CutSceneAnimBase , ICutSceneSequenceBuilder
+public class RemindCutScene : CutSceneAnimBase , ISequenceBuilder , ISequnceResulter
 {
     [Header("Remind Anim UI Setting")]
     [SerializeField] Image fadeScreen;

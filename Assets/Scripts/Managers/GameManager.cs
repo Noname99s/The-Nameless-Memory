@@ -36,8 +36,7 @@ public class GameManager
         if (CurrentState == newState) return;
         CurrentState = newState;
         Debug.Log($"Game state changed to: {CurrentState}");
-        Managers.Player.ChangePlayerPos();
-        Managers.Player.SetActivePlayer(false); // Move player to the new state
+        Managers.Player.RemovePlayer(); // Remove player if exists
         Managers.SceneLoad.LoadScene(newState.ToString());
         
     }
@@ -52,9 +51,7 @@ public class GameManager
             case GameState.Home:
                 // Logic for home
                 Managers.UI.ShowPopupUI<InGameComposition>();
-                Managers.Player.Init(); // Initialize player
-                Managers.Player.SetActivePlayer(true); // Activate player and camera
-                Managers.Player.ChangePlayerPos(); // Set player position to home
+                Managers.Player.Init(new Vector3(9, 8, 0)); // Initialize player
                 break;
             case GameState.RemindRoom:
                 break;
@@ -63,17 +60,13 @@ public class GameManager
                 // Logic for battle
                 Managers.UI.ShowPopupUI<InGameComposition>(); 
                 Managers.Map.EntranceMap(); // Load the current map
-                Managers.Player.SetActivePlayer(true); // Activate player and camera
-                Managers.Player.ChangePlayerPos(); // Set player position to the current map
+                Managers.Player.Init(Managers.Map.movePoint); // Initialize player at the entrance point
                 break;
 
             case GameState.Boss:
                 // Logic for boss fight
                 Managers.UI.ShowPopupUI<InGameComposition>();
-                Managers.Player.Init(); // Initialize player
-                Managers.Player.player.transform.position = new Vector3(10, 10, 0);
-                Managers.Player.SetActivePlayer(true); // Activate player and camera
-                Managers.Player.ChangePlayerPos(); // Set player position to the current map
+                Managers.Player.Init(new Vector3(10, 10, 0)); // Initialize player
                 break;
 
             case GameState.Ending:
