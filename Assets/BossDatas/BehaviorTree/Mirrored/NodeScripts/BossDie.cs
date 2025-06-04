@@ -28,6 +28,7 @@ public class BossDie : ActionScript
     }
     public override NodeState OnExit()
     {
+        Managers.Game.ChangeState(GameState.Ending);
         bossObj.SetActive(false);
         return NodeState.Success;
     }
