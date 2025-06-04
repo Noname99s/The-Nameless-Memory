@@ -22,7 +22,12 @@ namespace Orpul1.Boss.Mirrored
         public override void Execute()
         {
             isExcute = true;
+            SetAttackDamage(attackCollider);
             StartCoroutine("UseSkill");
+        }
+        private void SetAttackDamage(ISetDataAble<int> attackCollider)
+        { 
+            attackCollider.SetValue(damage);
         }
         IEnumerator UseSkill()
         {

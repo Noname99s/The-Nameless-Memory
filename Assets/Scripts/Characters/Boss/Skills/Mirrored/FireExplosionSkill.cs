@@ -19,18 +19,12 @@ public class FireExplosionSkill : BossSkill
         SkillAttack,
     }
     [SerializeField] Animator animator;
-    [SerializeField] Collider2D attackCollider;
     [SerializeField]float interval = 0, attackAniDuration = 0;
     bool isExecute = false;
     EExplosionSkill skillState = EExplosionSkill.Delay;
     private void OnEnable()
     {
-        attackCollider.enabled = false;
         ResetValue();
-    }
-    private void OnDisable()
-    {
-        attackCollider.enabled = false;
     }
     private void Update()
     {
@@ -44,6 +38,7 @@ public class FireExplosionSkill : BossSkill
     }
     public override void Execute()
     {
+        base.Execute();
         isExecute = true;
         DoExplosionSign();
     }

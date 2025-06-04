@@ -46,9 +46,11 @@ namespace Orpul1
             if (!IsInSight(target, originPosi,flipX)) return null;
             if(!IsPlayer(target)) return null;
             DrawRayPlayerPosi(originPosi, target.transform.position);
-            IGetValue<Transform> targetTransform = target.GetComponent<IGetValue<Transform>>();
+            /*
+             * IGetValue<Transform> targetTransform = target.GetComponent<IGetValue<Transform>>();
             if (targetTransform == null) return null;
-            return targetTransform.GetValue();
+             */
+            return target.transform;
         }
         private void DrawRayPlayerPosi(Vector3 origin, Vector3 target)
         {
@@ -81,7 +83,6 @@ namespace Orpul1
         private void OnDrawGizmos()
         {
             float flipX = transform.localScale.x / originScale.x;
-
             Vector3 originPosi =  sightInfo.originPosi;
             originPosi.x *= flipX;
             originPosi += transform.position;

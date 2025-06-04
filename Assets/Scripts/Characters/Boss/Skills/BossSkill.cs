@@ -9,10 +9,16 @@ public abstract class BossSkill : MonoBehaviour,ISetDataAble<Action<GameObject>>
     [SerializeField] protected float delayToAttack;
     [SerializeField] protected float deativeTime;
     [SerializeField] protected int damage;
+    [SerializeField] protected CharacterAttack attackCollider;
     protected List<IObserver> observers = new List<IObserver>();
     protected Action<GameObject> enqueueAction;
 
-    public abstract void Execute();
+    public virtual void Execute()
+    {
+        ISetDataAble<int> attack = attackCollider as ISetDataAble<int>;
+        if (attack == null) return;
+        attack.SetValue(damage);
+    }
     public void AddObserver(IObserver observer)
     {
         if (observers.Contains(observer)) return;

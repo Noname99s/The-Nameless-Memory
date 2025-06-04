@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1310474997127015934}
   - component: {fileID: 764128924490101152}
   - component: {fileID: 4683667883276261786}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,6 +111,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &2658830485346570554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1098117371055557434}
+  m_Layer: 10
+  m_Name: TargetPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1098117371055557434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2658830485346570554}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.65, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1832887567842334404}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5680952135707525415
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +159,7 @@ GameObject:
   - component: {fileID: 5725579068212597670}
   - component: {fileID: 2571065938256593121}
   - component: {fileID: 2506829344611688349}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -149,6 +180,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1310474997127015934}
+  - {fileID: 1098117371055557434}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5947109336739971617
@@ -379,6 +411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateController: {fileID: 5725579068212597670}
   playerData: {fileID: 6948962639656468517}
+  targetPosition: {fileID: 1098117371055557434}
   rayInfo:
     groundRayDistance: 0.9
     wallRayDistance: 0.35
@@ -450,17 +483,14 @@ MonoBehaviour:
     jumpPower: 38
     decelerate: 0.8
     minJumpSpeed: 0.2
-    jumpCount: 0
+    jumpCount: 2
     isPressJump: 0
     shouldWallJump: 0
   fallInfo:
     isFalling: 0
-    damageFallHeight: 30
     defaultFallSpeed: 1
-    maxFallSpeed: 15
     fallDamageOverTime: 1.2
     onAirMoveSpeed: 10
-    decelerateMoveSpeed: 0.2
     fallDamage: 0
     maxFallDamage: 5
   attackInfo:
@@ -537,7 +567,7 @@ GameObject:
   - component: {fileID: 597267509707807459}
   - component: {fileID: 3476999195374640395}
   - component: {fileID: 7191165317446888281}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AttackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,3 +676,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackAbleTag: 5
   attackCollider: {fileID: 3476999195374640395}
+  damage: 0

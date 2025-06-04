@@ -26,13 +26,11 @@ public class ShockWaveSkill : BossSkill
         ShockWave,
     }
     [SerializeField] Animator animator;
-    [SerializeField] Collider2D attackCollider;
     [SerializeField] float interval = 0, attackAniDuration = 0;
     bool isExecute = false;
     EExplosionSkill skillState = EExplosionSkill.Delay;
     private void OnEnable()
     {
-        attackCollider.enabled = false;
     }
     private void OnDisable()
     {
@@ -50,6 +48,7 @@ public class ShockWaveSkill : BossSkill
     }
     public override void Execute()
     {
+        base.Execute();
         isExecute = true;
         DoExplosionSign();
     }
@@ -80,7 +79,6 @@ public class ShockWaveSkill : BossSkill
 
         skillState = EExplosionSkill.AttackEnd;
         animator.SetTrigger(EMirroredSkillAniParam.SkillAttack.ToString());
-        attackCollider.enabled = true;
     }
     private void WaitDeactive()
     {
@@ -108,7 +106,6 @@ public class ShockWaveSkill : BossSkill
     public override void ResetValue()
     {
         isExecute = false;
-        attackCollider.enabled = false;
         skillState = EExplosionSkill.Delay;
         interval = 0;
     }

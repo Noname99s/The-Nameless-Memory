@@ -1,7 +1,4 @@
-using JetBrains.Annotations;
 using Orpul1;
-using Orpul1.Player.Animation;
-using Orpul1.Player.State.Attack;
 using Orpul1.State.Attack;
 using System;
 using UnityEngine;
@@ -85,12 +82,9 @@ public class PlayerJumpInfo
 public class PlayerFallInfo
 {
     public bool isFalling = false;
-    public float damageFallHeight;
     public float defaultFallSpeed;
-    public float maxFallSpeed;
     public float fallDamageOverTime;
     public float onAirMoveSpeed = 2;
-    public float decelerateMoveSpeed;
     [HideInInspector] public int fallDamage;
     public int maxFallDamage;
 }
