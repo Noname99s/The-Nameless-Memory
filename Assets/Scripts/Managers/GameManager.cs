@@ -36,7 +36,6 @@ public class GameManager
         if (CurrentState == newState) return;
         CurrentState = newState;
         Debug.Log($"Game state changed to: {CurrentState}");
-        Managers.Player.ChangePlayerPos();
         Managers.Player.SetActivePlayer(false); // Move player to the new state
         Managers.SceneLoad.LoadScene(newState.ToString());
         
@@ -54,7 +53,7 @@ public class GameManager
                 Managers.UI.ShowPopupUI<InGameComposition>();
                 Managers.Player.Init(); // Initialize player
                 Managers.Player.SetActivePlayer(true); // Activate player and camera
-                Managers.Player.ChangePlayerPos(); // Set player position to home
+                //Managers.Player.ChangePlayerPos(); // Move player to the hub position
                 break;
             case GameState.RemindRoom:
                 break;
@@ -62,18 +61,17 @@ public class GameManager
             case GameState.Battle:
                 // Logic for battle
                 Managers.UI.ShowPopupUI<InGameComposition>(); 
-                Managers.Map.EntranceMap(); // Load the current map
                 Managers.Player.SetActivePlayer(true); // Activate player and camera
-                Managers.Player.ChangePlayerPos(); // Set player position to the current map
+                Managers.Map.EntranceMap(); // Load the current map
                 break;
 
             case GameState.Boss:
                 // Logic for boss fight
                 Managers.UI.ShowPopupUI<InGameComposition>();
                 Managers.Player.Init(); // Initialize player
-                Managers.Player.player.transform.position = new Vector3(10, 10, 0);
                 Managers.Player.SetActivePlayer(true); // Activate player and camera
-                Managers.Player.ChangePlayerPos(); // Set player position to the current map
+                Managers.Map.movePoint = new Vector3(10, 10, 0); // Set a default position for the boss stage
+                //Managers.Player.ChangePlayerPos(new Vector3(10, 10, 0)); // Set player position to the current map
                 break;
 
             case GameState.Ending:

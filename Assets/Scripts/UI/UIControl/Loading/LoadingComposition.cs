@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,7 +12,10 @@ public class LoadingComposition : UIPopup
     BG_DB_LoadingText loadingTextData;
     public string nextScene;
 
-
+    private void Awake()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
     private void OnEnable()
     {
         loadingText.text = string.Empty; 
@@ -36,19 +40,18 @@ public class LoadingComposition : UIPopup
         asyncLoad.allowSceneActivation = false;
         asyncLoad.completed += (AsyncOperation obj) =>
         {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName(nextScene));
-            Managers.Game.SettingScene();
+            Managers.Player.ChangePlayerPos(Managers.Map.movePoint); // Set player position to the current map
             Managers.UI.ClosePopupUI<LoadingComposition>();
         };
 
-        float time = Time.time + 5.0f; // 3 seconds term
+        float time = Time.time + 3.0f; // 3 seconds term
 
 
         while (!asyncLoad.isDone)
         {
             yield return null;
             {
-                if (asyncLoad.progress / 1.0f > 0.7f)
+                if (asyncLoad.progress >= 0.9f)
                 {
                     if (Time.time > time)
                     {
@@ -58,5 +61,17 @@ public class LoadingComposition : UIPopup
                 }
             }
         }
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == nextScene)
+        {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(nextScene));
+            Managers.Game.SettingScene();
+        }
+    }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

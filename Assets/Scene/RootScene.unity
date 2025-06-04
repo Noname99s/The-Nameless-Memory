@@ -193,9 +193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08194825720c7364ba8ec22c5ce58d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpawnPoint: {x: 0, y: 0}
-  mapListType: 6
-  mapObjects: []
+  stageType: 6
+  mapInfos: []
+  currentMapIndex: -1
 --- !u!114 &1447691044
 MonoBehaviour:
   m_ObjectHideFlags: 0

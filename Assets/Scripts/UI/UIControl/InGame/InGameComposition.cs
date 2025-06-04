@@ -17,4 +17,13 @@ public class InGameComposition : UIPopup
     {
         inGameView.UpdateHP(hp, maxHp);
     }
+
+    public void OnFadeInSequence(Action action)
+    { 
+        inGameView.SequenceStart(action);
+    }
+    public void OnFadeOutSequence(Action action)
+    { 
+        inGameView.SequenceEnd(action);
+    }
 }

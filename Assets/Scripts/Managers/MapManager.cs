@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class MapManager : MonoBehaviour
 {
-    public Vector3 playerSpawnPoint;
-    public Stage mapListType = Stage.Hub;
-    public List<GameObject> mapObjects = new List<GameObject>();
-    [SerializeField] int currentMapIndex = 0;
+    public Stage stageType = Stage.Hub; // Default to Hub stage
+    public List<SO_MapInfo> mapInfos = new List<SO_MapInfo>();
+    [SerializeField] int currentMapIndex = -1;
     GameObject currentMapObject = null;
+    public Vector3 movePoint = Vector3.zero;
     public void EntranceMap(bool isNext = true)
     {
         if (currentMapObject != null)
@@ -15,20 +15,23 @@ public class MapManager : MonoBehaviour
             Managers.Resource.Destroy(currentMapObject);
             currentMapObject = null;
         }
-        if (currentMapIndex >= mapObjects.Count || (!isNext && currentMapIndex - 1 <= 0))
+        if((isNext && currentMapIndex + 1 >= mapInfos.Count)|| (!isNext && currentMapIndex - 1 < 0))
         {
-            if(!isNext) currentMapIndex--;
-            if(currentMapIndex >= mapObjects.Count)
-            {
-                Managers.Game.stageCleared[(int)mapListType] = true;
-                currentMapIndex = 0;
-            }
+            if(isNext)
+                Managers.Game.stageCleared[(int)stageType] = true;
+            currentMapIndex = -1;
             Managers.Game.ChangeState(GameState.Home);
             return;
         }
-        Managers.Player.ChangePlayerPos();
-        currentMapObject = Managers.Resource.Instantiate(mapObjects[currentMapIndex]);
-        if(isNext) currentMapIndex++;
-        else currentMapIndex--;
+        if(isNext)
+        {
+            currentMapObject = Managers.Resource.Instantiate(mapInfos[++currentMapIndex].mapObject);
+            movePoint = mapInfos[currentMapIndex].entrancePoint;
+        }
+        else
+        {
+            currentMapObject = Managers.Resource.Instantiate(mapInfos[--currentMapIndex].mapObject);
+            movePoint = mapInfos[currentMapIndex].exitPoint;
+        }
     }
 }
