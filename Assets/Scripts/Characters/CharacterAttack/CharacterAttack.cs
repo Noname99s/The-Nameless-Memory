@@ -6,10 +6,6 @@ public class CharacterAttack : MonoBehaviour, ISetDataAble<int>
     [SerializeField] ETag attackAbleTag;
     [SerializeField] Collider2D attackCollider;
     int damage = 0;
-    private void OnEnable()
-    {
-        attackCollider.enabled = false;
-    }
     public void SetValue(int damage)
     {
         this.damage = damage;
