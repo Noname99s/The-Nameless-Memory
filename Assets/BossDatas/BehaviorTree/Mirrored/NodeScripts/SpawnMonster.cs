@@ -8,8 +8,6 @@ using Orpul1.Boss.Mirrored;
 public class SpawnMonster : ActionScript
 {
     public MirroredBlackboard blackboard;
-    [SerializeField] GameObject[] prefabs;
-    [SerializeField] int spawnCount;
     MirroredSkillInfo skillInfo;
     public override void Init()
     {

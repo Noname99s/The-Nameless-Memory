@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
   guid: 637a1e7f4c171574283590f397591537
-  position: {x: -0.67744875, y: 112.967476}
+  position: {x: -0.7999878, y: 112.00001}
   nodeName: SequenceNode
   description: SequenceNode
   nodeState: 3
   childNodeList:
-  - {fileID: 5775314432737579526}
   - {fileID: 8089766252090612378}
   - {fileID: 360661824750829657}
+  - {fileID: 7767910581882906408}
+  - {fileID: 5775314432737579526}
   curIndex: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -43,6 +44,7 @@ MonoBehaviour:
   - {fileID: 5775314432737579526}
   - {fileID: 8089766252090612378}
   - {fileID: 360661824750829657}
+  - {fileID: 7767910581882906408}
 --- !u!114 &360661824750829657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,9 +58,9 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: af375e2cef46fab49814f10e74b52194
-  position: {x: 100.99995, y: 267.3225}
+  position: {x: -113.599976, y: 269.6}
   nodeName: ActionNode
-  description: 
+  description: AbortCameraVignette
   nodeState: 3
   methodName: AbortCameraVignette
   path: 
@@ -98,7 +100,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 0430d4c8a09ea4140a5e85b954a711d3
-  position: {x: -208.96252, y: 270.70993}
+  position: {x: 212.79999, y: 271.19998}
   nodeName: ActionNode
   description: BossDie
   nodeState: 3
@@ -108,6 +110,29 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: ebdd52467a07d844bb1d804e7c65ae0b, type: 2}
+--- !u!114 &7767910581882906408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: ClearEnemies
+  m_EditorClassIdentifier: 
+  guid: 42508d5adbcebf948bd42363de3fcd0b
+  position: {x: 44, y: 268.8}
+  nodeName: ClearEnemies
+  description: 
+  nodeState: 3
+  methodName: 
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/BossDatas/BehaviorTree/Mirrored/NodeScripts/ClearEnemies.cs
+  assetPath: Assets//BossDatas/BehaviorTree/Mirrored/NodeScripts/ClearEnemies.asset
+  actionScript: {fileID: 11400000, guid: 2a73c0d5cc3a0fe47b303b1a3da1c098, type: 2}
 --- !u!114 &8089766252090612378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,9 +146,9 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: f9d0f4bc318253a47b86f20c209fca36
-  position: {x: -52.96249, y: 268.70996}
+  position: {x: -268, y: 271.19998}
   nodeName: ActionNode
-  description: 
+  description: AbortCameraShake
   nodeState: 3
   methodName: AbortCameraShake
   path: 

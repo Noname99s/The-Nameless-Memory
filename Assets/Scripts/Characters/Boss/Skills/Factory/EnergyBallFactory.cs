@@ -1,7 +1,4 @@
 using UnityEngine;
-using Orpul1;
-using System;
-using static BansheeGz.BGDatabase.BGJsonRepoModel;
 namespace Orpul1.Boss.Mirrored
 {
     public class EnergyBallFactory : BossSkillFactory

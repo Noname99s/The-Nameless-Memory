@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class ObjectPool : MonoBehaviour
 {
+    protected List<GameObject> objList = new List<GameObject>();
     private Queue<GameObject> pools = new Queue<GameObject>();
     [SerializeField] protected GameObject prefab;
     [SerializeField] protected GameObject parent;
@@ -19,7 +20,7 @@ public abstract class ObjectPool : MonoBehaviour
             CreateObject();
         }
     }
-    protected void EnqueueObject(GameObject obj)
+    protected virtual void EnqueueObject(GameObject obj)
     {
         obj.SetActive(false);
         pools.Enqueue(obj);
@@ -39,6 +40,7 @@ public abstract class ObjectPool : MonoBehaviour
         pool.transform.SetParent(parent.transform);
         pool.SetActive(false);
         pools.Enqueue(pool);
+        objList.Add(pool);
     }
     protected void Release()
     {

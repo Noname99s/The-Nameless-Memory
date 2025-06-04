@@ -25,5 +25,6 @@ namespace Orpul1.Enemy.TestEnemy
         {
             enemy.SetValue(EnqueueObject, (int)EnemyPatrolInfo.EPatrolType.Free);
         }
+
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using Orpul1.Enemy;
 namespace Orpul1.Boss.Mirrored
 {
-    public class MonsterFactory : BossSkillFactory
+    public class MonsterFactory : BossSkillFactory, IDeactiveAble
     {
         [SerializeField] List<EnemyFactory> monsterList = new List<EnemyFactory>();
         [SerializeField] Transform[] spawnPosis;
@@ -16,6 +16,16 @@ namespace Orpul1.Boss.Mirrored
             SpawnEffect(spawnPosi);
             return SpawnEnemy(spawnPosi);
         }
+
+        public void Deactive()
+        {
+            for (int i = 0; i < monsterList.Count; i++)
+            {
+                if (monsterList[i] == null) continue;
+                monsterList[i].Deactive();
+            }
+        }
+
         private void SpawnEffect(int spawnPosi)
         {
             BossSkill skill = GetObject<BossSkill>();
