@@ -1,4 +1,5 @@
 using Orpul1;
+using Orpul1.Player;
 using Orpul1.State.Attack;
 using System;
 using UnityEngine;
@@ -40,6 +41,7 @@ public class PlayerInfo
     public Vector3 originScale = Vector3.one;
     public int hp;
     public int maxHp;
+    public int deathCount;
     public Vector3 dectectedGroundPosi;
     public Action actionFlipX;
 }
@@ -102,6 +104,7 @@ public class PlayerHitInfo
 }
 public class PlayerContext : MonoBehaviour
 {
+    [SerializeField] PlayerContextDB contextDB;
     public PlayerInfo playerInfo;
 
     public PlayerMoveInfo moveInfo;
@@ -113,7 +116,15 @@ public class PlayerContext : MonoBehaviour
     public PlayerAttackInfo attackInfo;
 
     public PlayerHitInfo hitInfo;
-
+    private void Awake()
+    {
+        contextDB.SetPlayerInfo(playerInfo);
+        contextDB.SetPlayerMoveInfo(moveInfo);
+        contextDB.SetPlayerJumpInfo(jumpInfo);
+        contextDB.SetPlayerFallInfo(fallInfo);
+        contextDB.SetPlayerAttackInfo(attackInfo);
+        contextDB.SetPlayerHitInfo(hitInfo);
+    }
     public bool IsIdleState
     {
         get

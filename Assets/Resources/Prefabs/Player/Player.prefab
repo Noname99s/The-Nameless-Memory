@@ -437,6 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82e898cbc5606c4d9a7239329b1151d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contextDB: {fileID: 11400000, guid: ff7e615e2bdf9e840a03dbe256043dc8, type: 2}
   playerInfo:
     rigid: {fileID: 5947109336739971617}
     playerCollider: {fileID: 5797288449755540277}
@@ -446,6 +447,7 @@ MonoBehaviour:
     originScale: {x: 1, y: 1, z: 1}
     hp: 100
     maxHp: 100
+    deathCount: 0
     dectectedGroundPosi: {x: 0, y: 0, z: 0}
   moveInfo:
     slideMovement:
