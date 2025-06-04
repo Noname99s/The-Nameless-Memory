@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 5725579068212597670}
   - component: {fileID: 2571065938256593121}
   - component: {fileID: 2506829344611688349}
+  - component: {fileID: 7306151192876183716}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -465,6 +466,10 @@ MonoBehaviour:
     hp: 100
     maxHp: 100
     deathCount: 0
+    getMemoryPeaces: 000000000000000000000000000000000000000000000000
+    maxMemoryPeaceCount: 5
+    increaseStateValue: 3
+    curStatePercent: 0
     dectectedGroundPosi: {x: 0, y: 0, z: 0}
   moveInfo:
     slideMovement:
@@ -575,6 +580,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 6948962639656468517}
   playerInteractController: {fileID: 5427805385664776392}
+--- !u!114 &7306151192876183716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680952135707525415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad2e1390bb2134046b90ae722e9f0df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 6948962639656468517}
 --- !u!1 &6679158788343795006
 GameObject:
   m_ObjectHideFlags: 0

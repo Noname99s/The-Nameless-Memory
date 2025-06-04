@@ -42,6 +42,10 @@ public class PlayerInfo
     public int hp;
     public int maxHp;
     public int deathCount;
+    public int[] getMemoryPeaces = new int[6];
+    public int maxMemoryPeaceCount = 5;
+    public float increaseStateValue;
+    public float curStatePercent;
     public Vector3 dectectedGroundPosi;
     public Action actionFlipX;
 }

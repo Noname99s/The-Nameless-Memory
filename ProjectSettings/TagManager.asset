@@ -12,6 +12,7 @@ TagManager:
   - InventorySlot
   - BackGround1
   - BackGround2
+  - Item
   layers:
   - Default
   - TransparentFX
