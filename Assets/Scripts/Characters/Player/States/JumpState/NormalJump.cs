@@ -5,6 +5,8 @@ namespace Orpul1.Player.State.Jump
     public class NormalJump : IStrategy
     {
         PlayerContext data;
+        
+        float moveX = 0;
         float jumpAmount = 0;
         public NormalJump(PlayerContext data)
         {
@@ -21,6 +23,7 @@ namespace Orpul1.Player.State.Jump
         public void Execute()
         {
             DoJump();
+            AirMove();
 
             if (jumpAmount <= 0)
             {
@@ -43,6 +46,12 @@ namespace Orpul1.Player.State.Jump
                 data.jumpInfo.isPressJump = false;
                 jumpAmount = 0;
             }
+        }
+
+        private void AirMove()
+        {
+            moveX = data.moveInfo.moveDir.x * data.fallInfo.onAirMoveSpeed;
+            data.playerInfo.rigid.linearVelocityX = moveX;
         }
     }
 }

@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 19625d28c938d480685b409b4ecd46f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -204,6 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackAbleTag: 6
   attackCollider: {fileID: 8044460614406412908}
+  damage: 0
 --- !u!1 &6766174714432795180
 GameObject:
   m_ObjectHideFlags: 0

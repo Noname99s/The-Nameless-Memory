@@ -1,13 +1,12 @@
 using System;
 using Orpul1.Player.Animation;
-using Orpul1.State;
 using UnityEngine;
 
 namespace Orpul1.Player.State
 {
     public class WallClimb : PlayerBaseState
     {
-        float jumpAmount = 0;
+        float slideSpeed = 0;
         public WallClimb(PlayerContext playerData, Action<int> transitionTo) : base(playerData, transitionTo)
         {
         }
@@ -20,13 +19,14 @@ namespace Orpul1.Player.State
             data.playerInfo.animator.SetBool(EPlayerAni.IsWallClimb.ToString(), true);
             data.jumpInfo.isPressJump = false;
             data.jumpInfo.shouldWallJump = true;
-            jumpAmount = data.jumpInfo.jumpPower;
+            slideSpeed = 0;
             Debug.Log("Climb Wall");
 
         }
 
         public override void OnUpdate()
         {
+            SlideWall();
             TrainsitionState();
         }
 
@@ -34,6 +34,7 @@ namespace Orpul1.Player.State
         {
             data.playerInfo.rigid.gravityScale = data.jumpInfo.gravityStrength;
             data.playerInfo.animator.SetBool(EPlayerAni.IsWallClimb.ToString(), false);
+            data.jumpInfo.jumpCount = 0;
         }
         private void TrainsitionState()
         {
@@ -41,6 +42,13 @@ namespace Orpul1.Player.State
             if (IsJumpState()) return;
             if (IsFallState()) return;
         }
+
+        private void SlideWall()
+        {
+            data.playerInfo.rigid.linearVelocityY -= slideSpeed;
+            slideSpeed += Time.deltaTime;
+        }
+
         private bool IsHitState()
         {
             if (!data.hitInfo.isHit) return false;
@@ -50,7 +58,7 @@ namespace Orpul1.Player.State
         }
         private bool IsJumpState()
         {
-            if (!data.jumpInfo.isPressJump && data.moveInfo.isPressWallClimb) return false;
+            if (!data.jumpInfo.isPressJump) return false;
             //data.playerInfo.rigid.linearVelocityX = data.moveInfo.moveDir.x * data.moveInfo.moveSpeed * Time.deltaTime;
             data.moveInfo.isPressWallClimb = false;
             transitionTo((int)EPlayerState.Jump);

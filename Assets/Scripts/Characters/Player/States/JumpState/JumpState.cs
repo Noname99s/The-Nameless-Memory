@@ -29,7 +29,7 @@ namespace Orpul1.Player.State
         public override void OnUpdate()
         {
             data.playerInfo.actionFlipX();
-            AirMove();
+            //AirMove();
             jumpStraties[(int)jumpType].Execute();
 
             if (data.jumpInfo.jumpState == EJumpState.JumpReady && data.jumpInfo.isPressJump)
