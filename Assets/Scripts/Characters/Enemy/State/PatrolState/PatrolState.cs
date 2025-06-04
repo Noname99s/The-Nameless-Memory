@@ -14,7 +14,6 @@ namespace Orpul1.Enemy.State
                 new PatrolFree(context,transitionTo),
             };
         }
-        int moveIndex = 0;
         public override void OnStart()
         {
 

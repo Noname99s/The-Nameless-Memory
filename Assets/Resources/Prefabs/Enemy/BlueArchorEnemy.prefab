@@ -158,6 +158,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 64
     distance: 0.5
+  attackCollider: {fileID: 0}
 --- !u!114 &6330027634987221590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +240,7 @@ MonoBehaviour:
     arrowFactory: {fileID: 6764063946402400228}
     attackDelay: 3
     attackDistance: 5
-    damage: 0
+    damage: 8
   hitInfo:
     hitDuration: 1
     knockBackPower: 5

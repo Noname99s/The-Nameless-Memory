@@ -5,7 +5,7 @@ public class CharacterAttack : MonoBehaviour, ISetDataAble<int>
 {
     [SerializeField] ETag attackAbleTag;
     [SerializeField] Collider2D attackCollider;
-    int damage = 0;
+    [SerializeField] int damage = 0;
     public void SetValue(int damage)
     {
         this.damage = damage;

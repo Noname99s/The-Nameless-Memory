@@ -80,7 +80,7 @@ namespace Orpul1
         }
         private void OnDrawGizmos()
         {
-            float flipX = transform.position.x / originScale.x;
+            float flipX = transform.localScale.x / originScale.x;
             Vector3 originPosi =  sightInfo.originPosi;
             originPosi.x *= flipX;
             originPosi += transform.position;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Orpul1.Enemy.Weapon
 {
-    public class ArrowWeapon : EnemyWeapon, ISetDataAble<Vector3, float>, ISetDataAble<Action<GameObject>>
+    public class ArrowWeapon : EnemyWeapon, ISetDataAble<Vector3, int>, ISetDataAble<Action<GameObject>>
     {
         enum EArrowAniParam
         {
@@ -31,9 +31,7 @@ namespace Orpul1.Enemy.Weapon
 
         private void Awake()
         {
-            ISetDataAble<float> attack = arrowAttack as ISetDataAble<float>;
-            if (attack == null) return;
-            attack.SetValue(damage);
+            
         }
         public override void Execute()
         {
@@ -45,9 +43,12 @@ namespace Orpul1.Enemy.Weapon
         {
             isExecute = false;
             executeTime = 0;
+            ISetDataAble<int> attack = arrowAttack as ISetDataAble<int>;
+            if (attack == null) return;
+            attack.SetValue(damage);
         }
 
-        public void SetValue(Vector3 target, float damage)
+        public void SetValue(Vector3 target, int damage)
         {
 
             targetPosi = target;

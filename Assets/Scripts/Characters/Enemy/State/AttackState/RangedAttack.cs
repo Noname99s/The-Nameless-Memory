@@ -37,7 +37,7 @@ namespace Orpul1.Enemy.State.Attack
             if (attackStateEnterTime > Time.time) return;
             transitionTo((int)EEnemyState.Idle);
         }
-        private void SetArrow(ISetDataAble<Vector3, float> arrow)
+        private void SetArrow(ISetDataAble<Vector3, int> arrow)
         {
             if (arrow == null) return;
             //1. targetPosi , 2. damage

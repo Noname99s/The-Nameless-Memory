@@ -8,7 +8,6 @@ public class WatchOfRegretSkill : BossSkill,ISetDataAble<Vector2>
 {
     [SerializeField] Rigidbody2D rigid;
     [SerializeField] Vector2 arrivePosi;
-    [SerializeField] Collider2D attackCollider;
     [SerializeField] float posiGap = 0.1f;
     [SerializeField] float moveSpeed = 1;
     bool isExecute = false;
@@ -25,6 +24,7 @@ public class WatchOfRegretSkill : BossSkill,ISetDataAble<Vector2>
     }
     public override void Execute()
     {
+        base.Execute();
         isExecute = true;
     }
 
