@@ -4,7 +4,7 @@ using System;
 using TMPro;
 using DG.Tweening;
 
-public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder 
+public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
 {
     [SerializeField] DialogAnim dialogAnim;
     [SerializeField] Button pauseButton;
@@ -13,13 +13,13 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     [SerializeField] Button backToMainMenuButton;
     [SerializeField] Button quitGameButton;
     [SerializeField] Image fadeImage;
-    Sequence fadeInSequence;
-    Sequence fadeOutSequence;
+    Sequence fadeSequence;
 
     [Header("Player Stats")]
     [SerializeField] TextMeshProUGUI deathCountText;
     [SerializeField] Slider hpSlider;
 
+    public Action currentAction; // Action to be invoked after fade-in
     public event Action OnPauseGame;
     public event Action OnResumeGame;
     public event Action OnOpenOptions;
@@ -36,7 +36,7 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
         hpSlider.value = hpSlider.maxValue;
         deathCountText.text = "0"; // Initialize death count to 0
 
-        if (fadeInSequence == null || fadeOutSequence == null)
+        if (fadeSequence == null)
         {
             BuildSequence();
         }
@@ -60,40 +60,26 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     }
     public void BuildSequence()
     {
-        fadeInSequence = DOTween.Sequence();
-        fadeInSequence.Append(fadeImage.DOFade(1, 0.5f).SetEase(Ease.OutQuad))
+        fadeSequence = DOTween.Sequence();
+        fadeSequence.Append(fadeImage.DOFade(1, 0.5f).SetEase(Ease.OutQuad))
+                    .AppendCallback(() => currentAction?.Invoke())
                     .AppendInterval(2f)
                     .SetAutoKill(false)
-                    .Pause();
-
-        fadeOutSequence = DOTween.Sequence();
-        fadeOutSequence.Append(fadeImage.DOFade(0, 0.5f).SetEase(Ease.InQuad))
-                       .SetAutoKill(false)
-                       .Pause();
+                    .Pause()
+                    .OnComplete
+                    (
+                        () =>
+                        {
+                            Color color = fadeImage.color;
+                            color.a = 0; // Reset alpha to 0 after fade-in
+                            fadeImage.color = color; // Apply the reset color
+                        }
+                    );
     }
     public void SequenceStart(Action action)
     {
-        fadeInSequence.OnComplete
-            (
-                () =>
-                {
-                    action?.Invoke(); // Invoke the action after fade-in completes
-                    Color color = fadeImage.color;
-                    color.a = 0; // Reset alpha to 0 after fade-in
-                    fadeImage.color = color;
-                }
-            );
-        fadeInSequence.Restart();
+        currentAction = action;
+        fadeSequence.Restart();
     }
-    public void SequenceEnd(Action action)
-    {
-        fadeOutSequence.OnStart
-            (
-                () =>
-                {
-                    action?.Invoke(); // Invoke the action after fade-in completes
-                }
-            );
-        fadeOutSequence.Restart();
-    }
+
 }

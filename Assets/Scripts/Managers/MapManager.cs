@@ -33,5 +33,6 @@ public class MapManager : MonoBehaviour
             currentMapObject = Managers.Resource.Instantiate(mapInfos[--currentMapIndex].mapObject);
             movePoint = mapInfos[currentMapIndex].exitPoint;
         }
+        Managers.Player.ChangePlayerPos(movePoint);
     }
 }

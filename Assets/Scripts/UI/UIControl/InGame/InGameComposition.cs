@@ -22,8 +22,4 @@ public class InGameComposition : UIPopup
     { 
         inGameView.SequenceStart(action);
     }
-    public void OnFadeOutSequence(Action action)
-    { 
-        inGameView.SequenceEnd(action);
-    }
 }

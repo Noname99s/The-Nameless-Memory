@@ -40,6 +40,7 @@ public class HubDoor : MonoBehaviour
         if(stageType == Stage.BossStage)
         {
             Managers.Game.ChangeState(GameState.Boss);
+            return;
         }
         if (Managers.Map.stageType != stageType)
         {
@@ -50,6 +51,7 @@ public class HubDoor : MonoBehaviour
                 Managers.Map.mapInfos.Add(stageInfo[i]);
             }
         }
+        Managers.Map.movePoint = Managers.Map.mapInfos[0].entrancePoint;
         Managers.Game.ChangeState(GameState.Battle);
     }
 

@@ -12,7 +12,6 @@ public class StageDoor : MonoBehaviour
             Managers.UI.GetPopupUI<InGameComposition>().OnFadeInSequence(() =>
             {
                 Managers.Map.EntranceMap(isNextStage);
-                Managers.Player.ChangePlayerPos(Managers.Map.movePoint);
             });
         }
     }

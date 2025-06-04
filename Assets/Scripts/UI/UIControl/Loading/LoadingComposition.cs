@@ -11,11 +11,6 @@ public class LoadingComposition : UIPopup
     [SerializeField] Text loadingText;
     BG_DB_LoadingText loadingTextData;
     public string nextScene;
-
-    private void Awake()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
     private void OnEnable()
     {
         loadingText.text = string.Empty; 
@@ -40,7 +35,8 @@ public class LoadingComposition : UIPopup
         asyncLoad.allowSceneActivation = false;
         asyncLoad.completed += (AsyncOperation obj) =>
         {
-            Managers.Player.ChangePlayerPos(Managers.Map.movePoint); // Set player position to the current map
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(nextScene));
+            Managers.Game.SettingScene();
             Managers.UI.ClosePopupUI<LoadingComposition>();
         };
 
@@ -61,17 +57,5 @@ public class LoadingComposition : UIPopup
                 }
             }
         }
-    }
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name == nextScene)
-        {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName(nextScene));
-            Managers.Game.SettingScene();
-        }
-    }
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
