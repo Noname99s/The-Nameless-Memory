@@ -1,6 +1,7 @@
+using Orpul1;
 using UnityEngine;
 
-public class HubDoor : MonoBehaviour
+public class HubDoor : MonoBehaviour, IInteractAble
 {
     [SerializeField] Stage stageType = Stage.Stage1;
     [SerializeField] SO_MapInfo[] stageInfo;
@@ -10,13 +11,13 @@ public class HubDoor : MonoBehaviour
     {
         ConfirmClear();
     }
-    void Update()
+    /*void Update()
     {
         if (isInDoor && Input.GetKeyDown(KeyCode.UpArrow))
         {
             Entrance();
         }
-    }
+    }*/
     void ConfirmClear()
     {
         if (stageType != Stage.Stage1 && Managers.Game.stageCleared[(int)stageType - 1])
@@ -68,5 +69,10 @@ public class HubDoor : MonoBehaviour
         {
             isInDoor = false;
         }
+    }
+
+    public void Interact()
+    {
+        Entrance();
     }
 }

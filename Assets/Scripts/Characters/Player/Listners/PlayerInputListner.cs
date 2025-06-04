@@ -1,15 +1,18 @@
-using System;
-using Orpul1.Player;
-using Orpul1.State;
+using Orpul1;
+using Orpul1.Player.Interact;
 using Orpul1.State.Attack;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerInputListner : MonoBehaviour
 {
     [SerializeField] PlayerContext playerData;
-
+    [SerializeField] PlayerInteractController playerInteractController;
+    IInteractAble playerInteract;
+    private void Awake()
+    {
+        playerInteract = playerInteractController;
+    }
     public void Move(InputAction.CallbackContext context)
     {
         if (context.canceled)
@@ -53,6 +56,12 @@ public class PlayerInputListner : MonoBehaviour
     {
         playerData.moveInfo.isPressWallClimb = !context.canceled;
         playerData.moveInfo.isPressClimbLadder = !context.canceled;
+        
+    }
+    public void Interact(InputAction.CallbackContext context)
+    {
+        if (!context.canceled)
+            playerInteract.Interact();
     }
     public void Skill(InputAction.CallbackContext context)
     {
