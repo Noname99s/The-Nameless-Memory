@@ -315,6 +315,26 @@ MonoBehaviour:
   optionalScrambleMode: 0
   optionalShakeRandomnessMode: 0
   optionalString: 
+--- !u!1 &488427459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3220700882744651990, guid: 6a18cb52d022ba148ad0f2c93b61f178, type: 3}
+  m_PrefabInstance: {fileID: 1603724097}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &488427460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488427459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6da98dc005dfdf42a3d23724c647b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageType: 4
+  stageInfo: []
+  isOpen: 0
 --- !u!1001 &1603724097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -341,7 +361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 256191823668114174, guid: 6a18cb52d022ba148ad0f2c93b61f178, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[5].second.m_AnimationSpeed
-      value: 3
+      value: 3.0000002
       objectReference: {fileID: 0}
     - target: {fileID: 256191823668114174, guid: 6a18cb52d022ba148ad0f2c93b61f178, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[6].second.m_AnimationSpeed
@@ -352,12 +372,16 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 256191823668114174, guid: 6a18cb52d022ba148ad0f2c93b61f178, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[8].second.m_AnimationSpeed
+      value: 3.0000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 256191823668114174, guid: 6a18cb52d022ba148ad0f2c93b61f178, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[9].second.m_AnimationSpeed
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2307613801130709063, guid: 6a18cb52d022ba148ad0f2c93b61f178, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 3.0000002
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2307613801130709063, guid: 6a18cb52d022ba148ad0f2c93b61f178, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
@@ -365,6 +389,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2307613801130709063, guid: 6a18cb52d022ba148ad0f2c93b61f178, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[2].second.m_AnimationSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307613801130709063, guid: 6a18cb52d022ba148ad0f2c93b61f178, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[3].second.m_AnimationSpeed
       value: 3.0000002
       objectReference: {fileID: 0}
     - target: {fileID: 2336452786393797095, guid: 6a18cb52d022ba148ad0f2c93b61f178, type: 3}
@@ -452,6 +480,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3735418995677153291, guid: 6a18cb52d022ba148ad0f2c93b61f178, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1603724100}
+    - targetCorrespondingSourceObject: {fileID: 3220700882744651990, guid: 6a18cb52d022ba148ad0f2c93b61f178, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 488427460}
   m_SourcePrefab: {fileID: 100100000, guid: 6a18cb52d022ba148ad0f2c93b61f178, type: 3}
 --- !u!1 &1603724098 stripped
 GameObject:
@@ -475,7 +506,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6da98dc005dfdf42a3d23724c647b35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageInfo: {fileID: 11400000, guid: f3aba526b4cc52b4eb0cb0f80eb4c573, type: 2}
+  stageType: 1
+  stageInfo:
+  - {fileID: 11400000, guid: c3e1c4d31044b2c498a8a9d3fee51a88, type: 2}
+  - {fileID: 11400000, guid: 8f63ba29d37fb264b8eb3fe3ab048cf7, type: 2}
+  - {fileID: 11400000, guid: 9391945521c878948ae90ac1aad49cbe, type: 2}
   isOpen: 0
 --- !u!114 &1603724101
 MonoBehaviour:
@@ -489,7 +524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6da98dc005dfdf42a3d23724c647b35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageInfo: {fileID: 11400000, guid: e167dcfb90ed94e4d9e1d7d9c1414e8a, type: 2}
+  stageType: 0
+  stageInfo:
+  - {fileID: 11400000, guid: 136b7a2cdcc44ba41869fdab3d5c7f51, type: 2}
   isOpen: 1
 --- !u!4 &1603724102 stripped
 Transform:
