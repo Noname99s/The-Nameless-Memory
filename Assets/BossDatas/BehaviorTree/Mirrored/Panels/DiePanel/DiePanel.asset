@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
   guid: 637a1e7f4c171574283590f397591537
-  position: {x: -0.7999878, y: 112.00001}
+  position: {x: -3.1999817, y: 110.40001}
   nodeName: SequenceNode
   description: SequenceNode
   nodeState: 3
@@ -21,8 +21,34 @@ MonoBehaviour:
   - {fileID: 8089766252090612378}
   - {fileID: 360661824750829657}
   - {fileID: 7767910581882906408}
+  - {fileID: 869326105316721869}
+  - {fileID: -6340272952256817958}
   - {fileID: 5775314432737579526}
-  curIndex: 0
+  curIndex: 4
+--- !u!114 &-6340272952256817958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be2c80b47643c24b9fe88ad49869a65, type: 3}
+  m_Name: DelayNode
+  m_EditorClassIdentifier: 
+  guid: b0db1530ffc251d4aaae01e7f3629b51
+  position: {x: 182.40002, y: 269.6}
+  nodeName: DelayNode
+  description: Wait3Second
+  nodeState: 3
+  methodName: Wait3Second
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  delayTime: 3
+  interval: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,6 +71,8 @@ MonoBehaviour:
   - {fileID: 8089766252090612378}
   - {fileID: 360661824750829657}
   - {fileID: 7767910581882906408}
+  - {fileID: 869326105316721869}
+  - {fileID: -6340272952256817958}
 --- !u!114 &360661824750829657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,7 +86,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: af375e2cef46fab49814f10e74b52194
-  position: {x: -113.599976, y: 269.6}
+  position: {x: -284, y: 276.80005}
   nodeName: ActionNode
   description: AbortCameraVignette
   nodeState: 3
@@ -87,6 +115,29 @@ MonoBehaviour:
   nodeState: 3
   child: {fileID: -6875205217592297063}
   panelName: 
+--- !u!114 &869326105316721869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: ActionNode
+  m_EditorClassIdentifier: 
+  guid: 72d99528e3ff62c40994dc6bf9d23534
+  position: {x: 29.104004, y: 274.40002}
+  nodeName: ActionNode
+  description: PlayDieAni
+  nodeState: 3
+  methodName: PlayDieAni
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: 0b97eff622e5b884db467c9d417dbb8f, type: 2}
 --- !u!114 &5775314432737579526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +151,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 0430d4c8a09ea4140a5e85b954a711d3
-  position: {x: 212.79999, y: 271.19998}
+  position: {x: 354.40002, y: 278.4}
   nodeName: ActionNode
   description: BossDie
   nodeState: 3
@@ -123,7 +174,7 @@ MonoBehaviour:
   m_Name: ClearEnemies
   m_EditorClassIdentifier: 
   guid: 42508d5adbcebf948bd42363de3fcd0b
-  position: {x: 44, y: 268.8}
+  position: {x: -126.400024, y: 276.00006}
   nodeName: ClearEnemies
   description: 
   nodeState: 3
@@ -146,7 +197,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: f9d0f4bc318253a47b86f20c209fca36
-  position: {x: -268, y: 271.19998}
+  position: {x: -438.40002, y: 278.40002}
   nodeName: ActionNode
   description: AbortCameraShake
   nodeState: 3
