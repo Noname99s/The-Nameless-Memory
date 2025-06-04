@@ -20,7 +20,7 @@ public class CharacterAttack : MonoBehaviour, ISetDataAble<int>
         if (!other.CompareTag(attackAbleTag.ToString()))
             return;
 
-        KnockbackTarget(other.GetComponent<IknockbackAble>(),other.transform.position);
+        //KnockbackTarget(other.GetComponent<IknockbackAble>(),other.transform.position);
         DamageTarget(other.GetComponent<IDamageAble>());
     }
     private void DamageTarget(IDamageAble target)

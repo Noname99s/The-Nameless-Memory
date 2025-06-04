@@ -253,7 +253,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 64
     angle: 150
-    radius: 10
+    radius: 5
     rotateZ: 90
   originScale: {x: 4.8, y: 4.8, z: 1}
 --- !u!114 &-3434185656850362812

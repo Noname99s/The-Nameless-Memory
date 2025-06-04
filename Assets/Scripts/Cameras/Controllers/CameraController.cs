@@ -27,9 +27,9 @@ public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetCame
     }
     private void OnDisable()
     {
-        CameraManager.Instance.RemoveCamera((int)ECameraType.MainCamera);
+        //RemoveCamera();
     }
-    private void OnDestroy()
+    private void RemoveCamera()
     {
         CameraManager.Instance.RemoveCamera((int)ECameraType.MainCamera);
     }
@@ -52,4 +52,5 @@ public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetCame
     {
         context.targetGroup.RemoveMember(target);
     }
+  
 }

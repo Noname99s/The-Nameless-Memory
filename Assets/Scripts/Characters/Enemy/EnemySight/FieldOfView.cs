@@ -45,10 +45,17 @@ namespace Orpul1
             if (target == null) return null;
             if (!IsInSight(target, originPosi,flipX)) return null;
             if(!IsPlayer(target)) return null;
-            Debug.DrawRay(originPosi,target.transform.position,Color.yellow);
+            DrawRayPlayerPosi(originPosi, target.transform.position);
             IGetValue<Transform> targetTransform = target.GetComponent<IGetValue<Transform>>();
             if (targetTransform == null) return null;
             return targetTransform.GetValue();
+        }
+        private void DrawRayPlayerPosi(Vector3 origin, Vector3 target)
+        {
+            Vector3 dir = target - origin;
+            float distance = Vector3.Distance(origin, dir);
+            Debug.DrawRay(origin, (Vector2)dir * distance, Color.yellow);
+
         }
         private bool IsInSight(Collider2D target, Vector3 originPosi, int flipX)
         {

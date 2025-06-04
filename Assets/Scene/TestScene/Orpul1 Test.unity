@@ -281,6 +281,99 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &76042731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 76042732}
+  - component: {fileID: 76042734}
+  - component: {fileID: 76042733}
+  m_Layer: 0
+  m_Name: AttackCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &76042732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76042731}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.035, y: -0.19, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 806958158}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &76042733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76042731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackAbleTag: 6
+  attackCollider: {fileID: 76042734}
+--- !u!61 &76042734
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76042731}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.15, y: 0.13}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.41, y: 0.25}
+  m_EdgeRadius: 0
 --- !u!1 &101179806
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,17 +663,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5520470106054572785, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
-      propertyPath: enemyRay.distance
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6766174714432795180, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
       propertyPath: m_Name
       value: RedMeleeEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7013129689172101370, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1514504641}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
 --- !u!4 &331968923 stripped
@@ -629,6 +721,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1388498513}
     m_Modifications:
+    - target: {fileID: 1953274792470312222, guid: 5b8c41c5ffe72df42a66f2348719c3a5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 125837c44e1c164499c9893c18bff63c, type: 2}
     - target: {fileID: 6742488870305509603, guid: 5b8c41c5ffe72df42a66f2348719c3a5, type: 3}
       propertyPath: 'patrolInfo.movePosis.Array.data[0]'
       value: 
@@ -681,13 +777,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMeleeEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 7765007667480621302, guid: 5b8c41c5ffe72df42a66f2348719c3a5, type: 3}
-      propertyPath: enemyRay.distance
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5056538993517590694, guid: 5b8c41c5ffe72df42a66f2348719c3a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2110307410}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b8c41c5ffe72df42a66f2348719c3a5, type: 3}
 --- !u!4 &500425603 stripped
@@ -721,13 +816,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635169618}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.27296388, w: 0.96202433}
+  m_LocalRotation: {x: -0, y: -0, z: 0.27886593, w: 0.96033007}
   m_LocalPosition: {x: 31.16, y: 42.58, z: 0}
-  m_LocalScale: {x: 14.479999, y: 1, z: 1}
+  m_LocalScale: {x: 14.53, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1606649105}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 31.681}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 32.385}
 --- !u!61 &635169620
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -860,6 +955,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1274096346}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &806958158 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6159685432547419733, guid: 12e0fcf671d828a409ab6062c727da63, type: 3}
+  m_PrefabInstance: {fileID: 1171129347}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &827020478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,6 +1784,11 @@ Transform:
   - {fileID: 1619117285}
   m_Father: {fileID: 183409573}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1008030852 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5056538993517590694, guid: 5b8c41c5ffe72df42a66f2348719c3a5, type: 3}
+  m_PrefabInstance: {fileID: 500425602}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1032524255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,17 +1954,16 @@ PrefabInstance:
       propertyPath: 'patrolInfo.movePosis.Array.data[1]'
       value: 
       objectReference: {fileID: 1619117285}
-    - target: {fileID: 4326797745444680025, guid: 12e0fcf671d828a409ab6062c727da63, type: 3}
-      propertyPath: enemyRay.distance
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6422860637579694475, guid: 12e0fcf671d828a409ab6062c727da63, type: 3}
       propertyPath: m_Name
       value: BlueEliteEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6159685432547419733, guid: 12e0fcf671d828a409ab6062c727da63, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 76042732}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12e0fcf671d828a409ab6062c727da63, type: 3}
 --- !u!4 &1171129348 stripped
@@ -2251,10 +2355,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedEliteEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 6753734243449116313, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
-      propertyPath: enemyRay.distance
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7087380159888766392, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
       propertyPath: 'patrolInfo.movePosis.Array.data[0]'
       value: 
@@ -2265,12 +2365,20 @@ PrefabInstance:
       objectReference: {fileID: 1473213318}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2619271433735994784, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1619881114}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
 --- !u!4 &1376690571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 193104871094878170, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
+  m_PrefabInstance: {fileID: 1376690570}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1387425368 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2619271433735994784, guid: b8b5e7b3f88694b4589bf7e5957f4fdd, type: 3}
   m_PrefabInstance: {fileID: 1376690570}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1388498512
@@ -2383,10 +2491,6 @@ PrefabInstance:
     - target: {fileID: 2370405413480170243, guid: 4ec25d6c5b05b4b4bad93f52ccca6f79, type: 3}
       propertyPath: m_Name
       value: RedArchorEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317940562556392825, guid: 4ec25d6c5b05b4b4bad93f52ccca6f79, type: 3}
-      propertyPath: enemyRay.distance
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7228047464810543710, guid: 4ec25d6c5b05b4b4bad93f52ccca6f79, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2533,6 +2637,99 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1514504640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1514504641}
+  - component: {fileID: 1514504643}
+  - component: {fileID: 1514504642}
+  m_Layer: 0
+  m_Name: 'AttackCollider '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1514504641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514504640}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.035, y: -0.19, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1578433867}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1514504642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514504640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackAbleTag: 6
+  attackCollider: {fileID: 1514504643}
+--- !u!61 &1514504643
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514504640}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.15, y: 0.13}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.41, y: 0.25}
+  m_EdgeRadius: 0
 --- !u!1 &1542554445
 GameObject:
   m_ObjectHideFlags: 0
@@ -3278,6 +3475,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateController: {fileID: 1573507877}
+--- !u!4 &1578433867 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7013129689172101370, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
+  m_PrefabInstance: {fileID: 331968922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1605433497
 GameObject:
   m_ObjectHideFlags: 0
@@ -3375,6 +3577,99 @@ Transform:
   m_Children: []
   m_Father: {fileID: 954138994}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1619881113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1619881114}
+  - component: {fileID: 1619881116}
+  - component: {fileID: 1619881115}
+  m_Layer: 0
+  m_Name: 'AttackCollider '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1619881114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619881113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1387425368}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1619881115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619881113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackAbleTag: 6
+  attackCollider: {fileID: 1619881116}
+--- !u!61 &1619881116
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619881113}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.15, y: 0.13}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.41, y: 0.25}
+  m_EdgeRadius: 0
 --- !u!1001 &1651244993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3383,10 +3678,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1388498513}
     m_Modifications:
-    - target: {fileID: 140882946903035707, guid: e019ad519a8261d499f442511bfdeac0, type: 3}
-      propertyPath: enemyRay.distance
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 907031759396401521, guid: e019ad519a8261d499f442511bfdeac0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.139999
@@ -74301,6 +74592,99 @@ PrefabInstance:
       addedObject: {fileID: 786940318}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+--- !u!1 &2110307409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2110307410}
+  - component: {fileID: 2110307412}
+  - component: {fileID: 2110307411}
+  m_Layer: 0
+  m_Name: AttackCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2110307410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110307409}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1008030852}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2110307411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110307409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackAbleTag: 6
+  attackCollider: {fileID: 2110307412}
+--- !u!61 &2110307412
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110307409}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.15, y: 0.13}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.41, y: 0.25}
+  m_EdgeRadius: 0
 --- !u!1 &2122241786
 GameObject:
   m_ObjectHideFlags: 0
