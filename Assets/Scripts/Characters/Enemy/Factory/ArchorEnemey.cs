@@ -4,11 +4,16 @@ namespace Orpul1.Enemy.TestEnemy
 {
     public class ArchorEnemey : EnemyFactory
     {
+        protected override void Initialize()
+        {
+            parent = new GameObject(prefab.name);
+            base.Initialize();
+        }
         public override T Create<T>()
         {
             T enemy = GetObject<T>();
             ResetEnemy(enemy as IResetAble);
-            SetEnqueueAction(enemy as ISetDataAble<Action<GameObject>>);
+            SetEnqueueAction(enemy as ISetDataAble<Action<GameObject>,int>);
             return enemy;
         }
 
@@ -16,9 +21,9 @@ namespace Orpul1.Enemy.TestEnemy
         {
             enemy.ResetValue();
         }
-        private void SetEnqueueAction(ISetDataAble<Action<GameObject>> enemy)
+        private void SetEnqueueAction(ISetDataAble<Action<GameObject>,int> enemy)
         {
-            enemy.SetValue(EnqueueObject);
+            enemy.SetValue(EnqueueObject, (int)EnemyPatrolInfo.EPatrolType.Free);
         }
     }
 }

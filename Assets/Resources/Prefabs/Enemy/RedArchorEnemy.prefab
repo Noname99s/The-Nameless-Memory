@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4779763532256279631}
   - component: {fileID: 2866689666698739896}
   - component: {fileID: -3434185656850362812}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RedArchorEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -182,17 +182,20 @@ MonoBehaviour:
     originScale: {x: 4.8, y: 4.8, z: 1}
     gravityStrength: 5
     isGround: 1
+    isAlwayChasePlayer: 0
     hp: 100
     flipValue: 1
   idleInfo:
     idleDuration: 5
   patrolInfo:
+    patrolType: 0
+    sightAngle: 150
+    patrolMoveSpeed: 5
     movePosis:
     - {fileID: 0}
     - {fileID: 0}
-    patrolMoveSpeed: 5
-    sightAngle: 150
     sightRadius: 3
+    moveTime: 5
   chaseInfo:
     chaseTarget: {fileID: 0}
     isFindChaseTarget: 0
@@ -282,7 +285,7 @@ GameObject:
   - component: {fileID: 8189425001848056170}
   - component: {fileID: 1092592608191656913}
   - component: {fileID: 8317154581149683576}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +393,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1469584915968846280}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ShootPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

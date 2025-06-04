@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.EditorTools;
 using UnityEngine;
 
 namespace Orpul1.Enemy
@@ -25,10 +24,22 @@ namespace Orpul1.Enemy
     [Serializable]
     public class EnemyPatrolInfo
     {
-        public Transform[] movePosis;
-        public float patrolMoveSpeed;
+        public enum EPatrolType
+        {
+            Path,
+            Free,
+        }
+        public EPatrolType patrolType;
         [Range(0,360)] public float sightAngle;
+        public float patrolMoveSpeed;
+
+        [Header("Path Patrol")]
+        public Transform[] movePosis;
         public float sightRadius;
+
+        [Header("Free Patrol")]
+        public float moveTime;
+
     }
 
     [Serializable]

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3188863487046296387}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ShootPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 2199262066627443654}
   - component: {fileID: 2523867458719600781}
   - component: {fileID: 6764063946402400228}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BlueArchorEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -213,17 +213,20 @@ MonoBehaviour:
     originScale: {x: 4.8, y: 4.8, z: 1}
     gravityStrength: 5
     isGround: 1
+    isAlwayChasePlayer: 0
     hp: 100
     flipValue: 1
   idleInfo:
     idleDuration: 5
   patrolInfo:
+    patrolType: 0
+    sightAngle: 150
+    patrolMoveSpeed: 5
     movePosis:
     - {fileID: 0}
     - {fileID: 0}
-    patrolMoveSpeed: 5
-    sightAngle: 150
     sightRadius: 3
+    moveTime: 5
   chaseInfo:
     chaseTarget: {fileID: 0}
     isFindChaseTarget: 0
@@ -313,7 +316,7 @@ GameObject:
   - component: {fileID: 4334815239605814200}
   - component: {fileID: 2866669858510124871}
   - component: {fileID: 3665338597357128104}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

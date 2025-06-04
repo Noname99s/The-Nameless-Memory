@@ -14,15 +14,17 @@ namespace Orpul1.Enemy
         public LayerMask detectLayer;
         public float distance;
     }
-    public class EnemyController : MonoBehaviour,IDamageAble,IknockbackAble, ISetDataAble<Action<GameObject>>, IResetAble
+    public class EnemyController : MonoBehaviour, IResetAble, IDamageAble,IknockbackAble, ISetDataAble<Action<GameObject>,int>
     {
         [SerializeField] StateController stateController;
         [SerializeField] EnemyContext context;
         [SerializeField] EEnemyState state;
         [SerializeField] FieldOfView fieldOfView;
         [SerializeField] EnemyRayInfo enemyRay;
+        [SerializeField] CharacterAttack attackCollider;
         ISightFindAble enemySight;
         Vector3 scale = Vector3.zero;
+
         [ContextMenu("SetDebugScale")]
         private void DebugSetScale()
         {
@@ -35,7 +37,14 @@ namespace Orpul1.Enemy
             context.Initialize();
             context.enemyInfo.flipX = FlipX;
             context.dieInfo.destroyAction = DestroyObject;
+            SetDamage(attackCollider);
         }
+        private void SetDamage(ISetDataAble<int> attackCollider)
+        {
+            if (attackCollider == null) return;
+            attackCollider.SetValue(context.attackInfo.damage);
+        }
+
         private void Start()
         {
             stateController.TransitionState((int)state);
@@ -110,9 +119,10 @@ namespace Orpul1.Enemy
             context.enemyInfo.enemyCollider.enabled = true;
         }
 
-        public void SetValue(Action<GameObject> enqueueAction)
+        public void SetValue(Action<GameObject> enqueueAction, int patrolType)
         {
             context.dieInfo.deactiveAction = enqueueAction;
+            context.patrolInfo.patrolType = (EnemyPatrolInfo.EPatrolType)patrolType;
         }
 
 

@@ -5,8 +5,14 @@ namespace Orpul1.Enemy.State
 {
     public class PatrolState : EnemyState
     {
+        IStrategy[] patrolStraties;
         public PatrolState(EnemyContext context, Action<int> transitionTo) : base(context, transitionTo)
         {
+            patrolStraties = new IStrategy[]
+            {
+                new PatrolPath(context,transitionTo),
+                new PatrolFree(context,transitionTo),
+            };
         }
         int moveIndex = 0;
         public override void OnStart()
@@ -16,36 +22,18 @@ namespace Orpul1.Enemy.State
             context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), 1);
             context.enemyInfo.rigid.gravityScale = 0;
             context.enemyInfo.setSight.SetValue(context.patrolInfo.sightRadius, context.patrolInfo.sightAngle);
+            patrolStraties[(int)context.patrolInfo.patrolType].Initialize();
         }
 
         public override void OnUpdate()
         {
-            MovePosi();
-            if (IsArrivePosi())
-            {
-                moveIndex = (moveIndex + 1) % context.patrolInfo.movePosis.Length;
-                transitionTo((int)EEnemyState.Idle);
-            }
+            patrolStraties[(int)context.patrolInfo.patrolType].Execute();
             TransitionState();
         }
 
         public override void OnExit()
         {
             context.enemyInfo.animator.SetFloat(EEnemyAniTransition.MoveSpeed.ToString(), 0);
-        }
-        private void MovePosi()
-        {
-            Vector2 dir = (context.patrolInfo.movePosis[moveIndex].position - context.transform.position).normalized;
-            context.enemyInfo.slideResult = context.enemyInfo.rigid.Slide(Vector2.right * dir.x,
-                                                                            Time.deltaTime * context.patrolInfo.patrolMoveSpeed,
-                                                                            context.enemyInfo.slideMovement);
-            context.enemyInfo.flipX(dir.x);
-        }
-        private bool IsArrivePosi()
-        {
-            float distance = Mathf.Abs(context.patrolInfo.movePosis[moveIndex].position.x - context.transform.position.x);
-            if (distance > 0.1) return false;
-            return true;
         }
 
         protected override void TransitionState()
