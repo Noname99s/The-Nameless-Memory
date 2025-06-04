@@ -524,7 +524,9 @@ MonoBehaviour:
     - 0.3
     - 0.3
     attackCounts: 030000000300000000000000
-    damages: 0a00000014000000
+    damages:
+    - 10
+    - 20
     curAttack: 0
     isPressAttack: 0
     canAttack: 0

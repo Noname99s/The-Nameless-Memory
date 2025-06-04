@@ -10,7 +10,7 @@ public class PlayerAttackInfo
     public EPlayerAttack attackType = EPlayerAttack.NormalAttack;
     public float[] attackDelays = new float[3];
     public int[] attackCounts = new int[3];
-    public int[] damages = new int[2];
+    public float[] damages = new float[2];
     public int curAttack = 0;
 
 
