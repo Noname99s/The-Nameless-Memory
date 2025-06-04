@@ -4,12 +4,13 @@ public class MainMenuModel
 {
     public void StartGame()
     {
-        Managers.Game.ChangeState(GameState.Home);
+        Managers.SceneLoad.LoadSceneQuick("Prologue");
     }
     public void LoadGame()
     {
         // 게임 로드 로직을 여기에 추가
         Debug.Log("게임 로드");
+        Managers.Game.ChangeState(GameState.Home);
     }
     public void OpenOptions()
     {

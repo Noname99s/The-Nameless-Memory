@@ -15,13 +15,24 @@ public class SceneLoadManager
     }
     public void LoadScene(string sceneName)
     {
+        Managers.UI.CloseAllPopupUI(); // Close all UI popups before loading new scene
+        loading = Managers.UI.ShowPopupUI<LoadingComposition>();
+        AsyncOperation async = SceneManager.UnloadSceneAsync(currentScene);
+        async.completed += (AsyncOperation obj) =>
+        {
+            loading.LoadScene(sceneName);
+        };
+        currentScene = sceneName;
+    }
+
+    public void LoadSceneQuick(string sceneName)
+    {
         AsyncOperation async = SceneManager.UnloadSceneAsync(currentScene);
         async.completed += (AsyncOperation obj) =>
         {
             Managers.UI.CloseAllPopupUI(); // Close all UI popups before loading new scene
-            loading = Managers.UI.ShowPopupUI<LoadingComposition>();
-            loading.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+            currentScene = sceneName;
         };
-        currentScene = sceneName;
     }
 }

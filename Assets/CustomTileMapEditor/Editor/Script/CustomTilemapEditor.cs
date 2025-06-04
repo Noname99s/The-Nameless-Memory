@@ -309,7 +309,7 @@ public class CustomTilemapEditor : EditorWindow
     #region Save & Load
     private void SaveMapPrefab()
     {
-        if (floorParent == null|| backGroundParent == null) return;
+        if (floorParent == null) return;
         string prefabPath = EditorUtility.SaveFilePanel(
         "Save Map",
         "Assets/CustomTileMapEditor/MapPrefab",

@@ -6,6 +6,7 @@ public enum GameState
     MainMenu,
     Home,
     Battle,
+    RemindRoom,
     Boss,
     Ending,
 }
@@ -54,6 +55,8 @@ public class GameManager
                 Managers.Player.Init(); // Initialize player
                 Managers.Player.SetActivePlayer(true); // Activate player and camera
                 Managers.Player.ChangePlayerPos(); // Set player position to home
+                break;
+            case GameState.RemindRoom:
                 break;
 
             case GameState.Battle:
