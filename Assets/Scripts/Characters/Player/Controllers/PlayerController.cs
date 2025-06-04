@@ -43,13 +43,13 @@ namespace Orpul1.Player
             playerData.playerInfo.dectectedGroundPosi = transform.position;
             delayInvincible = new WaitForSeconds(playerData.hitInfo.invincibleTime);
             delayCameraShake = new WaitForSeconds(playerData.hitInfo.cameraShakeDuration);
-            PlayerManager.Instance.SetPlayer(gameObject);
+            //PlayerManager.Instance.SetPlayer(gameObject);
         }
         void Start()
         {
             OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
             CameraManager.Instance.SetCameraEvent(SetCameraEvent);
-            PlayerManager.Instance.SetPlayer(gameObject);
+            //PlayerManager.Instance.SetPlayer(gameObject);
             SetCameraEvent();
             stateController.TransitionState((int)EPlayerState.Idle);
             playerData.moveInfo.slideMovement.gravity = playerData.moveInfo.slideMoveGravity;
