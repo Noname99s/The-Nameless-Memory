@@ -27,12 +27,12 @@ public class CameraBoundary : MonoBehaviour
 
     private void Start()
     {
-        CameraManager.Instance.SetCameraEvent(SetCameraBoundary);
+        Managers.Camera.SetCameraEvent(SetCameraBoundary);
         SetCameraBoundary();
     }
     private void SetCameraBoundary()
     {
-        ISetDataAble<Collider2D> setConfinder = CameraManager.Instance.GetCamera<ISetDataAble<Collider2D>>((int)ECameraType.MainCamera);
+        ISetDataAble<Collider2D> setConfinder = Managers.Camera.GetCamera<ISetDataAble<Collider2D>>((int)ECameraType.MainCamera);
         if (setConfinder == null) return;
         setConfinder.SetValue(boundary);
     }

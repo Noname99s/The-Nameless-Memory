@@ -1,6 +1,5 @@
 using Orpul1.Camera;
 using Orpul1.Player;
-using System.Collections;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -8,7 +7,6 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] SO_PlayerInfo playerInfo;
     GameObject player;
     GameObject playerCamera;
-    GameObject cameraViewBoundary;
 
     public void Init(Vector3 pos = default(Vector3))
     {
@@ -16,7 +14,6 @@ public class PlayerManager : MonoBehaviour
         {
             player = Instantiate(playerInfo.playerPrefab, playerInfo.startPosition, Quaternion.identity);
             playerCamera = Instantiate(playerInfo.cameraPrefab);
-            cameraViewBoundary = Instantiate(playerInfo.cameraViewBoundaryPrefab);
         }
     }
     public void ChangePlayerPos(Vector3 pos = default(Vector3))
@@ -37,12 +34,10 @@ public class PlayerManager : MonoBehaviour
     public void RemovePlayer()
     {
         if (player == null) return;
-        CameraManager.Instance.RemoveCamera((int)ECameraType.MainCamera);
+        Managers.Camera.RemoveCamera((int)ECameraType.MainCamera);
         Destroy(player);
         Destroy(playerCamera);
-        Destroy(cameraViewBoundary);
         player = null;
         playerCamera = null;
-        cameraViewBoundary = null;
     }
 }

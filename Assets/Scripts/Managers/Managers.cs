@@ -7,6 +7,7 @@ public class Managers : MonoBehaviour
     static Managers s_instance;
     GameManager _game = new GameManager();
     SceneLoadManager _sceneLoad = new SceneLoadManager();
+    CameraManager _camera = new CameraManager();
     //SoundManager _sound;
 
     UIManager _ui = new UIManager();
@@ -14,12 +15,14 @@ public class Managers : MonoBehaviour
     [SerializeField] MapManager _mapManager;
     [SerializeField] PlayerManager _playerManager;
 
-    public static SceneLoadManager SceneLoad { get { return Instance._sceneLoad; } }
     public static GameManager Game { get { return Instance._game; } }
+    public static SceneLoadManager SceneLoad { get { return Instance._sceneLoad; } }
+    public static CameraManager Camera { get { return Instance._camera; } }
     public static UIManager UI { get { return Instance._ui; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static MapManager Map { get { return Instance._mapManager; } }
     public static PlayerManager Player { get { return Instance._playerManager; } }
+
     static Managers Instance 
     { 
         get 
