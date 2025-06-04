@@ -1,11 +1,8 @@
 using Orpul1.Camera;
-using Orpul1.Camera.Effect;
 using Orpul1.State;
-using Orpul1.State.Attack;
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
 
 namespace Orpul1.Player
 {
@@ -23,10 +20,11 @@ namespace Orpul1.Player
         public Ray2D ladderRay;
         public RaycastHit2D groundHit;
     }
-    public class PlayerController : MonoBehaviour,IDamageAble, IknockbackAble
+    public class PlayerController : MonoBehaviour,IDamageAble, IknockbackAble, IGetValue<Transform>
     {
         [SerializeField] StateController stateController;
         [SerializeField] PlayerContext playerData;
+        [SerializeField] Transform targetPosition;
         [SerializeField] PlayerRayInfo rayInfo;
         WaitForSeconds delayInvincible;
         WaitForSeconds delayCameraShake;
@@ -45,20 +43,25 @@ namespace Orpul1.Player
             playerData.playerInfo.dectectedGroundPosi = transform.position;
             delayInvincible = new WaitForSeconds(playerData.hitInfo.invincibleTime);
             delayCameraShake = new WaitForSeconds(playerData.hitInfo.cameraShakeDuration);
-            //PlayerManager.Instance.SetPlayer(gameObject);
+            PlayerManager.Instance.SetPlayer(gameObject);
         }
         void Start()
         {
             OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
-            Transform camera = CameraManager.Instance.GetCamera<Transform>((int)ECameraType.MainCamera);
-            cameraEffect = camera.GetComponent<ICameraEffectAble>();
-            cameraGroup = camera.GetComponent<ISetCamerGroupAble>();
-
+            CameraManager.Instance.SetCameraEvent(SetCameraEvent);
+            PlayerManager.Instance.SetPlayer(gameObject);
+            SetCameraEvent();
             stateController.TransitionState((int)EPlayerState.Idle);
             playerData.moveInfo.slideMovement.gravity = playerData.moveInfo.slideMoveGravity;
             playerData.moveInfo.slideMovement.surfaceAnchor = Vector2.down * 0.1f;
         }
-
+        private void SetCameraEvent()
+        {
+            Transform camera = CameraManager.Instance.GetCamera<Transform>((int)ECameraType.MainCamera);
+            if (camera == null) return;
+            cameraEffect = camera.GetComponent<ICameraEffectAble>();
+            cameraGroup = camera.GetComponent<ISetCamerGroupAble>();
+        }
         void Update()
         {
             state = (EPlayerState)stateController.CurState;
@@ -84,6 +87,7 @@ namespace Orpul1.Player
             }
             playerData.fallInfo.isFalling = false;
             playerData.playerInfo.hp -= playerData.fallInfo.fallDamage;
+            playerData.jumpInfo.jumpCount = 2;
             playerData.playerInfo.dectectedGroundPosi = rayInfo.groundHit.point;
             playerData.fallInfo.fallDamage = 0;
         }
@@ -176,6 +180,15 @@ namespace Orpul1.Player
             playerData.hitInfo.canGetDamage = false;
             yield return delayInvincible;
             playerData.hitInfo.canGetDamage = true;
+        }
+
+        /// <summary>
+        /// 위치 정보 전달
+        /// </summary>
+        /// <returns></returns>
+        public Transform GetValue()
+        {
+            return targetPosition;
         }
     }
 }

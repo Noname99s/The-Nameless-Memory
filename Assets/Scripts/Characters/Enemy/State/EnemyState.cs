@@ -16,4 +16,6 @@ public abstract class EnemyState : IState
     public abstract void OnUpdate();
 
     public abstract void OnExit();
+
+    protected abstract void TransitionState();
 }

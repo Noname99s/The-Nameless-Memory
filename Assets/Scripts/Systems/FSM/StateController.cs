@@ -30,13 +30,9 @@ namespace Orpul1.State
         public void TransitionState(int index)
         {
             if (curState != null)
-            {
-                Debug.Log($"{((EPlayerState)CurState).ToString()} End");
                 curState.OnExit();
-            }
 
             CurState = index;
-            Debug.Log($"{((EPlayerState)CurState).ToString()} Start");
             curState = states[index];
             curState.OnStart();
         }

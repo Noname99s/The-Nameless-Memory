@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/@TestAsset/Pet Cats pack/Demo.meta
 guid: de9d010db17f775438b062348c8fe74e
+========
+guid: eab1fb6253ffe794cb74adcacb894ae8
+>>>>>>>> Orpul1/Features/Enemy:Assets/Scripts/Characters/Enemy/State/AttackState.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

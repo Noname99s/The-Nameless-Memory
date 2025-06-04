@@ -6,6 +6,9 @@ namespace Orpul1.Enemy.State
     {
         Idle,
         Patrol,
-        Chase
+        Chase,
+        Attack,
+        Hit,
+        Die,
     }
 }
