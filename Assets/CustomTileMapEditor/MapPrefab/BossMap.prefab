@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9068985005455154829}
   - component: {fileID: 68333347123489070}
   - component: {fileID: 1184230978525283514}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2577,7 +2577,7 @@ GameObject:
   - component: {fileID: 7230103184061129245}
   - component: {fileID: 5402992097495005482}
   - component: {fileID: 6920679547019838967}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: map_5_floor_1(Clone)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -28321,7 +28321,7 @@ GameObject:
   - component: {fileID: 8923064055595820104}
   - component: {fileID: 1149576771817453312}
   - component: {fileID: 7279365605387485887}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: map_5_floor_2(Clone)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -32719,7 +32719,7 @@ GameObject:
   - component: {fileID: 6042233497445762911}
   - component: {fileID: 7117015946635099003}
   - component: {fileID: 4483455877150348730}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: map_5_floor_3(Clone)
   m_TagString: Floor
   m_Icon: {fileID: 0}

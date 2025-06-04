@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] SO_PlayerInfo playerInfo;
-    GameObject player;
+    public GameObject player;
     GameObject playerCamera;
     GameObject cameraViewBoundary;
     

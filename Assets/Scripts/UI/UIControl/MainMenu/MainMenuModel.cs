@@ -10,7 +10,7 @@ public class MainMenuModel
     {
         // 게임 로드 로직을 여기에 추가
         Debug.Log("게임 로드");
-        Managers.Game.ChangeState(GameState.Home);
+        Managers.Game.ChangeState(GameState.Boss);
     }
     public void OpenOptions()
     {

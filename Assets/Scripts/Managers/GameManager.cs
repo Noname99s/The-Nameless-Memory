@@ -69,6 +69,11 @@ public class GameManager
 
             case GameState.Boss:
                 // Logic for boss fight
+                Managers.UI.ShowPopupUI<InGameComposition>();
+                Managers.Player.Init(); // Initialize player
+                Managers.Player.player.transform.position = new Vector3(10, 10, 0);
+                Managers.Player.SetActivePlayer(true); // Activate player and camera
+                Managers.Player.ChangePlayerPos(); // Set player position to the current map
                 break;
 
             case GameState.Ending:

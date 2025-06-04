@@ -43,13 +43,11 @@ namespace Orpul1.Player
             playerData.playerInfo.dectectedGroundPosi = transform.position;
             delayInvincible = new WaitForSeconds(playerData.hitInfo.invincibleTime);
             delayCameraShake = new WaitForSeconds(playerData.hitInfo.cameraShakeDuration);
-            //PlayerManager.Instance.SetPlayer(gameObject);
         }
         void Start()
         {
             OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
             CameraManager.Instance.SetCameraEvent(SetCameraEvent);
-            //PlayerManager.Instance.SetPlayer(gameObject);
             SetCameraEvent();
             stateController.TransitionState((int)EPlayerState.Idle);
             playerData.moveInfo.slideMovement.gravity = playerData.moveInfo.slideMoveGravity;
@@ -86,7 +84,8 @@ namespace Orpul1.Player
                 return;
             }
             playerData.fallInfo.isFalling = false;
-            playerData.playerInfo.hp -= playerData.fallInfo.fallDamage;
+            OnDamage(playerData.fallInfo.fallDamage);
+            //playerData.playerInfo.hp -= playerData.fallInfo.fallDamage;
             playerData.jumpInfo.jumpCount = 2;
             playerData.playerInfo.dectectedGroundPosi = rayInfo.groundHit.point;
             playerData.fallInfo.fallDamage = 0;
@@ -152,6 +151,7 @@ namespace Orpul1.Player
         }
         public void OnDamage(int damage)
         {
+            if (damage == 0 || Managers.Game.CurrentState == GameState.Home) return;
             if (!playerData.hitInfo.canGetDamage) return;
             OnPlayerHpChanged?.Invoke(playerData.playerInfo.hp, playerData.playerInfo.maxHp);
 

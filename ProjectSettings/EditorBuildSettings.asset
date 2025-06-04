@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scene/RootScene.unity
     guid: 69de2fb9d7422234f808875082a8604f
   - enabled: 1
-    path: Assets/Scene/TestScene/Orpul1 BossTest.unity
+    path: Assets/Scene/Boss.unity
     guid: d007c190dd0fe034391f847520b2bfdf
   - enabled: 1
     path: Assets/Scene/Prologue.unity
