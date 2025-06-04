@@ -47,7 +47,7 @@ namespace Orpul1.Player
         void Start()
         {
             OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
-            CameraManager.Instance.SetCameraEvent(SetCameraEvent);
+            Managers.Camera.SetCameraEvent(SetCameraEvent);
             SetCameraEvent();
             stateController.TransitionState((int)EPlayerState.Idle);
             playerData.moveInfo.slideMovement.gravity = playerData.moveInfo.slideMoveGravity;
@@ -55,7 +55,7 @@ namespace Orpul1.Player
         }
         private void SetCameraEvent()
         {
-            Transform camera = CameraManager.Instance.GetCamera<Transform>((int)ECameraType.MainCamera);
+            Transform camera = Managers.Camera.GetCamera<Transform>((int)ECameraType.MainCamera);
             if (camera == null) return;
             cameraEffect = camera.GetComponent<ICameraEffectAble>();
             cameraGroup = camera.GetComponent<ISetCamerGroupAble>();

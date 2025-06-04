@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetCame
     }
     private void OnEnable()
     {
-        CameraManager.Instance.SetCamera((int)ECameraType.MainCamera, gameObject);
+        Managers.Camera.SetCamera((int)ECameraType.MainCamera, gameObject);
     }
     private void OnDisable()
     {
@@ -35,7 +35,7 @@ public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetCame
     }
     private void RemoveCamera()
     {
-        CameraManager.Instance.RemoveCamera((int)ECameraType.MainCamera);
+        Managers.Camera.RemoveCamera((int)ECameraType.MainCamera);
     }
     private void LateUpdate()
     {
