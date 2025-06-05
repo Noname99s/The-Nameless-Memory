@@ -25,15 +25,15 @@ public class MapManager : MonoBehaviour
 
     public void BackToHome()
     {
-        //currentMapIndex = -1;
+        currentMapIndex = -1;
         movePoint = Vector3.zero;
         Managers.Game.ChangeState(GameState.Home);
     }
-    public void HubDoorEntrance()
+    public void RespawnPlayer()
     {
         currentMapIndex--;
-        if(currentMapIndex < -1)
-            currentMapIndex = -1; 
+        if (currentMapIndex < -1)
+            currentMapIndex = -1;
         Managers.Game.ChangeState(GameState.Battle);
     }
     public void TransitionMap(bool isNext = true)
