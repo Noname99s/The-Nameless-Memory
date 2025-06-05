@@ -37,6 +37,7 @@ namespace Orpul1.Player.State
             if (!IsDeathAniEnd()) return;
 
             // >> : Death 애니메이션 끝난 시점
+            Managers.Map.BackToHome();
 
             Debug.Log("DeathAni End!");
             TransitionState();
@@ -44,7 +45,6 @@ namespace Orpul1.Player.State
 
         public override void OnExit()
         {
-            Managers.Map.BackToHome();
 
             data.playerInfo.animator.SetBool(EPlayerAniTransition.IsDie.ToString(), false);
             data.playerInfo.playerCollider.enabled = true;
