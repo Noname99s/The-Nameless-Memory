@@ -16,8 +16,8 @@ namespace Orpul1.Player.State.Jump
         {
             jumpAmount = data.jumpInfo.jumpPower;
 
-            data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
-            data.playerInfo.animator.SetTrigger(EPlayerAni.JumpTrigger.ToString());
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsGround.ToString(), false);
+            data.playerInfo.animator.SetTrigger(EPlayerAniTransition.JumpTrigger.ToString());
             data.jumpInfo.jumpState = EJumpState.Jumping;
         }
         public void Execute()

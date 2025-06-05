@@ -183,6 +183,13 @@ public class PlayerContext : MonoBehaviour
             return moveInfo.isPressClimbLadder && moveInfo.canClimbLadder;
         }
     }
+    public bool IsDieState
+    {
+        get
+        {
+            return playerInfo.hp <= 0;
+        }
+    }
     public void Initialize()
     {
         playerInfo.hp = playerInfo.maxHp;

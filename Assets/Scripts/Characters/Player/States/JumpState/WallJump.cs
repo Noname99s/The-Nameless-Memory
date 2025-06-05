@@ -18,8 +18,8 @@ namespace Orpul1.Player.State.Jump
             jumpAmount = data.jumpInfo.jumpPower;
             jumpDir = (int)-(data.playerInfo.trPlayer.localScale.x / data.playerInfo.originScale.x);
             data.jumpInfo.jumpCount = 1;
-            data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
-            data.playerInfo.animator.SetTrigger(EPlayerAni.WallJumpTrigger.ToString());
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsGround.ToString(), false);
+            data.playerInfo.animator.SetTrigger(EPlayerAniTransition.WallJumpTrigger.ToString());
             data.jumpInfo.jumpState = EJumpState.Jumping;
         }
         public void Execute()

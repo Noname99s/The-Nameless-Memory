@@ -22,7 +22,7 @@ namespace Orpul1.Player.State
             SetJumpType();
 
             jumpStraties[(int)jumpType].Initialize();
-            data.playerInfo.animator.SetBool(EPlayerAni.IsJump.ToString(),true);
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsJump.ToString(),true);
             data.moveInfo.isPressWallClimb = false;
         }
 
@@ -34,7 +34,7 @@ namespace Orpul1.Player.State
 
             if (data.jumpInfo.jumpState == EJumpState.JumpReady && data.jumpInfo.isPressJump)
             {
-                data.playerInfo.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
+                data.playerInfo.animator.SetBool(EPlayerAniTransition.IsJump.ToString(), false);
                 jumpStraties[(int)jumpType].Initialize();
             }
 
@@ -44,7 +44,7 @@ namespace Orpul1.Player.State
         public override void OnExit()
         {
 
-            data.playerInfo.animator.SetBool(EPlayerAni.IsJump.ToString(), false);
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsJump.ToString(), false);
             data.jumpInfo.shouldWallJump = false;
         }
 
@@ -98,7 +98,7 @@ namespace Orpul1.Player.State
 
         private bool IsDeathState()
         {
-            if (!data.hitInfo.isDeath) return false;
+            if (!data.IsDieState) return false;
             transitionTo((int)EPlayerState.Death);
 
             return true;

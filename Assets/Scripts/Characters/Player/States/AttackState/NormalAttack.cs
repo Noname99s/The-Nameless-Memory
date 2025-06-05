@@ -15,7 +15,7 @@ namespace Orpul1.Player.State.Attack
         public void Execute()
         {
             if (Time.time < aniDuration) return;
-            playerData.playerInfo.animator.SetInteger(EPlayerAni.AttackIndex.ToString(), playerData.attackInfo.curAttack);
+            playerData.playerInfo.animator.SetInteger(EPlayerAniTransition.AttackIndex.ToString(), playerData.attackInfo.curAttack);
             if (!playerData.playerInfo.animator.GetCurrentAnimatorStateInfo(0).IsName(((ENormalAttack)(playerData.attackInfo.curAttack)).ToString()))
                 return;
             aniDuration = playerData.playerInfo.animator.GetCurrentAnimatorStateInfo(0).length;
@@ -25,7 +25,7 @@ namespace Orpul1.Player.State.Attack
 
         public void Initialize()
         {
-            playerData.playerInfo.animator.SetBool(EPlayerAni.IsStrongAttack.ToString(), false);
+            playerData.playerInfo.animator.SetBool(EPlayerAniTransition.IsStrongAttack.ToString(), false);
             playerData.attackInfo.curAttack = 0;
         }
 

@@ -16,7 +16,7 @@ namespace Orpul1.Player.State
             data.jumpInfo.jumpCount = 2;
             data.playerInfo.rigid.gravityScale = 0;
             data.playerInfo.rigid.linearVelocity = Vector2.zero;
-            data.playerInfo.animator.SetBool(EPlayerAni.IsWallClimb.ToString(), true);
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsWallClimb.ToString(), true);
             data.jumpInfo.isPressJump = false;
             data.jumpInfo.shouldWallJump = true;
             slideSpeed = 0;
@@ -33,7 +33,7 @@ namespace Orpul1.Player.State
         public override void OnExit()
         {
             data.playerInfo.rigid.gravityScale = data.jumpInfo.gravityStrength;
-            data.playerInfo.animator.SetBool(EPlayerAni.IsWallClimb.ToString(), false);
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsWallClimb.ToString(), false);
             data.jumpInfo.jumpCount = 0;
         }
         private void TrainsitionState()
