@@ -61,7 +61,7 @@ public class GameManager
             case GameState.Battle:
                 // Logic for battle
                 Managers.UI.ShowPopupUI<InGameComposition>(); 
-                Managers.Map.EntranceMap(); // Load the current map
+                Managers.Map.TransitionMap(); // Load the current map
                 Managers.Player.Init(Managers.Map.movePoint); // Initialize player at the entrance point
                 break;
 

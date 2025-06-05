@@ -61,7 +61,7 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     public void BuildSequence()
     {
         fadeSequence = DOTween.Sequence();
-        fadeSequence.OnStart(() => fadeImage.gameObject.SetActive(true))
+        fadeSequence.OnRewind(() => fadeImage.gameObject.SetActive(true))
                     .Append(fadeImage.DOFade(1, 0.5f).SetEase(Ease.OutQuad))
                     .AppendCallback(() => currentAction?.Invoke())
                     .AppendInterval(2f)

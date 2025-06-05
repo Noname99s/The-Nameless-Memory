@@ -17,11 +17,13 @@ namespace Orpul1.Player.State
         {
             OnPlayerDeath?.Invoke(++Managers.Game.playData.deathCount);
             Managers.Map.RecordDeathInfo(data.playerInfo.dectectedGroundPosi);
+            Managers.Map.getFragment = false;
             data.playerInfo.animator.SetTrigger(EPlayerAni.DeathTrigger.ToString());
         }
 
         public override void OnUpdate()
         {
+            Managers.Map.BackToHome();
             TransitionState();
         }
 
@@ -29,6 +31,8 @@ namespace Orpul1.Player.State
         {
             //Death상태를 나간다는 것은 플레이어가 부활했다는 것
             //아마 이 부분에서 플레이어 상태 재설정 해야할 것 같음
+            //TransitionState();
+            Debug.Log("EndDeath");
         }
         private void TransitionState()
         {

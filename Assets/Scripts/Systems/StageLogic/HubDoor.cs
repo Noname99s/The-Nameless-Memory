@@ -51,8 +51,7 @@ public class HubDoor : MonoBehaviour
                 Managers.Map.mapInfos.Add(stageInfo[i]);
             }
         }
-        Managers.Map.movePoint = Managers.Map.mapInfos[0].entrancePoint;
-        Managers.Game.ChangeState(GameState.Battle);
+        Managers.Map.HubDoorEntrance();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
