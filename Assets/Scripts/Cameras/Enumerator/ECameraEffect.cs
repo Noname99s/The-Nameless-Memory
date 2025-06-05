@@ -4,6 +4,8 @@ namespace Orpul1.Camera
     {
         Vignette,
         Shake,
+        ZoomIn,
+        ZoomOut,
         None,
     }
 }

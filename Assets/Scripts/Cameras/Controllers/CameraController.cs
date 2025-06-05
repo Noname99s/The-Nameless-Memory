@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetCamerGroupAble
+public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetDataAble<Transform>, ISetCamerGroupAble
 {
     [SerializeField] StateController stateController;
     [SerializeField] CameraContext context;
@@ -56,5 +56,9 @@ public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetCame
     {
         context.targetGroup.RemoveMember(target);
     }
-  
+
+    public void SetValue(Transform target)
+    {
+        context.cameraTarget.TrackingTarget = target;
+    }
 }
