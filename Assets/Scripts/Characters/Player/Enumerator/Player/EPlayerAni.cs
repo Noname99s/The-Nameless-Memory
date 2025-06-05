@@ -16,6 +16,7 @@ namespace Orpul1.Player.Animation
         KickB,
         KickC,
         HitDamage,
-        Die
+        Die,
+        DeathTrigger
     }
 }
