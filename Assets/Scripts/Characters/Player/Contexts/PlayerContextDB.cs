@@ -7,20 +7,12 @@ namespace Orpul1.Player
     {
         enum EContextInfo
         {
-            START = 0,
             InfoStart = 0,
-            InfoEnd = 0,
-            MoveInfoStart = 1,
-            MoveInfoEnd = 2,
-            JumpInfoStart = 3,
-            JumpInfoEnd = 7,
-            FallInfoStart = 8,
-            FallInfoEnd = 11,
-            HitInfoStart = 12,
-            HitInfoEnd = 15,
-            AttackInfoStart = 16,
-            AttackInfoEnd = 19,
-            END = 0
+            MoveInfoStart = 9,
+            JumpInfoStart = 11,
+            FallInfoStart = 16,
+            HitInfoStart = 20,
+            AttackInfoStart = 24,
         }
 
         //TODO: 플레이어 데이터 캐싱 후 PlayerContext에 넣기
@@ -51,23 +43,23 @@ namespace Orpul1.Player
         public void SetPlayerInfo(PlayerInfo playerInfo)
         {
             int index = (int)EContextInfo.InfoStart;
-            playerInfo.hp = (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
+            playerInfo.hp = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
 
             //TODO : 플레이어 데이터 베이스 갱신되면 주석 해재하기(2025/6/5)
-            /*playerInfo.deathCount = (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
-            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage1]= (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
-            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage2]= (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
-            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage3]= (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
-            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage4]= (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
-            playerInfo.maxMemoryPeaceCount = (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
-            playerInfo.increaseStateValue = (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
-            playerInfo.curStatePercent = (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;*/
+            playerInfo.deathCount = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage1]= (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage2]= (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage3]= (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage4]= (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            playerInfo.maxMemoryPeaceCount = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            playerInfo.increaseStateValue = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            playerInfo.curStatePercent = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
         }
         public void SetPlayerMoveInfo(PlayerMoveInfo moveInfo)
         {
             int index = (int)EContextInfo.MoveInfoStart;
-            moveInfo.moveSpeed = BG_DB_PlayerData.GetEntity(index)._InitialValue;
-            moveInfo.climbSpeed = BG_DB_PlayerData.GetEntity(index + 1)._InitialValue;
+            moveInfo.moveSpeed = BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            moveInfo.climbSpeed = BG_DB_PlayerData.GetEntity(index++)._InitialValue;
         }
         public void SetPlayerJumpInfo(PlayerJumpInfo jumpInfo)
         {
