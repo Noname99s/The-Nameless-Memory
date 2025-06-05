@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b49f94040a457b7438c47c95c4c7d02b
+guid: d68c425fc89cf384e96d2d0ec1d98ec2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8555865627337367807
-    second: paper3_0
+      213: 4335869342931872144
+    second: soundbox_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: paper3_0
+      name: soundbox_2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 214
-        height: 38
+        width: 56
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10fd498fa85734980800000000000000
-      internalID: -8555865627337367807
+      spriteID: 099e5f9e13a1c2c30800000000000000
+      internalID: 4335869342931872144
       vertices: []
       indices: 
       edges: []
@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      soundbox_2_0: 4335869342931872144
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
