@@ -19,26 +19,32 @@ namespace Orpul1.Enemy.DB
             EnemyDieInfoStart = 16,
             SightInfoStart = 17,
         }
+        private void SetDB(EnemyContext context)
+        {
+            int index = (int)enemyType;
+            context.enemyInfo.hp = BG_DB_Enemydata.GetEntity(index)._HP;
+            context.attackInfo.damage = BG_DB_Enemydata.GetEntity(index)._ATK;
+            context.patrolInfo.patrolMoveSpeed = BG_DB_Enemydata.GetEntity(index)._SPD;
+        }
         public void Visit<T>(T t)
         {
-            SetEnemyInfo(t);
-            SetEnemyIdleInfo(t);
+            /*SetEnemyIdleInfo(t);
             SetEnemyPatrolInfo(t);
             SetEnemyChaseInfo(t);
             SetEnemyAttackInfo(t);
             SetEnemyHitInfo(t);
             SetEnemyDieInfo(t);
-            SetEnemySightInfo(t);
+            SetEnemySightInfo(t);*/
         }
-        public void SetEnemyInfo<T>(T t)
+        public void SetEnemyInfo()
         {
-            if (!(t is EnemyInfo info)) return;
-            int index = (int)EEnemyContextDB.EnemyInfoStart;
+
         }
-        public void SetEnemyIdleInfo<T>(T t)
+       /* public void SetEnemyIdleInfo<T>(T t)
         {
             if (!(t is EnemyIdleInfo info)) return;
-            int index = (int)EEnemyContextDB.EnemyIdleInfoStart;
+            int index = (int)EEnemyType.BlueMelee;
+            BG_DB_Enemydata.GetEntity(index)._HP
         }
         public void SetEnemyPatrolInfo<T>(T t)
         {
@@ -69,6 +75,6 @@ namespace Orpul1.Enemy.DB
         {
             if (!(t is SightInfo info)) return;
             int index = (int)EEnemyContextDB.SightInfoStart;
-        }
+        }*/
     }
 }
