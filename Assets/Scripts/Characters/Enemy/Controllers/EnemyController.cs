@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Orpul1.Enemy.State;
 using Orpul1.State;
+using UnityEditor.PackageManager;
 using UnityEngine;
 namespace Orpul1.Enemy
 {
@@ -137,10 +138,10 @@ namespace Orpul1.Enemy
 
         public void knockback(Vector2 dir)
         {
-            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
-            dir.y = 1;
+            //context.enemyInfo.rigid.linearVelocity = Vector2.zero;
+            dir *= context.hitInfo.knockBackPower;
 
-            context.enemyInfo.rigid.AddForce(dir * context.hitInfo.knockBackPower, ForceMode2D.Impulse);
+            context.enemyInfo.rigid.AddForce(dir, ForceMode2D.Impulse);
         }
         IEnumerator HitBlink()
         {

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -3275993
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 0ccd2b99e9b547b498330df9c7104170, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -466,7 +466,7 @@ MonoBehaviour:
     hp: 100
     maxHp: 100
     deathCount: 0
-    getMemoryPeaces: 000000000000000000000000000000000000000000000000
+    getMemoryPeaceCounts: 000000000000000000000000000000000000000000000000
     maxMemoryPeaceCount: 5
     increaseStateValue: 3
     curStatePercent: 0
@@ -791,5 +791,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackAbleTag: 5
+  attackPositoin: {fileID: 1832887567842334404}
   attackCollider: {fileID: 3476999195374640395}
   damage: 0

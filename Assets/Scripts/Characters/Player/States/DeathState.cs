@@ -14,6 +14,9 @@ namespace Orpul1.Player.State
         {
 
             data.playerInfo.animator.SetTrigger(EPlayerAni.DeathTrigger.ToString());
+            data.playerInfo.rigid.gravityScale = 0;
+            data.playerInfo.rigid.linearVelocity = Vector2.zero;
+            data.playerInfo.playerCollider.enabled = false;
         }
 
         public override void OnUpdate()
@@ -25,6 +28,7 @@ namespace Orpul1.Player.State
         {
             //Death상태를 나간다는 것은 플레이어가 부활했다는 것
             //아마 이 부분에서 플레이어 상태 재설정 해야할 것 같음
+            data.playerInfo.playerCollider.enabled = true;
         }
         private void TransitionState()
         {

@@ -26,7 +26,7 @@ namespace Orpul1.Enemy.State.Attack
         }
         public void Execute()
         {
-            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
+            //context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             if (attackTime <= Time.time && !isAttack) 
             {
                 ArrowWeapon arrow = arrowFactory.Create<ArrowWeapon>();
