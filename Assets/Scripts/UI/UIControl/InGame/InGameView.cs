@@ -7,6 +7,7 @@ using DG.Tweening;
 public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
 {
     [SerializeField] DialogAnim dialogAnim;
+    public GameObject pausePanel;
     [SerializeField] Button pauseButton;
     [SerializeField] Button resumeButton;
     [SerializeField] Button openSaveLoadButton;
@@ -35,6 +36,7 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
                 () =>
                 {
                     OnPauseGame?.Invoke();
+                    pausePanel.SetActive(true);
                     float playTime = Managers.Game.playData.playTime; 
                     TimeSpan timeSpan = TimeSpan.FromSeconds(playTime);
                     string formattedTime = string.Format("{0:D2}:{1:D2}:{2:D2}",
@@ -42,7 +44,14 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
                     playTimeText.text = formattedTime;
                 }
             );
-        resumeButton.onClick.AddListener(() => OnResumeGame?.Invoke());
+        resumeButton.onClick.AddListener
+            (
+                () =>
+                {
+                    OnResumeGame?.Invoke();
+                    pausePanel.SetActive(false);
+                }
+            );
         openSaveLoadButton.onClick.AddListener(() => OnOpenSaveLoad?.Invoke());
         openOptionsButton.onClick.AddListener(() => OnOpenOptions?.Invoke());
         backToMainMenuButton.onClick.AddListener(() => OnBackToMainMenu?.Invoke());

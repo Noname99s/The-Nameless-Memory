@@ -35,12 +35,10 @@ public class GameManager
     }
     public void ChangeState(GameState newState)
     {
-        if (CurrentState == newState) return;
         CurrentState = newState;
         Debug.Log($"Game state changed to: {CurrentState}");
-        Managers.Player.RemovePlayer(); // Remove player if exists
+        Managers.Player.RemovePlayer(); 
         Managers.SceneLoad.LoadScene(newState.ToString());
-        
     }
     public void SettingScene()
     {

@@ -25,6 +25,7 @@ public class SaveLoadPresenter
     void HandleYesButtonClicked()
     {
         model.HandleYesButtonClicked();
+        HandleMemoryStackSelected(model.currentMemoryStackIndex);
     }
     void HandleSaveButtonClicked()
     {

@@ -9,6 +9,10 @@ public class InGameComposition : UIPopup
     {
         inGamePresenter = new InGamePresenter(inGameView);
     }
+    private void OnDisable()
+    {
+        inGameView.pausePanel.SetActive(false);
+    }
     void OnDestroy()
     {
         inGamePresenter.Dispose();

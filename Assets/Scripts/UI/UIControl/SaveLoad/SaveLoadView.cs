@@ -103,8 +103,8 @@ public class SaveLoadView : MonoBehaviour , ISaveLoadView
         TimeSpan timeSpan = TimeSpan.FromSeconds(data.playTime);
         string formattedTime = string.Format("{0:D2}:{1:D2}:{2:D2}",
             timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds);
-        string saveText = isSave ? "저장하시" : "불러오시";
-        currentDataText[(int)TextType.Title].text = "Memory " + (index + 1) +"에 현재 데이터를 "+ saveText + "겠습니까?";
+        string saveText = isSave ? "에 현재 데이터를 저장하시" : "를 현재데이터에 불러오시";
+        currentDataText[(int)TextType.Title].text = "Memory " + (index + 1) + saveText + "겠습니까?";
         currentDataText[(int)TextType.PlayTime].text = formattedTime;
         currentDataText[(int)TextType.StageClear].text = lastStageClear.ToString() + " Clear";
         currentDataText[(int)TextType.DeathCount].text = data.deathCount.ToString();

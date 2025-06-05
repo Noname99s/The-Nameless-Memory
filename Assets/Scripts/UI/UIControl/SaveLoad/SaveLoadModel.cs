@@ -48,12 +48,14 @@ public class SaveLoadModel
     }
     void SaveCurrentMemoryData()
     {
-        memoryStackDatas[currentMemoryStackIndex].RecordData(currentMemoryData);
+        currentMemoryData.RecordData(Managers.Game.playData);
+        memoryStackDatas[currentMemoryStackIndex].RecordData(Managers.Game.playData);
         Managers.GameData.SaveGameDataCollection(memoryStackDatas);
     }
     void LoadCurrentMemoryData()
     {
         Managers.Game.playData.RecordData(currentMemoryData);
+        Time.timeScale = 1f; // Resume game time
         Managers.Game.ChangeState(GameState.Home);
     }
     public void ExitSave()
