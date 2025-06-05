@@ -122,7 +122,7 @@ public class PlayerContext : MonoBehaviour
     public PlayerHitInfo hitInfo;
     private void Awake()
     {
-        //SetContextInfos();
+        SetContextInfos();
     }
     private void SetContextInfos()
     {

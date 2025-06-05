@@ -71,12 +71,5 @@ namespace Orpul1.Player.State
 
             return true;
         }
-        private bool IsJumpState()
-        {
-            if (!data.IsJumpState) return false;
-            transitionTo((int)EPlayerState.Jump);
-
-            return true;
-        }
     }
 }
