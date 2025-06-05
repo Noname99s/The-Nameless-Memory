@@ -650,6 +650,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e158875da5b309842b9181532403f16c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageType: 0
+  remindCutScene: {fileID: 0}
+  remindPanels:
+  - {fileID: 2520047767619492749}
+  - {fileID: 6222623305957763810}
   slicedImage: {fileID: 3473710183323793365}
   originalImage: {fileID: 5816710725507014045}
 --- !u!114 &6319540681946644869
@@ -696,9 +701,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: RemindCutScene, Assembly-CSharp
-        m_MethodName: OnRestartSequnece
+      - m_Target: {fileID: 7993007322327475081}
+        m_TargetAssemblyTypeName: ChooseRemindPointHandler, Assembly-CSharp
+        m_MethodName: OnClickRemindPoint
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3668,6 +3673,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e158875da5b309842b9181532403f16c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageType: 1
+  remindCutScene: {fileID: 0}
+  remindPanels:
+  - {fileID: 1690034834726943196}
+  - {fileID: 8475997104955800640}
   slicedImage: {fileID: 7193387782517060949}
   originalImage: {fileID: 1258022426514731805}
 --- !u!114 &2870935457317579912
@@ -3714,9 +3724,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: RemindCutScene, Assembly-CSharp
-        m_MethodName: OnRestartSequnece
+      - m_Target: {fileID: 1542123894626868018}
+        m_TargetAssemblyTypeName: ChooseRemindPointHandler, Assembly-CSharp
+        m_MethodName: OnClickRemindPoint
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
