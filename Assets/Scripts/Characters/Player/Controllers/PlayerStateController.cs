@@ -15,7 +15,7 @@ namespace Orpul1.Player
 
         private void Awake()
         {
-            hpIncreaseValue = (int)GetIncreaseValue(context.playerInfo.hp);
+            hpIncreaseValue = (int)GetIncreaseValue(context.playerInfo.maxHp);
             damageIncreaseValues[(int)EPlayerAttack.NormalAttack] = GetIncreaseValue(context.attackInfo.damages[(int)EPlayerAttack.NormalAttack]);
             damageIncreaseValues[(int)EPlayerAttack.StrongAttack] = GetIncreaseValue(context.attackInfo.damages[(int)EPlayerAttack.StrongAttack]);
             maxMemoryPeace = context.playerInfo.maxMemoryPeaceCount;
@@ -35,7 +35,7 @@ namespace Orpul1.Player
         {
             context.playerInfo.getMemoryPeaceCounts[(int)Managers.Map.stageType]++;
             context.playerInfo.curStatePercent += context.playerInfo.increaseStateValue;
-            context.playerInfo.hp += hpIncreaseValue;
+            context.playerInfo.maxHp += hpIncreaseValue;
             for (int i = 0; i <= (int)EPlayerAttack.StrongAttack; i++)
             {
                 context.attackInfo.damages[i] += damageIncreaseValues[i];

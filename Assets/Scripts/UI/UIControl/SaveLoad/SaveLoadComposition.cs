@@ -12,4 +12,8 @@ public class SaveLoadComposition : UIPopup
     {
         presenter.Dispose();
     }
+    public void RecordData(PlayData data)
+    {
+        presenter.RecordData(data);
+    }
 }

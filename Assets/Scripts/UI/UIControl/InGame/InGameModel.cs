@@ -12,6 +12,10 @@ public class InGameModel
         Debug.Log("게임 재개");
         Time.timeScale = 1;
     }
+    public void OpenSaveLoad()
+    {
+        Managers.UI.ShowPopupUI<SaveLoadComposition>();
+    }
     public void OpenOptions()
     {
         Managers.UI.ShowPopupUI<OptionComposition>();

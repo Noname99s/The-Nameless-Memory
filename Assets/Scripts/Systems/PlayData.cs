@@ -52,6 +52,22 @@ public class PlayData
             }
         }
     }
+
+    public void RecordData(PlayData data)
+    {
+        if (data == null) return; // null üũ
+        playTime = data.playTime;
+        deathCount = data.deathCount;
+        enforceRatio = data.enforceRatio;
+        if (data.stageCleared != null && data.stageCleared.Length == (int)Stage.Max)
+        {
+            Array.Copy(data.stageCleared, stageCleared, (int)Stage.Max);
+        }
+        if (data.stage_Will_fragmentCount != null && data.stage_Will_fragmentCount.Length == (int)Stage.Max)
+        {
+            Array.Copy(data.stage_Will_fragmentCount, stage_Will_fragmentCount, (int)Stage.Max);
+        }
+    }
 }
 [Serializable]
 public class PlayDataCollection

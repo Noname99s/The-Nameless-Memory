@@ -9,10 +9,12 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     [SerializeField] DialogAnim dialogAnim;
     [SerializeField] Button pauseButton;
     [SerializeField] Button resumeButton;
+    [SerializeField] Button openSaveLoadButton;
     [SerializeField] Button openOptionsButton;
     [SerializeField] Button backToMainMenuButton;
     [SerializeField] Button quitGameButton;
     [SerializeField] Image fadeImage;
+    [SerializeField] TextMeshProUGUI playTimeText;
     Sequence fadeSequence;
 
     [Header("Player Stats")]
@@ -22,13 +24,26 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     public Action currentAction; // Action to be invoked after fade-in
     public event Action OnPauseGame;
     public event Action OnResumeGame;
+    public event Action OnOpenSaveLoad;
     public event Action OnOpenOptions;
     public event Action OnBackToMainMenu;
     public event Action OnQuitGame;
     void Start()
     {
-        pauseButton.onClick.AddListener(() => OnPauseGame?.Invoke());
+        pauseButton.onClick.AddListener
+            (
+                () =>
+                {
+                    OnPauseGame?.Invoke();
+                    float playTime = Managers.Game.playData.playTime; 
+                    TimeSpan timeSpan = TimeSpan.FromSeconds(playTime);
+                    string formattedTime = string.Format("{0:D2}:{1:D2}:{2:D2}",
+                            timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds);
+                    playTimeText.text = formattedTime;
+                }
+            );
         resumeButton.onClick.AddListener(() => OnResumeGame?.Invoke());
+        openSaveLoadButton.onClick.AddListener(() => OnOpenSaveLoad?.Invoke());
         openOptionsButton.onClick.AddListener(() => OnOpenOptions?.Invoke());
         backToMainMenuButton.onClick.AddListener(() => OnBackToMainMenu?.Invoke());
         quitGameButton.onClick.AddListener(() => OnQuitGame?.Invoke());

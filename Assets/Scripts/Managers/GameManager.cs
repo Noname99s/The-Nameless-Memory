@@ -48,6 +48,7 @@ public class GameManager
         {
             case GameState.MainMenu:
                 // Logic for main menu
+                Managers.UI.GetPopupUI<SaveLoadComposition>().RecordData(playData); // Record current play data
                 Managers.Player.RemovePlayer(); // Remove player if exists
                 break;
             case GameState.Home:
