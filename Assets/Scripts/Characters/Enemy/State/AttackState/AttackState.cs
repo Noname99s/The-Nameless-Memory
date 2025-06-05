@@ -24,7 +24,6 @@ namespace Orpul1.Enemy.State
         {
             Debug.Log("Enemy AttackState");
             context.enemyInfo.setSight.SetValue(context.chaseInfo.sightRadius, context.chaseInfo.sightAngle);
-            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             context.enemyInfo.rigid.gravityScale = context.enemyInfo.gravityStrength;
 
             attackStrategies[(int)attackType].Initialize();
@@ -66,9 +65,17 @@ namespace Orpul1.Enemy.State
         }
         protected override void TransitionState()
         {
+            if (IsDieState()) return;
             if (isAttacking) return;
             if (IsHitState()) return;
             if (IsChaseState()) return;
+        }
+        private bool IsDieState()
+        {
+            if (!context.IsDieState) return false;
+            transitionTo((int)EEnemyState.Die);
+
+            return true;
         }
         private bool IsChaseState()
         {

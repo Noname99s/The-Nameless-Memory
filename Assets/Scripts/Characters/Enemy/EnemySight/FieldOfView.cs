@@ -1,10 +1,11 @@
 using System;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 namespace Orpul1
 {
     [Serializable]
-    public class SightInfo
+    public class SightInfo: IVisitAble
     {
         public Vector3 originPosi;
         public LayerMask detectMask;
@@ -14,8 +15,16 @@ namespace Orpul1
         public float rotateZ;
         public Ray2D obstacleRay;
         public RaycastHit2D obstacleHit;
+
+        public void Visit<T>(T t)
+        {
+            if (!(t is SightInfo info)) return;
+            angle = info.angle;
+            radius = info.radius;
+            rotateZ = info.rotateZ;
+        }
     }
-    public class FieldOfView : MonoBehaviour, ISightFindAble, ISetDataAble<float,float>
+    public class FieldOfView : MonoBehaviour, IDetectTargetAble, ISetDataAble<float,float>, IVisitAble
     {
         [SerializeField] SightInfo sightInfo;
         [SerializeField] Vector3 originScale = Vector3.one;
@@ -46,10 +55,6 @@ namespace Orpul1
             if (!IsInSight(target, originPosi,flipX)) return null;
             if(!IsPlayer(target)) return null;
             DrawRayPlayerPosi(originPosi, target.transform.position);
-            /*
-             * IGetValue<Transform> targetTransform = target.GetComponent<IGetValue<Transform>>();
-            if (targetTransform == null) return null;
-             */
             return target.transform;
         }
         private void DrawRayPlayerPosi(Vector3 origin, Vector3 target)
@@ -112,5 +117,11 @@ namespace Orpul1
             Gizmos.DrawLine(origin, anglePosi);
         }
 
+        public void Visit<T>(T t)
+        {
+            IVisitAble visit = sightInfo as IVisitAble;
+            if (visit == null) return;
+            visit.Visit(t);
+        }
     }
 }

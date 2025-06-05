@@ -1,20 +1,18 @@
 using DG.Tweening;
+using Orpul1;
 using UnityEngine;
 
-public class ContactRemindRoom : MonoBehaviour
+public class ContactRemindRoom : MonoBehaviour, IInteractAble
 {
     [SerializeField] DOTweenAnimation showInteractKey;
     bool isInContact = false;
-    public void Update()
+
+    public void Interact()
     {
-        if (isInContact)
-        {
-            if(Input.GetKeyDown(KeyCode.E))
-            {
-                Managers.Game.ChangeState(GameState.RemindRoom);
-            }
-        }
+
+        Managers.Game.ChangeState(GameState.RemindRoom);
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !isInContact)

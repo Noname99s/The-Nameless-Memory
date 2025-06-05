@@ -12,8 +12,8 @@ namespace Orpul1.Player.State
         {
 
             data.jumpInfo.jumpCount = 2;
-            data.playerInfo.animator.SetBool(EPlayerAni.IsIdle.ToString(), true);
-            data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsIdle.ToString(), true);
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsGround.ToString(), true);
             data.playerInfo.rigid.linearVelocity = Vector2.zero;
             data.playerInfo.rigid.gravityScale = 0;
             data.playerInfo.trPlayer.position = data.playerInfo.dectectedGroundPosi;
@@ -25,7 +25,7 @@ namespace Orpul1.Player.State
         }
         public override void OnExit()
         {
-            data.playerInfo.animator.SetBool(EPlayerAni.IsIdle.ToString(), false);
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsIdle.ToString(), false);
             data.playerInfo.rigid.gravityScale = 5;
         }
 
@@ -49,7 +49,7 @@ namespace Orpul1.Player.State
 
         private bool IsDeathState()
         {
-            if (!data.hitInfo.isDeath) return false;
+            if (!data.IsDieState) return false;
             transitionTo((int)EPlayerState.Death);
 
             return true;

@@ -75,9 +75,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: -3275993
+  m_SortingLayer: 5
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 19625d28c938d480685b409b4ecd46f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackAbleTag: 6
+  attackPositoin: {fileID: 4253996545834453446}
   attackCollider: {fileID: 8044460614406412908}
   damage: 0
 --- !u!1 &6766174714432795180
@@ -252,7 +253,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6766174714432795180}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -357,6 +358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d0eff0f192e00409847f8e52cbc661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fieldOfView: {fileID: 6549227348212945112}
+  enemyContextDB: {fileID: 11400000, guid: e53c2cd94f46ac14ea42e30101a72f3c, type: 2}
   enemyInfo:
     rigid: {fileID: 3601213038188314220}
     slideMovement:
@@ -412,6 +415,7 @@ MonoBehaviour:
     arrowFactory: {fileID: 0}
     attackDelay: 2
     attackDistance: 2
+    arrowSpeed: 0
     damage: 5
   hitInfo:
     hitDuration: 1
@@ -426,6 +430,17 @@ MonoBehaviour:
   dieInfo:
     isDie: 0
     deactiveTime: 2
+  sightInfo:
+    originPosi: {x: 0, y: 0, z: 0}
+    detectMask:
+      serializedVersion: 2
+      m_Bits: 0
+    ignoreMask:
+      serializedVersion: 2
+      m_Bits: 0
+    angle: 0
+    radius: 0
+    rotateZ: 0
 --- !u!114 &839102815045252382
 MonoBehaviour:
   m_ObjectHideFlags: 0

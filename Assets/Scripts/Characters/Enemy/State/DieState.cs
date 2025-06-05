@@ -15,6 +15,8 @@ namespace Orpul1.Enemy.State
         {
             Debug.Log("Enemy DieState");
             context.enemyInfo.animator.SetBool(EEnemyAniTransition.DieTrigger.ToString(), true);
+
+            context.enemyInfo.rigid.gravityScale = 0;
             context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             context.enemyInfo.enemyCollider.enabled = false;
             dieStateEnterTime = Time.time + context.dieInfo.deactiveTime;

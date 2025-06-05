@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1265203539
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 3417fae66cc8542839d9f640783a397f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackAbleTag: 6
+  attackPositoin: {fileID: 7421560422816632991}
   attackCollider: {fileID: 5247882524322070395}
   damage: 0
 --- !u!1 &7523100063337533526
@@ -385,6 +386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d0eff0f192e00409847f8e52cbc661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fieldOfView: {fileID: 4586216753152536169}
+  enemyContextDB: {fileID: 11400000, guid: a6af340f6fa20684d835bc8b85322237, type: 2}
   enemyInfo:
     rigid: {fileID: 8825986822989883961}
     slideMovement:
@@ -440,6 +443,7 @@ MonoBehaviour:
     arrowFactory: {fileID: 0}
     attackDelay: 2
     attackDistance: 2
+    arrowSpeed: 0
     damage: 5
   hitInfo:
     hitDuration: 1
@@ -454,6 +458,17 @@ MonoBehaviour:
   dieInfo:
     isDie: 0
     deactiveTime: 2
+  sightInfo:
+    originPosi: {x: 0, y: 0, z: 0}
+    detectMask:
+      serializedVersion: 2
+      m_Bits: 0
+    ignoreMask:
+      serializedVersion: 2
+      m_Bits: 0
+    angle: 0
+    radius: 0
+    rotateZ: 0
 --- !u!114 &7633496985453201750
 MonoBehaviour:
   m_ObjectHideFlags: 0

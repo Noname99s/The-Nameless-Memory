@@ -1360,6 +1360,7 @@ MonoBehaviour:
       - 0
       - 0
       isSkillUse: 000000000000
+  blackboardDB: {fileID: 11400000, guid: 6dd2cc7185d70444d8bd4dd90530ae16, type: 2}
   skillEffectSpawner: {fileID: 8784824959886042965}
 --- !u!1 &7618624695030381621
 GameObject:

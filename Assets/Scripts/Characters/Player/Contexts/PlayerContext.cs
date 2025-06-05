@@ -1,4 +1,5 @@
 using Orpul1;
+using Orpul1.Player;
 using Orpul1.State.Attack;
 using System;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class PlayerAttackInfo
     public EPlayerAttack attackType = EPlayerAttack.NormalAttack;
     public float[] attackDelays = new float[3];
     public int[] attackCounts = new int[3];
-    public int[] damages = new int[2];
+    public float[] damages = new float[2];
     public int curAttack = 0;
 
 
@@ -40,6 +41,11 @@ public class PlayerInfo
     public Vector3 originScale = Vector3.one;
     public int hp;
     public int maxHp;
+    public int deathCount;
+    public int[] getMemoryPeaceCounts = new int[6];
+    public int maxMemoryPeaceCount = 5;
+    public float increaseStateValue;
+    public float curStatePercent;
     public Vector3 dectectedGroundPosi;
     public Action actionFlipX;
 }
@@ -102,6 +108,7 @@ public class PlayerHitInfo
 }
 public class PlayerContext : MonoBehaviour
 {
+    [SerializeField] PlayerContextDB contextDB;
     public PlayerInfo playerInfo;
 
     public PlayerMoveInfo moveInfo;
@@ -113,7 +120,19 @@ public class PlayerContext : MonoBehaviour
     public PlayerAttackInfo attackInfo;
 
     public PlayerHitInfo hitInfo;
-
+    private void Awake()
+    {
+        SetContextInfos();
+    }
+    private void SetContextInfos()
+    {
+        contextDB.SetPlayerInfo(playerInfo);
+        contextDB.SetPlayerMoveInfo(moveInfo);
+        contextDB.SetPlayerJumpInfo(jumpInfo);
+        contextDB.SetPlayerFallInfo(fallInfo);
+        contextDB.SetPlayerAttackInfo(attackInfo);
+        contextDB.SetPlayerHitInfo(hitInfo);
+    }
     public bool IsIdleState
     {
         get
@@ -162,6 +181,13 @@ public class PlayerContext : MonoBehaviour
         get
         {
             return moveInfo.isPressClimbLadder && moveInfo.canClimbLadder;
+        }
+    }
+    public bool IsDieState
+    {
+        get
+        {
+            return playerInfo.hp <= 0;
         }
     }
     public void Initialize()

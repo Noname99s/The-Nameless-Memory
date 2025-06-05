@@ -20,7 +20,7 @@ namespace Orpul1.Player.State
             data.fallInfo.fallDamage = 0;
             data.playerInfo.rigid.linearVelocityY = -data.fallInfo.defaultFallSpeed;
             data.jumpInfo.shouldWallJump = false;
-            data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), false);
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsGround.ToString(), false);
         }
 
         public override void OnUpdate()
@@ -33,7 +33,7 @@ namespace Orpul1.Player.State
 
         public override void OnExit() 
         {
-            data.playerInfo.animator.SetBool(EPlayerAni.IsGround.ToString(), true);
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsGround.ToString(), true);
             data.attackInfo.attackType = EPlayerAttack.NONE;
         }
 
@@ -84,7 +84,7 @@ namespace Orpul1.Player.State
         }
         private bool IsDeathState()
         {
-            if (!data.hitInfo.isDeath) return false;
+            if (!data.IsDieState) return false;
             transitionTo((int)EPlayerState.Death);
 
             return true;

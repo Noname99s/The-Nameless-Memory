@@ -43,15 +43,15 @@ namespace Orpul1.Player.State
             Debug.Log("EndAttack");
             data.attackInfo.Initialize();
              
-            data.playerInfo.animator.SetBool(EPlayerAni.IsAttack.ToString(), false);
-            data.playerInfo.animator.SetInteger(EPlayerAni.AttackIndex.ToString(), 0);
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsAttack.ToString(), false);
+            data.playerInfo.animator.SetInteger(EPlayerAniTransition.AttackIndex.ToString(), 0);
             data.playerInfo.rigid.gravityScale = data.jumpInfo.gravityStrength;
         }
 
         private void Initialize()
         {
             attackCommands[(int)data.attackInfo.attackType].Initialize();
-            data.attackInfo.setDamage.SetValue(data.attackInfo.damages[(int)data.attackInfo.attackType]);
+            data.attackInfo.setDamage.SetValue((int)data.attackInfo.damages[(int)data.attackInfo.attackType]);
             prevAttack = data.attackInfo.attackType;
             data.attackInfo.canAttack = true;
             nextComboTime = 0;
@@ -59,8 +59,8 @@ namespace Orpul1.Player.State
         }
         private void SetAnimation()
         {
-            data.playerInfo.animator.SetBool(EPlayerAni.IsAttack.ToString(), false);
-            data.playerInfo.animator.SetBool(EPlayerAni.IsAttack.ToString(), true);
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsAttack.ToString(), false);
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsAttack.ToString(), true);
         }
         private void Attack()
         {
@@ -126,7 +126,7 @@ namespace Orpul1.Player.State
 
         private bool IsDeathState()
         {
-            if (!data.hitInfo.isDeath) return false;
+            if (!data.IsDieState) return false;
             transitionTo((int)EPlayerState.Death);
 
             return true;

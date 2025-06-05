@@ -20,7 +20,7 @@ namespace Orpul1.Player
         public Ray2D ladderRay;
         public RaycastHit2D groundHit;
     }
-    public class PlayerController : MonoBehaviour,IDamageAble, IknockbackAble, IGetValue<Transform>
+    public class PlayerController : MonoBehaviour,IDamageAble, IGetValue<Transform>//,IknockbackAble
     {
         [SerializeField] StateController stateController;
         [SerializeField] PlayerContext playerData;

@@ -1,4 +1,5 @@
 using System;
+using Orpul1.Enemy.DB;
 using UnityEngine;
 
 namespace Orpul1.Enemy
@@ -66,6 +67,7 @@ namespace Orpul1.Enemy
         public EnemyFactory arrowFactory;
         public float attackDelay;
         public float attackDistance;
+        public float arrowSpeed;
         public int damage;
     }
     [Serializable]
@@ -95,6 +97,8 @@ namespace Orpul1.Enemy
     }
     public class EnemyContext : MonoBehaviour
     {
+        [SerializeField] FieldOfView fieldOfView;
+        [SerializeField] EnemyContextDB enemyContextDB;
         public EnemyInfo enemyInfo;
         public EnemyIdleInfo idleInfo;
         public EnemyPatrolInfo patrolInfo;
@@ -102,9 +106,36 @@ namespace Orpul1.Enemy
         public EnemyAttackInfo attackInfo;
         public EnemyHitInfo hitInfo;
         public EnemyDieInfo dieInfo;
+        public SightInfo sightInfo;
         public void Initialize()
         {
+            /*SetInfos();
+            SetSightInfo();*/
             hitInfo.waitNextBlink = new WaitForSeconds(hitInfo.blinkDuration);
+        }
+        private void SetInfos()
+        {
+            IVisitAble dbVisit = enemyContextDB as IVisitAble;
+            if (dbVisit == null) return;
+
+            dbVisit.Visit<EnemyInfo>(enemyInfo);
+            dbVisit.Visit<EnemyIdleInfo>(idleInfo);
+            dbVisit.Visit<EnemyPatrolInfo>(patrolInfo);
+            dbVisit.Visit<EnemyChaseInfo>(chaseInfo);
+            dbVisit.Visit<EnemyAttackInfo>(attackInfo);
+            dbVisit.Visit<EnemyHitInfo>(hitInfo);
+            dbVisit.Visit<EnemyDieInfo>(dieInfo);
+            dbVisit.Visit<SightInfo>(sightInfo);
+        }
+        private void SetSightInfo()
+        {
+            IVisitAble visit = fieldOfView as IVisitAble;
+            if (visit == null)
+            {
+                Debug.LogError("IVisitAble is Null of sightView ");
+                return;
+            }
+            visit.Visit(sightInfo);
         }
         public bool IsPatrolState
         {
