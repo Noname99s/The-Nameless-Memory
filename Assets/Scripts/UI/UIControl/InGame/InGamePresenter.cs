@@ -16,7 +16,8 @@ public class InGamePresenter
         inGameView.OnOpenOptions += HandleOpenOptions;
         inGameView.OnBackToMainMenu += HandleBackToMainMenu;
         inGameView.OnQuitGame += HandleQuitGame;
-        
+        inGameView.OnEndStaticDialog += HandleResumeGame;
+
     }
 
     void HandlePauseGame()

@@ -23,7 +23,7 @@ public class PrologueAnim : CutSceneAnimBase, ISequenceBuilder , ISequnceResulte
     {
         base.ScenarioSequence();
         if(cutSceneFinished)
-            Managers.Game.ChangeState(GameState.Home);
+            Managers.Game.ChangeState(GameState.Battle);
     }
     public void BuildSequence()
     {

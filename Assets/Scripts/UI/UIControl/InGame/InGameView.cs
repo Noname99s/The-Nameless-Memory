@@ -6,7 +6,11 @@ using DG.Tweening;
 
 public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
 {
+    [Header("Dialog")]
     [SerializeField] DialogAnim dialogAnim;
+    [SerializeField] Button staticDialog;
+    [SerializeField] TextMeshProUGUI staticDialogText;
+
     public GameObject pausePanel;
     [SerializeField] Button pauseButton;
     [SerializeField] Button resumeButton;
@@ -29,6 +33,7 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     public event Action OnOpenOptions;
     public event Action OnBackToMainMenu;
     public event Action OnQuitGame;
+    public event Action OnEndStaticDialog;
     void Start()
     {
         pauseButton.onClick.AddListener
@@ -58,6 +63,14 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
         quitGameButton.onClick.AddListener(() => OnQuitGame?.Invoke());
         hpSlider.value = hpSlider.maxValue;
         deathCountText.text = "0"; // Initialize death count to 0
+        staticDialog.onClick.AddListener
+            (
+                () =>
+                {
+                    staticDialog.gameObject.SetActive(false);
+                    OnEndStaticDialog?.Invoke();
+                }
+            );
 
         if (fadeSequence == null)
         {
@@ -70,6 +83,12 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
         if(!dialogAnim.gameObject.activeSelf)
             dialogAnim.gameObject.SetActive(true);
         dialogAnim.PlayAnim();
+    }
+    public void UpdateStaticDialog(string text)
+    {
+        Time.timeScale = 0; // Pause the game when static dialog is shown
+        staticDialogText.text = text;
+        staticDialog.gameObject.SetActive(true);
     }
     public void UpdateDeathCount(int deathCount)
     {

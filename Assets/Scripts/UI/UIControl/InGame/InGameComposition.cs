@@ -21,6 +21,10 @@ public class InGameComposition : UIPopup
     {
         inGameView.UpdateDialogAnim(text);
     }
+    public void OnStaticDialogUpdateConnection(string text)
+    {
+        inGameView.UpdateStaticDialog(text);
+    }
     public void OnDeathCountUpdateConnection(int deathCount)
     {
         inGameView.UpdateDeathCount(deathCount);
