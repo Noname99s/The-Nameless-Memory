@@ -6,8 +6,10 @@ public class HubDoor : MonoBehaviour
     [SerializeField] SO_MapInfo[] stageInfo;
     [SerializeField] bool isOpen = false;
     bool isInDoor = false;
+    public event System.Action<string> OnCannotEnter;
     void Start()
     {
+        OnCannotEnter += Managers.UI.GetPopupUI<InGameComposition>().OnDialogAnimUpdateConnection;
         ConfirmClear();
     }
     void Update()
@@ -34,7 +36,7 @@ public class HubDoor : MonoBehaviour
         if (!isOpen)
         {
             // Cannot enter Dialog
-            Debug.Log("Cannot enter this stage yet.");
+            OnCannotEnter?.Invoke("아직은 들어갈 수 없어. 앞선 죄목을 먼저 파해치자.");
             return;
         }
         if(stageType == Stage.BossStage)

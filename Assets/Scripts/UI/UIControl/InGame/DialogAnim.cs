@@ -21,19 +21,30 @@ public class DialogAnim : MonoBehaviour
             BuildSequence();
         }
     }
-    private void OnEnable()
-    {
-        if (fadeAnimSequence != null)
-        {
-            fadeAnimSequence.Restart();
-        }
-    }
     private void OnDisable()
     {
         if (fadeAnimSequence != null)
         {
             fadeAnimSequence.Pause();
         }
+    }
+    public void PlayAnim()
+    {
+        if (fadeAnimSequence != null)
+        {
+            RewindData();
+            fadeAnimSequence.Restart();
+        }
+    }
+    void RewindData()
+    {
+        moveRoot.transform.localPosition = initRootPos.localPosition;
+        dialogText.color = new Color(dialogText.color.r, dialogText.color.g, dialogText.color.b, 0);
+        for (int i = 0; i < fadeAnimImg.Length; i++)
+        {
+            fadeAnimImg[i].color = new Color(fadeAnimImg[i].color.r, fadeAnimImg[i].color.g, fadeAnimImg[i].color.b, 0);
+        }
+        //fadeAnimSequence.Rewind();
     }
     void BuildSequence()
     {

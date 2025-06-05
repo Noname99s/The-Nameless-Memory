@@ -32,7 +32,6 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
         openOptionsButton.onClick.AddListener(() => OnOpenOptions?.Invoke());
         backToMainMenuButton.onClick.AddListener(() => OnBackToMainMenu?.Invoke());
         quitGameButton.onClick.AddListener(() => OnQuitGame?.Invoke());
-        //dialogText.text = string.Empty;
         hpSlider.value = hpSlider.maxValue;
         deathCountText.text = "0"; // Initialize death count to 0
 
@@ -40,6 +39,13 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
         {
             BuildSequence();
         }
+    }
+    public void UpdateDialogAnim(string text)
+    {
+        dialogAnim.dialogText.text = text;
+        if(!dialogAnim.gameObject.activeSelf)
+            dialogAnim.gameObject.SetActive(true);
+        dialogAnim.PlayAnim();
     }
     public void UpdateDeathCount(int deathCount)
     {
@@ -54,7 +60,7 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
         {
             if (hp <= 0)
             {
-                dialogAnim.gameObject.SetActive(true);
+                UpdateDialogAnim("일단 탑을 올라와. 그러면 너는 모든 것을 가질 수 있어. \r\n모든 기억을 찾을 수 있을거야.");
             }
         };
     }
