@@ -22,14 +22,16 @@ public enum Stage
 }
 public class GameManager 
 {
-    public bool[] stageCleared = new bool[(int)Stage.Max];
+    public PlayData playData; // Game data
     public GameState CurrentState { get; private set; } = GameState.MainMenu;
     public void Init()
     {
-        for(int i = 0; i < stageCleared.Length; i++)
-        {
-            stageCleared[i] = false; 
-        }
+        playData = new PlayData(); // Initialize play data
+    }
+    public void UpdatePlayTime()
+    {
+        if (CurrentState == GameState.MainMenu || CurrentState == GameState.Ending) return;
+        playData.playTime += Time.deltaTime; 
     }
     public void ChangeState(GameState newState)
     {
@@ -59,7 +61,7 @@ public class GameManager
             case GameState.Battle:
                 // Logic for battle
                 Managers.UI.ShowPopupUI<InGameComposition>(); 
-                Managers.Map.EntranceMap(); // Load the current map
+                Managers.Map.TransitionMap(); // Load the current map
                 Managers.Player.Init(Managers.Map.movePoint); // Initialize player at the entrance point
                 break;
 

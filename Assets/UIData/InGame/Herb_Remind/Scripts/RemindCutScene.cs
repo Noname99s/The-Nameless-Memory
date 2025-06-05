@@ -11,6 +11,7 @@ public class RemindCutScene : CutSceneAnimBase , ISequenceBuilder , ISequnceResu
     [SerializeField] float fadeDuration = 2f;
     Sequence startAnimSequence;
     [SerializeField] GameObject chooseRemind;
+    bool isRewindAnim = false;
 
     protected override void Start()
     {
@@ -20,8 +21,9 @@ public class RemindCutScene : CutSceneAnimBase , ISequenceBuilder , ISequnceResu
     protected override void ScenarioSequence()
     {
         base.ScenarioSequence();
-        if (cutSceneFinished)
+        if (cutSceneFinished && !isRewindAnim)
         {
+            isRewindAnim = true;
             // startAnimSequence거꾸로 재생
             startAnimSequence.Goto(startAnimSequence.Duration());
             startAnimSequence.PlayBackwards();
@@ -32,6 +34,7 @@ public class RemindCutScene : CutSceneAnimBase , ISequenceBuilder , ISequnceResu
         base.OnRestartSequnece();
         chooseRemind.SetActive(false);
         this.gameObject.SetActive(true);
+        isRewindAnim = false;
         startAnimSequence.Restart();
     }
     public void BuildSequence()
@@ -49,7 +52,7 @@ public class RemindCutScene : CutSceneAnimBase , ISequenceBuilder , ISequnceResu
             .SetAutoKill(false)
             .onUpdate += () =>
             {
-                if (!cutSceneFinished && Input.anyKeyDown)
+                if (!cutSceneFinished && Input.GetMouseButtonDown(0))
                 {
                     startAnimSequence.Pause();
                     fadeScreen.color = new Color(0, 0, 0, 0);
@@ -59,6 +62,8 @@ public class RemindCutScene : CutSceneAnimBase , ISequenceBuilder , ISequnceResu
         // finish playback
         startAnimSequence.onRewind += () =>
         {
+            isAnimFinished = false;
+            cutSceneFinished = false;
             this.gameObject.SetActive(false);
             chooseRemind.SetActive(true);
         };

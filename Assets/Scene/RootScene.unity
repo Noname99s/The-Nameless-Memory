@@ -197,6 +197,12 @@ MonoBehaviour:
   mapInfos: []
   currentMapIndex: -1
   movePoint: {x: 0, y: 0, z: 0}
+  deathInfo:
+    stageType: 6
+    deathPosition: {x: 0, y: 0, z: 0}
+    deathStageIndex: 0
+  fragmentPrefab: {fileID: 6931938384939255998, guid: ab0b59cf8526ec543a93f11632e28571, type: 3}
+  getFragment: 0
 --- !u!114 &1447691044
 MonoBehaviour:
   m_ObjectHideFlags: 0

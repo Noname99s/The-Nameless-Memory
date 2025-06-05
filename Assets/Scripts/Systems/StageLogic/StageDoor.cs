@@ -10,7 +10,21 @@ public class StageDoor : MonoBehaviour, IInteractAble
     {
         Managers.UI.GetPopupUI<InGameComposition>().OnFadeInSequence(() =>
         {
-            Managers.Map.EntranceMap(isNextStage);
+            Managers.Map.TransitionMap(isNextStage);
         });
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isInDoor = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isInDoor = false;
+        }
     }
 }

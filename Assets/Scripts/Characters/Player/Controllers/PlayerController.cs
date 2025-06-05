@@ -47,6 +47,7 @@ namespace Orpul1.Player
         void Start()
         {
             OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
+            OnPlayerHpChanged?.Invoke(playerData.playerInfo.hp, playerData.playerInfo.maxHp);
             Managers.Camera.SetCameraEvent(SetCameraEvent);
             SetCameraEvent();
             stateController.TransitionState((int)EPlayerState.Idle);

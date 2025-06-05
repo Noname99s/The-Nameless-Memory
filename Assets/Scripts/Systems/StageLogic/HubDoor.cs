@@ -7,8 +7,10 @@ public class HubDoor : MonoBehaviour, IInteractAble
     [SerializeField] SO_MapInfo[] stageInfo;
     [SerializeField] bool isOpen = false;
     bool isInDoor = false;
+    public event System.Action<string> OnCannotEnter;
     void Start()
     {
+        OnCannotEnter += Managers.UI.GetPopupUI<InGameComposition>().OnDialogAnimUpdateConnection;
         ConfirmClear();
     }
     /*void Update()
@@ -20,11 +22,11 @@ public class HubDoor : MonoBehaviour, IInteractAble
     }*/
     void ConfirmClear()
     {
-        if (stageType != Stage.Stage1 && Managers.Game.stageCleared[(int)stageType - 1])
+        if (stageType != Stage.Stage1 && Managers.Game.playData.stageCleared[(int)stageType - 1])
         {
             isOpen = true;
         }
-        if(stageType == Stage.BossStage && Managers.Game.stageCleared[(int)Stage.Stage2])
+        if(stageType == Stage.BossStage && Managers.Game.playData.stageCleared[(int)Stage.Stage2])
         {
             isOpen = true;
         }
@@ -35,7 +37,7 @@ public class HubDoor : MonoBehaviour, IInteractAble
         if (!isOpen)
         {
             // Cannot enter Dialog
-            Debug.Log("Cannot enter this stage yet.");
+            OnCannotEnter?.Invoke("아직은 들어갈 수 없어. 앞선 죄목을 먼저 파해치자.");
             return;
         }
         if(stageType == Stage.BossStage)
@@ -52,8 +54,7 @@ public class HubDoor : MonoBehaviour, IInteractAble
                 Managers.Map.mapInfos.Add(stageInfo[i]);
             }
         }
-        Managers.Map.movePoint = Managers.Map.mapInfos[0].entrancePoint;
-        Managers.Game.ChangeState(GameState.Battle);
+        Managers.Map.HubDoorEntrance();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

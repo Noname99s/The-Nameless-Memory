@@ -46,20 +46,18 @@ public class UIManager
             {
                 prefabName = prefabName.Substring(0, index);
             }
-            //go = Managers.Resource.Instantiate(BG_DB_UIData.GetEntity(prefabName)?._Prefab , Root.transform);
             go = Managers.Resource.Instantiate(_uiData.prefabList[typeof(T)], Root.transform);
+            T sceneUI = Util.GetOrAddComponent<T>(go);
+            sceneUI.Init();
+            _popupDictionary[typeof(T)] = sceneUI;
             if (go == null)
             {
                 Debug.LogError($"Failed to load prefab for {typeof(T).Name}");
                 return null;
             }
         }
-
         go.SetActive(true);
-
-        T sceneUI = Util.GetOrAddComponent<T>(go);
-        sceneUI.Init();
-        _popupDictionary[typeof(T)] = sceneUI;
+        SetCanvas(go, true);
 
         return _popupDictionary[typeof(T)] as T;
     }
