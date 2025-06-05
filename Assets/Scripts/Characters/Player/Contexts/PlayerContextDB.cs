@@ -1,5 +1,6 @@
 using UnityEngine;
 using Orpul1.State.Attack;
+using BansheeGz.BGDatabase;
 namespace Orpul1.Player
 {
     [CreateAssetMenu(fileName = "PlayerContextDB", menuName = "DataBase/PlayerContextDB")]
@@ -16,52 +17,58 @@ namespace Orpul1.Player
         }
 
         //TODO: 플레이어 데이터 캐싱 후 PlayerContext에 넣기
-        /*[SerializeField] PlayerInfo playerInfo = new PlayerInfo();
+        [SerializeField] PlayerInfo playerInfo = new PlayerInfo();
         [SerializeField] PlayerMoveInfo moveInfo = new PlayerMoveInfo();
         [SerializeField] PlayerJumpInfo jumpInfo = new PlayerJumpInfo();
         [SerializeField] PlayerFallInfo fallInfo = new PlayerFallInfo();
         [SerializeField] PlayerHitInfo hitInfo = new PlayerHitInfo();
         [SerializeField] PlayerAttackInfo attackInfo = new PlayerAttackInfo();
+        [SerializeField] PlayerStatusInfo statusInfo = new PlayerStatusInfo();
 
         public PlayerInfo PlayerInfo { get { return playerInfo; } }
-        public PlayerMoveInfo MoveInfo { get {return moveInfo; } }
-        public PlayerJumpInfo JumpInfo { get {return jumpInfo; } }
+        public PlayerMoveInfo MoveInfo { get { return moveInfo; } }
+        public PlayerJumpInfo JumpInfo { get { return jumpInfo; } }
         public PlayerFallInfo FallInfo { get { return fallInfo; } }
         public PlayerHitInfo HitInfo { get { return hitInfo; } }
         public PlayerAttackInfo AttackInfo { get { return attackInfo; } }
+        public PlayerStatusInfo StatusInfo { get { return statusInfo; } }
 
-        [ContextMenu("Set PlayerDB Data")]*/
-        /*public void SetData()
+        [ContextMenu("Set PlayerDB Data")]
+        public void SetData()
         {
-            SetPlayerInfo();
+            
+            SetStatusInfo();
             SetPlayerMoveInfo();
             SetPlayerJumpInfo();
             SetPlayerFallInfo();
             SetPlayerHitInfo();
             SetPlayerAttackInfo();
-        }*/
-        public void SetPlayerInfo(PlayerInfo playerInfo)
+            //BGRepo.I.Addons.Get<BGAddonSaveLoad>().Save();
+        }
+        public void SetStatusInfo()
         {
             int index = (int)EContextInfo.InfoStart;
-            playerInfo.hp = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            if (Managers.Game.playData.isStatusLoaded) return;
+            Managers.Game.playData.isStatusLoaded = true;
+            statusInfo.hp = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
 
             //TODO : 플레이어 데이터 베이스 갱신되면 주석 해재하기(2025/6/5)
-            playerInfo.deathCount = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
-            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage1]= (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
-            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage2]= (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
-            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage3]= (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
-            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage4]= (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
-            playerInfo.maxMemoryPeaceCount = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
-            playerInfo.increaseStateValue = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
-            playerInfo.curStatePercent = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            statusInfo.deathCount = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            statusInfo.getMemoryPeaceCounts[(int)Stage.Stage1]= (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            statusInfo.getMemoryPeaceCounts[(int)Stage.Stage2]= (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            statusInfo.getMemoryPeaceCounts[(int)Stage.Stage3]= (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            statusInfo.getMemoryPeaceCounts[(int)Stage.Stage4]= (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            statusInfo.maxMemoryPeaceCount = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            statusInfo.increaseStateValue = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            statusInfo.curStatePercent = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
         }
-        public void SetPlayerMoveInfo(PlayerMoveInfo moveInfo)
+        public void SetPlayerMoveInfo()
         {
             int index = (int)EContextInfo.MoveInfoStart;
             moveInfo.moveSpeed = BG_DB_PlayerData.GetEntity(index++)._InitialValue;
             moveInfo.climbSpeed = BG_DB_PlayerData.GetEntity(index++)._InitialValue;
         }
-        public void SetPlayerJumpInfo(PlayerJumpInfo jumpInfo)
+        public void SetPlayerJumpInfo()
         {
             int index = (int)EContextInfo.JumpInfoStart;
             jumpInfo.gravityStrength = BG_DB_PlayerData.GetEntity(index++)._InitialValue;
@@ -70,7 +77,7 @@ namespace Orpul1.Player
             jumpInfo.minJumpSpeed = BG_DB_PlayerData.GetEntity(index++)._InitialValue;
             jumpInfo.jumpCount = (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
         }
-        public void SetPlayerFallInfo(PlayerFallInfo fallInfo)
+        public void SetPlayerFallInfo()
         {
             int index = (int)EContextInfo.FallInfoStart;
             fallInfo.defaultFallSpeed = BG_DB_PlayerData.GetEntity(index++)._InitialValue;
@@ -78,7 +85,7 @@ namespace Orpul1.Player
             fallInfo.onAirMoveSpeed = BG_DB_PlayerData.GetEntity(index++)._InitialValue;
             fallInfo.maxFallDamage = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
         }
-        public void SetPlayerHitInfo(PlayerHitInfo hitInfo)
+        public void SetPlayerHitInfo()
         {
             int index = (int)EContextInfo.HitInfoStart;
             hitInfo.knockBackPower = BG_DB_PlayerData.GetEntity(index++)._InitialValue;
@@ -86,13 +93,15 @@ namespace Orpul1.Player
             hitInfo.hitDuration = BG_DB_PlayerData.GetEntity(index++)._InitialValue;
             hitInfo.cameraShakeDuration = BG_DB_PlayerData.GetEntity(index++)._InitialValue;
         }
-        public void SetPlayerAttackInfo(PlayerAttackInfo attackInfo)
+        public void SetPlayerAttackInfo()
         {
             int index = (int)EContextInfo.AttackInfoStart;
             attackInfo.attackDelays[(int)EPlayerAttack.NormalAttack] = BG_DB_PlayerData.GetEntity(index++)._InitialValue;
             attackInfo.attackDelays[(int)EPlayerAttack.StrongAttack] = BG_DB_PlayerData.GetEntity(index++)._InitialValue;
-            attackInfo.damages[(int)EPlayerAttack.NormalAttack] = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
-            attackInfo.damages[(int)EPlayerAttack.StrongAttack] = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            if (Managers.Game.playData.isStatusLoaded) return;
+            Managers.Game.playData.isStatusLoaded = true;
+            statusInfo.damages[(int)EPlayerAttack.NormalAttack] = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            statusInfo.damages[(int)EPlayerAttack.StrongAttack] = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
 
         }
     }

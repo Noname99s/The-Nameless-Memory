@@ -7,6 +7,9 @@ public class PlayData
     public float playTime = 0f;
     public int deathCount = 0;
     public float enforceRatio = 0f;
+    public PlayerStatusInfo playerStatus = new PlayerStatusInfo();
+    public bool isStatusLoaded = false;
+
     public bool[] stageCleared = new bool[(int)Stage.Max];
     public int[] stage_Will_fragmentCount = new int[(int)Stage.Max];
 

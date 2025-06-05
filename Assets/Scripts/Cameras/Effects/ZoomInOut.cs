@@ -7,16 +7,23 @@ namespace Orpul1.Camera.Effect
 {
     public class ZoomInOut : CameraEffect, ISetDataAble<float>
     {
-        [SerializeField] float zoomValue = 5;
+        [SerializeField] float zoomSize = 5;
+        [SerializeField, Range(0, 1f)] float zoomSpeed = 1;
         [SerializeField] CinemachineCamera cameraZoom;
+        CinemachineConfiner2D confinder;
         bool isZoomIn = false;
+        int zoomValue = 0;
+        Coroutine zoomProcess;
         
         [ContextMenu("Test Set ZoomValue")]
         public override void ActiveEffect()
         {
-            cameraZoom.Lens.OrthographicSize = zoomValue;
-            /*isZoomIn = cameraZoom.Lens.OrthographicSize > zoomValue;
-            StartCoroutine("ZoomCamera");*/
+            if (zoomProcess != null)
+                StopCoroutine(zoomProcess);
+
+            isZoomIn = cameraZoom.Lens.OrthographicSize > zoomSize;
+            zoomValue = isZoomIn ? -1 : 1;
+            zoomProcess = StartCoroutine("ZoomCamera");
         }
 
         public override void DeactiveEffect()
@@ -24,25 +31,24 @@ namespace Orpul1.Camera.Effect
         }
         IEnumerator ZoomCamera()
         {
-            float curZoomValue = cameraZoom.Lens.OrthographicSize--;
-            bool isZoomIn = curZoomValue > zoomValue;
-            while(!IsFinishZoom())
+            float curZoomValue = cameraZoom.Lens.OrthographicSize;
+            while (!IsFinishZoom())
             {
-                cameraZoom.Lens.OrthographicSize -= Time.deltaTime;
+                cameraZoom.Lens.OrthographicSize = Mathf.Lerp(cameraZoom.Lens.OrthographicSize, zoomSize, zoomSpeed * Time.deltaTime);
                 yield return null;
             }
         }
         private bool IsFinishZoom()
         {
-            if (isZoomIn && cameraZoom.Lens.OrthographicSize <= zoomValue)
+            if (isZoomIn && cameraZoom.Lens.OrthographicSize <= zoomSize)
                 return true;
-            if (!isZoomIn && cameraZoom.Lens.OrthographicSize >= zoomValue)
+            if (!isZoomIn && cameraZoom.Lens.OrthographicSize >= zoomSize)
                 return true;
             return false;
         }
-        public void SetValue(float zoomValue)
+        public void SetValue(float zoomSize)
         {
-            this.zoomValue = zoomValue;
+            this.zoomSize = zoomSize;
         }
     }
 }

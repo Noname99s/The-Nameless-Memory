@@ -463,14 +463,8 @@ MonoBehaviour:
     trPlayer: {fileID: 1832887567842334404}
     animator: {fileID: 4683667883276261786}
     originScale: {x: 1, y: 1, z: 1}
-    hp: 100
-    maxHp: 100
-    deathCount: 0
-    getMemoryPeaceCounts: 000000000000000000000000000000000000000000000000
-    maxMemoryPeaceCount: 5
-    increaseStateValue: 3
-    curStatePercent: 0
     dectectedGroundPosi: {x: 0, y: 0, z: 0}
+    characterAttack: {fileID: 7191165317446888281}
   moveInfo:
     slideMovement:
       <maxIterations>k__BackingField: 3
@@ -524,15 +518,11 @@ MonoBehaviour:
     - 0.3
     - 0.3
     attackCounts: 030000000300000000000000
-    damages:
-    - 10
-    - 20
     curAttack: 0
     isPressAttack: 0
     canAttack: 0
     delayInterval: 0
     isStillAttack: 0
-    characterAttack: {fileID: 7191165317446888281}
   hitInfo:
     knockBackPower: 20
     invincibleTime: 1
@@ -541,6 +531,17 @@ MonoBehaviour:
     canGetDamage: 1
     isHit: 0
     isDeath: 0
+  statusInfo:
+    hp: 0
+    maxHp: 0
+    getMemoryPeaceCounts: 000000000000000000000000000000000000000000000000
+    increaseStateValue: 0
+    curStatePercent: 0
+    deathCount: 0
+    maxMemoryPeaceCount: 5
+    damages:
+    - 0
+    - 0
 --- !u!114 &5725579068212597670
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -51,7 +51,7 @@ namespace Orpul1.Player.State
         private void Initialize()
         {
             attackCommands[(int)data.attackInfo.attackType].Initialize();
-            data.attackInfo.setDamage.SetValue((int)data.attackInfo.damages[(int)data.attackInfo.attackType]);
+            data.playerInfo.setDamage.SetValue((int)data.statusInfo.damages[(int)data.attackInfo.attackType]);
             prevAttack = data.attackInfo.attackType;
             data.attackInfo.canAttack = true;
             nextComboTime = 0;

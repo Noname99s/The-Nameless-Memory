@@ -47,7 +47,7 @@ namespace Orpul1.Player
         void Start()
         {
             OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
-            OnPlayerHpChanged?.Invoke(playerData.playerInfo.hp, playerData.playerInfo.maxHp);
+            OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
             Managers.Camera.SetCameraEvent(SetCameraEvent);
             SetCameraEvent();
             stateController.TransitionState((int)EPlayerState.Idle);
@@ -141,23 +141,23 @@ namespace Orpul1.Player
         }
         public void RecoverHp(bool max , int recoverAmount = 0)
         {
-            if (playerData.playerInfo.hp <= 0) return;
+            if (playerData.statusInfo.hp <= 0) return;
             if (max)
-                recoverAmount = playerData.playerInfo.maxHp - playerData.playerInfo.hp;
-            playerData.playerInfo.hp += recoverAmount;
+                recoverAmount = playerData.statusInfo.maxHp - playerData.statusInfo.hp;
+            playerData.statusInfo.hp += recoverAmount;
             // Ensure hp does not exceed maxHp
-            playerData.playerInfo.hp = Mathf.Clamp(playerData.playerInfo.hp, 0, playerData.playerInfo.maxHp);
-            OnPlayerHpChanged?.Invoke(playerData.playerInfo.hp, playerData.playerInfo.maxHp);
+            playerData.statusInfo.hp = Mathf.Clamp(playerData.statusInfo.hp, 0, playerData.statusInfo.maxHp);
+            OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
 
         }
         public void OnDamage(int damage)
         {
             if (damage == 0 || Managers.Game.CurrentState == GameState.Home) return;
             if (!playerData.hitInfo.canGetDamage) return;
-            OnPlayerHpChanged?.Invoke(playerData.playerInfo.hp, playerData.playerInfo.maxHp);
+            OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
 
-            playerData.playerInfo.hp -= damage;
-            playerData.hitInfo.isHit = playerData.playerInfo.hp > 0;
+            playerData.statusInfo.hp -= damage;
+            playerData.hitInfo.isHit = playerData.statusInfo.hp > 0;
             playerData.hitInfo.isDeath = !playerData.hitInfo.isHit;
             StartCoroutine("CountInvincibleTime");
             StartCoroutine("CameraShake");

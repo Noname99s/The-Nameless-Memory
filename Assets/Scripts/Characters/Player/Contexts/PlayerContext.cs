@@ -5,12 +5,25 @@ using System;
 using UnityEngine;
 
 [Serializable]
+public class PlayerStatusInfo
+{
+    public int hp = 0;
+    public int maxHp = 0;
+    public int[] getMemoryPeaceCounts = new int[6];
+    public float increaseStateValue;
+    public float curStatePercent;
+
+    public int deathCount;
+    public int maxMemoryPeaceCount = 5;
+    public float[] damages = new float[2];
+}
+[Serializable]
 public class PlayerAttackInfo
 {
     public EPlayerAttack attackType = EPlayerAttack.NormalAttack;
     public float[] attackDelays = new float[3];
     public int[] attackCounts = new int[3];
-    public float[] damages = new float[2];
+    //public float[] damages = new float[2];
     public int curAttack = 0;
 
 
@@ -18,11 +31,7 @@ public class PlayerAttackInfo
     public bool canAttack;
     public float delayInterval;
     public bool isStillAttack;
-    [SerializeField] CharacterAttack characterAttack;
-    public ISetDataAble<int> setDamage
-    {
-        get { return characterAttack; }
-    }
+    
     public void Initialize()
     {
         attackType = EPlayerAttack.NONE;
@@ -39,15 +48,14 @@ public class PlayerInfo
     public Transform trPlayer;
     public Animator animator;
     public Vector3 originScale = Vector3.one;
-    public int hp;
-    public int maxHp;
-    public int deathCount;
-    public int[] getMemoryPeaceCounts = new int[6];
-    public int maxMemoryPeaceCount = 5;
-    public float increaseStateValue;
-    public float curStatePercent;
+
     public Vector3 dectectedGroundPosi;
     public Action actionFlipX;
+    [SerializeField] CharacterAttack characterAttack;
+    public ISetDataAble<int> setDamage
+    {
+        get { return characterAttack; }
+    }
 }
 
 [Serializable]
@@ -120,18 +128,38 @@ public class PlayerContext : MonoBehaviour
     public PlayerAttackInfo attackInfo;
 
     public PlayerHitInfo hitInfo;
+    public PlayerStatusInfo statusInfo;
     private void Awake()
     {
         SetContextInfos();
     }
     private void SetContextInfos()
     {
-        contextDB.SetPlayerInfo(playerInfo);
-        contextDB.SetPlayerMoveInfo(moveInfo);
-        contextDB.SetPlayerJumpInfo(jumpInfo);
-        contextDB.SetPlayerFallInfo(fallInfo);
-        contextDB.SetPlayerAttackInfo(attackInfo);
-        contextDB.SetPlayerHitInfo(hitInfo);
+        SetManagerDataToPlayer();
+        SetDB();
+    }
+    private void SetManagerDataToPlayer()
+    {
+        if (!Managers.Game.playData.isStatusLoaded) return;
+        statusInfo.hp = Managers.Game.playData.playerStatus.hp;
+        statusInfo.curStatePercent = Managers.Game.playData.playerStatus.curStatePercent;
+        statusInfo.getMemoryPeaceCounts[(int)Managers.Map.stageType] = Managers.Game.playData.playerStatus.getMemoryPeaceCounts[(int)Managers.Map.stageType];
+        for (int i = 0; i <= (int)EPlayerAttack.StrongAttack; i++)
+        {
+            statusInfo.damages[i] = Managers.Game.playData.playerStatus.damages[i];
+        }
+    } 
+    private void SetDB()
+    {
+        if (Managers.Game.playData.isStatusLoaded) return;
+        contextDB.SetData();
+        moveInfo = contextDB.MoveInfo;
+        jumpInfo = contextDB.JumpInfo;
+        fallInfo = contextDB.FallInfo;
+        attackInfo = contextDB.AttackInfo;
+        hitInfo = contextDB.HitInfo;
+        statusInfo = contextDB.StatusInfo;
+        Managers.Game.playData.playerStatus = statusInfo;
     }
     public bool IsIdleState
     {
@@ -187,12 +215,12 @@ public class PlayerContext : MonoBehaviour
     {
         get
         {
-            return playerInfo.hp <= 0;
+            return statusInfo.hp <= 0;
         }
     }
     public void Initialize()
     {
-        playerInfo.hp = playerInfo.maxHp;
+        statusInfo.hp = statusInfo.maxHp;
         fallInfo.fallDamage = 0;
         attackInfo.attackType = EPlayerAttack.NONE;
         playerInfo.originScale = transform.localScale;
