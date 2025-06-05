@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Orpul1
 {
-    public interface ISightFindAble
+    public interface IDetectTargetAble
     {
         public Transform DetectTarget();
     }

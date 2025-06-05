@@ -263,6 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d0eff0f192e00409847f8e52cbc661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fieldOfView: {fileID: 958986727120374460}
+  enemyContextDB: {fileID: 11400000, guid: 306afe3c47bcb1946b09eea133f5810d, type: 2}
   enemyInfo:
     rigid: {fileID: 4806384907098426006}
     slideMovement:
@@ -318,6 +320,7 @@ MonoBehaviour:
     arrowFactory: {fileID: 0}
     attackDelay: 3
     attackDistance: 2
+    arrowSpeed: 0
     damage: 10
   hitInfo:
     hitDuration: 1
@@ -332,6 +335,17 @@ MonoBehaviour:
   dieInfo:
     isDie: 0
     deactiveTime: 2
+  sightInfo:
+    originPosi: {x: 0, y: 0, z: 0}
+    detectMask:
+      serializedVersion: 2
+      m_Bits: 0
+    ignoreMask:
+      serializedVersion: 2
+      m_Bits: 0
+    angle: 0
+    radius: 0
+    rotateZ: 0
 --- !u!114 &6373299652130301865
 MonoBehaviour:
   m_ObjectHideFlags: 0

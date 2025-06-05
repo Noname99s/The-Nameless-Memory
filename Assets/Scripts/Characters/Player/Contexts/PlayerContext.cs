@@ -42,7 +42,7 @@ public class PlayerInfo
     public int hp;
     public int maxHp;
     public int deathCount;
-    public int[] getMemoryPeaces = new int[6];
+    public int[] getMemoryPeaceCounts = new int[6];
     public int maxMemoryPeaceCount = 5;
     public float increaseStateValue;
     public float curStatePercent;

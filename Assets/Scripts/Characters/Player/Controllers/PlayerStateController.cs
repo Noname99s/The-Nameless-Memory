@@ -28,12 +28,12 @@ namespace Orpul1.Player
         {
             if (!other.CompareTag(ETag.Item.ToString())) return;
             if (Managers.Map.stageType >= Stage.Max) return;
-            if (context.playerInfo.getMemoryPeaces[(int)Managers.Map.stageType] > maxMemoryPeace) return;
+            if (context.playerInfo.getMemoryPeaceCounts[(int)Managers.Map.stageType] > maxMemoryPeace) return;
             IncreaseState();
         }
         private void IncreaseState()
         {
-            context.playerInfo.getMemoryPeaces[(int)Managers.Map.stageType]++;
+            context.playerInfo.getMemoryPeaceCounts[(int)Managers.Map.stageType]++;
             context.playerInfo.curStatePercent += context.playerInfo.increaseStateValue;
             context.playerInfo.hp += hpIncreaseValue;
             for (int i = 0; i <= (int)EPlayerAttack.StrongAttack; i++)

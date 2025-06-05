@@ -22,7 +22,7 @@ namespace Orpul1.Enemy
         [SerializeField] FieldOfView fieldOfView;
         [SerializeField] EnemyRayInfo enemyRay;
         [SerializeField] CharacterAttack attackCollider;
-        ISightFindAble enemySight;
+        IDetectTargetAble enemySight;
         Vector3 scale = Vector3.zero;
 
         [ContextMenu("SetDebugScale")]

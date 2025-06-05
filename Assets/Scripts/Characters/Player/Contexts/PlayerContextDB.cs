@@ -22,6 +22,8 @@ namespace Orpul1.Player
             AttackInfoEnd = 19,
             END = 0
         }
+
+        //TODO: 플레이어 데이터 캐싱 후 PlayerContext에 넣기
         /*[SerializeField] PlayerInfo playerInfo = new PlayerInfo();
         [SerializeField] PlayerMoveInfo moveInfo = new PlayerMoveInfo();
         [SerializeField] PlayerJumpInfo jumpInfo = new PlayerJumpInfo();
@@ -50,6 +52,16 @@ namespace Orpul1.Player
         {
             int index = (int)EContextInfo.InfoStart;
             playerInfo.hp = (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
+
+            //TODO : 플레이어 데이터 베이스 갱신되면 주석 해재하기(2025/6/5)
+            /*playerInfo.deathCount = (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
+            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage1]= (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
+            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage2]= (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
+            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage3]= (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
+            playerInfo.getMemoryPeaceCounts[(int)Stage.Stage4]= (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
+            playerInfo.maxMemoryPeaceCount = (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
+            playerInfo.increaseStateValue = (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;
+            playerInfo.curStatePercent = (int)BG_DB_PlayerData.GetEntity(index)._InitialValue;*/
         }
         public void SetPlayerMoveInfo(PlayerMoveInfo moveInfo)
         {

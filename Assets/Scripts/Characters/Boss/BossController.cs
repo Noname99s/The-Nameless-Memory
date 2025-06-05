@@ -4,6 +4,7 @@ using Orpul1.Camera;
 using Orpul1.Object;
 using SOBehaviorTree;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
@@ -11,6 +12,7 @@ public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
     [SerializeField] BehaviorTree tree;
     [SerializeField] MirroredBlackboard mirroredBlackboard;
     [SerializeField] MirroredBlackboardComponent mirroredBlackboardComponent;
+    [SerializeField] MirroredDB blackboardDB;
     [SerializeField] GameObject skillEffectSpawner;
     MirroredBossInfo bossInfo;
     MirroredHitStateInfo hitInfo;
@@ -23,10 +25,18 @@ public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
     }
     private void Awake()
     {
+        SetBlackboardDB();
         bossInfo = mirroredBlackboardComponent.bossInfo;
         hitInfo = mirroredBlackboardComponent.hitStateInfo;
         mirroredBlackboard.btComponent = mirroredBlackboardComponent;
         blinkDelay = new WaitForSeconds(mirroredBlackboard.btComponent.hitStateInfo.blinkeDelay);
+    }
+    private void SetBlackboardDB()
+    {
+        IVisitAble visitDB = blackboardDB as IVisitAble;
+        if (visitDB == null) return;
+        visitDB.Visit(mirroredBlackboardComponent.bossInfo);
+        visitDB.Visit(mirroredBlackboardComponent.bossSkillInfo);
     }
     void Start()
     {
