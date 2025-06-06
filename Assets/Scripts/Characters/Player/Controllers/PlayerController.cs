@@ -30,6 +30,8 @@ namespace Orpul1.Player
         WaitForSeconds delayCameraShake;
         ICameraEffectAble cameraEffect;
         ISetCamerGroupAble cameraGroup;
+        Vector3 scale = Vector3.one;
+
         //TODO: 플레이어 HP UI연결 시킬 것
         public event System.Action<int ,int> OnPlayerHpChanged;
 
@@ -43,11 +45,12 @@ namespace Orpul1.Player
             playerData.playerInfo.dectectedGroundPosi = transform.position;
             delayInvincible = new WaitForSeconds(playerData.hitInfo.invincibleTime);
             delayCameraShake = new WaitForSeconds(playerData.hitInfo.cameraShakeDuration);
+            scale = transform.localScale;
         }
         void Start()
         {
-            //OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
-            //OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
+            OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
+            OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
             Managers.Camera.SetCameraEvent(SetCameraEvent);
             SetCameraEvent();
             stateController.TransitionState((int)EPlayerState.Idle);
@@ -86,7 +89,6 @@ namespace Orpul1.Player
             }
             playerData.fallInfo.isFalling = false;
             OnDamage(playerData.fallInfo.fallDamage);
-            //playerData.playerInfo.hp -= playerData.fallInfo.fallDamage;
             playerData.jumpInfo.jumpCount = 2;
             playerData.playerInfo.dectectedGroundPosi = rayInfo.groundHit.point;
             playerData.fallInfo.fallDamage = 0;
@@ -134,10 +136,13 @@ namespace Orpul1.Player
         private void FlipX()
         {
             if (playerData.moveInfo.moveDir.x == 0) return;
+            float xScale = Mathf.RoundToInt(playerData.moveInfo.moveDir.x);
+            if (xScale == 0) return;
 
-            Vector3 scale = playerData.playerInfo.originScale;
-            scale.x = Mathf.RoundToInt(playerData.moveInfo.moveDir.x);
-            playerData.playerInfo.trPlayer.localScale = scale;
+
+            scale = playerData.playerInfo.originScale;
+            scale.x *= xScale;
+            transform.localScale = scale;
         }
         public void RecoverHp(bool max , int recoverAmount = 0)
         {
@@ -147,7 +152,7 @@ namespace Orpul1.Player
             playerData.statusInfo.hp += recoverAmount;
             // Ensure hp does not exceed maxHp
             playerData.statusInfo.hp = Mathf.Clamp(playerData.statusInfo.hp, 0, playerData.statusInfo.maxHp);
-            //OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
+            OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
 
         }
         public void OnDamage(int damage)
