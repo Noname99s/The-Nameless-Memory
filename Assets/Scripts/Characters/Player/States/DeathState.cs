@@ -38,7 +38,7 @@ namespace Orpul1.Player.State
             if (!IsDeathAniEnd()) return;
 
             // >> : Death 애니메이션 끝난 시점
-            Managers.Map.BackToHome();
+            Managers.Map.RespawnPlayer();
 
             Debug.Log("DeathAni End!");
             TransitionState();

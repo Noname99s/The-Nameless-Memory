@@ -35,12 +35,10 @@ public class GameManager
     }
     public void ChangeState(GameState newState)
     {
-        if (CurrentState == newState) return;
         CurrentState = newState;
         Debug.Log($"Game state changed to: {CurrentState}");
-        Managers.Player.RemovePlayer(); // Remove player if exists
+        Managers.Player.RemovePlayer(); 
         Managers.SceneLoad.LoadScene(newState.ToString());
-        
     }
     public void SettingScene()
     {
@@ -48,6 +46,7 @@ public class GameManager
         {
             case GameState.MainMenu:
                 // Logic for main menu
+                Managers.UI.GetPopupUI<SaveLoadComposition>().RecordData(playData); // Record current play data
                 Managers.Player.RemovePlayer(); // Remove player if exists
                 break;
             case GameState.Home:

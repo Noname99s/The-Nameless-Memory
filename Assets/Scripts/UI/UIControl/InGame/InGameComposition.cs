@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class InGameComposition : UIPopup
 {
@@ -9,13 +10,21 @@ public class InGameComposition : UIPopup
     {
         inGamePresenter = new InGamePresenter(inGameView);
     }
+    private void OnDisable()
+    {
+        inGameView.pausePanel.SetActive(false);
+    }
     void OnDestroy()
     {
         inGamePresenter.Dispose();
     }
-    public void OnDialogAnimUpdateConnection(string text)
+    public void OnDialogAnimUpdateConnection(List<string> text)
     {
         inGameView.UpdateDialogAnim(text);
+    }
+    public void OnStaticDialogUpdateConnection(List<string> text)
+    {
+        inGameView.UpdateStaticDialog(text);
     }
     public void OnDeathCountUpdateConnection(int deathCount)
     {
