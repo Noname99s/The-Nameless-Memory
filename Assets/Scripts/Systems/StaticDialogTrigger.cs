@@ -4,10 +4,11 @@ public class StaticDialogTrigger : MonoBehaviour
 {
     [SerializeField] Stage _stage = Stage.Stage1; // Stage where the dialog is triggered
     [SerializeField] SO_StaticDialogData _staticDialogData = null;
-    bool _isDisplayed = false;
+    public bool _isDisplayed = false;
     void Start()
     {
-        _isDisplayed = Managers.Game.playData.dialogComplete[(int)_stage].datas[_staticDialogData._dialogIndex];
+        if(Managers.Game.playData.dialogComplete[(int)_stage].datas[_staticDialogData._dialogIndex])
+            _isDisplayed = true;
         _staticDialogData.Init();
     }
 

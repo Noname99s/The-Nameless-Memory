@@ -43,6 +43,7 @@ public class GameManager
     public void ChangeState(GameState newState)
     {
         CurrentState = newState;
+        Time.timeScale = 1f; 
         Debug.Log($"Game state changed to: {CurrentState}");
         Managers.Player.RemovePlayer(); 
         Managers.SceneLoad.LoadScene(newState.ToString());

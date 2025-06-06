@@ -81,6 +81,12 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
             DisplayDialog();
         }
     }
+    private void OnDisable()
+    {
+        pausePanel.SetActive(false);
+        staticDialog.gameObject.SetActive(false);
+        bossDialogAnim.gameObject.SetActive(false);
+    }
     public void UpdateDialogAnim(List<string> text , bool isBoss = false)
     {
         if(!isBoss)
