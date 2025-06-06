@@ -33,10 +33,7 @@ public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
     }
     private void SetBlackboardDB()
     {
-        IVisitAble visitDB = blackboardDB as IVisitAble;
-        if (visitDB == null) return;
-        visitDB.Visit(mirroredBlackboardComponent.bossInfo);
-        visitDB.Visit(mirroredBlackboardComponent.bossSkillInfo);
+        blackboardDB.SetDB(mirroredBlackboardComponent);
     }
     void Start()
     {
