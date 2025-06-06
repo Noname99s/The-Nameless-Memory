@@ -73,6 +73,7 @@ MonoBehaviour:
   - {fileID: 7767910581882906408}
   - {fileID: 869326105316721869}
   - {fileID: -6340272952256817958}
+  - {fileID: 2180480057788638649}
 --- !u!114 &360661824750829657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +139,29 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: 0b97eff622e5b884db467c9d417dbb8f, type: 2}
+--- !u!114 &2180480057788638649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: BossOutro
+  m_EditorClassIdentifier: 
+  guid: e79f38dc5676cda4b826dcb5bf7a3832
+  position: {x: 0, y: 0}
+  nodeName: BossOutro
+  description: 
+  nodeState: 0
+  methodName: 
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: E:/Unity/Project/The Nameless Memory/Assets/BossDatas/BehaviorTree/Mirrored/NodeScripts/BossOutro.cs
+  assetPath: Assets//BossDatas/BehaviorTree/Mirrored/NodeScripts/BossOutro.asset
+  actionScript: {fileID: 11400000, guid: 8d545c286b72b2f4db676e16acb75768, type: 2}
 --- !u!114 &5775314432737579526
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,14 +8,41 @@ using UnityEngine;
 public class PlayerStatusInfo
 {
     public int hp = 0;
-    public int maxHp = 0;
-    public int[] getMemoryPeaceCounts = new int[6];
-    public float increaseStateValue;
-    public float curStatePercent;
+    public int maxHp = 0; // 历厘
+    public int[] getMemoryPeaceCounts = new int[6]; // 历厘
+    public float increaseStateValue; // 历厘
+    public float curStatePercent; // 历厘
 
-    public int deathCount;
-    public int maxMemoryPeaceCount = 5;
-    public float[] damages = new float[2];
+    public int deathCount; // 历厘
+    public int maxMemoryPeaceCount = 5; // 历厘
+    public float[] damages = new float[2]; // 历厘
+
+    public PlayerStatusInfo()
+    {
+        hp = 0;
+        maxHp = 0;
+        for (int i = 0; i < getMemoryPeaceCounts.Length; i++)
+        {
+            getMemoryPeaceCounts[i] = 0;
+        }
+        increaseStateValue = 0;
+        curStatePercent = 0;
+        deathCount = 0;
+        maxMemoryPeaceCount = 5;
+        damages[(int)EPlayerAttack.NormalAttack] = 1f;
+        damages[(int)EPlayerAttack.StrongAttack] = 2f;
+    }
+    public PlayerStatusInfo(PlayerStatusInfo statusInfo)
+    {
+        hp = statusInfo.hp;
+        maxHp = statusInfo.maxHp;
+        getMemoryPeaceCounts = (int[])statusInfo.getMemoryPeaceCounts.Clone();
+        increaseStateValue = statusInfo.increaseStateValue;
+        curStatePercent = statusInfo.curStatePercent;
+        deathCount = statusInfo.deathCount;
+        maxMemoryPeaceCount = statusInfo.maxMemoryPeaceCount;
+        damages = (float[])statusInfo.damages.Clone();
+    }
 }
 [Serializable]
 public class PlayerAttackInfo

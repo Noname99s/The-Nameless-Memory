@@ -4,6 +4,7 @@ using Orpul1.Boss.Mirrored;
 using Orpul1.Camera;
 using Orpul1.Object;
 using SOBehaviorTree;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -43,6 +44,17 @@ public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
         mirroredBlackboard.btComponent = mirroredBlackboardComponent;
         blinkDelay = new WaitForSeconds(mirroredBlackboard.btComponent.hitStateInfo.blinkeDelay);
     }
+    public void BossOutro(Action action)
+    {
+        bossDialogAnim?.Invoke(bossoutroDialogData.dialogTexts);
+        StartCoroutine(BossOutroCoroutine(action));
+    }
+    IEnumerator BossOutroCoroutine(Action action)
+    {
+        yield return new WaitForSeconds(18f);
+        action?.Invoke();
+    }
+
     private void SetBlackboardDB()
     {
         blackboardDB.SetDB(mirroredBlackboardComponent);

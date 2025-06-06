@@ -22,11 +22,10 @@ namespace Orpul1.Player.State
             data.playerInfo.rigid.gravityScale = 0;
             data.playerInfo.rigid.linearVelocity = Vector2.zero;
             data.playerInfo.playerCollider.enabled = false;
-            data.statusInfo.deathCount++;   
             aniLength = 0;
             isStartDieAni = false;
 
-            OnPlayerDeath?.Invoke(++Managers.Game.playData.deathCount);
+            OnPlayerDeath?.Invoke(++Managers.Game.playData.playerStatus.deathCount);
             Managers.Map.RecordDeathInfo(data.playerInfo.dectectedGroundPosi);
             Managers.Map.getFragment = false;
             data.playerInfo.animator.SetTrigger(EPlayerAni.DeathTrigger.ToString());

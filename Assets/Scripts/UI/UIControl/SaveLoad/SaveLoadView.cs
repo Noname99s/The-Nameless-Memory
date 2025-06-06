@@ -88,7 +88,7 @@ public class SaveLoadView : MonoBehaviour , ISaveLoadView
 
             dataText[(int)TextType.PlayTime].text = formattedTime;
             dataText[(int)TextType.StageClear].text = lastStageClear.ToString() + " Clear";
-            dataText[(int)TextType.DeathCount].text = data.deathCount.ToString();
+            dataText[(int)TextType.DeathCount].text = data.playerStatus.deathCount.ToString();
         }
     }
     public void GetCurrentData(int index,bool isSave, PlayData data)
@@ -107,7 +107,7 @@ public class SaveLoadView : MonoBehaviour , ISaveLoadView
         currentDataText[(int)TextType.Title].text = "Memory " + (index + 1) + saveText + "겠습니까?";
         currentDataText[(int)TextType.PlayTime].text = formattedTime;
         currentDataText[(int)TextType.StageClear].text = lastStageClear.ToString() + " Clear";
-        currentDataText[(int)TextType.DeathCount].text = data.deathCount.ToString();
+        currentDataText[(int)TextType.DeathCount].text = data.playerStatus.deathCount.ToString();
         currentDataPanel.SetActive(true);
     }
 }

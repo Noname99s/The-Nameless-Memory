@@ -4178,6 +4178,10 @@ PrefabInstance:
       propertyPath: bossIntroDialog
       value: 
       objectReference: {fileID: 11400000, guid: 821e2d3f76057b04caac94fdde5265d3, type: 2}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: bossoutroDialogData
+      value: 
+      objectReference: {fileID: 11400000, guid: bd12e36afc16f8b4595f033b52f84552, type: 2}
     - target: {fileID: 7456571372819098835, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: m_Name
       value: Mirrored

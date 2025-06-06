@@ -56,14 +56,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage: 0
   interactionCount: 11
-  dynamicDialogDatas:
-  - {fileID: 11400000, guid: 6d20a155783ef884480163db4322a209, type: 2}
-  - {fileID: 11400000, guid: 6bc1975f5736e7a4e91853d9acc59a00, type: 2}
-  - {fileID: 11400000, guid: 56d68e24ed4da3d4f8ad902396eda3ce, type: 2}
-  staticDialogDatas:
-  - {fileID: 11400000, guid: 6968e3b043c8ee54e8284fa042885352, type: 2}
-  - {fileID: 11400000, guid: 44440b2e544a5af4c99d446aa0e4c82a, type: 2}
-  - {fileID: 11400000, guid: d37a0c7351dc11242afaba9917497ea7, type: 2}
 --- !u!1 &383799353939959545
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,7 +68,6 @@ GameObject:
   - component: {fileID: 2511331990700041175}
   - component: {fileID: 4443306543072122871}
   - component: {fileID: 3245419920393456853}
-  - component: {fileID: 937732839334745460}
   m_Layer: 0
   m_Name: Text_Stage1_2
   m_TagString: Untagged
@@ -227,20 +218,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &937732839334745460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383799353939959545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53f8f066cd4bbfc4ba6bd70a37a18117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stage: 0
-  _staticDialogData: {fileID: 11400000, guid: 035447a66381599419d7a4b6ae09c48c, type: 2}
 --- !u!1 &428703447136196938
 GameObject:
   m_ObjectHideFlags: 0
@@ -5311,7 +5288,7 @@ CompositeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -124885,7 +124862,6 @@ GameObject:
   - component: {fileID: 2602313072477532863}
   - component: {fileID: 5018382592446750455}
   - component: {fileID: 6320295068874033059}
-  - component: {fileID: 1560100168321519603}
   m_Layer: 0
   m_Name: Text_Stage1_21-23
   m_TagString: Untagged
@@ -125036,20 +125012,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1560100168321519603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3187896326890605842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53f8f066cd4bbfc4ba6bd70a37a18117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stage: 0
-  _staticDialogData: {fileID: 11400000, guid: bb030d949803a5c45af6c6b707397997, type: 2}
 --- !u!1 &3664914002880870265
 GameObject:
   m_ObjectHideFlags: 0
@@ -223489,8 +223451,6 @@ GameObject:
   - component: {fileID: 7211738533202932}
   - component: {fileID: 4735495692265745465}
   - component: {fileID: 4632334275989199661}
-  - component: {fileID: 7393399969915379543}
-  - component: {fileID: 4875313212448691810}
   m_Layer: 0
   m_Name: Text_Stage1_12-14
   m_TagString: Untagged
@@ -223641,34 +223601,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7393399969915379543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6469584485089142822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53f8f066cd4bbfc4ba6bd70a37a18117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stage: 0
-  _staticDialogData: {fileID: 11400000, guid: 5f885444e9f48074ebcbc4edc5b80632, type: 2}
---- !u!114 &4875313212448691810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6469584485089142822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab3cbb7771a641940babdc880346e513, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stage: 0
-  _dynamicDialogData: {fileID: 11400000, guid: 5f98918e6c5b6a04faa6f62b602c2358, type: 2}
 --- !u!1 &7694904778746116016
 GameObject:
   m_ObjectHideFlags: 0
@@ -223768,7 +223700,6 @@ GameObject:
   - component: {fileID: 7635218528400618561}
   - component: {fileID: 1186241091139719690}
   - component: {fileID: 224361891054605677}
-  - component: {fileID: 2583644520562405363}
   m_Layer: 0
   m_Name: Text_Stage1_3-4
   m_TagString: Untagged
@@ -223919,20 +223850,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2583644520562405363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8345912658753959955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53f8f066cd4bbfc4ba6bd70a37a18117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stage: 0
-  _staticDialogData: {fileID: 11400000, guid: b98a88890bf9882448c7d3758348ffd9, type: 2}
 --- !u!1 &8609825346746572054
 GameObject:
   m_ObjectHideFlags: 0
