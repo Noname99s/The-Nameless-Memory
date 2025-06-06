@@ -11,9 +11,6 @@ public interface IInGameView
     event Action OnBackToMainMenu;
     event Action OnQuitGame;
 
-    event Action OnEndStaticDialog;
-
-
     //Player
     void UpdateDialogAnim(List<string> text);
     void UpdateStaticDialog(List<string> text);

@@ -37,7 +37,6 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     public event Action OnOpenOptions;
     public event Action OnBackToMainMenu;
     public event Action OnQuitGame;
-    public event Action OnEndStaticDialog;
     void Start()
     {
         pauseButton.onClick.AddListener
@@ -74,6 +73,13 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
             BuildSequence();
         }
     }
+    void Update()
+    {
+        if (Time.timeScale == 0 && staticDialog.gameObject.activeSelf && Input.GetKeyDown(KeyCode.Return)) 
+        {
+            DisplayDialog();
+        }
+    }
     public void UpdateDialogAnim(List<string> text)
     {
         dialogAnim._textDatas = text;
@@ -102,7 +108,6 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
             Time.timeScale = 1; 
             staticDialog.gameObject.SetActive(false);
         }
-        OnEndStaticDialog?.Invoke();
     }
     public void UpdateDeathCount(int deathCount)
     {
