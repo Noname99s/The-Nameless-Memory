@@ -1,7 +1,7 @@
-using UnityEngine;
-using Orpul1.State.Attack;
 using BansheeGz.BGDatabase;
 using Orpul1.Player.Skill;
+using Orpul1.State.Attack;
+using UnityEngine;
 namespace Orpul1.Player
 {
     [CreateAssetMenu(fileName = "PlayerContextDB", menuName = "DataBase/PlayerContextDB")]
@@ -52,10 +52,8 @@ namespace Orpul1.Player
         public void SetStatusInfo()
         {
             int index = (int)EContextInfo.InfoStart;
-            if (Managers.Game.playData.isStatusLoaded) return;
-            Managers.Game.playData.isStatusLoaded = true;
-            statusInfo.maxHp = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
-            statusInfo.hp = statusInfo.maxHp;
+            statusInfo.hp = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            statusInfo.maxHp = statusInfo.hp;
 
             //TODO : 플레이어 데이터 베이스 갱신되면 주석 해재하기(2025/6/5)
             statusInfo.deathCount = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
@@ -103,10 +101,9 @@ namespace Orpul1.Player
             int index = (int)EContextInfo.AttackInfoStart;
             attackInfo.attackDelays[(int)EPlayerAttack.NormalAttack] = BG_DB_PlayerData.GetEntity(index++)._InitialValue;
             attackInfo.attackDelays[(int)EPlayerAttack.StrongAttack] = BG_DB_PlayerData.GetEntity(index++)._InitialValue;
-            if (Managers.Game.playData.isStatusLoaded) return;
-            Managers.Game.playData.isStatusLoaded = true;
             statusInfo.damages[(int)EPlayerAttack.NormalAttack] = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
             statusInfo.damages[(int)EPlayerAttack.StrongAttack] = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+
         }
         public void SetPlayerSkillInfo()
         {

@@ -9,20 +9,11 @@ namespace Orpul1.Player
         PlayerStatusInfo statusInfo;
 
         int maxMemoryPeace;
-        int hpIncreaseValue = 0;
-        float[] damageIncreaseValues = new float[2];
 
         private void Awake()
         {
             statusInfo = context.statusInfo;
-            hpIncreaseValue = (int)GetIncreaseValue(statusInfo.hp);
-            damageIncreaseValues[(int)EPlayerAttack.NormalAttack] = GetIncreaseValue(context.statusInfo.damages[(int)EPlayerAttack.NormalAttack]);
-            damageIncreaseValues[(int)EPlayerAttack.StrongAttack] = GetIncreaseValue(context.statusInfo.damages[(int)EPlayerAttack.StrongAttack]);
             maxMemoryPeace = context.statusInfo.maxMemoryPeaceCount;
-        }
-        private float GetIncreaseValue(float value)
-        {
-            return ((value * 0.01f) * context.statusInfo.increaseStateValue);
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -35,22 +26,17 @@ namespace Orpul1.Player
         {
             statusInfo.getMemoryPeaceCounts[(int)Managers.Map.stageType]++;
             statusInfo.curStatePercent += statusInfo.increaseStateValue;
-            statusInfo.hp += hpIncreaseValue;
-            for (int i = 0; i <= (int)EPlayerAttack.StrongAttack; i++)
-            {
-                statusInfo.damages[i] += damageIncreaseValues[i];
-            }
+            statusInfo.maxHp += (int)statusInfo.curStatePercent;
+            statusInfo.hp = statusInfo.maxHp;
+            statusInfo.damages[(int)EPlayerAttack.NormalAttack] *= (1 + statusInfo.curStatePercent / 100f);
+            statusInfo.damages[(int)EPlayerAttack.StrongAttack] *= (1 + statusInfo.curStatePercent / 100f);
+
             SetPlayerDataToManager();
         }
         private void SetPlayerDataToManager()
         {
-            Managers.Game.playData.playerStatus.hp = statusInfo.hp;
-            Managers.Game.playData.playerStatus.curStatePercent = statusInfo.curStatePercent;
-            Managers.Game.playData.playerStatus.getMemoryPeaceCounts[(int)Managers.Map.stageType] = statusInfo.getMemoryPeaceCounts[(int)Managers.Map.stageType];
-            for (int i = 0; i <= (int)EPlayerAttack.StrongAttack; i++)
-            {
-                Managers.Game.playData.playerStatus.damages[i] += damageIncreaseValues[i];
-            }
+            PlayerStatusInfo playerStatus = new PlayerStatusInfo(statusInfo);
+            Managers.Game.playData.playerStatus = playerStatus;
         }
         
     }

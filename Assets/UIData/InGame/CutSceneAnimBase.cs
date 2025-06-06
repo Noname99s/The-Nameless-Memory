@@ -50,6 +50,7 @@ public abstract class CutSceneAnimBase : MonoBehaviour
         {
             cutSceneFinished = true;
             isAnimFinished = true;
+            Time.timeScale = 1f;
             scenarioText.DOKill();
         }
 

@@ -10,6 +10,14 @@ public class DeathInfo
 }
 public class MapManager : MonoBehaviour
 {
+    public List<bool>[] dialogComlete = new List<bool>[(int)Stage.Max]
+    {
+        new List<bool>(), // Stage1
+        new List<bool>(), // Stage2
+        new List<bool>(), // Stage3
+        new List<bool>(), // Stage4
+        new List<bool>(), // BossStage
+    };
     [Header("Stage Information")]
     public Stage stageType = Stage.Hub; // Default to Hub stage
     public List<SO_MapInfo> mapInfos = new List<SO_MapInfo>();
@@ -23,6 +31,13 @@ public class MapManager : MonoBehaviour
     public bool getFragment = false;
     GameObject fragmentObject = null;
 
+    public void StartStage(Stage stage , int interactionCount)
+    {
+        while(dialogComlete[(int)stage].Count < interactionCount)
+        {
+            dialogComlete[(int)stage].Add(false);
+        }
+    }
     public void BackToHome()
     {
         currentMapIndex = -1;
