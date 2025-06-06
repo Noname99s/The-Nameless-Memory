@@ -15,7 +15,7 @@ public interface IInGameView
 
 
     //Player
-    void UpdateDialogAnim(string text);
+    void UpdateDialogAnim(List<string> text);
     void UpdateStaticDialog(List<string> text);
     void UpdateDeathCount(int deathCount);
     void UpdateHP(int hp, int maxHp);

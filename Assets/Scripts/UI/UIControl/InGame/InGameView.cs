@@ -11,8 +11,8 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     [SerializeField] DialogAnim dialogAnim;
     [SerializeField] Button staticDialog;
     [SerializeField] TextMeshProUGUI staticDialogText;
-    int _currentDialogIndex = 0;
-    bool _isDialogActive = false;
+    int _currentStaticDialogIndex = 0;
+    bool _isStaticDialogActive = false;
     List<string> _staticDialogTextList = new List<string>();
 
     public GameObject pausePanel;
@@ -74,28 +74,28 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
             BuildSequence();
         }
     }
-    public void UpdateDialogAnim(string text)
+    public void UpdateDialogAnim(List<string> text)
     {
-        dialogAnim.dialogText.text = text;
-        if(!dialogAnim.gameObject.activeSelf)
+        dialogAnim._textDatas = text;
+        if (!dialogAnim.gameObject.activeSelf)
             dialogAnim.gameObject.SetActive(true);
         dialogAnim.PlayAnim();
     }
     public void UpdateStaticDialog(List<string> text)
     {
-        _currentDialogIndex = 0;
+        _currentStaticDialogIndex = 0;
         _staticDialogTextList = text;
         Time.timeScale = 0; 
-        staticDialogText.text = text[_currentDialogIndex++];
+        staticDialogText.text = text[_currentStaticDialogIndex++];
         staticDialog.gameObject.SetActive(true);
-        _isDialogActive = _currentDialogIndex < text.Count; 
+        _isStaticDialogActive = _currentStaticDialogIndex < text.Count; 
     }
     public void DisplayDialog()
     {
-        if (_isDialogActive)
+        if (_isStaticDialogActive)
         {
-            staticDialogText.text = _staticDialogTextList[_currentDialogIndex++];
-            _isDialogActive = _currentDialogIndex < _staticDialogTextList.Count;
+            staticDialogText.text = _staticDialogTextList[_currentStaticDialogIndex++];
+            _isStaticDialogActive = _currentStaticDialogIndex < _staticDialogTextList.Count;
         }
         else
         {
@@ -112,14 +112,7 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     {
         float targetValue = (float)hp / maxHp * hpSlider.maxValue;
         hpSlider.DOKill();
-
-        hpSlider.DOValue(targetValue, 0.5f).SetEase(Ease.OutQuad).onComplete = () =>
-        {
-            if (hp <= 0)
-            {
-                UpdateDialogAnim("일단 탑을 올라와. 그러면 너는 모든 것을 가질 수 있어. \r\n모든 기억을 찾을 수 있을거야.");
-            }
-        };
+        hpSlider.DOValue(targetValue, 0.5f).SetEase(Ease.OutQuad);
     }
     public void BuildSequence()
     {

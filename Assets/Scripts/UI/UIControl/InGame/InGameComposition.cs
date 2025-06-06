@@ -18,7 +18,7 @@ public class InGameComposition : UIPopup
     {
         inGamePresenter.Dispose();
     }
-    public void OnDialogAnimUpdateConnection(string text)
+    public void OnDialogAnimUpdateConnection(List<string> text)
     {
         inGameView.UpdateDialogAnim(text);
     }
