@@ -10,6 +10,9 @@ public abstract class StageGimicBase : MonoBehaviour
     {
         Managers.Game.StartStage(stage, interactionCount);
         OnStageStart += Managers.UI.GetPopupUI<InGameComposition>().OnSystemTextUpdateConnection;
+    }
+    protected virtual void Start()
+    {
         NotifyStage();
     }
     void NotifyStage()

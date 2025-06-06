@@ -674,30 +674,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map1
       objectReference: {fileID: 0}
-    - target: {fileID: 339138472062551120, guid: 9db2bb1014596574795b15cb45d7198c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 685356966217886735, guid: 9db2bb1014596574795b15cb45d7198c, type: 3}
-      propertyPath: m_ColliderPaths.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1481447485411810356, guid: 9db2bb1014596574795b15cb45d7198c, type: 3}
-      propertyPath: m_ColliderPaths.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120025091206331196, guid: 9db2bb1014596574795b15cb45d7198c, type: 3}
-      propertyPath: m_ColliderPaths.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6248756918088058743, guid: 9db2bb1014596574795b15cb45d7198c, type: 3}
-      propertyPath: m_ColliderPaths.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6518822099192195413, guid: 9db2bb1014596574795b15cb45d7198c, type: 3}
-      propertyPath: m_ColliderPaths.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8252307188726327935, guid: 9db2bb1014596574795b15cb45d7198c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2844,9 +2820,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2845356273373315527, guid: db9058cb86428884282d5dadba6d21b5, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428360384020197226, guid: db9058cb86428884282d5dadba6d21b5, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419495445990802203, guid: db9058cb86428884282d5dadba6d21b5, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138754573606761326, guid: db9058cb86428884282d5dadba6d21b5, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5307184710853226894, guid: db9058cb86428884282d5dadba6d21b5, type: 3}
       propertyPath: m_Name
       value: Map2-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5307184710853226894, guid: db9058cb86428884282d5dadba6d21b5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8555663615090956930, guid: db9058cb86428884282d5dadba6d21b5, type: 3}
       propertyPath: m_LocalPosition.x

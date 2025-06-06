@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class Stage2Gimic : StageGimicBase
 {
-    void Start()
+    protected override void Start()
     {
         
     }
-
 }

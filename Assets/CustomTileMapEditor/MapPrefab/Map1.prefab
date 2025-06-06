@@ -7168,6 +7168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stage: 0
   _staticDialogData: {fileID: 11400000, guid: 035447a66381599419d7a4b6ae09c48c, type: 2}
+  _isDisplayed: 0
 --- !u!61 &3347787952492481316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124441,6 +124442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7060801012744644400}
   - component: {fileID: 5697911980861054127}
+  - component: {fileID: 5815065533474876102}
   m_Layer: 0
   m_Name: Melee_stage_1_common_5
   m_TagString: Untagged
@@ -124518,6 +124520,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5815065533474876102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3354163313005341663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420b42a7239b1da4b871256a0b48ccbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterPrefab: {fileID: 6766174714432795180, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
 --- !u!1 &3701186342222534694
 GameObject:
   m_ObjectHideFlags: 0
@@ -124709,6 +124724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stage: 0
   _staticDialogData: {fileID: 11400000, guid: bb030d949803a5c45af6c6b707397997, type: 2}
+  _isDisplayed: 0
 --- !u!61 &6373089226129655330
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124886,6 +124902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stage: 0
   _staticDialogData: {fileID: 11400000, guid: b98a88890bf9882448c7d3758348ffd9, type: 2}
+  _isDisplayed: 0
 --- !u!61 &3851175086009254078
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124969,6 +124986,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5448481558648533416}
   - component: {fileID: 7696564126489517485}
+  - component: {fileID: 3216680555078826917}
   m_Layer: 0
   m_Name: Melee_stage_1_common_1
   m_TagString: Untagged
@@ -125046,6 +125064,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3216680555078826917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4124704550064641960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420b42a7239b1da4b871256a0b48ccbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterPrefab: {fileID: 6766174714432795180, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
 --- !u!1 &4254522347916919905
 GameObject:
   m_ObjectHideFlags: 0
@@ -142733,6 +142764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8985003075932925705}
   - component: {fileID: 3092765704240665514}
+  - component: {fileID: 9102899685545693044}
   m_Layer: 0
   m_Name: Melee_stage_1_common_3
   m_TagString: Untagged
@@ -142810,6 +142842,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9102899685545693044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5458631168290957635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420b42a7239b1da4b871256a0b48ccbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterPrefab: {fileID: 6766174714432795180, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
 --- !u!1 &5476055274101113979
 GameObject:
   m_ObjectHideFlags: 0
@@ -181834,6 +181879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6919074558714221950}
   - component: {fileID: 685267046466011607}
+  - component: {fileID: 7931642915737848780}
   m_Layer: 0
   m_Name: Melee_stage_1_common_2
   m_TagString: Untagged
@@ -181911,6 +181957,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7931642915737848780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5941553552645146350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420b42a7239b1da4b871256a0b48ccbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterPrefab: {fileID: 6766174714432795180, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
 --- !u!1 &6441616966747967020
 GameObject:
   m_ObjectHideFlags: 0
@@ -223482,6 +223541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4891665003823443826}
   - component: {fileID: 4551185388840116267}
+  - component: {fileID: 2217156316247970259}
   m_Layer: 0
   m_Name: Melee_stage_1_common_4
   m_TagString: Untagged
@@ -223559,6 +223619,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2217156316247970259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7144883223272520805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420b42a7239b1da4b871256a0b48ccbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterPrefab: {fileID: 6766174714432795180, guid: 4ab72f4fd96435e47a2b476d85876e78, type: 3}
 --- !u!1 &7398411782632322870
 GameObject:
   m_ObjectHideFlags: 0
@@ -223664,6 +223737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stage: 0
   _staticDialogData: {fileID: 11400000, guid: 5f885444e9f48074ebcbc4edc5b80632, type: 2}
+  _isDisplayed: 0
 --- !u!114 &1559861356454225572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223678,6 +223752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stage: 0
   _dynamicDialogData: {fileID: 11400000, guid: 5f98918e6c5b6a04faa6f62b602c2358, type: 2}
+  _isDisplayed: 0
 --- !u!61 &1893673996560165552
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -223761,6 +223836,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5873480865507468614}
   - component: {fileID: 2202143134639819623}
+  - component: {fileID: 337391766117189455}
   m_Layer: 0
   m_Name: Melee_stage_1_Elite_1
   m_TagString: Untagged
@@ -223838,6 +223914,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &337391766117189455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7692837124248730888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420b42a7239b1da4b871256a0b48ccbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterPrefab: {fileID: 6422860637579694475, guid: 12e0fcf671d828a409ab6062c727da63, type: 3}
 --- !u!1 &8455041865066367802
 GameObject:
   m_ObjectHideFlags: 0
@@ -223848,6 +223937,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5184814107652868992}
   - component: {fileID: 3367233514651471996}
+  - component: {fileID: 3873442222444446607}
   m_Layer: 0
   m_Name: Archer_stage_1_common_1
   m_TagString: Untagged
@@ -223925,6 +224015,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3873442222444446607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8455041865066367802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420b42a7239b1da4b871256a0b48ccbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterPrefab: {fileID: 5314405325189303341, guid: e019ad519a8261d499f442511bfdeac0, type: 3}
 --- !u!1 &8812985362636212826
 GameObject:
   m_ObjectHideFlags: 0
