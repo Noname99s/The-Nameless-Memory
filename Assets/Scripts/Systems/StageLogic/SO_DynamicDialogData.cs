@@ -9,7 +9,7 @@ public class SO_DynamicDialogData : ScriptableObject
     [SerializeField] int _startDialogIndex = 0;
     [SerializeField] int listSize = 1;
 
-    [SerializeField] List<string> dialogTexts = new List<string>();
+    public List<string> dialogTexts = new List<string>();
     event System.Action<List<string>> OnDialogUpdate;
     public void Init()
     {

@@ -1,9 +1,11 @@
+using NUnit.Framework;
 using Orpul1;
 using Orpul1.Boss.Mirrored;
 using Orpul1.Camera;
 using Orpul1.Object;
 using SOBehaviorTree;
 using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -19,12 +21,20 @@ public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
     WaitForSeconds blinkDelay;
     ISetCamerGroupAble cameraGroup;
     int curblinkCount = 0;
+
+    [SerializeField] SO_StaticDialogData bossIntroDialog;
+    [SerializeField] SO_DynamicDialogData bossDialogData;
+    public event System.Action<List<string>> bossDialogAnim;
     public BehaviorTree GetBehaviorTree()
     {
         return tree;
     }
     private void Awake()
     {
+        bossIntroDialog.Init();
+        bossDialogData.Init();
+        bossDialogAnim += Managers.UI.GetPopupUI<InGameComposition>().OnBossDialogAnimConnection;
+        bossIntroDialog.TransferDialogToUI();
         SetBlackboardDB();
         bossInfo = mirroredBlackboardComponent.bossInfo;
         hitInfo = mirroredBlackboardComponent.hitStateInfo;
@@ -40,6 +50,8 @@ public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
     }
     void Start()
     {
+        bossDialogAnim?.Invoke(bossDialogData.dialogTexts);
+
         Transform camera = Managers.Camera.GetCamera<Transform>((int)ECameraType.MainCamera);
         mirroredBlackboardComponent.bossSkillInfo.cameraEffect = camera.GetComponent<ICameraEffectAble>();
         cameraGroup = camera.GetComponent<ISetCamerGroupAble>();
