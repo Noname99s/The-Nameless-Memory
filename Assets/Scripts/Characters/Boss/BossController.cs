@@ -24,6 +24,7 @@ public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
 
     [SerializeField] SO_StaticDialogData bossIntroDialog;
     [SerializeField] SO_DynamicDialogData bossDialogData;
+    [SerializeField] SO_DynamicDialogData bossoutroDialogData;
     public event System.Action<List<string>> bossDialogAnim;
     public BehaviorTree GetBehaviorTree()
     {
@@ -33,6 +34,7 @@ public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
     {
         bossIntroDialog.Init();
         bossDialogData.Init();
+        bossoutroDialogData.Init();
         bossDialogAnim += Managers.UI.GetPopupUI<InGameComposition>().OnBossDialogAnimConnection;
         bossIntroDialog.TransferDialogToUI();
         SetBlackboardDB();
