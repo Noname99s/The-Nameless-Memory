@@ -1,6 +1,7 @@
 using UnityEngine;
 using Orpul1.State.Attack;
 using BansheeGz.BGDatabase;
+using Orpul1.Player.Skill;
 namespace Orpul1.Player
 {
     [CreateAssetMenu(fileName = "PlayerContextDB", menuName = "DataBase/PlayerContextDB")]
@@ -14,6 +15,7 @@ namespace Orpul1.Player
             FallInfoStart = 16,
             HitInfoStart = 20,
             AttackInfoStart = 24,
+            SkillInfoStart = 29,
         }
 
         //TODO: 플레이어 데이터 캐싱 후 PlayerContext에 넣기
@@ -24,6 +26,7 @@ namespace Orpul1.Player
         [SerializeField] PlayerHitInfo hitInfo = new PlayerHitInfo();
         [SerializeField] PlayerAttackInfo attackInfo = new PlayerAttackInfo();
         [SerializeField] PlayerStatusInfo statusInfo = new PlayerStatusInfo();
+        [SerializeField] PlayerSkillInfo skillInfo = new PlayerSkillInfo();
 
         public PlayerInfo PlayerInfo { get { return playerInfo; } }
         public PlayerMoveInfo MoveInfo { get { return moveInfo; } }
@@ -32,6 +35,7 @@ namespace Orpul1.Player
         public PlayerHitInfo HitInfo { get { return hitInfo; } }
         public PlayerAttackInfo AttackInfo { get { return attackInfo; } }
         public PlayerStatusInfo StatusInfo { get { return statusInfo; } }
+        public PlayerSkillInfo SkillInfo { get { return skillInfo; } }
 
         [ContextMenu("Set PlayerDB Data")]
         public void SetData()
@@ -43,14 +47,15 @@ namespace Orpul1.Player
             SetPlayerFallInfo();
             SetPlayerHitInfo();
             SetPlayerAttackInfo();
-            //BGRepo.I.Addons.Get<BGAddonSaveLoad>().Save();
+            SetPlayerSkillInfo();
         }
         public void SetStatusInfo()
         {
             int index = (int)EContextInfo.InfoStart;
             if (Managers.Game.playData.isStatusLoaded) return;
             Managers.Game.playData.isStatusLoaded = true;
-            statusInfo.hp = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            statusInfo.maxHp = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            statusInfo.hp = statusInfo.maxHp;
 
             //TODO : 플레이어 데이터 베이스 갱신되면 주석 해재하기(2025/6/5)
             statusInfo.deathCount = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
@@ -102,7 +107,12 @@ namespace Orpul1.Player
             Managers.Game.playData.isStatusLoaded = true;
             statusInfo.damages[(int)EPlayerAttack.NormalAttack] = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
             statusInfo.damages[(int)EPlayerAttack.StrongAttack] = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
-
+        }
+        public void SetPlayerSkillInfo()
+        {
+            int index = (int)EContextInfo.SkillInfoStart;
+            skillInfo.jumpSkills[(int)EPlayerSkillOpen.Close] = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            skillInfo.jumpSkills[(int)EPlayerSkillOpen.Open] = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
         }
     }
 }

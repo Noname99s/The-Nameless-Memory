@@ -1,5 +1,6 @@
 using Orpul1;
 using Orpul1.Player;
+using Orpul1.Player.Skill;
 using Orpul1.State.Attack;
 using System;
 using UnityEngine;
@@ -50,7 +51,6 @@ public class PlayerAttackInfo
     public EPlayerAttack attackType = EPlayerAttack.NormalAttack;
     public float[] attackDelays = new float[3];
     public int[] attackCounts = new int[3];
-    //public float[] damages = new float[2];
     public int curAttack = 0;
 
 
@@ -114,6 +114,7 @@ public class PlayerJumpInfo
     public float jumpPower = 10;
     public float decelerate = 0.8f;
     public float minJumpSpeed = 0.2f;
+    public int maxJumpCount = 0;
     public int jumpCount = 0;
     public bool isPressJump = false;
     public bool shouldWallJump = false;
@@ -141,6 +142,14 @@ public class PlayerHitInfo
     public bool isHit = false;
     public bool isDeath = false;
 }
+
+[Serializable]
+public class PlayerSkillInfo
+{
+    public int[] jumpSkills = new int[(int)EPlayerSkillOpen.End];
+    public bool[] canUseSkill = new bool[(int)EPlayerSkillOpen.End];
+}
+
 public class PlayerContext : MonoBehaviour
 {
     [SerializeField] PlayerContextDB contextDB;
@@ -156,6 +165,8 @@ public class PlayerContext : MonoBehaviour
 
     public PlayerHitInfo hitInfo;
     public PlayerStatusInfo statusInfo;
+    public PlayerSkillInfo skillInfo;
+
     private void Awake()
     {
         SetContextInfos();
@@ -168,14 +179,30 @@ public class PlayerContext : MonoBehaviour
     private void SetManagerDataToPlayer()
     {
         if (!Managers.Game.playData.isStatusLoaded) return;
+        contextDB.SetPlayerSkillInfo();
+        skillInfo = contextDB.SkillInfo;
         statusInfo.hp = Managers.Game.playData.playerStatus.hp;
+        statusInfo.maxHp = Managers.Game.playData.playerStatus.maxHp;
         statusInfo.curStatePercent = Managers.Game.playData.playerStatus.curStatePercent;
         statusInfo.getMemoryPeaceCounts[(int)Managers.Map.stageType] = Managers.Game.playData.playerStatus.getMemoryPeaceCounts[(int)Managers.Map.stageType];
+        skillInfo.canUseSkill = Managers.Game.playData.playerSkill.canUseSkill;
         for (int i = 0; i <= (int)EPlayerAttack.StrongAttack; i++)
         {
             statusInfo.damages[i] = Managers.Game.playData.playerStatus.damages[i];
         }
+        for (int i = 0; i < (int)EPlayerSkillType.End; i++)
+        {
+            SetSkill(i, Managers.Game.playData.playerSkill.canUseSkill[i]);
+        }
     } 
+    private void SetSkill(int skillType, bool isOpen)
+    {
+        jumpInfo.maxJumpCount = GetJumpCount(isOpen);
+    }
+    private int GetJumpCount(bool isOpen)
+    {
+        return isOpen ? skillInfo.jumpSkills[(int)EPlayerSkillOpen.Open] : skillInfo.jumpSkills[(int)EPlayerSkillOpen.Close];
+    }
     private void SetDB()
     {
         if (Managers.Game.playData.isStatusLoaded) return;
@@ -186,8 +213,18 @@ public class PlayerContext : MonoBehaviour
         attackInfo = contextDB.AttackInfo;
         hitInfo = contextDB.HitInfo;
         statusInfo = contextDB.StatusInfo;
+        skillInfo = contextDB.SkillInfo;
         Managers.Game.playData.playerStatus = statusInfo;
+        for (int i = 0; i < (int)EPlayerSkillType.End; i++)
+        {
+            skillInfo.canUseSkill[i] = false;
+        }
+        for (int i = 0; i < (int)EPlayerSkillType.End; i++)
+        {
+            SetSkill(i, skillInfo.canUseSkill[i]);
+        }
     }
+
     public bool IsIdleState
     {
         get

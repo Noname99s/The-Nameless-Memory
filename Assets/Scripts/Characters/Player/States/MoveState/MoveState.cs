@@ -10,7 +10,7 @@ namespace Orpul1.Player.State
         public MoveState(PlayerContext playerdata, Action<int> transitionTo) : base(playerdata, transitionTo) {}
         public override void OnStart()
         {
-            data.jumpInfo.jumpCount = 2;
+            data.jumpInfo.jumpCount = data.jumpInfo.maxJumpCount;
             data.playerInfo.animator.SetBool(EPlayerAniTransition.IsGround.ToString(), true);
             data.moveInfo.slideMovement.gravity = data.moveInfo.slideMoveGravity;
             data.playerInfo.rigid.gravityScale = 0;
