@@ -1,7 +1,5 @@
-using System.Collections;
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -9,21 +7,15 @@ using UnityEngine.SceneManagement;
 public enum EMixerGroup
 {
     Master,
-    BGM,
-    EFFECT,
-    UISOUND,
-    CHARACTER,
-    ATTACKSOUND,
-    EXTRA_ATKSOUND,
+    Background,
+    Effect,
+    Object,
+    Player,
+    Enemy,
+    UISound
 }
-public class SoundManager : MonoBehaviour
+public class SoundManager : ObjectPool
 {
-    enum ESceneBGM
-    {
-        LobbyScene,
-        MainGame,
-        END
-    }
     [SerializeField] AudioSource bgmPlayer;
     [SerializeField] AudioClip[] bgmClipList;
     [SerializeField] AudioMixer audioMixer;
@@ -34,12 +26,12 @@ public class SoundManager : MonoBehaviour
     public void Init()
     {
         SceneManager.sceneLoaded += OnLoadScene;
-        for (int i = 0; i < (int)ESceneBGM.END; i++)
+        for (int i = 0; i < (int)GameState.Ending; i++)
         {
-            ESceneBGM eSceneBGM = (ESceneBGM)i;
+            GameState eSceneBGM = (GameState)i;
             bgmDict.Add(eSceneBGM.ToString(), bgmClipList[i]);
         }
-        bgmPlayer.outputAudioMixerGroup = audioMixer.FindMatchingGroups(EMixerGroup.BGM.ToString())[0];
+        bgmPlayer.outputAudioMixerGroup = audioMixer.FindMatchingGroups(EMixerGroup.Background.ToString())[0];
         playerUISound -= uiSoundPlayer.PlayUISound;
         playerUISound += uiSoundPlayer.PlayUISound;
     }
@@ -59,7 +51,7 @@ public class SoundManager : MonoBehaviour
     /// <param name="effect">재생할 효과음</param>
     /// <param name="parent">소리 오브젝트 부모 설정</param>
     /// <param name="spatialBlend">3D 공간 음향 0~1(0 = 2D, 1 = 3D )</param>
-    public void PlayEffect(AudioClip effect, EMixerGroup mixerGroup = EMixerGroup.EFFECT, Transform parent = null, float spatialBlend = 0,float minDistance = 0, float maxDistance = 1)
+    public void PlayEffect(AudioClip effect, EMixerGroup mixerGroup = EMixerGroup.Effect, Transform parent = null, float spatialBlend = 0,float minDistance = 0, float maxDistance = 1)
     {
         GameObject audioObj = new GameObject();
         audioObj.transform.parent = parent;

@@ -1,4 +1,5 @@
 using Orpul1.Camera;
+using Orpul1.Player.Skill;
 using Orpul1.State;
 using System;
 using System.Collections;
@@ -20,7 +21,7 @@ namespace Orpul1.Player
         public Ray2D ladderRay;
         public RaycastHit2D groundHit;
     }
-    public class PlayerController : MonoBehaviour,IDamageAble//,IknockbackAble
+    public class PlayerController : MonoBehaviour,IDamageAble, ISkillOpenAble//,IknockbackAble
     {
         [SerializeField] StateController stateController;
         [SerializeField] PlayerContext playerData;
@@ -45,6 +46,7 @@ namespace Orpul1.Player
             playerData.playerInfo.dectectedGroundPosi = transform.position;
             delayInvincible = new WaitForSeconds(playerData.hitInfo.invincibleTime);
             delayCameraShake = new WaitForSeconds(playerData.hitInfo.cameraShakeDuration);
+
             scale = transform.localScale;
         }
         void Start()
@@ -89,7 +91,7 @@ namespace Orpul1.Player
             }
             playerData.fallInfo.isFalling = false;
             OnDamage(playerData.fallInfo.fallDamage);
-            playerData.jumpInfo.jumpCount = 2;
+            playerData.jumpInfo.jumpCount = playerData.jumpInfo.maxJumpCount;
             playerData.playerInfo.dectectedGroundPosi = rayInfo.groundHit.point;
             playerData.fallInfo.fallDamage = 0;
         }
@@ -186,6 +188,18 @@ namespace Orpul1.Player
             playerData.hitInfo.canGetDamage = false;
             yield return delayInvincible;
             playerData.hitInfo.canGetDamage = true;
+        }
+
+        [ContextMenu("OpenSkill DoubleJump")]
+        public void TestOpenSkill()
+        {
+            OpenSkill(0);
+        }
+        public void OpenSkill(int skillType)
+        {
+            playerData.jumpInfo.jumpCount = playerData.skillInfo.jumpSkills[(int)EPlayerSkillOpen.Open];
+            playerData.jumpInfo.maxJumpCount = playerData.skillInfo.jumpSkills[(int)EPlayerSkillOpen.Open];
+            Managers.Game.playData.playerSkill.canUseSkill[(int)EPlayerSkillType.DoubleJump] = true;
         }
     }
 }

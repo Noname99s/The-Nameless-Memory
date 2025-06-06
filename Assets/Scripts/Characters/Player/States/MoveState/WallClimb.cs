@@ -13,7 +13,7 @@ namespace Orpul1.Player.State
 
         public override void OnStart()
         {
-            data.jumpInfo.jumpCount = 2;
+            data.jumpInfo.jumpCount = data.jumpInfo.maxJumpCount;
             data.playerInfo.rigid.gravityScale = 0;
             data.playerInfo.rigid.linearVelocity = Vector2.zero;
             data.playerInfo.animator.SetBool(EPlayerAniTransition.IsWallClimb.ToString(), true);

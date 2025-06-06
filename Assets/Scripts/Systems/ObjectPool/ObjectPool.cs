@@ -8,7 +8,7 @@ public abstract class ObjectPool : MonoBehaviour
     private Queue<GameObject> pools = new Queue<GameObject>();
     [SerializeField] protected GameObject prefab;
     [SerializeField] protected GameObject parent;
-    private void Start()
+    protected virtual void Start()
     {
         Initialize();
     }

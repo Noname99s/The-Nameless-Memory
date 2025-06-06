@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class PlayData
 {
     public float playTime = 0f;
+
     public bool isStatusLoaded = false;
     public bool[] stageCleared = new bool[(int)Stage.Max];
     public List<bool>[] dialogComlete = new List<bool>[(int)Stage.Max]
@@ -16,6 +17,7 @@ public class PlayData
         new List<bool>(), // BossStage
     };
     public PlayerStatusInfo playerStatus = new PlayerStatusInfo();
+    public PlayerSkillInfo playerSkill = new PlayerSkillInfo();
 
     public PlayData()
     {
