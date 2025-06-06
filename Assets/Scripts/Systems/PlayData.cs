@@ -8,6 +8,7 @@ public class PlayData
     public int deathCount = 0;
     public float enforceRatio = 0f;
     public PlayerStatusInfo playerStatus = new PlayerStatusInfo();
+    public PlayerSkillInfo playerSkill = new PlayerSkillInfo();
     public bool isStatusLoaded = false;
 
     public bool[] stageCleared = new bool[(int)Stage.Max];

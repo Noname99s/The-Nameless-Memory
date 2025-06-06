@@ -17,11 +17,6 @@ public class PlayerStatusInfo
     public int deathCount;
     public int maxMemoryPeaceCount = 5;
     public float[] damages = new float[2];
-    public bool[] canUseSkill = new bool[(int)EPlayerSkillOpen.End]
-    {
-        false,
-        false,
-    };
 }
 [Serializable]
 public class PlayerAttackInfo
@@ -29,7 +24,6 @@ public class PlayerAttackInfo
     public EPlayerAttack attackType = EPlayerAttack.NormalAttack;
     public float[] attackDelays = new float[3];
     public int[] attackCounts = new int[3];
-    //public float[] damages = new float[2];
     public int curAttack = 0;
 
 
@@ -126,6 +120,7 @@ public class PlayerHitInfo
 public class PlayerSkillInfo
 {
     public int[] jumpSkills = new int[(int)EPlayerSkillOpen.End];
+    public bool[] canUseSkill = new bool[(int)EPlayerSkillOpen.End];
 }
 
 public class PlayerContext : MonoBehaviour
@@ -162,14 +157,14 @@ public class PlayerContext : MonoBehaviour
         statusInfo.hp = Managers.Game.playData.playerStatus.hp;
         statusInfo.curStatePercent = Managers.Game.playData.playerStatus.curStatePercent;
         statusInfo.getMemoryPeaceCounts[(int)Managers.Map.stageType] = Managers.Game.playData.playerStatus.getMemoryPeaceCounts[(int)Managers.Map.stageType];
-        statusInfo.canUseSkill = Managers.Game.playData.playerStatus.canUseSkill;
+        skillInfo.canUseSkill = Managers.Game.playData.playerSkill.canUseSkill;
         for (int i = 0; i <= (int)EPlayerAttack.StrongAttack; i++)
         {
             statusInfo.damages[i] = Managers.Game.playData.playerStatus.damages[i];
         }
         for (int i = 0; i < (int)EPlayerSkillType.End; i++)
         {
-            SetSkill(i, Managers.Game.playData.playerStatus.canUseSkill[i]);
+            SetSkill(i, Managers.Game.playData.playerSkill.canUseSkill[i]);
         }
     } 
     private void SetSkill(int skillType, bool isOpen)
@@ -194,11 +189,11 @@ public class PlayerContext : MonoBehaviour
         Managers.Game.playData.playerStatus = statusInfo;
         for (int i = 0; i < (int)EPlayerSkillType.End; i++)
         {
-            statusInfo.canUseSkill[i] = false;
+            skillInfo.canUseSkill[i] = false;
         }
         for (int i = 0; i < (int)EPlayerSkillType.End; i++)
         {
-            SetSkill(i, statusInfo.canUseSkill[i]);
+            SetSkill(i, skillInfo.canUseSkill[i]);
         }
     }
     public bool IsIdleState

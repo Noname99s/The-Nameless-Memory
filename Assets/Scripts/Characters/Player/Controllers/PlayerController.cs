@@ -58,7 +58,6 @@ namespace Orpul1.Player
             stateController.TransitionState((int)EPlayerState.Idle);
             playerData.moveInfo.slideMovement.gravity = playerData.moveInfo.slideMoveGravity;
             playerData.moveInfo.slideMovement.surfaceAnchor = Vector2.down * 0.1f;
-            SetOpenSkill();
         }
         private void SetCameraEvent()
         {
@@ -191,26 +190,16 @@ namespace Orpul1.Player
             playerData.hitInfo.canGetDamage = true;
         }
 
-        private void SetOpenSkill()
-        {
-            for(int i=0; i<(int)EPlayerSkillType.End; i++)
-            {
-                if(!playerData.statusInfo.canUseSkill[i]) continue;
-                OpenSkill(i);
-            }
-        }
         [ContextMenu("OpenSkill DoubleJump")]
-        public void OpenSkill()
+        public void TestOpenSkill()
         {
-            playerData.jumpInfo.jumpCount = playerData.skillInfo.jumpSkills[(int)EPlayerSkillOpen.Open];
-            playerData.jumpInfo.maxJumpCount = playerData.skillInfo.jumpSkills[(int)EPlayerSkillOpen.Open];
-            Managers.Game.playData.playerStatus.canUseSkill[(int)EPlayerSkillType.DoubleJump] = true;
+            OpenSkill(0);
         }
         public void OpenSkill(int skillType)
         {
             playerData.jumpInfo.jumpCount = playerData.skillInfo.jumpSkills[(int)EPlayerSkillOpen.Open];
             playerData.jumpInfo.maxJumpCount = playerData.skillInfo.jumpSkills[(int)EPlayerSkillOpen.Open];
-            Managers.Game.playData.playerStatus.canUseSkill[(int)EPlayerSkillType.DoubleJump] = true;
+            Managers.Game.playData.playerSkill.canUseSkill[(int)EPlayerSkillType.DoubleJump] = true;
         }
     }
 }
