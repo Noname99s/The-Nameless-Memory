@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class InGameComposition : UIPopup
 {
@@ -21,7 +22,7 @@ public class InGameComposition : UIPopup
     {
         inGameView.UpdateDialogAnim(text);
     }
-    public void OnStaticDialogUpdateConnection(string text)
+    public void OnStaticDialogUpdateConnection(List<string> text)
     {
         inGameView.UpdateStaticDialog(text);
     }

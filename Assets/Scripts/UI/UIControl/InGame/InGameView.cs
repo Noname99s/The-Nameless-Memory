@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System;
 using TMPro;
 using DG.Tweening;
+using System.Collections.Generic;
 
 public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
 {
@@ -10,6 +11,9 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     [SerializeField] DialogAnim dialogAnim;
     [SerializeField] Button staticDialog;
     [SerializeField] TextMeshProUGUI staticDialogText;
+    int _currentDialogIndex = 0;
+    bool _isDialogActive = false;
+    List<string> _staticDialogTextList = new List<string>();
 
     public GameObject pausePanel;
     [SerializeField] Button pauseButton;
@@ -63,14 +67,7 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
         quitGameButton.onClick.AddListener(() => OnQuitGame?.Invoke());
         hpSlider.value = hpSlider.maxValue;
         deathCountText.text = "0"; // Initialize death count to 0
-        staticDialog.onClick.AddListener
-            (
-                () =>
-                {
-                    staticDialog.gameObject.SetActive(false);
-                    OnEndStaticDialog?.Invoke();
-                }
-            );
+        staticDialog.onClick.AddListener(DisplayDialog);
 
         if (fadeSequence == null)
         {
@@ -84,11 +81,28 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
             dialogAnim.gameObject.SetActive(true);
         dialogAnim.PlayAnim();
     }
-    public void UpdateStaticDialog(string text)
+    public void UpdateStaticDialog(List<string> text)
     {
-        Time.timeScale = 0; // Pause the game when static dialog is shown
-        staticDialogText.text = text;
+        _currentDialogIndex = 0;
+        _staticDialogTextList = text;
+        Time.timeScale = 0; 
+        staticDialogText.text = text[_currentDialogIndex++];
         staticDialog.gameObject.SetActive(true);
+        _isDialogActive = _currentDialogIndex < text.Count; 
+    }
+    public void DisplayDialog()
+    {
+        if (_isDialogActive)
+        {
+            staticDialogText.text = _staticDialogTextList[_currentDialogIndex++];
+            _isDialogActive = _currentDialogIndex < _staticDialogTextList.Count;
+        }
+        else
+        {
+            Time.timeScale = 1; 
+            staticDialog.gameObject.SetActive(false);
+        }
+        OnEndStaticDialog?.Invoke();
     }
     public void UpdateDeathCount(int deathCount)
     {
