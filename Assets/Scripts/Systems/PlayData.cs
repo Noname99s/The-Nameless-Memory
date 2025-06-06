@@ -24,14 +24,6 @@ public class PlayData
 
     public bool isStatusLoaded = false;
     public bool[] stageCleared = new bool[(int)Stage.Max];
-    //public List<List<bool>> dialogComplete = new List<List<bool>>
-    //{
-    //    new List<bool>(), // Stage1
-    //    new List<bool>(), // Stage2
-    //    new List<bool>(), // Stage3
-    //    new List<bool>(), // Stage4
-    //    new List<bool>(), // BossStage
-    //};
     public DialogCompleteData[] dialogComplete = new DialogCompleteData[(int)Stage.Max];
     public PlayerStatusInfo playerStatus = new PlayerStatusInfo();
     public PlayerSkillInfo playerSkill = new PlayerSkillInfo();
