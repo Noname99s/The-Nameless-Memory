@@ -14,6 +14,8 @@ namespace Orpul1.Player.State.Hit
         {
             data.playerInfo.animator.SetTrigger(EPlayerAniTransition.HitTrigger.ToString());
             hitTime = Time.time + data.hitInfo.hitDuration;
+            data.playerInfo.rigid.linearVelocity = Vector2.zero;
+            data.playerInfo.rigid.AddForce(data.hitInfo.hitDir * data.hitInfo.knockBackPower, ForceMode2D.Impulse);
         }
         
         public override void OnUpdate()
@@ -25,6 +27,7 @@ namespace Orpul1.Player.State.Hit
         public override void OnExit()
         {
             data.hitInfo.isHit = false;
+            data.hitInfo.hitDir = Vector2.zero;
         }
         private void TransitionState()
         {

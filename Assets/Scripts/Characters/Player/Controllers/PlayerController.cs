@@ -169,12 +169,26 @@ namespace Orpul1.Player
             StartCoroutine("CountInvincibleTime");
             StartCoroutine("CameraShake");
         }
+        [ContextMenu("KnockBackLeft")]
+        private void KnockBackLeft()
+        {
+            playerData.hitInfo.isHit = true;
+            playerData.playerInfo.rigid.AddForce(Vector2.left * playerData.hitInfo.knockBackPower, ForceMode2D.Impulse);
+
+        }
+        [ContextMenu("KnockBackRight")]
+        private void KnockBackRight()
+        {
+            playerData.hitInfo.isHit = true;
+            playerData.playerInfo.rigid.AddForce(Vector2.right*playerData.hitInfo.knockBackPower, ForceMode2D.Impulse);
+        }
 
         public void knockback(Vector2 dir)
         {
             if (!playerData.hitInfo.canGetDamage) return;
             playerData.playerInfo.rigid.linearVelocity = Vector2.zero;
-            playerData.playerInfo.rigid.AddForce(dir * playerData.hitInfo.knockBackPower, ForceMode2D.Impulse);
+            playerData.hitInfo.hitDir = dir;
+            
         }
         IEnumerator CameraShake()
         {

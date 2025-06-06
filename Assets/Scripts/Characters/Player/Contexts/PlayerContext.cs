@@ -141,6 +141,7 @@ public class PlayerHitInfo
     public bool canGetDamage = true;
     public bool isHit = false;
     public bool isDeath = false;
+    public Vector2 hitDir = Vector2.zero;
 }
 
 [Serializable]
