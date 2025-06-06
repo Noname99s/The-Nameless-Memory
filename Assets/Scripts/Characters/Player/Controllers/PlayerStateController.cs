@@ -1,7 +1,5 @@
 using UnityEngine;
-using Orpul1;
 using Orpul1.State.Attack;
-using static UnityEngine.Rendering.DebugUI;
 
 namespace Orpul1.Player
 {

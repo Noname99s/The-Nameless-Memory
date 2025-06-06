@@ -20,7 +20,7 @@ namespace Orpul1.Player
         public Ray2D ladderRay;
         public RaycastHit2D groundHit;
     }
-    public class PlayerController : MonoBehaviour,IDamageAble, IGetValue<Transform>//,IknockbackAble
+    public class PlayerController : MonoBehaviour,IDamageAble//,IknockbackAble
     {
         [SerializeField] StateController stateController;
         [SerializeField] PlayerContext playerData;
@@ -181,15 +181,6 @@ namespace Orpul1.Player
             playerData.hitInfo.canGetDamage = false;
             yield return delayInvincible;
             playerData.hitInfo.canGetDamage = true;
-        }
-
-        /// <summary>
-        /// 위치 정보 전달
-        /// </summary>
-        /// <returns></returns>
-        public Transform GetValue()
-        {
-            return targetPosition;
         }
     }
 }

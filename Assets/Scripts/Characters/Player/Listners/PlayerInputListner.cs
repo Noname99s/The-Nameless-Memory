@@ -4,17 +4,20 @@ using Orpul1.State.Attack;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputListner : MonoBehaviour
+public class PlayerInputListner : MonoBehaviour, IProcessAble
 {
     [SerializeField] PlayerContext playerData;
     [SerializeField] PlayerInteractController playerInteractController;
     IInteractAble playerInteract;
+    bool canInput = true;
     private void Awake()
     {
         playerInteract = playerInteractController;
+        canInput = true;
     }
     public void Move(InputAction.CallbackContext context)
     {
+        if (!canInput) return;
         if (context.canceled)
         {
             playerData.moveInfo.moveDir = Vector2.zero;
@@ -24,6 +27,7 @@ public class PlayerInputListner : MonoBehaviour
     }
     public void Jump(InputAction.CallbackContext context)
     {
+        if (!canInput) return;
         if (context.canceled)
         {
             playerData.jumpInfo.isPressJump = false;
@@ -41,6 +45,8 @@ public class PlayerInputListner : MonoBehaviour
     }
     public void NormalAttack(InputAction.CallbackContext context)
     {
+        if (!canInput) return;
+
         if (playerData.attackInfo.attackType == EPlayerAttack.StrongAttack) return;
         playerData.attackInfo.isPressAttack = !context.canceled;
         playerData.attackInfo.attackType = EPlayerAttack.NormalAttack;
@@ -48,23 +54,38 @@ public class PlayerInputListner : MonoBehaviour
 
     public void StrongAttack(InputAction.CallbackContext context)
     {
+        if (!canInput) return;
+
         if (playerData.attackInfo.attackType == EPlayerAttack.NormalAttack) return;
         playerData.attackInfo.isPressAttack = !context.canceled;
         playerData.attackInfo.attackType = EPlayerAttack.StrongAttack;
     }
     public void WallClimb(InputAction.CallbackContext context)
     {
+        if (!canInput) return;
         playerData.moveInfo.isPressWallClimb = !context.canceled;
         playerData.moveInfo.isPressClimbLadder = !context.canceled;
         
     }
     public void Interact(InputAction.CallbackContext context)
     {
+        if (!canInput) return;
         if (!context.canceled)
             playerInteract.Interact();
     }
     public void Skill(InputAction.CallbackContext context)
     {
 
+    }
+
+    public void Process()
+    {
+        canInput = false;
+        // 플레이어 상태를 Idle로 만들 것
+    }
+
+    public void Abort()
+    {
+        canInput = true;
     }
 }
