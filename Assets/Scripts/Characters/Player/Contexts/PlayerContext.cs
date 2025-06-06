@@ -227,4 +227,11 @@ public class PlayerContext : MonoBehaviour
         hitInfo.canGetDamage = true;
     }
 
+    public void SetIdleState()
+    {
+        moveInfo.moveDir = Vector2.zero;
+        fallInfo.isFalling = false;
+        playerInfo.rigid.linearVelocity = Vector2.zero;
+    }
+
 }

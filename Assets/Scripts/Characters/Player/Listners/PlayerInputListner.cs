@@ -81,7 +81,7 @@ public class PlayerInputListner : MonoBehaviour, IProcessAble
     public void Process()
     {
         canInput = false;
-        // 플레이어 상태를 Idle로 만들 것
+        playerData.SetIdleState();
     }
 
     public void Abort()
