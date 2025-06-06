@@ -51,6 +51,7 @@ public class GameManager
                 break;
             case GameState.Home:
                 // Logic for home
+                Managers.Map.stageType = Stage.Hub; // Set stage type to Hub
                 Managers.UI.ShowPopupUI<InGameComposition>();
                 Managers.Player.Init(new Vector3(9, 8, 0)); // Initialize player
                 break;
