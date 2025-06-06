@@ -22,6 +22,7 @@ namespace Orpul1.Player.State
             data.playerInfo.rigid.gravityScale = 0;
             data.playerInfo.rigid.linearVelocity = Vector2.zero;
             data.playerInfo.playerCollider.enabled = false;
+            data.statusInfo.deathCount++;   
             aniLength = 0;
             isStartDieAni = false;
 

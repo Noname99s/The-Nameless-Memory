@@ -226,4 +226,5 @@ public class PlayerContext : MonoBehaviour
         playerInfo.originScale = transform.localScale;
         hitInfo.canGetDamage = true;
     }
+
 }
