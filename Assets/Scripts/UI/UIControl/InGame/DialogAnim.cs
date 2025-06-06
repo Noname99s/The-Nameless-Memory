@@ -2,9 +2,16 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
-public class DialogAnim : MonoBehaviour
+public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISequnceResulter
 {
+    struct DialogAnimData
+    {
+        public int _currentTextIndex;
+        public bool _isDialogActive;
+        public List<string> _textDatas;
+    }
     [Header("Fade Animation")]
     Sequence fadeAnimSequence;
     Transform initRootPos;
@@ -14,6 +21,11 @@ public class DialogAnim : MonoBehaviour
     public TextMeshProUGUI dialogText;
     [SerializeField] Image[] fadeAnimImg;
 
+    [Header("Text Data")]
+    int _currentTextIndex = 0;
+    bool _isDialogActive = false;
+    public List<string> _textDatas = new List<string>();
+    Stack<DialogAnimData> _textDataStack = new Stack<DialogAnimData>();
     private void Awake()
     {
         if (fadeAnimSequence == null)
@@ -32,6 +44,13 @@ public class DialogAnim : MonoBehaviour
     {
         if (fadeAnimSequence != null)
         {
+            //_textDataStack.Push(new DialogAnimData
+            //{
+            //    _currentTextIndex = _currentTextIndex,
+            //    _isDialogActive = _isDialogActive,
+            //    _textDatas = new List<string>(_textDatas)
+            //});
+            _currentTextIndex = 0;
             RewindData();
             fadeAnimSequence.Restart();
         }
@@ -44,33 +63,54 @@ public class DialogAnim : MonoBehaviour
         {
             fadeAnimImg[i].color = new Color(fadeAnimImg[i].color.r, fadeAnimImg[i].color.g, fadeAnimImg[i].color.b, 0);
         }
-        //fadeAnimSequence.Rewind();
     }
-    void BuildSequence()
+    public void BuildSequence()
     {
         initRootPos = moveRoot.transform;
 
         fadeAnimSequence = DOTween.Sequence();
-        fadeAnimSequence.Append(moveRoot.transform.DOLocalMove(Vector3.zero, fadeDuration).SetEase(Ease.OutQuad));
-        fadeAnimSequence.Join(dialogText.DOFade(1, fadeDuration).SetEase(Ease.OutQuad));
+        fadeAnimSequence
+            .Append(moveRoot.transform.DOLocalMove(Vector3.zero, fadeDuration).SetEase(Ease.OutQuad))
+            .Join(dialogText.DOFade(1, fadeDuration).SetEase(Ease.OutQuad));
         for (int i = 0; i < fadeAnimImg.Length; i++)
         {
             fadeAnimSequence.Join(fadeAnimImg[i].DOFade(1, fadeDuration).SetEase(Ease.OutQuad));
         }
 
-        fadeAnimSequence.AppendInterval(stayDuration);
-
-        fadeAnimSequence.Append(moveRoot.transform.DOMove(initRootPos.position, fadeDuration).SetEase(Ease.InQuad));
-        fadeAnimSequence.Join(dialogText.DOFade(0, fadeDuration).SetEase(Ease.InQuad));
+        fadeAnimSequence
+            .AppendInterval(stayDuration)
+            .Append(moveRoot.transform.DOMove(initRootPos.position, fadeDuration).SetEase(Ease.InQuad))
+            .Join(dialogText.DOFade(0, fadeDuration).SetEase(Ease.InQuad));
         for (int i = 0; i < fadeAnimImg.Length; i++)
         {
             fadeAnimSequence.Join(fadeAnimImg[i].DOFade(0, fadeDuration).SetEase(Ease.InQuad));
         }
-        fadeAnimSequence.SetAutoKill(false);
-        fadeAnimSequence.OnComplete(() =>
+        fadeAnimSequence
+            .OnStart(() => StartSequence())
+            .OnRewind(() => StartSequence())
+            .SetAutoKill(false)
+            .OnComplete(() => SequenceResult())
+            .Pause();
+    }
+    public void StartSequence()
+    {
+        if (_textDatas.Count > 0)
+        {
+            dialogText.text = _textDatas[_currentTextIndex++];
+            Debug.Log("CurrenTextIndex: " + _currentTextIndex);
+            _isDialogActive = _currentTextIndex < _textDatas.Count;
+        }
+    }
+    public void SequenceResult()
+    { 
+        if (_isDialogActive)
+        {
+            this.gameObject.SetActive(true);
+            fadeAnimSequence.Restart();
+        }
+        else
         {
             this.gameObject.SetActive(false);
-        });
-        fadeAnimSequence.Pause();
+        }
     }
 }

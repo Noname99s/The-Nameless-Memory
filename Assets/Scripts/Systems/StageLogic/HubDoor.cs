@@ -1,4 +1,5 @@
 using Orpul1;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class HubDoor : MonoBehaviour, IInteractAble
@@ -7,7 +8,7 @@ public class HubDoor : MonoBehaviour, IInteractAble
     [SerializeField] SO_MapInfo[] stageInfo;
     [SerializeField] bool isOpen = false;
     bool isInDoor = false;
-    public event System.Action<string> OnCannotEnter;
+    public event System.Action<List<string>> OnCannotEnter;
     void Start()
     {
         OnCannotEnter += Managers.UI.GetPopupUI<InGameComposition>().OnDialogAnimUpdateConnection;
@@ -37,7 +38,11 @@ public class HubDoor : MonoBehaviour, IInteractAble
         if (!isOpen)
         {
             // Cannot enter Dialog
-            OnCannotEnter?.Invoke("아직은 들어갈 수 없어. 앞선 죄목을 먼저 파해치자.");
+            List<string> cannotEnterText = new List<string>
+            {
+                "아직은 들어갈 수 없어. 앞선 죄목을 먼저 파해치자."
+            };
+            OnCannotEnter?.Invoke(cannotEnterText);
             return;
         }
         if(stageType == Stage.BossStage)
@@ -54,7 +59,7 @@ public class HubDoor : MonoBehaviour, IInteractAble
                 Managers.Map.mapInfos.Add(stageInfo[i]);
             }
         }
-        Managers.Map.HubDoorEntrance();
+        Managers.Game.ChangeState(GameState.Battle);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

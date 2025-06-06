@@ -13,6 +13,11 @@ public class SceneLoadManager
         AsyncOperation async = SceneManager.LoadSceneAsync(currentScene, LoadSceneMode.Additive);
         async.completed += (AsyncOperation obj) => { SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentScene)); };
     }
+    public void LoadSameScene()
+    {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("UIScene"));
+        LoadScene(currentScene);
+    }
     public void LoadScene(string sceneName)
     {
         Managers.UI.CloseAllPopupUI(); // Close all UI popups before loading new scene
