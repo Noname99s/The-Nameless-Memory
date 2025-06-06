@@ -155,6 +155,7 @@ public class PlayerContext : MonoBehaviour
         contextDB.SetPlayerSkillInfo();
         skillInfo = contextDB.SkillInfo;
         statusInfo.hp = Managers.Game.playData.playerStatus.hp;
+        statusInfo.maxHp = Managers.Game.playData.playerStatus.maxHp;
         statusInfo.curStatePercent = Managers.Game.playData.playerStatus.curStatePercent;
         statusInfo.getMemoryPeaceCounts[(int)Managers.Map.stageType] = Managers.Game.playData.playerStatus.getMemoryPeaceCounts[(int)Managers.Map.stageType];
         skillInfo.canUseSkill = Managers.Game.playData.playerSkill.canUseSkill;
@@ -196,6 +197,7 @@ public class PlayerContext : MonoBehaviour
             SetSkill(i, skillInfo.canUseSkill[i]);
         }
     }
+
     public bool IsIdleState
     {
         get

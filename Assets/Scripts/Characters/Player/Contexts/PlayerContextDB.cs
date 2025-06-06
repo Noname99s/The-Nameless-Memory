@@ -54,7 +54,8 @@ namespace Orpul1.Player
             int index = (int)EContextInfo.InfoStart;
             if (Managers.Game.playData.isStatusLoaded) return;
             Managers.Game.playData.isStatusLoaded = true;
-            statusInfo.hp = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            statusInfo.maxHp = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
+            statusInfo.hp = statusInfo.maxHp;
 
             //TODO : 플레이어 데이터 베이스 갱신되면 주석 해재하기(2025/6/5)
             statusInfo.deathCount = (int)BG_DB_PlayerData.GetEntity(index++)._InitialValue;
