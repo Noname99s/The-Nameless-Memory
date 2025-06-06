@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAbleTag: 0
+  attackAbleTag: 6
   attackPositoin: {fileID: 4047690924073553761}
   attackCollider: {fileID: 8215785008780480672}
   damage: 10
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAbleTag: 0
+  attackAbleTag: 6
   attackPositoin: {fileID: 268052352898301808}
   attackCollider: {fileID: 2328280325318287281}
   damage: 10
@@ -5299,7 +5299,7 @@ CompositeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -7847,6 +7847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5756941994564591849}
   - component: {fileID: 157586655579651364}
+  - component: {fileID: 6429391481598341838}
   m_Layer: 9
   m_Name: Collider10
   m_TagString: Untagged
@@ -7915,6 +7916,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.04, y: 1.58}
   m_EdgeRadius: 0
+--- !u!114 &6429391481598341838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571963313722127838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackAbleTag: 6
+  attackPositoin: {fileID: 0}
+  attackCollider: {fileID: 0}
+  damage: 10
 --- !u!1 &2117325572382804001
 GameObject:
   m_ObjectHideFlags: 0
@@ -8006,7 +8023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAbleTag: 0
+  attackAbleTag: 6
   attackPositoin: {fileID: 4835268511534306579}
   attackCollider: {fileID: 5245696157664073380}
   damage: 10
@@ -124861,7 +124878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAbleTag: 0
+  attackAbleTag: 6
   attackPositoin: {fileID: 4733590497995665984}
   attackCollider: {fileID: 4031158657318440927}
   damage: 10
@@ -181447,7 +181464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAbleTag: 0
+  attackAbleTag: 6
   attackPositoin: {fileID: 5752170876689038980}
   attackCollider: {fileID: 7105461269785452482}
   damage: 10
@@ -181558,7 +181575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAbleTag: 0
+  attackAbleTag: 6
   attackPositoin: {fileID: 5351632785336677612}
   attackCollider: {fileID: 1175793414184348190}
   damage: 10
@@ -223215,7 +223232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAbleTag: 0
+  attackAbleTag: 6
   attackPositoin: {fileID: 39977408634130758}
   attackCollider: {fileID: 3766131438670254612}
   damage: 10
@@ -223326,7 +223343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAbleTag: 0
+  attackAbleTag: 6
   attackPositoin: {fileID: 4881206750855354063}
   attackCollider: {fileID: 955293208890651274}
   damage: 10
@@ -223421,7 +223438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAbleTag: 0
+  attackAbleTag: 6
   attackPositoin: {fileID: 693912333735207186}
   attackCollider: {fileID: 5362151420894618719}
   damage: 10
@@ -223516,7 +223533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAbleTag: 0
+  attackAbleTag: 6
   attackPositoin: {fileID: 6560821263583269743}
   attackCollider: {fileID: 4019841729963865069}
   damage: 10
@@ -223611,7 +223628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAbleTag: 0
+  attackAbleTag: 6
   attackPositoin: {fileID: 1975510630099026350}
   attackCollider: {fileID: 527137373158792818}
   damage: 10
