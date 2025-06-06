@@ -9,12 +9,16 @@ namespace Orpul1.Player.State
         bool isStartDieAni = false;
         float aniLength = 0;
 
+        event Action<string> OnDeathNotify;
         public DeathState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo)
         {
+            OnDeathNotify += Managers.UI.GetPopupUI<InGameComposition>().OnSystemTextUpdateConnection;
         }
 
         public override void OnStart()
         {
+            OnDeathNotify?.Invoke(BG_DB_Dialogtext.GetEntity("Text_UI")._DialogLines[3]._Text);
+
             data.playerInfo.animator.SetBool(EPlayerAniTransition.IsDie.ToString(), true);
             data.playerInfo.animator.SetTrigger(EPlayerAniTransition.DeathTrigger.ToString());
             data.playerInfo.rigid.gravityScale = 0;

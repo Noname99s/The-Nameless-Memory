@@ -15,6 +15,8 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     int _currentStaticDialogIndex = 0;
     bool _isStaticDialogActive = false;
     List<string> _staticDialogTextList = new List<string>();
+    [SerializeField] Text systemText;
+    Sequence systemTextSequence;
 
     public GameObject pausePanel;
     [SerializeField] Button pauseButton;
@@ -113,6 +115,12 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
         staticDialog.gameObject.SetActive(true);
         _isStaticDialogActive = _currentStaticDialogIndex < text.Count; 
     }
+    public void UpdateSystemText(string text)
+    {
+        systemText.text = text;
+        systemText.color = new Color(systemText.color.r, systemText.color.g, systemText.color.b, 0);
+        systemTextSequence.Restart();
+    }
     public void DisplayDialog()
     {
         if (_isStaticDialogActive)
@@ -148,6 +156,16 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
                     .OnComplete(() => fadeImage.gameObject.SetActive(false))
                     .SetAutoKill(false)
                     .Pause();
+
+        systemTextSequence = DOTween.Sequence();
+        systemTextSequence.OnStart(() => systemText.gameObject.SetActive(true))
+                          .OnRewind(() => systemText.gameObject.SetActive(true))
+                          .Append(systemText.DOFade(1, 0.5f).SetEase(Ease.OutQuad))
+                          .AppendInterval(2f)
+                          .Append(systemText.DOFade(0, 0.5f).SetEase(Ease.InQuad))
+                          .OnComplete(() => systemText.gameObject.SetActive(false))
+                          .SetAutoKill(false)
+                          .Pause();
     }
     public void SequenceStart(Action action)
     {

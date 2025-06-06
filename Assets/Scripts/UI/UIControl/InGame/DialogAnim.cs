@@ -25,7 +25,6 @@ public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISeq
     int _currentTextIndex = 0;
     bool _isDialogActive = false;
     public List<string> _textDatas = new List<string>();
-    Stack<DialogAnimData> _textDataStack = new Stack<DialogAnimData>();
     private void Awake()
     {
         if (fadeAnimSequence == null)
@@ -44,12 +43,6 @@ public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISeq
     {
         if (fadeAnimSequence != null)
         {
-            //_textDataStack.Push(new DialogAnimData
-            //{
-            //    _currentTextIndex = _currentTextIndex,
-            //    _isDialogActive = _isDialogActive,
-            //    _textDatas = new List<string>(_textDatas)
-            //});
             _currentTextIndex = 0;
             RewindData();
             fadeAnimSequence.Restart();
