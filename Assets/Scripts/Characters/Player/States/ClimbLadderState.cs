@@ -14,7 +14,7 @@ namespace Orpul1.Player.State
         {
             Debug.Log("ClimbLadderState Start");
             data.playerInfo.rigid.gravityScale = 0;
-            data.jumpInfo.jumpCount = 2;
+            data.jumpInfo.jumpCount = data.jumpInfo.maxJumpCount;
             data.playerInfo.animator.SetBool(EPlayerAniTransition.IsClimbLadder.ToString(), true);
             data.playerInfo.playerCollider.isTrigger = true;
             data.playerInfo.rigid.linearVelocityX = 0;
