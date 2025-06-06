@@ -26,7 +26,7 @@ namespace Orpul1.Player
         {
             statusInfo.getMemoryPeaceCounts[(int)Managers.Map.stageType]++;
             statusInfo.curStatePercent += statusInfo.increaseStateValue;
-            statusInfo.maxHp += (int)statusInfo.curStatePercent;
+            statusInfo.maxHp += (int)statusInfo.increaseStateValue;
             statusInfo.hp = statusInfo.maxHp;
             statusInfo.damages[(int)EPlayerAttack.NormalAttack] *= (1 + statusInfo.curStatePercent / 100f);
             statusInfo.damages[(int)EPlayerAttack.StrongAttack] *= (1 + statusInfo.curStatePercent / 100f);

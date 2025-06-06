@@ -8,7 +8,7 @@ public class DynamicDialogTrigger : MonoBehaviour
 
     void Start()
     {
-        _isDisplayed = Managers.Game.playData.dialogComlete[(int)_stage][_dynamicDialogData._dialogIndex];
+        _isDisplayed = Managers.Game.playData.dialogComplete[(int)_stage].datas[_dynamicDialogData._dialogIndex];
         _dynamicDialogData.Init();
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -16,7 +16,7 @@ public class DynamicDialogTrigger : MonoBehaviour
         if (collision.CompareTag("Player") && !_isDisplayed)
         {
             _isDisplayed = true;
-            Managers.Game.playData.dialogComlete[(int)_stage][_dynamicDialogData._dialogIndex] = true;
+            Managers.Game.playData.dialogComplete[(int)_stage].datas[_dynamicDialogData._dialogIndex] = true;
             _dynamicDialogData.TransferDialogToUI();
         }
     }

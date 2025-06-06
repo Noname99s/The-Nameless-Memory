@@ -35,6 +35,7 @@ namespace Orpul1.Player
 
         //TODO: 플레이어 HP UI연결 시킬 것
         public event System.Action<int ,int> OnPlayerHpChanged;
+        public event System.Action<int> OnPlayerDeath;
 
         [SerializeField] EPlayerState state;
         private void Awake()
@@ -51,6 +52,8 @@ namespace Orpul1.Player
         }
         void Start()
         {
+            OnPlayerDeath += Managers.UI.GetPopupUI<InGameComposition>().OnDeathCountUpdateConnection;
+            OnPlayerDeath?.Invoke(Managers.Game.playData.playerStatus.deathCount);
             playerData.statusInfo.hp = playerData.statusInfo.maxHp;
             OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
             OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);

@@ -35,9 +35,9 @@ public class GameManager
     }
     public void StartStage(Stage stage, int interactionCount)
     {
-        while (playData.dialogComlete[(int)stage].Count < interactionCount)
+        while (playData.dialogComplete[(int)stage].datas.Count < interactionCount)
         {
-            playData.dialogComlete[(int)stage].Add(false);
+            playData.dialogComplete[(int)stage].datas.Add(false);
         }
     }
     public void ChangeState(GameState newState)

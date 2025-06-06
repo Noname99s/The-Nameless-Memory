@@ -9,20 +9,20 @@ public class WillFragmentLogic : MonoBehaviour
     {
         firstRespawnPlayer.Init();
         fistFragmentCollected.Init();
-        if (Managers.Game.playData.dialogComlete[(int)Stage.Stage1][firstRespawnPlayer._dialogIndex] == false)
+        if (Managers.Game.playData.dialogComplete[(int)Stage.Stage1].datas[firstRespawnPlayer._dialogIndex] == false)
         {
             firstRespawnPlayer.TransferDialogToUI();
-            Managers.Game.playData.dialogComlete[(int)Stage.Stage1][firstRespawnPlayer._dialogIndex] = true;
+            Managers.Game.playData.dialogComplete[(int)Stage.Stage1].datas[firstRespawnPlayer._dialogIndex] = true;
         }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            if (Managers.Game.playData.dialogComlete[(int)Stage.Stage1][fistFragmentCollected._dialogIndex] == false)
+            if (Managers.Game.playData.dialogComplete[(int)Stage.Stage1].datas[fistFragmentCollected._dialogIndex] == false)
             {
                 fistFragmentCollected.TransferDialogToUI();
-                Managers.Game.playData.dialogComlete[(int)Stage.Stage1][fistFragmentCollected._dialogIndex] = true;
+                Managers.Game.playData.dialogComplete[(int)Stage.Stage1].datas[fistFragmentCollected._dialogIndex] = true;
                 other.GetComponent<ISkillOpenAble>()?.OpenSkill((int)EPlayerSkillType.DoubleJump);
             }
             Managers.Map.getFragment = true;

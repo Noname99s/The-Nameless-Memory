@@ -1,5 +1,21 @@
 using System;
 using System.Collections.Generic;
+[Serializable]
+public class DialogCompleteData
+{
+    public List<bool> datas = new List<bool>();
+    public DialogCompleteData(int interactionCount)
+    {
+        for (int i = 0; i < interactionCount; i++)
+        {
+            datas.Add(false); // 초기화
+        }
+    }
+    public DialogCompleteData(List<bool> interactionData)
+    {
+        datas = new List<bool>(interactionData);
+    }
+}
 
 [Serializable]
 public class PlayData
@@ -8,14 +24,15 @@ public class PlayData
 
     public bool isStatusLoaded = false;
     public bool[] stageCleared = new bool[(int)Stage.Max];
-    public List<bool>[] dialogComlete = new List<bool>[(int)Stage.Max]
-    {
-        new List<bool>(), // Stage1
-        new List<bool>(), // Stage2
-        new List<bool>(), // Stage3
-        new List<bool>(), // Stage4
-        new List<bool>(), // BossStage
-    };
+    //public List<List<bool>> dialogComplete = new List<List<bool>>
+    //{
+    //    new List<bool>(), // Stage1
+    //    new List<bool>(), // Stage2
+    //    new List<bool>(), // Stage3
+    //    new List<bool>(), // Stage4
+    //    new List<bool>(), // BossStage
+    //};
+    public DialogCompleteData[] dialogComplete = new DialogCompleteData[(int)Stage.Max];
     public PlayerStatusInfo playerStatus = new PlayerStatusInfo();
     public PlayerSkillInfo playerSkill = new PlayerSkillInfo();
 
@@ -26,7 +43,7 @@ public class PlayData
         for (int i = 0; i < (int)Stage.Max; i++)
         {
             stageCleared[i] = false; // 기본값 설정
-            dialogComlete[i] = new List<bool>(); // 각 스테이지에 대한 대화 완료 리스트 초기화
+            dialogComplete[i] = new DialogCompleteData(0); // 초기화
         }
         playerStatus = new PlayerStatusInfo(); // 기본 플레이어 상태 초기화
         playerSkill = new PlayerSkillInfo();
@@ -39,13 +56,14 @@ public class PlayData
         {
             Array.Copy(data.stageCleared, stageCleared, (int)Stage.Max);
         }
-        if (data.dialogComlete != null && data.dialogComlete.Length == (int)Stage.Max)
+        for (int i = 0; i < (int)Stage.Max; i++)
         {
-            for (int i = 0; i < (int)Stage.Max; i++)
-            {
-                dialogComlete[i] = new List<bool>(data.dialogComlete[i]);
-            }
+            if (data.dialogComplete[i] != null)
+                dialogComplete[i] = new DialogCompleteData(data.dialogComplete[i].datas);
+            else
+                dialogComplete[i] = new DialogCompleteData(0); // 초기화
         }
+
         playerStatus = new PlayerStatusInfo(data.playerStatus);
         playerSkill = new PlayerSkillInfo(data.playerSkill); // 플레이어 스킬 정보 복사
         isStatusLoaded = true;

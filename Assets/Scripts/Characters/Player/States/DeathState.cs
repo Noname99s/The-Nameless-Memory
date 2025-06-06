@@ -8,11 +8,9 @@ namespace Orpul1.Player.State
     {
         bool isStartDieAni = false;
         float aniLength = 0;
-        public event System.Action<int> OnPlayerDeath;
 
         public DeathState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo)
         {
-            OnPlayerDeath += Managers.UI.GetPopupUI<InGameComposition>().OnDeathCountUpdateConnection;
         }
 
         public override void OnStart()
@@ -25,7 +23,7 @@ namespace Orpul1.Player.State
             aniLength = 0;
             isStartDieAni = false;
 
-            OnPlayerDeath?.Invoke(++Managers.Game.playData.playerStatus.deathCount);
+            ++Managers.Game.playData.playerStatus.deathCount;
             Managers.Map.RecordDeathInfo(data.playerInfo.dectectedGroundPosi);
             Managers.Map.getFragment = false;
             data.playerInfo.animator.SetTrigger(EPlayerAni.DeathTrigger.ToString());
