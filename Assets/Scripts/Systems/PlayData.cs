@@ -44,6 +44,7 @@ public class PlayData
             }
         }
         playerStatus = new PlayerStatusInfo(data.playerStatus);
+        isStatusLoaded = true;
     }
 }
 [Serializable]

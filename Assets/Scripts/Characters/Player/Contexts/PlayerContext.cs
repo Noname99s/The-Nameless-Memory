@@ -168,13 +168,7 @@ public class PlayerContext : MonoBehaviour
     private void SetManagerDataToPlayer()
     {
         if (!Managers.Game.playData.isStatusLoaded) return;
-        statusInfo.hp = Managers.Game.playData.playerStatus.hp;
-        statusInfo.curStatePercent = Managers.Game.playData.playerStatus.curStatePercent;
-        statusInfo.getMemoryPeaceCounts[(int)Managers.Map.stageType] = Managers.Game.playData.playerStatus.getMemoryPeaceCounts[(int)Managers.Map.stageType];
-        for (int i = 0; i <= (int)EPlayerAttack.StrongAttack; i++)
-        {
-            statusInfo.damages[i] = Managers.Game.playData.playerStatus.damages[i];
-        }
+        statusInfo = new PlayerStatusInfo(Managers.Game.playData.playerStatus);
     } 
     private void SetDB()
     {
@@ -187,6 +181,7 @@ public class PlayerContext : MonoBehaviour
         hitInfo = contextDB.HitInfo;
         statusInfo = contextDB.StatusInfo;
         Managers.Game.playData.playerStatus = statusInfo;
+        Managers.Game.playData.isStatusLoaded = true;
     }
     public bool IsIdleState
     {
