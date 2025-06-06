@@ -14,7 +14,7 @@ public enum EMixerGroup
     Enemy,
     UISound
 }
-public class SoundManager : ObjectPool
+public class SoundManager : MonoBehaviour
 {
     [SerializeField] AudioSource bgmPlayer;
     [SerializeField] AudioClip[] bgmClipList;
