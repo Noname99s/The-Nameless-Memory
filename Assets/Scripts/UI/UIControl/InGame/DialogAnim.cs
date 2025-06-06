@@ -4,8 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequnceResulter
+public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISequnceResulter
 {
+    struct DialogAnimData
+    {
+        public int _currentTextIndex;
+        public bool _isDialogActive;
+        public List<string> _textDatas;
+    }
     [Header("Fade Animation")]
     Sequence fadeAnimSequence;
     Transform initRootPos;
@@ -19,6 +25,7 @@ public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequnceResulter
     int _currentTextIndex = 0;
     bool _isDialogActive = false;
     public List<string> _textDatas = new List<string>();
+    Stack<DialogAnimData> _textDataStack = new Stack<DialogAnimData>();
     private void Awake()
     {
         if (fadeAnimSequence == null)
@@ -37,6 +44,12 @@ public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequnceResulter
     {
         if (fadeAnimSequence != null)
         {
+            //_textDataStack.Push(new DialogAnimData
+            //{
+            //    _currentTextIndex = _currentTextIndex,
+            //    _isDialogActive = _isDialogActive,
+            //    _textDatas = new List<string>(_textDatas)
+            //});
             _currentTextIndex = 0;
             RewindData();
             fadeAnimSequence.Restart();
@@ -73,27 +86,20 @@ public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequnceResulter
             fadeAnimSequence.Join(fadeAnimImg[i].DOFade(0, fadeDuration).SetEase(Ease.InQuad));
         }
         fadeAnimSequence
-            .OnStart(() =>
-            {
-                if (_textDatas.Count > 0)
-                {
-                    dialogText.text = _textDatas[_currentTextIndex++];
-                    Debug.Log("CurrenTextIndex: " + _currentTextIndex);
-                    _isDialogActive = _currentTextIndex < _textDatas.Count;
-                }
-            })
-            .OnRewind(() =>
-            {
-                if (_textDatas.Count > 0)
-                {
-                    dialogText.text = _textDatas[_currentTextIndex++];
-                    Debug.Log("CurrenTextIndex2: " + _currentTextIndex);
-                    _isDialogActive = _currentTextIndex < _textDatas.Count;
-                }
-            })
+            .OnStart(() => StartSequence())
+            .OnRewind(() => StartSequence())
             .SetAutoKill(false)
             .OnComplete(() => SequenceResult())
             .Pause();
+    }
+    public void StartSequence()
+    {
+        if (_textDatas.Count > 0)
+        {
+            dialogText.text = _textDatas[_currentTextIndex++];
+            Debug.Log("CurrenTextIndex: " + _currentTextIndex);
+            _isDialogActive = _currentTextIndex < _textDatas.Count;
+        }
     }
     public void SequenceResult()
     { 
