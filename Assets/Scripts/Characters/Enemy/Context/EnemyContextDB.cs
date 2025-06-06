@@ -1,11 +1,9 @@
-using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Orpul1.Enemy.DB
 {
     [CreateAssetMenu(fileName = "EnemyContextDB", menuName = "DataBase/EnemyContextDB")]
-    public class EnemyContextDB : ScriptableObject, IVisitAble
+    public class EnemyContextDB : ScriptableObject
     {
         [SerializeField] private EEnemyType enemyType;
         public enum EEnemyContextDB
@@ -19,62 +17,68 @@ namespace Orpul1.Enemy.DB
             EnemyDieInfoStart = 16,
             SightInfoStart = 17,
         }
-        private void SetDB(EnemyContext context)
+        public void SetDB(EnemyContext context)
         {
-            int index = (int)enemyType;
-            context.enemyInfo.hp = BG_DB_Enemydata.GetEntity(index)._HP;
-            context.attackInfo.damage = BG_DB_Enemydata.GetEntity(index)._ATK;
-            context.patrolInfo.patrolMoveSpeed = BG_DB_Enemydata.GetEntity(index)._SPD;
+            SetEnemyInfo(context.enemyInfo);
+            SetEnemyIdleInfo(context.idleInfo);
+            SetEnemyPatrolInfo(context.patrolInfo);
+            SetEnemyChaseInfo(context.chaseInfo);
+            SetEnemyAttackInfo(context.attackInfo);
+            SetEnemyHitInfo(context.hitInfo);
+            SetEnemyDieInfo(context.dieInfo);
+            SetEnemySightInfo(context.sightInfo);
         }
-        public void Visit<T>(T t)
+        public void SetEnemyInfo(EnemyInfo enemyInfo)
         {
-            /*SetEnemyIdleInfo(t);
-            SetEnemyPatrolInfo(t);
-            SetEnemyChaseInfo(t);
-            SetEnemyAttackInfo(t);
-            SetEnemyHitInfo(t);
-            SetEnemyDieInfo(t);
-            SetEnemySightInfo(t);*/
+            int index = (int)EEnemyContextDB.EnemyInfoStart;
+            enemyInfo.gravityStrength = (int)BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
+            enemyInfo.hp = (int)BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
         }
-        public void SetEnemyInfo()
+        public void SetEnemyIdleInfo(EnemyIdleInfo idleInfo)
         {
-
+            int index = (int)EEnemyContextDB.EnemyIdleInfoStart;
+            idleInfo.idleDuration= BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
         }
-       /* public void SetEnemyIdleInfo<T>(T t)
+        public void SetEnemyPatrolInfo(EnemyPatrolInfo patrolInfo)
         {
-            if (!(t is EnemyIdleInfo info)) return;
-            int index = (int)EEnemyType.BlueMelee;
-            BG_DB_Enemydata.GetEntity(index)._HP
-        }
-        public void SetEnemyPatrolInfo<T>(T t)
-        {
-            if (!(t is EnemyPatrolInfo info)) return;
             int index = (int)EEnemyContextDB.EnemyPatrolInfoStart;
+            patrolInfo.patrolMoveSpeed = BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
+            patrolInfo.sightRadius = BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
+            patrolInfo.patrolMoveSpeed = BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
         }
-        public void SetEnemyChaseInfo<T>(T t)
+        public void SetEnemyChaseInfo(EnemyChaseInfo chaseInfo)
         {
-            if (!(t is EnemyChaseInfo info)) return;
             int index = (int)EEnemyContextDB.EnemyChaseInfoStart;
+            chaseInfo.chaseMoveSpeed = BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
+            chaseInfo.chaseDistance = BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
+            chaseInfo.sightRadius = BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
         }
-        public void SetEnemyAttackInfo<T>(T t)
+        public void SetEnemyAttackInfo(EnemyAttackInfo attackInfo)
         {
-            if (!(t is EnemyAttackInfo info)) return;
             int index = (int)EEnemyContextDB.EnemyAttackInfoStart;
+            attackInfo.attackDelay = BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
+            attackInfo.attackDistance = BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
+            attackInfo.damage = (int)BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
         }
-        public void SetEnemyHitInfo<T>(T t)
+        public void SetEnemyHitInfo(EnemyHitInfo hitInfo)
         {
-            if (!(t is EnemyHitInfo info)) return;
             int index = (int)EEnemyContextDB.EnemyHitInfoStart;
+            hitInfo.hitDuration = BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
+            hitInfo.knockBackPower = BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
+            hitInfo.blinkCount = (int)BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
+            hitInfo.hitDuration = BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
         }
-        public void SetEnemyDieInfo<T>(T t)
+        public void SetEnemyDieInfo(EnemyDieInfo dieInfo)
         {
-            if (!(t is EnemyDieInfo info)) return;
             int index = (int)EEnemyContextDB.EnemyDieInfoStart;
+            dieInfo.deactiveTime = BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
         }
-        public void SetEnemySightInfo<T>(T t)
+        public void SetEnemySightInfo(SightInfo sightInfo)
         {
-            if (!(t is SightInfo info)) return;
             int index = (int)EEnemyContextDB.SightInfoStart;
-        }*/
+            sightInfo.angle = BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
+            sightInfo.radius = BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
+            sightInfo.rotateZ = BG_DB_Enemydata.GetEntity((int)enemyType)._EnemyStatus[index++]._InitiValue;
+        }
     }
 }

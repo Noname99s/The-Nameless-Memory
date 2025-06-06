@@ -109,34 +109,15 @@ namespace Orpul1.Enemy
         public SightInfo sightInfo;
         public void Initialize()
         {
-            /*SetInfos();
-            SetSightInfo();*/
+            SetInfos();
             hitInfo.waitNextBlink = new WaitForSeconds(hitInfo.blinkDuration);
         }
         private void SetInfos()
         {
-            IVisitAble dbVisit = enemyContextDB as IVisitAble;
-            if (dbVisit == null) return;
+            enemyContextDB.SetDB(this);
+        }
 
-            dbVisit.Visit<EnemyInfo>(enemyInfo);
-            dbVisit.Visit<EnemyIdleInfo>(idleInfo);
-            dbVisit.Visit<EnemyPatrolInfo>(patrolInfo);
-            dbVisit.Visit<EnemyChaseInfo>(chaseInfo);
-            dbVisit.Visit<EnemyAttackInfo>(attackInfo);
-            dbVisit.Visit<EnemyHitInfo>(hitInfo);
-            dbVisit.Visit<EnemyDieInfo>(dieInfo);
-            dbVisit.Visit<SightInfo>(sightInfo);
-        }
-        private void SetSightInfo()
-        {
-            IVisitAble visit = fieldOfView as IVisitAble;
-            if (visit == null)
-            {
-                Debug.LogError("IVisitAble is Null of sightView ");
-                return;
-            }
-            visit.Visit(sightInfo);
-        }
+        // >> 전이 조건들 :
         public bool IsPatrolState
         {
             get { return !chaseInfo.isFindChaseTarget; }
@@ -176,6 +157,7 @@ namespace Orpul1.Enemy
         {
             get { return enemyInfo.hp <= 0; }
         }
+        // << :
     }
 
 }

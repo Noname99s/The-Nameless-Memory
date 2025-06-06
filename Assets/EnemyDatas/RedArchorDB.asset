@@ -12,4 +12,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a02e57ef678e5499ad85daf02472c0, type: 3}
   m_Name: RedArchorDB
   m_EditorClassIdentifier: 
-  enemyType: 1
+  enemyType: 4
+  enemyInfo:
+    rigid: {fileID: 0}
+    slideMovement:
+      <maxIterations>k__BackingField: 3
+      <surfaceSlideAngle>k__BackingField: 90
+      <gravitySlipAngle>k__BackingField: 90
+      <surfaceUp>k__BackingField: {x: 0, y: 1}
+      <surfaceAnchor>k__BackingField: {x: 0, y: -1}
+      <gravity>k__BackingField: {x: 0, y: -9.81}
+      <startPosition>k__BackingField: {x: 0, y: 0}
+      <selectedCollider>k__BackingField: {fileID: 0}
+      <layerMask>k__BackingField:
+        serializedVersion: 2
+        m_Bits: 4294967295
+      <useLayerMask>k__BackingField: 0
+      <useStartPosition>k__BackingField: 0
+      <useNoMove>k__BackingField: 0
+      <useSimulationMove>k__BackingField: 0
+      <useAttachedTriggers>k__BackingField: 0
+    slideResult:
+      <remainingVelocity>k__BackingField: {x: 0, y: 0}
+      <position>k__BackingField: {x: 0, y: 0}
+      <iterationsUsed>k__BackingField: 0
+    sprite: {fileID: 0}
+    animator: {fileID: 0}
+    enemyCollider: {fileID: 0}
+    originScale: {x: 1, y: 1, z: 1}
+    gravityStrength: 5
+    isGround: 1
+    isAlwayChasePlayer: 0
+    hp: 100
+    flipValue: 1
+  idleInfo:
+    idleDuration: 5
+  patrolInfo:
+    patrolType: 0
+    sightAngle: 0
+    patrolMoveSpeed: 5
+    movePosis: []
+    sightRadius: 3
+    moveTime: 0
+  chaseInfo:
+    chaseTarget: {fileID: 0}
+    isFindChaseTarget: 0
+    chaseMoveSpeed: 5
+    chaseDistance: 10
+    sightAngle: 0
+    sightRadius: 10
+  attackInfo:
+    attackType: 0
+    arrowFactory: {fileID: 0}
+    attackDelay: 3
+    attackDistance: 5
+    arrowSpeed: 0
+    damage: 8
+  hitInfo:
+    hitDuration: 0.1
+    knockBackPower: 5
+    blinkCount: 3
+    blinkDuration: 0.1
+    blinkColors: []
+    stillBlink: 0
+    isHit: 0
+  dieInfo:
+    isDie: 0
+    deactiveTime: 2
+  sightInfo:
+    originPosi: {x: 0, y: 0, z: 0}
+    detectMask:
+      serializedVersion: 2
+      m_Bits: 0
+    ignoreMask:
+      serializedVersion: 2
+      m_Bits: 0
+    angle: 150
+    radius: 5
+    rotateZ: 90

@@ -46,8 +46,8 @@ namespace Orpul1.Player
         }
         void Start()
         {
-            OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
-            OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
+            //OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
+            //OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
             Managers.Camera.SetCameraEvent(SetCameraEvent);
             SetCameraEvent();
             stateController.TransitionState((int)EPlayerState.Idle);
@@ -147,7 +147,7 @@ namespace Orpul1.Player
             playerData.statusInfo.hp += recoverAmount;
             // Ensure hp does not exceed maxHp
             playerData.statusInfo.hp = Mathf.Clamp(playerData.statusInfo.hp, 0, playerData.statusInfo.maxHp);
-            OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
+            //OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
 
         }
         public void OnDamage(int damage)
