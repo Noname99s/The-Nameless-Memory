@@ -12,7 +12,7 @@ public interface IInGameView
     event Action OnQuitGame;
 
     //Player
-    void UpdateDialogAnim(List<string> text);
+    void UpdateDialogAnim(List<string> text , bool isBoss = false);
     void UpdateStaticDialog(List<string> text);
     void UpdateDeathCount(int deathCount);
     void UpdateHP(int hp, int maxHp);

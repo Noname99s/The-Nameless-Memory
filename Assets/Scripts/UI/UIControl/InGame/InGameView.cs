@@ -8,6 +8,7 @@ using System.Collections.Generic;
 public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
 {
     [Header("Dialog")]
+    [SerializeField] DialogAnim bossDialogAnim;
     [SerializeField] DialogAnim dialogAnim;
     [SerializeField] Button staticDialog;
     [SerializeField] TextMeshProUGUI staticDialogText;
@@ -80,12 +81,22 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
             DisplayDialog();
         }
     }
-    public void UpdateDialogAnim(List<string> text)
+    public void UpdateDialogAnim(List<string> text , bool isBoss = false)
     {
-        dialogAnim._textDatas = text;
-        if (!dialogAnim.gameObject.activeSelf)
-            dialogAnim.gameObject.SetActive(true);
-        dialogAnim.PlayAnim();
+        if(!isBoss)
+        {
+            dialogAnim._textDatas = text;
+            if (!dialogAnim.gameObject.activeSelf)
+                dialogAnim.gameObject.SetActive(true);
+            dialogAnim.PlayAnim();
+        }
+        else
+        {
+            bossDialogAnim._textDatas = text;
+            if (!bossDialogAnim.gameObject.activeSelf)
+                bossDialogAnim.gameObject.SetActive(true);
+            bossDialogAnim.PlayAnim();
+        }
     }
     public void UpdateStaticDialog(List<string> text)
     {

@@ -7,7 +7,7 @@ public class StaticDialogTrigger : MonoBehaviour
     bool _isDisplayed = false;
     void Start()
     {
-        if (Managers.Game.playData.stageCleared[(int)_stage]) _isDisplayed = true;
+        _isDisplayed = Managers.Map.dialogComlete[(int)_stage][_staticDialogData._dialogIndex];
         _staticDialogData.Init();
     }
 
@@ -16,6 +16,7 @@ public class StaticDialogTrigger : MonoBehaviour
         if( collision.CompareTag("Player") && !_isDisplayed)
         {
             _isDisplayed = true;
+            Managers.Map.dialogComlete[(int)_stage][_staticDialogData._dialogIndex] = true; 
             _staticDialogData.TransferDialogToUI();
         }
     }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8252307188726327935}
+  - component: {fileID: 6106901047250775625}
   m_Layer: 0
   m_Name: Map1
   m_TagString: TileRoot
@@ -41,6 +42,28 @@ Transform:
   - {fileID: 7065154912571866328}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6106901047250775625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339138472062551120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f93681fcce8ee844a65ab47674b4128, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 0
+  interactionCount: 11
+  dynamicDialogDatas:
+  - {fileID: 11400000, guid: 6d20a155783ef884480163db4322a209, type: 2}
+  - {fileID: 11400000, guid: 6bc1975f5736e7a4e91853d9acc59a00, type: 2}
+  - {fileID: 11400000, guid: 56d68e24ed4da3d4f8ad902396eda3ce, type: 2}
+  staticDialogDatas:
+  - {fileID: 11400000, guid: 6968e3b043c8ee54e8284fa042885352, type: 2}
+  - {fileID: 11400000, guid: 44440b2e544a5af4c99d446aa0e4c82a, type: 2}
+  - {fileID: 11400000, guid: d37a0c7351dc11242afaba9917497ea7, type: 2}
 --- !u!1 &383799353939959545
 GameObject:
   m_ObjectHideFlags: 0

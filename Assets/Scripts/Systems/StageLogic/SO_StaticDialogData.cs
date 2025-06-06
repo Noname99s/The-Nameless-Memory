@@ -7,6 +7,7 @@ using System;
 public class SO_StaticDialogData : ScriptableObject
 {
     [SerializeField] string _scenarioType = "Text_Prologue";
+    public int _dialogIndex = 0;
     [SerializeField] int _startDialogIndex = 0;
     [SerializeField] int listSize = 1;
 
