@@ -15,6 +15,7 @@ public class Managers : MonoBehaviour
     [SerializeField] ResourceManager _resource;
     [SerializeField] MapManager _mapManager;
     [SerializeField] PlayerManager _playerManager;
+    [SerializeField] SoundManager _soundManager;
 
     public static GameManager Game { get { return Instance._game; } }
     public static GameDataManager GameData { get { return Instance._gameData; } }
@@ -24,6 +25,7 @@ public class Managers : MonoBehaviour
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static MapManager Map { get { return Instance._mapManager; } }
     public static PlayerManager Player { get { return Instance._playerManager; } }
+    public static SoundManager Sound { get { return Instance._soundManager; } }
 
     static Managers Instance 
     { 
