@@ -4170,6 +4170,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: bossDialogData
+      value: 
+      objectReference: {fileID: 11400000, guid: ed54b099bd682f440b6146a14a4be567, type: 2}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: bossIntroDialog
+      value: 
+      objectReference: {fileID: 11400000, guid: 821e2d3f76057b04caac94fdde5265d3, type: 2}
     - target: {fileID: 7456571372819098835, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: m_Name
       value: Mirrored

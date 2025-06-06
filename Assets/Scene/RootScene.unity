@@ -193,8 +193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08194825720c7364ba8ec22c5ce58d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageType: 6
-  mapInfos: []
+  stageType: 0
+  mapInfos:
+  - {fileID: 11400000, guid: 136b7a2cdcc44ba41869fdab3d5c7f51, type: 2}
   currentMapIndex: -1
   movePoint: {x: 0, y: 0, z: 0}
   deathInfo:

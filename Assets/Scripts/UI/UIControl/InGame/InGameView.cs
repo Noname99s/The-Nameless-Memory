@@ -8,6 +8,7 @@ using System.Collections.Generic;
 public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
 {
     [Header("Dialog")]
+    [SerializeField] DialogAnim bossDialogAnim;
     [SerializeField] DialogAnim dialogAnim;
     [SerializeField] Button staticDialog;
     [SerializeField] TextMeshProUGUI staticDialogText;
@@ -37,7 +38,6 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     public event Action OnOpenOptions;
     public event Action OnBackToMainMenu;
     public event Action OnQuitGame;
-    public event Action OnEndStaticDialog;
     void Start()
     {
         pauseButton.onClick.AddListener
@@ -74,12 +74,29 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
             BuildSequence();
         }
     }
-    public void UpdateDialogAnim(List<string> text)
+    void Update()
     {
-        dialogAnim._textDatas = text;
-        if (!dialogAnim.gameObject.activeSelf)
-            dialogAnim.gameObject.SetActive(true);
-        dialogAnim.PlayAnim();
+        if (Time.timeScale == 0 && staticDialog.gameObject.activeSelf && Input.GetKeyDown(KeyCode.Return)) 
+        {
+            DisplayDialog();
+        }
+    }
+    public void UpdateDialogAnim(List<string> text , bool isBoss = false)
+    {
+        if(!isBoss)
+        {
+            dialogAnim._textDatas = text;
+            if (!dialogAnim.gameObject.activeSelf)
+                dialogAnim.gameObject.SetActive(true);
+            dialogAnim.PlayAnim();
+        }
+        else
+        {
+            bossDialogAnim._textDatas = text;
+            if (!bossDialogAnim.gameObject.activeSelf)
+                bossDialogAnim.gameObject.SetActive(true);
+            bossDialogAnim.PlayAnim();
+        }
     }
     public void UpdateStaticDialog(List<string> text)
     {
@@ -102,7 +119,6 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
             Time.timeScale = 1; 
             staticDialog.gameObject.SetActive(false);
         }
-        OnEndStaticDialog?.Invoke();
     }
     public void UpdateDeathCount(int deathCount)
     {
