@@ -166,3 +166,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a462f00428a66a48b70e03673e3f33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstRespawnPlayer: {fileID: 11400000, guid: 44440b2e544a5af4c99d446aa0e4c82a, type: 2}
+  fistFragmentCollected: {fileID: 11400000, guid: 6bc1975f5736e7a4e91853d9acc59a00, type: 2}

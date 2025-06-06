@@ -33,6 +33,13 @@ public class GameManager
         if (CurrentState == GameState.MainMenu || CurrentState == GameState.Ending) return;
         playData.playTime += Time.deltaTime; 
     }
+    public void StartStage(Stage stage, int interactionCount)
+    {
+        while (playData.dialogComlete[(int)stage].Count < interactionCount)
+        {
+            playData.dialogComlete[(int)stage].Add(false);
+        }
+    }
     public void ChangeState(GameState newState)
     {
         CurrentState = newState;

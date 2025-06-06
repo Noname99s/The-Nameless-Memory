@@ -29,6 +29,7 @@ public class PlayData
             dialogComlete[i] = new List<bool>(); // 각 스테이지에 대한 대화 완료 리스트 초기화
         }
         playerStatus = new PlayerStatusInfo(); // 기본 플레이어 상태 초기화
+        playerSkill = new PlayerSkillInfo();
     }
     public void RecordData(PlayData data)
     {
@@ -46,6 +47,7 @@ public class PlayData
             }
         }
         playerStatus = new PlayerStatusInfo(data.playerStatus);
+        playerSkill = new PlayerSkillInfo(data.playerSkill); // 플레이어 스킬 정보 복사
         isStatusLoaded = true;
     }
 }

@@ -498,9 +498,10 @@ MonoBehaviour:
   jumpInfo:
     jumpState: 0
     gravityStrength: 5
-    jumpPower: 38
+    jumpPower: 46
     decelerate: 0.8
     minJumpSpeed: 0.2
+    maxJumpCount: 0
     jumpCount: 2
     isPressJump: 0
     shouldWallJump: 0
@@ -542,6 +543,9 @@ MonoBehaviour:
     damages:
     - 0
     - 0
+  skillInfo:
+    jumpSkills: 0000000000000000
+    canUseSkill: 0000
 --- !u!114 &5725579068212597670
 MonoBehaviour:
   m_ObjectHideFlags: 0
