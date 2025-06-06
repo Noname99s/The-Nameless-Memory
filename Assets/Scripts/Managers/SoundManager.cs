@@ -14,14 +14,8 @@ public enum EMixerGroup
     Enemy,
     UISound
 }
-public class SoundManager : MonoBehaviour
-{/*
-    enum ESceneBGM
-    {
-        LobbyScene,
-        MainGame,
-        END
-    }*/
+public class SoundManager : ObjectPool
+{
     [SerializeField] AudioSource bgmPlayer;
     [SerializeField] AudioClip[] bgmClipList;
     [SerializeField] AudioMixer audioMixer;

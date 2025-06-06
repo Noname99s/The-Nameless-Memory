@@ -8,10 +8,10 @@ public class SoundInfo
 }
 public class SoundController : MonoBehaviour
 {
-    List<SoundInfo> soundList;
-    float spatialBlend;
-    float maxDistance;
-    float minDistance;
+    [SerializeField] List<SoundInfo> soundList;
+    [SerializeField] float spatialBlend;
+    [SerializeField] float maxDistance;
+    [SerializeField] float minDistance;
 
     public void PlaySound(int soundType)
     {
