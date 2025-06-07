@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using Orpul1.Player.Animation;
+using Orpul1.Player.Sound;
 
 namespace Orpul1.Player.State.Attack
 {
@@ -15,9 +16,12 @@ namespace Orpul1.Player.State.Attack
         public void Execute()
         {
             if (Time.time < aniDuration) return;
+
             playerData.playerInfo.animator.SetInteger(EPlayerAniTransition.AttackIndex.ToString(), playerData.attackInfo.curAttack);
             if (!playerData.playerInfo.animator.GetCurrentAnimatorStateInfo(0).IsName(((ENormalAttack)(playerData.attackInfo.curAttack)).ToString()))
                 return;
+            playerData.playerInfo.sound.PlaySound((int)EPlayerSound.NormalAttack);
+
             aniDuration = playerData.playerInfo.animator.GetCurrentAnimatorStateInfo(0).length;
             
             SetNextAttack();

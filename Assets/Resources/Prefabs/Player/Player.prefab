@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 2571065938256593121}
   - component: {fileID: 2506829344611688349}
   - component: {fileID: 7306151192876183716}
+  - component: {fileID: -575680351097744630}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -464,6 +465,7 @@ MonoBehaviour:
     animator: {fileID: 4683667883276261786}
     originScale: {x: 1, y: 1, z: 1}
     dectectedGroundPosi: {x: 0, y: 0, z: 0}
+    sound: {fileID: -575680351097744630}
     characterAttack: {fileID: 7191165317446888281}
   moveInfo:
     slideMovement:
@@ -601,6 +603,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   context: {fileID: 6948962639656468517}
+--- !u!114 &-575680351097744630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680952135707525415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35cbcaadbd0f1ba47a53792ae61156d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 284904b0e097a4149bac18f557f31f6a, type: 3}
+  - {fileID: 8300000, guid: a2a804d670f685f4091c95343a57dc90, type: 3}
+  - {fileID: 8300000, guid: d1d82a4815a1fbe4084ae11ef04f95b4, type: 3}
+  - {fileID: 8300000, guid: efb332aa923b66642affc10d2c48c17c, type: 3}
+  - {fileID: 8300000, guid: be0f8c895952c554184ff7780edd7006, type: 3}
+  - {fileID: 8300000, guid: 4e2f085272d712b40963aa902528036a, type: 3}
+  - {fileID: 8300000, guid: 7c891729b4d8b0e4483215a160f46647, type: 3}
+  - {fileID: 8300000, guid: 3945ed65e3c13144eb0681a4e56c9d0c, type: 3}
+  mixerGroup: 0
+  spatialBlend: 1
+  maxDistance: 0
+  minDistance: 30
 --- !u!1 &6679158788343795006
 GameObject:
   m_ObjectHideFlags: 0

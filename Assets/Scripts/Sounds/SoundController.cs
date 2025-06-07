@@ -1,20 +1,24 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundInfo
-{
-    public AudioClip sound;
-    public EMixerGroup mixerGroup;
-}
 public class SoundController : MonoBehaviour
 {
-    [SerializeField] List<SoundInfo> soundList;
+    [SerializeField] List<AudioClip> sounds;
+    [SerializeField] EMixerGroup mixerGroup;
     [SerializeField] float spatialBlend;
     [SerializeField] float maxDistance;
     [SerializeField] float minDistance;
 
     public void PlaySound(int soundType)
     {
-        Managers.Sound.PlayEffect(soundList[soundType].sound, soundList[soundType].mixerGroup, transform, spatialBlend, minDistance, maxDistance);
+        Managers.Sound.PlayEffect(sounds[soundType], mixerGroup, transform, spatialBlend, minDistance, maxDistance);
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, minDistance);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, maxDistance);
     }
 }

@@ -1,4 +1,5 @@
 using Orpul1.Player.Animation;
+using Orpul1.Player.Sound;
 
 namespace Orpul1.Player.State.Jump
 {
@@ -21,6 +22,7 @@ namespace Orpul1.Player.State.Jump
             data.playerInfo.animator.SetBool(EPlayerAniTransition.IsGround.ToString(), false);
             data.playerInfo.animator.SetTrigger(EPlayerAniTransition.WallJumpTrigger.ToString());
             data.jumpInfo.jumpState = EJumpState.Jumping;
+            data.playerInfo.sound.PlaySound((int)EPlayerSound.WallClimb);
         }
         public void Execute()
         {

@@ -1,5 +1,6 @@
 using System;
 using Orpul1.Player.Animation;
+using Orpul1.Player.Sound;
 using UnityEngine;
 
 namespace Orpul1.Player.State
@@ -29,6 +30,7 @@ namespace Orpul1.Player.State
             Managers.Map.RecordDeathInfo(data.playerInfo.dectectedGroundPosi);
             Managers.Map.getFragment = false;
             data.playerInfo.animator.SetTrigger(EPlayerAni.DeathTrigger.ToString());
+            data.playerInfo.sound.PlaySound((int)EPlayerSound.Death);
         }
 
         public override void OnUpdate()

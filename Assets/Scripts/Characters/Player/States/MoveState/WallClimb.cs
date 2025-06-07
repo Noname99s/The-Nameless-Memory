@@ -1,5 +1,6 @@
 using System;
 using Orpul1.Player.Animation;
+using Orpul1.Player.Sound;
 using UnityEngine;
 
 namespace Orpul1.Player.State
@@ -22,6 +23,7 @@ namespace Orpul1.Player.State
             slideSpeed = 0;
             Debug.Log("Climb Wall");
 
+            data.playerInfo.sound.PlaySound((int)EPlayerSound.WallClimb);
         }
 
         public override void OnUpdate()

@@ -1,5 +1,6 @@
 using System;
 using Orpul1.Player.Animation;
+using Orpul1.Player.Sound;
 using UnityEngine;
 
 namespace Orpul1.Player.State.Hit
@@ -16,6 +17,8 @@ namespace Orpul1.Player.State.Hit
             hitTime = Time.time + data.hitInfo.hitDuration;
             data.playerInfo.rigid.linearVelocity = Vector2.zero;
             data.playerInfo.rigid.AddForce(data.hitInfo.hitDir * data.hitInfo.knockBackPower, ForceMode2D.Impulse);
+
+            data.playerInfo.sound.PlaySound((int)EPlayerSound.HitDamaged);
         }
         
         public override void OnUpdate()
