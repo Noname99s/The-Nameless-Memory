@@ -47,8 +47,8 @@ public class SoundManager : MonoBehaviour
     public void OnLoadScene(Scene arg, LoadSceneMode mode)
     {
         if (arg.name == GameState.RemindRoom.ToString()) return;
-        if (!bgmDict.ContainsKey(arg.name)) return;
         SetBgmInBattleScene(arg);
+        if (!bgmDict.ContainsKey(arg.name)) return;
         SetBgmScene(arg);
     }
 
@@ -61,7 +61,6 @@ public class SoundManager : MonoBehaviour
     private void SetBgmScene(Scene arg)
     {
         if (arg.name == GameState.Battle.ToString()) return;
-        if (!bgmDict.ContainsKey(arg.name)) return;
         PlayBGM(bgmDict[arg.name]);
     }
     public void DeactiveListner()
@@ -125,6 +124,7 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayBGM(AudioClip bgm)
     {
+        bgmPlayer.Stop();
         bgmPlayer.clip = bgm;
         bgmPlayer.loop = true;
         bgmPlayer.volume = 0.1f;

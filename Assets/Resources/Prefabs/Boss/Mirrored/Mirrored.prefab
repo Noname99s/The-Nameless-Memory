@@ -1330,6 +1330,10 @@ MonoBehaviour:
   mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
   mirroredBlackboardComponent:
     bossInfo:
+      bossBGM:
+      - {fileID: 8300000, guid: 83512a90ebd9d834c98f99b137aaa698, type: 3}
+      - {fileID: 8300000, guid: 9759230e10ae6af4e879967c46fac3cf, type: 3}
+      - {fileID: 8300000, guid: 792dd621420e35c459d1fdcf490d4f15, type: 3}
       bossSprite: {fileID: 7685511999838097804}
       bossObj: {fileID: 7456571372819098835}
       animator: {fileID: 8417452694250055631}
@@ -1340,6 +1344,7 @@ MonoBehaviour:
         range2: 0
       bossState: 0
       hp: 100
+      shouldIntro: 1
     hitStateInfo:
       hitColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
       orginColor: {r: 1, g: 1, b: 1, a: 1}
