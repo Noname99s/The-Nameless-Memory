@@ -60,5 +60,6 @@ public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetData
     public void SetValue(Transform target)
     {
         context.cameraTarget.TrackingTarget = target;
+        stateController.TransitionState((int)ECameraState.Follow);
     }
 }

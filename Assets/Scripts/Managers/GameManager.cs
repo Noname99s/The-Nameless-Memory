@@ -33,9 +33,17 @@ public class GameManager
         if (CurrentState == GameState.MainMenu || CurrentState == GameState.Ending) return;
         playData.playTime += Time.deltaTime; 
     }
+    public void StartStage(Stage stage, int interactionCount)
+    {
+        while (playData.dialogComplete[(int)stage].datas.Count < interactionCount)
+        {
+            playData.dialogComplete[(int)stage].datas.Add(false);
+        }
+    }
     public void ChangeState(GameState newState)
     {
         CurrentState = newState;
+        Time.timeScale = 1f; 
         Debug.Log($"Game state changed to: {CurrentState}");
         // Listener ON
         Managers.Player.RemovePlayer(); 

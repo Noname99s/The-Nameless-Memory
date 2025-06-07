@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cdbcba827092d64c9bb0ffc6dfe8e83, type: 3}
-  m_Name: S_FirstHubSpawn
+  m_Name: 0_S_FirstHubSpawn
   m_EditorClassIdentifier: 
   _scenarioType: Text_Hub
+  _dialogIndex: 0
   _startDialogIndex: 0
-  listSize: 2
+  listSize: 3
   dialogTexts: []

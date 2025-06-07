@@ -150,6 +150,19 @@ public class PlayerSkillInfo
 {
     public int[] jumpSkills = new int[(int)EPlayerSkillOpen.End];
     public bool[] canUseSkill = new bool[(int)EPlayerSkillOpen.End];
+    public PlayerSkillInfo()
+    {
+        for (int i = 0; i < (int)EPlayerSkillOpen.End; i++)
+        {
+            jumpSkills[i] = 0;
+            canUseSkill[i] = false;
+        }
+    }
+    public PlayerSkillInfo(PlayerSkillInfo skillInfo)
+    {
+        jumpSkills = (int[])skillInfo.jumpSkills.Clone();
+        canUseSkill = (bool[])skillInfo.canUseSkill.Clone();
+    }
 }
 
 public class PlayerContext : MonoBehaviour

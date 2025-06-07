@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d286647785f625a49a95df111fffc66a, type: 3}
-  m_Name: 5_D_FirstFragmentTrigger
+  m_Name: 6_D_Text_Stage1_12-14Trigger
   m_EditorClassIdentifier: 
   _scenarioType: Text_Stage1
-  _dialogIndex: 5
-  _startDialogIndex: 6
-  listSize: 1
-  dialogTexts: []
+  _dialogIndex: 6
+  _startDialogIndex: 7
+  listSize: 2
+  dialogTexts:
+  - "[\uC804\uD22C \uC548\uB0B4] Ctrl : \uC8FC\uBA39 / Alt : \uBC1C\uCC28\uAE30"
+  - "\"\uAE30\uC5B5\uC740 \uC5C6\uC5B4\uB3C4, \uBAB8\uC740 \uAE30\uC5B5\uD558\uACE0
+    \uC788\uC744\uAC78?\""
