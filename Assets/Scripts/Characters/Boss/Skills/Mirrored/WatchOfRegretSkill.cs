@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Orpul1;
+using Orpul1.Boss.Sound;
 using Orpul1.Object;
 using UnityEngine;
 
@@ -25,6 +26,7 @@ public class WatchOfRegretSkill : BossSkill,ISetDataAble<Vector2>
     public override void Execute()
     {
         base.Execute();
+        sound.PlaySound((int)EBossSkillSound.Skill2_Projectile);
         isExecute = true;
     }
 

@@ -14,6 +14,10 @@ public class SoundController : MonoBehaviour
     {
         Managers.Sound.PlayEffect(sounds[soundType], mixerGroup, transform, spatialBlend, minDistance, maxDistance);
     }
+    public GameObject PlaySoundLoop(int soundType)
+    {
+        return Managers.Sound.PlayEffectLoop(sounds[soundType], mixerGroup, transform, spatialBlend, minDistance, maxDistance);
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;

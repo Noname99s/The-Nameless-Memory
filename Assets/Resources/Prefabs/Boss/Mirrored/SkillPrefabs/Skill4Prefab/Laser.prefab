@@ -121,6 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1598378851221139394}
   - component: {fileID: 5025419976049701171}
+  - component: {fileID: 2964875972489422844}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -160,7 +161,26 @@ MonoBehaviour:
   deativeTime: 0
   damage: 25
   attackCollider: {fileID: 1816423908295781445}
+  sound: {fileID: 2964875972489422844}
   animator: {fileID: 8568987212507616644}
+--- !u!114 &2964875972489422844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7607401343270352461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35cbcaadbd0f1ba47a53792ae61156d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: c258fe4c603d0ff449e3acdf53882224, type: 3}
+  mixerGroup: 2
+  spatialBlend: 1
+  maxDistance: 0
+  minDistance: 10
 --- !u!1 &8862049060261012320
 GameObject:
   m_ObjectHideFlags: 0

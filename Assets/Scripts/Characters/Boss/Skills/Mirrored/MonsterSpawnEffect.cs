@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Orpul1.Boss.Sound;
 using UnityEngine;
 
 public class MonsterSpawnEffect : BossSkill
@@ -12,6 +13,7 @@ public class MonsterSpawnEffect : BossSkill
 
     public override void Execute()
     {
+        sound.PlaySound((int)EBossSkillSound.Skill6_Rumble);
         StartCoroutine("ShowEffect");
     }
 
@@ -27,7 +29,8 @@ public class MonsterSpawnEffect : BossSkill
     {
         while (!animator.GetCurrentAnimatorStateInfo(0).IsName(EMonsterSpawnEffectAni.SpawnEffect.ToString()))
             yield return null;
-        
+        sound.PlaySound((int)EBossSkillSound.Skill6_Spawn);
+
         float aniDuration = Time.time + animator.GetCurrentAnimatorStateInfo(0).length;
         
         while(Time.time<aniDuration)

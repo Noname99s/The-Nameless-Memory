@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3582719337852272187}
   - component: {fileID: 4612631628186163355}
   - component: {fileID: 2234815750756604006}
+  - component: {fileID: -8705847756290016948}
   m_Layer: 0
   m_Name: EnergyBall
   m_TagString: Untagged
@@ -77,10 +78,29 @@ MonoBehaviour:
   deativeTime: 0
   damage: 5
   attackCollider: {fileID: 360753024923414536}
+  sound: {fileID: -8705847756290016948}
   rigid: {fileID: 4612631628186163355}
   arrivePosi: {x: 0, y: 0}
   posiGap: 0.1
   moveSpeed: 120
+--- !u!114 &-8705847756290016948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6194561466169816900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35cbcaadbd0f1ba47a53792ae61156d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: da4cd5ddf76989b46ba3e101d5db8eb3, type: 3}
+  mixerGroup: 2
+  spatialBlend: 1
+  maxDistance: 0
+  minDistance: 10
 --- !u!1 &6580459854976726766
 GameObject:
   m_ObjectHideFlags: 0
