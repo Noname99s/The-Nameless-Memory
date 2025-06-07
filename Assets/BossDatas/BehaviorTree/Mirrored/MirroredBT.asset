@@ -123,7 +123,7 @@ MonoBehaviour:
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
-  childNode: {fileID: 201513952616713719}
+  childNode: {fileID: 8524788980969847089}
   Decorator: {fileID: 11400000, guid: 60b3dfea039571545999891543272bf2, type: 2}
 --- !u!114 &-593419915197508778
 MonoBehaviour:
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: DelayNode
   m_EditorClassIdentifier: 
   guid: 0cc1181c7fdc8cb4b913556dee0020c8
-  position: {x: -938.98004, y: 392.80008}
+  position: {x: -1034.3999, y: 423.02405}
   nodeName: DelayNode
   description: Wait5Second
   nodeState: 3
@@ -360,8 +360,8 @@ MonoBehaviour:
   guid: 5678e169d0beebe44adad3cbf8a8eca5
   position: {x: 0, y: 0}
   nodeName: SequenceNode
-  description: 
-  nodeState: 0
+  description: SequenceNode
+  nodeState: 3
   childNodeList: []
   curIndex: 0
 --- !u!114 &8035975973166575998
@@ -400,15 +400,15 @@ MonoBehaviour:
   m_Name: BossIntroEnd
   m_EditorClassIdentifier: 
   guid: 2e1c585e9c9cbbf418fb009738f05804
-  position: {x: -836.40295, y: 386.74377}
+  position: {x: -848.8, y: 444.00006}
   nodeName: BossIntroEnd
   description: 
   nodeState: 3
   methodName: 
   path: 
   actionNode: {fileID: 0}
-  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/BossDatas/BehaviorTree/Mirrored/NodeScripts/BossIntroEnd.cs
-  assetPath: Assets//BossDatas/BehaviorTree/Mirrored/NodeScripts/BossIntroEnd.asset
+  scriptPath: 
+  assetPath: 
   actionScript: {fileID: 11400000, guid: ac11cf7407dc62d4392861f64612af9f, type: 2}
 --- !u!114 &8672450042178495374
 MonoBehaviour:
