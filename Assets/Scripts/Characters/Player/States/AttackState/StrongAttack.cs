@@ -1,5 +1,6 @@
 using Orpul1.Player.Animation;
 using Orpul1.Player.Sound;
+using Orpul1.State.Attack;
 using UnityEngine;
 
 namespace Orpul1.Player.State.Attack
@@ -7,7 +8,8 @@ namespace Orpul1.Player.State.Attack
     public class StrongAttack : IStrategy
     {
         PlayerContext playerData;
-        float aniDuration = 0;
+        float attackDuration = 0;
+        bool isStartAttackAni = false;
         public StrongAttack(PlayerContext playerData)
         {
             this.playerData = playerData;
@@ -16,26 +18,43 @@ namespace Orpul1.Player.State.Attack
         {
             playerData.playerInfo.animator.SetBool(EPlayerAniTransition.IsStrongAttack.ToString(), true);
             playerData.attackInfo.curAttack = 0;
-            aniDuration = 0;
-            SetNextAttack();
+            attackDuration = 0;
+            isStartAttackAni = false;
+
+            //SetNextAttack();
         }
         public void Execute()
         {
-            if (Time.time < aniDuration) return;
             playerData.playerInfo.animator.SetInteger(EPlayerAniTransition.AttackIndex.ToString(), playerData.attackInfo.curAttack);
-            if (!playerData.playerInfo.animator.GetCurrentAnimatorStateInfo(0).IsName(((EStrongAttack)(playerData.attackInfo.curAttack)).ToString()))
-                return;
-            playerData.playerInfo.sound.PlaySound((int)EPlayerSound.StrongAttack);
-
-            aniDuration = playerData.playerInfo.animator.GetCurrentAnimatorStateInfo(0).length;
+            if (!IsAttackAni()) return;
+            if (!IsAttackAniEnd()) return;
             SetNextAttack();
         }
 
         
+        private bool IsAttackAni()
+        {
+            if (isStartAttackAni)
+                return true;
+            if (!playerData.playerInfo.animator.GetCurrentAnimatorStateInfo(0).IsName(((EStrongAttack)(playerData.attackInfo.curAttack)).ToString()))
+                return false;
 
+            isStartAttackAni = true;
+            playerData.playerInfo.sound.PlaySound((int)EPlayerSound.StrongAttack);
+            attackDuration = Time.time + playerData.attackInfo.attackDelays[(int)EPlayerAttack.StrongAttack];
+
+            return true;
+        }
+        private bool IsAttackAniEnd()
+        {
+            if (Time.time < attackDuration)
+                return false;
+            isStartAttackAni = false;
+            return true;
+        }
         private void SetNextAttack()
         {
-            playerData.attackInfo.curAttack = Random.Range(0, (int)EStrongAttack.KickC+1);
+            playerData.attackInfo.curAttack = Random.Range(0, (int)EStrongAttack.End);
         }
     }
 }

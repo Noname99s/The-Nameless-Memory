@@ -1,5 +1,6 @@
 using Orpul1;
 using Orpul1.Player.Interact;
+using Orpul1.Player.Sound;
 using Orpul1.State.Attack;
 using UnityEngine;
 using UnityEngine.InputSystem;

@@ -46,22 +46,23 @@ public class GameManager
         Time.timeScale = 1f; 
         Debug.Log($"Game state changed to: {CurrentState}");
         // Listener ON
+        Managers.Sound.ActiveListner();
         Managers.Player.RemovePlayer(); 
         Managers.SceneLoad.LoadScene(newState.ToString());
     }
     public void SettingScene()
     {
+        Managers.Sound.DeactiveListner();
+
         switch (CurrentState)
         {
             case GameState.MainMenu:
                 // Logic for main menu
-                // Listener OFF
                 Managers.UI.GetPopupUI<SaveLoadComposition>().RecordData(playData); // Record current play data
                 Managers.Player.RemovePlayer(); // Remove player if exists
                 break;
             case GameState.Home:
                 // Logic for home
-                // Listener OFF
                 Managers.UI.ShowPopupUI<InGameComposition>();
                 Managers.Player.Init(new Vector3(9, 8, 0)); // Initialize player
                 break;
