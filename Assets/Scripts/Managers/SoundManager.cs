@@ -18,6 +18,7 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] AudioSource bgmPlayer;
     [SerializeField] AudioClip[] bgmClipList;
+    [SerializeField] AudioListener audioListner;
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] UISoundPlayer uiSoundPlayer;
     Action<EUiSoundType> playerUISound;
@@ -40,6 +41,14 @@ public class SoundManager : MonoBehaviour
     {
         if (!bgmDict.ContainsKey(arg.name)) return;
         PlayBGM(bgmDict[arg.name]);
+    }
+    public void DeactiveListner()
+    {
+        //audioListner.enabled = false;
+    }
+    public void ActiveListner()
+    {
+        //audioListner.enabled = true;
     }
     public void PlayUISound(EUiSoundType uiSoundType)
     {

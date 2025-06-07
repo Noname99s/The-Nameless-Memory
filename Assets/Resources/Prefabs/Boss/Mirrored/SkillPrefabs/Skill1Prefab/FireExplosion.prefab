@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackAbleTag: 6
-  attackPositoin: {fileID: 0}
+  attackPositoin: {fileID: 3460186756703953080}
   attackCollider: {fileID: 9086996560756748498}
   damage: 0
 --- !u!1 &5031102307190738510
@@ -306,4 +306,4 @@ MonoBehaviour:
   mixerGroup: 2
   spatialBlend: 1
   maxDistance: 0
-  minDistance: 10
+  minDistance: 5

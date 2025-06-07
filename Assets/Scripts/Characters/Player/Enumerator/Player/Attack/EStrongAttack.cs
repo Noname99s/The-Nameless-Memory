@@ -5,5 +5,6 @@ namespace Orpul1.Player.State.Attack
         KickA,
         KickB, 
         KickC,
+        End,
     }
 }

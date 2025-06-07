@@ -116,7 +116,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -341,7 +341,7 @@ MonoBehaviour:
   mixerGroup: 5
   spatialBlend: 1
   maxDistance: 0
-  minDistance: 30
+  minDistance: 5
 --- !u!1 &5505121327568100759
 GameObject:
   m_ObjectHideFlags: 0

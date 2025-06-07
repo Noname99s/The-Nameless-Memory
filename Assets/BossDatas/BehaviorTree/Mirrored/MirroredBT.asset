@@ -60,10 +60,11 @@ MonoBehaviour:
   description: SelectorNode
   nodeState: 3
   childNodeList:
+  - {fileID: -2918623614255441659}
   - {fileID: 5857884485989699818}
   - {fileID: -8772447209956815970}
   - {fileID: 5299982264926712518}
-  curIndex: 0
+  curIndex: 3
 --- !u!114 &-7283253512740325324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +101,30 @@ MonoBehaviour:
   description: Phase2Pattern3
   nodeState: 3
   panel: {fileID: 11400000, guid: 578a58c670db7b34a9bda8da5c66f217, type: 2}
+--- !u!114 &-2918623614255441659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddea26520dbede9419a2acd27bd3e83a, type: 3}
+  m_Name: ShouldIntro
+  m_EditorClassIdentifier: 
+  guid: bf85077028d0a7d429ce2a9da6a128b7
+  position: {x: -986.28, y: 272.00003}
+  nodeName: ShouldIntro
+  description: 
+  nodeState: 3
+  methodName: 
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  childNode: {fileID: 201513952616713719}
+  Decorator: {fileID: 11400000, guid: 60b3dfea039571545999891543272bf2, type: 2}
 --- !u!114 &-593419915197508778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +175,34 @@ MonoBehaviour:
   - {fileID: -3713907089425925553}
   - {fileID: 5299982264926712518}
   - {fileID: 4685915624449381948}
+  - {fileID: -2918623614255441659}
+  - {fileID: 201513952616713719}
+  - {fileID: 8524788980969847089}
+  - {fileID: 6706122258592858306}
+--- !u!114 &201513952616713719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be2c80b47643c24b9fe88ad49869a65, type: 3}
+  m_Name: DelayNode
+  m_EditorClassIdentifier: 
+  guid: 0cc1181c7fdc8cb4b913556dee0020c8
+  position: {x: -938.98004, y: 392.80008}
+  nodeName: DelayNode
+  description: Wait5Second
+  nodeState: 3
+  methodName: Wait5Second
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  delayTime: 5
+  interval: 0.020259907
 --- !u!114 &2629335963256237311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +260,7 @@ MonoBehaviour:
   - {fileID: -7283253512740325324}
   - {fileID: 5755953580917869011}
   - {fileID: -3713907089425925553}
-  curIndex: 0
+  curIndex: 2
 --- !u!114 &4685915624449381948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +276,7 @@ MonoBehaviour:
   guid: 2a2dbb2970350fb4eb6a37cef453e860
   position: {x: 371.39996, y: 421.00006}
   nodeName: PanelNode
-  description: Panel
+  description: DiePanel
   nodeState: 3
   panel: {fileID: 11400000, guid: fcddfdf202d18be44a042a461f453e61, type: 2}
 --- !u!114 &5299982264926712518
@@ -292,6 +345,25 @@ MonoBehaviour:
   assetPath: 
   childNode: {fileID: 8035975973166575998}
   Decorator: {fileID: 11400000, guid: 80238f01390f5dc4f845a42119aa7f22, type: 2}
+--- !u!114 &6706122258592858306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e34f5ad2d998d04396ab6413567c1f7, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  guid: 5678e169d0beebe44adad3cbf8a8eca5
+  position: {x: 0, y: 0}
+  nodeName: SequenceNode
+  description: 
+  nodeState: 0
+  childNodeList: []
+  curIndex: 0
 --- !u!114 &8035975973166575998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,7 +386,30 @@ MonoBehaviour:
   - {fileID: -8867441327475377273}
   - {fileID: 8672450042178495374}
   - {fileID: 2629335963256237311}
-  curIndex: 2
+  curIndex: 0
+--- !u!114 &8524788980969847089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: BossIntroEnd
+  m_EditorClassIdentifier: 
+  guid: 2e1c585e9c9cbbf418fb009738f05804
+  position: {x: -836.40295, y: 386.74377}
+  nodeName: BossIntroEnd
+  description: 
+  nodeState: 3
+  methodName: 
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: D:/Develeop/Github/TheNamelessMemory/The-Nameless-Memory/Assets/BossDatas/BehaviorTree/Mirrored/NodeScripts/BossIntroEnd.cs
+  assetPath: Assets//BossDatas/BehaviorTree/Mirrored/NodeScripts/BossIntroEnd.asset
+  actionScript: {fileID: 11400000, guid: ac11cf7407dc62d4392861f64612af9f, type: 2}
 --- !u!114 &8672450042178495374
 MonoBehaviour:
   m_ObjectHideFlags: 0

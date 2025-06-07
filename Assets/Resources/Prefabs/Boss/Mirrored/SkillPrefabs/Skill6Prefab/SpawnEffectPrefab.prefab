@@ -259,4 +259,4 @@ MonoBehaviour:
   mixerGroup: 2
   spatialBlend: 1
   maxDistance: 0
-  minDistance: 10
+  minDistance: 5
