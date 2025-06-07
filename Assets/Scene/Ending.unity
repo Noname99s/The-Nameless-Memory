@@ -801,6 +801,18 @@ PrefabInstance:
       propertyPath: displayText
       value: 
       objectReference: {fileID: 554319219}
+    - target: {fileID: 4051984490983293279, guid: 4bfb7e00186ed3f4b95dba51a00bc0c4, type: 3}
+      propertyPath: clearLogPanel
+      value: 
+      objectReference: {fileID: 401008800}
+    - target: {fileID: 4051984490983293279, guid: 4bfb7e00186ed3f4b95dba51a00bc0c4, type: 3}
+      propertyPath: clearPlayTime
+      value: 
+      objectReference: {fileID: 878666461}
+    - target: {fileID: 4051984490983293279, guid: 4bfb7e00186ed3f4b95dba51a00bc0c4, type: 3}
+      propertyPath: clearDeathCount
+      value: 
+      objectReference: {fileID: 77080936}
     - target: {fileID: 4259229820137691990, guid: 4bfb7e00186ed3f4b95dba51a00bc0c4, type: 3}
       propertyPath: isFrom
       value: 0
