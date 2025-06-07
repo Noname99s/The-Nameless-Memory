@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entrancePoint: {x: 9, y: 8}
   exitPoint: {x: 70, y: 110}
-  mapObject: {fileID: 5307184710853226894, guid: db9058cb86428884282d5dadba6d21b5, type: 3}
+  mapObject: {fileID: 5307184710853226894, guid: 6b1dc94527ab59a46bccd60ece8aed11, type: 3}

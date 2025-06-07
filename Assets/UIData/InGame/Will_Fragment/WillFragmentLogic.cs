@@ -17,6 +17,13 @@ public class WillFragmentLogic : TrackingCameraBase
             Managers.Game.playData.dialogComplete[(int)Stage.Stage1].datas[firstRespawnPlayer._dialogIndex] = true;
         }
     }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            StartCoroutine(TrackingScene());
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

@@ -397,7 +397,7 @@ MonoBehaviour:
   idleInfo:
     idleDuration: 5
   patrolInfo:
-    patrolType: 1
+    patrolType: 0
     sightAngle: 150
     patrolMoveSpeed: 5
     movePosis:
