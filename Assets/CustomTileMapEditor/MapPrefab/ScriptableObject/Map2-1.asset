@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fedd302e74b164eaf4fb63b9075113, type: 3}
+  m_Name: Map2-1
+  m_EditorClassIdentifier: 
+  entrancePoint: {x: 9, y: 8}
+  exitPoint: {x: 70, y: 110}
+  mapObject: {fileID: 5307184710853226894, guid: 6b1dc94527ab59a46bccd60ece8aed11, type: 3}

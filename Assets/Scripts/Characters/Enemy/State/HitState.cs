@@ -1,4 +1,5 @@
 using System;
+using Orpul1.Enemy.Sound;
 using UnityEngine;
 
 namespace Orpul1.Enemy.State
@@ -14,6 +15,9 @@ namespace Orpul1.Enemy.State
             context.enemyInfo.animator.SetTrigger(EEnemyAniTransition.HitTrigger.ToString());
             hitStateEnterTime = Time.time + context.hitInfo.hitDuration;
             context.enemyInfo.rigid.gravityScale = context.enemyInfo.gravityStrength;
+            context.sightInfo.radius = context.chaseInfo.sightRadius;
+            context.sightInfo.angle = context.chaseInfo.sightAngle;
+            context.enemyInfo.sound.PlaySound((int)EEnemySound.Hit);
         }
 
         public override void OnUpdate()
@@ -27,6 +31,8 @@ namespace Orpul1.Enemy.State
         {
             context.hitInfo.isHit = false;
             context.enemyInfo.rigid.gravityScale = 0;
+            context.sightInfo.radius = context.patrolInfo.sightRadius;
+            context.sightInfo.angle = context.patrolInfo.sightAngle;
         }
 
 

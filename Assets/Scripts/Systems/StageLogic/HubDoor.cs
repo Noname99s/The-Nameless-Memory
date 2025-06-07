@@ -1,28 +1,36 @@
+using Orpul1;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class HubDoor : MonoBehaviour
+public class HubDoor : MonoBehaviour, IInteractAble
 {
-    [SerializeField] SO_StageInfo stageInfo;
+    [SerializeField] Stage stageType = Stage.Stage1;
+    [SerializeField] SO_MapInfo[] stageInfo;
     [SerializeField] bool isOpen = false;
     bool isInDoor = false;
+    public event System.Action<List<string>> OnCannotEnter;
     void Start()
     {
+        OnCannotEnter += Managers.UI.GetPopupUI<InGameComposition>().OnDialogAnimUpdateConnection;
         ConfirmClear();
-        if (stageInfo.stageIndex != Stage.Stage1 && Managers.Game.stageCleared[(int)stageInfo.stageIndex - 1])
-        {
-            isOpen = true;
-        }
     }
-    void Update()
+    /*void Update()
     {
         if (isInDoor && Input.GetKeyDown(KeyCode.UpArrow))
         {
             Entrance();
         }
-    }
+    }*/
     void ConfirmClear()
     {
-        gameObject.SetActive(!Managers.Game.stageCleared[(int)stageInfo.stageIndex]);
+        if (stageType != Stage.Stage1 && Managers.Game.playData.stageCleared[(int)stageType - 1])
+        {
+            isOpen = true;
+        }
+        if(stageType == Stage.BossStage && Managers.Game.playData.stageCleared[(int)Stage.Stage2])
+        {
+            isOpen = true;
+        }
     }
 
     public void Entrance()
@@ -30,17 +38,25 @@ public class HubDoor : MonoBehaviour
         if (!isOpen)
         {
             // Cannot enter Dialog
-            Debug.Log("Cannot enter this stage yet.");
+            List<string> cannotEnterText = new List<string>
+            {
+                "아직은 들어갈 수 없어. 앞선 죄목을 먼저 파해치자."
+            };
+            OnCannotEnter?.Invoke(cannotEnterText);
             return;
         }
-        if (Managers.Map.mapListType != stageInfo.stageIndex)
+        if(stageType == Stage.BossStage)
         {
-            Managers.Map.playerSpawnPoint = stageInfo.spawnPoint;
-            Managers.Map.mapListType = stageInfo.stageIndex;
-            Managers.Map.mapObjects.Clear();
-            for (int i = 0; i < stageInfo.stageObjects.Length; i++)
+            Managers.Game.ChangeState(GameState.Boss);
+            return;
+        }
+        if (Managers.Map.stageType != stageType)
+        {
+            Managers.Map.stageType = stageType;
+            Managers.Map.mapInfos.Clear(); 
+            for (int i = 0; i < stageInfo.Length; i++)
             {
-                Managers.Map.mapObjects.Add(stageInfo.stageObjects[i]);
+                Managers.Map.mapInfos.Add(stageInfo[i]);
             }
         }
         Managers.Game.ChangeState(GameState.Battle);
@@ -59,5 +75,10 @@ public class HubDoor : MonoBehaviour
         {
             isInDoor = false;
         }
+    }
+
+    public void Interact()
+    {
+        Entrance();
     }
 }

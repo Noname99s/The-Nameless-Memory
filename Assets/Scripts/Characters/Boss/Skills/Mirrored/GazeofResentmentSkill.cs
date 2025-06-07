@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Orpul1.Boss;
 using System.Collections;
+using Orpul1.Boss.Sound;
 namespace Orpul1.Boss.Mirrored
 {
     public class GazeofResentmentSkill : BossSkill
@@ -22,7 +23,13 @@ namespace Orpul1.Boss.Mirrored
         public override void Execute()
         {
             isExcute = true;
+            sound.PlaySound((int)EBossSkillSound.Skill4_FullAttack);
+            SetAttackDamage(attackCollider);
             StartCoroutine("UseSkill");
+        }
+        private void SetAttackDamage(ISetDataAble<int> attackCollider)
+        { 
+            attackCollider.SetValue(damage);
         }
         IEnumerator UseSkill()
         {

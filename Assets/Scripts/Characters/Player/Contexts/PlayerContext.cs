@@ -1,18 +1,56 @@
-using JetBrains.Annotations;
 using Orpul1;
-using Orpul1.Player.Animation;
-using Orpul1.Player.State.Attack;
+using Orpul1.Player;
+using Orpul1.Player.Skill;
 using Orpul1.State.Attack;
 using System;
 using UnityEngine;
 
+[Serializable]
+public class PlayerStatusInfo
+{
+    public int hp = 0;
+    public int maxHp = 0; // 历厘
+    public int[] getMemoryPeaceCounts = new int[6]; // 历厘
+    public float increaseStateValue; // 历厘
+    public float curStatePercent; // 历厘
+
+    public int deathCount; // 历厘
+    public int maxMemoryPeaceCount = 5; // 历厘
+    public float[] damages = new float[2]; // 历厘
+
+    public PlayerStatusInfo()
+    {
+        hp = 0;
+        maxHp = 0;
+        for (int i = 0; i < getMemoryPeaceCounts.Length; i++)
+        {
+            getMemoryPeaceCounts[i] = 0;
+        }
+        increaseStateValue = 0;
+        curStatePercent = 0;
+        deathCount = 0;
+        maxMemoryPeaceCount = 5;
+        damages[(int)EPlayerAttack.NormalAttack] = 1f;
+        damages[(int)EPlayerAttack.StrongAttack] = 2f;
+    }
+    public PlayerStatusInfo(PlayerStatusInfo statusInfo)
+    {
+        hp = statusInfo.hp;
+        maxHp = statusInfo.maxHp;
+        getMemoryPeaceCounts = (int[])statusInfo.getMemoryPeaceCounts.Clone();
+        increaseStateValue = statusInfo.increaseStateValue;
+        curStatePercent = statusInfo.curStatePercent;
+        deathCount = statusInfo.deathCount;
+        maxMemoryPeaceCount = statusInfo.maxMemoryPeaceCount;
+        damages = (float[])statusInfo.damages.Clone();
+    }
+}
 [Serializable]
 public class PlayerAttackInfo
 {
     public EPlayerAttack attackType = EPlayerAttack.NormalAttack;
     public float[] attackDelays = new float[3];
     public int[] attackCounts = new int[3];
-    public int[] damages = new int[2];
     public int curAttack = 0;
 
 
@@ -20,11 +58,7 @@ public class PlayerAttackInfo
     public bool canAttack;
     public float delayInterval;
     public bool isStillAttack;
-    [SerializeField] CharacterAttack characterAttack;
-    public ISetDataAble<int> setDamage
-    {
-        get { return characterAttack; }
-    }
+    
     public void Initialize()
     {
         attackType = EPlayerAttack.NONE;
@@ -41,10 +75,15 @@ public class PlayerInfo
     public Transform trPlayer;
     public Animator animator;
     public Vector3 originScale = Vector3.one;
-    public int hp;
-    public int maxHp;
+
     public Vector3 dectectedGroundPosi;
     public Action actionFlipX;
+    public SoundController sound;
+    [SerializeField] CharacterAttack characterAttack;
+    public ISetDataAble<int> setDamage
+    {
+        get { return characterAttack; }
+    }
 }
 
 [Serializable]
@@ -76,6 +115,7 @@ public class PlayerJumpInfo
     public float jumpPower = 10;
     public float decelerate = 0.8f;
     public float minJumpSpeed = 0.2f;
+    public int maxJumpCount = 0;
     public int jumpCount = 0;
     public bool isPressJump = false;
     public bool shouldWallJump = false;
@@ -85,12 +125,9 @@ public class PlayerJumpInfo
 public class PlayerFallInfo
 {
     public bool isFalling = false;
-    public float damageFallHeight;
     public float defaultFallSpeed;
-    public float maxFallSpeed;
     public float fallDamageOverTime;
     public float onAirMoveSpeed = 2;
-    public float decelerateMoveSpeed;
     [HideInInspector] public int fallDamage;
     public int maxFallDamage;
 }
@@ -105,9 +142,32 @@ public class PlayerHitInfo
     public bool canGetDamage = true;
     public bool isHit = false;
     public bool isDeath = false;
+    public Vector2 hitDir = Vector2.zero;
 }
+
+[Serializable]
+public class PlayerSkillInfo
+{
+    public int[] jumpSkills = new int[(int)EPlayerSkillOpen.End];
+    public bool[] canUseSkill = new bool[(int)EPlayerSkillOpen.End];
+    public PlayerSkillInfo()
+    {
+        for (int i = 0; i < (int)EPlayerSkillOpen.End; i++)
+        {
+            jumpSkills[i] = 0;
+            canUseSkill[i] = false;
+        }
+    }
+    public PlayerSkillInfo(PlayerSkillInfo skillInfo)
+    {
+        jumpSkills = (int[])skillInfo.jumpSkills.Clone();
+        canUseSkill = (bool[])skillInfo.canUseSkill.Clone();
+    }
+}
+
 public class PlayerContext : MonoBehaviour
 {
+    [SerializeField] PlayerContextDB contextDB;
     public PlayerInfo playerInfo;
 
     public PlayerMoveInfo moveInfo;
@@ -119,6 +179,59 @@ public class PlayerContext : MonoBehaviour
     public PlayerAttackInfo attackInfo;
 
     public PlayerHitInfo hitInfo;
+    public PlayerStatusInfo statusInfo;
+    public PlayerSkillInfo skillInfo;
+
+    private void Awake()
+    {
+        SetContextInfos();
+    }
+    private void SetContextInfos()
+    {
+        SetManagerDataToPlayer();
+        SetDB();
+    }
+    private void SetManagerDataToPlayer()
+    {
+        if (!Managers.Game.playData.isStatusLoaded) return;
+        statusInfo = new PlayerStatusInfo(Managers.Game.playData.playerStatus);
+        contextDB.SetPlayerSkillInfo();
+        skillInfo = contextDB.SkillInfo;
+        for (int i = 0; i < (int)EPlayerSkillType.End; i++)
+        {
+            SetSkill(i, Managers.Game.playData.playerSkill.canUseSkill[i]);
+        }
+    } 
+    private void SetSkill(int skillType, bool isOpen)
+    {
+        jumpInfo.maxJumpCount = GetJumpCount(isOpen);
+    }
+    private int GetJumpCount(bool isOpen)
+    {
+        return isOpen ? skillInfo.jumpSkills[(int)EPlayerSkillOpen.Open] : skillInfo.jumpSkills[(int)EPlayerSkillOpen.Close];
+    }
+    private void SetDB()
+    {
+        if (Managers.Game.playData.isStatusLoaded) return;
+        contextDB.SetData();
+        moveInfo = contextDB.MoveInfo;
+        jumpInfo = contextDB.JumpInfo;
+        fallInfo = contextDB.FallInfo;
+        attackInfo = contextDB.AttackInfo;
+        hitInfo = contextDB.HitInfo;
+        statusInfo = contextDB.StatusInfo;
+        skillInfo = contextDB.SkillInfo;
+        Managers.Game.playData.playerStatus = statusInfo;
+        for (int i = 0; i < (int)EPlayerSkillType.End; i++)
+        {
+            skillInfo.canUseSkill[i] = false;
+        }
+        for (int i = 0; i < (int)EPlayerSkillType.End; i++)
+        {
+            SetSkill(i, skillInfo.canUseSkill[i]);
+        }
+        Managers.Game.playData.isStatusLoaded = true;
+    }
 
     public bool IsIdleState
     {
@@ -170,12 +283,27 @@ public class PlayerContext : MonoBehaviour
             return moveInfo.isPressClimbLadder && moveInfo.canClimbLadder;
         }
     }
+    public bool IsDieState
+    {
+        get
+        {
+            return statusInfo.hp <= 0;
+        }
+    }
     public void Initialize()
     {
-        playerInfo.hp = playerInfo.maxHp;
+        statusInfo.hp = statusInfo.maxHp;
         fallInfo.fallDamage = 0;
         attackInfo.attackType = EPlayerAttack.NONE;
         playerInfo.originScale = transform.localScale;
         hitInfo.canGetDamage = true;
     }
+
+    public void SetIdleState()
+    {
+        moveInfo.moveDir = Vector2.zero;
+        fallInfo.isFalling = false;
+        playerInfo.rigid.linearVelocity = Vector2.zero;
+    }
+
 }

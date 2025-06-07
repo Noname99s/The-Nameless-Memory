@@ -1,16 +1,17 @@
+using Orpul1;
 using UnityEngine;
 
-public class StageDoor : MonoBehaviour
+public class StageDoor : MonoBehaviour, IInteractAble
 {
     [SerializeField] bool isNextStage = true; // true for next stage, false for previous stage
 
     bool isInDoor = false;
-    void Update()
+    public void Interact()
     {
-        if (isInDoor && Input.GetKeyDown(KeyCode.UpArrow))
+        Managers.UI.GetPopupUI<InGameComposition>().OnFadeInSequence(() =>
         {
-            Managers.Map.EntranceMap(isNextStage);
-        }
+            Managers.Map.TransitionMap(isNextStage);
+        });
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

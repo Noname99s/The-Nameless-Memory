@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7013129689172101370}
   - component: {fileID: 6072098305812604063}
   - component: {fileID: 2574848211539833051}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 0.035, y: 0.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7102291021078187595}
   m_Father: {fileID: 4253996545834453446}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6072098305812604063
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -3275993
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 19625d28c938d480685b409b4ecd46f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -110,6 +111,101 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &5075124646571487940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7102291021078187595}
+  - component: {fileID: 8044460614406412908}
+  - component: {fileID: 5936126990300511642}
+  m_Layer: 11
+  m_Name: AttackCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7102291021078187595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5075124646571487940}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7013129689172101370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &8044460614406412908
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5075124646571487940}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.13}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.41, y: 0.25}
+  m_EdgeRadius: 0
+--- !u!114 &5936126990300511642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5075124646571487940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea5832c16935d24fa755941f7f34b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackAbleTag: 6
+  attackPositoin: {fileID: 4253996545834453446}
+  attackCollider: {fileID: 8044460614406412908}
+  damage: 0
 --- !u!1 &6766174714432795180
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +222,8 @@ GameObject:
   - component: {fileID: 379403530807707627}
   - component: {fileID: 839102815045252382}
   - component: {fileID: 6549227348212945112}
-  m_Layer: 0
+  - component: {fileID: -427404298415619515}
+  m_Layer: 11
   m_Name: RedMeleeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -192,7 +289,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -235,6 +332,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 64
     distance: 0.5
+  attackCollider: {fileID: 5936126990300511642}
 --- !u!114 &3881765726750798974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d0eff0f192e00409847f8e52cbc661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fieldOfView: {fileID: 6549227348212945112}
+  enemyContextDB: {fileID: 11400000, guid: e53c2cd94f46ac14ea42e30101a72f3c, type: 2}
   enemyInfo:
     rigid: {fileID: 3601213038188314220}
     slideMovement:
@@ -288,19 +388,23 @@ MonoBehaviour:
     animator: {fileID: 2574848211539833051}
     enemyCollider: {fileID: 8041543517621093557}
     originScale: {x: 4.8, y: 4.8, z: 1}
+    sound: {fileID: -427404298415619515}
     gravityStrength: 5
     isGround: 1
+    isAlwayChasePlayer: 0
     hp: 100
     flipValue: 1
   idleInfo:
     idleDuration: 5
   patrolInfo:
+    patrolType: 0
+    sightAngle: 150
+    patrolMoveSpeed: 5
     movePosis:
     - {fileID: 0}
     - {fileID: 0}
-    patrolMoveSpeed: 5
-    sightAngle: 150
     sightRadius: 3
+    moveTime: 5
   chaseInfo:
     chaseTarget: {fileID: 0}
     isFindChaseTarget: 0
@@ -313,7 +417,8 @@ MonoBehaviour:
     arrowFactory: {fileID: 0}
     attackDelay: 2
     attackDistance: 2
-    damage: 0
+    arrowSpeed: 0
+    damage: 5
   hitInfo:
     hitDuration: 1
     knockBackPower: 5
@@ -327,6 +432,17 @@ MonoBehaviour:
   dieInfo:
     isDie: 0
     deactiveTime: 2
+  sightInfo:
+    originPosi: {x: 0, y: 0, z: 0}
+    detectMask:
+      serializedVersion: 2
+      m_Bits: 0
+    ignoreMask:
+      serializedVersion: 2
+      m_Bits: 0
+    angle: 0
+    radius: 0
+    rotateZ: 0
 --- !u!114 &839102815045252382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,3 +480,23 @@ MonoBehaviour:
     radius: 3
     rotateZ: 90
   originScale: {x: 4.8, y: 4.8, z: 1}
+--- !u!114 &-427404298415619515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6766174714432795180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35cbcaadbd0f1ba47a53792ae61156d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 64387ad012b2e934e9aec76a3f7841a1, type: 3}
+  - {fileID: 8300000, guid: dd2ae4d39af7d674aba9456cda481b0e, type: 3}
+  - {fileID: 8300000, guid: b1c24c5d107919e45b2d4f7255fdf254, type: 3}
+  mixerGroup: 5
+  spatialBlend: 1
+  maxDistance: 0
+  minDistance: 5

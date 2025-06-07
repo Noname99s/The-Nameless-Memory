@@ -14,8 +14,8 @@ namespace Orpul1.Player.State
         {
             Debug.Log("ClimbLadderState Start");
             data.playerInfo.rigid.gravityScale = 0;
-            data.jumpInfo.jumpCount = 2;
-            data.playerInfo.animator.SetBool(EPlayerAni.IsClimbLadder.ToString(), true);
+            data.jumpInfo.jumpCount = data.jumpInfo.maxJumpCount;
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsClimbLadder.ToString(), true);
             data.playerInfo.playerCollider.isTrigger = true;
             data.playerInfo.rigid.linearVelocityX = 0;
         }
@@ -34,7 +34,7 @@ namespace Orpul1.Player.State
         {
             data.playerInfo.rigid.gravityScale = data.jumpInfo.gravityStrength;
             data.playerInfo.animator.speed = 1;
-            data.playerInfo.animator.SetBool(EPlayerAni.IsClimbLadder.ToString(), false);
+            data.playerInfo.animator.SetBool(EPlayerAniTransition.IsClimbLadder.ToString(), false);
             data.playerInfo.playerCollider.isTrigger = false;
         }
         
@@ -68,13 +68,6 @@ namespace Orpul1.Player.State
             if (!data.IsIdleState || data.fallInfo.isFalling) return false;
             transitionTo((int)EPlayerState.Idle);
             Debug.Log("LadderClimb->Idle");
-
-            return true;
-        }
-        private bool IsJumpState()
-        {
-            if (!data.IsJumpState) return false;
-            transitionTo((int)EPlayerState.Jump);
 
             return true;
         }

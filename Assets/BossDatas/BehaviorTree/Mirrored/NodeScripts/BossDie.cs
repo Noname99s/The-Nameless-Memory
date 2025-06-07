@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using SOBehaviorTree;
+using System.Collections;
 
 [CreateAssetMenu(fileName = "BossDie",menuName = "BehaviorNodes/Action/BossDie")]
 public class BossDie : ActionScript
@@ -28,7 +29,6 @@ public class BossDie : ActionScript
     }
     public override NodeState OnExit()
     {
-        bossObj.SetActive(false);
         return NodeState.Success;
     }
 }

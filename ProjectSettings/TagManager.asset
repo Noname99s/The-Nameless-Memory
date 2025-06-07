@@ -12,6 +12,7 @@ TagManager:
   - InventorySlot
   - BackGround1
   - BackGround2
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - BackGround
   - Interact
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -57,6 +58,9 @@ TagManager:
     locked: 0
   - name: Interact
     uniqueID: 253594519
+    locked: 0
+  - name: Enemy
+    uniqueID: 3029763757
     locked: 0
   - name: player
     uniqueID: 4291691303

@@ -23,7 +23,7 @@ namespace Orpul1.Enemy.State.Attack
 
         public void Execute()
         {
-            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
+            //context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             if (attackStateEnterTime > Time.time) return;
             transitionTo((int)EEnemyState.Idle);
         }

@@ -26,7 +26,7 @@ namespace Orpul1.Enemy.State.Attack
         }
         public void Execute()
         {
-            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
+            //context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             if (attackTime <= Time.time && !isAttack) 
             {
                 ArrowWeapon arrow = arrowFactory.Create<ArrowWeapon>();
@@ -37,11 +37,12 @@ namespace Orpul1.Enemy.State.Attack
             if (attackStateEnterTime > Time.time) return;
             transitionTo((int)EEnemyState.Idle);
         }
-        private void SetArrow(ISetDataAble<Vector3, float> arrow)
+        private void SetArrow(ISetDataAble<Vector3, int> arrow)
         {
             if (arrow == null) return;
-            //1. targetPosi , 2. damage
-            arrow.SetValue(context.chaseInfo.chaseTarget.position, context.attackInfo.damage);
+            //1. dir , 2. damage
+            Vector3 dir = context.chaseInfo.chaseTarget.position - context.transform.position;
+            arrow.SetValue(dir.normalized, context.attackInfo.damage);
         }
         private void AbleAttack()
         {

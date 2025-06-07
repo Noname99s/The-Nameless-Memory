@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3188863487046296387}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ShootPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,8 @@ GameObject:
   - component: {fileID: 2199262066627443654}
   - component: {fileID: 2523867458719600781}
   - component: {fileID: 6764063946402400228}
-  m_Layer: 0
+  - component: {fileID: -3302820145842310851}
+  m_Layer: 11
   m_Name: BlueArchorEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -115,7 +116,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -158,6 +159,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 64
     distance: 0.5
+  attackCollider: {fileID: 0}
 --- !u!114 &6330027634987221590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d0eff0f192e00409847f8e52cbc661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fieldOfView: {fileID: 2523867458719600781}
+  enemyContextDB: {fileID: 11400000, guid: 18e6f6a181e7d6941b8397c8d274e593, type: 2}
   enemyInfo:
     rigid: {fileID: 1668353006179857365}
     slideMovement:
@@ -211,19 +215,23 @@ MonoBehaviour:
     animator: {fileID: 3665338597357128104}
     enemyCollider: {fileID: 8791876550532020588}
     originScale: {x: 4.8, y: 4.8, z: 1}
+    sound: {fileID: -3302820145842310851}
     gravityStrength: 5
     isGround: 1
+    isAlwayChasePlayer: 0
     hp: 100
     flipValue: 1
   idleInfo:
     idleDuration: 5
   patrolInfo:
+    patrolType: 0
+    sightAngle: 150
+    patrolMoveSpeed: 5
     movePosis:
     - {fileID: 0}
     - {fileID: 0}
-    patrolMoveSpeed: 5
-    sightAngle: 150
     sightRadius: 3
+    moveTime: 5
   chaseInfo:
     chaseTarget: {fileID: 0}
     isFindChaseTarget: 0
@@ -236,7 +244,8 @@ MonoBehaviour:
     arrowFactory: {fileID: 6764063946402400228}
     attackDelay: 3
     attackDistance: 5
-    damage: 0
+    arrowSpeed: 0
+    damage: 8
   hitInfo:
     hitDuration: 1
     knockBackPower: 5
@@ -250,6 +259,17 @@ MonoBehaviour:
   dieInfo:
     isDie: 0
     deactiveTime: 2
+  sightInfo:
+    originPosi: {x: 0, y: 0, z: 0}
+    detectMask:
+      serializedVersion: 2
+      m_Bits: 0
+    ignoreMask:
+      serializedVersion: 2
+      m_Bits: 0
+    angle: 0
+    radius: 0
+    rotateZ: 0
 --- !u!114 &2199262066627443654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +322,26 @@ MonoBehaviour:
   prefab: {fileID: 4860928162030497841, guid: cc8d121dd9ae0bf489b4565fcd4b2f03, type: 3}
   parent: {fileID: 0}
   shootPosition: {fileID: 3188863487046296387}
+--- !u!114 &-3302820145842310851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314405325189303341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35cbcaadbd0f1ba47a53792ae61156d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 7f193ed461c4c4b459ef823444c1deda, type: 3}
+  - {fileID: 8300000, guid: dd2ae4d39af7d674aba9456cda481b0e, type: 3}
+  - {fileID: 8300000, guid: b1c24c5d107919e45b2d4f7255fdf254, type: 3}
+  mixerGroup: 5
+  spatialBlend: 1
+  maxDistance: 0
+  minDistance: 5
 --- !u!1 &5505121327568100759
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +353,7 @@ GameObject:
   - component: {fileID: 4334815239605814200}
   - component: {fileID: 2866669858510124871}
   - component: {fileID: 3665338597357128104}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,8 +416,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1265203539
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9c26db6ae31264552871f1020cdea09a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

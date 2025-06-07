@@ -1,4 +1,5 @@
 using Orpul1.Camera;
+using Orpul1.Player.Skill;
 using Orpul1.State;
 using System;
 using System.Collections;
@@ -20,7 +21,7 @@ namespace Orpul1.Player
         public Ray2D ladderRay;
         public RaycastHit2D groundHit;
     }
-    public class PlayerController : MonoBehaviour,IDamageAble, IknockbackAble, IGetValue<Transform>
+    public class PlayerController : MonoBehaviour,IDamageAble, ISkillOpenAble, IknockbackAble
     {
         [SerializeField] StateController stateController;
         [SerializeField] PlayerContext playerData;
@@ -30,8 +31,11 @@ namespace Orpul1.Player
         WaitForSeconds delayCameraShake;
         ICameraEffectAble cameraEffect;
         ISetCamerGroupAble cameraGroup;
+        Vector3 scale = Vector3.one;
+
         //TODO: 플레이어 HP UI연결 시킬 것
         public event System.Action<int ,int> OnPlayerHpChanged;
+        public event System.Action<int> OnPlayerDeath;
 
         [SerializeField] EPlayerState state;
         private void Awake()
@@ -43,11 +47,17 @@ namespace Orpul1.Player
             playerData.playerInfo.dectectedGroundPosi = transform.position;
             delayInvincible = new WaitForSeconds(playerData.hitInfo.invincibleTime);
             delayCameraShake = new WaitForSeconds(playerData.hitInfo.cameraShakeDuration);
+
+            scale = transform.localScale;
         }
         void Start()
         {
+            OnPlayerDeath += Managers.UI.GetPopupUI<InGameComposition>().OnDeathCountUpdateConnection;
+            OnPlayerDeath?.Invoke(Managers.Game.playData.playerStatus.deathCount);
+            playerData.statusInfo.hp = playerData.statusInfo.maxHp;
             OnPlayerHpChanged += Managers.UI.GetPopupUI<InGameComposition>().OnHpUpdateConnection;
-            CameraManager.Instance.SetCameraEvent(SetCameraEvent);
+            OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
+            Managers.Camera.SetCameraEvent(SetCameraEvent);
             SetCameraEvent();
             stateController.TransitionState((int)EPlayerState.Idle);
             playerData.moveInfo.slideMovement.gravity = playerData.moveInfo.slideMoveGravity;
@@ -55,7 +65,7 @@ namespace Orpul1.Player
         }
         private void SetCameraEvent()
         {
-            Transform camera = CameraManager.Instance.GetCamera<Transform>((int)ECameraType.MainCamera);
+            Transform camera = Managers.Camera.GetCamera<Transform>((int)ECameraType.MainCamera);
             if (camera == null) return;
             cameraEffect = camera.GetComponent<ICameraEffectAble>();
             cameraGroup = camera.GetComponent<ISetCamerGroupAble>();
@@ -85,8 +95,7 @@ namespace Orpul1.Player
             }
             playerData.fallInfo.isFalling = false;
             OnDamage(playerData.fallInfo.fallDamage);
-            //playerData.playerInfo.hp -= playerData.fallInfo.fallDamage;
-            playerData.jumpInfo.jumpCount = 2;
+            playerData.jumpInfo.jumpCount = playerData.jumpInfo.maxJumpCount;
             playerData.playerInfo.dectectedGroundPosi = rayInfo.groundHit.point;
             playerData.fallInfo.fallDamage = 0;
         }
@@ -133,40 +142,57 @@ namespace Orpul1.Player
         private void FlipX()
         {
             if (playerData.moveInfo.moveDir.x == 0) return;
+            float xScale = Mathf.RoundToInt(playerData.moveInfo.moveDir.x);
+            if (xScale == 0) return;
 
-            Vector3 scale = playerData.playerInfo.originScale;
-            scale.x = Mathf.RoundToInt(playerData.moveInfo.moveDir.x);
-            playerData.playerInfo.trPlayer.localScale = scale;
+
+            scale = playerData.playerInfo.originScale;
+            scale.x *= xScale;
+            transform.localScale = scale;
         }
         public void RecoverHp(bool max , int recoverAmount = 0)
         {
-            if (playerData.playerInfo.hp <= 0) return;
+            if (playerData.statusInfo.hp <= 0) return;
             if (max)
-                recoverAmount = playerData.playerInfo.maxHp - playerData.playerInfo.hp;
-            playerData.playerInfo.hp += recoverAmount;
+                recoverAmount = playerData.statusInfo.maxHp - playerData.statusInfo.hp;
+            playerData.statusInfo.hp += recoverAmount;
             // Ensure hp does not exceed maxHp
-            playerData.playerInfo.hp = Mathf.Clamp(playerData.playerInfo.hp, 0, playerData.playerInfo.maxHp);
-            OnPlayerHpChanged?.Invoke(playerData.playerInfo.hp, playerData.playerInfo.maxHp);
+            playerData.statusInfo.hp = Mathf.Clamp(playerData.statusInfo.hp, 0, playerData.statusInfo.maxHp);
+            OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
 
         }
         public void OnDamage(int damage)
         {
             if (damage == 0 || Managers.Game.CurrentState == GameState.Home) return;
             if (!playerData.hitInfo.canGetDamage) return;
-            OnPlayerHpChanged?.Invoke(playerData.playerInfo.hp, playerData.playerInfo.maxHp);
+            OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
 
-            playerData.playerInfo.hp -= damage;
-            playerData.hitInfo.isHit = playerData.playerInfo.hp > 0;
+            playerData.statusInfo.hp -= damage;
+            playerData.hitInfo.isHit = playerData.statusInfo.hp > 0;
             playerData.hitInfo.isDeath = !playerData.hitInfo.isHit;
             StartCoroutine("CountInvincibleTime");
             StartCoroutine("CameraShake");
+        }
+        [ContextMenu("KnockBackLeft")]
+        private void KnockBackLeft()
+        {
+            playerData.hitInfo.isHit = true;
+            playerData.playerInfo.rigid.AddForce(Vector2.left * playerData.hitInfo.knockBackPower, ForceMode2D.Impulse);
+
+        }
+        [ContextMenu("KnockBackRight")]
+        private void KnockBackRight()
+        {
+            playerData.hitInfo.isHit = true;
+            playerData.playerInfo.rigid.AddForce(Vector2.right*playerData.hitInfo.knockBackPower, ForceMode2D.Impulse);
         }
 
         public void knockback(Vector2 dir)
         {
             if (!playerData.hitInfo.canGetDamage) return;
             playerData.playerInfo.rigid.linearVelocity = Vector2.zero;
-            playerData.playerInfo.rigid.AddForce(dir * playerData.hitInfo.knockBackPower, ForceMode2D.Impulse);
+            playerData.hitInfo.hitDir = dir;
+            
         }
         IEnumerator CameraShake()
         {
@@ -182,13 +208,16 @@ namespace Orpul1.Player
             playerData.hitInfo.canGetDamage = true;
         }
 
-        /// <summary>
-        /// 위치 정보 전달
-        /// </summary>
-        /// <returns></returns>
-        public Transform GetValue()
+        [ContextMenu("OpenSkill DoubleJump")]
+        public void TestOpenSkill()
         {
-            return targetPosition;
+            OpenSkill(0);
+        }
+        public void OpenSkill(int skillType)
+        {
+            playerData.jumpInfo.jumpCount = playerData.skillInfo.jumpSkills[(int)EPlayerSkillOpen.Open];
+            playerData.jumpInfo.maxJumpCount = playerData.skillInfo.jumpSkills[(int)EPlayerSkillOpen.Open];
+            Managers.Game.playData.playerSkill.canUseSkill[(int)EPlayerSkillType.DoubleJump] = true;
         }
     }
 }

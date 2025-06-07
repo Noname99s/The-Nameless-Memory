@@ -22,39 +22,49 @@ public enum Stage
 }
 public class GameManager 
 {
-    public bool[] stageCleared = new bool[(int)Stage.Max];
+    public PlayData playData; // Game data
     public GameState CurrentState { get; private set; } = GameState.MainMenu;
     public void Init()
     {
-        for(int i = 0; i < stageCleared.Length; i++)
+        playData = new PlayData(); // Initialize play data
+    }
+    public void UpdatePlayTime()
+    {
+        if (CurrentState == GameState.MainMenu || CurrentState == GameState.Ending) return;
+        playData.playTime += Time.deltaTime; 
+    }
+    public void StartStage(Stage stage, int interactionCount)
+    {
+        while (playData.dialogComplete[(int)stage].datas.Count < interactionCount)
         {
-            stageCleared[i] = false; 
+            playData.dialogComplete[(int)stage].datas.Add(false);
         }
     }
     public void ChangeState(GameState newState)
     {
-        if (CurrentState == newState) return;
         CurrentState = newState;
+        Time.timeScale = 1f; 
         Debug.Log($"Game state changed to: {CurrentState}");
-        Managers.Player.ChangePlayerPos();
-        Managers.Player.SetActivePlayer(false); // Move player to the new state
+        // Listener ON
+        Managers.Sound.ActiveListner();
+        Managers.Player.RemovePlayer(); 
         Managers.SceneLoad.LoadScene(newState.ToString());
-        
     }
     public void SettingScene()
     {
+        Managers.Sound.DeactiveListner();
+
         switch (CurrentState)
         {
             case GameState.MainMenu:
                 // Logic for main menu
+                Managers.UI.GetPopupUI<SaveLoadComposition>().RecordData(playData); // Record current play data
                 Managers.Player.RemovePlayer(); // Remove player if exists
                 break;
             case GameState.Home:
                 // Logic for home
                 Managers.UI.ShowPopupUI<InGameComposition>();
-                Managers.Player.Init(); // Initialize player
-                Managers.Player.SetActivePlayer(true); // Activate player and camera
-                Managers.Player.ChangePlayerPos(); // Set player position to home
+                Managers.Player.Init(new Vector3(9, 8, 0)); // Initialize player
                 break;
             case GameState.RemindRoom:
                 break;
@@ -62,18 +72,14 @@ public class GameManager
             case GameState.Battle:
                 // Logic for battle
                 Managers.UI.ShowPopupUI<InGameComposition>(); 
-                Managers.Map.EntranceMap(); // Load the current map
-                Managers.Player.SetActivePlayer(true); // Activate player and camera
-                Managers.Player.ChangePlayerPos(); // Set player position to the current map
+                Managers.Map.TransitionMap(); // Load the current map
+                Managers.Player.Init(Managers.Map.movePoint); // Initialize player at the entrance point
                 break;
 
             case GameState.Boss:
                 // Logic for boss fight
                 Managers.UI.ShowPopupUI<InGameComposition>();
-                Managers.Player.Init(); // Initialize player
-                Managers.Player.player.transform.position = new Vector3(10, 10, 0);
-                Managers.Player.SetActivePlayer(true); // Activate player and camera
-                Managers.Player.ChangePlayerPos(); // Set player position to the current map
+                Managers.Player.Init(new Vector3(10, 10, 0)); // Initialize player
                 break;
 
             case GameState.Ending:

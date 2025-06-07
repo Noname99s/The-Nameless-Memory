@@ -187,6 +187,7 @@ MonoBehaviour:
   - {fileID: 3491569957713490930}
   - {fileID: -7896548479177116346}
   - {fileID: -2950797997082011388}
+  - {fileID: 1456227549215345707}
 --- !u!114 &523979101697094627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +211,29 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: ce4e90967c5ace04782962495cdb79d9, type: 2}
+--- !u!114 &1456227549215345707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: ActionNode
+  m_EditorClassIdentifier: 
+  guid: fc0b0df3a16bf6f49a4a04ed5a838145
+  position: {x: -539.49976, y: 469.4235}
+  nodeName: ActionNode
+  description: 
+  nodeState: 3
+  methodName: Skill5Sound
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: da92d91d02e49f34f8254ebd992932dd, type: 2}
 --- !u!114 &3491569957713490930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +247,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: de5e65a1e538ce4479961142ce1af6d5
-  position: {x: -686.1419, y: 464}
+  position: {x: -854.76, y: 465.84006}
   nodeName: ActionNode
   description: ExecuteCameraShake
   nodeState: 3
@@ -270,7 +294,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: b7d60de6a86c6114b9b306098a249f05
-  position: {x: -530.1886, y: 465.46643}
+  position: {x: -698.76, y: 467.44003}
   nodeName: ActionNode
   description: PlaySkill5Animation
   nodeState: 3
@@ -300,6 +324,7 @@ MonoBehaviour:
   childNodeList:
   - {fileID: 3491569957713490930}
   - {fileID: 8228569178246810712}
+  - {fileID: 1456227549215345707}
   - {fileID: -7896548479177116346}
   - {fileID: -2950797997082011388}
   - {fileID: -5655771486731785091}

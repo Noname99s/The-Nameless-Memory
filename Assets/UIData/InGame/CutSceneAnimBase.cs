@@ -8,8 +8,10 @@ public abstract class CutSceneAnimBase : MonoBehaviour
     [SerializeField] SO_ScenarioData scenarioData;
 
     [Header("CutScene UI Setting")]
-    [SerializeField] Text scenarioText;
+    [SerializeField]protected Text scenarioText;
     [SerializeField] Image scenarioSprite;
+    [SerializeField] Image stopFade;
+    [SerializeField] GameObject stopText;
 
     [Header("CutScene Text Anim Settings")]
     [SerializeField] float textDisplayDuration = 5f;
@@ -19,6 +21,7 @@ public abstract class CutSceneAnimBase : MonoBehaviour
     int currentScenarioIndex = 0;
     protected bool isAnimFinished = false;
     protected bool cutSceneFinished = false;
+    protected bool stopCutScene = false;
 
     protected virtual void Start()
     {
@@ -26,10 +29,42 @@ public abstract class CutSceneAnimBase : MonoBehaviour
     }
     protected virtual void Update()
     {
-        if (isAnimFinished && !cutSceneFinished)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!stopCutScene)
+            {
+                stopCutScene = true;
+                stopFade.color = new Color(0, 0, 0, 0.75f);
+                stopText.SetActive(true);
+                Time.timeScale = 0f; // Pause the game
+            }
+            else
+            {
+                stopCutScene = false;
+                stopFade.color = new Color(0, 0, 0, 0); 
+                stopText.SetActive(false);
+                Time.timeScale = 1f; // Resume the game
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
+            cutSceneFinished = true;
+            isAnimFinished = true;
+            Time.timeScale = 1f;
+            scenarioText.DOKill();
+        }
+
+        if (!cutSceneFinished && !stopCutScene && Input.GetMouseButtonDown(0))
+        {
+            scenarioText.DOPause();
+            scenarioText.text = scenarioData._text[currentScenarioIndex - 1];
+            isAnimFinished = true;
+        }
+        
+        if (isAnimFinished)
         {
             timeCount += Time.deltaTime;
-            if (timeCount >= textDisplayDelay)
+            if (timeCount >= textDisplayDelay || cutSceneFinished)
             {
                 ScenarioSequence();
             }
@@ -52,8 +87,8 @@ public abstract class CutSceneAnimBase : MonoBehaviour
         if (currentScenarioIndex >= scenarioData._text.Count)
         {
             cutSceneFinished = true;
-            return;
         }
+        if (cutSceneFinished) return;
         timeCount = 0f;
         isAnimFinished = false;
 
@@ -69,17 +104,7 @@ public abstract class CutSceneAnimBase : MonoBehaviour
             .OnComplete(() =>
             {
                 isAnimFinished = true;
-            })
-            .onUpdate += () =>
-            {
-                if (Input.anyKeyDown)
-                {
-                    scenarioText.DOPause();
-                    scenarioText.text = scenarioData._text[currentScenarioIndex - 1];
-                    isAnimFinished = true;
-                    timeCount = 0f;
-                }
-            };
+            });
     }
 
 }

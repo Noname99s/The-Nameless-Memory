@@ -12,10 +12,10 @@ public class InGamePresenter
         inGameModel = new InGameModel();
         inGameView.OnPauseGame += HandlePauseGame;
         inGameView.OnResumeGame += HandleResumeGame;
+        inGameView.OnOpenSaveLoad += HandleOpenSaveLoad;
         inGameView.OnOpenOptions += HandleOpenOptions;
         inGameView.OnBackToMainMenu += HandleBackToMainMenu;
         inGameView.OnQuitGame += HandleQuitGame;
-        
     }
 
     void HandlePauseGame()
@@ -25,6 +25,10 @@ public class InGamePresenter
     void HandleResumeGame()
     {
         inGameModel.ResumeGame();
+    }
+    void HandleOpenSaveLoad()
+    {
+        inGameModel.OpenSaveLoad();
     }
     void HandleOpenOptions()
     {

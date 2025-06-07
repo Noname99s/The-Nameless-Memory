@@ -1,0 +1,586 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &822982931434564908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3912541546564111775}
+  - component: {fileID: 5675550676168223548}
+  - component: {fileID: 5960841857992560747}
+  m_Layer: 0
+  m_Name: Skill1Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3912541546564111775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822982931434564908}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 27.26307, y: 21.59437, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4920984346528030968}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5675550676168223548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822982931434564908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa064ec0bdf6ab4080b7bfd168384f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 11400000, guid: 9a14555b4f3c352499323830f60bf7ae, type: 2}
+  mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
+  mirroredBlackboardComponent:
+    bossInfo:
+      bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
+  skillEffectSpawner: {fileID: 0}
+--- !u!114 &5960841857992560747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822982931434564908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d1c4ff457d3b147bb11b59900d729b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6296204301011483535, guid: a4f954e148c6ada4b912dc6c2c4d4c1b, type: 3}
+  parent: {fileID: 822982931434564908}
+  spawnPosis:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  index: 0
+--- !u!1 &2040038107713822315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8212245095770842664}
+  - component: {fileID: 2030308871946434369}
+  m_Layer: 0
+  m_Name: Skill5Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8212245095770842664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040038107713822315}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 27.26307, y: 21.59437, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4920984346528030968}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2030308871946434369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040038107713822315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa064ec0bdf6ab4080b7bfd168384f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 11400000, guid: b3675fc7eacdb874daf1f2d447f1614b, type: 2}
+  mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
+  mirroredBlackboardComponent:
+    bossInfo:
+      bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
+  skillEffectSpawner: {fileID: 0}
+--- !u!1 &3964291139455496487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6159097394405080419}
+  - component: {fileID: 164715976880937257}
+  - component: {fileID: 8296400256490057841}
+  - component: {fileID: 8181963199473560487}
+  - component: {fileID: 8310354274286859789}
+  m_Layer: 0
+  m_Name: Skill6Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6159097394405080419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964291139455496487}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 27.26307, y: 21.59437, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4920984346528030968}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &164715976880937257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964291139455496487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa064ec0bdf6ab4080b7bfd168384f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 11400000, guid: adeb3ed760a94094385e9e5c09d09225, type: 2}
+  mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
+  mirroredBlackboardComponent:
+    bossInfo:
+      bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
+  skillEffectSpawner: {fileID: 0}
+--- !u!114 &8296400256490057841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964291139455496487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88aca246adea0e349a17c9ddb500b427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  parent: {fileID: 3964291139455496487}
+  monsterList:
+  - {fileID: 8181963199473560487}
+  - {fileID: 8310354274286859789}
+  spawnPosis:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &8181963199473560487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964291139455496487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3604736157f60ca4484416c858f9c338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1676353855776386469, guid: a69d573860b71bd4dbf7d19fdcc8b332, type: 3}
+  parent: {fileID: 3964291139455496487}
+--- !u!114 &8310354274286859789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964291139455496487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a805aa2e9c37544e97fb4558e99d861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 71911913703825602, guid: c09548d2d4434514ca91cfdec836992e, type: 3}
+  parent: {fileID: 3964291139455496487}
+--- !u!1 &5883577843155705379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3374861998143625442}
+  - component: {fileID: 2397475220171149199}
+  - component: {fileID: 2996833996878556860}
+  m_Layer: 0
+  m_Name: Skill2Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3374861998143625442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883577843155705379}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 27.26307, y: 21.59437, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4920984346528030968}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2397475220171149199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883577843155705379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa064ec0bdf6ab4080b7bfd168384f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 11400000, guid: f425c3837e2613b498c86652fac0bbe9, type: 2}
+  mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
+  mirroredBlackboardComponent:
+    bossInfo:
+      bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
+  skillEffectSpawner: {fileID: 0}
+--- !u!114 &2996833996878556860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883577843155705379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e8268f5d55a74468257d9690f8223a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6194561466169816900, guid: ef97adb54c6124c4eb0ecaed2bbaef90, type: 3}
+  parent: {fileID: 5883577843155705379}
+  spawnPosis:
+  - {fileID: 0}
+  - {fileID: 0}
+  arrivePosis:
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!1 &7445054355437152303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 280081788039849320}
+  - component: {fileID: 730795202570436646}
+  - component: {fileID: 9212944699625131602}
+  m_Layer: 0
+  m_Name: Skill3Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &280081788039849320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7445054355437152303}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 27.26307, y: 21.59437, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4920984346528030968}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &730795202570436646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7445054355437152303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa064ec0bdf6ab4080b7bfd168384f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 11400000, guid: f768587eddcfdad459005e6b163128b2, type: 2}
+  mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
+  mirroredBlackboardComponent:
+    bossInfo:
+      bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
+  skillEffectSpawner: {fileID: 0}
+--- !u!114 &9212944699625131602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7445054355437152303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a28391ae5fbcea4aadfb820cbf7970d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5139689308164850570, guid: 8334409cfa65f984fa028d1f34ee3263, type: 3}
+  parent: {fileID: 7445054355437152303}
+  trPlayer: {fileID: 0}
+--- !u!1 &7874208816930648043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4920984346528030968}
+  m_Layer: 0
+  m_Name: UnitTestSkills
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4920984346528030968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7874208816930648043}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.163069, y: 0.105630875, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3912541546564111775}
+  - {fileID: 3374861998143625442}
+  - {fileID: 280081788039849320}
+  - {fileID: 1323113883052892886}
+  - {fileID: 8212245095770842664}
+  - {fileID: 6159097394405080419}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8396879208190386144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1323113883052892886}
+  - component: {fileID: 5559352810300390838}
+  - component: {fileID: 7495510861534818158}
+  m_Layer: 0
+  m_Name: Skill4Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1323113883052892886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8396879208190386144}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 27.26307, y: 21.59437, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4920984346528030968}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5559352810300390838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8396879208190386144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa064ec0bdf6ab4080b7bfd168384f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 11400000, guid: 38e5da1c56e88fb4c846c590bb965cb0, type: 2}
+  mirroredBlackboard: {fileID: 11400000, guid: 8a00bdc39c61f6a49b51941707bf8ea9, type: 2}
+  mirroredBlackboardComponent:
+    bossInfo:
+      bossSprite: {fileID: 0}
+      bossObj: {fileID: 0}
+      animator: {fileID: 0}
+      phaseHpConditions: []
+      bossState: 0
+      hp: 0
+    hitStateInfo:
+      hitColor: {r: 0, g: 0, b: 0, a: 0}
+      orginColor: {r: 0, g: 0, b: 0, a: 0}
+      blinkCount: 0
+      blinkeDelay: 0
+    bossSkillInfo:
+      bossSkillFactories: []
+      leftSkillCoolTimes:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      isSkillUse: 000000000000
+  skillEffectSpawner: {fileID: 0}
+--- !u!114 &7495510861534818158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8396879208190386144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9cffc78f84d83f41bf2fff6eb2c107c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7607401343270352461, guid: 75b67d0608a767f4bbde0e95241ea84e, type: 3}
+  parent: {fileID: 8396879208190386144}
+  spawnPosi:
+  - {fileID: 0}
+  - {fileID: 0}

@@ -1,5 +1,6 @@
 using System;
-using UnityEditor.EditorTools;
+using System.Xml.Linq;
+using Orpul1.Enemy.DB;
 using UnityEngine;
 
 namespace Orpul1.Enemy
@@ -16,18 +17,32 @@ namespace Orpul1.Enemy
         public Vector3 originScale = Vector3.one;
         public Action<float> flipX;
         public ISetDataAble<float, float> setSight;
+        public SoundController sound;
         public float gravityStrength;
         public bool isGround = true;
+        public bool isAlwayChasePlayer = false;
         public int hp;
         public int flipValue = 1;
     }
     [Serializable]
     public class EnemyPatrolInfo
     {
-        public Transform[] movePosis;
-        public float patrolMoveSpeed;
+        public enum EPatrolType
+        {
+            Path,
+            Free,
+        }
+        public EPatrolType patrolType;
         [Range(0,360)] public float sightAngle;
+        public float patrolMoveSpeed;
+
+        [Header("Path Patrol")]
+        public Transform[] movePosis;
         public float sightRadius;
+
+        [Header("Free Patrol")]
+        public float moveTime;
+
     }
 
     [Serializable]
@@ -54,6 +69,7 @@ namespace Orpul1.Enemy
         public EnemyFactory arrowFactory;
         public float attackDelay;
         public float attackDistance;
+        public float arrowSpeed;
         public int damage;
     }
     [Serializable]
@@ -83,6 +99,8 @@ namespace Orpul1.Enemy
     }
     public class EnemyContext : MonoBehaviour
     {
+        [SerializeField] FieldOfView fieldOfView;
+        [SerializeField] EnemyContextDB enemyContextDB;
         public EnemyInfo enemyInfo;
         public EnemyIdleInfo idleInfo;
         public EnemyPatrolInfo patrolInfo;
@@ -90,10 +108,18 @@ namespace Orpul1.Enemy
         public EnemyAttackInfo attackInfo;
         public EnemyHitInfo hitInfo;
         public EnemyDieInfo dieInfo;
+        public SightInfo sightInfo;
         public void Initialize()
         {
+            SetInfos();
             hitInfo.waitNextBlink = new WaitForSeconds(hitInfo.blinkDuration);
         }
+        private void SetInfos()
+        {
+            enemyContextDB.SetDB(this);
+        }
+
+        // >> 전이 조건들 :
         public bool IsPatrolState
         {
             get { return !chaseInfo.isFindChaseTarget; }
@@ -133,6 +159,7 @@ namespace Orpul1.Enemy
         {
             get { return enemyInfo.hp <= 0; }
         }
+        // << :
     }
 
 }

@@ -10,6 +10,7 @@ namespace Orpul1.Boss.Mirrored
         Skill4,
         Skill5,
         Skill6,
+        Die,
         END,
     }
 }

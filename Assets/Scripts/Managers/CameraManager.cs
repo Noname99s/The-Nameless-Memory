@@ -4,7 +4,7 @@ using Orpul1.Camera;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CameraManager : SingleTon<CameraManager>
+public class CameraManager 
 {
     Dictionary<int, GameObject> dictCamera = new Dictionary<int, GameObject>();
     UnityEvent setCameraEvent = new UnityEvent();

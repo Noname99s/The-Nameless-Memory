@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -917811483
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -8085092100088143639, guid: b9c1e412de5ae4ed09638a220984df00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 537998843261253021}
   - component: {fileID: 776846596814385039}
   - component: {fileID: 3259166146870609527}
+  - component: {fileID: -6604152186729869937}
   m_Layer: 0
   m_Name: SpawnEffectPrefab
   m_TagString: Untagged
@@ -187,7 +188,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -917811483
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 693198113325787351, guid: af731dd5d448c45878e58193f4734469, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -237,4 +238,25 @@ MonoBehaviour:
   delayToAttack: 0
   deativeTime: 0
   damage: 0
+  attackCollider: {fileID: 0}
+  sound: {fileID: -6604152186729869937}
   animator: {fileID: 776846596814385039}
+--- !u!114 &-6604152186729869937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7512824680943569019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35cbcaadbd0f1ba47a53792ae61156d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 2f5d7adef0c14324b809c8065c2227cc, type: 3}
+  - {fileID: 8300000, guid: e3856cfbb077d814cbd9f9c1128ed1e5, type: 3}
+  mixerGroup: 2
+  spatialBlend: 1
+  maxDistance: 0
+  minDistance: 5

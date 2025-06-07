@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1310474997127015934}
   - component: {fileID: 764128924490101152}
   - component: {fileID: 4683667883276261786}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -3275993
-  m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingLayer: 5
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 0ccd2b99e9b547b498330df9c7104170, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -111,6 +111,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &2658830485346570554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1098117371055557434}
+  m_Layer: 10
+  m_Name: TargetPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1098117371055557434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2658830485346570554}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.65, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1832887567842334404}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5680952135707525415
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +159,9 @@ GameObject:
   - component: {fileID: 5725579068212597670}
   - component: {fileID: 2571065938256593121}
   - component: {fileID: 2506829344611688349}
-  m_Layer: 0
+  - component: {fileID: 7306151192876183716}
+  - component: {fileID: -575680351097744630}
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -145,10 +178,12 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1310474997127015934}
+  - {fileID: 1098117371055557434}
+  - {fileID: 7746190191099281283}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5947109336739971617
@@ -360,6 +395,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9db1f6ec-205d-43a3-b0f1-4bc56e214be5
     m_ActionName: 'Player/WallClimb[/Keyboard/upArrow]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2506829344611688349}
+        m_TargetAssemblyTypeName: PlayerInputListner, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a3eb3cdc-a8b1-439c-a9ad-3a25173e023b
+    m_ActionName: 'Player/Interact[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -379,12 +430,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateController: {fileID: 5725579068212597670}
   playerData: {fileID: 6948962639656468517}
+  targetPosition: {fileID: 1098117371055557434}
   rayInfo:
     groundRayDistance: 0.9
-    wallRayDistance: 0.35
+    wallRayDistance: 0.8
     ladderRayDistance: 1
     groundRayStartPosi: {x: 0, y: 0.72, z: 0}
-    wallRayStartPosi: {x: 0, y: 0.5, z: 0}
+    wallRayStartPosi: {x: 0, y: 1, z: 0}
     floorLayer:
       serializedVersion: 2
       m_Bits: 64
@@ -404,6 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82e898cbc5606c4d9a7239329b1151d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contextDB: {fileID: 11400000, guid: ff7e615e2bdf9e840a03dbe256043dc8, type: 2}
   playerInfo:
     rigid: {fileID: 5947109336739971617}
     playerCollider: {fileID: 5797288449755540277}
@@ -411,9 +464,9 @@ MonoBehaviour:
     trPlayer: {fileID: 1832887567842334404}
     animator: {fileID: 4683667883276261786}
     originScale: {x: 1, y: 1, z: 1}
-    hp: 100
-    maxHp: 100
     dectectedGroundPosi: {x: 0, y: 0, z: 0}
+    sound: {fileID: -575680351097744630}
+    characterAttack: {fileID: 7191165317446888281}
   moveInfo:
     slideMovement:
       <maxIterations>k__BackingField: 3
@@ -447,20 +500,18 @@ MonoBehaviour:
   jumpInfo:
     jumpState: 0
     gravityStrength: 5
-    jumpPower: 38
+    jumpPower: 46
     decelerate: 0.8
     minJumpSpeed: 0.2
-    jumpCount: 0
+    maxJumpCount: 0
+    jumpCount: 2
     isPressJump: 0
     shouldWallJump: 0
   fallInfo:
     isFalling: 0
-    damageFallHeight: 30
     defaultFallSpeed: 1
-    maxFallSpeed: 15
     fallDamageOverTime: 1.2
     onAirMoveSpeed: 10
-    decelerateMoveSpeed: 0.2
     fallDamage: 0
     maxFallDamage: 5
   attackInfo:
@@ -470,13 +521,11 @@ MonoBehaviour:
     - 0.3
     - 0.3
     attackCounts: 030000000300000000000000
-    damages: 0a00000014000000
     curAttack: 0
     isPressAttack: 0
     canAttack: 0
     delayInterval: 0
     isStillAttack: 0
-    characterAttack: {fileID: 7191165317446888281}
   hitInfo:
     knockBackPower: 20
     invincibleTime: 1
@@ -485,6 +534,21 @@ MonoBehaviour:
     canGetDamage: 1
     isHit: 0
     isDeath: 0
+    hitDir: {x: 0, y: 0}
+  statusInfo:
+    hp: 0
+    maxHp: 0
+    getMemoryPeaceCounts: 000000000000000000000000000000000000000000000000
+    increaseStateValue: 0
+    curStatePercent: 0
+    deathCount: 0
+    maxMemoryPeaceCount: 5
+    damages:
+    - 0
+    - 0
+  skillInfo:
+    jumpSkills: 0000000000000000
+    canUseSkill: 0000
 --- !u!114 &5725579068212597670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,6 +589,121 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 6948962639656468517}
+  playerInteractController: {fileID: 5427805385664776392}
+--- !u!114 &7306151192876183716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680952135707525415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad2e1390bb2134046b90ae722e9f0df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 6948962639656468517}
+--- !u!114 &-575680351097744630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680952135707525415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35cbcaadbd0f1ba47a53792ae61156d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 284904b0e097a4149bac18f557f31f6a, type: 3}
+  - {fileID: 8300000, guid: a2a804d670f685f4091c95343a57dc90, type: 3}
+  - {fileID: 8300000, guid: d1d82a4815a1fbe4084ae11ef04f95b4, type: 3}
+  - {fileID: 8300000, guid: efb332aa923b66642affc10d2c48c17c, type: 3}
+  - {fileID: 8300000, guid: be0f8c895952c554184ff7780edd7006, type: 3}
+  - {fileID: 8300000, guid: 4e2f085272d712b40963aa902528036a, type: 3}
+  - {fileID: 8300000, guid: 7c891729b4d8b0e4483215a160f46647, type: 3}
+  - {fileID: 8300000, guid: 3945ed65e3c13144eb0681a4e56c9d0c, type: 3}
+  mixerGroup: 0
+  spatialBlend: 1
+  maxDistance: 0
+  minDistance: 30
+--- !u!1 &6679158788343795006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7746190191099281283}
+  - component: {fileID: 3782818833043319729}
+  - component: {fileID: 5427805385664776392}
+  m_Layer: 10
+  m_Name: PlayerInteract
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7746190191099281283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679158788343795006}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1832887567842334404}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &3782818833043319729
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679158788343795006}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &5427805385664776392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679158788343795006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61041e91d5867f044892504e13a18d32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  interactRadius: 1
 --- !u!1 &7130471573606573381
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +716,7 @@ GameObject:
   - component: {fileID: 597267509707807459}
   - component: {fileID: 3476999195374640395}
   - component: {fileID: 7191165317446888281}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AttackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -645,4 +824,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackAbleTag: 5
+  attackPositoin: {fileID: 1832887567842334404}
   attackCollider: {fileID: 3476999195374640395}
+  damage: 0

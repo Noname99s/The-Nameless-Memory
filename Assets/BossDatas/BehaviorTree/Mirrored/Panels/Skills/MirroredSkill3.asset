@@ -37,7 +37,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 01391d6a7b9da0d48827db4841f5d71b
-  position: {x: -605.52106, y: 564.8487}
+  position: {x: -799.2, y: 568}
   nodeName: ActionNode
   description: SetAttackState
   nodeState: 3
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 9910c3fd1ad57dd478e21e4896a3b186
-  position: {x: -445.521, y: 562.44867}
+  position: {x: -639.2, y: 565.6}
   nodeName: ActionNode
   description: PlaySkill3Animation
   nodeState: 3
@@ -167,6 +167,7 @@ MonoBehaviour:
   - {fileID: 4198172607276920013}
   - {fileID: 572858191137490508}
   - {fileID: -4464917523501796367}
+  - {fileID: 7868087515405876187}
 --- !u!114 &572858191137490508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +212,7 @@ MonoBehaviour:
   - {fileID: 4198172607276920013}
   - {fileID: -5263636175862439011}
   - {fileID: -843251854676969443}
+  - {fileID: 7868087515405876187}
   - {fileID: -4464917523501796367}
   - {fileID: 572858191137490508}
   - {fileID: 7240800840304111253}
@@ -230,7 +232,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 9b5af6d39cf9da24b9a5df8f341ba860
-  position: {x: -780.72107, y: 564.8487}
+  position: {x: -974.4, y: 568}
   nodeName: ActionNode
   description: ExecuteCameraShakeEffect
   nodeState: 3
@@ -310,6 +312,29 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: 62392ecad425e434c8445a4532ef17e7, type: 2}
+--- !u!114 &7868087515405876187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: ActionNode
+  m_EditorClassIdentifier: 
+  guid: aa299cbadd2c7214da5c6ffb3bfb1078
+  position: {x: -478.39996, y: 565.5999}
+  nodeName: ActionNode
+  description: Skill3Sound
+  nodeState: 3
+  methodName: Skill3Sound
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: 05f1977bbac738249a1275456695d323, type: 2}
 --- !u!114 &9192930856351027146
 MonoBehaviour:
   m_ObjectHideFlags: 0

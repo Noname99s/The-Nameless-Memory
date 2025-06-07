@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,8 +11,6 @@ public class LoadingComposition : UIPopup
     [SerializeField] Text loadingText;
     BG_DB_LoadingText loadingTextData;
     public string nextScene;
-
-
     private void OnEnable()
     {
         loadingText.text = string.Empty; 
@@ -41,14 +40,14 @@ public class LoadingComposition : UIPopup
             Managers.UI.ClosePopupUI<LoadingComposition>();
         };
 
-        float time = Time.time + 5.0f; // 3 seconds term
+        float time = Time.time + 3.0f; // 3 seconds term
 
 
         while (!asyncLoad.isDone)
         {
             yield return null;
             {
-                if (asyncLoad.progress / 1.0f > 0.7f)
+                if (asyncLoad.progress >= 0.9f)
                 {
                     if (Time.time > time)
                     {

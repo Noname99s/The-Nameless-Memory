@@ -20,6 +20,7 @@ public class MirroredBossInfo
     public PhaseCondition[] phaseHpConditions;
     public EBossState bossState;
     public int hp;
+    public bool shouldIntro = true;
 }
 [Serializable]
 public class MirroredHitStateInfo
@@ -43,6 +44,7 @@ public class MirroredBlackboardComponent
     public MirroredBossInfo bossInfo;
     public MirroredHitStateInfo hitStateInfo;
     public MirroredSkillInfo bossSkillInfo;
+    public SoundController sound;
 }
 
 [CreateAssetMenu(fileName = "MirroredBlackboard",menuName = "BehaviorNodes/Blackboard/MirroredBlackboard")]

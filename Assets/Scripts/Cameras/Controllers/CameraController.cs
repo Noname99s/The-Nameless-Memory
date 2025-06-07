@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetCamerGroupAble
+public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetDataAble<Transform>, ISetCamerGroupAble
 {
     [SerializeField] StateController stateController;
     [SerializeField] CameraContext context;
@@ -18,20 +18,24 @@ public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetCame
     }
     private void Start()
     {
-        context.cameraTarget.TrackingTarget = Managers.Player.GetPlayer().transform;
-        stateController.TransitionState((int)ECameraState.Follow);
+        TrackingTarget();
     }
     private void OnEnable()
     {
-        CameraManager.Instance.SetCamera((int)ECameraType.MainCamera, gameObject);
+        Managers.Camera.SetCamera((int)ECameraType.MainCamera, gameObject);
     }
     private void OnDisable()
     {
         //RemoveCamera();
     }
+    public void TrackingTarget()
+    {
+        context.cameraTarget.TrackingTarget = Managers.Player.GetPlayer().transform;
+        stateController.TransitionState((int)ECameraState.Follow);
+    }
     private void RemoveCamera()
     {
-        CameraManager.Instance.RemoveCamera((int)ECameraType.MainCamera);
+        Managers.Camera.RemoveCamera((int)ECameraType.MainCamera);
     }
     private void LateUpdate()
     {
@@ -52,5 +56,10 @@ public class CameraController : MonoBehaviour,ISetDataAble<Collider2D>, ISetCame
     {
         context.targetGroup.RemoveMember(target);
     }
-  
+
+    public void SetValue(Transform target)
+    {
+        context.cameraTarget.TrackingTarget = target;
+        stateController.TransitionState((int)ECameraState.Follow);
+    }
 }

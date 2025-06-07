@@ -1,3 +1,4 @@
+using Orpul1.Enemy.Sound;
 using Orpul1.Enemy.State.Attack;
 using System;
 using UnityEngine;
@@ -24,8 +25,8 @@ namespace Orpul1.Enemy.State
         {
             Debug.Log("Enemy AttackState");
             context.enemyInfo.setSight.SetValue(context.chaseInfo.sightRadius, context.chaseInfo.sightAngle);
-            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             context.enemyInfo.rigid.gravityScale = context.enemyInfo.gravityStrength;
+            context.enemyInfo.sound.PlaySound((int)EEnemySound.Attack);
 
             attackStrategies[(int)attackType].Initialize();
             isAttacking = true;
@@ -66,9 +67,17 @@ namespace Orpul1.Enemy.State
         }
         protected override void TransitionState()
         {
+            if (IsDieState()) return;
             if (isAttacking) return;
             if (IsHitState()) return;
             if (IsChaseState()) return;
+        }
+        private bool IsDieState()
+        {
+            if (!context.IsDieState) return false;
+            transitionTo((int)EEnemyState.Die);
+
+            return true;
         }
         private bool IsChaseState()
         {
