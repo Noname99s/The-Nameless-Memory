@@ -69,7 +69,7 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   delayTime: 1
-  interval: 0.71986085
+  interval: 0
 --- !u!114 &-995596165679202303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
   nodeState: 3
   childNodeList:
   - {fileID: -778158199843549467}
-  curIndex: 1
+  curIndex: 0
   repeatCnt: 3
 --- !u!114 &-778158199843549467
 MonoBehaviour:
@@ -113,7 +113,7 @@ MonoBehaviour:
   - {fileID: 7034511901423568249}
   - {fileID: -4400471823681200003}
   - {fileID: -1020071430166074278}
-  curIndex: 2
+  curIndex: 1
 --- !u!114 &-771188803957284866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   guid: fd61c0dc1ce20864592fd3149dad02ef
   position: {x: -283.2, y: 693.6}
   nodeName: ActionNode
-  description: 
+  description: Skill6Sound
   nodeState: 3
   methodName: Skill6Sound
   path: 

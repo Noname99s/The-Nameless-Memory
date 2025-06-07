@@ -20,6 +20,7 @@ public class MirroredBossInfo
     public PhaseCondition[] phaseHpConditions;
     public EBossState bossState;
     public int hp;
+    public bool shouldIntro = true;
 }
 [Serializable]
 public class MirroredHitStateInfo
