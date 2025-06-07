@@ -34,5 +34,11 @@ public class HubGimic : StageGimicBase
             Managers.Game.playData.dialogComplete[(int)stage].datas[clearStage2Notify._dialogIndex] = true;
         }
     }
-   
+    private void OnDestroy()
+    {
+        firstStart.ClearAction();
+        firstStartDynamic.ClearAction();
+        clearStage2Notify.ClearAction();
+    }
+
 }

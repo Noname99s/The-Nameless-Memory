@@ -4,6 +4,7 @@ public class MainMenuModel
 {
     public void StartGame()
     {
+        Managers.Game.playData.isStatusLoaded = false; 
         Managers.SceneLoad.LoadSceneQuick("Prologue");
     }
     public void LoadGame()

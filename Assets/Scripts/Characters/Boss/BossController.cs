@@ -72,6 +72,10 @@ public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
     private void OnDisable()
     {
         //cameraGroup.RemoveGroup(transform);
+        bossIntroDialog.ClearAction();
+        bossDialogData.ClearAction();
+        bossoutroDialogData.ClearAction();
+        bossDialogAnim -= Managers.UI.GetPopupUI<InGameComposition>().OnBossDialogAnimConnection;
     }
 
     void Update()

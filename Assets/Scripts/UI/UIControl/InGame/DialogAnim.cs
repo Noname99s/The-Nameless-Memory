@@ -36,6 +36,7 @@ public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISeq
     {
         if (fadeAnimSequence != null)
         {
+            fadeAnimSequence.Rewind();
             fadeAnimSequence.Pause();
         }
     }

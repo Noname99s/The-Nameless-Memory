@@ -19,7 +19,7 @@ public class WillFragmentLogic : TrackingCameraBase
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             StartCoroutine(TrackingScene());
         }
@@ -44,5 +44,9 @@ public class WillFragmentLogic : TrackingCameraBase
         yield return new WaitForSeconds(3f);
         TrackingEnd();
     }
-
+    private void OnDestroy()
+    {
+        firstRespawnPlayer.ClearAction();
+        fistFragmentCollected.ClearAction();
+    }
 }

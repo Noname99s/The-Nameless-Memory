@@ -24,4 +24,8 @@ public class SO_DynamicDialogData : ScriptableObject
     {
         OnDialogUpdate?.Invoke(dialogTexts);
     }
+    public void ClearAction()
+    {
+        OnDialogUpdate -= Managers.UI.GetPopupUI<InGameComposition>().OnDialogAnimUpdateConnection;
+    }
 }

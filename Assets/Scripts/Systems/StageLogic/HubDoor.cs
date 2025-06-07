@@ -14,13 +14,11 @@ public class HubDoor : MonoBehaviour, IInteractAble
         OnCannotEnter += Managers.UI.GetPopupUI<InGameComposition>().OnDialogAnimUpdateConnection;
         ConfirmClear();
     }
-    /*void Update()
+    private void OnDestroy()
     {
-        if (isInDoor && Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            Entrance();
-        }
-    }*/
+        OnCannotEnter -= Managers.UI.GetPopupUI<InGameComposition>().OnDialogAnimUpdateConnection;
+    }
+
     void ConfirmClear()
     {
         if (stageType != Stage.Stage1 && Managers.Game.playData.stageCleared[(int)stageType - 1])
