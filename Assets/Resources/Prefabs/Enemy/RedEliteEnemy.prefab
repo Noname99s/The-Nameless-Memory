@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 7087380159888766392}
   - component: {fileID: 6373299652130301865}
   - component: {fileID: 958986727120374460}
+  - component: {fileID: -2406000870389945448}
   m_Layer: 11
   m_Name: RedEliteEnemy
   m_TagString: Enemy
@@ -292,6 +293,7 @@ MonoBehaviour:
     animator: {fileID: 9192561038414786464}
     enemyCollider: {fileID: 7162055680654468907}
     originScale: {x: 4.8, y: 4.8, z: 1}
+    sound: {fileID: -2406000870389945448}
     gravityStrength: 5
     isGround: 1
     isAlwayChasePlayer: 0
@@ -383,6 +385,26 @@ MonoBehaviour:
     radius: 3
     rotateZ: 90
   originScale: {x: 4.8, y: 4.8, z: 1}
+--- !u!114 &-2406000870389945448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2941019710068191738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35cbcaadbd0f1ba47a53792ae61156d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: c92125c556010f34d8302e4df0bedb99, type: 3}
+  - {fileID: 8300000, guid: a8e64256d30a3ce4e834570f04ce94bd, type: 3}
+  - {fileID: 8300000, guid: d6504a14b8a912e4c8a3da19951cddc5, type: 3}
+  mixerGroup: 5
+  spatialBlend: 1
+  maxDistance: 0
+  minDistance: 30
 --- !u!1 &9050498853815241752
 GameObject:
   m_ObjectHideFlags: 0

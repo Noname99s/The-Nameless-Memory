@@ -44,12 +44,12 @@ MonoBehaviour:
   childNodeList:
   - {fileID: -1587835388164970529}
   - {fileID: 6593558253576431607}
+  - {fileID: 3054286699377293479}
   - {fileID: 8516019283117680192}
   - {fileID: -106665489906637198}
   - {fileID: 9198290371246293564}
   - {fileID: 6164339082010364106}
   curIndex: 0
-  sign: 0
 --- !u!114 &-5866093333879237251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,7 +71,6 @@ MonoBehaviour:
   - {fileID: -8610649574382314268}
   - {fileID: 6704541996453096168}
   curIndex: 0
-  sign: 0
 --- !u!114 &-1587835388164970529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +84,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: f58c444117c3b7848a7b3854aa7a0373
-  position: {x: -623.92017, y: 557.28}
+  position: {x: -772.24, y: 557.6}
   nodeName: ActionNode
   description: SetAttackState
   nodeState: 3
@@ -148,6 +147,7 @@ MonoBehaviour:
   - {fileID: 8516019283117680192}
   - {fileID: -5866093333879237251}
   - {fileID: -8610649574382314268}
+  - {fileID: 3054286699377293479}
 --- !u!114 &69215808000244470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +195,29 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   actionScript: {fileID: 11400000, guid: 2e97665464c0fe04ea4d0d650fbbbdb2, type: 2}
+--- !u!114 &3054286699377293479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: PlayBossSound
+  m_EditorClassIdentifier: 
+  guid: 7d59f110c9701274e8a07d6adf46cc73
+  position: {x: -464.8, y: 560.68005}
+  nodeName: PlayBossSound
+  description: 
+  nodeState: 3
+  methodName: 
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: d581a22f69648f349878574c12eb33b9, type: 2}
 --- !u!114 &6164339082010364106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +254,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: ec0ea008db6723a44b8f913e5682a911
-  position: {x: -471.92004, y: 556.4801}
+  position: {x: -620.2401, y: 556.8}
   nodeName: ActionNode
   description: PlaySkill2Animation
   nodeState: 3
@@ -285,7 +308,6 @@ MonoBehaviour:
   - {fileID: 69215808000244470}
   - {fileID: 1759538362045881475}
   curIndex: 0
-  sign: 0
 --- !u!114 &8437457891823996931
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System;
 using Orpul1.Player.Animation;
+using Orpul1.Player.Sound;
 using UnityEngine;
 
 namespace Orpul1.Player.State.Hit
@@ -14,6 +15,10 @@ namespace Orpul1.Player.State.Hit
         {
             data.playerInfo.animator.SetTrigger(EPlayerAniTransition.HitTrigger.ToString());
             hitTime = Time.time + data.hitInfo.hitDuration;
+            data.playerInfo.rigid.linearVelocity = Vector2.zero;
+            data.playerInfo.rigid.AddForce(data.hitInfo.hitDir * data.hitInfo.knockBackPower, ForceMode2D.Impulse);
+
+            data.playerInfo.sound.PlaySound((int)EPlayerSound.HitDamaged);
         }
         
         public override void OnUpdate()
@@ -25,6 +30,7 @@ namespace Orpul1.Player.State.Hit
         public override void OnExit()
         {
             data.hitInfo.isHit = false;
+            data.hitInfo.hitDir = Vector2.zero;
         }
         private void TransitionState()
         {

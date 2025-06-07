@@ -1,4 +1,5 @@
 using Orpul1.Player.Animation;
+using Orpul1.Player.Sound;
 using Orpul1.Player.State.Jump;
 using System;
 using UnityEngine;
@@ -24,6 +25,11 @@ namespace Orpul1.Player.State
             jumpStraties[(int)jumpType].Initialize();
             data.playerInfo.animator.SetBool(EPlayerAniTransition.IsJump.ToString(),true);
             data.moveInfo.isPressWallClimb = false;
+
+            if (data.jumpInfo.jumpCount == data.jumpInfo.maxJumpCount)
+                data.playerInfo.sound.PlaySound((int)EPlayerSound.Jump);
+            else
+                data.playerInfo.sound.PlaySound((int)EPlayerSound.DoubleJump);
         }
 
         public override void OnUpdate()

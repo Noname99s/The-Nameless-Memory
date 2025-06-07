@@ -1,6 +1,7 @@
 using System;
 using Orpul1.Boss;
 using Orpul1.Boss.Mirrored;
+using Orpul1.Boss.Sound;
 using Orpul1.Object;
 using UnityEngine;
 
@@ -39,6 +40,7 @@ public class FireExplosionSkill : BossSkill
     public override void Execute()
     {
         base.Execute();
+        sound.PlaySound((int)EBossSkillSound.Skill1_Telegraph);
         isExecute = true;
         DoExplosionSign();
     }
@@ -66,7 +68,7 @@ public class FireExplosionSkill : BossSkill
     {
         if (skillState != EExplosionSkill.Attack)
             return;
-
+        sound.PlaySound((int)EBossSkillSound.Skill1_Blast);
         skillState = EExplosionSkill.AttackEnd;
         animator.SetTrigger(EMirroredSkillAniParam.SkillAttack.ToString());
         attackCollider.enabled = true;

@@ -1,4 +1,5 @@
 using Orpul1.Player.Animation;
+using Orpul1.Player.Sound;
 using UnityEngine;
 
 namespace Orpul1.Player.State.Attack
@@ -14,6 +15,8 @@ namespace Orpul1.Player.State.Attack
         public void Initialize()
         {
             playerData.playerInfo.animator.SetBool(EPlayerAniTransition.IsStrongAttack.ToString(), true);
+            playerData.attackInfo.curAttack = 0;
+            aniDuration = 0;
             SetNextAttack();
         }
         public void Execute()
@@ -22,6 +25,8 @@ namespace Orpul1.Player.State.Attack
             playerData.playerInfo.animator.SetInteger(EPlayerAniTransition.AttackIndex.ToString(), playerData.attackInfo.curAttack);
             if (!playerData.playerInfo.animator.GetCurrentAnimatorStateInfo(0).IsName(((EStrongAttack)(playerData.attackInfo.curAttack)).ToString()))
                 return;
+            playerData.playerInfo.sound.PlaySound((int)EPlayerSound.StrongAttack);
+
             aniDuration = playerData.playerInfo.animator.GetCurrentAnimatorStateInfo(0).length;
             SetNextAttack();
         }
@@ -30,7 +35,7 @@ namespace Orpul1.Player.State.Attack
 
         private void SetNextAttack()
         {
-            playerData.attackInfo.curAttack = Random.Range(0, (int)EStrongAttack.END);
+            playerData.attackInfo.curAttack = Random.Range(0, (int)EStrongAttack.KickC+1);
         }
     }
 }

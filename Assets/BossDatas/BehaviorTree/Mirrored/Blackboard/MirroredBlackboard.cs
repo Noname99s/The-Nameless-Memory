@@ -43,6 +43,7 @@ public class MirroredBlackboardComponent
     public MirroredBossInfo bossInfo;
     public MirroredHitStateInfo hitStateInfo;
     public MirroredSkillInfo bossSkillInfo;
+    public SoundController sound;
 }
 
 [CreateAssetMenu(fileName = "MirroredBlackboard",menuName = "BehaviorNodes/Blackboard/MirroredBlackboard")]

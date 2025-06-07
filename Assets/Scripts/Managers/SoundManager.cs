@@ -14,7 +14,7 @@ public enum EMixerGroup
     Enemy,
     UISound
 }
-public class SoundManager : ObjectPool
+public class SoundManager : MonoBehaviour
 {
     [SerializeField] AudioSource bgmPlayer;
     [SerializeField] AudioClip[] bgmClipList;
@@ -67,6 +67,24 @@ public class SoundManager : ObjectPool
 
         audioSource.Play();
         Destroy(audioObj, effect.length);
+    }
+    public GameObject PlayEffectLoop(AudioClip effect, EMixerGroup mixerGroup = EMixerGroup.Effect, Transform parent = null, float spatialBlend = 0, float minDistance = 0, float maxDistance = 1)
+    {
+        GameObject audioObj = new GameObject();
+        audioObj.transform.parent = parent;
+        audioObj.transform.localPosition = Vector3.zero;
+        AudioSource audioSource = audioObj.AddComponent<AudioSource>();
+        audioSource.spatialBlend = spatialBlend;
+        audioSource.rolloffMode = AudioRolloffMode.Linear;
+        audioSource.minDistance = minDistance;
+        audioSource.maxDistance = maxDistance;
+        audioSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups(mixerGroup.ToString())[0];
+        audioSource.clip = effect;
+        audioSource.loop = true;
+        recentAudioSource = audioSource;
+
+        audioSource.Play();
+        return audioObj;
     }
     public void StopRecentSound()
     {

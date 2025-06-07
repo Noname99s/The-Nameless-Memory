@@ -1,6 +1,7 @@
 using System;
 using Orpul1.Boss;
 using Orpul1.Boss.Mirrored;
+using Orpul1.Boss.Sound;
 using Orpul1.Object;
 using UnityEngine;
 
@@ -76,6 +77,7 @@ public class ShockWaveSkill : BossSkill
     {
         if (skillState != EExplosionSkill.Attack)
             return;
+        sound.PlaySound((int)EBossSkillSound.Skill3_Wave);
 
         skillState = EExplosionSkill.AttackEnd;
         animator.SetTrigger(EMirroredSkillAniParam.SkillAttack.ToString());

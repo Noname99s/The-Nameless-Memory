@@ -10,6 +10,7 @@ public abstract class BossSkill : MonoBehaviour,ISetDataAble<Action<GameObject>>
     [SerializeField] protected float deativeTime;
     [SerializeField] protected int damage;
     [SerializeField] protected CharacterAttack attackCollider;
+    [SerializeField] protected SoundController sound;
     protected List<IObserver> observers = new List<IObserver>();
     protected Action<GameObject> enqueueAction;
 

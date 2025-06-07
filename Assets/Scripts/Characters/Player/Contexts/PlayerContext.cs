@@ -78,6 +78,7 @@ public class PlayerInfo
 
     public Vector3 dectectedGroundPosi;
     public Action actionFlipX;
+    public SoundController sound;
     [SerializeField] CharacterAttack characterAttack;
     public ISetDataAble<int> setDamage
     {
@@ -141,6 +142,7 @@ public class PlayerHitInfo
     public bool canGetDamage = true;
     public bool isHit = false;
     public bool isDeath = false;
+    public Vector2 hitDir = Vector2.zero;
 }
 
 [Serializable]
