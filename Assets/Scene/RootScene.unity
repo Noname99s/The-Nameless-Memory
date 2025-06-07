@@ -119,6 +119,60 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &660964929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 660964931}
+  - component: {fileID: 660964930}
+  m_Layer: 0
+  m_Name: UISound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &660964930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660964929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5312fb6e95ae1c41994d71486701de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiAudioClips:
+  - {fileID: 8300000, guid: fba846f646e666d498449d9c1948caae, type: 3}
+  - {fileID: 8300000, guid: d27a465c535acd44d9f8a852e6e82b08, type: 3}
+  - {fileID: 8300000, guid: b13da331b095d1847a9e4b593043a37f, type: 3}
+  - {fileID: 8300000, guid: 502767d7cc816fa4a8243263300658a0, type: 3}
+  - {fileID: 8300000, guid: 0651768c871d57b4f8996f7fcb6bb6c1, type: 3}
+  - {fileID: 8300000, guid: 37615683f50913b45b405623a1445a6b, type: 3}
+  - {fileID: 8300000, guid: b999b46db0df1d64497423eeabd1b487, type: 3}
+  - {fileID: 8300000, guid: cf9695a2ac9facd4ea2911ccb9aee09b, type: 3}
+  - {fileID: 8300000, guid: 83bede1bc23a6e14da7cfac157327568, type: 3}
+--- !u!4 &660964931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660964929}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1447691041}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1447691039
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +223,8 @@ Transform:
   m_LocalPosition: {x: 1211.4246, y: 660.4853, z: 3.2152674}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 660964931}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1447691042
@@ -331,8 +386,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmPlayer: {fileID: 1447691045}
   bgmClipList: []
+  audioListner: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: cc83f9a8811107c418ff4925b03d85c7, type: 2}
-  uiSoundPlayer: {fileID: 0}
+  uiSoundPlayer: {fileID: 660964930}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

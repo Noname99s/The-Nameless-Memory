@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Orpul1.UI;
 using UnityEngine;
 
 public class SaveLoadModel
@@ -30,6 +31,7 @@ public class SaveLoadModel
     {
         currentMemoryStackIndex = index;
         currentMemoryData.RecordData(memoryStackDatas[currentMemoryStackIndex]);
+        Managers.Sound.PlayUISound(EUiSound.ButtonClick);
     }
     public void OpenCurrentPanel(bool isSave)
     {
@@ -37,6 +39,7 @@ public class SaveLoadModel
     }
     public void HandleYesButtonClicked()
     {
+        Managers.Sound.PlayUISound(EUiSound.Confirm);
         if (isSaveButtonClicked)
         {
             SaveCurrentMemoryData();
@@ -60,6 +63,7 @@ public class SaveLoadModel
     }
     public void ExitSave()
     {
+        Managers.Sound.PlayUISound(EUiSound.Cancel);
         Managers.UI.ClosePopupUI<SaveLoadComposition>();
     }
 
