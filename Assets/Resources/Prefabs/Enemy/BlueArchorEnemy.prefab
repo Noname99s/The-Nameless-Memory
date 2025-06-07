@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 2199262066627443654}
   - component: {fileID: 2523867458719600781}
   - component: {fileID: 6764063946402400228}
+  - component: {fileID: -3302820145842310851}
   m_Layer: 11
   m_Name: BlueArchorEnemy
   m_TagString: Enemy
@@ -214,6 +215,7 @@ MonoBehaviour:
     animator: {fileID: 3665338597357128104}
     enemyCollider: {fileID: 8791876550532020588}
     originScale: {x: 4.8, y: 4.8, z: 1}
+    sound: {fileID: -3302820145842310851}
     gravityStrength: 5
     isGround: 1
     isAlwayChasePlayer: 0
@@ -320,6 +322,26 @@ MonoBehaviour:
   prefab: {fileID: 4860928162030497841, guid: cc8d121dd9ae0bf489b4565fcd4b2f03, type: 3}
   parent: {fileID: 0}
   shootPosition: {fileID: 3188863487046296387}
+--- !u!114 &-3302820145842310851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314405325189303341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35cbcaadbd0f1ba47a53792ae61156d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 7f193ed461c4c4b459ef823444c1deda, type: 3}
+  - {fileID: 8300000, guid: dd2ae4d39af7d674aba9456cda481b0e, type: 3}
+  - {fileID: 8300000, guid: b1c24c5d107919e45b2d4f7255fdf254, type: 3}
+  mixerGroup: 5
+  spatialBlend: 1
+  maxDistance: 0
+  minDistance: 30
 --- !u!1 &5505121327568100759
 GameObject:
   m_ObjectHideFlags: 0

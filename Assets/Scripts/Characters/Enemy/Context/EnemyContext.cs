@@ -1,4 +1,5 @@
 using System;
+using System.Xml.Linq;
 using Orpul1.Enemy.DB;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ namespace Orpul1.Enemy
         public Vector3 originScale = Vector3.one;
         public Action<float> flipX;
         public ISetDataAble<float, float> setSight;
+        public SoundController sound;
         public float gravityStrength;
         public bool isGround = true;
         public bool isAlwayChasePlayer = false;

@@ -1,3 +1,4 @@
+using Orpul1.Enemy.Sound;
 using Orpul1.Enemy.State.Attack;
 using System;
 using UnityEngine;
@@ -25,6 +26,7 @@ namespace Orpul1.Enemy.State
             Debug.Log("Enemy AttackState");
             context.enemyInfo.setSight.SetValue(context.chaseInfo.sightRadius, context.chaseInfo.sightAngle);
             context.enemyInfo.rigid.gravityScale = context.enemyInfo.gravityStrength;
+            context.enemyInfo.sound.PlaySound((int)EEnemySound.Attack);
 
             attackStrategies[(int)attackType].Initialize();
             isAttacking = true;

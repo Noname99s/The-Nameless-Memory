@@ -1,4 +1,5 @@
 using System;
+using Orpul1.Enemy.Sound;
 using UnityEngine;
 
 namespace Orpul1.Enemy.State
@@ -16,6 +17,7 @@ namespace Orpul1.Enemy.State
             context.enemyInfo.rigid.gravityScale = context.enemyInfo.gravityStrength;
             context.sightInfo.radius = context.chaseInfo.sightRadius;
             context.sightInfo.angle = context.chaseInfo.sightAngle;
+            context.enemyInfo.sound.PlaySound((int)EEnemySound.Hit);
         }
 
         public override void OnUpdate()
