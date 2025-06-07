@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using Orpul1.UI;
 
 public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISequnceResulter
 {
@@ -90,6 +91,7 @@ public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISeq
     {
         if (_textDatas.Count > 0)
         {
+            Managers.Sound.PlayUISound((int)EUiSound.Popup);
             dialogText.text = _textDatas[_currentTextIndex++];
             Debug.Log("CurrenTextIndex: " + _currentTextIndex);
             _isDialogActive = _currentTextIndex < _textDatas.Count;

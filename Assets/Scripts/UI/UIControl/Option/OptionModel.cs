@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Orpul1.UI;
 using UnityEngine;
 
 public class OptionModel
@@ -27,16 +28,19 @@ public class OptionModel
     }
     public void SetResolution(int index)
     {
+        Managers.Sound.PlayUISound((int)EUiSound.ButtonClick);
         Resolution selectedResolution = filteredResolutions[index];
         Screen.SetResolution(selectedResolution.width, selectedResolution.height, Screen.fullScreen);
     }
     public void SetWindowMode(bool isFullScreen)
     {
+        Managers.Sound.PlayUISound((int)EUiSound.ButtonClick);
         Screen.fullScreen = !isFullScreen;
     }
 
     public void ExitOption()
     {
+        Managers.Sound.PlayUISound((int)EUiSound.Cancel);
         Managers.UI.ClosePopupUI<OptionComposition>();
     }
 }

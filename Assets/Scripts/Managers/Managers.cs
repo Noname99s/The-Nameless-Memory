@@ -52,6 +52,7 @@ public class Managers : MonoBehaviour
         _game.Init();
         _sceneLoad.Init();
         _ui.Init();
+        _soundManager.Init();
     }
     private void Start()
     {

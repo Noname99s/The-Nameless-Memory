@@ -624,7 +624,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4e2f085272d712b40963aa902528036a, type: 3}
   - {fileID: 8300000, guid: 7c891729b4d8b0e4483215a160f46647, type: 3}
   - {fileID: 8300000, guid: 3945ed65e3c13144eb0681a4e56c9d0c, type: 3}
-  mixerGroup: 0
+  mixerGroup: 4
   spatialBlend: 1
   maxDistance: 0
   minDistance: 30

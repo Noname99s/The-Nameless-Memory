@@ -8,8 +8,8 @@ public class UISoundPlayer : MonoBehaviour
     
     [SerializeField] List<AudioClip> uiAudioClips = new List<AudioClip>();
     
-    public void PlayUISound(EUiSound type)
+    public void PlayUISound(int type)
     {
-        Managers.Sound.PlayEffect(uiAudioClips[(int)type], EMixerGroup.UISound);
+        Managers.Sound.PlayEffect(uiAudioClips[type], EMixerGroup.UISound);
     }
 }

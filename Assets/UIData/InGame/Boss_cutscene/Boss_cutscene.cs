@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Orpul1.UI;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -38,6 +39,7 @@ public class Boss_cutscene : MonoBehaviour , ISequenceBuilder
     }
     public void BackToMain()
     {
+        Managers.Sound.PlayUISound((int)EUiSound.ButtonClick);
         Managers.Game.ChangeState(GameState.MainMenu);
     }
     public void OnFadeEnd()

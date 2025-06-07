@@ -4,6 +4,7 @@ using System;
 using TMPro;
 using DG.Tweening;
 using System.Collections.Generic;
+using Orpul1.UI;
 
 public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
 {
@@ -108,6 +109,7 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     }
     public void UpdateStaticDialog(List<string> text)
     {
+        Managers.Sound.PlayUISound((int)EUiSound.Popup);
         _currentStaticDialogIndex = 0;
         _staticDialogTextList = text;
         Time.timeScale = 0; 
@@ -117,6 +119,7 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     }
     public void UpdateSystemText(string text)
     {
+        Managers.Sound.PlayUISound((int)EUiSound.Notify);
         systemText.text = text;
         systemText.color = new Color(systemText.color.r, systemText.color.g, systemText.color.b, 0);
         systemTextSequence.Restart();

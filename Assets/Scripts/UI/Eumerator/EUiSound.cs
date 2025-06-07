@@ -13,5 +13,15 @@ namespace Orpul1.UI
         Popup,
         TabChange,
         Gamestart,
+        END,
+    }
+    public enum ESystemSound
+    {
+        LoadingSceneEnter = EUiSound.END,
+        MemoryPieceGain,
+        NewSkill,
+        StageClear,
+        StageFail,
+        RemindLoading,
     }
 }

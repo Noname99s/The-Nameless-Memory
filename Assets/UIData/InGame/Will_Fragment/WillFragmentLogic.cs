@@ -1,4 +1,5 @@
 using Orpul1;
+using Orpul1.UI;
 using System.Collections;
 using UnityEngine;
 
@@ -34,6 +35,7 @@ public class WillFragmentLogic : TrackingCameraBase
                 Managers.Game.playData.dialogComplete[(int)Stage.Stage1].datas[fistFragmentCollected._dialogIndex] = true;
                 other.GetComponent<ISkillOpenAble>()?.OpenSkill((int)EPlayerSkillType.DoubleJump);
             }
+            Managers.Sound.PlayUISound((int)ESystemSound.MemoryPieceGain);
             Managers.Map.getFragment = true;
             Destroy(gameObject);
         }

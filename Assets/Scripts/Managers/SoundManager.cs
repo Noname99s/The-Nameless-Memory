@@ -22,18 +22,18 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioListener audioListner;
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] UISoundPlayer uiSoundPlayer;
-    Action<EUiSound> playerUISound;
+    Action<int> playerUISound;
     Dictionary<string, AudioClip> bgmDict = new Dictionary<string, AudioClip>();
     AudioSource recentAudioSource;
     public void Init()
     {
-        SceneManager.sceneLoaded += OnLoadScene;
+        /*SceneManager.sceneLoaded += OnLoadScene;
         for (int i = 0; i < (int)GameState.Ending; i++)
         {
             GameState eSceneBGM = (GameState)i;
             bgmDict.Add(eSceneBGM.ToString(), bgmClipList[i]);
         }
-        bgmPlayer.outputAudioMixerGroup = audioMixer.FindMatchingGroups(EMixerGroup.Background.ToString())[0];
+        bgmPlayer.outputAudioMixerGroup = audioMixer.FindMatchingGroups(EMixerGroup.Background.ToString())[0];*/
         playerUISound -= uiSoundPlayer.PlayUISound;
         playerUISound += uiSoundPlayer.PlayUISound;
     }
@@ -51,7 +51,7 @@ public class SoundManager : MonoBehaviour
     {
         //audioListner.enabled = true;
     }
-    public void PlayUISound(EUiSound uiSoundType)
+    public void PlayUISound(int uiSoundType)
     {
         playerUISound(uiSoundType);
     }

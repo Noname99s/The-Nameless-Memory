@@ -31,15 +31,16 @@ public class SaveLoadModel
     {
         currentMemoryStackIndex = index;
         currentMemoryData.RecordData(memoryStackDatas[currentMemoryStackIndex]);
-        Managers.Sound.PlayUISound(EUiSound.ButtonClick);
+        Managers.Sound.PlayUISound((int)EUiSound.ButtonClick);
     }
     public void OpenCurrentPanel(bool isSave)
     {
+        Managers.Sound.PlayUISound((int)EUiSound.Popup);
         isSaveButtonClicked = isSave;
     }
     public void HandleYesButtonClicked()
     {
-        Managers.Sound.PlayUISound(EUiSound.Confirm);
+        Managers.Sound.PlayUISound((int)EUiSound.Confirm);
         if (isSaveButtonClicked)
         {
             SaveCurrentMemoryData();
@@ -63,7 +64,7 @@ public class SaveLoadModel
     }
     public void ExitSave()
     {
-        Managers.Sound.PlayUISound(EUiSound.Cancel);
+        Managers.Sound.PlayUISound((int)EUiSound.Cancel);
         Managers.UI.ClosePopupUI<SaveLoadComposition>();
     }
 

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using Orpul1.UI;
 
 public class SaveLoadView : MonoBehaviour , ISaveLoadView
 {
@@ -46,7 +47,12 @@ public class SaveLoadView : MonoBehaviour , ISaveLoadView
                 currentDataPanel.SetActive(false);
                 OnYesButtonClicked?.Invoke();
             });
-        noSave.onClick.AddListener(() => currentDataPanel.SetActive(false));
+        noSave.onClick.AddListener
+           (() =>
+            {
+                Managers.Sound.PlayUISound((int)EUiSound.Cancel);
+                currentDataPanel.SetActive(false);
+            });
         saveButton.onClick.AddListener(() => OnSaveButtonClicked?.Invoke());
         loadButton.onClick.AddListener(() => OnLoadButtonClicked?.Invoke());
         exitButton.onClick.AddListener(() => OnExitButtonClicked?.Invoke());
