@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Orpul1.UI;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -21,7 +22,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioListener audioListner;
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] UISoundPlayer uiSoundPlayer;
-    Action<EUiSoundType> playerUISound;
+    Action<EUiSound> playerUISound;
     Dictionary<string, AudioClip> bgmDict = new Dictionary<string, AudioClip>();
     AudioSource recentAudioSource;
     public void Init()
@@ -50,7 +51,7 @@ public class SoundManager : MonoBehaviour
     {
         //audioListner.enabled = true;
     }
-    public void PlayUISound(EUiSoundType uiSoundType)
+    public void PlayUISound(EUiSound uiSoundType)
     {
         playerUISound(uiSoundType);
     }
