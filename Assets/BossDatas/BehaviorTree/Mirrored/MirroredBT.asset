@@ -83,6 +83,52 @@ MonoBehaviour:
   description: Phase2Pattern1
   nodeState: 3
   panel: {fileID: 11400000, guid: 86a5e1be7a156f940a7d60057b5cf37a, type: 2}
+--- !u!114 &-4879637095173307229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: PlayBossBgm
+  m_EditorClassIdentifier: 
+  guid: 0d8c969d8cd89774ab9a5d3e12ad9180
+  position: {x: -1497.6001, y: 500.96002}
+  nodeName: PlayBossBgm
+  description: 
+  nodeState: 3
+  methodName: 
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: 7beec372ba593184d857ffe7ad44efe1, type: 2}
+--- !u!114 &-4590817120778769574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: ActionNode
+  m_EditorClassIdentifier: 
+  guid: 1cbcd340a87337d42b6b802fb20a0eff
+  position: {x: -1026.6802, y: 498.48004}
+  nodeName: ActionNode
+  description: 
+  nodeState: 3
+  methodName: 
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: 738df6ccc397b7f4c8edfee13d1b4da2, type: 2}
 --- !u!114 &-3713907089425925553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +160,7 @@ MonoBehaviour:
   m_Name: ShouldIntro
   m_EditorClassIdentifier: 
   guid: bf85077028d0a7d429ce2a9da6a128b7
-  position: {x: -986.28, y: 272.00003}
+  position: {x: -1146.4, y: 263.2}
   nodeName: ShouldIntro
   description: 
   nodeState: 3
@@ -123,7 +169,7 @@ MonoBehaviour:
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
-  childNode: {fileID: 8524788980969847089}
+  childNode: {fileID: 6706122258592858306}
   Decorator: {fileID: 11400000, guid: 60b3dfea039571545999891543272bf2, type: 2}
 --- !u!114 &-593419915197508778
 MonoBehaviour:
@@ -179,6 +225,8 @@ MonoBehaviour:
   - {fileID: 201513952616713719}
   - {fileID: 8524788980969847089}
   - {fileID: 6706122258592858306}
+  - {fileID: -4879637095173307229}
+  - {fileID: -4590817120778769574}
 --- !u!114 &201513952616713719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +240,7 @@ MonoBehaviour:
   m_Name: DelayNode
   m_EditorClassIdentifier: 
   guid: 0cc1181c7fdc8cb4b913556dee0020c8
-  position: {x: -1034.3999, y: 423.02405}
+  position: {x: -1341.6001, y: 492.96005}
   nodeName: DelayNode
   description: Wait5Second
   nodeState: 3
@@ -202,7 +250,7 @@ MonoBehaviour:
   scriptPath: 
   assetPath: 
   delayTime: 5
-  interval: 0.020259907
+  interval: 4.5658736
 --- !u!114 &2629335963256237311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +322,7 @@ MonoBehaviour:
   m_Name: PanelNode
   m_EditorClassIdentifier: 
   guid: 2a2dbb2970350fb4eb6a37cef453e860
-  position: {x: 371.39996, y: 421.00006}
+  position: {x: 371.20013, y: 418.67206}
   nodeName: PanelNode
   description: DiePanel
   nodeState: 3
@@ -358,11 +406,15 @@ MonoBehaviour:
   m_Name: SequenceNode
   m_EditorClassIdentifier: 
   guid: 5678e169d0beebe44adad3cbf8a8eca5
-  position: {x: 0, y: 0}
+  position: {x: -1097.5999, y: 358.40002}
   nodeName: SequenceNode
   description: SequenceNode
   nodeState: 3
-  childNodeList: []
+  childNodeList:
+  - {fileID: -4879637095173307229}
+  - {fileID: 201513952616713719}
+  - {fileID: 8524788980969847089}
+  - {fileID: -4590817120778769574}
   curIndex: 0
 --- !u!114 &8035975973166575998
 MonoBehaviour:
@@ -400,7 +452,7 @@ MonoBehaviour:
   m_Name: BossIntroEnd
   m_EditorClassIdentifier: 
   guid: 2e1c585e9c9cbbf418fb009738f05804
-  position: {x: -848.8, y: 444.00006}
+  position: {x: -1180.0002, y: 497.76}
   nodeName: BossIntroEnd
   description: 
   nodeState: 3

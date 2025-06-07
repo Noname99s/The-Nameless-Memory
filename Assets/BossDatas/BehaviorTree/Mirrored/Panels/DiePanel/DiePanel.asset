@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9098059724255561591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d232328acfe0048b65b1eb8aa439a7, type: 3}
+  m_Name: ActionNode
+  m_EditorClassIdentifier: 
+  guid: 17606fd37bb0eb846922bc90b8410d6e
+  position: {x: 336.80002, y: 278.4}
+  nodeName: ActionNode
+  description: 
+  nodeState: 3
+  methodName: 
+  path: 
+  actionNode: {fileID: 0}
+  scriptPath: 
+  assetPath: 
+  actionScript: {fileID: 11400000, guid: 3461fd9549581104a88716cc26c29732, type: 2}
 --- !u!114 &-6875205217592297063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23,6 +46,7 @@ MonoBehaviour:
   - {fileID: 7767910581882906408}
   - {fileID: 869326105316721869}
   - {fileID: -6340272952256817958}
+  - {fileID: -9098059724255561591}
   - {fileID: 5775314432737579526}
   curIndex: 4
 --- !u!114 &-6340272952256817958
@@ -74,6 +98,7 @@ MonoBehaviour:
   - {fileID: 869326105316721869}
   - {fileID: -6340272952256817958}
   - {fileID: 2180480057788638649}
+  - {fileID: -9098059724255561591}
 --- !u!114 &360661824750829657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +180,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   nodeName: BossOutro
   description: 
-  nodeState: 0
+  nodeState: 3
   methodName: 
   path: 
   actionNode: {fileID: 0}
@@ -175,7 +200,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 0430d4c8a09ea4140a5e85b954a711d3
-  position: {x: 354.40002, y: 278.4}
+  position: {x: 492.79996, y: 280.00003}
   nodeName: ActionNode
   description: BossDie
   nodeState: 3

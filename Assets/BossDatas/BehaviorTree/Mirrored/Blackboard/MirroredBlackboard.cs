@@ -3,6 +3,7 @@ using UnityEngine;
 using Orpul1.Boss.Mirrored;
 using Orpul1.Boss;
 using Orpul1.Camera;
+using System.Collections.Generic;
 
 [Serializable]
 public struct PhaseCondition
@@ -14,6 +15,7 @@ public struct PhaseCondition
 [Serializable]
 public class MirroredBossInfo
 {
+    public List<AudioClip> bossBGM;
     public SpriteRenderer bossSprite;
     public GameObject bossObj;
     public Animator animator;
@@ -21,6 +23,7 @@ public class MirroredBossInfo
     public EBossState bossState;
     public int hp;
     public bool shouldIntro = true;
+
 }
 [Serializable]
 public class MirroredHitStateInfo

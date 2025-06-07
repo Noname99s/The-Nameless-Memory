@@ -158,6 +158,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b999b46db0df1d64497423eeabd1b487, type: 3}
   - {fileID: 8300000, guid: cf9695a2ac9facd4ea2911ccb9aee09b, type: 3}
   - {fileID: 8300000, guid: 83bede1bc23a6e14da7cfac157327568, type: 3}
+  - {fileID: 8300000, guid: e452816b4160c234da1c5d846951ff65, type: 3}
+  - {fileID: 8300000, guid: 9455dc006782fb34e9c399f427f360be, type: 3}
+  - {fileID: 8300000, guid: 635781dd907d2614d8eb1b6308b54417, type: 3}
+  - {fileID: 8300000, guid: 43726608e3e61364fa73f5ae4d5078d7, type: 3}
+  - {fileID: 8300000, guid: 7d9e8dc3dc8a2db4ba48ceb335e2d7b9, type: 3}
+  - {fileID: 8300000, guid: 6f8157dd02a85d643977e3dfaf742060, type: 3}
 --- !u!4 &660964931
 Transform:
   m_ObjectHideFlags: 0
@@ -188,6 +194,7 @@ GameObject:
   - component: {fileID: 1447691044}
   - component: {fileID: 1447691046}
   - component: {fileID: 1447691045}
+  - component: {fileID: 1447691047}
   m_Layer: 0
   m_Name: '@Managers'
   m_TagString: Untagged
@@ -385,10 +392,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmPlayer: {fileID: 1447691045}
-  bgmClipList: []
-  audioListner: {fileID: 0}
+  bgmClipList:
+  - {fileID: 8300000, guid: c310c99615bf33042a157c1721f64208, type: 3}
+  - {fileID: 8300000, guid: 666a5ed96cd10e2408162c48827fd911, type: 3}
+  stageBgm:
+  - {fileID: 8300000, guid: 35bfa7ff916902f45b8924804087a8f0, type: 3}
+  - {fileID: 8300000, guid: 2148dceb315c8484199775a76f66b5c7, type: 3}
+  audioListner: {fileID: 1447691047}
   audioMixer: {fileID: 24100000, guid: cc83f9a8811107c418ff4925b03d85c7, type: 2}
   uiSoundPlayer: {fileID: 660964930}
+--- !u!81 &1447691047
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447691039}
+  m_Enabled: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

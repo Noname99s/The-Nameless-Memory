@@ -32,6 +32,7 @@ public class SceneLoadManager
 
     public void LoadSceneQuick(string sceneName)
     {
+        Managers.Sound.DeactiveListner();
         AsyncOperation async = SceneManager.UnloadSceneAsync(currentScene);
         async.completed += (AsyncOperation obj) =>
         {

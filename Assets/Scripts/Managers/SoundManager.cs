@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
 public enum EMixerGroup
 {
     Master,
-    Background,
+    BGM,
+    SFX,
     Effect,
     Object,
     Player,
@@ -19,6 +20,7 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] AudioSource bgmPlayer;
     [SerializeField] AudioClip[] bgmClipList;
+    [SerializeField]List<AudioClip> stageBgm = new List<AudioClip>();
     [SerializeField] AudioListener audioListner;
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] UISoundPlayer uiSoundPlayer;
@@ -27,29 +29,49 @@ public class SoundManager : MonoBehaviour
     AudioSource recentAudioSource;
     public void Init()
     {
-        /*SceneManager.sceneLoaded += OnLoadScene;
-        for (int i = 0; i < (int)GameState.Ending; i++)
+        SceneManager.sceneLoaded += OnLoadScene;
+        for(int i = (int)Stage.Stage1; i<=(int)Stage.Stage2; i++)
+        {
+            bgmDict.Add(((Stage)i).ToString(), stageBgm[i]);
+        }
+        for (int i = 0; i < 2; i++)
         {
             GameState eSceneBGM = (GameState)i;
             bgmDict.Add(eSceneBGM.ToString(), bgmClipList[i]);
         }
-        bgmPlayer.outputAudioMixerGroup = audioMixer.FindMatchingGroups(EMixerGroup.Background.ToString())[0];*/
+        bgmPlayer.outputAudioMixerGroup = audioMixer.FindMatchingGroups(EMixerGroup.BGM.ToString())[0];
         playerUISound -= uiSoundPlayer.PlayUISound;
         playerUISound += uiSoundPlayer.PlayUISound;
     }
 
     public void OnLoadScene(Scene arg, LoadSceneMode mode)
     {
+        if (arg.name == GameState.RemindRoom.ToString()) return;
+        if (!bgmDict.ContainsKey(arg.name)) return;
+        SetBgmInBattleScene(arg);
+        SetBgmScene(arg);
+    }
+
+    private void SetBgmInBattleScene(Scene arg)
+    {
+        if (arg.name != GameState.Battle.ToString()) return;
+        if (!bgmDict.ContainsKey(Managers.Map.stageType.ToString())) return;
+        PlayBGM(bgmDict[Managers.Map.stageType.ToString()]);
+    }
+    private void SetBgmScene(Scene arg)
+    {
+        if (arg.name == GameState.Battle.ToString()) return;
         if (!bgmDict.ContainsKey(arg.name)) return;
         PlayBGM(bgmDict[arg.name]);
     }
     public void DeactiveListner()
     {
-        //audioListner.enabled = false;
+        audioListner.enabled = false;
+        bgmPlayer.Pause();
     }
     public void ActiveListner()
     {
-        //audioListner.enabled = true;
+        audioListner.enabled = true;
     }
     public void PlayUISound(int uiSoundType)
     {
