@@ -5,7 +5,7 @@ public class MainMenuModel
 {
     public void StartGame()
     {
-        Managers.Game.playData.isStatusLoaded = false; 
+        Managers.Game.PlayNewGame(); // 게임 데이터 초기화
         Managers.SceneLoad.LoadSceneQuick("Prologue");
         Managers.Sound.PlayUISound((int)EUiSound.ButtonClick);
     }
