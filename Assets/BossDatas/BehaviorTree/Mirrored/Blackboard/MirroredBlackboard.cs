@@ -19,9 +19,11 @@ public class MirroredBossInfo
     public SpriteRenderer bossSprite;
     public GameObject bossObj;
     public Animator animator;
+    //TODO: 보스 체력 바 UI 만들기
     public PhaseCondition[] phaseHpConditions;
     public EBossState bossState;
     public int hp;
+    public int maxHp;
     public bool shouldIntro = true;
 
 }

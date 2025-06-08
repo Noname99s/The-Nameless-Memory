@@ -20,6 +20,7 @@ public class MirroredDB : ScriptableObject
     {
         int index = (int)EDBInfo.MirroredBossInfoStart;
         bossInfo.hp = (int)BG_DB_Bossdata.GetEntity(index++)._Value;
+        bossInfo.maxHp = bossInfo.hp;
         bossInfo.phaseHpConditions[(int)EPhaseType.Phase1].range1 = (int)BG_DB_Bossdata.GetEntity(index++)._Value;
         bossInfo.phaseHpConditions[(int)EPhaseType.Phase1].range2 = (int)BG_DB_Bossdata.GetEntity(index++)._Value;
         bossInfo.phaseHpConditions[(int)EPhaseType.Phase2].range1 = (int)BG_DB_Bossdata.GetEntity(index++)._Value;

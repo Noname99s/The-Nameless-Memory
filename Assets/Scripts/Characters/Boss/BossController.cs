@@ -1,14 +1,11 @@
-using NUnit.Framework;
-using Orpul1;
-using Orpul1.Boss.Mirrored;
+using DG.Tweening;
 using Orpul1.Camera;
-using Orpul1.Object;
 using SOBehaviorTree;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
 {
@@ -17,6 +14,7 @@ public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
     [SerializeField] MirroredBlackboardComponent mirroredBlackboardComponent;
     [SerializeField] MirroredDB blackboardDB;
     [SerializeField] GameObject skillEffectSpawner;
+    [SerializeField] Slider bossHpBar;
     MirroredBossInfo bossInfo;
     MirroredHitStateInfo hitInfo;
     WaitForSeconds blinkDelay;
@@ -85,7 +83,9 @@ public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
 
     public void OnDamage(int damage)
     {
+        if (mirroredBlackboardComponent.bossInfo.hp <= 0) return;
         mirroredBlackboard.btComponent.bossInfo.hp -= damage;
+        SetHpUI();
         StartCoroutine("OnDamageCoroutine");
     }
     IEnumerator OnDamageCoroutine()
@@ -110,5 +110,9 @@ public class BossController : MonoBehaviour,IFindTreeAble, IDamageAble
         if (curblinkCount < hitInfo.blinkCount)
             return false;
         return true;
+    }
+    public void SetHpUI()
+    {
+        bossHpBar.value = (float)mirroredBlackboardComponent.bossInfo.hp / mirroredBlackboardComponent.bossInfo.maxHp;
     }
 }

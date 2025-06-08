@@ -148,6 +148,8 @@ public class BehaviorTreeView : GraphView
         List<GraphElement> removeElements = graphViewChange.elementsToRemove;
         RemoveNodes(removeElements);
         RemoveEdges(removeElements);
+        EditorUtility.SetDirty(tree);
+        AssetDatabase.SaveAssets();
     }
     GraphViewChange ConnectChildNodes(GraphViewChange graphViewChange)
     {
@@ -171,6 +173,8 @@ public class BehaviorTreeView : GraphView
 
             tree.DeleteNode(nodeView.node);
         }
+        EditorUtility.SetDirty(tree);
+        AssetDatabase.SaveAssets();
     }
     void RemoveEdges(List<GraphElement> removeElements)
     {
@@ -183,6 +187,8 @@ public class BehaviorTreeView : GraphView
             NodeView childView = edge.input.node as NodeView;
             tree.RemoveChilde(parentView.node, childView.node);
         }
+        EditorUtility.SetDirty(tree);
+        AssetDatabase.SaveAssets();
     }
     public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
     {
