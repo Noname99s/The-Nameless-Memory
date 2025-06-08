@@ -94,6 +94,7 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     {
         if(!isBoss)
         {
+            dialogAnim._textDatas.Clear();
             dialogAnim._textDatas = text;
             if (!dialogAnim.gameObject.activeSelf)
                 dialogAnim.gameObject.SetActive(true);
@@ -101,6 +102,7 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
         }
         else
         {
+            bossDialogAnim._textDatas.Clear();
             bossDialogAnim._textDatas = text;
             if (!bossDialogAnim.gameObject.activeSelf)
                 bossDialogAnim.gameObject.SetActive(true);

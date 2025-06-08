@@ -27,8 +27,4 @@ public abstract class StageGimicBase : MonoBehaviour
                 break;
         }
     }
-    void OnDestroy()
-    {
-        OnStageStart -= Managers.UI.GetPopupUI<InGameComposition>().OnSystemTextUpdateConnection;
-    }
 }

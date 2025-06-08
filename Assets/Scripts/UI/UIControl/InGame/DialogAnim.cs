@@ -47,6 +47,7 @@ public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISeq
         {
             _currentTextIndex = 0;
             RewindData();
+            StartSequence();
             fadeAnimSequence.Restart();
         }
     }
@@ -81,9 +82,8 @@ public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISeq
             fadeAnimSequence.Join(fadeAnimImg[i].DOFade(0, fadeDuration).SetEase(Ease.InQuad));
         }
         fadeAnimSequence
-            .OnStart(() => StartSequence())
-            .OnRewind(() => StartSequence())
             .SetAutoKill(false)
+            .OnRewind(() => StartSequence())
             .OnComplete(() => SequenceResult())
             .Pause();
     }
@@ -93,7 +93,6 @@ public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISeq
         {
             Managers.Sound.PlayUISound((int)EUiSound.Popup);
             dialogText.text = _textDatas[_currentTextIndex++];
-            Debug.Log("CurrenTextIndex: " + _currentTextIndex);
             _isDialogActive = _currentTextIndex < _textDatas.Count;
         }
     }
@@ -106,6 +105,7 @@ public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISeq
         }
         else
         {
+            _textDatas.Clear();
             this.gameObject.SetActive(false);
         }
     }
