@@ -517,6 +517,10 @@ PrefabInstance:
       propertyPath: chooseRemind
       value: 
       objectReference: {fileID: 3873848980262165886}
+    - target: {fileID: 5597075203288936412, guid: 56847cd9e6ee054448975284ad776396, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6236848094210363286, guid: 56847cd9e6ee054448975284ad776396, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -600,6 +604,10 @@ PrefabInstance:
     - target: {fileID: 6807839356488468580, guid: 56847cd9e6ee054448975284ad776396, type: 3}
       propertyPath: m_Name
       value: RemindCutScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202055538812714194, guid: 56847cd9e6ee054448975284ad776396, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
