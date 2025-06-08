@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d286647785f625a49a95df111fffc66a, type: 3}
   m_Name: 6_D_Hub2_02-4Trigger
   m_EditorClassIdentifier: 
-  _scenarioType: Text_Hub
+  _scenarioType: Text_Hub2
   _dialogIndex: 6
   _startDialogIndex: 2
   listSize: 2
