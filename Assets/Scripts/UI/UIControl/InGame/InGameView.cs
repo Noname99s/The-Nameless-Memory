@@ -100,7 +100,6 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
             {
                 dialogAnim._textDatas.Add(text[i]);
             }
-            dialogAnim._textDatas = text;
             if (!dialogAnim.gameObject.activeSelf)
                 dialogAnim.gameObject.SetActive(true);
             dialogAnim.PlayAnim();
@@ -112,7 +111,6 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
             {
                 bossDialogAnim._textDatas.Add(text[i]);
             }
-            bossDialogAnim._textDatas = text;
             if (!bossDialogAnim.gameObject.activeSelf)
                 bossDialogAnim.gameObject.SetActive(true);
             bossDialogAnim.PlayAnim();
