@@ -7,12 +7,6 @@ using Orpul1.UI;
 
 public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISequnceResulter
 {
-    struct DialogAnimData
-    {
-        public int _currentTextIndex;
-        public bool _isDialogActive;
-        public List<string> _textDatas;
-    }
     [Header("Fade Animation")]
     Sequence fadeAnimSequence;
     Transform initRootPos;
@@ -94,6 +88,11 @@ public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISeq
             Managers.Sound.PlayUISound((int)EUiSound.Popup);
             dialogText.text = _textDatas[_currentTextIndex++];
             _isDialogActive = _currentTextIndex < _textDatas.Count;
+        }
+        else if(_textDatas.Count == 0)
+        {
+            _isDialogActive = false;
+            SequenceResult();
         }
     }
     public void SequenceResult()
