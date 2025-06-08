@@ -25099,12 +25099,12 @@ SpriteRenderer:
   m_SortingLayerID: 253594519
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4697034890906870976, guid: 460c7480822c6574f83624ff0ed478f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 460c7480822c6574f83624ff0ed478f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.52, y: 0.54}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -68086,7 +68086,7 @@ Tilemap:
       - {fileID: 21300024, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300026, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300028, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 29, y: 7, z: 0}
@@ -68116,7 +68116,7 @@ Tilemap:
       - {fileID: 21300024, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300026, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300028, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 69, y: 20, z: 0}
@@ -68136,7 +68136,7 @@ Tilemap:
       - {fileID: 21300024, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300026, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300028, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 69, y: 30, z: 0}
@@ -72658,7 +72658,7 @@ Tilemap:
       - {fileID: 21300004, guid: 27df11ebd9f54314a9f96ea8a85a4e0f, type: 3}
       - {fileID: 21300006, guid: 27df11ebd9f54314a9f96ea8a85a4e0f, type: 3}
       - {fileID: 21300008, guid: 27df11ebd9f54314a9f96ea8a85a4e0f, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 61, y: 34, z: 0}

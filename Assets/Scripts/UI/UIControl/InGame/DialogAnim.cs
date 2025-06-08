@@ -45,6 +45,7 @@ public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISeq
     {
         if (fadeAnimSequence != null)
         {
+            dialogText.text = string.Empty;
             _currentTextIndex = 0;
             RewindData();
             StartSequence();
@@ -83,7 +84,6 @@ public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISeq
         }
         fadeAnimSequence
             .SetAutoKill(false)
-            .OnRewind(() => StartSequence())
             .OnComplete(() => SequenceResult())
             .Pause();
     }
@@ -97,15 +97,17 @@ public class DialogAnim : MonoBehaviour , ISequenceBuilder,ISequenceStarter,ISeq
         }
     }
     public void SequenceResult()
-    { 
+    {
+        Debug.Log("Finish : " + this.gameObject.name);
         if (_isDialogActive)
         {
             this.gameObject.SetActive(true);
+            StartSequence();
             fadeAnimSequence.Restart();
         }
         else
         {
-            _textDatas.Clear();
+            fadeAnimSequence.Pause();
             this.gameObject.SetActive(false);
         }
     }
