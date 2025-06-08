@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SOBehaviorTree;
 using Orpul1.Boss.Mirrored;
+using DG.Tweening;
 
 [CreateAssetMenu(fileName = "PlaySkill1Animation",menuName = "BehaviorNodes/Action/PlaySkill1Animation")]
 public class PlayBossSkillAnimation : ActionScript

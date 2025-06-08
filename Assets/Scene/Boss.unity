@@ -190,7 +190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 130}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &110814679
@@ -1568,6 +1568,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &905000483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 905000484}
+  m_Layer: 5
+  m_Name: DeactivePosi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &905000484
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905000483}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2141484630}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 130}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &925917272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,6 +1958,41 @@ Transform:
   - {fileID: 175291533}
   m_Father: {fileID: 2071360593}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1287784709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1287784710}
+  m_Layer: 5
+  m_Name: ActivePosi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1287784710
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287784709}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2141484630}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -100}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1449870259
 GameObject:
   m_ObjectHideFlags: 0
@@ -4632,6 +4702,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 110814678}
+  - {fileID: 905000484}
+  - {fileID: 1287784710}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4880,6 +4952,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 110814679}
     - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.bossInfo.sliderUI
+      value: 
+      objectReference: {fileID: 110814677}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: mirroredBlackboardComponent.bossInfo.bossBGM.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -4895,6 +4971,18 @@ PrefabInstance:
       propertyPath: 'mirroredBlackboardComponent.bossInfo.bossBGM.Array.data[2]'
       value: 
       objectReference: {fileID: 8300000, guid: 792dd621420e35c459d1fdcf490d4f15, type: 3}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mirroredBlackboardComponent.bossInfo.sliderMovePosis.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: 'mirroredBlackboardComponent.bossInfo.sliderMovePosis.Array.data[0]'
+      value: 
+      objectReference: {fileID: 905000484}
+    - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: 'mirroredBlackboardComponent.bossInfo.sliderMovePosis.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1287784710}
     - target: {fileID: 7456571372819098835, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: m_Name
       value: Mirrored
