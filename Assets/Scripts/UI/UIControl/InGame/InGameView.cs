@@ -117,7 +117,7 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
         Time.timeScale = 0; 
         staticDialogText.text = text[_currentStaticDialogIndex++];
         staticDialog.gameObject.SetActive(true);
-        _isStaticDialogActive = _currentStaticDialogIndex < text.Count; 
+        _isStaticDialogActive = _currentStaticDialogIndex < _staticDialogTextList.Count; 
     }
     public void UpdateSystemText(string text)
     {

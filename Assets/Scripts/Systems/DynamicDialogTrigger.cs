@@ -21,11 +21,4 @@ public class DynamicDialogTrigger : MonoBehaviour
             _dynamicDialogData.TransferDialogToUI();
         }
     }
-    private void OnDestroy()
-    {
-        if (_dynamicDialogData != null)
-        {
-            _dynamicDialogData.ClearAction();
-        }
-    }
 }

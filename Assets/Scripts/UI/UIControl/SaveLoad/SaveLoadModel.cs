@@ -58,6 +58,7 @@ public class SaveLoadModel
     }
     void LoadCurrentMemoryData()
     {
+        Managers.Map.Init(); // Initialize map manager
         Managers.Game.playData.RecordData(currentMemoryData);
         Time.timeScale = 1f; // Resume game time
         Managers.Game.ChangeState(GameState.Home);
