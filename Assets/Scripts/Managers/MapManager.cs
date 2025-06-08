@@ -20,14 +20,14 @@ public class MapManager : MonoBehaviour
     [SerializeField] SO_MapInfo initMapInfo;
 
     [Header("WillFragment Information")]
-    [SerializeField] DeathInfo deathInfo = new DeathInfo();
+    [SerializeField]  DeathInfo deathInfo = new DeathInfo();
     [SerializeField] GameObject fragmentPrefab;
-    public bool getFragment = false;
+    public bool getFragment = true;
     GameObject fragmentObject = null;
 
     public void Init()
     {
-        stageType = Stage.Hub;
+        stageType = Stage.Stage1;
         mapInfos.Clear();
         mapInfos.Add(initMapInfo);
         currentMapIndex = -1;

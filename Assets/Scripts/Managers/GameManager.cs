@@ -37,6 +37,7 @@ public class GameManager
             playData.stageCleared[i] = false; // Reset stage cleared status
             playData.dialogComplete[i].datas.Clear(); // Clear dialog completion data
         }
+        playData.playerSkill = new PlayerSkillInfo(); // Reset player skills
         Managers.Map.Init(); // Initialize map manager
     }
     public void UpdatePlayTime()
@@ -70,6 +71,7 @@ public class GameManager
                 Managers.Sound.ActiveListner();
                 // Logic for main menu
                 Managers.UI.GetPopupUI<SaveLoadComposition>().RecordData(playData); // Record current play data
+                Managers.UI.ClosePopupUI<SaveLoadComposition>(); // Close save/load UI
                 Managers.Player.RemovePlayer(); // Remove player if exists
                 break;
             case GameState.Home:
