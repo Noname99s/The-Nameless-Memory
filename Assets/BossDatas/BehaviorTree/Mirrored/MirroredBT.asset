@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: PlayBossBgm
   m_EditorClassIdentifier: 
   guid: 0d8c969d8cd89774ab9a5d3e12ad9180
-  position: {x: -1497.6001, y: 500.96002}
+  position: {x: -1500.9441, y: 500}
   nodeName: PlayBossBgm
   description: 
   nodeState: 3

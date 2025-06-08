@@ -48,7 +48,8 @@ MonoBehaviour:
   - {fileID: -6340272952256817958}
   - {fileID: -9098059724255561591}
   - {fileID: 5775314432737579526}
-  curIndex: 4
+  - {fileID: 2180480057788638649}
+  curIndex: 7
 --- !u!114 &-6340272952256817958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +178,7 @@ MonoBehaviour:
   m_Name: BossOutro
   m_EditorClassIdentifier: 
   guid: e79f38dc5676cda4b826dcb5bf7a3832
-  position: {x: 0, y: 0}
+  position: {x: 652.32, y: 279.12003}
   nodeName: BossOutro
   description: 
   nodeState: 3
