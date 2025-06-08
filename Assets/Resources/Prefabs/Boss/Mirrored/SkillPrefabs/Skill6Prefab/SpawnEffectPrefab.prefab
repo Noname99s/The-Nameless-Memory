@@ -140,8 +140,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1551518059791296413}
   m_Father: {fileID: 0}
@@ -256,7 +256,7 @@ MonoBehaviour:
   sounds:
   - {fileID: 8300000, guid: 2f5d7adef0c14324b809c8065c2227cc, type: 3}
   - {fileID: 8300000, guid: e3856cfbb077d814cbd9f9c1128ed1e5, type: 3}
-  mixerGroup: 2
+  mixerGroup: 3
   spatialBlend: 1
   maxDistance: 0
   minDistance: 5

@@ -14,7 +14,8 @@ public enum EMixerGroup
     Object,
     Player,
     Enemy,
-    UISound
+    UISound,
+    BossEffect,
 }
 public class SoundManager : MonoBehaviour
 {
