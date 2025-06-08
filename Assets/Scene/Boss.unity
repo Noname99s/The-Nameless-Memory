@@ -5219,6 +5219,22 @@ PrefabInstance:
       propertyPath: mixerGroup
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2993591202904679082, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993591202904679082, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734391287328614003, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734391287328614003, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.54
+      objectReference: {fileID: 0}
     - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: bossHpBar
       value: 
@@ -5255,9 +5271,25 @@ PrefabInstance:
       propertyPath: 'mirroredBlackboardComponent.bossInfo.sliderMovePosis.Array.data[1]'
       value: 
       objectReference: {fileID: 1287784710}
+    - target: {fileID: 7001500833234548244, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7001500833234548244, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.56
+      objectReference: {fileID: 0}
     - target: {fileID: 7456571372819098835, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: m_Name
       value: Mirrored
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655494421924980632, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655494421924980632, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.25
       objectReference: {fileID: 0}
     - target: {fileID: 7783608039070261865, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: m_Size.x

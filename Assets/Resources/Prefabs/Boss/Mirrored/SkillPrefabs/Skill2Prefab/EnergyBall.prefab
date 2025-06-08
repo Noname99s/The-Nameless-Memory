@@ -82,7 +82,7 @@ MonoBehaviour:
   rigid: {fileID: 4612631628186163355}
   arrivePosi: {x: 0, y: 0}
   posiGap: 0.1
-  moveSpeed: 120
+  moveSpeed: 350
 --- !u!114 &-8705847756290016948
 MonoBehaviour:
   m_ObjectHideFlags: 0

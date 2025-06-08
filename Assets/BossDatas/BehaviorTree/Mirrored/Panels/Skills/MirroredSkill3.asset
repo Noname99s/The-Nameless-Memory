@@ -16,14 +16,14 @@ MonoBehaviour:
   position: {x: 195.27905, y: 556.8487}
   nodeName: DelayNode
   description: 
-  nodeState: 3
+  nodeState: 0
   methodName: 
   path: 
   actionNode: {fileID: 0}
   scriptPath: 
   assetPath: 
   delayTime: 2
-  interval: 0
+  interval: 1.8196082
 --- !u!114 &-5263636175862439011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
   position: {x: -0.7999878, y: 146.40002}
   nodeName: SequenceNode
   description: SequenceNode
-  nodeState: 3
+  nodeState: 0
   childNodeList:
   - {fileID: 5854065459429801623}
   - {fileID: -2533896036925537769}
@@ -207,7 +207,7 @@ MonoBehaviour:
   position: {x: -206.39996, y: 396.80005}
   nodeName: SequenceNode
   description: SequenceNode
-  nodeState: 3
+  nodeState: 0
   childNodeList:
   - {fileID: 4198172607276920013}
   - {fileID: -5263636175862439011}
@@ -218,7 +218,7 @@ MonoBehaviour:
   - {fileID: 7240800840304111253}
   - {fileID: -6616022504191900217}
   - {fileID: 5403305344884656275}
-  curIndex: 0
+  curIndex: 7
 --- !u!114 &4198172607276920013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
   position: {x: -256.8, y: 306.40002}
   nodeName: DecoratorNode
   description: 
-  nodeState: 3
+  nodeState: 0
   methodName: 
   path: 
   actionNode: {fileID: 0}
@@ -351,6 +351,6 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   nodeName: RootNode
   description: RootNode
-  nodeState: 3
+  nodeState: 0
   child: {fileID: -4385464476971076102}
   panelName: Skill3

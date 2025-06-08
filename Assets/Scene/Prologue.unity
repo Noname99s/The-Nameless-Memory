@@ -321,6 +321,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 130771321}
     m_Modifications:
+    - target: {fileID: 3579782737919833075, guid: 5a265e438a07d1b449d7d11847b8dbc4, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3870053505386429603, guid: 5a265e438a07d1b449d7d11847b8dbc4, type: 3}
       propertyPath: m_Name
       value: Prologue

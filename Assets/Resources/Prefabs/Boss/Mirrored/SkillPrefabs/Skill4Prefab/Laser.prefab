@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delayToAttack: 0
   deativeTime: 0
-  damage: 25
+  damage: 100
   attackCollider: {fileID: 1816423908295781445}
   sound: {fileID: 2964875972489422844}
   animator: {fileID: 8568987212507616644}

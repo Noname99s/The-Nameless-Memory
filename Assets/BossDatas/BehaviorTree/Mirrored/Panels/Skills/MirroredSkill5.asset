@@ -226,7 +226,7 @@ MonoBehaviour:
   guid: fc0b0df3a16bf6f49a4a04ed5a838145
   position: {x: -539.49976, y: 469.4235}
   nodeName: ActionNode
-  description: 
+  description: Skill5Sound
   nodeState: 3
   methodName: Skill5Sound
   path: 

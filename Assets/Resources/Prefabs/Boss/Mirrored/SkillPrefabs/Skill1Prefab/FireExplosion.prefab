@@ -206,7 +206,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.40625, y: 3.46875}
+  m_Size: {x: 5.0625, y: 2.625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delayToAttack: 3
   deativeTime: 0
-  damage: 30
+  damage: 80
   attackCollider: {fileID: 8987580069679084394}
   sound: {fileID: -7426258984987199678}
   animator: {fileID: 4665630302578420333}
