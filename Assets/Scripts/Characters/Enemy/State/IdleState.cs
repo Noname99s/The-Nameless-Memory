@@ -22,6 +22,7 @@ namespace Orpul1.Enemy.State
 
         public override void OnUpdate()
         {
+            context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             TransitionState();
             DoIdleBehavior();
         }

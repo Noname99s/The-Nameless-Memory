@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 40.07, y: 22.65, z: 0}
-  m_LocalScale: {x: 17.820217, y: 3.8875, z: 1}
+  m_LocalScale: {x: 12.886243, y: 3.8875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 176124848757878060}
@@ -58038,7 +58038,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 61.72, y: 18.44, z: 0}
-  m_LocalScale: {x: 6.9883204, y: 3.8875, z: 1}
+  m_LocalScale: {x: 6.9883204, y: 1.1486347, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 176124848757878060}
@@ -68066,7 +68066,7 @@ Tilemap:
       - {fileID: 21300024, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300026, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300028, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 21, y: 7, z: 0}
@@ -68076,7 +68076,7 @@ Tilemap:
       - {fileID: 21300024, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300026, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300028, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 28, y: 7, z: 0}
@@ -68116,7 +68116,7 @@ Tilemap:
       - {fileID: 21300024, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300026, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300028, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 69, y: 20, z: 0}
@@ -68648,7 +68648,7 @@ Tilemap:
       - {fileID: 21300002, guid: eec02ced1b9f270429fe711bab10618c, type: 3}
       - {fileID: 21300004, guid: eec02ced1b9f270429fe711bab10618c, type: 3}
       - {fileID: 21300006, guid: eec02ced1b9f270429fe711bab10618c, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 60, y: 11, z: 0}
