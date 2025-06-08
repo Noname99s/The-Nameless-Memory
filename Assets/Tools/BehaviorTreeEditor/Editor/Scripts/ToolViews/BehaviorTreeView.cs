@@ -102,6 +102,8 @@ public class BehaviorTreeView : GraphView
     {
         // Create Node View
         tree.nodeList.ForEach(n => CreateNodeView(n));
+        EditorUtility.SetDirty(tree);
+        AssetDatabase.SaveAssets();
     }
     void CreateEdges()
     {
@@ -117,6 +119,8 @@ public class BehaviorTreeView : GraphView
                 AddElement(edge);
             });
         });
+        EditorUtility.SetDirty(tree);
+        AssetDatabase.SaveAssets();
     }
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
