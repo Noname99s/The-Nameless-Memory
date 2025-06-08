@@ -26,9 +26,10 @@ namespace Orpul1.Enemy
         Vector3 scale = Vector3.zero;
 
         [ContextMenu("SetDebugScale")]
-        private void DebugSetScale()
+        private void SetScale()
         {
             scale = transform.localScale;
+            context.enemyInfo.originScale = transform.localScale;
         }
         private void Awake()
         {
@@ -38,6 +39,7 @@ namespace Orpul1.Enemy
             context.enemyInfo.flipX = FlipX;
             context.dieInfo.destroyAction = DestroyObject;
             SetDamage(attackCollider);
+            SetScale();
         }
         private void SetDamage(ISetDataAble<int> attackCollider)
         {
