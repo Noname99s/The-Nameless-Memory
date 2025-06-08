@@ -5215,6 +5215,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1540527315418465508, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
+      propertyPath: mixerGroup
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5921892376452311839, guid: 1add5be8756046f41a52baa7ad2f4a34, type: 3}
       propertyPath: bossHpBar
       value: 
