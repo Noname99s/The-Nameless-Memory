@@ -50,6 +50,7 @@ public class Managers : MonoBehaviour
     {
         s_instance = GetComponent<Managers>();
         _game.Init();
+        _mapManager.Init();
         _sceneLoad.Init();
         _ui.Init();
         _soundManager.Init();

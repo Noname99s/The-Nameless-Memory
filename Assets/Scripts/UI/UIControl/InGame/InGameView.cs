@@ -88,12 +88,18 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
     {
         pausePanel.SetActive(false);
         staticDialog.gameObject.SetActive(false);
+        dialogAnim.gameObject.SetActive(false);
         bossDialogAnim.gameObject.SetActive(false);
     }
     public void UpdateDialogAnim(List<string> text , bool isBoss = false)
     {
         if(!isBoss)
         {
+            dialogAnim._textDatas.Clear();
+            for(int i = 0; i < text.Count; i++)
+            {
+                dialogAnim._textDatas.Add(text[i]);
+            }
             dialogAnim._textDatas = text;
             if (!dialogAnim.gameObject.activeSelf)
                 dialogAnim.gameObject.SetActive(true);
@@ -101,6 +107,11 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
         }
         else
         {
+            bossDialogAnim._textDatas.Clear();
+            for(int i = 0; i < text.Count; i++)
+            {
+                bossDialogAnim._textDatas.Add(text[i]);
+            }
             bossDialogAnim._textDatas = text;
             if (!bossDialogAnim.gameObject.activeSelf)
                 bossDialogAnim.gameObject.SetActive(true);
@@ -115,7 +126,7 @@ public class InGameView : MonoBehaviour, IInGameView, ISequenceBuilder
         Time.timeScale = 0; 
         staticDialogText.text = text[_currentStaticDialogIndex++];
         staticDialog.gameObject.SetActive(true);
-        _isStaticDialogActive = _currentStaticDialogIndex < text.Count; 
+        _isStaticDialogActive = _currentStaticDialogIndex < _staticDialogTextList.Count; 
     }
     public void UpdateSystemText(string text)
     {

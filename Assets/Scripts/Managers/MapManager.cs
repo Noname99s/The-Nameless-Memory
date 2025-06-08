@@ -11,18 +11,28 @@ public class DeathInfo
 public class MapManager : MonoBehaviour
 {
     [Header("Stage Information")]
-    public Stage stageType = Stage.Hub; // Default to Hub stage
+    public Stage stageType = Stage.Stage1; // Default to Hub stage
     public List<SO_MapInfo> mapInfos = new List<SO_MapInfo>();
     [SerializeField] int currentMapIndex = -1;
     public Vector3 movePoint = Vector3.zero;
     GameObject currentMapObject = null;
+    
+    [SerializeField] SO_MapInfo initMapInfo;
 
     [Header("WillFragment Information")]
-    [SerializeField] DeathInfo deathInfo = new DeathInfo();
+    [SerializeField]  DeathInfo deathInfo = new DeathInfo();
     [SerializeField] GameObject fragmentPrefab;
-    public bool getFragment = false;
+    public bool getFragment = true;
     GameObject fragmentObject = null;
 
+    public void Init()
+    {
+        stageType = Stage.Stage1;
+        mapInfos.Clear();
+        mapInfos.Add(initMapInfo);
+        currentMapIndex = -1;
+        movePoint = Vector3.zero;
+    }
     public void BackToHome()
     {
         currentMapIndex = -1;
@@ -34,6 +44,11 @@ public class MapManager : MonoBehaviour
         currentMapIndex--;
         if (currentMapIndex < -1)
             currentMapIndex = -1;
+        if(Managers.Game.CurrentState == GameState.Boss)
+        {
+            Managers.Game.ChangeState(GameState.Home);
+            return;
+        }
         Managers.Game.ChangeState(GameState.Battle);
     }
     public void TransitionMap(bool isNext = true)
