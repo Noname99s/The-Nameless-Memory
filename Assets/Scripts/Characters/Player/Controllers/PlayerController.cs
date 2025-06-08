@@ -165,9 +165,9 @@ namespace Orpul1.Player
         {
             if (damage == 0 || Managers.Game.CurrentState == GameState.Home) return;
             if (!playerData.hitInfo.canGetDamage) return;
-            OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
 
             playerData.statusInfo.hp -= damage;
+            OnPlayerHpChanged?.Invoke(playerData.statusInfo.hp, playerData.statusInfo.maxHp);
             playerData.hitInfo.isHit = playerData.statusInfo.hp > 0;
             playerData.hitInfo.isDeath = !playerData.hitInfo.isHit;
             StartCoroutine("CountInvincibleTime");

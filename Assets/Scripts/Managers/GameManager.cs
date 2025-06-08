@@ -28,6 +28,18 @@ public class GameManager
     {
         playData = new PlayData(); // Initialize play data
     }
+    public void PlayNewGame()
+    {
+        playData.playTime = 0f; // Reset play time
+        playData.isStatusLoaded = false; // Reset status loaded flag
+        for (int i = 0; i < (int)Stage.Max; i++)
+        {
+            playData.stageCleared[i] = false; // Reset stage cleared status
+            playData.dialogComplete[i].datas.Clear(); // Clear dialog completion data
+        }
+        playData.playerSkill = new PlayerSkillInfo(); // Reset player skills
+        Managers.Map.Init(); // Initialize map manager
+    }
     public void UpdatePlayTime()
     {
         if (CurrentState == GameState.MainMenu || CurrentState == GameState.Ending) return;
@@ -59,6 +71,7 @@ public class GameManager
                 Managers.Sound.ActiveListner();
                 // Logic for main menu
                 Managers.UI.GetPopupUI<SaveLoadComposition>().RecordData(playData); // Record current play data
+                Managers.UI.ClosePopupUI<SaveLoadComposition>(); // Close save/load UI
                 Managers.Player.RemovePlayer(); // Remove player if exists
                 break;
             case GameState.Home:
