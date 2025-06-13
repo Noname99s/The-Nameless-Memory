@@ -5,4 +5,5 @@ public enum ESoundCategory
     PLAYER,
     ENEMY,
     BOSS,
+    REMAINROOM,
 }

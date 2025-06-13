@@ -148,22 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5312fb6e95ae1c41994d71486701de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiAudioClips:
-  - {fileID: 8300000, guid: fba846f646e666d498449d9c1948caae, type: 3}
-  - {fileID: 8300000, guid: d27a465c535acd44d9f8a852e6e82b08, type: 3}
-  - {fileID: 8300000, guid: b13da331b095d1847a9e4b593043a37f, type: 3}
-  - {fileID: 8300000, guid: 502767d7cc816fa4a8243263300658a0, type: 3}
-  - {fileID: 8300000, guid: 0651768c871d57b4f8996f7fcb6bb6c1, type: 3}
-  - {fileID: 8300000, guid: 37615683f50913b45b405623a1445a6b, type: 3}
-  - {fileID: 8300000, guid: b999b46db0df1d64497423eeabd1b487, type: 3}
-  - {fileID: 8300000, guid: cf9695a2ac9facd4ea2911ccb9aee09b, type: 3}
-  - {fileID: 8300000, guid: 83bede1bc23a6e14da7cfac157327568, type: 3}
-  - {fileID: 8300000, guid: e452816b4160c234da1c5d846951ff65, type: 3}
-  - {fileID: 8300000, guid: 9455dc006782fb34e9c399f427f360be, type: 3}
-  - {fileID: 8300000, guid: 635781dd907d2614d8eb1b6308b54417, type: 3}
-  - {fileID: 8300000, guid: 43726608e3e61364fa73f5ae4d5078d7, type: 3}
-  - {fileID: 8300000, guid: 7d9e8dc3dc8a2db4ba48ceb335e2d7b9, type: 3}
-  - {fileID: 8300000, guid: 6f8157dd02a85d643977e3dfaf742060, type: 3}
 --- !u!4 &660964931
 Transform:
   m_ObjectHideFlags: 0
@@ -398,13 +382,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e35851a3d3cef2428fb64e0ddd554b1, type: 2}
   - {fileID: 11400000, guid: 8c38a10963021174fbcaec71ed7fc528, type: 2}
   - {fileID: 11400000, guid: 434036cd1c2636b4c9c3a52af233e735, type: 2}
+  - {fileID: 11400000, guid: f45896842f151034197f6bd3165236ab, type: 2}
   bgmPlayer: {fileID: 1447691045}
-  bgmClipList:
-  - {fileID: 8300000, guid: c310c99615bf33042a157c1721f64208, type: 3}
-  - {fileID: 8300000, guid: 666a5ed96cd10e2408162c48827fd911, type: 3}
-  stageBgm:
-  - {fileID: 8300000, guid: 35bfa7ff916902f45b8924804087a8f0, type: 3}
-  - {fileID: 8300000, guid: 2148dceb315c8484199775a76f66b5c7, type: 3}
   audioListner: {fileID: 1447691047}
   audioMixer: {fileID: 24100000, guid: cc83f9a8811107c418ff4925b03d85c7, type: 2}
   uiSoundPlayer: {fileID: 660964930}

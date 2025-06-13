@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Orpul1.Sound;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -77,5 +78,7 @@ public class ChooseRemindPointHandler : MonoBehaviour, IPointerEnterHandler, IPo
         panelSequence.Rewind();
         panelAnimation.DORewind();
         remindCutScene.OnRestartSequnece(); // Trigger the cutscene
+        Managers.Sound.StopBGM();
+        Managers.Sound.PlaySound2D(ESoundCategory.REMAINROOM, (int)stageType, EMixerGroup.BGM, true);
     }
 }

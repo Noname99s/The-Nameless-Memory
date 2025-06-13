@@ -42,7 +42,8 @@ namespace Orpul1.Sound
             audioSource.clip = soundDatas[(int)category].audioList[soundType];
 
             audioSource.Play();
-            Destroy(audioObj, soundDatas[(int)category].audioList[soundType].length);
+            if(!isLoop)
+                Destroy(audioObj, soundDatas[(int)category].audioList[soundType].length);
         }
         public void PlaySound3D(ESoundCategory category, int soundType, EMixerGroup mixerGroup, Transform parent, bool isLoop = false)
         {
@@ -59,7 +60,8 @@ namespace Orpul1.Sound
             audioSource.clip = soundDatas[(int)category].audioList[soundType];
 
             audioSource.Play();
-            Destroy(audioObj, soundDatas[(int)category].audioList[soundType].length);
+            if (!isLoop)
+                Destroy(audioObj, soundDatas[(int)category].audioList[soundType].length);
         }
         public void StopBGM()
         {
