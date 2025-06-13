@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9529cbceff59c544cb743ea0430d298b, type: 3}
+  m_Name: BossSoundData
+  m_EditorClassIdentifier: 
+  audioList:
+  - {fileID: 8300000, guid: 7e790a01843425b40b45f2e58b8e81f9, type: 3}
+  - {fileID: 8300000, guid: af9aba59bb8750c4b9388accf06b7903, type: 3}
+  - {fileID: 8300000, guid: 5d7b9f63a8be5d84b9c92c23fb561c40, type: 3}
+  - {fileID: 8300000, guid: 71460fa6e317f1c4aacef9f745090a05, type: 3}
+  - {fileID: 8300000, guid: 7915df371a67bbe4383b5fd3ba421c1e, type: 3}

@@ -2,7 +2,7 @@ using Orpul1;
 using UnityEngine;
 using System.Collections.Generic;
 using System;
-using Unity.VisualScripting;
+using Orpul1.Sound;
 
 public abstract class BossSkill : MonoBehaviour,ISetDataAble<Action<GameObject>>,IResetAble
 {

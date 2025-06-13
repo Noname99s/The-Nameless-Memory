@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9529cbceff59c544cb743ea0430d298b, type: 3}
+  m_Name: EnemySoundData
+  m_EditorClassIdentifier: 
+  audioList:
+  - {fileID: 8300000, guid: 7f193ed461c4c4b459ef823444c1deda, type: 3}
+  - {fileID: 8300000, guid: dd2ae4d39af7d674aba9456cda481b0e, type: 3}
+  - {fileID: 8300000, guid: b1c24c5d107919e45b2d4f7255fdf254, type: 3}

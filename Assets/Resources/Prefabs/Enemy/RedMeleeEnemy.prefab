@@ -492,10 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35cbcaadbd0f1ba47a53792ae61156d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - {fileID: 8300000, guid: 64387ad012b2e934e9aec76a3f7841a1, type: 3}
-  - {fileID: 8300000, guid: dd2ae4d39af7d674aba9456cda481b0e, type: 3}
-  - {fileID: 8300000, guid: b1c24c5d107919e45b2d4f7255fdf254, type: 3}
+  soundCategory: 3
   mixerGroup: 5
   spatialBlend: 1
   maxDistance: 0

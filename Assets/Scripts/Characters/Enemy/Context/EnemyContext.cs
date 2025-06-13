@@ -1,7 +1,8 @@
 using System;
-using System.Xml.Linq;
 using Orpul1.Enemy.DB;
 using UnityEngine;
+using Orpul1.Sound;
+
 
 namespace Orpul1.Enemy
 {

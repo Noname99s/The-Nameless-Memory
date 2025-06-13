@@ -1337,6 +1337,8 @@ MonoBehaviour:
       bossSprite: {fileID: 7685511999838097804}
       bossObj: {fileID: 7456571372819098835}
       animator: {fileID: 8417452694250055631}
+      sliderUI: {fileID: 0}
+      sliderMovePosis: []
       phaseHpConditions:
       - range1: 100
         range2: 50
@@ -1344,6 +1346,7 @@ MonoBehaviour:
         range2: 0
       bossState: 0
       hp: 100
+      maxHp: 0
       shouldIntro: 1
     hitStateInfo:
       hitColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
@@ -1369,6 +1372,7 @@ MonoBehaviour:
     sound: {fileID: 1540527315418465508}
   blackboardDB: {fileID: 11400000, guid: 6dd2cc7185d70444d8bd4dd90530ae16, type: 2}
   skillEffectSpawner: {fileID: 8784824959886042965}
+  bossHpBar: {fileID: 0}
   bossIntroDialog: {fileID: 11400000, guid: 821e2d3f76057b04caac94fdde5265d3, type: 2}
   bossDialogData: {fileID: 11400000, guid: ed54b099bd682f440b6146a14a4be567, type: 2}
   bossoutroDialogData: {fileID: 11400000, guid: bd12e36afc16f8b4595f033b52f84552, type: 2}
@@ -1390,6 +1394,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5d7b9f63a8be5d84b9c92c23fb561c40, type: 3}
   - {fileID: 8300000, guid: 71460fa6e317f1c4aacef9f745090a05, type: 3}
   - {fileID: 8300000, guid: 7915df371a67bbe4383b5fd3ba421c1e, type: 3}
+  soundCategory: 4
   mixerGroup: 0
   spatialBlend: 0
   maxDistance: 0

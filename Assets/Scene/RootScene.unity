@@ -392,6 +392,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de5883fb5d53e449a1e98a07e9bd94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundDatas:
+  - {fileID: 11400000, guid: 56352a6014b5d2c459859c0127251446, type: 2}
+  - {fileID: 11400000, guid: 50012a3ad4136914bb357095d3bb87b2, type: 2}
+  - {fileID: 11400000, guid: 0e35851a3d3cef2428fb64e0ddd554b1, type: 2}
+  - {fileID: 11400000, guid: 8c38a10963021174fbcaec71ed7fc528, type: 2}
+  - {fileID: 11400000, guid: 434036cd1c2636b4c9c3a52af233e735, type: 2}
   bgmPlayer: {fileID: 1447691045}
   bgmClipList:
   - {fileID: 8300000, guid: c310c99615bf33042a157c1721f64208, type: 3}

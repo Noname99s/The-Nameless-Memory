@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using Orpul1.Sound;
 
 public class OptionView : MonoBehaviour , IOptionView
 {

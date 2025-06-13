@@ -1,15 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
-using Orpul1.UI;
 using UnityEngine;
+using Orpul1.Sound;
+
 
 public class UISoundPlayer : MonoBehaviour
 {
-    
-    [SerializeField] List<AudioClip> uiAudioClips = new List<AudioClip>();
-    
     public void PlayUISound(int type)
     {
-        Managers.Sound.PlayEffect(uiAudioClips[type], EMixerGroup.UISound);
+        Managers.Sound.PlaySound2D(ESoundCategory.UI, type, EMixerGroup.UISound);
     }
 }

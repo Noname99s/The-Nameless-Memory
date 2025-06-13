@@ -4,6 +4,7 @@ using Orpul1.Player.Skill;
 using Orpul1.State.Attack;
 using System;
 using UnityEngine;
+using Orpul1.Sound;
 
 [Serializable]
 public class PlayerStatusInfo
