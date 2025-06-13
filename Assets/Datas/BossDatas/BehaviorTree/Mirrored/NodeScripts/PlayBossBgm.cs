@@ -4,6 +4,7 @@ using UnityEngine;
 using SOBehaviorTree;
 using Orpul1.Boss;
 using DG.Tweening;
+using Orpul1.Sound;
 
 [CreateAssetMenu(fileName = "PlayBossBgm",menuName = "BehaviorNodes/Action/PlayBossBgm")]
 public class PlayBossBgm : ActionScript
@@ -20,7 +21,7 @@ public class PlayBossBgm : ActionScript
     }
     public override NodeState OnUpdate()
     {
-        Managers.Sound.PlayBGM(blackboard.btComponent.bossInfo.bossBGM[(int)bossBGM]);
+        Managers.Sound.PlaySound2D(ESoundCategory.BOSS, (int)bossBGM, EMixerGroup.BossEffect, true);
         return NodeState.Success;
     }
     public override NodeState OnExit()

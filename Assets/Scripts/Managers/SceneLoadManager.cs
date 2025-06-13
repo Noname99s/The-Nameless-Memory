@@ -11,6 +11,7 @@ public class SceneLoadManager
         currentScene = "MainMenu";
         SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
         AsyncOperation async = SceneManager.LoadSceneAsync(currentScene, LoadSceneMode.Additive);
+        Managers.Sound.PlayBGM(ESceneType.MainMenu);
         async.completed += (AsyncOperation obj) => { SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentScene)); };
     }
     public void LoadSameScene()
@@ -38,6 +39,7 @@ public class SceneLoadManager
         {
             Managers.UI.CloseAllPopupUI(); // Close all UI popups before loading new scene
             SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+            Managers.Sound.PlayBGM(ESceneType.Prologue);
             currentScene = sceneName;
         };
     }

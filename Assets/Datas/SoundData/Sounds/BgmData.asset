@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioList:
   - {fileID: 8300000, guid: c310c99615bf33042a157c1721f64208, type: 3}
+  - {fileID: 8300000, guid: b91883227d80b184fa25b78ac9fd8603, type: 3}
   - {fileID: 8300000, guid: 666a5ed96cd10e2408162c48827fd911, type: 3}
   - {fileID: 8300000, guid: 35bfa7ff916902f45b8924804087a8f0, type: 3}
   - {fileID: 8300000, guid: 2148dceb315c8484199775a76f66b5c7, type: 3}

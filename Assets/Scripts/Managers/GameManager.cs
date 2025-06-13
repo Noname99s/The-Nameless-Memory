@@ -64,7 +64,8 @@ public class GameManager
     }
     public void SettingScene()
     {
-
+        int bgmType = (int)CurrentState;
+        
         switch (CurrentState)
         {
             case GameState.MainMenu:
@@ -73,13 +74,16 @@ public class GameManager
                 Managers.UI.GetPopupUI<SaveLoadComposition>().RecordData(playData); // Record current play data
                 Managers.UI.ClosePopupUI<SaveLoadComposition>(); // Close save/load UI
                 Managers.Player.RemovePlayer(); // Remove player if exists
+                bgmType = (int)ESceneType.MainMenu;
                 break;
             case GameState.Home:
                 // Logic for home
+                bgmType = (int)ESceneType.Home;
                 Managers.UI.ShowPopupUI<InGameComposition>();
                 Managers.Player.Init(new Vector3(9, 8, 0)); // Initialize player
                 break;
             case GameState.RemindRoom:
+                bgmType = (int)ESceneType.RemindRoom;
                 break;
 
             case GameState.Battle:
@@ -87,12 +91,14 @@ public class GameManager
                 Managers.UI.ShowPopupUI<InGameComposition>(); 
                 Managers.Map.TransitionMap(); // Load the current map
                 Managers.Player.Init(Managers.Map.movePoint); // Initialize player at the entrance point
+                bgmType = (int)ESceneType.Battle + (int)Managers.Map.stageType;
                 break;
 
             case GameState.Boss:
                 // Logic for boss fight
                 Managers.UI.ShowPopupUI<InGameComposition>();
                 Managers.Player.Init(new Vector3(10, 10, 0)); // Initialize player
+                bgmType = (int)ESceneType.Boss;
                 break;
 
             case GameState.Ending:
@@ -100,6 +106,7 @@ public class GameManager
                 // Logic for ending
                 break;
         }
+        Managers.Sound.PlayBGM((ESceneType)bgmType);
     }
 }
 
