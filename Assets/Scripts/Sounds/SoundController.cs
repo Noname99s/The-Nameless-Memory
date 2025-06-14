@@ -15,7 +15,6 @@ namespace Orpul1.Sound
         public void PlaySound(int soundType)
         {
             Managers.Sound.PlaySound3D(soundCategory, soundType, mixerGroup,transform);
-            //Managers.Sound.PlayEffect(sounds[soundType], mixerGroup, transform, spatialBlend, minDistance, maxDistance);
         }
         private void OnDrawGizmosSelected()
         {

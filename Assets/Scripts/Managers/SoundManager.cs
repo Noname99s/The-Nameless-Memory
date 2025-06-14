@@ -1,22 +1,19 @@
 using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
+
 namespace Orpul1.Sound
 {
-    public class SoundManager : MonoBehaviour
+    public class SoundManager : ObjectPool
     {
         [SerializeField] SoundData[] soundDatas;
         [SerializeField] AudioSource bgmPlayer;
         [SerializeField] AudioListener audioListner;
         [SerializeField] AudioMixer audioMixer;
-        [SerializeField] UISoundPlayer uiSoundPlayer;
-        Action<int> playerUISound;
+        protected override void Start() { }
         public void Init()
         {
-            
+            Initialize();
         }
         public void DeactiveListner()
         {
@@ -31,38 +28,31 @@ namespace Orpul1.Sound
         {
             PlaySound2D(ESoundCategory.UI, uiSoundType, EMixerGroup.UISound);
         }
-        public void PlaySound2D(ESoundCategory category, int soundType, EMixerGroup mixerGroup, bool isLoop = false)
-        {
-            GameObject audioObj = new GameObject();
-            AudioSource audioSource = audioObj.AddComponent<AudioSource>();
-            audioSource.loop = isLoop;
-            audioSource.spatialBlend = 0;
-            audioSource.rolloffMode = AudioRolloffMode.Linear;
-            audioSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups(mixerGroup.ToString())[0];
-            audioSource.clip = soundDatas[(int)category].audioList[soundType];
 
-            audioSource.Play();
-            if(!isLoop)
-                Destroy(audioObj, soundDatas[(int)category].audioList[soundType].length);
-        }
-        public void PlaySound3D(ESoundCategory category, int soundType, EMixerGroup mixerGroup, Transform parent, bool isLoop = false)
+        public SoundPlayer PlaySound2D(ESoundCategory category, int soundType, EMixerGroup mixerGroup, bool isLoop = false)
         {
-            GameObject audioObj = new GameObject();
-            audioObj.transform.parent = parent;
-            audioObj.transform.localPosition = Vector3.zero;
-            AudioSource audioSource = audioObj.AddComponent<AudioSource>();
-            audioSource.loop = isLoop;
-            audioSource.spatialBlend = 1;
-            audioSource.rolloffMode = AudioRolloffMode.Linear;
-            audioSource.minDistance = 0;
-            audioSource.maxDistance = 30;
-            audioSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups(mixerGroup.ToString())[0];
-            audioSource.clip = soundDatas[(int)category].audioList[soundType];
-
-            audioSource.Play();
-            if (!isLoop)
-                Destroy(audioObj, soundDatas[(int)category].audioList[soundType].length);
+            SoundPlayer soundPlayer = GetObject<SoundPlayer>();
+            soundPlayer.gameObject.SetActive(true);
+            soundPlayer.transform.SetParent(parent.transform);
+            soundPlayer.transform.localPosition = Vector3.zero;
+            soundPlayer.SetValue(EnqueueObject);
+            soundPlayer.SetSound(soundDatas[(int)category].audioList[soundType], audioMixer.FindMatchingGroups(mixerGroup.ToString())[0], 0, isLoop);
+            soundPlayer.PlaySound();
+            return soundPlayer;
         }
+
+        public SoundPlayer PlaySound3D(ESoundCategory category, int soundType, EMixerGroup mixerGroup, Transform parent, bool isLoop = false)
+        {
+            SoundPlayer soundPlayer = GetObject<SoundPlayer>();
+            soundPlayer.gameObject.SetActive(true);
+            soundPlayer.SetValue(EnqueueObject);
+            soundPlayer.transform.SetParent(parent);
+            soundPlayer.transform.localPosition = Vector3.zero;
+            soundPlayer.SetSound(soundDatas[(int)category].audioList[soundType], audioMixer.FindMatchingGroups(mixerGroup.ToString())[0], 1, isLoop);
+            soundPlayer.PlaySound();
+            return soundPlayer;
+        }
+
         public void StopBGM()
         {
             bgmPlayer.Stop();

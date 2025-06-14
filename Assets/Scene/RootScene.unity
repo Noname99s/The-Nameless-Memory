@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 1447691043}
   - component: {fileID: 1447691044}
   - component: {fileID: 1447691046}
+  - component: {fileID: 1447691048}
   - component: {fileID: 1447691045}
   - component: {fileID: 1447691047}
   m_Layer: 0
@@ -376,6 +377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de5883fb5d53e449a1e98a07e9bd94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab: {fileID: 8623151407861037754, guid: def6e879829ea37479f454a9c8001f29, type: 3}
+  parent: {fileID: 1447691039}
   soundDatas:
   - {fileID: 11400000, guid: 56352a6014b5d2c459859c0127251446, type: 2}
   - {fileID: 11400000, guid: 50012a3ad4136914bb357095d3bb87b2, type: 2}
@@ -386,7 +389,6 @@ MonoBehaviour:
   bgmPlayer: {fileID: 1447691045}
   audioListner: {fileID: 1447691047}
   audioMixer: {fileID: 24100000, guid: cc83f9a8811107c418ff4925b03d85c7, type: 2}
-  uiSoundPlayer: {fileID: 660964930}
 --- !u!81 &1447691047
 AudioListener:
   m_ObjectHideFlags: 0
@@ -395,6 +397,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447691039}
   m_Enabled: 1
+--- !u!114 &1447691048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447691039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c7eb456428e1b4089f30fa1b5c4e08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objPool: {fileID: 1447691046}
+  poolList: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
