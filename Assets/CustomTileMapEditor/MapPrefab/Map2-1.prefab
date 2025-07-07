@@ -93742,7 +93742,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8555663615090956930}
-  - component: {fileID: 5068526128835546499}
   m_Layer: 0
   m_Name: Map2-1
   m_TagString: TileRoot
@@ -93775,20 +93774,6 @@ Transform:
   - {fileID: 1409872033691814993}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5068526128835546499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5307184710853226894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7ac78b23e7a1e64baf51f8b3a08e07d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stage: 1
-  interactionCount: 3
 --- !u!1 &5383751245345435713
 GameObject:
   m_ObjectHideFlags: 0

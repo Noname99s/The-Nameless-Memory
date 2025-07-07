@@ -7,7 +7,6 @@ public class HubDoor : MonoBehaviour, IInteractAble
     [SerializeField] Stage stageType = Stage.Stage1;
     [SerializeField] SO_MapInfo[] stageInfo;
     [SerializeField] bool isOpen = false;
-    bool isInDoor = false;
     public event System.Action<List<string>> OnCannotEnter;
     void Start()
     {
@@ -58,21 +57,6 @@ public class HubDoor : MonoBehaviour, IInteractAble
             }
         }
         Managers.Game.ChangeState(GameState.Battle);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            isInDoor = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            isInDoor = false;
-        }
     }
 
     public void Interact()

@@ -60,7 +60,10 @@ public class GameManager
         // Listener ON
         Managers.Sound.DeactiveListner();
         Managers.Player.RemovePlayer(); 
-        Managers.SceneLoad.LoadScene(newState.ToString());
+        if(newState == GameState.Battle)
+            Managers.SceneLoad.LoadScene(Managers.Map.stageType.ToString());
+        else
+            Managers.SceneLoad.LoadScene(newState.ToString());
     }
     public void SettingScene()
     {

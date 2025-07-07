@@ -15,7 +15,8 @@ public class MapManager : MonoBehaviour
     public List<SO_MapInfo> mapInfos = new List<SO_MapInfo>();
     [SerializeField] int currentMapIndex = -1;
     public Vector3 movePoint = Vector3.zero;
-    GameObject currentMapObject = null;
+    //GameObject currentMapObject = null;
+    public StageGimicBase currentStage;
     
     [SerializeField] SO_MapInfo initMapInfo;
 
@@ -29,9 +30,9 @@ public class MapManager : MonoBehaviour
     {
         stageType = Stage.Stage1;
         mapInfos.Clear();
-        mapInfos.Add(initMapInfo);
         currentMapIndex = -1;
         movePoint = Vector3.zero;
+        mapInfos.Add(initMapInfo);
     }
     public void BackToHome()
     {
@@ -53,11 +54,11 @@ public class MapManager : MonoBehaviour
     }
     public void TransitionMap(bool isNext = true)
     {
-        if (currentMapObject != null)
-        {
-            Managers.Resource.Destroy(currentMapObject);
-            currentMapObject = null;
-        }
+        //if (currentMapObject != null)
+        //{
+        //    Managers.Resource.Destroy(currentMapObject);
+        //    currentMapObject = null;
+        //}
         if (fragmentObject != null)
         {
             Managers.Resource.Destroy(fragmentObject);
@@ -70,14 +71,16 @@ public class MapManager : MonoBehaviour
             BackToHome();
             return;
         }
-        if(isNext)
+        if (isNext)
         {
-            currentMapObject = Managers.Resource.Instantiate(mapInfos[++currentMapIndex].mapObject);
+            //currentMapObject = Managers.Resource.Instantiate(mapInfos[++currentMapIndex].mapObject);
+            currentStage.TransitionMap(++currentMapIndex);
             movePoint = mapInfos[currentMapIndex].entrancePoint;
         }
         else
         {
-            currentMapObject = Managers.Resource.Instantiate(mapInfos[--currentMapIndex].mapObject);
+            //currentMapObject = Managers.Resource.Instantiate(mapInfos[--currentMapIndex].mapObject);
+            currentStage.TransitionMap(--currentMapIndex);
             movePoint = mapInfos[currentMapIndex].exitPoint;
         }
         // Set Fragment Object
@@ -87,7 +90,6 @@ public class MapManager : MonoBehaviour
             spawnPos.y += 2f;
             fragmentObject = Managers.Resource.Instantiate(fragmentPrefab, spawnPos, Quaternion.identity);
         }
-
         Managers.Player.ChangePlayerPos(movePoint);
     }
     public void RecordDeathInfo(Vector2 deathPoint)
