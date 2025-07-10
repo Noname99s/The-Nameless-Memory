@@ -83,6 +83,24 @@ MonoBehaviour:
   description: Phase2Pattern1
   nodeState: 3
   panel: {fileID: 11400000, guid: 86a5e1be7a156f940a7d60057b5cf37a, type: 2}
+--- !u!114 &-6589494109400083655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a42890e90a804478c27c92f44589b0, type: 3}
+  m_Name: PanelNode
+  m_EditorClassIdentifier: 
+  guid: 67b8a27e81355be4a9a36496a7cfd26d
+  position: {x: -2119.2, y: -934.59204}
+  nodeName: PanelNode
+  description: Panel
+  nodeState: 3
+  panel: {fileID: 0}
 --- !u!114 &-4879637095173307229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +137,7 @@ MonoBehaviour:
   m_Name: ActionNode
   m_EditorClassIdentifier: 
   guid: 1cbcd340a87337d42b6b802fb20a0eff
-  position: {x: -1026.6802, y: 498.48004}
+  position: {x: -1026.3999, y: 497.6}
   nodeName: ActionNode
   description: 
   nodeState: 3
@@ -227,6 +245,7 @@ MonoBehaviour:
   - {fileID: 6706122258592858306}
   - {fileID: -4879637095173307229}
   - {fileID: -4590817120778769574}
+  - {fileID: -6589494109400083655}
 --- !u!114 &201513952616713719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,7 +494,7 @@ MonoBehaviour:
   m_Name: PanelNode
   m_EditorClassIdentifier: 
   guid: 82a845312e5ecc74aa398f0b85190d6a
-  position: {x: -506.20584, y: 538.34814}
+  position: {x: -506.40002, y: 537.1832}
   nodeName: PanelNode
   description: Phase1Pattern3
   nodeState: 3

@@ -83,7 +83,6 @@ MonoBehaviour:
   - {fileID: 8708027219680441226}
   - {fileID: -3515266011446814170}
   curIndex: 0
-  sign: 0
 --- !u!114 &5197545711374794189
 MonoBehaviour:
   m_ObjectHideFlags: 0

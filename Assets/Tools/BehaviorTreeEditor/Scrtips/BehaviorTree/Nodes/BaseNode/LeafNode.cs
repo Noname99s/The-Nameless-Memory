@@ -11,9 +11,9 @@ namespace SOBehaviorTree
     {
         public string methodName = "";
         [HideInInspector] public string path;
-        public ActionNode actionNode;
-        [SerializeField] public string scriptPath;
-        [SerializeField] public string assetPath;
+        [HideInInspector] public ActionNode actionNode;
+        [HideInInspector] public string scriptPath;
+        [HideInInspector] public string assetPath;
         protected enum EActionState
         {
             OnStart,
