@@ -9,8 +9,6 @@ namespace Orpul1.Player.State
     
     public class JumpState : PlayerBaseState
     {
-        
-        float moveX = 0;
         IStrategy[] jumpStraties = new IStrategy[2];
         EPlayerJump jumpType = EPlayerJump.NormalJump;
         public JumpState(PlayerContext playerContext, Action<int> transitionTo) : base(playerContext, transitionTo) 
@@ -62,12 +60,8 @@ namespace Orpul1.Player.State
             else
                 jumpType = EPlayerJump.NormalJump;
         }
-        private void AirMove()
-        {
-            moveX = data.moveInfo.moveDir.x * data.fallInfo.onAirMoveSpeed;
-            data.playerInfo.rigid.linearVelocityX = moveX;
-        }
-        private void TransitionState()
+
+        protected override void TransitionState()
         {
             if (IsIdleState()) return;
             if (IsMoveState()) return;
@@ -87,7 +81,6 @@ namespace Orpul1.Player.State
         }
         private bool IsMoveState()
         {
-            //if (data.fallInfo.isFalling || !data.IsMoveState|| data.jumpInfo.jumpState != EJumpState.JumpReady) return false;
             if (data.jumpInfo.jumpState != EJumpState.JumpEnd) return false;
             if (!data.IsMoveState) return false;
             transitionTo((int)EPlayerState.Move);
@@ -133,7 +126,5 @@ namespace Orpul1.Player.State
 
             return true;
         }
-       
     }
-
 }

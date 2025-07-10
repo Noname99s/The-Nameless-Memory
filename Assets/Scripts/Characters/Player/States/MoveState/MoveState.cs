@@ -34,7 +34,7 @@ namespace Orpul1.Player.State
             data.moveInfo.slideResult = data.playerInfo.rigid.Slide(Vector2.right * dirX, Time.deltaTime, data.moveInfo.slideMovement);
             data.playerInfo.animator.SetFloat(EPlayerAniTransition.MoveSpeed.ToString(),1);
         }
-        private void TransitionState()
+        protected override void TransitionState()
         {
             if (IsHitState()) return;
             if (IsDeathState()) return;

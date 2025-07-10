@@ -20,6 +20,7 @@ namespace Orpul1.Player.State
         public abstract void OnStart();
 
         public abstract void OnUpdate();
+        protected abstract void TransitionState();
     }
 
 }

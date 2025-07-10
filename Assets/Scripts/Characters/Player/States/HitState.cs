@@ -32,7 +32,7 @@ namespace Orpul1.Player.State.Hit
             data.hitInfo.isHit = false;
             data.hitInfo.hitDir = Vector2.zero;
         }
-        private void TransitionState()
+        protected override void TransitionState()
         {
             if (IsIdleState()) return;
             if (IsFallState()) return;

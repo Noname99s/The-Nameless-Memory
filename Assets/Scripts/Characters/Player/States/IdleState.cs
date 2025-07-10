@@ -29,7 +29,7 @@ namespace Orpul1.Player.State
             data.playerInfo.rigid.gravityScale = 5;
         }
 
-        private void TransitionState()
+        protected override void TransitionState()
         {
             if (IsHitState()) return;
             if (IsDeathState()) return;

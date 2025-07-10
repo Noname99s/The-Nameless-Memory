@@ -108,7 +108,7 @@ namespace Orpul1.Player.State
             return true;
         }
 
-        private void TransitionState()
+        protected override void TransitionState()
         {
             if (IsHitState()) return;
             if (IsDeathState()) return;

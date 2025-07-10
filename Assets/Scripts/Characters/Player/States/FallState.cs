@@ -8,15 +8,13 @@ namespace Orpul1.Player.State
 {
     public class FallState : PlayerBaseState
     {
-        float interval = 0;
+        float fallInterval = 0;
         float moveX = 0;
-        public FallState(PlayerContext data, Action<int> transitionTo) : base(data, transitionTo)
-        {
-        }
+        public FallState(PlayerContext data, Action<int> transitionTo) : base(data, transitionTo) { }
         public override void OnStart()
         {
 
-            interval = 0;
+            fallInterval = 0;
             data.fallInfo.fallDamage = 0;
             data.playerInfo.rigid.linearVelocityY = -data.fallInfo.defaultFallSpeed;
             data.jumpInfo.shouldWallJump = false;
@@ -54,11 +52,11 @@ namespace Orpul1.Player.State
         {
             float dot = Vector2.Dot(data.transform.position, Vector2.down);
             if (dot > 0) return false;
-            interval += Time.deltaTime;
-            if (interval < data.fallInfo.fallDamageOverTime) return false;
+            fallInterval += Time.deltaTime;
+            if (fallInterval < data.fallInfo.fallDamageOverTime) return false;
             return true;
         }
-        private void TransitionState()
+        protected override void TransitionState()
         {
             if (IsHitState()) return;
             if (IsDeathState()) return;

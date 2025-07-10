@@ -8,9 +8,7 @@ namespace Orpul1.Player.State
     public class WallClimb : PlayerBaseState
     {
         float slideSpeed = 0;
-        public WallClimb(PlayerContext playerData, Action<int> transitionTo) : base(playerData, transitionTo)
-        {
-        }
+        public WallClimb(PlayerContext playerData, Action<int> transitionTo) : base(playerData, transitionTo) { }
 
         public override void OnStart()
         {
@@ -29,7 +27,7 @@ namespace Orpul1.Player.State
         public override void OnUpdate()
         {
             SlideWall();
-            TrainsitionState();
+            TransitionState();
         }
 
         public override void OnExit()
@@ -38,7 +36,7 @@ namespace Orpul1.Player.State
             data.playerInfo.animator.SetBool(EPlayerAniTransition.IsWallClimb.ToString(), false);
             data.jumpInfo.jumpCount = 0;
         }
-        private void TrainsitionState()
+        protected override void TransitionState()
         {
             if (IsHitState()) return;
             if (IsJumpState()) return;

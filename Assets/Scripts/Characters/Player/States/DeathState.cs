@@ -7,7 +7,7 @@ namespace Orpul1.Player.State
 {
     public class DeathState : PlayerBaseState
     {
-        bool isStartDieAni = false;
+        bool isStartDeathAni = false;
         float aniLength = 0;
 
         event Action<string> OnDeathNotify;
@@ -26,7 +26,7 @@ namespace Orpul1.Player.State
             data.playerInfo.rigid.linearVelocity = Vector2.zero;
             data.playerInfo.playerCollider.enabled = false;
             aniLength = 0;
-            isStartDieAni = false;
+            isStartDeathAni = false;
 
             ++Managers.Game.playData.playerStatus.deathCount;
             Managers.Map.RecordDeathInfo(data.playerInfo.dectectedGroundPosi);
@@ -55,10 +55,10 @@ namespace Orpul1.Player.State
         }
         private bool IsDeathAni()
         {
-            if(isStartDieAni) return true;
+            if(isStartDeathAni) return true;
             if (!data.playerInfo.animator.GetCurrentAnimatorStateInfo(0).IsName(EPlayerAni.Die.ToString()))
                 return false;
-            isStartDieAni = true;
+            isStartDeathAni = true;
             aniLength = Time.time + data.playerInfo.animator.GetCurrentAnimatorStateInfo(0).length;
             return true;
         }
@@ -68,7 +68,7 @@ namespace Orpul1.Player.State
                 return false;
             return true;
         }
-        private void TransitionState()
+        protected override void TransitionState()
         {
             if (data.hitInfo.isDeath) return;
             transitionTo((int)EPlayerState.Idle);

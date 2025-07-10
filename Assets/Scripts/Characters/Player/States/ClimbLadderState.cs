@@ -39,7 +39,7 @@ namespace Orpul1.Player.State
         }
         
         
-        private void TransitionState()
+        protected override void TransitionState()
         {
             if (IsHitState()) return;
             //if (IsJumpState()) return;
