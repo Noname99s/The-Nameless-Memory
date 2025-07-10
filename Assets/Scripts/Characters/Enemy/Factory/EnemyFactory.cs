@@ -2,19 +2,22 @@ using Orpul1;
 using UnityEngine;
 using System.Collections.Generic;
 using Orpul1.Enemy;
+using UnityEngine.Events;
 
 public abstract class EnemyFactory : ObjectPool, IDeactiveAble
 {
+    protected UnityEvent deactiveEvents = new UnityEvent();
     public abstract T Create<T>();
 
-    public void Deactive()
+    public abstract void Deactive();
+    protected override void EnqueueObject(GameObject obj)
     {
-        for (int i = 0; i < objList.Count; i++)
-        {
-            if (!objList[i].activeSelf) continue;
-            IDamageAble damage = objList[i].GetComponent<IDamageAble>();
-            if (damage == null) continue;
-            damage.OnDamage(9999);
-        }
+        RemoveDieEvent(obj.GetComponent<IDieAble>());
+        base.EnqueueObject(obj);
+    }
+    private void RemoveDieEvent(IDieAble enemy)
+    {
+        if (enemy == null) return;
+        deactiveEvents.RemoveListener(enemy.Die);
     }
 }

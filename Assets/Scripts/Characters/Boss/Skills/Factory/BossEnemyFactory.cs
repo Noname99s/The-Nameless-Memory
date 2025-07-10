@@ -4,7 +4,7 @@ using UnityEngine;
 using Orpul1.Enemy;
 namespace Orpul1.Boss.Mirrored
 {
-    public class MonsterFactory : BossSkillFactory, IDeactiveAble
+    public class BossEnemyFactory : BossSkillFactory, IDeactiveAble
     {
         [SerializeField] List<EnemyFactory> monsterList = new List<EnemyFactory>();
         [SerializeField] Transform[] spawnPosis;

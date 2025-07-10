@@ -3,6 +3,7 @@ using System.Collections;
 using Orpul1.Enemy.State;
 using Orpul1.State;
 using UnityEngine;
+using UnityEngine.Events;
 namespace Orpul1.Enemy
 {
     [Serializable]
@@ -14,7 +15,7 @@ namespace Orpul1.Enemy
         public LayerMask detectLayer;
         public float distance;
     }
-    public class EnemyController : MonoBehaviour, IResetAble, IDamageAble,IknockbackAble, ISetDataAble<Action<GameObject>,int>
+    public class EnemyController : MonoBehaviour, IResetAble, IDamageAble, IknockbackAble, IDieAble, ISetDataAble<Action<GameObject>, int>
     {
         [SerializeField] StateController stateController;
         [SerializeField] EnemyContext context;
@@ -139,7 +140,6 @@ namespace Orpul1.Enemy
 
         public void knockback(Vector2 dir)
         {
-            //context.enemyInfo.rigid.linearVelocity = Vector2.zero;
             dir *= context.hitInfo.knockBackPower;
 
             context.enemyInfo.rigid.AddForce(dir, ForceMode2D.Impulse);
@@ -157,10 +157,16 @@ namespace Orpul1.Enemy
             }
             context.hitInfo.stillBlink = false;
         }
+
         private void OnDrawGizmos()
         {
             SetRay(enemyRay.ray, enemyRay.groundRayPos, Vector2.down, enemyRay.distance, enemyRay.detectLayer.value);
             Debug.DrawRay(enemyRay.ray.origin, enemyRay.ray.direction * enemyRay.distance, Color.green);
+        }
+
+        public void Die()
+        {
+            context.dieInfo.deactiveAction?.Invoke(gameObject);
         }
     }
 }

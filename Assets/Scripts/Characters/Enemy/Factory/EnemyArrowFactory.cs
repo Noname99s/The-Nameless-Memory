@@ -36,5 +36,8 @@ namespace Orpul1.Enemy.Weapon
             arrow.SetValue(EnqueueObject);
         }
 
+        public override void Deactive()
+        {
+        }
     }
 }

@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 namespace Orpul1.Enemy.TestEnemy
 {
-    public class ArchorEnemey : EnemyFactory
+    public class ArchorEnemeyFactory : EnemyFactory
     {
         protected override void Initialize()
         {
@@ -13,7 +14,8 @@ namespace Orpul1.Enemy.TestEnemy
         {
             T enemy = GetObject<T>();
             ResetEnemy(enemy as IResetAble);
-            SetEnqueueAction(enemy as ISetDataAble<Action<GameObject>,int>);
+            SetEnqueueAction(enemy as ISetDataAble<Action<GameObject>, int>);
+            SetDieEvent(enemy as IDieAble);
             return enemy;
         }
 
@@ -25,6 +27,13 @@ namespace Orpul1.Enemy.TestEnemy
         {
             enemy.SetValue(EnqueueObject, (int)EnemyPatrolInfo.EPatrolType.Free);
         }
-
+        private void SetDieEvent(IDieAble enemy)
+        {
+            deactiveEvents.AddListener(enemy.Die);
+        }
+        public override void Deactive()
+        {
+            deactiveEvents.Invoke();
+        }
     }
 }
