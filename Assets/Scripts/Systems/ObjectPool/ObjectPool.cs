@@ -4,11 +4,9 @@ using UnityEngine;
 
 public abstract class ObjectPool : MonoBehaviour
 {
-    protected List<GameObject> objList = new List<GameObject>();
     [SerializeField] private Queue<GameObject> pools = new Queue<GameObject>();
     [SerializeField] protected GameObject prefab;
     [SerializeField] protected GameObject parent;
-    public Action poolAction;
     public Queue<GameObject> Pools {  get { return pools; } }
     protected virtual void Start()
     {
@@ -26,7 +24,6 @@ public abstract class ObjectPool : MonoBehaviour
     {
         Debug.Log("EnqueueAction!");
         obj.SetActive(false);
-        poolAction();
         pools.Enqueue(obj);
     }
     protected T GetObject<T>()
@@ -35,7 +32,6 @@ public abstract class ObjectPool : MonoBehaviour
             CreateObject();
 
         GameObject pool = pools.Dequeue();
-        poolAction();
 
         pool.SetActive(true);
         return pool.GetComponent<T>();
@@ -46,8 +42,6 @@ public abstract class ObjectPool : MonoBehaviour
         pool.transform.SetParent(parent.transform);
         pool.SetActive(false);
         pools.Enqueue(pool);
-        objList.Add(pool);
-        poolAction();
     }
     protected void Release()
     {
