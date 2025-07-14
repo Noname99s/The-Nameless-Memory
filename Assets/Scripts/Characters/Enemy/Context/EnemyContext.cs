@@ -100,7 +100,6 @@ namespace Orpul1.Enemy
     }
     public class EnemyContext : MonoBehaviour
     {
-        [SerializeField] FieldOfView fieldOfView;
         [SerializeField] EnemyContextDB enemyContextDB;
         public EnemyInfo enemyInfo;
         public EnemyIdleInfo idleInfo;

@@ -352,7 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateController: {fileID: 7620102059100429535}
   context: {fileID: 6742488870305509603}
-  state: 0
+  startState: 0
   fieldOfView: {fileID: 4586216753152536169}
   enemyRay:
     groundRayPos: {x: 0.1, y: 0, z: 0}
@@ -360,7 +360,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 64
     distance: 0.5
-  attackCollider: {fileID: 5710089937411797173}
+  attackCollider: {fileID: 2412556711292711070}
 --- !u!114 &7620102059100429535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,7 +387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d0eff0f192e00409847f8e52cbc661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldOfView: {fileID: 4586216753152536169}
   enemyContextDB: {fileID: 11400000, guid: a6af340f6fa20684d835bc8b85322237, type: 2}
   enemyInfo:
     rigid: {fileID: 8825986822989883961}

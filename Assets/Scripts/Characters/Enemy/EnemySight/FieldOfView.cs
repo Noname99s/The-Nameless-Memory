@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Orpul1
 {
     [Serializable]
-    public class SightInfo: IVisitAble
+    public class SightInfo
     {
         public Vector3 originPosi;
         public LayerMask detectMask;
@@ -15,7 +15,7 @@ namespace Orpul1
         public Ray2D obstacleRay;
         public RaycastHit2D obstacleHit;
 
-        public void Visit<T>(T t)
+        public void SetValue<T>(T t)
         {
             if (!(t is SightInfo info)) return;
             angle = info.angle;
@@ -23,7 +23,7 @@ namespace Orpul1
             rotateZ = info.rotateZ;
         }
     }
-    public class FieldOfView : MonoBehaviour, IDetectTargetAble, ISetDataAble<float,float>, IVisitAble
+    public class FieldOfView : MonoBehaviour, IDetectTargetAble, ISetDataAble<float,float>
     {
         [SerializeField] SightInfo sightInfo;
         [SerializeField] Vector3 originScale = Vector3.one;
@@ -78,11 +78,7 @@ namespace Orpul1
             sightInfo.obstacleRay.direction = (target.transform.position - transform.position).normalized;
             float distance = Vector2.Distance(target.transform.position, transform.position);
             sightInfo.obstacleHit = Physics2D.Raycast(sightInfo.obstacleRay.origin, sightInfo.obstacleRay.direction, distance, sightInfo.ignoreMask.value);
-            return IsDetectedIgnoreLayer(sightInfo.obstacleHit.collider);
-        }
-        private bool IsDetectedIgnoreLayer(Collider2D target)
-        {
-            return target == null;
+            return sightInfo.obstacleHit.collider == null;
         }
         private void OnDrawGizmos()
         {
@@ -114,13 +110,6 @@ namespace Orpul1
         {
             Gizmos.color = color;
             Gizmos.DrawLine(origin, anglePosi);
-        }
-
-        public void Visit<T>(T t)
-        {
-            IVisitAble visit = sightInfo as IVisitAble;
-            if (visit == null) return;
-            visit.Visit(t);
         }
     }
 }

@@ -19,10 +19,10 @@ namespace Orpul1.Enemy
     {
         [SerializeField] StateController stateController;
         [SerializeField] EnemyContext context;
-        [SerializeField] EEnemyState state;
+        [SerializeField] EEnemyState startState;
         [SerializeField] FieldOfView fieldOfView;
         [SerializeField] EnemyRayInfo enemyRay;
-        [SerializeField] CharacterAttack attackCollider;
+        [SerializeField] GameObject attackCollider;
         IDetectTargetAble enemySight;
         Vector3 scale = Vector3.zero;
 
@@ -38,19 +38,19 @@ namespace Orpul1.Enemy
             context.enemyInfo.setSight = fieldOfView;
             context.Initialize();
             context.enemyInfo.flipX = FlipX;
-            context.dieInfo.destroyAction = DestroyObject;
-            SetDamage(attackCollider);
+            context.dieInfo.destroyAction = DeactiveObject;
+            SetDamage();
             SetScale();
         }
-        private void SetDamage(ISetDataAble<int> attackCollider)
+        private void SetDamage()
         {
             if (attackCollider == null) return;
-            attackCollider.SetValue(context.attackInfo.damage);
+            attackCollider.GetComponent<ISetDataAble<int>>().SetValue(context.attackInfo.damage);
         }
 
         private void Start()
         {
-            stateController.TransitionState((int)state);
+            stateController.TransitionState((int)startState);
         }
         void Update()
         {
@@ -61,7 +61,7 @@ namespace Orpul1.Enemy
         {
             enemyRay.hit = SetRay(enemyRay.ray, enemyRay.groundRayPos, Vector2.down, enemyRay.distance, enemyRay.detectLayer.value);
             Debug.DrawRay(enemyRay.ray.origin, enemyRay.ray.direction * enemyRay.distance, Color.green);
-            context.enemyInfo.isGround = IsHitRay(enemyRay.hit);
+            context.enemyInfo.isGround = enemyRay.hit.transform != null;
         }
         private RaycastHit2D SetRay(Ray2D ray, Vector2 rayShootPosi, Vector2 dir, float distance, int detectLayer)
         {
@@ -71,21 +71,10 @@ namespace Orpul1.Enemy
             Debug.DrawRay(ray.origin, ray.direction * distance, Color.green);
             return Physics2D.Raycast(ray.origin, ray.direction, distance, detectLayer);
         }
-        private bool IsHitRay(RaycastHit2D hit2D)
-        {
-            if (hit2D.transform == null) return false;
-
-            return true;
-        }
         private void LookForward()
         {
-            SearchTarget();
-            //TODO: 낭떠러지인지 확인
-        }
-        private void SearchTarget()
-        {
             Transform target = enemySight.DetectTarget();
-            if (!IsFindTarget(target))
+            if (target == null)
             {
                 context.chaseInfo.isFindChaseTarget = false;
                 return;
@@ -93,10 +82,6 @@ namespace Orpul1.Enemy
 
             context.chaseInfo.isFindChaseTarget = true;
             context.chaseInfo.chaseTarget = target;
-        }
-        private bool IsFindTarget(Transform target)
-        {
-            return !(target == null);
         }
 
         private void FixedUpdate()
@@ -112,13 +97,13 @@ namespace Orpul1.Enemy
             scale.x *= xScale;
             transform.localScale = scale;
         }
-        private void DestroyObject()
+        private void DeactiveObject()
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         public void ResetValue()
         {
-            stateController.TransitionState((int)state);
+            stateController.TransitionState((int)startState);
             context.enemyInfo.enemyCollider.enabled = true;
         }
 
