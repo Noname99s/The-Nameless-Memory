@@ -38,7 +38,7 @@ public class GameManager
             playData.dialogComplete[i].datas.Clear(); // Clear dialog completion data
         }
         playData.playerSkill = new PlayerSkillInfo(); // Reset player skills
-        Managers.Map.Init(); // Initialize map manager
+        Managers.Map.InitData(); // Initialize map manager
     }
     public void UpdatePlayTime()
     {

@@ -1,6 +1,7 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 [Serializable]
 public class DeathInfo
 {
@@ -8,7 +9,7 @@ public class DeathInfo
     public Vector3 deathPosition;
     public int deathStageIndex;
 }
-public class MapManager : MonoBehaviour
+public class MapManager : TrackingCameraBase
 {
     [Header("Stage Information")]
     public Stage stageType = Stage.Stage1; // Default to Hub stage
@@ -26,7 +27,7 @@ public class MapManager : MonoBehaviour
     public bool getFragment = true;
     GameObject fragmentObject = null;
 
-    public void Init()
+    public void InitData()
     {
         stageType = Stage.Stage1;
         mapInfos.Clear();
@@ -51,6 +52,18 @@ public class MapManager : MonoBehaviour
             return;
         }
         Managers.Game.ChangeState(GameState.Battle);
+    }
+    public void StopMove()
+    {
+        StartCoroutine(TrackingScene());
+    }
+    public override IEnumerator TrackingScene()
+    {
+        Init(); // Check Player
+
+        StopPlayer();
+        yield return new WaitForSeconds(3f);
+        StopPlayerEnd();
     }
     public void TransitionMap(bool isNext = true)
     {

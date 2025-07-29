@@ -23,6 +23,7 @@ public abstract class TrackingCameraBase : MonoBehaviour
         _playerSetter.Process();
         _cameraSetter.SetValue(this.transform);
     }
+    
     public void TrackingEnd()
     {
         if (_playerSetter == null || _cameraSetter == null)
@@ -33,6 +34,25 @@ public abstract class TrackingCameraBase : MonoBehaviour
         // ∏ÿ√„ «ÿ¡¶
         _playerSetter.Abort();
         _cameraSetter.SetValue(Managers.Player.GetPlayer().transform);
+    }
+    public void StopPlayer()
+    {
+        if (_playerSetter == null)
+        {
+            Debug.LogError("Player or Camera Setter is not initialized.");
+            return;
+        }
+        _playerSetter.Process();
+    }
+
+    public void StopPlayerEnd()
+    {
+        if (_playerSetter == null)
+        {
+            Debug.LogError("Player or Camera Setter is not initialized.");
+            return;
+        }
+        _playerSetter.Abort();
     }
     public abstract IEnumerator TrackingScene();
 }
