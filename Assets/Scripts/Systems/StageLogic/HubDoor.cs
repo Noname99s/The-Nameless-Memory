@@ -20,11 +20,15 @@ public class HubDoor : MonoBehaviour, IInteractAble
 
     void ConfirmClear()
     {
-        if (stageType != Stage.Stage1 && Managers.Game.playData.stageCleared[(int)stageType - 1])
+        if (Managers.Game.playData.stageCleared[(int)stageType])
+        {
+            this.gameObject.SetActive(false);
+        }
+        else if (stageType != Stage.Stage1 && Managers.Game.playData.stageCleared[(int)stageType - 1])
         {
             isOpen = true;
         }
-        if(stageType == Stage.BossStage && Managers.Game.playData.stageCleared[(int)Stage.Stage2])
+        else if(stageType == Stage.BossStage && Managers.Game.playData.stageCleared[(int)Stage.Stage2])
         {
             isOpen = true;
         }
