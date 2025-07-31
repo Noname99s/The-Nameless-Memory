@@ -5,7 +5,7 @@ using UnityEngine;
 public class HubDoor : MonoBehaviour, IInteractAble
 {
     [SerializeField] Stage stageType = Stage.Stage1;
-    [SerializeField] SO_MapInfo[] stageInfo;
+    [SerializeField] SO_MapInfo[] mapInfos;
     [SerializeField] bool isOpen = false;
     public event System.Action<List<string>> OnCannotEnter;
     void Start()
@@ -55,9 +55,9 @@ public class HubDoor : MonoBehaviour, IInteractAble
         {
             Managers.Map.stageType = stageType;
             Managers.Map.mapInfos.Clear(); 
-            for (int i = 0; i < stageInfo.Length; i++)
+            for (int i = 0; i < mapInfos.Length; i++)
             {
-                Managers.Map.mapInfos.Add(stageInfo[i]);
+                Managers.Map.mapInfos.Add(mapInfos[i]);
             }
         }
         Managers.Game.ChangeState(GameState.Battle);

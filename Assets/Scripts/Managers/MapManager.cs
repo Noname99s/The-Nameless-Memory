@@ -16,8 +16,7 @@ public class MapManager : TrackingCameraBase
     public List<SO_MapInfo> mapInfos = new List<SO_MapInfo>();
     [SerializeField] int currentMapIndex = -1;
     public Vector3 movePoint = Vector3.zero;
-    //GameObject currentMapObject = null;
-    public StageGimicBase currentStage;
+    public IStageGimic currentStage;
     
     [SerializeField] SO_MapInfo initMapInfo;
 
@@ -35,7 +34,7 @@ public class MapManager : TrackingCameraBase
         movePoint = Vector3.zero;
         mapInfos.Add(initMapInfo);
     }
-    public void BackToHome()
+    void BackToHome()
     {
         currentMapIndex = -1;
         movePoint = Vector3.zero;
@@ -67,16 +66,12 @@ public class MapManager : TrackingCameraBase
     }
     public void TransitionMap(bool isNext = true)
     {
-        //if (currentMapObject != null)
-        //{
-        //    Managers.Resource.Destroy(currentMapObject);
-        //    currentMapObject = null;
-        //}
         if (fragmentObject != null)
         {
             Managers.Resource.Destroy(fragmentObject);
             fragmentObject = null;
         }
+        // -1 : back to home , maInfos.Count : stage cleared
         if ((isNext && currentMapIndex + 1 >= mapInfos.Count)|| (!isNext && currentMapIndex - 1 < 0))
         {
             if(isNext)
@@ -84,15 +79,14 @@ public class MapManager : TrackingCameraBase
             BackToHome();
             return;
         }
+        // Transition to the next or previous map
         if (isNext)
         {
-            //currentMapObject = Managers.Resource.Instantiate(mapInfos[++currentMapIndex].mapObject);
             currentStage.TransitionMap(++currentMapIndex);
             movePoint = mapInfos[currentMapIndex].entrancePoint;
         }
         else
         {
-            //currentMapObject = Managers.Resource.Instantiate(mapInfos[--currentMapIndex].mapObject);
             currentStage.TransitionMap(--currentMapIndex);
             movePoint = mapInfos[currentMapIndex].exitPoint;
         }
