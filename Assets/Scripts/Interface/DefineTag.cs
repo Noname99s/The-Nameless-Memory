@@ -6,3 +6,12 @@ public enum DialogTag
     Cutscene,
     Dynamic_Cutscene,
 }
+
+public enum DialogSpeaker
+{
+    Narration,
+    Nis,
+    System,
+    Mirrored,
+    UI,
+}
