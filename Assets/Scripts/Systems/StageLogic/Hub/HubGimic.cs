@@ -5,7 +5,7 @@ public class HubGimic : StageGimicBase
     [SerializeField] SO_StaticDialogData firstStart;
     [SerializeField] SO_DynamicDialogData firstStartDynamic;
     [SerializeField] SO_StaticDialogData clearStage2Notify;
-    [SerializeField] StaticDialogTrigger clearStage2;
+    [SerializeField] DialogTrigger clearStage2;
     [SerializeField] DynamicDialogTrigger clearStage2Dynamic;
     protected override void Start()
     {

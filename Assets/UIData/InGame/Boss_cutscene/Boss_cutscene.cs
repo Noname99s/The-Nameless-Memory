@@ -50,8 +50,8 @@ public class Boss_cutscene : MonoBehaviour , ISequenceBuilder
     {
         endTexts = BG_DB_Dialogtext.GetEntity("Text_BossOutro");
         endingTexts.Clear();
-        endingTexts.Add(endTexts._DialogLines[3]._Text);
-        endingTexts.Add(endTexts._DialogLines[4]._Text);
+        endingTexts.Add(endTexts._DialogLines[1]._Texts[0]);
+        endingTexts.Add(endTexts._DialogLines[1]._Texts[1]);
         sequenceText = DOTween.Sequence();
         sequenceText
             .OnStart(() => 

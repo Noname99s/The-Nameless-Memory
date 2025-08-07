@@ -308,6 +308,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4416214346271451294, guid: 6b1dc94527ab59a46bccd60ece8aed11, type: 3}
+      propertyPath: _dialogData
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c9dfb5647000e145881eb72599397a8, type: 2}
     - target: {fileID: 5307184710853226894, guid: 6b1dc94527ab59a46bccd60ece8aed11, type: 3}
       propertyPath: m_Name
       value: Map2-1

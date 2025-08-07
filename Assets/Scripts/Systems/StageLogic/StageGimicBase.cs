@@ -35,10 +35,10 @@ public abstract class StageGimicBase : MonoBehaviour , IStageGimic
         switch (stage)
         {
             case Stage.Stage1:
-                OnStageStart?.Invoke(BG_DB_Dialogtext.GetEntity("Text_UI")._DialogLines[0]._Text);
+                OnStageStart?.Invoke(BG_DB_Dialogtext.GetEntity("Text_UI")._DialogLines[0]._Texts[0]);
                 break;
             case Stage.Stage2:
-                OnStageStart?.Invoke(BG_DB_Dialogtext.GetEntity("Text_UI")._DialogLines[1]._Text);
+                OnStageStart?.Invoke(BG_DB_Dialogtext.GetEntity("Text_UI")._DialogLines[1]._Texts[0]);
                 break;
         }
     }

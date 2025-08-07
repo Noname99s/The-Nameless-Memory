@@ -8,7 +8,7 @@ public abstract class CutSceneAnimBase : MonoBehaviour
     [SerializeField] SO_ScenarioData scenarioData;
 
     [Header("CutScene UI Setting")]
-    [SerializeField]protected Text scenarioText;
+    [SerializeField] protected Text scenarioText;
     [SerializeField] Image scenarioSprite;
     [SerializeField] Image stopFade;
     [SerializeField] GameObject stopText;
@@ -18,7 +18,8 @@ public abstract class CutSceneAnimBase : MonoBehaviour
     [SerializeField] float textDisplayDelay = 2f;
 
     float timeCount = 0f;
-    int currentScenarioIndex = 0;
+    int cutSceneIndex = 0;
+    int textIndex = 0;
     protected bool isAnimFinished = false;
     protected bool cutSceneFinished = false;
     protected bool stopCutScene = false;
@@ -57,7 +58,7 @@ public abstract class CutSceneAnimBase : MonoBehaviour
         if (!cutSceneFinished && !stopCutScene && Input.GetMouseButtonDown(0))
         {
             scenarioText.DOPause();
-            scenarioText.text = scenarioData._text[currentScenarioIndex - 1];
+            scenarioText.text = scenarioData._datas[cutSceneIndex]._text[textIndex - 1];
             isAnimFinished = true;
         }
         
@@ -73,38 +74,39 @@ public abstract class CutSceneAnimBase : MonoBehaviour
     public virtual void OnRestartSequnece()
     {
         timeCount = 0f;
-        currentScenarioIndex = 0;
+        cutSceneIndex = 0;
         isAnimFinished = false;
         cutSceneFinished = false;
-        if(scenarioData != null && scenarioData._sprites.ContainsKey(currentScenarioIndex))
+        if(scenarioData != null)
         {
-            scenarioSprite.sprite = scenarioData._sprites[currentScenarioIndex];
+            scenarioSprite.sprite = scenarioData._datas[cutSceneIndex]._sceneSprite;
         }
         scenarioText.text = string.Empty;
     }
     protected virtual void ScenarioSequence()
     {
-        if (currentScenarioIndex >= scenarioData._text.Count)
+        if (cutSceneIndex >= scenarioData._datas.Count)
         {
             cutSceneFinished = true;
         }
         if (cutSceneFinished) return;
         timeCount = 0f;
         isAnimFinished = false;
+        scenarioSprite.sprite = scenarioData._datas[cutSceneIndex]._sceneSprite;
 
-        if (scenarioData._sprites.ContainsKey(currentScenarioIndex))
-        {
-            scenarioSprite.sprite = scenarioData._sprites[currentScenarioIndex];
-        }
         scenarioText.text = string.Empty;
-        scenarioText.DOText(scenarioData._text[currentScenarioIndex++], textDisplayDuration, true)
+        scenarioText.DOText(scenarioData._datas[cutSceneIndex]._text[textIndex++], textDisplayDuration, true)
             .SetEase(Ease.Linear)
             .SetLoops(1, LoopType.Restart)
             .SetAutoKill(false)
             .OnComplete(() =>
             {
                 isAnimFinished = true;
+                if (textIndex >= scenarioData._datas[cutSceneIndex]._text.Count)
+                {
+                    cutSceneIndex++;
+                    textIndex = 0;
+                }
             });
     }
-
 }

@@ -18,7 +18,7 @@ namespace Orpul1.Player.State
 
         public override void OnStart()
         {
-            OnDeathNotify?.Invoke(BG_DB_Dialogtext.GetEntity("Text_UI")._DialogLines[3]._Text);
+            OnDeathNotify?.Invoke(BG_DB_Dialogtext.GetEntity("Text_UI")._DialogLines[3]._Texts[0]);
 
             data.playerInfo.animator.SetBool(EPlayerAniTransition.IsDie.ToString(), true);
             data.playerInfo.animator.SetTrigger(EPlayerAniTransition.DeathTrigger.ToString());

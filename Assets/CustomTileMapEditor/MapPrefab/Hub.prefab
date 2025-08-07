@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stage: 2
-  _staticDialogData: {fileID: 11400000, guid: 003a1ac69184ed1448aafbba465245e1, type: 2}
+  _dialogData: {fileID: 11400000, guid: 003a1ac69184ed1448aafbba465245e1, type: 2}
   _isDisplayed: 0
 --- !u!114 &3983740291779633245
 MonoBehaviour:
@@ -25033,7 +25033,7 @@ GameObject:
   - component: {fileID: 8169228680376884577}
   - component: {fileID: 2400423999539466135}
   - component: {fileID: 6662527584879719539}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: InteractKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25198,7 +25198,7 @@ MonoBehaviour:
   forcedTargetType: 0
   autoPlay: 0
   useTargetAsV3: 0
-  endValueFloat: 0.3
+  endValueFloat: 0.5
   endValueV3: {x: 0, y: 0, z: 0}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
@@ -25404,7 +25404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageType: 2
-  stageInfo: []
+  mapInfos: []
   isOpen: 0
 --- !u!1 &2214349567417722161
 GameObject:
@@ -57176,6 +57176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage: 2
   interactionCount: 7
+  stageObjects: []
   firstStart: {fileID: 11400000, guid: d07d70ff199784e4689a40a442d915d7, type: 2}
   firstStartDynamic: {fileID: 11400000, guid: f7e33af377f2c0e419088d0d18e5b219, type: 2}
   clearStage2Notify: {fileID: 11400000, guid: 0d83110fb2533c841baf8e802aa109eb, type: 2}
@@ -57367,8 +57368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageType: 0
-  stageInfo:
-  - {fileID: 11400000, guid: 136b7a2cdcc44ba41869fdab3d5c7f51, type: 2}
+  mapInfos: []
   isOpen: 1
 --- !u!1 &3220700882744651990
 GameObject:
@@ -57556,7 +57556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageType: 4
-  stageInfo: []
+  mapInfos: []
   isOpen: 0
 --- !u!1 &3385274220026968203
 GameObject:
@@ -57955,10 +57955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageType: 1
-  stageInfo:
-  - {fileID: 11400000, guid: c3e1c4d31044b2c498a8a9d3fee51a88, type: 2}
-  - {fileID: 11400000, guid: 8f63ba29d37fb264b8eb3fe3ab048cf7, type: 2}
-  - {fileID: 11400000, guid: 9391945521c878948ae90ac1aad49cbe, type: 2}
+  mapInfos: []
   isOpen: 0
 --- !u!1 &4309013315203216594
 GameObject:
@@ -58184,7 +58181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stage: 2
-  _staticDialogData: {fileID: 11400000, guid: faf3b499e50f34c42b0cdebd3509bc51, type: 2}
+  _dialogData: {fileID: 11400000, guid: faf3b499e50f34c42b0cdebd3509bc51, type: 2}
   _isDisplayed: 0
 --- !u!1 &4814609531458961018
 GameObject:
@@ -68086,7 +68083,7 @@ Tilemap:
       - {fileID: 21300024, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300026, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300028, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 29, y: 7, z: 0}
@@ -68126,7 +68123,7 @@ Tilemap:
       - {fileID: 21300024, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300026, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300028, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 10, y: 30, z: 0}
@@ -68705,7 +68702,7 @@ Tilemap:
       - {fileID: 21300000, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300002, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300004, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -69956,7 +69953,7 @@ GameObject:
   - component: {fileID: 2479295083208652615}
   - component: {fileID: 7171547536785184937}
   - component: {fileID: 5569079070528701866}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: InteractRemind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70133,7 +70130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stage: 2
-  _staticDialogData: {fileID: 11400000, guid: d94891be5f8d3d049ad872894a0e791f, type: 2}
+  _dialogData: {fileID: 11400000, guid: d94891be5f8d3d049ad872894a0e791f, type: 2}
   _isDisplayed: 0
 --- !u!1 &6489529241848628766
 GameObject:
@@ -70940,7 +70937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageType: 3
-  stageInfo: []
+  mapInfos: []
   isOpen: 0
 --- !u!1 &7703496120409047113
 GameObject:
@@ -72658,7 +72655,7 @@ Tilemap:
       - {fileID: 21300004, guid: 27df11ebd9f54314a9f96ea8a85a4e0f, type: 3}
       - {fileID: 21300006, guid: 27df11ebd9f54314a9f96ea8a85a4e0f, type: 3}
       - {fileID: 21300008, guid: 27df11ebd9f54314a9f96ea8a85a4e0f, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 61, y: 34, z: 0}

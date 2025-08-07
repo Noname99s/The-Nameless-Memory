@@ -1,26 +1,37 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
+[Serializable]
+public struct CutSceneData
+{
+    public Sprite _sceneSprite;
+    public List<string> _text;
+}
 [CreateAssetMenu(fileName = "SO_ScenarioData", menuName = "Scriptable Objects/SO_ScenarioData")]
 public class SO_ScenarioData : ScriptableObject
 {
+    
     [SerializeField] string _scenarioType = "Text_Prologue";
-    [HideInInspector] public List<string> _text = new List<string>();
-    // Key : Enable use of scene sprites, Value : Sprite
-    [HideInInspector] public Dictionary<int, Sprite> _sprites = new Dictionary<int, Sprite>();
+    
+    public List<CutSceneData> _datas = new List<CutSceneData>();
 
     public void Init()
     {
-        _text.Clear();
-        _sprites.Clear();
         int listCount = BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines.Count;
+
         for (int i = 0; i < listCount; i++)
         {
-            _text.Add(BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines[i]._Text);
-            if (BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines[i]._SceneSprite != null)
+            CutSceneData data;
+            data._sceneSprite = BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines[i]._SceneSprite;
+         
+            data._text = new List<string>();
+            int dataTextCount = BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines[i]._Texts.Count;
+            for (int j = 0; j < dataTextCount; j++)
             {
-                _sprites.Add(i, BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines[i]._SceneSprite);
+                data._text.Add(BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines[i]._Texts[j]);
             }
+            _datas.Add(data);
         }
     }
 }

@@ -571,70 +571,47 @@ public partial class BG_DB_DialogLines : BGEntity
 		get => (BG_DB_Dialogtext) __Dialogtext[Index];
 		set => __Dialogtext[Index] = value;
 	}
-	/**<summary><![CDATA[
-	대사의 성격 Enum (Narration,Diallogue,System)
-	]]></summary>*/
-	public System.String _Tag
+	public DialogTag _Tag
 	{
-		get => __Tag[Index];
-		set => __Tag[Index] = value;
+		get => (DialogTag) __Tag.GetStoredValue(Index);
+		set => __Tag.SetStoredValue(Index, (System.Int32) value);
+	}
+	public UnityEngine.Sprite _SceneSprite => __SceneSprite[Index];
+	/**<summary><![CDATA[
+	화자 (Nis, Player, Narrator 등)
+	]]></summary>*/
+	public DialogSpeaker _Speakers
+	{
+		get => (DialogSpeaker) __Speakers.GetStoredValue(Index);
+		set => __Speakers.SetStoredValue(Index, (System.Int32) value);
 	}
 	/**<summary><![CDATA[
 	대사내용
 	]]></summary>*/
-	public System.String _Text
+	public System.Collections.Generic.List<System.String> _Texts
 	{
-		get => __Text[Index];
-		set => __Text[Index] = value;
+		get => __Texts[Index];
+		set => __Texts[Index] = value;
 	}
-	/**<summary><![CDATA[
-	화자 (Nis, Player, Narrator 등)
-	]]></summary>*/
-	public System.String _Speaker
-	{
-		get => __Speaker[Index];
-		set => __Speaker[Index] = value;
-	}
-	/**<summary><![CDATA[
-	자동 진행 여부 (false면 버튼 눌러야 넘어감)
-	]]></summary>*/
-	public System.Boolean _Autonext
-	{
-		get => __Autonext[Index];
-		set => __Autonext[Index] = value;
-	}
-	public System.String _Trigger
-	{
-		get => __Trigger[Index];
-		set => __Trigger[Index] = value;
-	}
-	/**<summary><![CDATA[
-	컷씬 상황별 묘사
-	]]></summary>*/
 	public System.String _Description
 	{
 		get => __Description[Index];
 		set => __Description[Index] = value;
 	}
-	public UnityEngine.Sprite _SceneSprite => __SceneSprite[Index];
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77__name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName __name => _ufle12jhs77__name ?? (_ufle12jhs77__name = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldEntityName>(MetaDefault, new BGId(5454184681464970351UL, 10818880582361230223UL), () => _ufle12jhs77__name = null));
 	private static BansheeGz.BGDatabase.BGFieldRelationSingle _ufle12jhs77__Dialogtext;
 	public static BansheeGz.BGDatabase.BGFieldRelationSingle __Dialogtext => _ufle12jhs77__Dialogtext ?? (_ufle12jhs77__Dialogtext = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldRelationSingle>(MetaDefault, new BGId(5268992670489727964UL, 17145958256129923242UL), () => _ufle12jhs77__Dialogtext = null));
-	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Tag;
-	public static BansheeGz.BGDatabase.BGFieldString __Tag => _ufle12jhs77__Tag ?? (_ufle12jhs77__Tag = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5156086773477075151UL, 16013407037302598537UL), () => _ufle12jhs77__Tag = null));
-	private static BansheeGz.BGDatabase.BGFieldText _ufle12jhs77__Text;
-	public static BansheeGz.BGDatabase.BGFieldText __Text => _ufle12jhs77__Text ?? (_ufle12jhs77__Text = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldText>(MetaDefault, new BGId(4891777859670991267UL, 11053801175997195947UL), () => _ufle12jhs77__Text = null));
-	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Speaker;
-	public static BansheeGz.BGDatabase.BGFieldString __Speaker => _ufle12jhs77__Speaker ?? (_ufle12jhs77__Speaker = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5454848735051995238UL, 958894221609955759UL), () => _ufle12jhs77__Speaker = null));
-	private static BansheeGz.BGDatabase.BGFieldBool _ufle12jhs77__Autonext;
-	public static BansheeGz.BGDatabase.BGFieldBool __Autonext => _ufle12jhs77__Autonext ?? (_ufle12jhs77__Autonext = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldBool>(MetaDefault, new BGId(5231245614497276572UL, 16140902492892066452UL), () => _ufle12jhs77__Autonext = null));
-	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Trigger;
-	public static BansheeGz.BGDatabase.BGFieldString __Trigger => _ufle12jhs77__Trigger ?? (_ufle12jhs77__Trigger = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5723491798378276011UL, 18068096768651803778UL), () => _ufle12jhs77__Trigger = null));
-	private static BansheeGz.BGDatabase.BGFieldString _ufle12jhs77__Description;
-	public static BansheeGz.BGDatabase.BGFieldString __Description => _ufle12jhs77__Description ?? (_ufle12jhs77__Description = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldString>(MetaDefault, new BGId(5731893057041368311UL, 4354075676197294492UL), () => _ufle12jhs77__Description = null));
+	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77__Tag;
+	public static BansheeGz.BGDatabase.BGFieldEnum __Tag => _ufle12jhs77__Tag ?? (_ufle12jhs77__Tag = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldEnum>(MetaDefault, new BGId(5156086773477075151UL, 16013407037302598537UL), () => _ufle12jhs77__Tag = null));
 	private static BansheeGz.BGDatabase.BGFieldUnitySprite _ufle12jhs77__SceneSprite;
 	public static BansheeGz.BGDatabase.BGFieldUnitySprite __SceneSprite => _ufle12jhs77__SceneSprite ?? (_ufle12jhs77__SceneSprite = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldUnitySprite>(MetaDefault, new BGId(5234539877580158166UL, 10956761208993170821UL), () => _ufle12jhs77__SceneSprite = null));
+	private static BansheeGz.BGDatabase.BGFieldEnum _ufle12jhs77__Speakers;
+	public static BansheeGz.BGDatabase.BGFieldEnum __Speakers => _ufle12jhs77__Speakers ?? (_ufle12jhs77__Speakers = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldEnum>(MetaDefault, new BGId(4939324514065758768UL, 3294134043963831721UL), () => _ufle12jhs77__Speakers = null));
+	private static BansheeGz.BGDatabase.BGFieldListString _ufle12jhs77__Texts;
+	public static BansheeGz.BGDatabase.BGFieldListString __Texts => _ufle12jhs77__Texts ?? (_ufle12jhs77__Texts = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldListString>(MetaDefault, new BGId(4883967595585637847UL, 10933588758698490516UL), () => _ufle12jhs77__Texts = null));
+	private static BansheeGz.BGDatabase.BGFieldText _ufle12jhs77__Description;
+	public static BansheeGz.BGDatabase.BGFieldText __Description => _ufle12jhs77__Description ?? (_ufle12jhs77__Description = BGCodeGenUtils.GetField<BansheeGz.BGDatabase.BGFieldText>(MetaDefault, new BGId(4887751609946987832UL, 10101350021635497372UL), () => _ufle12jhs77__Description = null));
 	private BG_DB_DialogLines() : base(MetaDefault) {}
 	private BG_DB_DialogLines(BGId id) : base(MetaDefault, id) {}
 	private BG_DB_DialogLines(BGMetaEntity meta) : base(meta) {}
@@ -665,12 +642,10 @@ public partial class BG_DB_DialogLines : BGEntity
 		public const string name = "name";
 		public const string Dialogtext = "Dialogtext";
 		public const string Tag = "Tag";
-		public const string Text = "Text";
-		public const string Speaker = "Speaker";
-		public const string Autonext = "Autonext";
-		public const string Trigger = "Trigger";
-		public const string Description = "Description";
 		public const string SceneSprite = "SceneSprite";
+		public const string Speakers = "Speakers";
+		public const string Texts = "Texts";
+		public const string Description = "Description";
 	}
 }
 
