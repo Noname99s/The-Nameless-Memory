@@ -18,6 +18,7 @@ public class SO_ScenarioData : ScriptableObject
 
     public void Init()
     {
+        _datas.Clear();
         int listCount = BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines.Count;
 
         for (int i = 0; i < listCount; i++)

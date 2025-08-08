@@ -55,10 +55,10 @@ public abstract class CutSceneAnimBase : MonoBehaviour
             scenarioText.DOKill();
         }
 
-        if (!cutSceneFinished && !stopCutScene && Input.GetMouseButtonDown(0))
+        if (!isAnimFinished && !cutSceneFinished && !stopCutScene && Input.GetMouseButtonDown(0))
         {
             scenarioText.DOPause();
-            scenarioText.text = scenarioData._datas[cutSceneIndex]._text[textIndex - 1];
+            scenarioText.text = scenarioData._datas[cutSceneIndex]._text[textIndex++];
             isAnimFinished = true;
         }
         
@@ -74,6 +74,7 @@ public abstract class CutSceneAnimBase : MonoBehaviour
     public virtual void OnRestartSequnece()
     {
         timeCount = 0f;
+        textIndex = 0;
         cutSceneIndex = 0;
         isAnimFinished = false;
         cutSceneFinished = false;
@@ -85,28 +86,33 @@ public abstract class CutSceneAnimBase : MonoBehaviour
     }
     protected virtual void ScenarioSequence()
     {
+        // Check if the cut scene is finished
+        if (textIndex >= scenarioData._datas[cutSceneIndex]._text.Count)
+        {
+            cutSceneIndex++;
+            textIndex = 0;
+        }
         if (cutSceneIndex >= scenarioData._datas.Count)
         {
             cutSceneFinished = true;
         }
         if (cutSceneFinished) return;
+
+        // Reset the time count and text index for the next cut scene
         timeCount = 0f;
         isAnimFinished = false;
-        scenarioSprite.sprite = scenarioData._datas[cutSceneIndex]._sceneSprite;
 
+        // Update the scenario sprite and text
+        scenarioSprite.sprite = scenarioData._datas[cutSceneIndex]._sceneSprite;
         scenarioText.text = string.Empty;
-        scenarioText.DOText(scenarioData._datas[cutSceneIndex]._text[textIndex++], textDisplayDuration, true)
+        scenarioText.DOText(scenarioData._datas[cutSceneIndex]._text[textIndex], textDisplayDuration, true)
             .SetEase(Ease.Linear)
             .SetLoops(1, LoopType.Restart)
             .SetAutoKill(false)
             .OnComplete(() =>
             {
+                textIndex++;
                 isAnimFinished = true;
-                if (textIndex >= scenarioData._datas[cutSceneIndex]._text.Count)
-                {
-                    cutSceneIndex++;
-                    textIndex = 0;
-                }
             });
     }
 }
