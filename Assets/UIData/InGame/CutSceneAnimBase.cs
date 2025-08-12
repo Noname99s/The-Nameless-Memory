@@ -24,12 +24,14 @@ public abstract class CutSceneAnimBase : MonoBehaviour
     protected bool cutSceneFinished = false;
     protected bool stopCutScene = false;
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         scenarioData.Init();
     }
-    protected virtual void Update()
+    void Update()
     {
+        if (cutSceneFinished) return;
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!stopCutScene)
@@ -47,15 +49,21 @@ public abstract class CutSceneAnimBase : MonoBehaviour
                 Time.timeScale = 1f; // Resume the game
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             cutSceneFinished = true;
             isAnimFinished = true;
+
+            stopCutScene = false;
+            stopFade.color = new Color(0, 0, 0, 0);
+            stopText.SetActive(false);
             Time.timeScale = 1f;
+
             scenarioText.DOKill();
+            ScenarioSequence(); 
         }
 
-        if (!isAnimFinished && !cutSceneFinished && !stopCutScene && Input.GetMouseButtonDown(0))
+        if (!isAnimFinished && !stopCutScene && Input.GetMouseButtonDown(0))
         {
             scenarioText.DOPause();
             scenarioText.text = scenarioData._datas[cutSceneIndex]._text[textIndex++];
@@ -86,12 +94,13 @@ public abstract class CutSceneAnimBase : MonoBehaviour
     }
     protected virtual void ScenarioSequence()
     {
-        // Check if the cut scene is finished
+        // Check if the cut scene Text finished
         if (textIndex >= scenarioData._datas[cutSceneIndex]._text.Count)
         {
             cutSceneIndex++;
             textIndex = 0;
         }
+        // Check if the cut scene is finished
         if (cutSceneIndex >= scenarioData._datas.Count)
         {
             cutSceneFinished = true;

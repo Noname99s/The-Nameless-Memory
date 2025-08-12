@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: 2_D_Stage2_05Trigger
   m_EditorClassIdentifier: 
   _scenarioType: Text_Stage2
-  _dialogIndex: 1
-  _startDialogIndex: 4
-  listSize: 1
   dialogTexts: []
+  _dialogIndex: 2

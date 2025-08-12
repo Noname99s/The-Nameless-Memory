@@ -12,9 +12,9 @@ public class PrologueAnim : CutSceneAnimBase, ISequenceBuilder , ISequnceResulte
 
     Sequence startAnimSequence;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         BuildSequence();
         // Start the animation sequence
         startAnimSequence.Play();

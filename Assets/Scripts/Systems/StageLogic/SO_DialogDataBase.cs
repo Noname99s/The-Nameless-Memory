@@ -6,7 +6,7 @@ public abstract class SO_DialogDataBase : ScriptableObject
 {
     [SerializeField] protected string _scenarioType = "Text_Prologue"; 
     public List<string> dialogTexts = new List<string>();
-    public int _dialogIndex = 0; 
+    public int _dialogIndex = 0;
     public virtual void Init()
     {
         dialogTexts.Clear();

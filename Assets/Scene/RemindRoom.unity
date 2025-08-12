@@ -403,6 +403,30 @@ PrefabInstance:
       propertyPath: remindCutScene
       value: 
       objectReference: {fileID: 1102432835}
+    - target: {fileID: 2870935457317579912, guid: c3f77354e98f41e4cbb41b472e4cff3b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870935457317579912, guid: c3f77354e98f41e4cbb41b472e4cff3b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870935457317579912, guid: c3f77354e98f41e4cbb41b472e4cff3b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 3873848980262165887}
+    - target: {fileID: 2870935457317579912, guid: c3f77354e98f41e4cbb41b472e4cff3b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870935457317579912, guid: c3f77354e98f41e4cbb41b472e4cff3b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ChooseRemindPointHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870935457317579912, guid: c3f77354e98f41e4cbb41b472e4cff3b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3073734091049821002, guid: c3f77354e98f41e4cbb41b472e4cff3b, type: 3}
       propertyPath: m_Name
       value: ChooseRemind
@@ -499,6 +523,11 @@ PrefabInstance:
 --- !u!1 &3873848980262165886 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3073734091049821002, guid: c3f77354e98f41e4cbb41b472e4cff3b, type: 3}
+  m_PrefabInstance: {fileID: 3873848980262165885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3873848980262165887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1258022426514731805, guid: c3f77354e98f41e4cbb41b472e4cff3b, type: 3}
   m_PrefabInstance: {fileID: 3873848980262165885}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6848109481296167991

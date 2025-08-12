@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ChooseRemindPointHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ChooseRemindPointHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler , ISequenceBuilder , ISequnceResulter
 {
     [SerializeField] Stage stageType = Stage.Hub; // Default to Hub stage
     [SerializeField] RemindCutScene remindCutScene; // Reference to the RemindCutScene script
@@ -27,7 +27,7 @@ public class ChooseRemindPointHandler : MonoBehaviour, IPointerEnterHandler, IPo
             BuildSequence();
         }
     }
-    void BuildSequence()
+    public void BuildSequence()
     {
         initPanelPos = originalImage.transform.localPosition;
         panelAnimation = originalImage.GetComponent<DOTweenAnimation>();
@@ -41,7 +41,7 @@ public class ChooseRemindPointHandler : MonoBehaviour, IPointerEnterHandler, IPo
             originalImage.transform.localPosition = initPanelPos;
         };
     }
-    void StopSequence()
+    public void SequenceResult()
     {
         Color color = slicedImage.color;
         color.a = 1f;
@@ -69,11 +69,12 @@ public class ChooseRemindPointHandler : MonoBehaviour, IPointerEnterHandler, IPo
     {
         if (!isUnlocked) return; // Do nothing if the stage is locked
         Debug.Log("Pointer exited Remind Point Handler");
-        StopSequence();
+        SequenceResult();
     }
     public void OnClickRemindPoint()
     {
         if (!isUnlocked) return; // Do nothing if the stage is locked
+        SequenceResult();
         panelSequence.Rewind();
         panelAnimation.DORewind();
         remindCutScene.OnRestartSequnece(); // Trigger the cutscene

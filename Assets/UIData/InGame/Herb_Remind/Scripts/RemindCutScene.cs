@@ -11,30 +11,27 @@ public class RemindCutScene : CutSceneAnimBase , ISequenceBuilder , ISequnceResu
     [SerializeField] float fadeDuration = 2f;
     Sequence startAnimSequence;
     [SerializeField] GameObject chooseRemind;
-    bool isRewindAnim = false;
 
-    protected override void Start()
+
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         BuildSequence();
     }
     protected override void ScenarioSequence()
     {
         base.ScenarioSequence();
-        if (cutSceneFinished && !isRewindAnim)
+        if (cutSceneFinished)
         {
-            isRewindAnim = true;
-            // startAnimSequence거꾸로 재생
             startAnimSequence.Goto(startAnimSequence.Duration());
             startAnimSequence.PlayBackwards();
         }
     }
     public override void OnRestartSequnece()
     {
-        base.OnRestartSequnece();
-        chooseRemind.SetActive(false);
         this.gameObject.SetActive(true);
-        isRewindAnim = false;
+        chooseRemind.SetActive(false);
+        base.OnRestartSequnece();
         startAnimSequence.Restart();
     }
     public void BuildSequence()
@@ -44,7 +41,7 @@ public class RemindCutScene : CutSceneAnimBase , ISequenceBuilder , ISequnceResu
             .Append(fadeScreen.DOFade(0.7f, fadeDuration).SetEase(Ease.OutQuad))
             .Append(fadeScreen.DOFade(1f, fadeDuration).SetEase(Ease.OutQuad))
             .Append(fadeScreen.DOFade(0, fadeDuration).SetEase(Ease.OutQuad))
-            .OnComplete(() =>
+            .OnComplete(() => // playback 할 경우 OnComplete가 OnStart로 호출됨
             {
                 // finish play
                 SequenceResult();
@@ -70,6 +67,7 @@ public class RemindCutScene : CutSceneAnimBase , ISequenceBuilder , ISequnceResu
     }
     public void SequenceResult()
     {
+        if (cutSceneFinished) return; // Prevent Playback
         isAnimFinished = true;
         ScenarioSequence();
     }
