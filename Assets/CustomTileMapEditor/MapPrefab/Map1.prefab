@@ -5612,7 +5612,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stage: 0
-  _dialogData: {fileID: 11400000, guid: 035447a66381599419d7a4b6ae09c48c, type: 2}
+  _staticDialogData: {fileID: 11400000, guid: 035447a66381599419d7a4b6ae09c48c, type: 2}
+  _dynamicDialogData: {fileID: 0}
   _isDisplayed: 0
 --- !u!61 &3347787952492481316
 BoxCollider2D:
@@ -123969,7 +123970,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stage: 0
-  _dialogData: {fileID: 11400000, guid: bb030d949803a5c45af6c6b707397997, type: 2}
+  _staticDialogData: {fileID: 11400000, guid: bb030d949803a5c45af6c6b707397997, type: 2}
+  _dynamicDialogData: {fileID: 0}
   _isDisplayed: 0
 --- !u!61 &6373089226129655330
 BoxCollider2D:
@@ -124147,7 +124149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stage: 0
-  _dialogData: {fileID: 11400000, guid: b98a88890bf9882448c7d3758348ffd9, type: 2}
+  _staticDialogData: {fileID: 11400000, guid: b98a88890bf9882448c7d3758348ffd9, type: 2}
+  _dynamicDialogData: {fileID: 0}
   _isDisplayed: 0
 --- !u!61 &3851175086009254078
 BoxCollider2D:
@@ -222968,7 +222971,6 @@ GameObject:
   - component: {fileID: 8086397661175004869}
   - component: {fileID: 5713204463156173672}
   - component: {fileID: 5632478972645281374}
-  - component: {fileID: 1559861356454225572}
   - component: {fileID: 1893673996560165552}
   - component: {fileID: 1627061970259617579}
   m_Layer: 0
@@ -223061,21 +223063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stage: 0
-  _dialogData: {fileID: 11400000, guid: 5f885444e9f48074ebcbc4edc5b80632, type: 2}
-  _isDisplayed: 0
---- !u!114 &1559861356454225572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7398411782632322870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab3cbb7771a641940babdc880346e513, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stage: 0
+  _staticDialogData: {fileID: 11400000, guid: 5f885444e9f48074ebcbc4edc5b80632, type: 2}
   _dynamicDialogData: {fileID: 11400000, guid: 5f98918e6c5b6a04faa6f62b602c2358, type: 2}
   _isDisplayed: 0
 --- !u!61 &1893673996560165552

@@ -10,14 +10,10 @@ public abstract class SO_DialogDataBase : ScriptableObject
     public virtual void Init()
     {
         dialogTexts.Clear();
-        int listSize = BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines.Count;
-        for (int i = 0; i < listSize; i++)
+        int dataTextCount = BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines[_dialogIndex]._Texts.Count;
+        for (int i = 0; i < dataTextCount; i++)
         {
-            int dataTextCount = BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines[i]._Texts.Count;
-            for (int j = 0; j < dataTextCount; j++)
-            {
-                dialogTexts.Add(BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines[i]._Texts[j]);
-            }
+            dialogTexts.Add(BG_DB_Dialogtext.GetEntity(_scenarioType)._DialogLines[_dialogIndex]._Texts[i]);
         }
     }
     public abstract void TransferDialogToUI();

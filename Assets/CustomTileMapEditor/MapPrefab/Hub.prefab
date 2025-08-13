@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5243224421033449214}
   - component: {fileID: 5571103020112412529}
   - component: {fileID: 7011497636327942283}
-  - component: {fileID: 3983740291779633245}
   - component: {fileID: 7631168569273038687}
   - component: {fileID: 137693534449396813}
   m_Layer: 0
@@ -104,21 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stage: 2
-  _dialogData: {fileID: 11400000, guid: 003a1ac69184ed1448aafbba465245e1, type: 2}
-  _isDisplayed: 0
---- !u!114 &3983740291779633245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279641538115490921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab3cbb7771a641940babdc880346e513, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stage: 2
+  _staticDialogData: {fileID: 11400000, guid: 003a1ac69184ed1448aafbba465245e1, type: 2}
   _dynamicDialogData: {fileID: 11400000, guid: 79460246cd9714343b3a5ea90a948a2f, type: 2}
   _isDisplayed: 0
 --- !u!61 &7631168569273038687
@@ -23947,7 +23932,6 @@ Transform:
   m_Children:
   - {fileID: 3759586645232307142}
   - {fileID: 5243224421033449214}
-  - {fileID: 3291143324628263998}
   m_Father: {fileID: 2777269527109322686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1380728384877144732
@@ -57181,7 +57165,6 @@ MonoBehaviour:
   firstStartDynamic: {fileID: 11400000, guid: f7e33af377f2c0e419088d0d18e5b219, type: 2}
   clearStage2Notify: {fileID: 11400000, guid: 0d83110fb2533c841baf8e802aa109eb, type: 2}
   clearStage2: {fileID: 7011497636327942283}
-  clearStage2Dynamic: {fileID: 3983740291779633245}
 --- !u!1 &3217063800210176462
 GameObject:
   m_ObjectHideFlags: 0
@@ -57368,7 +57351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageType: 0
-  mapInfos: []
+  mapInfos:
+  - {fileID: 11400000, guid: 136b7a2cdcc44ba41869fdab3d5c7f51, type: 2}
   isOpen: 1
 --- !u!1 &3220700882744651990
 GameObject:
@@ -57955,7 +57939,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageType: 1
-  mapInfos: []
+  mapInfos:
+  - {fileID: 11400000, guid: c3e1c4d31044b2c498a8a9d3fee51a88, type: 2}
+  - {fileID: 11400000, guid: 8f63ba29d37fb264b8eb3fe3ab048cf7, type: 2}
+  - {fileID: 11400000, guid: 9391945521c878948ae90ac1aad49cbe, type: 2}
   isOpen: 0
 --- !u!1 &4309013315203216594
 GameObject:
@@ -58181,7 +58168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stage: 2
-  _dialogData: {fileID: 11400000, guid: faf3b499e50f34c42b0cdebd3509bc51, type: 2}
+  _staticDialogData: {fileID: 11400000, guid: faf3b499e50f34c42b0cdebd3509bc51, type: 2}
+  _dynamicDialogData: {fileID: 0}
   _isDisplayed: 0
 --- !u!1 &4814609531458961018
 GameObject:
@@ -68123,7 +68111,7 @@ Tilemap:
       - {fileID: 21300024, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300026, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300028, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 10, y: 30, z: 0}
@@ -68133,7 +68121,7 @@ Tilemap:
       - {fileID: 21300024, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300026, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300028, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 69, y: 30, z: 0}
@@ -68656,7 +68644,7 @@ Tilemap:
       - {fileID: 21300002, guid: eec02ced1b9f270429fe711bab10618c, type: 3}
       - {fileID: 21300004, guid: eec02ced1b9f270429fe711bab10618c, type: 3}
       - {fileID: 21300006, guid: eec02ced1b9f270429fe711bab10618c, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 36, y: 33, z: 0}
@@ -68669,7 +68657,7 @@ Tilemap:
       - {fileID: 21300006, guid: 341b226fa20286643a16a3fe05a3286b, type: 3}
       - {fileID: 21300008, guid: 341b226fa20286643a16a3fe05a3286b, type: 3}
       - {fileID: 21300010, guid: 341b226fa20286643a16a3fe05a3286b, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 43, y: 33, z: 0}
@@ -68702,7 +68690,7 @@ Tilemap:
       - {fileID: 21300000, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300002, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300004, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -70130,95 +70118,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stage: 2
-  _dialogData: {fileID: 11400000, guid: d94891be5f8d3d049ad872894a0e791f, type: 2}
+  _staticDialogData: {fileID: 11400000, guid: d94891be5f8d3d049ad872894a0e791f, type: 2}
+  _dynamicDialogData: {fileID: 0}
   _isDisplayed: 0
---- !u!1 &6489529241848628766
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3291143324628263998}
-  - component: {fileID: 67831774866575253}
-  m_Layer: 0
-  m_Name: Hub_Intro_05
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &3291143324628263998
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6489529241848628766}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.94, y: 9.04, z: 0}
-  m_LocalScale: {x: 6.9883204, y: 3.8875, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 176124848757878060}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &67831774866575253
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6489529241848628766}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 253594519
-  m_SortingLayer: 3
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &6776038029670127078
 GameObject:
   m_ObjectHideFlags: 0
@@ -72667,7 +72569,7 @@ Tilemap:
       - {fileID: 21300004, guid: 27df11ebd9f54314a9f96ea8a85a4e0f, type: 3}
       - {fileID: 21300006, guid: 27df11ebd9f54314a9f96ea8a85a4e0f, type: 3}
       - {fileID: 21300008, guid: 27df11ebd9f54314a9f96ea8a85a4e0f, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:

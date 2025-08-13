@@ -5,24 +5,21 @@ using UnityEngine;
 
 public class WillFragmentLogic : TrackingCameraBase
 {
-    [SerializeField] SO_StaticDialogData firstRespawnPlayer;
-    [SerializeField] SO_DynamicDialogData fistFragmentCollected;
+    [SerializeField] SO_DialogDataBase firstRespawnStatic;
+    [SerializeField] SO_DialogDataBase firstRespawnDynamic;
+    [SerializeField] SO_DialogDataBase fistFragmentCollected;
     void Start()
     {
         Init();
-        firstRespawnPlayer.Init();
+        firstRespawnStatic.Init();
+        firstRespawnDynamic.Init();
         fistFragmentCollected.Init();
-        if (Managers.Game.playData.dialogComplete[(int)Stage.Stage1].datas[firstRespawnPlayer._dialogIndex] == false)
+        if (Managers.Game.playData.dialogComplete[(int)Stage.Stage1].datas[firstRespawnStatic._dialogIndex] == false)
         {
-            firstRespawnPlayer.TransferDialogToUI();
-            Managers.Game.playData.dialogComplete[(int)Stage.Stage1].datas[firstRespawnPlayer._dialogIndex] = true;
-        }
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            StartCoroutine(TrackingScene());
+            firstRespawnStatic.TransferDialogToUI();
+            Managers.Game.playData.dialogComplete[(int)Stage.Stage1].datas[firstRespawnStatic._dialogIndex] = true;
+            StartCoroutine(StartDynamic());
+            Managers.Game.playData.dialogComplete[(int)Stage.Stage1].datas[firstRespawnDynamic._dialogIndex] = true;
         }
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -40,6 +37,12 @@ public class WillFragmentLogic : TrackingCameraBase
             Destroy(gameObject);
         }
     }
+    public IEnumerator StartDynamic()
+    {
+        yield return new WaitForSeconds(0.3f);
+        firstRespawnDynamic?.TransferDialogToUI();
+        StartCoroutine(TrackingScene());
+    }
     public override IEnumerator TrackingScene()
     {
         TrackingStart();
@@ -48,7 +51,8 @@ public class WillFragmentLogic : TrackingCameraBase
     }
     private void OnDestroy()
     {
-        firstRespawnPlayer.ClearAction();
+        firstRespawnStatic.ClearAction();
+        firstRespawnDynamic.ClearAction();
         fistFragmentCollected.ClearAction();
     }
 }

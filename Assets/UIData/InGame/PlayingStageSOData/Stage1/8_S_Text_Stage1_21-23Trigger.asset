@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cdbcba827092d64c9bb0ffc6dfe8e83, type: 3}
+  m_Name: 8_S_Text_Stage1_21-23Trigger
+  m_EditorClassIdentifier: 
+  _scenarioType: Text_Stage1
+  dialogTexts:
+  - "\uC624, \uBC8C\uC368 \uB2E4\uC74C \uCE35\uC774\uB124? \uC0DD\uAC01\uBCF4\uB2E4
+    \uBE60\uB978\uB370?"
+  - "[\uC785\uB825 \uC548\uB0B4] \uBB38 \uC55E\uC5D0\uC11C \"E\" \uB2E4\uC74C \uCE35\uC73C\uB85C
+    \uC774\uB3D9"
+  - "\uADF8\uB7FC, \uC798 \uC62C\uB77C\uAC00 \uBD10. \u2026\uD6C4\uD68C\uD558\uB354\uB77C\uB3C4,
+    \uBA48\uCD9C \uC218\uB294 \uC5C6\uACA0\uC9C0\uB9CC~"
+  _dialogIndex: 8

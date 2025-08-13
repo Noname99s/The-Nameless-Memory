@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Boss_cutscene : MonoBehaviour , ISequenceBuilder
+public class Boss_cutscene : MonoBehaviour , ISequenceBuilder, ISequnceResulter
 {
     [SerializeField] DOTweenAnimation sequence;
 
@@ -26,16 +26,6 @@ public class Boss_cutscene : MonoBehaviour , ISequenceBuilder
     public void OnCutSceneEnd()
     {
         sequence.DORestart();
-    }
-    public void OpenClearPanel()
-    {
-        displayText.text = string.Empty; 
-        clearLogPanel.SetActive(true);
-        TimeSpan timeSpan = TimeSpan.FromSeconds(Managers.Game.playData.playTime);
-        string formattedTime = string.Format("{0:D2}:{1:D2}:{2:D2}",
-                timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds);
-        clearPlayTime.text = formattedTime;
-        clearDeathCount.text = $"{Managers.Game.playData.playerStatus.deathCount}";
     }
     public void BackToMain()
     {
@@ -67,6 +57,16 @@ public class Boss_cutscene : MonoBehaviour , ISequenceBuilder
             .Append(displayText.DOText(endingTexts[1], 2f, true).SetEase(Ease.Linear))
             .AppendInterval(3f)
             .Pause()
-            .OnComplete(OpenClearPanel);
+            .OnComplete(SequenceResult);
+    }
+    public void SequenceResult()
+    {
+        displayText.text = string.Empty;
+        clearLogPanel.SetActive(true);
+        TimeSpan timeSpan = TimeSpan.FromSeconds(Managers.Game.playData.playTime);
+        string formattedTime = string.Format("{0:D2}:{1:D2}:{2:D2}",
+                timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds);
+        clearPlayTime.text = formattedTime;
+        clearDeathCount.text = $"{Managers.Game.playData.playerStatus.deathCount}";
     }
 }

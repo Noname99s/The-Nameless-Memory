@@ -2,31 +2,29 @@ using UnityEngine;
 
 public class HubGimic : StageGimicBase
 {
-    [SerializeField] SO_StaticDialogData firstStart;
-    [SerializeField] SO_DynamicDialogData firstStartDynamic;
-    [SerializeField] SO_StaticDialogData clearStage2Notify;
+    [SerializeField] SO_DialogDataBase firstStart;
+    [SerializeField] SO_DialogDataBase firstStartDynamic;
+    [SerializeField] SO_DialogDataBase clearStage2Notify;
     [SerializeField] DialogTrigger clearStage2;
-    [SerializeField] DynamicDialogTrigger clearStage2Dynamic;
     protected override void Start()
     {
         base.Start();
         firstStart.Init();
         firstStartDynamic.Init();
         clearStage2Notify.Init();
-        if (!Managers.Game.playData.dialogComplete[(int)stage].datas[0])
+        if (!Managers.Game.playData.dialogComplete[(int)stage].datas[firstStart._dialogIndex])
         {
             firstStart.TransferDialogToUI();
-            Managers.Game.playData.dialogComplete[(int)stage].datas[0] = true;
+            Managers.Game.playData.dialogComplete[(int)stage].datas[firstStart._dialogIndex] = true;
         }
-        if (!Managers.Game.playData.dialogComplete[(int)stage].datas[1])
+        if (!Managers.Game.playData.dialogComplete[(int)stage].datas[firstStartDynamic._dialogIndex])
         {
             firstStartDynamic.TransferDialogToUI();
-            Managers.Game.playData.dialogComplete[(int)stage].datas[1] = true;
+            Managers.Game.playData.dialogComplete[(int)stage].datas[firstStartDynamic._dialogIndex] = true;
         }
         if (!Managers.Game.playData.stageCleared[(int)Stage.Stage2])
         {
             clearStage2._isDisplayed = true;
-            clearStage2Dynamic._isDisplayed = true;
         }
         else
         {

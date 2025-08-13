@@ -60,7 +60,8 @@ public abstract class CutSceneAnimBase : MonoBehaviour
             Time.timeScale = 1f;
 
             scenarioText.DOKill();
-            ScenarioSequence(); 
+            ScenarioSequence();
+            return; // Skip the rest of the update if cut scene is finished
         }
 
         if (!isAnimFinished && !stopCutScene && Input.GetMouseButtonDown(0))

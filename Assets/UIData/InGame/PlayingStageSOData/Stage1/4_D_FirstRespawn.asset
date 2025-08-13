@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d286647785f625a49a95df111fffc66a, type: 3}
-  m_Name: 6_D_Text_Stage1_12-14Trigger
+  m_Name: 4_D_FirstRespawn
   m_EditorClassIdentifier: 
   _scenarioType: Text_Stage1
-  _dialogIndex: 6
-  _startDialogIndex: 7
-  listSize: 2
   dialogTexts:
-  - "[\uC804\uD22C \uC548\uB0B4] Ctrl : \uC8FC\uBA39 / Alt : \uBC1C\uCC28\uAE30"
-  - "\"\uAE30\uC5B5\uC740 \uC5C6\uC5B4\uB3C4, \uBAB8\uC740 \uAE30\uC5B5\uD558\uACE0
-    \uC788\uC744\uAC78?\""
+  - "\"\uC88B\uC544~ '2\uB2E8 \uC810\uD504'\uB97C \uBC30\uC6E0\uB124. \uC774\uB807\uAC8C
+    \uB10C \uC8FD\uB354\uB77C\uB3C4, \uD30C\uD3B8\uC744 \uD68C\uC218\uD558\uBA74
+    \uC55E\uC73C\uB85C \uB098\uC544\uAC08 \uC218 \uC788\uC5B4. \n\uC774 \uD0D1\uC740
+    \uADF8\uB807\uAC8C, \uD558\uB098\uC529\u2026 \uB108\uB97C \uBC14\uAFD4\uAC08
+    \uAC70\uC57C.\""
+  _dialogIndex: 4

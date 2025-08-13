@@ -39636,7 +39636,7 @@ Tilemap:
       - {fileID: 21300032, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300034, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
       - {fileID: 21300036, guid: 8af458c9a36be6d46a70eb4946a555a6, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 32, y: 35, z: 0}
@@ -39730,7 +39730,7 @@ Tilemap:
       - {fileID: 21300004, guid: 27df11ebd9f54314a9f96ea8a85a4e0f, type: 3}
       - {fileID: 21300006, guid: 27df11ebd9f54314a9f96ea8a85a4e0f, type: 3}
       - {fileID: 21300008, guid: 27df11ebd9f54314a9f96ea8a85a4e0f, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 23, y: 95, z: 0}
@@ -40456,7 +40456,7 @@ GameObject:
   - component: {fileID: 5025345824146269532}
   - component: {fileID: 5379228584481680769}
   - component: {fileID: 456978743811823596}
-  - component: {fileID: 8271806448655397790}
+  - component: {fileID: 6038792023853825401}
   m_Layer: 0
   m_Name: Text_Stage2_05
   m_TagString: Untagged
@@ -40607,7 +40607,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8271806448655397790
+--- !u!114 &6038792023853825401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40616,10 +40616,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2040107681817516719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab3cbb7771a641940babdc880346e513, type: 3}
+  m_Script: {fileID: 11500000, guid: 53f8f066cd4bbfc4ba6bd70a37a18117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _stage: 1
+  _staticDialogData: {fileID: 0}
   _dynamicDialogData: {fileID: 11400000, guid: 83624efa6049f07459aeb622fa817736, type: 2}
   _isDisplayed: 0
 --- !u!1 &2098707585497714502
@@ -46000,7 +46001,6 @@ GameObject:
   - component: {fileID: 3652931671301787540}
   - component: {fileID: 5433787340664633460}
   - component: {fileID: 4416214346271451294}
-  - component: {fileID: 5701080687212955874}
   m_Layer: 0
   m_Name: Text_Stage2_01-04
   m_TagString: Untagged
@@ -46165,20 +46165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stage: 1
   _staticDialogData: {fileID: 11400000, guid: 3c9dfb5647000e145881eb72599397a8, type: 2}
-  _isDisplayed: 0
---- !u!114 &5701080687212955874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3407127313599524926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab3cbb7771a641940babdc880346e513, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stage: 1
   _dynamicDialogData: {fileID: 11400000, guid: b2e0bd2cae9e5f948a087d9c2961bc02, type: 2}
   _isDisplayed: 0
 --- !u!1 &3628532445037648828
@@ -191746,6 +191732,10 @@ PrefabInstance:
     - target: {fileID: 8950893359795197802, guid: 7699afde3b4995c479a32e116ed985de, type: 3}
       propertyPath: m_Name
       value: ViewBoundary
+      objectReference: {fileID: 0}
+    - target: {fileID: 8950893359795197802, guid: 7699afde3b4995c479a32e116ed985de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

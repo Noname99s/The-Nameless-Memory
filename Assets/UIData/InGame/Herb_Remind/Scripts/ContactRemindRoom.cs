@@ -9,7 +9,6 @@ public class ContactRemindRoom : MonoBehaviour, IInteractAble
 
     public void Interact()
     {
-
         Managers.Game.ChangeState(GameState.RemindRoom);
     }
 
