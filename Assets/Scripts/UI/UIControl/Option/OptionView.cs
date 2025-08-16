@@ -32,11 +32,11 @@ public class OptionView : MonoBehaviour , IOptionView
         resolutionDropdown.onValueChanged.RemoveAllListeners();
         windowToggle.onValueChanged.RemoveAllListeners();
     }
-    public void InitResolutionOptions(Resolution[] resolutions)
+    public void InitResolutionOptions(List<Resolution> resolutions)
     {
-        List<string> options = new List<string>(resolutions.Length);
+        List<string> options = new List<string>(resolutions.Count);
         int currentIndex = 0;
-        for (int i = 0; i < resolutions.Length; i++)
+        for (int i = 0; i < resolutions.Count; i++)
         {
             options.Add($"{resolutions[i].width}x{resolutions[i].height}@{resolutions[i].refreshRateRatio.value}Hz");
             if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)

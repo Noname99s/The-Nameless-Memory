@@ -7,9 +7,9 @@ public class DialogTrigger : MonoBehaviour
     [SerializeField] SO_DialogDataBase _staticDialogData = null;
     [SerializeField] SO_DialogDataBase _dynamicDialogData = null;
     public bool _isDisplayed = false;
+    int dialogIndex = -1;
     void Start()
     {
-        int dialogIndex = -1;
         if (_staticDialogData != null)
             dialogIndex = _staticDialogData._dialogIndex;
         if (_dynamicDialogData != null)
@@ -25,8 +25,8 @@ public class DialogTrigger : MonoBehaviour
         if( collision.CompareTag("Player") && !_isDisplayed)
         {
             _isDisplayed = true;
-            Managers.Game.playData.dialogComplete[(int)_stage].datas[_staticDialogData._dialogIndex] = true; 
-            _staticDialogData.TransferDialogToUI();
+            Managers.Game.playData.dialogComplete[(int)_stage].datas[dialogIndex] = true; 
+            _staticDialogData?.TransferDialogToUI();
             StartCoroutine(StartDynamic());
         }
     }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public interface IOptionView
@@ -7,6 +8,6 @@ public interface IOptionView
     event Action<bool> OnWindowModeChanged;
     event Action OnExitOption;
 
-    void InitResolutionOptions(Resolution[] resolutions);
+    void InitResolutionOptions(List<Resolution> resolutions);
     void SetWindowToggle(bool isFullScreen);
 }
