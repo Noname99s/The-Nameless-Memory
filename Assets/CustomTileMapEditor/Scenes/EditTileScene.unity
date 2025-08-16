@@ -712,6 +712,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5680952135707525415, guid: c35607954bd06ce4f90ba46330960132, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5797288449755540277, guid: c35607954bd06ce4f90ba46330960132, type: 3}
       propertyPath: m_LayerOverridePriority
       value: 0

@@ -103,7 +103,7 @@ public class CustomTilemapEditor : EditorWindow
             if (GUILayout.Button("Create", GUILayout.Width(50f), GUILayout.Height(15f)))
             {
                 if (floorParent == null)
-                    floorTile = CreateArea(LayerType.Floor).GetComponent<Tilemap>();
+                    floorTile = CreateArea(LayerType.Floor, null, newFloorTileName).GetComponent<Tilemap>();
                 else
                     floorTile = CreateTilemap(LayerType.Floor, null, newFloorTileName, floorParent).GetComponent<Tilemap>();
                 newFloorTileName = string.Empty;
@@ -326,8 +326,8 @@ public class CustomTilemapEditor : EditorWindow
         {
             mapPrefab = new GameObject(mapFolder[mapLevel]);
             mapPrefab.tag = "TileRoot";
-            floorParent.SetParent(mapPrefab.transform);
-            backGroundParent.SetParent(mapPrefab.transform);
+            floorParent?.SetParent(mapPrefab.transform);
+            backGroundParent?.SetParent(mapPrefab.transform);
             List<GameObject> tilemaps = new List<GameObject>();
             tilemaps.AddRange(GameObject.FindGameObjectsWithTag("Interact"));
             foreach (GameObject tilemap in tilemaps)
