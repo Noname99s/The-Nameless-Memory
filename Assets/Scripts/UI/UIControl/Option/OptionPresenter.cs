@@ -1,15 +1,17 @@
+using Orpul1.UI;
 using UnityEngine;
 
 public class OptionPresenter
 {
-    IOptionView optionView;
-    OptionModel optionModel;
+    readonly IOptionView optionView;
+    readonly OptionModel optionModel;
 
-    public OptionPresenter(IOptionView view)
+    public OptionPresenter(IOptionView view , OptionModel model)
     {
-        optionModel = new OptionModel();
+        optionModel = model;
         optionView = view;
-        optionView.InitResolutionOptions(optionModel.filteredResolutions);
+
+        optionView.InitResolutionOptions(optionModel.filteredResolutions , optionModel.currentResolutionIndex);
         optionView.SetWindowToggle(Screen.fullScreen);
         optionView.OnResolutionChanged += HandleResolutionChanged;
         optionView.OnWindowModeChanged += HandleWindowModeChanged;
@@ -17,15 +19,19 @@ public class OptionPresenter
     }
     void HandleResolutionChanged(int index)
     {
-        optionModel.SetResolution(index);
+        Managers.Sound.PlayUISound((int)EUiSound.ButtonClick);
+        Resolution selectedResolution = optionModel.filteredResolutions[index];
+        Screen.SetResolution(selectedResolution.width, selectedResolution.height, Screen.fullScreen);
     }
     void HandleWindowModeChanged(bool isFullScreen)
     {
-        optionModel.SetWindowMode(isFullScreen);
+        Managers.Sound.PlayUISound((int)EUiSound.ButtonClick);
+        Screen.fullScreen = !isFullScreen;
     }
     void HandleExitOption()
     {
-        optionModel.ExitOption();
+        Managers.Sound.PlayUISound((int)EUiSound.Cancel);
+        Managers.UI.ClosePopupUI<OptionComposition>();
     }
 
     public void Dispose()

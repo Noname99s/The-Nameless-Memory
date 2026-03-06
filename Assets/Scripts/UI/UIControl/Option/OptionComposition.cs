@@ -7,10 +7,11 @@ public class OptionComposition : UIPopup
     private OptionPresenter optionPresenter;
     private void Awake()
     {
-        optionPresenter = new OptionPresenter(optionView);
+        OptionModel optionModel = new OptionModel();
+        optionPresenter = new OptionPresenter(optionView, optionModel);
     }
     private void OnDestroy()
     {
-        optionPresenter.Dispose();
+        optionPresenter?.Dispose();
     }
 }

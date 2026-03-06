@@ -1,12 +1,16 @@
 using System.Collections.Generic;
-using Orpul1.UI;
 using UnityEngine;
 
 public class OptionModel
 {
-    public List<Resolution> filteredResolutions = new List<Resolution>();
+    public List<Resolution> filteredResolutions { get; private set; }
+    public int currentResolutionIndex { get; private set; }
+    
     public OptionModel()
     {
+        filteredResolutions = new List<Resolution>();
+        currentResolutionIndex = filteredResolutions.FindIndex(r => r.width == Screen.width && r.height == Screen.height);
+
         Resolution[] resolutions = Screen.resolutions;
         filteredResolutions.Clear();
         foreach (Resolution res in resolutions)
@@ -25,22 +29,5 @@ public class OptionModel
                 }
             }
         }
-    }
-    public void SetResolution(int index)
-    {
-        Managers.Sound.PlayUISound((int)EUiSound.ButtonClick);
-        Resolution selectedResolution = filteredResolutions[index];
-        Screen.SetResolution(selectedResolution.width, selectedResolution.height, Screen.fullScreen);
-    }
-    public void SetWindowMode(bool isFullScreen)
-    {
-        Managers.Sound.PlayUISound((int)EUiSound.ButtonClick);
-        Screen.fullScreen = !isFullScreen;
-    }
-
-    public void ExitOption()
-    {
-        Managers.Sound.PlayUISound((int)EUiSound.Cancel);
-        Managers.UI.ClosePopupUI<OptionComposition>();
     }
 }

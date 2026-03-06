@@ -32,10 +32,9 @@ public class OptionView : MonoBehaviour , IOptionView
         resolutionDropdown.onValueChanged.RemoveAllListeners();
         windowToggle.onValueChanged.RemoveAllListeners();
     }
-    public void InitResolutionOptions(List<Resolution> resolutions)
+    public void InitResolutionOptions(List<Resolution> resolutions , int currentIndex)
     {
         List<string> options = new List<string>(resolutions.Count);
-        int currentIndex = 0;
         for (int i = 0; i < resolutions.Count; i++)
         {
             options.Add($"{resolutions[i].width}x{resolutions[i].height}@{resolutions[i].refreshRateRatio.value}Hz");
@@ -64,7 +63,6 @@ public class OptionView : MonoBehaviour , IOptionView
         else
         {
             audioMixer.SetFloat(EMixerGroup.BGM.ToString(), GetVolume(bgmSlider.value));
-            
         }
     }    
     private float GetVolume(float value)
