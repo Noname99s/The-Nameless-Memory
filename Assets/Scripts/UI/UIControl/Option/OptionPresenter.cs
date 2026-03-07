@@ -1,4 +1,5 @@
 using Orpul1.UI;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class OptionPresenter
@@ -11,16 +12,31 @@ public class OptionPresenter
         optionModel = model;
         optionView = view;
 
-        optionView.InitResolutionOptions(optionModel.filteredResolutions , optionModel.currentResolutionIndex);
+        InitializeResolutionOptions();
         optionView.SetWindowToggle(Screen.fullScreen);
         optionView.OnResolutionChanged += HandleResolutionChanged;
         optionView.OnWindowModeChanged += HandleWindowModeChanged;
         optionView.OnExitOption += HandleExitOption;
     }
+    void InitializeResolutionOptions()
+    {
+        List<Resolution> resolutions  = optionModel.FilteredResolutions;
+        List<string> options = new List<string>(resolutions.Count);
+        int currentIndex = 0;
+        for (int i = 0; i < resolutions.Count; i++)
+        {
+            options.Add($"{resolutions[i].width}x{resolutions[i].height}@{resolutions[i].refreshRateRatio.value}Hz");
+            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
+            {
+                currentIndex = i;
+            }
+        }
+        optionView.InitResolutionOptions(options , currentIndex);
+    }
     void HandleResolutionChanged(int index)
     {
         Managers.Sound.PlayUISound((int)EUiSound.ButtonClick);
-        Resolution selectedResolution = optionModel.filteredResolutions[index];
+        Resolution selectedResolution = optionModel.FilteredResolutions[index];
         Screen.SetResolution(selectedResolution.width, selectedResolution.height, Screen.fullScreen);
     }
     void HandleWindowModeChanged(bool isFullScreen)

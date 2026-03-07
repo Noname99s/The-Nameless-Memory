@@ -21,7 +21,7 @@ public class OptionView : MonoBehaviour , IOptionView
     public event Action<bool> OnWindowModeChanged;
     public event Action OnExitOption;
 
-    void Start()
+    void Awake()
     {
         resolutionDropdown.onValueChanged.AddListener((value) => OnResolutionChanged?.Invoke(value));
         windowToggle.onValueChanged.AddListener((isFullScreen) => OnWindowModeChanged?.Invoke(isFullScreen));
@@ -31,19 +31,10 @@ public class OptionView : MonoBehaviour , IOptionView
     {
         resolutionDropdown.onValueChanged.RemoveAllListeners();
         windowToggle.onValueChanged.RemoveAllListeners();
+        exitOptionButton.onClick.RemoveAllListeners();
     }
-    public void InitResolutionOptions(List<Resolution> resolutions , int currentIndex)
+    public void InitResolutionOptions(List<string> options, int currentIndex)
     {
-        List<string> options = new List<string>(resolutions.Count);
-        for (int i = 0; i < resolutions.Count; i++)
-        {
-            options.Add($"{resolutions[i].width}x{resolutions[i].height}@{resolutions[i].refreshRateRatio.value}Hz");
-            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
-            {
-                currentIndex = i;
-            }
-        }
-
         resolutionDropdown.ClearOptions();
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentIndex;

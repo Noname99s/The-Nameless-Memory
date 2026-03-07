@@ -8,6 +8,6 @@ public interface IOptionView
     event Action<bool> OnWindowModeChanged;
     event Action OnExitOption;
 
-    void InitResolutionOptions(List<Resolution> resolutions, int currentIndex);
+    void InitResolutionOptions(List<string> options , int currentIndex);
     void SetWindowToggle(bool isFullScreen);
 }

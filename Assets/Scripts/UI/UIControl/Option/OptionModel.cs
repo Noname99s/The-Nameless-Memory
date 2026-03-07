@@ -3,16 +3,14 @@ using UnityEngine;
 
 public class OptionModel
 {
-    public List<Resolution> filteredResolutions { get; private set; }
-    public int currentResolutionIndex { get; private set; }
+    public List<Resolution> FilteredResolutions { get; private set; }
     
     public OptionModel()
     {
-        filteredResolutions = new List<Resolution>();
-        currentResolutionIndex = filteredResolutions.FindIndex(r => r.width == Screen.width && r.height == Screen.height);
+        FilteredResolutions = new List<Resolution>();
 
         Resolution[] resolutions = Screen.resolutions;
-        filteredResolutions.Clear();
+        FilteredResolutions.Clear();
         foreach (Resolution res in resolutions)
         {
             if (res.width < 1280 || res.height < 720) // 1280x720 이하 해상도 제외
@@ -25,7 +23,7 @@ public class OptionModel
                 if(res.refreshRateRatio.value >=60f && res.refreshRateRatio.value % 60 == 0)
                 {
                     //if (!filteredResolutions.Exists(r => r.width == res.width && r.height == res.height))
-                    filteredResolutions.Add(res);
+                    FilteredResolutions.Add(res);
                 }
             }
         }
