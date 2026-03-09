@@ -40,12 +40,12 @@ public class UIManager
 
         if (go == null)
         {
-            string prefabName = typeof(T).Name;
-            int index = prefabName.IndexOf("Composition");
-            if (index > 0)
-            {
-                prefabName = prefabName.Substring(0, index);
-            }
+            //string prefabName = typeof(T).Name;
+            //int index = prefabName.IndexOf("Composition");
+            //if (index > 0)
+            //{
+            //    prefabName = prefabName.Substring(0, index);
+            //}
             go = Managers.Resource.Instantiate(_uiData.prefabList[typeof(T)], Root.transform);
             T sceneUI = Util.GetOrAddComponent<T>(go);
             sceneUI.Init();
