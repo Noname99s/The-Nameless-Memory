@@ -173,12 +173,13 @@ public class CustomTilemapEditor : EditorWindow
                 if (GUILayout.Button("Clear", GUILayout.Width(50f), GUILayout.Height(15f))) data.tilemap.ClearAllTiles();
                 if (GUILayout.Button("Destroy", GUILayout.Width(60f), GUILayout.Height(15f)))
                 {
+                    data.tilemap.GetComponent<TilemapCollider2D>().compositeOperation = Collider2D.CompositeOperation.None;
                     if (layerType == LayerType.Interact)
                         DestroyImmediate(data.tilemap.transform.parent.gameObject);
                     else
                         DestroyImmediate(data.tilemap.gameObject);
-
                     data.tilemap = GameObject.FindGameObjectWithTag(layerType.ToString())?.GetComponent<Tilemap>();
+                    GUIUtility.ExitGUI();
                 }
             }
             GUILayout.EndHorizontal();
@@ -186,7 +187,10 @@ public class CustomTilemapEditor : EditorWindow
             GUILayout.BeginHorizontal("box");
             data.tilemap = (Tilemap)EditorGUILayout.ObjectField(objectFieldLabel, data.tilemap, typeof(Tilemap), true);
             if (hasSortingOrder && data.tilemap != null)
-                data.tilemap.GetComponent<TilemapRenderer>().sortingOrder = EditorGUILayout.IntField("Sorting Order", data.tilemap.GetComponent<TilemapRenderer>().sortingOrder);
+            {
+                TilemapRenderer tr = data.tilemap.GetComponent<TilemapRenderer>();
+                if (tr != null) tr.sortingOrder = EditorGUILayout.IntField("Sorting Order", tr.sortingOrder);
+            }
             GUILayout.EndHorizontal();
         }
         EditorGUILayout.EndFadeGroup();

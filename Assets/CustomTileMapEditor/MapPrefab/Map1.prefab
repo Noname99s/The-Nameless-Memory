@@ -79621,7 +79621,7 @@ GameObject:
   - component: {fileID: 5323617909546399648}
   - component: {fileID: 9199411620147200454}
   - component: {fileID: 182713181606531565}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: map_1_floor_1(Clone)
   m_TagString: Floor
   m_Icon: {fileID: 0}
