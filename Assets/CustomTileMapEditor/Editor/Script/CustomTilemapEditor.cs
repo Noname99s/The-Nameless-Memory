@@ -41,11 +41,11 @@ public class CustomTilemapEditor : EditorWindow
 
     private void OnEnable()
     {
-        // Tile Palette ¿­°í CustomEditor¿Í ºÙ¿©ÁÖ±â
+        // Tile Palette ì—´ê³  CustomEditorì™€ ë¶™ì—¬ì£¼ê¸°
         EditorApplication.ExecuteMenuItem("Window/2D/Tile Palette");
 
         rootParent = GameObject.FindGameObjectWithTag("TileRoot")?.transform;
-        //Tilemap Ã£±â
+        //Tilemap ì°¾ê¸°
         floorTile = GameObject.FindGameObjectWithTag("Floor")?.GetComponent<Tilemap>();
         if (floorTile != null)
             floorParent = floorTile.transform.parent;
@@ -57,7 +57,7 @@ public class CustomTilemapEditor : EditorWindow
     private void OnGUI()
     {
         GUILayout.Label("Tilemap Settings", EditorStyles.boldLabel);
-        // ·¹º§ ¼±ÅÃ -- ·¹º§º° ÆÄÀÏ ·Îµå + ·êÅ¸ÀÏ ·Îµå
+        // ë ˆë²¨ ì„ íƒ -- ë ˆë²¨ë³„ íŒŒì¼ ë¡œë“œ + ë£°íƒ€ì¼ ë¡œë“œ
         mapLevel = EditorGUILayout.Popup("Map Level", mapLevel, mapFolder);
         GUILayout.BeginHorizontal("box");
         if (GUILayout.Button("Reset Scene", GUILayout.Width(100f), GUILayout.Height(20f)))
@@ -234,7 +234,7 @@ public class CustomTilemapEditor : EditorWindow
 
     private GameObject CreateArea(LayerType layerType = LayerType.None, GameObject tilemapPrefab = null, string tileMapName = null)
     {
-        // ºÎ¸ğ ¿ÀºêÁ§Æ® »ı¼º
+        // ë¶€ëª¨ ì˜¤ë¸Œì íŠ¸ ìƒì„±
         GameObject parent = new GameObject("Tilemap");
         parent.transform.position = Vector3.zero;
         parent.transform.rotation = Quaternion.identity;
@@ -264,7 +264,7 @@ public class CustomTilemapEditor : EditorWindow
         else if (layerType == LayerType.BackGround)
             backGroundParent = parent.transform;
 
-        // ÀÚ½Ä ¿ÀºêÁ§Æ® »ı¼º
+        // ìì‹ ì˜¤ë¸Œì íŠ¸ ìƒì„±
         GameObject tilemapObject = CreateTilemap(layerType, tilemapPrefab, tileMapName, parent.transform);
         return tilemapObject;
     }
