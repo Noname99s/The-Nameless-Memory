@@ -35,9 +35,11 @@ public class CustomTilemapEditor : EditorWindow
     string newBGTileName = string.Empty;
     Transform floorParent;
     Transform backGroundParent;
+    Transform interactParent;
     Transform rootParent;
     bool floorIsTrigger = false;
     bool interactIsTrigger = false;
+    bool dummyTrigger = false;
 
     private void OnEnable()
     {
@@ -53,6 +55,8 @@ public class CustomTilemapEditor : EditorWindow
         if (backGroundTile != null)
             backGroundParent = backGroundTile.transform.parent;
         interactTile = GameObject.FindGameObjectWithTag("Interact")?.GetComponent<Tilemap>();
+        if (interactTile != null)
+            interactParent = interactTile.transform.parent;
     }
     private void OnGUI()
     {
@@ -93,143 +97,82 @@ public class CustomTilemapEditor : EditorWindow
         EditorGUILayout.Space(guiSpace);
 
         guiSpace = EditorGUILayout.IntSlider("Space", guiSpace, 0, 30);
-        #region Floor Options
-        toggleSwitch[(int)LayerType.Floor] = EditorGUILayout.ToggleLeft("Floor", toggleSwitch[(int)LayerType.Floor] == 1) ? 1 : 0;
 
-        if (EditorGUILayout.BeginFadeGroup(toggleSwitch[(int)LayerType.Floor]))
-        {
-            floorIsTrigger = EditorGUILayout.Toggle("Is Trigger", floorIsTrigger);  
-            GUILayout.BeginHorizontal("box");
-            if (GUILayout.Button("Create", GUILayout.Width(50f), GUILayout.Height(15f)))
-            {
-                if (floorParent == null)
-                    floorTile = CreateArea(LayerType.Floor, null, newFloorTileName).GetComponent<Tilemap>();
-                else
-                    floorTile = CreateTilemap(LayerType.Floor, null, newFloorTileName, floorParent).GetComponent<Tilemap>();
-                newFloorTileName = string.Empty;
-            }
-            newFloorTileName = EditorGUILayout.TextField("New Floor Name", newFloorTileName);
-            GUILayout.EndHorizontal();
-            GUILayout.BeginHorizontal("box");
-            if (GUILayout.Button("Load", GUILayout.Width(50f), GUILayout.Height(15f)))
-            {
-                Tilemap loadTile = LoadPrefab(LayerType.Floor , floorParent == null);
-                if (loadTile != null)
-                    floorTile = loadTile;
-                if (floorParent != null)
-                {
-                    floorTile.transform.parent = floorParent;
-                }
-            }
-            if (floorTile != null)
-            {
-                if (GUILayout.Button("Save", GUILayout.Width(50f), GUILayout.Height(15f))) SavePrefab(floorTile);
-                if (GUILayout.Button("Paint", GUILayout.Width(50f), GUILayout.Height(15f))) Paint(floorTile);
-                if (GUILayout.Button("Clear", GUILayout.Width(50f), GUILayout.Height(15f))) floorTile.ClearAllTiles();
-                if (GUILayout.Button("Destroy", GUILayout.Width(60f), GUILayout.Height(15f)))
-                {
-                    DestroyImmediate(floorTile.gameObject);
-                    floorTile = GameObject.FindGameObjectWithTag("Floor")?.GetComponent<Tilemap>();
-                }
-            }
-            GUILayout.EndHorizontal();
-            GUILayout.BeginHorizontal("box");
-            floorTile = (Tilemap)EditorGUILayout.ObjectField("Basemap", floorTile, typeof(Tilemap), true);
-            if (floorTile != null)
-                floorTile.GetComponent<TilemapRenderer>().sortingOrder = EditorGUILayout.IntField("Sorting Order", floorTile.GetComponent<TilemapRenderer>().sortingOrder);
-            GUILayout.EndHorizontal();
-        }
-        EditorGUILayout.EndFadeGroup();
+        #region Floor Options
+        DrawTilemapOptions(LayerType.Floor, ref floorTile, ref newFloorTileName, ref floorParent, ref floorIsTrigger, "New Floor Name", "Basemap", true, true);
         #endregion
         EditorGUILayout.Space(guiSpace);
         
         #region Interact Options
-        toggleSwitch[(int)LayerType.Interact] = EditorGUILayout.ToggleLeft("Interact", toggleSwitch[(int)LayerType.Interact] == 1) ? 1 : 0;
-        if (EditorGUILayout.BeginFadeGroup(toggleSwitch[(int)LayerType.Interact]))
-        {
-            interactIsTrigger = EditorGUILayout.Toggle("Is Trigger", interactIsTrigger);
-            GUILayout.BeginHorizontal("box");
-            if (GUILayout.Button("Create", GUILayout.Width(50f), GUILayout.Height(20f)))
-            {
-                interactTile = CreateArea(LayerType.Interact, null, newInteractTileName).GetComponent<Tilemap>();
-                newInteractTileName = string.Empty;
-            }
-            newInteractTileName = EditorGUILayout.TextField("New Platform Name", newInteractTileName);
-            GUILayout.EndHorizontal();
-            GUILayout.BeginHorizontal("box");
-            if (GUILayout.Button("Load", GUILayout.Width(50f), GUILayout.Height(15f)))
-            {
-                Tilemap loadTile = LoadPrefab(LayerType.Interact);
-                if (loadTile != null)
-                    interactTile = loadTile;
-            }
-            if (interactTile != null)
-            {
-                if (GUILayout.Button("Save", GUILayout.Width(50f), GUILayout.Height(15f))) SavePrefab(interactTile);
-                if (GUILayout.Button("Paint", GUILayout.Width(50f), GUILayout.Height(15f))) Paint(interactTile);
-                if (GUILayout.Button("Clear", GUILayout.Width(50f), GUILayout.Height(15f))) interactTile.ClearAllTiles();
-                if (GUILayout.Button("Destroy", GUILayout.Width(60f), GUILayout.Height(15f)))
-                {
-                    DestroyImmediate(interactTile.transform.parent.gameObject);
-                    interactTile = GameObject.FindGameObjectWithTag("Interact")?.GetComponent<Tilemap>();
-                }
-            }
-            GUILayout.EndHorizontal();
-            interactTile = (Tilemap)EditorGUILayout.ObjectField("Interact Tilemap", interactTile, typeof(Tilemap), true);
-        }
-        EditorGUILayout.EndFadeGroup();
+        DrawTilemapOptions(LayerType.Interact, ref interactTile, ref newInteractTileName, ref interactParent, ref interactIsTrigger, "New Platform Name", "Interact Tilemap", true, false);
         #endregion
         EditorGUILayout.Space(guiSpace);
 
         #region BackGround Options
-        toggleSwitch[(int)LayerType.BackGround] = EditorGUILayout.ToggleLeft("BackGround", toggleSwitch[(int)LayerType.BackGround] == 1) ? 1 : 0;
-        if (EditorGUILayout.BeginFadeGroup(toggleSwitch[(int)LayerType.BackGround]))
+        DrawTilemapOptions(LayerType.BackGround, ref backGroundTile, ref newBGTileName, ref backGroundParent, ref dummyTrigger, "New BackGround Name", "BackGround Tilemap", false, true);
+        #endregion
+
+    }
+
+    private void DrawTilemapOptions(LayerType layerType, ref Tilemap tilemap, ref string newTileName, ref Transform parentTransform, ref bool isTrigger, string newNameLabel, string objectFieldLabel, bool hasTrigger = false, bool hasSortingOrder = false)
+    {
+        toggleSwitch[(int)layerType] = EditorGUILayout.ToggleLeft(layerType.ToString(), toggleSwitch[(int)layerType] == 1) ? 1 : 0;
+
+        if (EditorGUILayout.BeginFadeGroup(toggleSwitch[(int)layerType]))
         {
+            if (hasTrigger)
+            {
+                isTrigger = EditorGUILayout.Toggle("Is Trigger", isTrigger);
+            }
+
             GUILayout.BeginHorizontal("box");
             if (GUILayout.Button("Create", GUILayout.Width(50f), GUILayout.Height(15f)))
             {
-                if (backGroundParent == null) 
-                    backGroundTile = CreateArea(LayerType.BackGround , null , newBGTileName).GetComponent<Tilemap>();
+                if (parentTransform == null)
+                    tilemap = CreateArea(layerType, null, newTileName).GetComponent<Tilemap>();
                 else
-                    backGroundTile = CreateTilemap(LayerType.BackGround, null, newBGTileName, backGroundParent).GetComponent<Tilemap>();
-                newBGTileName = string.Empty;
+                    tilemap = CreateTilemap(layerType, null, newTileName, parentTransform).GetComponent<Tilemap>();
+                newTileName = string.Empty;
             }
-            newBGTileName = EditorGUILayout.TextField("New BackGround Name", newBGTileName);
+            newTileName = EditorGUILayout.TextField(newNameLabel, newTileName);
             GUILayout.EndHorizontal();
+
             GUILayout.BeginHorizontal("box");
             if (GUILayout.Button("Load", GUILayout.Width(50f), GUILayout.Height(15f)))
             {
-                Tilemap loadTile = LoadPrefab(LayerType.BackGround, backGroundParent == null);
+                Tilemap loadTile = LoadPrefab(layerType, parentTransform == null);
                 if (loadTile != null)
-                    backGroundTile = loadTile;
-                if (backGroundParent != null)
                 {
-                    backGroundTile.transform.parent = backGroundParent;
+                    tilemap = loadTile;
+                    if (parentTransform != null)
+                        tilemap.transform.parent = parentTransform;
                 }
             }
-            else
-            if(backGroundTile != null)
+
+            if (tilemap != null)
             {
-                if (GUILayout.Button("Save", GUILayout.Width(50f), GUILayout.Height(15f))) SavePrefab(backGroundTile);
-                if (GUILayout.Button("Paint", GUILayout.Width(50f), GUILayout.Height(15f))) Paint(backGroundTile);
-                if (GUILayout.Button("Clear", GUILayout.Width(50f), GUILayout.Height(15f))) backGroundTile.ClearAllTiles();
+                if (GUILayout.Button("Save", GUILayout.Width(50f), GUILayout.Height(15f))) SavePrefab(tilemap);
+                if (GUILayout.Button("Paint", GUILayout.Width(50f), GUILayout.Height(15f))) Paint(tilemap);
+                if (GUILayout.Button("Clear", GUILayout.Width(50f), GUILayout.Height(15f))) tilemap.ClearAllTiles();
                 if (GUILayout.Button("Destroy", GUILayout.Width(60f), GUILayout.Height(15f)))
                 {
-                    DestroyImmediate(backGroundTile.gameObject);
-                    backGroundTile = GameObject.FindGameObjectWithTag("BackGround")?.GetComponent<Tilemap>();
+                    if (layerType == LayerType.Interact)
+                        DestroyImmediate(tilemap.transform.parent.gameObject);
+                    else
+                        DestroyImmediate(tilemap.gameObject);
+
+                    tilemap = GameObject.FindGameObjectWithTag(layerType.ToString())?.GetComponent<Tilemap>();
                 }
             }
             GUILayout.EndHorizontal();
+
             GUILayout.BeginHorizontal("box");
-            backGroundTile = (Tilemap)EditorGUILayout.ObjectField("BackGround Tilemap", backGroundTile, typeof(Tilemap), true);
-            if(backGroundTile != null)
-                backGroundTile.GetComponent<TilemapRenderer>().sortingOrder 
-                    = EditorGUILayout.IntField("Sorting Order", backGroundTile.GetComponent<TilemapRenderer>().sortingOrder);
+            tilemap = (Tilemap)EditorGUILayout.ObjectField(objectFieldLabel, tilemap, typeof(Tilemap), true);
+            if (hasSortingOrder && tilemap != null)
+                tilemap.GetComponent<TilemapRenderer>().sortingOrder = EditorGUILayout.IntField("Sorting Order", tilemap.GetComponent<TilemapRenderer>().sortingOrder);
             GUILayout.EndHorizontal();
         }
         EditorGUILayout.EndFadeGroup();
-        #endregion
-
     }
 
     private GameObject CreateArea(LayerType layerType = LayerType.None, GameObject tilemapPrefab = null, string tileMapName = null)
@@ -361,17 +304,18 @@ public class CustomTilemapEditor : EditorWindow
                 {
                     if (child.CompareTag("Floor"))
                     {
-                        floorParent = child;
                         floorTile = child.GetComponent<Tilemap>();
+                        floorParent = child.parent;
                     }
                     else if (child.CompareTag("BackGround"))
                     {
-                        backGroundParent = child;
                         backGroundTile = child.GetComponent<Tilemap>();
+                        backGroundParent = child.parent;
                     }
                     else if (child.CompareTag("Interact"))
                     {
                         interactTile = child.GetComponent<Tilemap>();
+                        interactParent = child.parent;
                     }
                 }
             }
